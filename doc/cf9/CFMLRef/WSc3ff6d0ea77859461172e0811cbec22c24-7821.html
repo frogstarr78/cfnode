@@ -1,0 +1,1532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0022)http://help.adobe.com/ -->
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="lang" content="en-us" />
+    <meta name="area" content="livedocs" />
+    <title>Adobe&#160;ColdFusion&#160;9 * cfexchangemail</title>
+    <link rel="shortcut icon" href="images/ColdFusionLinkIndicator.png" />
+    <meta name="book" content="ColdFusion&#160;9&#160;CFML&#160;Reference" />
+    <meta name="product" content="ColdFusion" />
+    <meta name="keywords" content="" /><!--<PageMap><DataObject type="document"><Attribute name="product" value="ColdFusion"></Attribute><Attribute name="book" value="ColdFusion&#160;9&#160;CFML&#160;Reference"></Attribute><Attribute name="keywords" value=""></Attribute></DataObject></PageMap>-->
+    
+    <script type="text/javascript" language="Javascript" charset="UTF-8"><!--[CDATA[
+        var currentTreeNode = "WSc3ff6d0ea77859461172e0811cbec22c24-7821.html";
+    document.cookie = "topicId=" + "WSc3ff6d0ea77859461172e0811cbec22c24-7821.html";
+// ]]--></script>
+<script src="terms.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="help.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script>  <script src="utilities.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="event.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="treeview.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="toc.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script> <script src="swfobject.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>  <script src="booklist.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>
+<script type="text/javascript">
+<!--[CDATA[
+var topictype = "topic";
+var headId = document.getElementsByTagName("head")[0];         
+if (use_ie_6_behavior) {
+  var linkId = document.createElement("link");
+  linkId.href = "content-ie6.css";
+  linkId.rel = "stylesheet";
+  linkId.type = "text/css";
+  headId.appendChild(linkId);
+}
+function initRoboHelpDOM() {
+  if (use_chm_behavior) {
+    hideElement("search");
+  }
+  if (use_robohelp_behavior) {
+    hideElement("search");
+    hideElement("productmenu");
+    //hideElement("notyourversion");
+  }
+  if(!use_chc_behavior) {
+    //document.getElementById("notyourversion").style.display = "inline";;
+  }
+}
+var dirname = location.pathname.match( /.*\// );    
+function setSearchUserPref(){
+  if ( document.cookie.indexOf( "ah_searchpref" ) > -1 ) {
+    if ( document.cookie.indexOf( dirname ) > 0 ) {
+      document.search.gsa.checked = true ;
+    }else{
+      document.search.gsa.checked = false ;            
+    }
+  }
+}
+YAHOO.util.Event.onDOMReady(initRoboHelpDOM);
+YAHOO.util.Event.onDOMReady(setSearchUserPref);
+// ]]-->
+</script>
+
+<!-- ********************************** -->
+<!-- START: ForeSee survey code in: /ssi/globalheader.ssi -->
+
+<script type="text/javascript">
+<!-- 
+// Enable the survey for only English, German and Japanese
+var agt=navigator.userAgent.toLowerCase();
+if ( agt.indexOf("community help client") == -1 ){
+    if ( document.location.href.indexOf("/en_US/") != -1 ){
+        showSurvey();
+//    }else if (document.location.href.indexOf("/de_DE/") != -1){
+//         var locale="de";
+//         showSurvey();
+    }else if (document.location.href.indexOf("/ja_JP/") != -1 ){
+         var locale="ja";
+         showSurvey();
+    }	
+}
+
+function showSurvey(){
+	document.write('<script type="text/javascript" src="/js/foresee/foresee-trigger.js"><\/scr'+'ipt>');
+}
+
+// -->
+</script>
+
+<!-- END: ForeSee survey code -->
+<!-- ******************************** -->
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="tree.css" />
+    <link rel="stylesheet" type="text/css" href="content.css" />
+    <link rel="stylesheet" type="text/css" href="localeSpecific.css" />
+  </head>
+  <body id="content_body" onload="window.focus();">
+    <a name="top" shape="rect"><!--LeaveCommentHere--></a>
+    
+    <div id="mnemonic">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon" class="ColdFusion"><div class="banner"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html">Adobe&#160;ColdFusion&#160;9</a><span id="notyourversion">|&#160;
+                    <a rel="nofollow" href="http://www.adobe.com/support/documentation/en/coldfusion/">Not your version?</a></span></div></div><!--googleon: index-->
+    </div>
+    
+    <div id="searchbar">
+<table id="searchbartable">
+<tr>
+<td colspan="2">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon"><div id="pdf"><img src="images/PDF.gif" width="16" height="16" /><a title="View Help PDF" href="coldfusion_9_cfmlref.pdf">View Help PDF ( 32MB)</a></div></div><!--googleon: index-->
+</td>
+</tr>
+</table>
+    </div>
+
+<!-- BEGIN SEARCH CONTENT -->
+<form id="search" name="search" action="search.html" target="_self">
+<script type="text/javascript">
+<!--[CDATA[
+if ( !use_chc_behavior ){
+    if (typeof(terms_AHV_SEARCH_CONSTRAINT) != "undefined" && 
+        terms_AHV_SEARCH_CONSTRAINT.length > 0 && 
+        document.location.href.indexOf(".adobe.com") > 0){
+        if ( typeof(terms_SEARCH_THIS_HELP_ONLY) != "undefined" && terms_SEARCH_THIS_HELP_ONLY == "ON" ) {
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                checked="checked" \
+                value="1" ><\/input>'); 
+                
+        // Leave the "Search this help system only" checkbox unckecked
+        }else{    
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                value="1" ><\/input>'); 
+        }
+        document.write('<span class="gsalabel">' + terms_AHV_SEARCH_CONSTRAINT + '<\/span><\/div>'); 
+    }
+    document.write('<input class="searchinput" \
+        name="q" \
+        id="q" \
+        type="text" \
+        maxlength="256" \
+        value="' + terms_AHV_SEARCH_BUTTON + '" \
+        onclick="clearSearch()"><\/input><input \
+        type="button" \
+        name="searchbutton" \
+        class="searchbutton" \
+        onclick="submit()"><\/input>'); 
+} 
+ 
+/* 
+ * Start Functions 
+ */
+function clearSearch(){
+    if (document.search.q.value == terms_AHV_SEARCH_BUTTON){document.search.q.value = ""}; 
+}
+
+// set search preferences
+function setAHSearchPref(){
+    if (document.search.gsa.checked == 1){
+        setAHSearchCookie( dirname );
+    }else{
+        setAHSearchCookie( "community" );
+    }
+}
+
+// Set search preferences cookie
+function setAHSearchCookie( p ){
+    // set cookie ah_searchpref with a value of the document path
+    var expire=new Date();
+    expire.setDate(expire.getDate()+365); // Cookie expires after 1 year (365 days) 
+    document.cookie="ah_searchpref=" +p+ "; expires=" +expire.toGMTString()+ ";";
+}
+
+// ]]-->
+</script> 
+ </form>
+<!-- END SEARCH CONTENT -->    
+
+
+
+<!-- BEGIN PAGE CONTENT WRAPPER -->
+    <div id="page_content_wrapper">
+<!-- BEGIN PAGE WRAPPER -->
+<table id="page_content_table">
+<tr>
+
+<td id="col2">
+<!-- BEGIN CONTENT WRAPPER -->
+<!-- BEGIN BREADCRUMBS -->
+
+      
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec22c24-767a.html" title="cfexchangefilter"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-7827.html" title="cfexchangetask"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>ColdFusion&#160;9&#160;CFML&#160;Reference</b></a> / <a href="WSc3ff6d0ea77859461172e0811cbec17576-7ffe.html"><b>ColdFusion Tags</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec17cba-8000.html"><b>Tags d-e</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+      <div id="content_wrapper">
+<!-- BEGIN PAGE TITLE -->
+        <h1>cfexchangemail</h1>
+<!-- END PAGE TITLE -->
+<!-- BEGIN IONCOMMENTCOUNT -->
+        <div id="ionCount">
+        </div>
+<!-- END IONCOMMENTCOUNT -->
+<table id="inner_content_table" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>
+          <div style="border-top:#ccc solid 1px;"><p> </p>
+          </div>
+<p id="chcPromo" style="display:none;">
+<a id="chcLink" href="http://www.adobe.com/support/chc/">
+<img id="chcImage" src="http://www.adobe.com/support/chc/GetMoreHelpFeatures.png"/>
+</a>
+</p>
+<script type="text/javascript" language="javascript" charset="utf-8">
+<!--
+var cfgArray = [];
+//cfgArray["Acrobat_10.0_Professional.helpcfg"] = "acrobatpro";
+//cfgArray["Acrobat_10.0_Standard.helpcfg"] = "acrobatstd";
+cfgArray["Lightroom_3.0.helpcfg"] = "lightroom";
+cfgArray["PhotoshopElements_8.0_Win.helpcfg"] = "photoshopelements";
+cfgArray["PhotoshopElements_8.0_Mac.helpcfg"] = "photoshopelementsmac";
+cfgArray["PremiereElements_8.0_Win.helpcfg"] = "premiereelements";
+
+//cfgArray["AfterEffects_10.0.helpcfg"] = "aftereffects";
+//cfgArray["AIR.helpcfg"] = "air";
+//cfgArray["ColdFusionBuilder.helpcfg"] = "coldfusion";
+//cfgArray["Contribute_6.0.helpcfg"] = "contribute";
+//cfgArray["DeviceCentral_3.0.helpcfg"] = "devicecentral";
+//cfgArray["Dreamweaver_11.0.helpcfg"] = "dreamweaver";
+//cfgArray["EncoreDVD_5.0.helpcfg"] = "encore";
+//cfgArray["ExtensionManager_3.0.helpcfg"] = "extension";
+//cfgArray["Fireworks_11.0.helpcfg"] = "fireworks";
+//cfgArray["Flash_11.0.helpcfg"] = "flash";
+//cfgArray["Flex_4.0.helpcfg"] = "flashbuilder";
+//cfgArray["FlashCatalyst_1.0.helpcfg"] = "flashcatalyst";
+//cfgArray["Illustrator_15.0.helpcfg"] = "illustrator";
+//cfgArray["InCopy_7.0.helpcfg"] = "incopy";
+//cfgArray["InDesign_7.0.helpcfg"] = "indesign";
+//cfgArray["OnLocation_5.0.helpcfg"] = "onlocation";
+//cfgArray["Photoshop_12.0.helpcfg"] = "photoshop";
+//cfgArray["PremierePro_5.0.helpcfg"] = "premierepro";
+
+function getLangName() {
+    var lang = "en-us";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if (ptn.test(lang)) {
+        var languageCode = lang.replace(ptn, "$1");
+        var countryCode = lang.replace(ptn, "$2");
+        lang = languageCode + "_" + countryCode.toUpperCase();
+    }
+    return lang;
+}
+
+function getCountryName() {
+    var lang = "";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if ((ptn.test(lang)) && (lang != "en-us")) {
+        var countryCode = lang.replace(ptn, "$2");
+        return "/" + countryCode;
+    }
+    return "";
+}
+
+if ( (typeof(terms_HELPCFG) != 'undefined')  && (terms_HELPCFG.indexOf(".helpcfg") != -1) ) {
+    var stage   = (document.location.href.indexOf(".stage.") != -1) ? 'stage.' : '';
+    var baseUrl = 'http://www.' + stage + 'adobe.com';
+    var refpage = document.location.href.replace(/#.*$/, '');
+	
+	if ((!use_robohelp_behavior) && (terms_HELPCFG.length > 0) && (typeof(cfgArray[terms_HELPCFG]) != 'undefined') && (cfgArray[terms_HELPCFG].length > 0)) {
+		if (document.getElementById) { // DOM3 = IE5, NS6
+			var newHref = baseUrl + getCountryName() + "/support/chc/" + "?helpcfg=http://help." + stage + "adobe.com/HelpCfg/" + getLangName() + "/" + terms_HELPCFG + "&url=" + refpage + "&product=" + cfgArray[terms_HELPCFG];
+			var newSrc = baseUrl + getCountryName() + "/support/chc/GetMoreHelpFeatures.png";
+			document.getElementById("chcPromo").style.display = "block";
+			document.getElementById("chcLink").href = newHref;
+			document.getElementById("chcImage").src = newSrc;
+		}
+	}
+}
+
+//-->
+</script>
+
+
+
+          <div><div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7f76"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7f76"><!-- --></a><h4 class="sectiontitle">Description</h4><p>Gets
+mail messages and attachments, deletes messages, and sets properties
+for messages on a Microsoft Exchange server.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7f75"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7f75"><!-- --></a><h4 class="sectiontitle">History</h4><p>ColdFusion
+8: Added this tag.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7f74"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7f74"><!-- --></a><h4 class="sectiontitle">Category</h4><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-75be.html">Communications tags</a></p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7f73"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7f73"><!-- --></a><h4 class="sectiontitle">Syntax</h4><pre><strong>delete</strong> 
+&lt;cfexchangemail 
+    <strong>required</strong> 
+    action = "delete" 
+    uid = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">message UID,message UID,...</i>" 
+    <strong>optional</strong> 
+    connection = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">connection ID</i>" 
+    folder = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Exchange folder path</i>"&gt; 
+ 
+<strong>deleteAttachments</strong> 
+&lt;cfexchangemail 
+    <strong>required</strong> 
+    action = "deleteAttachments" 
+    uid = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">message UID</i>" 
+    <strong>optional</strong> 
+    connection = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">connection ID</i>"&gt; 
+    folder = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Exchange folder path</i>"&gt; 
+ 
+<strong>get</strong> 
+&lt;cfexchangemail 
+    <strong>required</strong> 
+    action = "get" 
+    name = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">query identifier</i>" 
+    <strong>optional</strong> 
+    connection = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">connection ID</i>" 
+    folder = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Exchange folder path</i>"&gt; 
+ 
+    &lt;cfexchangefilter name = "filter type" value = "filter value"&gt; 
+    &lt;cfexchangefilter name = "filter type" value = "filter value"&gt; 
+    ... 
+&lt;/cfexchangemail&gt; 
+ 
+<strong>getAttachments</strong> 
+&lt;cfexchangemail 
+    <strong>required</strong> 
+    action = "getAttachments" 
+    name = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">query identifier</i>" 
+    uid = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">message UID</i>" 
+    <strong>optional</strong> 
+    attachmentPath = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">directory path</i>" 
+    connection = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">connection ID</i>" 
+    folder = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Exchange folder path</i>" 
+    generateUniqueFilenames = "no|yes"&gt; 
+ 
+<strong>getMeetingInfo </strong> 
+&lt;cfexchangemail 
+    <strong>required</strong> 
+    action = "getMeetingInfo" 
+    meetingUID = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">meeting UID</i>" 
+    name = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">query identifier</i>" 
+    <strong>optional</strong> 
+    connection = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">connection ID</i>" 
+    mailUID = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">message UID</i>"&gt; 
+ 
+<strong>move </strong> 
+&lt;cfexchangemail 
+    <strong>required</strong> 
+    action = "move" 
+    destinationFolder = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Exchange folder path</i>" 
+    <strong>optional</strong> 
+    connection = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">connection ID</i>" 
+    folder = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Exchange folder path</i>"&gt; 
+ 
+    &lt;cfexchangefilter name = "filter type" value = "filter value"&gt; 
+    &lt;cfexchangefilter name = "filter type" value = "filter value"&gt; 
+    ... 
+&lt;/cfexchangemail&gt; 
+ 
+<strong>set </strong> 
+&lt;cfexchangemail 
+    <strong>required</strong> 
+    action = "set" 
+    message = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">#structure with values to set#</i>"&gt; 
+    uid = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">message UID</i>"&gt; 
+    <strong>optional</strong> 
+    connection = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">connection ID</i>" 
+    folder = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Exchange folder path</i>"&gt;</pre>
+<div class="note"><span class="notetitle">Note:  </span>If you omit the <samp class="codeph">connection</samp> attribute,
+create a temporary connection by specifying <samp class="codeph">cfexchangeconnection</samp> tag
+attributes in the <samp class="codeph">cfexchangemail</samp> tag. In this case,
+ColdFusion closes the connection when the tag completes. For details,
+see the <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-782d.html">cfexchangeconnection</a></samp> tag <samp class="codeph">open</samp> action.</div>
+<div class="note"><span class="notetitle">Note:  </span>You can specify this tag’s attributes in an <samp class="codeph">attributeCollection</samp> attribute
+whose value is a structure. Specify the structure name in the <samp class="codeph">attributeCollection</samp> attribute
+and use the tag’s attribute names as structure keys.</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7f72"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7f72"><!-- --></a><h4 class="sectiontitle">See also</h4><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-782c.html">cfexchangecalendar</a></samp><samp class="codeph">,</samp><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-782d.html">cfexchangeconnection</a></samp>, <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7828.html">cfexchangecontact</a></samp><samp class="codeph">, </samp><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-767a.html">cfexchangefilter</a></samp>, <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7827.html">cfexchangetask</a></samp>, <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/Developing/WSc3ff6d0ea77859461172e0811cbec22c24-73ff.html" target="_self">Interacting
+with Microsoft Exchange Servers</a></samp>  in the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Developing ColdFusion Applications</i></p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7ffe"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7ffe"><!-- --></a><h4 class="sectiontitle">Attributes</h4><div class="note"><span class="notetitle">Note:  </span>If an attribute, such as <samp class="codeph">folder</samp> or <samp class="codeph">destinationFolder</samp> takes
+a folder path, and the folder name contains forward slashes (/),
+specify the folder name by using the _xF8FF_ escape character to
+prevent exchange from interpreting the character as a path delimiter.</div>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e29068"><p>Attribute</p>
+</th>
+<th valign="top" width="NaN%" id="d17e29071"><p>Action</p>
+</th>
+<th valign="top" width="NaN%" id="d17e29074"><p>Req/Opt</p>
+</th>
+<th valign="top" width="NaN%" id="d17e29077"><p>Default</p>
+</th>
+<th valign="top" width="NaN%" id="d17e29080"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e29068 "><p><samp class="codeph">action</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29071 "><p>all</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29074 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29077 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29080 "><p>The action to take. Must be one of the following
+values:</p>
+<div class="para"><ul><li><p><samp class="codeph">delete</samp></p>
+</li>
+<li><p><samp class="codeph">deleteAttachments</samp></p>
+</li>
+<li><p><samp class="codeph">get</samp></p>
+</li>
+<li><p><samp class="codeph">getAttachments</samp></p>
+</li>
+<li><p><samp class="codeph">getMeetingInfo</samp></p>
+</li>
+<li><p><samp class="codeph">move</samp></p>
+</li>
+<li><p><samp class="codeph">set</samp></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29068 "><p><samp class="codeph">attachmentPath</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29071 "><p><samp class="codeph">getAttachments</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29074 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29077 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29080 "><p>The filepath of the directory in which to
+put the attachments. If the directory does not exist, ColdFusion
+creates it.</p>
+<p><strong>Note:</strong> If you omit this attribute, ColdFusion
+does not save any attachments. If you specify a relative path, the path
+root is the ColdFusion temporary directory, which is returned by
+the <samp class="codeph">GetTempDirectory</samp> function.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29068 "><p><samp class="codeph">connection</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29071 "><p>all</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29074 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29077 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29080 "><p>The name of the connection to the Exchange
+server, as specified in the <samp class="codeph">cfexchangeconnection</samp> tag. </p>
+<p>If
+you omit this attribute, create a temporary connection by specifying <samp class="codeph">cfexchangeconnection</samp> tag <samp class="codeph">open</samp> action
+attributes in the <samp class="codeph">cfexchangecalendar</samp> tag. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29068 "><p><samp class="codeph">destinationFolder</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29071 "><p><samp class="codeph">move</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29074 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29077 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29080 "><p>The forward slash (/) delimited path, relative
+to the root of the mailbox, of the folder to which to move the message
+or messages.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29068 "><p><samp class="codeph">folder</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29071 "><p>all <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">except</i><samp class="codeph">getMeetingInfo</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29074 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29077 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29080 "><p>The forward slash (/) delimited path, relative
+to the root of the mailbox, of the folder that contains the message or
+messages. The <samp class="codeph">cfexchangemail</samp> tag looks in the specified
+folder only, and does not search subfolders.</p>
+<p>For the <samp class="codeph">get</samp> and <samp class="codeph">move</samp> actions
+specifying a <samp class="codeph">cffexchangefilter</samp> child tag with a <samp class="codeph">name="folder"</samp> attribute
+is equivalent to setting this attribute, and takes precedence over
+this attribute’s value.</p>
+<p>If you omit this attribute, or for <samp class="codeph">get</samp> and <samp class="codeph">move</samp> actions,
+if you do not use the corresponding <samp class="codeph">cfexchangefilter</samp> setting,
+Exchange looks in the top level of the Inbox.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29068 "><p><samp class="codeph">generateUniqueFilenames</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29071 "><p><samp class="codeph">getAttachments</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29074 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29077 "><p>no</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29080 "><p>A Boolean value that specifies whether to
+generate unique filenames if multiple attachments have the same
+filenames. If two or more attachments have the same filename and
+this option is <samp class="codeph">yes</samp><samp class="codeph">,</samp> ColdFusion appends
+a number to the filename body (before the extension) of any conflicting
+filenames. Thus, if three attachments have the name myfile.txt,
+ColdFusion saves the attachments as myfile.txt, myfile1.txt, and myfile2.txt.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29068 "><p><samp class="codeph">mailUID</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29071 "><p><samp class="codeph">getMeetingInfo</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29074 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29077 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29080 "><p>The case-sensitive UID of the mail message
+that contains the meeting request, response, or cancellation notification.
+Use this attribute if there are multiple messages about a single
+meeting.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29068 "><p><samp class="codeph">meetingUID</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29071 "><p><samp class="codeph">getMeetingInfo</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29074 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29077 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29080 "><p>The case-sensitive UID of the meeting for
+which you received the notification.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29068 "><p><samp class="codeph">message</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29071 "><p><samp class="codeph">set</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29074 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29077 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29080 "><p>A reference to a structure that contains
+the properties to be set and their values. Specify this attribute
+in number signs (#).</p>
+<p>For more information on the message structure,
+see Usage.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29068 "><p><samp class="codeph">name</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29071 "><p><samp class="codeph">get</samp></p>
+<p><samp class="codeph">getAttachments</samp></p>
+<p><samp class="codeph">getMeetingInfo</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29074 "><p>Required </p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29077 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29080 "><p>The name of the ColdFusion query variable
+that contains the returned mail messages or the retrieved information
+about the attachments or meeting. For more information on the returned
+data, see Usage.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29068 "><p><samp class="codeph">uid</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29071 "><p><samp class="codeph">delete</samp></p>
+<p><samp class="codeph">getAttachments</samp></p>
+<p><samp class="codeph">set</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29074 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29077 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29080 "><p>The case-sensitive UIDs of the messages
+on which to perform the action. </p>
+<p>For the <samp class="codeph">delete</samp> action,
+this attribute can be a comma-delimited list of UID values. The <samp class="codeph">deleteAttachments, getAttachments</samp>,
+and <samp class="codeph">set</samp> actions allow only a single UID value.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7f71"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7f71"><!-- --></a><h4 class="sectiontitle">Usage</h4><p>The <samp class="codeph">cfexchangemail</samp> tag
+performs mail actions on an Exchange server that you cannot do by
+using the <samp class="codeph">cfmail</samp> tag. (You must use the <samp class="codeph">cfmail</samp> tag
+to send, forward, and reply to mail messages.) Use the <samp class="codeph">cfexchangemail</samp> tag
+to perform the following actions:</p>
+<ul><li><p>Permanently delete
+one or more mail messages from the server.</p>
+</li>
+<li><p>Get the attachments for a specific message.</p>
+</li>
+<li><p>Get one or more messages that conform to an optional set
+of filter specifications, such as the subject, sender or recipient
+ID, time received, and so on.</p>
+</li>
+<li><p>Get the attachments for a specific message.</p>
+</li>
+<li><p>Get detailed information about a meeting for which you have
+a notification, such as a meeting request or cancellation notice.</p>
+</li>
+<li><p>Move one or more messages from one folder to another, including
+to the Deleted Items folder.</p>
+</li>
+<li><p>Set the properties of a specific mail message.</p>
+</li>
+</ul>
+<p>To
+use this tag, you must have a connection to an Exchange server.
+If you are using multiple tags that interact with the exchange server,
+such as if you are creating several contact records, use the <samp class="codeph">cfexchangeconnection</samp> tag
+to create a persistent connection. You then specify the connection
+identifier in each <samp class="codeph">cfexchangemail</samp> tag, or any other
+ColdFusion Exchange tag, if you are also accessing tasks, contacts,
+or connections. Doing this saves the overhead of creating and closing
+the connection for each tag. </p>
+<p>Alternatively, you can create
+a temporary connection that lasts only for the time that ColdFusion
+processes the single <samp class="codeph">cfexchangemail</samp> tag. To do
+this, you specify the connection attributes directly in the <samp class="codeph">cfexchangemail</samp> tag.
+For details on the connection attributes, see the <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-782d.html">cfexchangeconnection</a></samp> tag.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7f41"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7f41"><!-- --></a><h4 class="sectiontitle">The delete action</h4><p>The <samp class="codeph">delete</samp> action permanently
+deletes a message from the server, and is equivalent to the Outlook
+Shift-Delete keystroke action. Use the <samp class="codeph">move</samp> action
+to move a message to the Deleted Items folder, which is equivalent
+to the Outlook Delete keystroke action. </p>
+<p>When you specify
+the <samp class="codeph">delete</samp> action you must specify a <samp class="codeph">uid</samp> attribute
+with a comma-delimited list of one or more Exchange UIDs that identify
+the tasks that you want to delete. You can use the <samp class="codeph">get</samp> action,
+with an appropriate filter expression, to determine the UID values
+to specify.</p>
+<p>If all UIDs that you specify are invalid, the <samp class="codeph">cfexchangemail</samp> tag
+generates an error. If at least one UID is valid, the tag ignores
+any invalid UIDs and deletes the items specified by the valid UID.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7f40"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7f40"><!-- --></a><h4 class="sectiontitle">The get action</h4><p>When you specify the <samp class="codeph">get</samp> action,
+you use child <samp class="codeph">cfexchangefilter</samp> tags to specify
+the messages to get. For detailed information, see <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-767a.html">cfexchangefilter</a></samp>. When the
+tag completes processing, the query object specified by the <samp class="codeph">name</samp> attribute
+contains one record for each matching message that was found. Each
+record has the following columns:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e29492"><p>Column</p>
+</th>
+<th valign="top" width="NaN%" id="d17e29495"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e29492 "><p>BCC</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29495 "><p>A comma-delimited list of Exchange user
+IDs or web e-mail.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29492 "><p>CC</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29495 "><p>A comma-delimited list of Exchange user
+IDs or web e-mail addresses.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29492 "><p>Folder</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29495 "><p>The forward slash (/) delimited path from
+the root of the Exchange mailbox to the mail folder containing the message.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29492 "><p>FromID</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29495 "><p>An Exchange user IDs or web e-mail addresses.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29492 "><p>HasAttachment</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29495 "><p>A Boolean value that indicates whether the
+message has at least one attachment.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29492 "><p>HTMLMessage</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29495 "><p>A string containing a HTML-formatted version
+of the message.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29492 "><p>IsRead</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29495 "><p>A Boolean value.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29492 "><p>Message</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29495 "><p>A string with a plain-text version of the
+message contents.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29492 "><p>MessageType</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29495 "><p>One of the following strings: </p>
+<div class="para"><ul><li><p><samp class="codeph">Mail</samp></p>
+</li>
+<li><p><samp class="codeph">Meeting_Cancel</samp></p>
+</li>
+<li><p><samp class="codeph">Meeting_Request</samp></p>
+</li>
+<li><p><samp class="codeph">Meeting_Response</samp></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29492 "><p>MeetingResponse</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29495 "><p>If the message type is <samp class="codeph">Meeting_response,</samp> this
+column contains the response code as one of the following strings: <samp class="codeph">Accept</samp>, <samp class="codeph">Decline</samp>,
+or <samp class="codeph">Tentative</samp>. This field is not used for other
+message types.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29492 "><p>MeetingUID</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29495 "><p>If the message type is <samp class="codeph">Meeting_Cancel</samp>, <samp class="codeph">Meeting_request</samp>,
+or <samp class="codeph">Meeting_response</samp> this column contains the UID
+of the calendar event for which this message was sent. Use this
+value in the <samp class="codeph">cfexchangecalendar</samp> tag to respond
+to a request. This field is not used for the <samp class="codeph">Mail</samp> message
+type.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29492 "><p>Sensitivity</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29495 "><p>One of the following strings: </p>
+<div class="para"><ul><li><p><samp class="codeph">public</samp></p>
+</li>
+<li><p><samp class="codeph">private</samp></p>
+</li>
+<li><p><samp class="codeph">normal</samp></p>
+</li>
+<li><p><samp class="codeph">company-confidential</samp></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29492 "><p>Subject</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29495 "><p>A string.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29492 "><p>TimeReceived</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29495 "><p>A ColdFusion date-time object.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29492 "><p>TimeSent</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29495 "><p>A Coldfusion date-time object.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29492 "><p>ToId</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29495 "><p>A comma-delimited list of Exchange user
+IDs or web mail IDs. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29492 "><p>UID</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29495 "><p>The Exchange UID of the message.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note"><span class="notetitle">Note:  </span>An invitation sender can
+get a meeting request message only if the sender is on the attendee
+list.</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7f3f"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7f3f"><!-- --></a><h4 class="sectiontitle">The getAttachments action</h4><p>When you use the <samp class="codeph">getAttachments</samp> action,
+specify a single UID and a <samp class="codeph">name</samp> attribute. The <samp class="codeph">cfexchangecontact</samp> tag
+populates a query object specified by the <samp class="codeph">name</samp> attribute
+with one record for each attachment. Each record has the following
+information about the mail attachment specified by the UID:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e29707"><p>Column name</p>
+</th>
+<th valign="top" width="NaN%" id="d17e29710"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e29707 "><p>attachmentFileName</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29710 "><p>The filename of the attachment.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29707 "><p>attachmentFilePath</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29710 "><p>The absolute path of the attachment file
+on the server. If you omit the <samp class="codeph">attachmentPath</samp> attribute,
+this column contains the empty string.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29707 "><p>CID</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29710 "><p>The content-ID of the attachment. Used in
+HTML img tags to embed images in a message.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29707 "><p>mimeType</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29710 "><p>The MIME type of the attachment, such as
+text/html.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29707 "><p>isMessage</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29710 "><p>A Boolean value that specifies whether the
+attachment is a message.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29707 "><p>size</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29710 "><p>The attachment size in bytes.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The tag places the attachments in the directory
+specified by the <samp class="codeph">attachmentPath</samp> attribute. If you
+omit the <samp class="codeph">attachmentPath</samp> attribute, ColdFusion does
+not get any attachments; it gets the information about the attachments.
+This lets you determine the attachments without incurring the overhead
+of getting the attachment files.</p>
+<p>If a message has multiple
+attachments with the same name, the attachment information structure
+always lists the attachments with their original, duplicate, names,
+even if you specify <samp class="codeph">generateUniqueFilenames="yes"</samp>.
+The <samp class="codeph">generateUniqueFilenames</samp> attribute only affects
+the names of the files on disk.</p>
+<p>Use the following syntax to
+specify an in-memory <samp class="codeph">attachmentPath</samp> directory. In-memory
+files are not written to disk and speed processing of transient
+data.</p>
+<pre>attachmentpath = "ram:///<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">path"</i></pre>
+<p>The
+path can include multiple directories, for example <samp class="codeph">ram:///petStore/orders/messageAttachments</samp>.
+Create all directories in the path before you specify the file.
+For more information on using in-memory files, see <a href="http://help.adobe.com/en_US/ColdFusion/9.0/Developing/WSe9cbe5cf462523a0-70e2363b121825b20e7-8000.html" target="_self">Working
+with in-memory files</a> in the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Developing ColdFusion Applications</i>.</p>
+<p>The <samp class="codeph">getAttachments</samp> action
+works only if authentication for EWS (Exchange Web Services) is
+set to basic in the server setup of Exchange. IWA (Integrated Windows
+Authentication) is not supported.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7f84"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7f84"><!-- --></a><h4 class="sectiontitle">The getMeetingInfo action</h4><p>You use the <samp class="codeph">getMeetingInfo</samp> action
+to get meeting-specific information, such as the meeting start and
+end times, location, and so on, about a meeting for which you have
+received a notification message, such as an invitation request or cancellation
+notice. This information is not available directly in the notification message
+query object that is returned by the <samp class="codeph">get</samp> action. </p>
+<div class="note"><span class="notetitle">Note:  </span>At the time of publication, the following information
+does not completely reflect the behavior of the <samp class="codeph">getMeetingInfo</samp> action.
+For updated information, see <samp class="codeph">cfexchangemail</samp> in
+the ColdFusion documentation available online in HTML on the Adobe
+website.</div>
+<p>When you specify the <samp class="codeph">getMeetingInfo</samp> action,
+you specify a <samp class="codeph">meetingUID</samp> attribute with the UID
+of the meeting. You get this UID value from the query record that
+is returned by the <samp class="codeph">get</samp> action. You can optionally
+specify a <samp class="codeph">messageUID</samp> attribute with the UID of
+the specific message that contains the notification; if you receive
+multiple messages about a single meeting, you can use this attribute
+to select a single notification message.</p>
+<p>When the tag completes
+processing, the query object specified by the <samp class="codeph">name</samp> attribute
+contains one record for each matching message that was found. Each record
+has the following columns:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e29844"><p>Field</p>
+</th>
+<th valign="top" width="NaN%" id="d17e29847"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e29844 "><p>AllDayEvent</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29847 "><p>A Boolean value that indicates whether this
+is an all day event.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29844 "><p>Duration</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29847 "><p>The duration of the event in minutes.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29844 "><p>EndTime</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29847 "><p>The end time of the event, in ColdFusion
+ODBC date-time format.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29844 "><p>From</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29847 "><p>The mail ID of the person who sent the meeting
+notification. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29844 "><p>HasAttachment</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29847 "><p>A Boolean value that indicates whether this
+event has attachments.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29844 "><p>Importance</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29847 "><p>One of the following values: </p>
+<div class="para"><ul><li><p><samp class="codeph">high</samp></p>
+</li>
+<li><p><samp class="codeph">normal</samp></p>
+</li>
+<li><p><samp class="codeph">low</samp></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29844 "><p>IsRecurring</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29847 "><p>A Boolean value that indicates whether this
+event repeats.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29844 "><p>Location</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29847 "><p>A string that specifies the location of
+the event.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29844 "><p>MeetingUID</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29847 "><p>The UID of the event in the calendar.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29844 "><p>Message</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29847 "><p>A string that contains a message about the
+event.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29844 "><p>OptionalAttendees</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29847 "><p>A comma-delimited list of mail IDs.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29844 "><p>Organizer</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29847 "><p>A string. This value is not necessarily
+an Exchange ID or e-mail address.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29844 "><p>Reminder</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29847 "><p>The time, in minutes before the event, at
+which to display a reminder message.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29844 "><p>RequiredAttendees</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29847 "><p>A comma-delimited list of mail IDs.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29844 "><p>Resources</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29847 "><p>A comma-delimited list of mail IDs for Exchange
+scheduling resources, such as conference rooms and display equipment.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29844 "><p>Sensitivity</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29847 "><p>One of the following values: </p>
+<div class="para"><ul><li><p><samp class="codeph">normal</samp></p>
+</li>
+<li><p><samp class="codeph">company-confidential</samp></p>
+</li>
+<li><p><samp class="codeph">personal</samp></p>
+</li>
+<li><p><samp class="codeph">private</samp></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29844 "><p>StartTime</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29847 "><p>The start time of the event, in ODBC date-time
+format.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29844 "><p>Subject</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29847 "><p>A string describing the event subject.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29844 "><p>TimeReceived</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29847 "><p>The time the message was received, in ODBC
+date-time format.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e29844 "><p>UID</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e29847 "><p>The UID of the message that contains the
+event notification.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7f9e"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7f9e"><!-- --></a><h4 class="sectiontitle">The move action</h4><p>Use the <samp class="codeph">move</samp> action to move
+one or more messages from one folder to another folder. You can
+use this action to move messages to the Deleted Items folder, which
+is equivalent to the Outlook Delete keystroke action. </p>
+<p>When
+you specify the <samp class="codeph">move</samp> action you specify the destination
+folder, and optionally the folder containing the messages to move.
+(The default source folder is the Inbox). You use child <samp class="codeph">cfexchangefilter</samp> tags
+to specify the messages to get. For detailed information, see <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-767a.html">cfexchangefilter</a></samp>.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7f3e"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7f3e"><!-- --></a><h4 class="sectiontitle">The set action</h4><p>When you specify the <samp class="codeph">set</samp> action,
+the structure specified by the <samp class="codeph">message</samp> attribute
+contains key-value pairs that specify the message properties to
+set. The following table lists the key names and their valid values:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e30062"><p>Key name</p>
+</th>
+<th valign="top" width="NaN%" id="d17e30065"><p>Valid values</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e30062 "><p>IsRead</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e30065 "><p><samp class="codeph">yes</samp>, <samp class="codeph">no</samp></p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e30062 "><p>Importance</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e30065 "><p><samp class="codeph">high</samp>, <samp class="codeph">normal</samp>, <samp class="codeph">low</samp></p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e30062 "><p>Sensitivity</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e30065 "><p><samp class="codeph">normal</samp>, <samp class="codeph">company-confidential</samp>, <samp class="codeph">personal</samp>, <samp class="codeph">private</samp></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7f70"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7821__WSc3ff6d0ea77859461172e0811cbec17cba-7f70"><!-- --></a><h4 class="sectiontitle">Example</h4><p>The
+following example gets the attachments to all mail messages in the
+Inbox from docuser2 in the last week. It puts each message’s attachments
+in a directory with a unique name. It cannot use the UID as a filename
+because, for each message with attachments, the UID can contain
+the application reports of the UID, directory path, subject, date,
+and sender of the message, followed by a table that lists the message’s
+attachments. The table includes the attachment name, size, and MIME
+type. </p>
+<pre>&lt;!--- Index for message attachement directory ---&gt; 
+&lt;cfset i=1&gt; 
+&lt;!--- Dates for date range ---&gt; 
+&lt;cfset rightNow = Now()&gt; 
+&lt;cfset lastWeek = DateAdd("d","-7", rightNow)&gt; 
+ 
+&lt;cfexchangeconnection 
+    action="open" 
+    username ="#user1#" 
+    password="#password1#" 
+    server="#exchangeServerIP#" 
+    connection="testconn1"&gt; 
+ 
+&lt;cfexchangemail action="get" folder="Inbox " name="weeksMail" connection="testconn1"&gt; 
+    &lt;cfexchangefilter name="FromID" value="docuser2"&gt; 
+    &lt;cfexchangefilter name="TimeSent" from="#lastWeek#" to="#rightNow#"&gt; 
+&lt;/cfexchangemail&gt; 
+ 
+&lt;cfloop query="weeksMail"&gt; 
+    &lt;cfif weeksmail.HasAttachment&gt; 
+        &lt;cfexchangemail action="getAttachments"  
+            connection="testconn1" 
+            folder="Inbox/MailTest" 
+            uid="#weeksmail.uid#"  
+            name="attachData"  
+            attachmentPath="C:\temp\cf_files\attachments\msg_#i#" 
+            generateUniqueFilenames="yes"&gt; 
+        &lt;cfoutput&gt; 
+            Message ID #weeksmail.uid# attachments are in the directory 
+                C:\temp\cf_files\attachments\Msg_#i#&lt;br /&gt; 
+            &lt;br /&gt; 
+                Message information:&lt;br /&gt; 
+                Subject: #weeksmail.Subject#&lt;br /&gt; 
+                Sent: #dateFormat(weeksmail.TimeSent)#&lt;br /&gt; 
+                From:  #weeksmail.FromID#&lt;br /&gt; 
+            &lt;br /&gt; 
+            Attachments&lt;br /&gt; 
+            &lt;cftable query="attachData" colheaders="yes"&gt; 
+                &lt;cfcol header="File Name" text="#attachmentFilename#"&gt; 
+                &lt;cfcol header="Size" text="#size#"&gt; 
+                &lt;cfcol header="MIME type" text="#mimeType#"&gt; 
+            &lt;/cftable&gt; 
+        &lt;/cfoutput&gt; 
+        &lt;cfset i++&gt; 
+    &lt;/cfif&gt; 
+&lt;/cfloop&gt; 
+&lt;cfexchangeconnection action="close" connection="testconn1"&gt;</pre>
+</div>
+</div>
+
+
+<!-- BEGIN USER PREFERENCES -->
+          <div id="userprefs">
+          </div>
+<!-- END USER PREFERENCES -->
+
+          <div id="related">
+            
+            
+            <div class="separator">&#160;</div>
+          </div>
+          <div id="footer">
+<!-- BEGIN IONCOMMENTS -->
+            <div id="ionComHere">
+            </div>
+<!-- END IONCOMMENTS -->
+
+
+            <p id="creativecommons"><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" id="creativecommons_text"><img id="creativecommons_img" src="images/CC.png" alt="This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License" /></a>&nbsp;Twitter™ and Facebook posts are not covered under the terms of Creative Commons.</p>
+          </div>
+</td>
+<td width="10px"></td>
+<td id="inner_rightcolumn">
+
+</td></tr></table>
+      </div>
+<!-- BEGIN BREADCRUMBS -->
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec22c24-767a.html" title="cfexchangefilter"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-7827.html" title="cfexchangetask"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>ColdFusion&#160;9&#160;CFML&#160;Reference</b></a> / <a href="WSc3ff6d0ea77859461172e0811cbec17576-7ffe.html"><b>ColdFusion Tags</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec17cba-8000.html"><b>Tags d-e</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+<!-- END CONTENT WRAPPER -->
+
+</td>
+<td id="col3">
+    <div>
+        <img src="images/adobe-lq.png" />
+    </div>
+</td>
+</tr>
+</table>
+    </div>
+<!-- END PAGE CONTENT WRAPPER -->
+<script type="text/javascript">
+<!--[CDATA[
+scrollToNameAnchor();
+// ]]-->
+</script> 
+<!--
+    Description:
+    This file generates the link to product support in the top right corner
+-->
+
+<style>
+#menutop{
+    position:absolute;
+    top:4px;
+    right:24px;
+    width:auto;    
+    font-size:11px;
+    color:#fff;
+    text-align:right;
+}
+#menutop a{
+    color:#fff;
+}
+#menutop a:hover{
+        text-decoration:underline;
+}
+</style>  
+  
+  
+  
+  
+<div id="productmenu">
+<!--googleoff: index-->
+  <div id="menutop">
+
+
+<script language=javascript type='text/javascript'>
+    // darken menu text for products with light backgrounds
+    var path = document.location.href.toLowerCase();
+    if (path.indexOf("/acrobat/")           	> 0 ||
+        path.indexOf("/acrobat.com/")       	> 0 ||
+        path.indexOf("/acrobatConnectPro/") 	> 0 ||
+        path.indexOf("/connect/")           	> 0 ||
+        path.indexOf("/livecycledataserviceses/") > 0 ||
+        path.indexOf("/muse/")         	> 0 ||
+	path.indexOf("/presenter/")         	> 0 ||
+        path.indexOf("/scene7/")            	> 0 ||
+        path.indexOf("/flashmediaserver/")  	> 0 ||
+        path.indexOf("/wave/")              	> 0 )
+    {
+        document.write('<style>#menutop a{color:#505050}</style>');
+    }
+    if (typeof('terms_AHV_PRODUCT_SUPPORT') != "undefined" && ! use_robohelp_behavior ){      
+        if (path.indexOf("/muse/") > -1 ){
+            var supportlink = '<a href="http://muse.adobe.com/support.html">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }else{
+            var supportlink = '<a href="http://adobe.com/support">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }
+        document.write( supportlink );
+     }
+
+</script> 
+
+  </div>
+<!--googleon: index-->
+</div>
+
+
+
+<style>
+#online-privacy-policy{ 
+    margin:10px 40px; 
+    font-size:11px;
+}
+</style>
+
+<p id="online-privacy-policy">
+<script language="javascript">
+var pageLoc = "en_US";
+var metaElements = document.all ?
+document.all.tags('meta') :
+document.getElementsByTagName ?
+document.getElementsByTagName ('meta') : new Array();
+for (var m = 0; m < metaElements.length; m++) {
+	if (metaElements[m].name == "lang") {
+		pageLoc = metaElements[m].content;
+		break;
+	}
+}
+var ptn = /(..)-(..)/;
+if (ptn.test(pageLoc)) {
+	var languageCode = pageLoc.replace(ptn, "$1");
+	var countryCode = pageLoc.replace(ptn, "$2");
+	pageLoc = languageCode + "_" + countryCode.toUpperCase();
+}
+
+var policyLoc = "en_US";
+var policyText = "Online Privacy Policy";
+var policyPath = "";
+var policyArray=[
+"da_DK", "Online fortrolighedserklæring",
+"de_DE", "Online-Datenschutzrichtlinie",
+"es_ES", "Política de confidencialidad en línea",
+"fi_FI", "Yksityisyyttä koskeva Online-toimintaohjelma",
+"fr_FR", "Confidentialité et sécurité",
+"it_IT", "Informativa sulla privacy online",
+"ja_JP", "プライバシーポリシー",
+"ko_KR", "Adobe 온라인 개인정보 보호정책",
+"pt_BR", "Política de Confidencialidade On-line", 
+"zh_CN", "在线隐私政策",
+"zh_TW", "線上隱私政策"
+];
+var legalLoc = "en_US";
+var legalText = "Legal Notices";
+var legalPath = legalLoc;
+var legalArray=[
+"ar_AE", "إشعارات قانونية",
+"bg_BG", "Юридически бележки",
+"cs_CZ", "Právní upozornění",
+"da_DK", "Juridiske meddelelser",
+"de_DE", "Rechtliche Hinweise",
+"el_GR", "Σημειώσεις νομικού περιεχομένου",
+"es_ES", "Avisos legales",
+"et_EE", "Juriidilised teated",
+"fi_FI", "Lakisääteiset ilmoitukset",
+"fr_FR", "Mentions légales",
+"he_IL", "הצהרות משפטיות",
+"hr_HR", "Pravne napomene",
+"hu_HU", "Jogi közlemények",
+"it_IT", "Informazioni legali",
+"ja_JP", "法律上の注意",
+"ko_KR", "법적 고지 사항",
+"lt_LT", "Teisinės pastabos",
+"lv_LV", "Juridisks paziņojums",
+"nb_NO", "Juridiske merknader",
+"nl_NL", "Juridische kennisgevingen",
+"pl_PL", "Informacje prawne",
+"pt_BR", "Aspectos jurídicos",
+"ro_RO", "Prevederi legale",
+"ru_RU", "Юридическая информация",
+"sk_SK", "Právne upozornenie",
+"sl_SI", "Pravni pouk",
+"sv_SE", "Upphovsrätt",
+"tr_TR", "Yasal uyarılar",
+"uk_UA", "Юридична інформація",
+"zh_CN", "法律声明",
+"zh_TW", "法律注意事項"
+];
+
+ruPolicy = "http://www.adobe.com/ru/misc/privacy.html";
+trPolicy = "http://www.adobe.com/tr/misc/privacy.html";
+
+// Bug 2846992: LOC: RUS, TUR: The link to "Online Privacy Policy" should include language, currently it is not appearing.
+if (pageLoc == "ru_RU") {
+	policyPath = "ru";
+}
+else if (pageLoc == "tr_TR") {
+	policyPath = "tr";
+}
+for (var i = 0; i < policyArray.length; i+=2) {
+	if (pageLoc == policyArray[i]) {
+		policyLoc = pageLoc;
+		policyText = policyArray[i+1];
+		var ptn = /(..)_(..)/;
+		if (ptn.test(policyLoc)) {
+			var countryCode = policyLoc.replace(ptn, "$2");
+			policyPath = countryCode.toLowerCase();
+		}
+		break;
+	}
+}
+
+for (var i = 0; i < legalArray.length; i+=2) {
+	if (pageLoc == legalArray[i]) {
+		legalLoc = pageLoc;
+		legalText = legalArray[i+1];
+		legalPath = legalLoc;
+		break;
+	}
+}
+if(agt.indexOf("community help client") > -1 ){
+	document.write('<a href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+}else{
+	//Open the privacy policy in a new window
+	document.write('<a target="_blank" href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a target="_blank" href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+} 
+</script>
+</p>
+
+
+
+<!-- localfooter.ssi -->
+
+<script type="text/javascript">
+    var debug = (top.location.href.indexOf("debug=true") > -1);
+</script>
+
+<script language="javascript">
+document.write('<scr'+'ipt ' +
+               'src="/en_US/ssi/_pod.js" ' +
+               'language="javascript" ' +
+               'charset="UTF-8"> ' +
+               '</scr'+'ipt>');
+</script>
+
+
+<script type="text/javascript">
+//
+//  Ethnio survey code
+//
+/*          DocumentID      EthnioID */
+/*          -------------   -------- */
+var ethnio=["/en_US/flash/cs/using/WSb03e830bd6f770ee6664507612436d7dede-8000.html", "87462",
+            "/en_US/creativesuite/cs/using/WSe851854fd1e0856a-4b08a77612477f69f15-8000.html",  "10441",
+            "/en_US/dreamweaver/cs/using/WSEE4C0148-A6F4-4bf5-9DEF-CE06AB026214a.html",  "57412"
+ 
+    ];
+                        
+    for ( var i = 0; i < ethnio.length ; i = i+2 ){
+        if ( document.location.href.indexOf( ethnio[i] ) > -1 ){ 
+            var headID = document.getElementsByTagName("head")[0];         
+            var ethnioScript = document.createElement('script');
+            ethnioScript.type = 'text/javascript';
+            ethnioScript.src = 'http://ethn.io/remotes/' + ethnio[i+1];        
+            if ( debug ){
+                alert ("Using Ethnio script: " + ethnioScript.src );
+            }else{
+                headID.appendChild(ethnioScript);
+            }
+        }
+    }
+</script>
+
+
+
+<div style="display: none;">
+<!-- SiteCatalyst -->
+<script language="JavaScript" type="text/javascript"><!--
+var s_code=' ';
+var s_docHost = window.location.hostname.toLowerCase();
+var s_docURL = window.location.pathname.toLowerCase();
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+if (s_docHost.indexOf(".corp.adobe") != -1 || s_docHost.indexOf("stage.") != -1 || s_docHost.indexOf(".dev.adobe") != -1 || s_docHost.indexOf("staging.") != -1) scJsHost="";
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/omniture_s_code.js' type='text/javascript'%3E%3C/script%3E"));
+//--></script>
+<script type="text/javascript"><!--
+var s_accountName;
+s_server="www.adobe.com static content pages";
+if (!window.s_account) s_accountName="mxmacromedia";
+else s_accountName=window.s_account;
+
+if (window.s_docURL.indexOf("/designcenter/") != -1)
+  s_channel="Adobe Design Center";	
+else if ((window.s_docHost.indexOf("labs.adobe") != -1) ||
+(window.s_docHost.indexOf("labs-staging.") != -1))
+  s_channel="Labs";
+else if (window.s_docHost.indexOf("help.adobe.com") != -1) {
+  s_channel="Support Help.adobe.com";
+  if (window.s_docURL.indexOf("/en_us/") == -1) {
+    s_docURLArray=s_docURL.split('/');
+    s_pageName="http://help.adobe.com/"+s_docURLArray[1]+"/"+ s_docURLArray[2]+"/"+s_docURLArray[3];
+    s_prop23="http://help.adobe.com"+window.location.pathname;
+  }
+}
+else if (window.s_docHost.indexOf("kb2.adobe.com") != -1) {
+  s_channel="Support Knowledgebase";
+  s_prop23="http://kb2.adobe.com"+s_docURL+":";
+  if (typeof(omtrProductList) != 'undefined' && omtrProductList.length > 0)
+ {
+    s_prop23=s_prop23+omtrProductList;
+  }
+}
+else if (window.s_docHost.indexOf("resellers.adobe.com") != -1) {
+		var s_pageName=document.getElementsByTagName("title")[0].text;
+}
+
+if (!window.scMMInclude) {
+	var s_wd=window,s_tm=new Date;
+	if(s_code!=' '){
+		s_code=s_dc(s_accountName);
+		if(s_code)document.write(s_code)
+	} 
+} else {
+	s_wds(s_accountName);s_ca(s_accountName); 
+}	
+
+function sendAnalyticsEvent(str){var ns=s_accountName;if(str!=null)ns+=","+str;void(s_gs(ns));}
+function sendLinkEvent(accnt,lnkname,type){
+accnt=s_accountName;s_linkType=type;s_lnk=true;s_linkName=lnkname;void(s_gs(accnt));}
+//--></script>
+<noscript><img src="http://stats.adobe.com/b/ss/mxmacromedia/1/H.15-XELvs/0?pageName=http%3A//www.adobe.com%3A%20noscript&ch=http%3A//www.adobe.com%3A%20noscript&g=http%3A//www.adobe.com" height="1" width="1" border="0" alt="" /></noscript>
+<!-- End SiteCatalyst -->
+</div>
+
+<script language="JavaScript" type="text/javascript">//<![CDATA[
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/atm/s_code_www.js' type='text/javascript'%3E%3C/script%3E"));
+//]]></script>
+<script type="text/javascript">//<![CDATA[
+if(s_adobe){	
+	s_adobe.server="www.adobe.com Static Content pages";
+	/* Set pageName */
+	s_adobe.s_URL="adobe.com"+((location.pathname.charAt(0)=='/')?location.pathname:'/'+location.pathname);
+	if (s_adobe.s_URL.substring(s_adobe.s_URL.lastIndexOf('/')+1)=="") s_adobe.s_URL=s_adobe.s_URL+"index.html";
+	s_adobe.s_URLSplit=s_adobe.s_URL.split("/");
+	s_adobe.pageName=s_adobe.s_URLSplit.join(":");
+
+	/* Set prop4 to language-locale */
+	var s_meta=document.getElementsByTagName('meta'); 
+      for (i=0; i<s_meta.length; i++) { 
+        if (s_meta[i].getAttribute("http-equiv") == "Content-Language") { 
+          s_adobe.prop4=s_meta[i].getAttribute("content"); 
+	    s_adobe.prop4=s_adobe.prop4.replace(/\s+/g,'');
+        } 
+      } 
+	s_adobe.t()
+}
+//]]></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,1553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0022)http://help.adobe.com/ -->
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="lang" content="en-us" />
+    <meta name="area" content="livedocs" />
+    <title>Adobe&#160;ColdFusion&#160;9 * Map the properties</title>
+    <link rel="shortcut icon" href="images/ColdFusionLinkIndicator.png" />
+    <meta name="book" content="Developing&#160;ColdFusion 9 Applications" />
+    <meta name="product" content="ColdFusion" />
+    <meta name="keywords" content="" /><!--<PageMap><DataObject type="document"><Attribute name="product" value="ColdFusion"></Attribute><Attribute name="book" value="Developing&#160;ColdFusion 9 Applications"></Attribute><Attribute name="keywords" value=""></Attribute></DataObject></PageMap>-->
+    
+    <script type="text/javascript" language="Javascript" charset="UTF-8"><!--[CDATA[
+        var currentTreeNode = "WSB7BEC0B4-8096-498d-8F9B-77C88878AC6C.html";
+    document.cookie = "topicId=" + "WSB7BEC0B4-8096-498d-8F9B-77C88878AC6C.html";
+// ]]--></script>
+<script src="terms.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="help.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script>  <script src="utilities.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="event.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="treeview.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="toc.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script> <script src="swfobject.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>  <script src="booklist.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>
+<script type="text/javascript">
+<!--[CDATA[
+var topictype = "topic";
+var headId = document.getElementsByTagName("head")[0];         
+if (use_ie_6_behavior) {
+  var linkId = document.createElement("link");
+  linkId.href = "content-ie6.css";
+  linkId.rel = "stylesheet";
+  linkId.type = "text/css";
+  headId.appendChild(linkId);
+}
+function initRoboHelpDOM() {
+  if (use_chm_behavior) {
+    hideElement("search");
+  }
+  if (use_robohelp_behavior) {
+    hideElement("search");
+    hideElement("productmenu");
+    //hideElement("notyourversion");
+  }
+  if(!use_chc_behavior) {
+    //document.getElementById("notyourversion").style.display = "inline";;
+  }
+}
+var dirname = location.pathname.match( /.*\// );    
+function setSearchUserPref(){
+  if ( document.cookie.indexOf( "ah_searchpref" ) > -1 ) {
+    if ( document.cookie.indexOf( dirname ) > 0 ) {
+      document.search.gsa.checked = true ;
+    }else{
+      document.search.gsa.checked = false ;            
+    }
+  }
+}
+YAHOO.util.Event.onDOMReady(initRoboHelpDOM);
+YAHOO.util.Event.onDOMReady(setSearchUserPref);
+// ]]-->
+</script>
+
+<!-- ********************************** -->
+<!-- START: ForeSee survey code in: /ssi/globalheader.ssi -->
+
+<script type="text/javascript">
+<!-- 
+// Enable the survey for only English, German and Japanese
+var agt=navigator.userAgent.toLowerCase();
+if ( agt.indexOf("community help client") == -1 ){
+    if ( document.location.href.indexOf("/en_US/") != -1 ){
+        showSurvey();
+//    }else if (document.location.href.indexOf("/de_DE/") != -1){
+//         var locale="de";
+//         showSurvey();
+    }else if (document.location.href.indexOf("/ja_JP/") != -1 ){
+         var locale="ja";
+         showSurvey();
+    }	
+}
+
+function showSurvey(){
+	document.write('<script type="text/javascript" src="/js/foresee/foresee-trigger.js"><\/scr'+'ipt>');
+}
+
+// -->
+</script>
+
+<!-- END: ForeSee survey code -->
+<!-- ******************************** -->
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="tree.css" />
+    <link rel="stylesheet" type="text/css" href="content.css" />
+    <link rel="stylesheet" type="text/css" href="localeSpecific.css" />
+  </head>
+  <body id="content_body" onload="window.focus();">
+    <a name="top" shape="rect"><!--LeaveCommentHere--></a>
+    
+    <div id="mnemonic">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon" class="ColdFusion"><div class="banner"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html">Adobe&#160;ColdFusion&#160;9</a><span id="notyourversion">|&#160;
+                    <a rel="nofollow" href="http://www.adobe.com/support/documentation/en/coldfusion/">Not your version?</a></span></div></div><!--googleon: index-->
+    </div>
+    
+    <div id="searchbar">
+<table id="searchbartable">
+<tr>
+<td colspan="2">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon"><div id="pdf"><img src="images/PDF.gif" width="16" height="16" /><a title="View Help PDF" href="coldfusion_9_dev.pdf">View Help PDF ( 23MB)</a></div></div><!--googleon: index-->
+</td>
+</tr>
+</table>
+    </div>
+
+<!-- BEGIN SEARCH CONTENT -->
+<form id="search" name="search" action="search.html" target="_self">
+<script type="text/javascript">
+<!--[CDATA[
+if ( !use_chc_behavior ){
+    if (typeof(terms_AHV_SEARCH_CONSTRAINT) != "undefined" && 
+        terms_AHV_SEARCH_CONSTRAINT.length > 0 && 
+        document.location.href.indexOf(".adobe.com") > 0){
+        if ( typeof(terms_SEARCH_THIS_HELP_ONLY) != "undefined" && terms_SEARCH_THIS_HELP_ONLY == "ON" ) {
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                checked="checked" \
+                value="1" ><\/input>'); 
+                
+        // Leave the "Search this help system only" checkbox unckecked
+        }else{    
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                value="1" ><\/input>'); 
+        }
+        document.write('<span class="gsalabel">' + terms_AHV_SEARCH_CONSTRAINT + '<\/span><\/div>'); 
+    }
+    document.write('<input class="searchinput" \
+        name="q" \
+        id="q" \
+        type="text" \
+        maxlength="256" \
+        value="' + terms_AHV_SEARCH_BUTTON + '" \
+        onclick="clearSearch()"><\/input><input \
+        type="button" \
+        name="searchbutton" \
+        class="searchbutton" \
+        onclick="submit()"><\/input>'); 
+} 
+ 
+/* 
+ * Start Functions 
+ */
+function clearSearch(){
+    if (document.search.q.value == terms_AHV_SEARCH_BUTTON){document.search.q.value = ""}; 
+}
+
+// set search preferences
+function setAHSearchPref(){
+    if (document.search.gsa.checked == 1){
+        setAHSearchCookie( dirname );
+    }else{
+        setAHSearchCookie( "community" );
+    }
+}
+
+// Set search preferences cookie
+function setAHSearchCookie( p ){
+    // set cookie ah_searchpref with a value of the document path
+    var expire=new Date();
+    expire.setDate(expire.getDate()+365); // Cookie expires after 1 year (365 days) 
+    document.cookie="ah_searchpref=" +p+ "; expires=" +expire.toGMTString()+ ";";
+}
+
+// ]]-->
+</script> 
+ </form>
+<!-- END SEARCH CONTENT -->    
+
+
+
+<!-- BEGIN PAGE CONTENT WRAPPER -->
+    <div id="page_content_wrapper">
+<!-- BEGIN PAGE WRAPPER -->
+<table id="page_content_table">
+<tr>
+
+<td id="col2">
+<!-- BEGIN CONTENT WRAPPER -->
+<!-- BEGIN BREADCRUMBS -->
+
+      
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WS42099CE5-B3E8-4cc7-AB37-448338C1BFBE.html" title="Map a ColdFusion component"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WS5FFD2854-7F18-43ea-B383-161E007CE0D1.html" title="Define Relationships"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Developing&#160;ColdFusion 9 Applications</b></a> / <a href="WSD628ADC4-A5F7-4079-99E0-FD725BE9B4BD.html"><b>ColdFusion ORM</b></a> 
+      / <a href="WS53C28604-E798-4175-97AE-D7BDF124056C.html"><b>Define ORM mapping</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+      <div id="content_wrapper">
+<!-- BEGIN PAGE TITLE -->
+        <h1>Map the properties</h1>
+<!-- END PAGE TITLE -->
+<!-- BEGIN IONCOMMENTCOUNT -->
+        <div id="ionCount">
+        </div>
+<!-- END IONCOMMENTCOUNT -->
+<table id="inner_content_table" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>
+          <div style="border-top:#ccc solid 1px;"><p> </p>
+          </div>
+<p id="chcPromo" style="display:none;">
+<a id="chcLink" href="http://www.adobe.com/support/chc/">
+<img id="chcImage" src="http://www.adobe.com/support/chc/GetMoreHelpFeatures.png"/>
+</a>
+</p>
+<script type="text/javascript" language="javascript" charset="utf-8">
+<!--
+var cfgArray = [];
+//cfgArray["Acrobat_10.0_Professional.helpcfg"] = "acrobatpro";
+//cfgArray["Acrobat_10.0_Standard.helpcfg"] = "acrobatstd";
+cfgArray["Lightroom_3.0.helpcfg"] = "lightroom";
+cfgArray["PhotoshopElements_8.0_Win.helpcfg"] = "photoshopelements";
+cfgArray["PhotoshopElements_8.0_Mac.helpcfg"] = "photoshopelementsmac";
+cfgArray["PremiereElements_8.0_Win.helpcfg"] = "premiereelements";
+
+//cfgArray["AfterEffects_10.0.helpcfg"] = "aftereffects";
+//cfgArray["AIR.helpcfg"] = "air";
+//cfgArray["ColdFusionBuilder.helpcfg"] = "coldfusion";
+//cfgArray["Contribute_6.0.helpcfg"] = "contribute";
+//cfgArray["DeviceCentral_3.0.helpcfg"] = "devicecentral";
+//cfgArray["Dreamweaver_11.0.helpcfg"] = "dreamweaver";
+//cfgArray["EncoreDVD_5.0.helpcfg"] = "encore";
+//cfgArray["ExtensionManager_3.0.helpcfg"] = "extension";
+//cfgArray["Fireworks_11.0.helpcfg"] = "fireworks";
+//cfgArray["Flash_11.0.helpcfg"] = "flash";
+//cfgArray["Flex_4.0.helpcfg"] = "flashbuilder";
+//cfgArray["FlashCatalyst_1.0.helpcfg"] = "flashcatalyst";
+//cfgArray["Illustrator_15.0.helpcfg"] = "illustrator";
+//cfgArray["InCopy_7.0.helpcfg"] = "incopy";
+//cfgArray["InDesign_7.0.helpcfg"] = "indesign";
+//cfgArray["OnLocation_5.0.helpcfg"] = "onlocation";
+//cfgArray["Photoshop_12.0.helpcfg"] = "photoshop";
+//cfgArray["PremierePro_5.0.helpcfg"] = "premierepro";
+
+function getLangName() {
+    var lang = "en-us";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if (ptn.test(lang)) {
+        var languageCode = lang.replace(ptn, "$1");
+        var countryCode = lang.replace(ptn, "$2");
+        lang = languageCode + "_" + countryCode.toUpperCase();
+    }
+    return lang;
+}
+
+function getCountryName() {
+    var lang = "";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if ((ptn.test(lang)) && (lang != "en-us")) {
+        var countryCode = lang.replace(ptn, "$2");
+        return "/" + countryCode;
+    }
+    return "";
+}
+
+if ( (typeof(terms_HELPCFG) != 'undefined')  && (terms_HELPCFG.indexOf(".helpcfg") != -1) ) {
+    var stage   = (document.location.href.indexOf(".stage.") != -1) ? 'stage.' : '';
+    var baseUrl = 'http://www.' + stage + 'adobe.com';
+    var refpage = document.location.href.replace(/#.*$/, '');
+	
+	if ((!use_robohelp_behavior) && (terms_HELPCFG.length > 0) && (typeof(cfgArray[terms_HELPCFG]) != 'undefined') && (cfgArray[terms_HELPCFG].length > 0)) {
+		if (document.getElementById) { // DOM3 = IE5, NS6
+			var newHref = baseUrl + getCountryName() + "/support/chc/" + "?helpcfg=http://help." + stage + "adobe.com/HelpCfg/" + getLangName() + "/" + terms_HELPCFG + "&url=" + refpage + "&product=" + cfgArray[terms_HELPCFG];
+			var newSrc = baseUrl + getCountryName() + "/support/chc/GetMoreHelpFeatures.png";
+			document.getElementById("chcPromo").style.display = "block";
+			document.getElementById("chcLink").href = newHref;
+			document.getElementById("chcImage").src = newSrc;
+		}
+	}
+}
+
+//-->
+</script>
+
+
+
+          <div id="minitoc"><div class="t"><div class="b"><div><ul id="minitoc-links"><li><p><a href="#WS11EDA280-EC7A-4144-83A6-8E3695127954"><span class="topictitle1">Primary key</span>
+</a></p><ul><li><p><a href="#WS6DA8F2C5-9F45-437f-90CE-4FFF507EA7CA"><span class="topictitle2">Simple primary key</span>
+</a></p></li><li><p><a href="#WSA5F3AC2F-FEE5-4d8a-BF32-B5F3BBD7E060"><span class="topictitle2">Composite Key</span>
+</a></p></li></ul></li><li><p><a href="#WSA1F7CC44-F5A0-419c-B988-EC230EFF192E"><span class="topictitle1">Generators</span>
+</a></p></li><li><p><a href="#WS4D5B9BFB-AC2A-49c9-865C-7B8AD68C2FCA"><span class="topictitle1">Column</span>
+</a></p><ul><li><p><a href="#WS8ba1c04430abc2a4-2ca6516312232cb34f8-8000"><span class="topictitle2">Computed property</span>
+</a></p></li></ul></li><li><p><a href="#WS8ba1c04430abc2a4a213ba12232add404-8000"><span class="topictitle1">Versioning</span>
+</a></p><ul><li><p><a href="#WSAF6E3E3F-41D4-47f1-A01D-DAD8376E2DC4"><span class="topictitle2">Version</span>
+</a></p></li><li><p><a href="#WS118E114D-E044-4a1f-A51F-AE48EB49B007"><span class="topictitle2">Time stamp</span>
+</a></p></li></ul></li><li><p><a href="#WS96547CBD-E218-4a3a-94C5-35081A7C8B61"><span class="topictitle1">ORM data types</span>
+</a></p></li><li><p><a href="#WS52840ce61dea8508-1c0934c21223161db48-8000"><span class="topictitle1">Escaping SQL keywords in table and column name</span>
+</a></p></li></ul></div></div></div></div><div><p>The <samp class="codeph">cfproperty</samp> tag is used to define:</p>
+<ul><li><p>Primary or composite key</p>
+</li>
+<li><p>Columns</p>
+</li>
+<li><p>Relationships</p>
+</li>
+<li><p>Versioning</p>
+</li>
+</ul>
+<p>The following table lists the common attributes that are used
+to define these mappings:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e54961"><p>Attribute</p>
+</th>
+<th valign="top" width="NaN%" id="d17e54964"><p>Req/Optional</p>
+</th>
+<th valign="top" width="NaN%" id="d17e54967"><p>Default</p>
+</th>
+<th valign="top" width="NaN%" id="d17e54970"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e54961 "><p><samp class="codeph">default</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e54964 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e54967 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e54970 "><p>This sets the default value on the property
+when the object is created. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e54961 "><p><samp class="codeph">fieldtype</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e54964 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e54967 "><p>column</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e54970 "><p>This attribute is used to specify the type
+of the property. Use this attribute to specify the following:</p>
+<div class="para"><ul><li><p>Primary key: Specify <samp class="codeph">fieldtype = "id"</samp> to
+map a property to the primary key in the table. For details, see <a href="WS11EDA280-EC7A-4144-83A6-8E3695127954.html">Primary key</a>.</p>
+</li>
+<li><p>Column: Specify the <samp class="codeph">fieldtype = "column"</samp> to
+map a property to a column in the table. For details, see <a href="WS4D5B9BFB-AC2A-49c9-865C-7B8AD68C2FCA.html">Column</a>.</p>
+</li>
+<li><p>Relationship: Specify the <samp class="codeph">fieldtype = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">relationship_type</i>"</samp>.
+The<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema"> relationship_type</i> can be <samp class="codeph">one-to-one</samp>, <samp class="codeph">one-to-many</samp>, <samp class="codeph">many-to-one</samp>,
+or <samp class="codeph">many-to-many</samp>. For details, see <a href="WS5FFD2854-7F18-43ea-B383-161E007CE0D1.html">Define Relationships</a>.</p>
+</li>
+<li><p>Version: Specify the <samp class="codeph">fieldtype="version</samp>”
+to indicate that the column contains versioned data. For details,
+see <a href="WSAF6E3E3F-41D4-47f1-A01D-DAD8376E2DC4.html">Version</a>.</p>
+</li>
+<li><p>Timestamp: Specify the <samp class="codeph">fieldtype="timestamp"</samp> to
+indicate the column contains data with timestamp. For details, see <a href="WS118E114D-E044-4a1f-A51F-AE48EB49B007.html">Time stamp</a>.</p>
+</li>
+<li><p>Collection: Specify the <samp class="codeph">fieldtype="collection"</samp> to
+define the collection mapping. For details, see <a href="WS970C26D2-7B16-4294-B669-87E48FE9B2BB.html">Collection Mapping</a></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e54961 "><p><samp class="codeph">name</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e54964 "><p>required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e54967 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e54970 "><p>Specifies the name of the property.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e54961 "><p><samp class="codeph">type</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e54964 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e54967 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e54970 "><p>Specifies the ColdFusion data type for the
+property.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e54961 "><p><samp class="codeph">persistent</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e54964 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e54967 "><p>true</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e54970 "><p>Specifies whether this property should be
+persisted. If <samp class="codeph">persistent="false</samp>” all the ORM related
+attributes are ignored.</p>
+<p>Set this attribute to false if you
+do not want this property to be persisted by ORM. For example:</p>
+<div class="para"><pre>&lt;cfcomponent persistent=true&gt; 
+&#160;&#160;&#160;&#160;&#160;&lt;cfproperty name="a"&gt; 
+&#160;&#160;&#160;&#160;&#160;&lt;cfproperty name="b" persistent="true"&gt; 
+&#160;&#160;&#160;&#160;&#160;&#160;&lt;cfproperty name="c" persistent="false"&gt; 
+&lt;/cfcomponent&gt;</pre>
+</div>
+<p>When an object of this CFC
+is persisted, the properties a and b would be persisted in the database
+but the property c would not be persisted.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e54961 "><p><samp class="codeph">remotingFetch</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e54964 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e54967 "><p>true</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e54970 "><p>If <samp class="codeph">remotingFetch</samp> is <samp class="codeph">false</samp>,
+then the value of that attribute is not sent over flash remoting.
+The attribute is true by default for all properties. However, for
+ORM CFCs where persistent = true, the value of the <samp class="codeph">remotingFetch</samp> attribute
+is set to false, by default, for one-to-one, one-to-many, many-to-one,
+or many-to-many relationships.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="WS11EDA280-EC7A-4144-83A6-8E3695127954" class="nochunk"><a name="WS11EDA280-EC7A-4144-83A6-8E3695127954"><!-- --></a><h2 class="topictitle2">Primary key</h2><div><ul class="navlinklist"></ul>
+</div><div id="WS6DA8F2C5-9F45-437f-90CE-4FFF507EA7CA" class="nochunk"><a name="WS6DA8F2C5-9F45-437f-90CE-4FFF507EA7CA"><!-- --></a><h3 class="topictitle3">Simple primary key</h3><div><p>In a relational database, a primary key is defined as a
+key that uniquely identifies a row in a table. Typically, a table
+has one primary key that represents a single column of information
+in the table.</p>
+<p>To indicate that a <samp class="codeph">cfproperty</samp> maps to a primary
+key in the table, set the attribute <samp class="codeph">fieldtype="id"</samp>.</p>
+<div class="section"><h4 class="sectiontitle">Syntax</h4><pre>&lt;cfproperty 
+    name="property_name" 
+    fieldType="id" 
+    ormtype="type" 
+    column="column_name" 
+    generator="increment|identity 
+    |sequence|sequence-identity|seqhilo 
+    |uuid|guid|native|[assigned]|select|foreign" 
+    params="{key1=val1,key2=val2...}" 
+    sqltype="sql_type" 
+    length="column_length" 
+    unsavedvalue="instantiated_instance"&gt;</pre>
+</div>
+<div class="section"><h4 class="sectiontitle">Example</h4><p>An example to define an assigned
+primary key:</p>
+<pre>&lt;cfproperty name="artistid" fieldtype="id" column="ARTISTID" generator="assigned"&gt;</pre>
+<p>An
+example to define a auto-generated primary key using increment generator:</p>
+<pre>&lt;cfproperty name="artid" fieldtype="id" column="ARTID" generator="increment"&gt;</pre>
+<p>An
+example to define a auto-generated primary key using a generator,
+which requires additional parameters:</p>
+<pre>&lt;cfproperty name="id" fieldtype="id" column="ID" generator="sequence" params="{sequence='id_sequence'}&gt;</pre>
+</div>
+<div class="section"><h4 class="sectiontitle">Attributes</h4>
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e55199"><p>Attribute</p>
+</th>
+<th valign="top" width="NaN%" id="d17e55202"><p>Req/Opt</p>
+</th>
+<th valign="top" width="NaN%" id="d17e55205"><p>Default</p>
+</th>
+<th valign="top" width="NaN%" id="d17e55208"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e55199 "><p><samp class="codeph">column</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55202 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55205 "><p>The value of the name attribute</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55208 "><p>Used to specify the primary key column name. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55199 "><p><samp class="codeph">fieldType</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55202 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55205 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e55208 "><p>Should be "id" for primary key. If <samp class="codeph">fieldtype</samp> is
+not specified and the <samp class="codeph">useDBForMapping=true</samp>, then
+the <samp class="codeph">fieldtype</samp> is determined by inspecting the database. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55199 "><p><samp class="codeph">generator</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55202 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55205 "><p>assigned</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55208 "><p>Algorithm used to generate unique identifiers
+for instances of the persistent CFC. See <a href="WSA1F7CC44-F5A0-419c-B988-EC230EFF192E.html">Generators</a> for details.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55199 "><p><samp class="codeph">length</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55202 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55205 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e55208 "><p>Use this attribute to specify the length
+of the column. This attribute is used for table creation only.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55199 "><p><samp class="codeph">name</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55202 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55205 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e55208 "><p>Name of the property</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55199 "><p><samp class="codeph">ormtype</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55202 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55205 "><p>String</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55208 "><p>Used to specify the data type of the primary
+key. If data type is not set and the ORM setting <samp class="codeph">useDBForMapping=true</samp>,
+then the <samp class="codeph">ormtype</samp> is determined by inspecting the
+database. </p>
+<p>The different data types that are supported by
+ColdFusion are specified in the <a href="WS96547CBD-E218-4a3a-94C5-35081A7C8B61.html">ORM data types</a>.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55199 "><p><samp class="codeph">params</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55202 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e55205 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e55208 "><p>Additional parameters required by the various
+generators to generate the ID.</p>
+<p>The value for the <samp class="codeph">params</samp> attribute
+should follow the CF Struct syntax. For example: <samp class="codeph">params = {key1='value1', key2='value2'}</samp></p>
+<p>See <a href="WSA1F7CC44-F5A0-419c-B988-EC230EFF192E.html">Generators</a> for details.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55199 "><div class="para"><pre>selectkey</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e55202 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55205 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e55208 "><p>The column name that is used to retrieve
+the primary key generated by a database trigger.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55199 "><p><samp class="codeph">sqltype</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55202 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55205 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e55208 "><p>Use this attribute to specify the DB-specific
+SQLType that should be used for the column. This attribute is used
+for table creation only. </p>
+<p>If this attribute is not specified,
+ColdFusion will automatically decide the SQLType based on the <samp class="codeph">ormtype</samp> specified for
+this property.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55199 "><p><samp class="codeph">unSavedValue</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55202 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55205 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e55208 "><p>An identifier property value that indicates
+that an instance is newly instantiated and not saved/loaded in the
+database</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div><div id="WSA5F3AC2F-FEE5-4d8a-BF32-B5F3BBD7E060" class="nochunk"><a name="WSA5F3AC2F-FEE5-4d8a-BF32-B5F3BBD7E060"><!-- --></a><h3 class="topictitle3">Composite Key</h3><div><p>If the primary key consists of more than one column, it
+is called as a composite key. A composite key can be specified by
+using <samp class="codeph">fieldtype='id</samp>' on all the properties that
+form the primary key.</p>
+<p><strong>Example</strong></p>
+<p>If in a table, the columns Order_id and Product_id form a composite
+key, then, they should be defined as:</p>
+<pre>&lt;cfproperty name="Order_Id" fieldtype="id" column="Order_Id"&gt; 
+&lt;cfproperty name="Product_Id" fieldtype="id" column="Product_Id"&gt;</pre>
+<p>For a composite key, the generator should always be "<samp class="codeph">assigned</samp>".</p>
+</div></div></div>
+<div id="WSA1F7CC44-F5A0-419c-B988-EC230EFF192E" class="nochunk"><a name="WSA1F7CC44-F5A0-419c-B988-EC230EFF192E"><!-- --></a><h2 class="topictitle2">Generators</h2><div><p>Generators are algorithms that are used to generate unique
+identifiers for instances of the persistent CFC. Generators can
+have any one of the following values:</p>
+<ul><li><p><samp class="codeph">increment</samp>: This algorithm generates
+identifiers of type <samp class="codeph">long</samp>, <samp class="codeph">short</samp>,
+or <samp class="codeph">int</samp> by incrementing a counter maintained by
+ORM. This is commonly used when auto-generation for the primary
+key is not enabled in the table and you want ORM to generate the
+primary key. This should be used when a single instance of ColdFusion
+is the only process to insert data into the table.</p>
+</li>
+<li><p><samp class="codeph">identity</samp>: For databases such as DB2, MySQL,
+Sybase, and MS SQL, which support identity columns, you can use
+identity key generation. The key is automatically generated by the
+database and the object is populated with the generated key. This
+strategy requires ORM to execute two SQL queries to insert a new
+object.</p>
+</li>
+<li><p><samp class="codeph">sequence</samp>: For databases such as DB2, Oracle,
+PostgreSQL, Interbase, McKoi, and SAP, which support sequences,
+you can use sequence style key generation. The key is automatically
+generated by the database and the object is populated with the generated
+key. This strategy requires ORM to execute two SQL queries to insert
+a new object. This generator includes the sequence parameter, which
+needs to be specified in the <samp class="codeph">params</samp> attribute.</p>
+<p>For
+example:</p>
+<pre>&lt;cfproperty name="id" fieldtype="id" generator="sequence" params="{sequence='id_sequence'}"&gt;</pre>
+</li>
+<li><p><samp class="codeph">native</samp>: This algorithm is commonly used
+to automatically generate primary keys. This generator picks identity
+or sequence depending upon the capabilities of the underlying database.</p>
+</li>
+<li><p><samp class="codeph">assigned</samp>: This algorithm is used when the
+application needs to assign its own identifier to the object. It
+is the default generator used by ColdFusion. </p>
+</li>
+<li><p><samp class="codeph">foreign</samp>: This is used with a <samp class="codeph">&lt;one-to-one&gt;</samp> primary
+key association. In this case, the primary key is the same as the
+primary key of the associated object. This generator would need
+the property parameter, which needs to be specified in the <samp class="codeph">params</samp> attribute.
+The value of the <samp class="codeph">param</samp> property should be the name
+of the relationship property. </p>
+<p>See <a href="WS606584AD-43B2-48c1-B9E6-69A670694BBB.html">One-to-one relationships</a> for details.</p>
+</li>
+<li><p><samp class="codeph">seqhilo</samp>: See <a href="http://www.hibernate.org/5.html" target="_self">www.hibernate.org/5.html</a>.</p>
+</li>
+<li><p><samp class="codeph">uuid</samp>: See <a href="http://www.hibernate.org/5.html" target="_self">www.hibernate.org/5.html</a>.</p>
+</li>
+<li><p><samp class="codeph">guid</samp>: See <a href="http://www.hibernate.org/5.html" target="_self">www.hibernate.org/5.html</a>.</p>
+</li>
+<li><p><samp class="codeph">select</samp>: See <a href="http://www.hibernate.org/5.html" target="_self">www.hibernate.org/5.html</a>.</p>
+</li>
+<li><p><samp class="codeph">sequence-identity</samp>: See <a href="http://www.hibernate.org/5.html" target="_self">www.hibernate.org/5.html</a>.</p>
+</li>
+</ul>
+</div></div>
+<div id="WS4D5B9BFB-AC2A-49c9-865C-7B8AD68C2FCA" class="nochunk"><a name="WS4D5B9BFB-AC2A-49c9-865C-7B8AD68C2FCA"><!-- --></a><h2 class="topictitle2">Column</h2><div><p>To indicate that a <samp class="codeph">cfproperty</samp> maps to
+a column in the table, specify <samp class="codeph">fieldtype="column"</samp>.
+If the <samp class="codeph">fieldtype</samp> is not specified for <samp class="codeph">cfproperty</samp>, it
+is mapped as a column property.</p>
+<div class="section"><h4 class="sectiontitle">Syntax</h4><pre>&lt;cfproperty 
+    name="Property name" 
+    fieldtype="column" 
+    column="column_name" 
+    persistent="true|false" 
+    formula="SQL expression" 
+    ormtype="ormtype" 
+    update="[true]|false" 
+    insert="[true]|false" 
+    optimisticLock="[true]|false" 
+    generated="true|[false]" 
+    length="column_length" 
+    precision="precision" 
+    scale="scale" 
+    index="index_name" 
+    unique = "true|[false]" 
+    uniquekey="uniquekey_name" 
+    notnull="true|[false]" 
+    dbdefault="default_col_value" 
+    sqltype="sql_type"&gt;</pre>
+</div>
+<div class="section"><h4 class="sectiontitle">Example</h4><div class="para">To specify a simple property:<pre>&lt;cfproperty name="FIRSTNAME"/&gt; </pre>
+</div>
+<div class="para">To
+specify a property which has a different name than that of the column
+name:<pre>&lt;cfproperty name="LNAME" column="LASTNAME"/&gt;</pre>
+</div>
+<div class="para">To
+specify a property which should be read-only:<pre>&lt;cfproperty name="password" column="THEPASSWORD" insert="false" update="false"&gt;</pre>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle">Attributes</h4><div class="para">
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e55560"><p>Attribute</p>
+</th>
+<th valign="top" width="NaN%" id="d17e55563"><p>Req/Opt</p>
+</th>
+<th valign="top" width="NaN%" id="d17e55566"><p>Default</p>
+</th>
+<th valign="top" width="NaN%" id="d17e55569"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e55560 "><p><samp class="codeph">column</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55563 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55566 "><p>Name of the property</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55569 "><p>Name of the column.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55560 "><p><samp class="codeph">dbdefault</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55563 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e55566 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e55569 "><p>This sets the default value of a column
+in the table when schema is exported.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55560 "><p><samp class="codeph">fieldType</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55563 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55566 "><p>column</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55569 "><p>Should be “column” for column property.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55560 "><p><samp class="codeph">formula</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55563 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55566 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e55569 "><p>SQL expression that defines the value of
+the property. If you specify a formula, the column value is ignored. </p>
+<p>See <a href="WS8ba1c04430abc2a4-2ca6516312232cb34f8-8000.html">Computed property</a>.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55560 "><p><samp class="codeph">generated</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55563 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55566 "><p>never</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55569 "><p>Specifies that this property value is actually
+generated by the<samp class="codeph"> database {never|always|insert}</samp></p>
+<div class="para"><ul><li><p><samp class="codeph">never</samp>: Specifies that the value for this
+property is never generated by database</p>
+</li>
+<li><p><samp class="codeph">always</samp>: Specifies that the value for this
+property is always generated by database</p>
+</li>
+<li><p><samp class="codeph">insert</samp>: Specifies that the value for this
+property is generated at the time of insert but is not regenerated
+at updates.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55560 "><p><samp class="codeph">insert</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55563 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55566 "><p>true</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55569 "><p>Specifies whether the column should be included
+in SQL UPDATE and/or INSERT statements:</p>
+<p>{true/false}</p>
+<p>Set <samp class="codeph">update=false</samp> and <samp class="codeph">insert=false</samp> if
+the column needs to be read-only.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55560 "><p><samp class="codeph">name</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55563 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55566 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e55569 "><p>Name of the property. If this attribute
+is not specified, the name of the property is used as the column
+name.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55560 "><p><samp class="codeph">optimisticlock</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55563 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55566 "><p>true</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55569 "><p>Whether updates to this property require
+acquisition of the optimistic lock on the table row:</p>
+<p>{true/false}</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55560 "><p><samp class="codeph">ormtype</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55563 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55566 "><p>string</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55569 "><p>Specifies the data type.</p>
+<p>If specified,
+then</p>
+<div class="para"><ul><li><p>If ORM setting <samp class="codeph">useDBForMapping</samp> is
+set to <samp class="codeph">true</samp> and the table exists, then <samp class="codeph">ormtype</samp> is
+obtained by inspecting the table</p>
+</li>
+<li><p>(Otherewise) Type, if specified, is used as <samp class="codeph">ormtype</samp></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55560 "><p><samp class="codeph">update</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55563 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55566 "><p>true</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55569 "><p>Specifies whether the column should be included
+in SQL update statement: </p>
+<p>{true/false}</p>
+<p>Set <samp class="codeph">update=false</samp> and <samp class="codeph">insert=false</samp> if
+the column needs to be read-only.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle">DDL-only attributes</h4><p>The following attributes
+are used only when DDL generation is required and not used for runtime.</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e55785"><p>Attribute</p>
+</th>
+<th valign="top" width="NaN%" id="d17e55788"><p>Req/Opt</p>
+</th>
+<th valign="top" width="NaN%" id="d17e55791"><p>Default</p>
+</th>
+<th valign="top" width="NaN%" id="d17e55794"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e55785 "><p><samp class="codeph">dbdefault</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55788 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55791 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e55794 "><p>Specifies the default value of the column
+in the table.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55785 "><p><samp class="codeph">index</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55788 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55791 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e55794 "><p>Specifies the name of an index that is created
+using the mapped column.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55785 "><p><samp class="codeph">length</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55788 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55791 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e55794 "><p>Specifies the length value.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55785 "><p><samp class="codeph">notnull</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55788 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55791 "><p>false</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55794 "><p>A Boolean value that specifies whether a
+notnull constraint should be added for this column.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55785 "><p><samp class="codeph">precision</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55788 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55791 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e55794 "><p>Specifies the precision value.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55785 "><p><samp class="codeph">scale</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55788 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55791 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e55794 "><p>Specifies the scale value.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55785 "><p><samp class="codeph">sqltype</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55788 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55791 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e55794 "><p>This allows user to override the default
+mapping of <samp class="codeph">ormtype</samp> to SQL datatype. <samp class="codeph">sqltype</samp> is
+used as the DB specific SQL type for a column when creating the
+table. If this attribute is not specified, ColdFusion will automatically
+decide the <samp class="codeph">sqltype</samp> based on the <samp class="codeph">ormtype</samp> specified
+for this property.</p>
+<p>For example:</p>
+<div class="para"><pre>&lt;cfProperty name="active" ormtype="char" sqltype="bit"&gt; 
+&lt;cfProperty name="balance" ormtype="float" sqltype="decimal(13,3)"&gt;</pre>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55785 "><p><samp class="codeph">unique</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55788 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55791 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e55794 "><p>Specifies if there should be a unique constraint
+on the column.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55785 "><p><samp class="codeph">uniquekey</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55788 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55791 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e55794 "><p>Groups columns in a single unique key constraint.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div><div id="WS8ba1c04430abc2a4-2ca6516312232cb34f8-8000" class="nochunk"><a name="WS8ba1c04430abc2a4-2ca6516312232cb34f8-8000"><!-- --></a><h3 class="topictitle3">Computed property</h3><div><div class="para">Computed property is a property whose value does not come
+from a column but is computed using a SQL query. Use formula attribute
+to specify the SQL to be used to retrieve the value for this property.<pre>&lt;cfcomponent persistent="true" table="ARTISTS" schema="APP"&gt; 
+    &lt;cfproperty name="ID" column="ARTISTID" fieldtype="id"/&gt; 
+    &lt;cfproperty name="FIRSTNAME"/&gt; 
+    &lt;cfproperty name="LASTNAME"/&gt; 
+    &lt;cfproperty name="NumberOfArts" formula="select count(*) from Art art where 
+                        art.ArtistID=ArtistID"/&gt; 
+&lt;/cfcomponent&gt;</pre>
+</div>
+</div></div></div>
+<div id="WS8ba1c04430abc2a4a213ba12232add404-8000" class="nochunk"><a name="WS8ba1c04430abc2a4a213ba12232add404-8000"><!-- --></a><h2 class="topictitle2">Versioning</h2><div><p>Versioning is a technique that allows you to implement
+concurrency control fora component. You can specify either <samp class="codeph">version</samp> or <samp class="codeph">timestamp</samp> property
+for a component. </p>
+<p>For details, see <a href="WS2F0C1CDB-4CAF-42fd-B7D9-500D82C0136A.html">Optimistic locking</a>.</p>
+<div class="note"><span class="notetitle">Note:  </span>A component can have only one versioning property, either
+timestamp or version. If you specify multiple versioning properties,
+such as two timestamps, or two versions, or a timestamp and a version,
+an error is thrown. </div>
+</div><div id="WSAF6E3E3F-41D4-47f1-A01D-DAD8376E2DC4" class="nochunk"><a name="WSAF6E3E3F-41D4-47f1-A01D-DAD8376E2DC4"><!-- --></a><h3 class="topictitle3">Version</h3><div><p>Use the version attribute to indicate that the column contains
+versioned data. The version attribute is useful for long transactions.</p>
+<div class="section"><h4 class="sectiontitle">Syntax</h4><pre>&lt;cfproperty 
+name="fieldname" 
+fieldtype="version" 
+column="column name" 
+ormtype="type" 
+generated="true|[false]" 
+insert="[true]|false"&gt;</pre>
+</div>
+<div class="section"><h4 class="sectiontitle">Example</h4><p>To create a simple version property:</p>
+<pre>&lt;cfproperty name="version" fieldtype="version"&gt;</pre>
+</div>
+<div class="section"><h4 class="sectiontitle">Attribute</h4><div class="para">
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e55988"><p>Attribute</p>
+</th>
+<th valign="top" width="NaN%" id="d17e55991"><p>Req/Opt</p>
+</th>
+<th valign="top" width="NaN%" id="d17e55994"><p>Default</p>
+</th>
+<th valign="top" width="NaN%" id="d17e55997"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e55988 "><p><samp class="codeph">column</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55991 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55994 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e55997 "><p>The name of the column that contains versioned
+data</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55988 "><p><samp class="codeph">fieldtype</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55991 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55994 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e55997 "><p>Should be “version” for primary key.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55988 "><p><samp class="codeph">generated</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55991 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55994 "><p>never</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55997 "><p>Specifies if the versioned field is generated
+by the database. The values are <samp class="codeph">"never"</samp> and <samp class="codeph">"always"</samp>.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55988 "><p><samp class="codeph">insert</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55991 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55994 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e55997 "><p>Specifies if the versioned field should
+be included in the SQL INSERT statement.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55988 "><p><samp class="codeph">name</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55991 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55994 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e55997 "><p>Name of the property.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e55988 "><p><samp class="codeph">ormtype</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55991 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55994 "><p><samp class="codeph">int</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e55997 "><p>The data type can be any one of the following:</p>
+<p>integer</p>
+<p>long</p>
+<p>short</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div></div><div id="WS118E114D-E044-4a1f-A51F-AE48EB49B007" class="nochunk"><a name="WS118E114D-E044-4a1f-A51F-AE48EB49B007"><!-- --></a><h3 class="topictitle3">Time stamp</h3><div><p>Use the <samp class="codeph">timestamp</samp> attribute to indicate
+that the column contains time-stamped data. Use the <samp class="codeph">timestamp</samp> attribute
+as an alternative to the <samp class="codeph">version</samp> attribute.</p>
+<div class="section"><h4 class="sectiontitle">Syntax</h4><pre>&lt;cfproperty 
+name="fieldname" 
+fieldtype="timestamp" 
+column="column name" 
+generated="true|[false]" 
+source="[vm]|db"&gt;</pre>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e56120"><p>Attribute</p>
+</th>
+<th valign="top" width="NaN%" id="d17e56123"><p>Req/Opt</p>
+</th>
+<th valign="top" width="NaN%" id="d17e56126"><p>Default</p>
+</th>
+<th valign="top" width="NaN%" id="d17e56129"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e56120 "><p><samp class="codeph">column</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56123 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56126 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e56129 "><p>The name of the column that contains time-stamped data.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56120 "><p><samp class="codeph">fieldtype</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56123 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56126 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e56129 "><p>Specifies the field type.</p>
+<p>Specify
+the field type value as <samp class="codeph">timestamp</samp> for a time-stamped
+field.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56120 "><p><samp class="codeph">generated</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56123 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56126 "><p><samp class="codeph">false</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56129 "><p>Specifies if the timestamp field is generated
+by the database. You can select from the following values:</p>
+<p><samp class="codeph">false</samp></p>
+<p><samp class="codeph">true</samp></p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56120 "><p><samp class="codeph">name</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56123 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56126 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e56129 "><p>Name of the property.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56120 "><p><samp class="codeph">source</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56123 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56126 "><p><samp class="codeph">vm</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56129 "><p>Specifies the source from where the timestamp
+has to be retrieved. You can select from the following values:</p>
+<p><samp class="codeph">db</samp></p>
+<p><samp class="codeph">vm</samp></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div></div>
+<div id="WS96547CBD-E218-4a3a-94C5-35081A7C8B61" class="nochunk"><a name="WS96547CBD-E218-4a3a-94C5-35081A7C8B61"><!-- --></a><h2 class="topictitle2">ORM data types</h2><div><div class="para">You can use any of the following ORM data types for CFCs:<ul><li><p><samp class="codeph">string</samp></p>
+</li>
+<li><p><samp class="codeph">character</samp></p>
+</li>
+<li><p><samp class="codeph">char</samp></p>
+</li>
+<li><p><samp class="codeph">short</samp></p>
+</li>
+<li><p><samp class="codeph">integer</samp></p>
+</li>
+<li><p><samp class="codeph">int</samp></p>
+</li>
+<li><p><samp class="codeph">long</samp></p>
+</li>
+<li><p><samp class="codeph">big_decimal</samp></p>
+</li>
+<li><p><samp class="codeph">float</samp></p>
+</li>
+<li><p><samp class="codeph">double</samp></p>
+</li>
+<li><p><samp class="codeph">Boolean</samp></p>
+</li>
+<li><p><samp class="codeph">yes_no</samp></p>
+</li>
+<li><p><samp class="codeph">true_false</samp></p>
+</li>
+<li><p><samp class="codeph">text</samp></p>
+</li>
+<li><p><samp class="codeph">date</samp></p>
+</li>
+<li><p><samp class="codeph">timestamp</samp></p>
+</li>
+<li><p><samp class="codeph">binary</samp></p>
+</li>
+<li><p><samp class="codeph">serializable</samp></p>
+</li>
+<li><p><samp class="codeph">blob</samp></p>
+</li>
+<li><p><samp class="codeph">clob</samp></p>
+</li>
+</ul>
+</div>
+</div></div>
+<div id="WS52840ce61dea8508-1c0934c21223161db48-8000" class="nochunk"><a name="WS52840ce61dea8508-1c0934c21223161db48-8000"><!-- --></a><h2 class="topictitle2">Escaping SQL keywords in table and column name</h2><div><p>ColdFusion automatically escapes the table name or column
+name if it is an SQL keyword or if there is a space in it. </p>
+<p>The list of SQL keywords are present in <samp class="codeph">&lt;CF_HOME&gt;/lib/sqlkeywords.properties</samp> file.
+This file contains standard ANSI SQL keywords and some database-specific
+keywords. You can modify this file to include any other SQL keyword
+that is missing. In case you are adding SQL keyword for a database
+other than the ones specified in this file, you should also add
+it to the 'ANSI' list so that ColdFusion can use it.</p>
+</div></div>
+
+
+<!-- BEGIN USER PREFERENCES -->
+          <div id="userprefs">
+          </div>
+<!-- END USER PREFERENCES -->
+
+          <div id="related">
+            
+            
+            <div class="separator"><a href="#top"><img src="images/BTT.jpg" /></a>&#160;</div>
+          </div>
+          <div id="footer">
+<!-- BEGIN IONCOMMENTS -->
+            <div id="ionComHere">
+            </div>
+<!-- END IONCOMMENTS -->
+
+
+            <p id="creativecommons"><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" id="creativecommons_text"><img id="creativecommons_img" src="images/CC.png" alt="This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License" /></a>&nbsp;Twitter™ and Facebook posts are not covered under the terms of Creative Commons.</p>
+          </div>
+</td>
+<td width="10px"></td>
+<td id="inner_rightcolumn">
+
+</td></tr></table>
+      </div>
+<!-- BEGIN BREADCRUMBS -->
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WS42099CE5-B3E8-4cc7-AB37-448338C1BFBE.html" title="Map a ColdFusion component"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WS5FFD2854-7F18-43ea-B383-161E007CE0D1.html" title="Define Relationships"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Developing&#160;ColdFusion 9 Applications</b></a> / <a href="WSD628ADC4-A5F7-4079-99E0-FD725BE9B4BD.html"><b>ColdFusion ORM</b></a> 
+      / <a href="WS53C28604-E798-4175-97AE-D7BDF124056C.html"><b>Define ORM mapping</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+<!-- END CONTENT WRAPPER -->
+
+</td>
+<td id="col3">
+    <div>
+        <img src="images/adobe-lq.png" />
+    </div>
+</td>
+</tr>
+</table>
+    </div>
+<!-- END PAGE CONTENT WRAPPER -->
+<script type="text/javascript">
+<!--[CDATA[
+scrollToNameAnchor();
+// ]]-->
+</script> 
+<!--
+    Description:
+    This file generates the link to product support in the top right corner
+-->
+
+<style>
+#menutop{
+    position:absolute;
+    top:4px;
+    right:24px;
+    width:auto;    
+    font-size:11px;
+    color:#fff;
+    text-align:right;
+}
+#menutop a{
+    color:#fff;
+}
+#menutop a:hover{
+        text-decoration:underline;
+}
+</style>  
+  
+  
+  
+  
+<div id="productmenu">
+<!--googleoff: index-->
+  <div id="menutop">
+
+
+<script language=javascript type='text/javascript'>
+    // darken menu text for products with light backgrounds
+    var path = document.location.href.toLowerCase();
+    if (path.indexOf("/acrobat/")           	> 0 ||
+        path.indexOf("/acrobat.com/")       	> 0 ||
+        path.indexOf("/acrobatConnectPro/") 	> 0 ||
+        path.indexOf("/connect/")           	> 0 ||
+        path.indexOf("/livecycledataserviceses/") > 0 ||
+        path.indexOf("/muse/")         	> 0 ||
+	path.indexOf("/presenter/")         	> 0 ||
+        path.indexOf("/scene7/")            	> 0 ||
+        path.indexOf("/flashmediaserver/")  	> 0 ||
+        path.indexOf("/wave/")              	> 0 )
+    {
+        document.write('<style>#menutop a{color:#505050}</style>');
+    }
+    if (typeof('terms_AHV_PRODUCT_SUPPORT') != "undefined" && ! use_robohelp_behavior ){      
+        if (path.indexOf("/muse/") > -1 ){
+            var supportlink = '<a href="http://muse.adobe.com/support.html">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }else{
+            var supportlink = '<a href="http://adobe.com/support">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }
+        document.write( supportlink );
+     }
+
+</script> 
+
+  </div>
+<!--googleon: index-->
+</div>
+
+
+
+<style>
+#online-privacy-policy{ 
+    margin:10px 40px; 
+    font-size:11px;
+}
+</style>
+
+<p id="online-privacy-policy">
+<script language="javascript">
+var pageLoc = "en_US";
+var metaElements = document.all ?
+document.all.tags('meta') :
+document.getElementsByTagName ?
+document.getElementsByTagName ('meta') : new Array();
+for (var m = 0; m < metaElements.length; m++) {
+	if (metaElements[m].name == "lang") {
+		pageLoc = metaElements[m].content;
+		break;
+	}
+}
+var ptn = /(..)-(..)/;
+if (ptn.test(pageLoc)) {
+	var languageCode = pageLoc.replace(ptn, "$1");
+	var countryCode = pageLoc.replace(ptn, "$2");
+	pageLoc = languageCode + "_" + countryCode.toUpperCase();
+}
+
+var policyLoc = "en_US";
+var policyText = "Online Privacy Policy";
+var policyPath = "";
+var policyArray=[
+"da_DK", "Online fortrolighedserklæring",
+"de_DE", "Online-Datenschutzrichtlinie",
+"es_ES", "Política de confidencialidad en línea",
+"fi_FI", "Yksityisyyttä koskeva Online-toimintaohjelma",
+"fr_FR", "Confidentialité et sécurité",
+"it_IT", "Informativa sulla privacy online",
+"ja_JP", "プライバシーポリシー",
+"ko_KR", "Adobe 온라인 개인정보 보호정책",
+"pt_BR", "Política de Confidencialidade On-line", 
+"zh_CN", "在线隐私政策",
+"zh_TW", "線上隱私政策"
+];
+var legalLoc = "en_US";
+var legalText = "Legal Notices";
+var legalPath = legalLoc;
+var legalArray=[
+"ar_AE", "إشعارات قانونية",
+"bg_BG", "Юридически бележки",
+"cs_CZ", "Právní upozornění",
+"da_DK", "Juridiske meddelelser",
+"de_DE", "Rechtliche Hinweise",
+"el_GR", "Σημειώσεις νομικού περιεχομένου",
+"es_ES", "Avisos legales",
+"et_EE", "Juriidilised teated",
+"fi_FI", "Lakisääteiset ilmoitukset",
+"fr_FR", "Mentions légales",
+"he_IL", "הצהרות משפטיות",
+"hr_HR", "Pravne napomene",
+"hu_HU", "Jogi közlemények",
+"it_IT", "Informazioni legali",
+"ja_JP", "法律上の注意",
+"ko_KR", "법적 고지 사항",
+"lt_LT", "Teisinės pastabos",
+"lv_LV", "Juridisks paziņojums",
+"nb_NO", "Juridiske merknader",
+"nl_NL", "Juridische kennisgevingen",
+"pl_PL", "Informacje prawne",
+"pt_BR", "Aspectos jurídicos",
+"ro_RO", "Prevederi legale",
+"ru_RU", "Юридическая информация",
+"sk_SK", "Právne upozornenie",
+"sl_SI", "Pravni pouk",
+"sv_SE", "Upphovsrätt",
+"tr_TR", "Yasal uyarılar",
+"uk_UA", "Юридична інформація",
+"zh_CN", "法律声明",
+"zh_TW", "法律注意事項"
+];
+
+ruPolicy = "http://www.adobe.com/ru/misc/privacy.html";
+trPolicy = "http://www.adobe.com/tr/misc/privacy.html";
+
+// Bug 2846992: LOC: RUS, TUR: The link to "Online Privacy Policy" should include language, currently it is not appearing.
+if (pageLoc == "ru_RU") {
+	policyPath = "ru";
+}
+else if (pageLoc == "tr_TR") {
+	policyPath = "tr";
+}
+for (var i = 0; i < policyArray.length; i+=2) {
+	if (pageLoc == policyArray[i]) {
+		policyLoc = pageLoc;
+		policyText = policyArray[i+1];
+		var ptn = /(..)_(..)/;
+		if (ptn.test(policyLoc)) {
+			var countryCode = policyLoc.replace(ptn, "$2");
+			policyPath = countryCode.toLowerCase();
+		}
+		break;
+	}
+}
+
+for (var i = 0; i < legalArray.length; i+=2) {
+	if (pageLoc == legalArray[i]) {
+		legalLoc = pageLoc;
+		legalText = legalArray[i+1];
+		legalPath = legalLoc;
+		break;
+	}
+}
+if(agt.indexOf("community help client") > -1 ){
+	document.write('<a href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+}else{
+	//Open the privacy policy in a new window
+	document.write('<a target="_blank" href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a target="_blank" href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+} 
+</script>
+</p>
+
+
+
+<!-- localfooter.ssi -->
+
+<script type="text/javascript">
+    var debug = (top.location.href.indexOf("debug=true") > -1);
+</script>
+
+<script language="javascript">
+document.write('<scr'+'ipt ' +
+               'src="/en_US/ssi/_pod.js" ' +
+               'language="javascript" ' +
+               'charset="UTF-8"> ' +
+               '</scr'+'ipt>');
+</script>
+
+
+<script type="text/javascript">
+//
+//  Ethnio survey code
+//
+/*          DocumentID      EthnioID */
+/*          -------------   -------- */
+var ethnio=["/en_US/flash/cs/using/WSb03e830bd6f770ee6664507612436d7dede-8000.html", "87462",
+            "/en_US/creativesuite/cs/using/WSe851854fd1e0856a-4b08a77612477f69f15-8000.html",  "10441",
+            "/en_US/dreamweaver/cs/using/WSEE4C0148-A6F4-4bf5-9DEF-CE06AB026214a.html",  "57412"
+ 
+    ];
+                        
+    for ( var i = 0; i < ethnio.length ; i = i+2 ){
+        if ( document.location.href.indexOf( ethnio[i] ) > -1 ){ 
+            var headID = document.getElementsByTagName("head")[0];         
+            var ethnioScript = document.createElement('script');
+            ethnioScript.type = 'text/javascript';
+            ethnioScript.src = 'http://ethn.io/remotes/' + ethnio[i+1];        
+            if ( debug ){
+                alert ("Using Ethnio script: " + ethnioScript.src );
+            }else{
+                headID.appendChild(ethnioScript);
+            }
+        }
+    }
+</script>
+
+
+
+<div style="display: none;">
+<!-- SiteCatalyst -->
+<script language="JavaScript" type="text/javascript"><!--
+var s_code=' ';
+var s_docHost = window.location.hostname.toLowerCase();
+var s_docURL = window.location.pathname.toLowerCase();
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+if (s_docHost.indexOf(".corp.adobe") != -1 || s_docHost.indexOf("stage.") != -1 || s_docHost.indexOf(".dev.adobe") != -1 || s_docHost.indexOf("staging.") != -1) scJsHost="";
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/omniture_s_code.js' type='text/javascript'%3E%3C/script%3E"));
+//--></script>
+<script type="text/javascript"><!--
+var s_accountName;
+s_server="www.adobe.com static content pages";
+if (!window.s_account) s_accountName="mxmacromedia";
+else s_accountName=window.s_account;
+
+if (window.s_docURL.indexOf("/designcenter/") != -1)
+  s_channel="Adobe Design Center";	
+else if ((window.s_docHost.indexOf("labs.adobe") != -1) ||
+(window.s_docHost.indexOf("labs-staging.") != -1))
+  s_channel="Labs";
+else if (window.s_docHost.indexOf("help.adobe.com") != -1) {
+  s_channel="Support Help.adobe.com";
+  if (window.s_docURL.indexOf("/en_us/") == -1) {
+    s_docURLArray=s_docURL.split('/');
+    s_pageName="http://help.adobe.com/"+s_docURLArray[1]+"/"+ s_docURLArray[2]+"/"+s_docURLArray[3];
+    s_prop23="http://help.adobe.com"+window.location.pathname;
+  }
+}
+else if (window.s_docHost.indexOf("kb2.adobe.com") != -1) {
+  s_channel="Support Knowledgebase";
+  s_prop23="http://kb2.adobe.com"+s_docURL+":";
+  if (typeof(omtrProductList) != 'undefined' && omtrProductList.length > 0)
+ {
+    s_prop23=s_prop23+omtrProductList;
+  }
+}
+else if (window.s_docHost.indexOf("resellers.adobe.com") != -1) {
+		var s_pageName=document.getElementsByTagName("title")[0].text;
+}
+
+if (!window.scMMInclude) {
+	var s_wd=window,s_tm=new Date;
+	if(s_code!=' '){
+		s_code=s_dc(s_accountName);
+		if(s_code)document.write(s_code)
+	} 
+} else {
+	s_wds(s_accountName);s_ca(s_accountName); 
+}	
+
+function sendAnalyticsEvent(str){var ns=s_accountName;if(str!=null)ns+=","+str;void(s_gs(ns));}
+function sendLinkEvent(accnt,lnkname,type){
+accnt=s_accountName;s_linkType=type;s_lnk=true;s_linkName=lnkname;void(s_gs(accnt));}
+//--></script>
+<noscript><img src="http://stats.adobe.com/b/ss/mxmacromedia/1/H.15-XELvs/0?pageName=http%3A//www.adobe.com%3A%20noscript&ch=http%3A//www.adobe.com%3A%20noscript&g=http%3A//www.adobe.com" height="1" width="1" border="0" alt="" /></noscript>
+<!-- End SiteCatalyst -->
+</div>
+
+<script language="JavaScript" type="text/javascript">//<![CDATA[
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/atm/s_code_www.js' type='text/javascript'%3E%3C/script%3E"));
+//]]></script>
+<script type="text/javascript">//<![CDATA[
+if(s_adobe){	
+	s_adobe.server="www.adobe.com Static Content pages";
+	/* Set pageName */
+	s_adobe.s_URL="adobe.com"+((location.pathname.charAt(0)=='/')?location.pathname:'/'+location.pathname);
+	if (s_adobe.s_URL.substring(s_adobe.s_URL.lastIndexOf('/')+1)=="") s_adobe.s_URL=s_adobe.s_URL+"index.html";
+	s_adobe.s_URLSplit=s_adobe.s_URL.split("/");
+	s_adobe.pageName=s_adobe.s_URLSplit.join(":");
+
+	/* Set prop4 to language-locale */
+	var s_meta=document.getElementsByTagName('meta'); 
+      for (i=0; i<s_meta.length; i++) { 
+        if (s_meta[i].getAttribute("http-equiv") == "Content-Language") { 
+          s_adobe.prop4=s_meta[i].getAttribute("content"); 
+	    s_adobe.prop4=s_adobe.prop4.replace(/\s+/g,'');
+        } 
+      } 
+	s_adobe.t()
+}
+//]]></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

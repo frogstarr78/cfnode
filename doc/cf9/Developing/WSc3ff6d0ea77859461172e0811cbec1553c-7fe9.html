@@ -1,0 +1,1314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0022)http://help.adobe.com/ -->
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="lang" content="en-us" />
+    <meta name="area" content="livedocs" />
+    <title>Adobe&#160;ColdFusion&#160;9 * Using cffile</title>
+    <link rel="shortcut icon" href="images/ColdFusionLinkIndicator.png" />
+    <meta name="book" content="Developing&#160;ColdFusion 9 Applications" />
+    <meta name="product" content="ColdFusion" />
+    <meta name="keywords" content="" /><!--<PageMap><DataObject type="document"><Attribute name="product" value="ColdFusion"></Attribute><Attribute name="book" value="Developing&#160;ColdFusion 9 Applications"></Attribute><Attribute name="keywords" value=""></Attribute></DataObject></PageMap>-->
+    
+    <script type="text/javascript" language="Javascript" charset="UTF-8"><!--[CDATA[
+        var currentTreeNode = "WSc3ff6d0ea77859461172e0811cbec1553c-7fe9.html";
+    document.cookie = "topicId=" + "WSc3ff6d0ea77859461172e0811cbec1553c-7fe9.html";
+// ]]--></script>
+<script src="terms.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="help.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script>  <script src="utilities.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="event.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="treeview.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="toc.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script> <script src="swfobject.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>  <script src="booklist.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>
+<script type="text/javascript">
+<!--[CDATA[
+var topictype = "topic";
+var headId = document.getElementsByTagName("head")[0];         
+if (use_ie_6_behavior) {
+  var linkId = document.createElement("link");
+  linkId.href = "content-ie6.css";
+  linkId.rel = "stylesheet";
+  linkId.type = "text/css";
+  headId.appendChild(linkId);
+}
+function initRoboHelpDOM() {
+  if (use_chm_behavior) {
+    hideElement("search");
+  }
+  if (use_robohelp_behavior) {
+    hideElement("search");
+    hideElement("productmenu");
+    //hideElement("notyourversion");
+  }
+  if(!use_chc_behavior) {
+    //document.getElementById("notyourversion").style.display = "inline";;
+  }
+}
+var dirname = location.pathname.match( /.*\// );    
+function setSearchUserPref(){
+  if ( document.cookie.indexOf( "ah_searchpref" ) > -1 ) {
+    if ( document.cookie.indexOf( dirname ) > 0 ) {
+      document.search.gsa.checked = true ;
+    }else{
+      document.search.gsa.checked = false ;            
+    }
+  }
+}
+YAHOO.util.Event.onDOMReady(initRoboHelpDOM);
+YAHOO.util.Event.onDOMReady(setSearchUserPref);
+// ]]-->
+</script>
+
+<!-- ********************************** -->
+<!-- START: ForeSee survey code in: /ssi/globalheader.ssi -->
+
+<script type="text/javascript">
+<!-- 
+// Enable the survey for only English, German and Japanese
+var agt=navigator.userAgent.toLowerCase();
+if ( agt.indexOf("community help client") == -1 ){
+    if ( document.location.href.indexOf("/en_US/") != -1 ){
+        showSurvey();
+//    }else if (document.location.href.indexOf("/de_DE/") != -1){
+//         var locale="de";
+//         showSurvey();
+    }else if (document.location.href.indexOf("/ja_JP/") != -1 ){
+         var locale="ja";
+         showSurvey();
+    }	
+}
+
+function showSurvey(){
+	document.write('<script type="text/javascript" src="/js/foresee/foresee-trigger.js"><\/scr'+'ipt>');
+}
+
+// -->
+</script>
+
+<!-- END: ForeSee survey code -->
+<!-- ******************************** -->
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="tree.css" />
+    <link rel="stylesheet" type="text/css" href="content.css" />
+    <link rel="stylesheet" type="text/css" href="localeSpecific.css" />
+  </head>
+  <body id="content_body" onload="window.focus();">
+    <a name="top" shape="rect"><!--LeaveCommentHere--></a>
+    
+    <div id="mnemonic">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon" class="ColdFusion"><div class="banner"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html">Adobe&#160;ColdFusion&#160;9</a><span id="notyourversion">|&#160;
+                    <a rel="nofollow" href="http://www.adobe.com/support/documentation/en/coldfusion/">Not your version?</a></span></div></div><!--googleon: index-->
+    </div>
+    
+    <div id="searchbar">
+<table id="searchbartable">
+<tr>
+<td colspan="2">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon"><div id="pdf"><img src="images/PDF.gif" width="16" height="16" /><a title="View Help PDF" href="coldfusion_9_dev.pdf">View Help PDF ( 23MB)</a></div></div><!--googleon: index-->
+</td>
+</tr>
+</table>
+    </div>
+
+<!-- BEGIN SEARCH CONTENT -->
+<form id="search" name="search" action="search.html" target="_self">
+<script type="text/javascript">
+<!--[CDATA[
+if ( !use_chc_behavior ){
+    if (typeof(terms_AHV_SEARCH_CONSTRAINT) != "undefined" && 
+        terms_AHV_SEARCH_CONSTRAINT.length > 0 && 
+        document.location.href.indexOf(".adobe.com") > 0){
+        if ( typeof(terms_SEARCH_THIS_HELP_ONLY) != "undefined" && terms_SEARCH_THIS_HELP_ONLY == "ON" ) {
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                checked="checked" \
+                value="1" ><\/input>'); 
+                
+        // Leave the "Search this help system only" checkbox unckecked
+        }else{    
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                value="1" ><\/input>'); 
+        }
+        document.write('<span class="gsalabel">' + terms_AHV_SEARCH_CONSTRAINT + '<\/span><\/div>'); 
+    }
+    document.write('<input class="searchinput" \
+        name="q" \
+        id="q" \
+        type="text" \
+        maxlength="256" \
+        value="' + terms_AHV_SEARCH_BUTTON + '" \
+        onclick="clearSearch()"><\/input><input \
+        type="button" \
+        name="searchbutton" \
+        class="searchbutton" \
+        onclick="submit()"><\/input>'); 
+} 
+ 
+/* 
+ * Start Functions 
+ */
+function clearSearch(){
+    if (document.search.q.value == terms_AHV_SEARCH_BUTTON){document.search.q.value = ""}; 
+}
+
+// set search preferences
+function setAHSearchPref(){
+    if (document.search.gsa.checked == 1){
+        setAHSearchCookie( dirname );
+    }else{
+        setAHSearchCookie( "community" );
+    }
+}
+
+// Set search preferences cookie
+function setAHSearchCookie( p ){
+    // set cookie ah_searchpref with a value of the document path
+    var expire=new Date();
+    expire.setDate(expire.getDate()+365); // Cookie expires after 1 year (365 days) 
+    document.cookie="ah_searchpref=" +p+ "; expires=" +expire.toGMTString()+ ";";
+}
+
+// ]]-->
+</script> 
+ </form>
+<!-- END SEARCH CONTENT -->    
+
+
+
+<!-- BEGIN PAGE CONTENT WRAPPER -->
+    <div id="page_content_wrapper">
+<!-- BEGIN PAGE WRAPPER -->
+<table id="page_content_table">
+<tr>
+
+<td id="col2">
+<!-- BEGIN CONTENT WRAPPER -->
+<!-- BEGIN BREADCRUMBS -->
+
+      
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec1553c-7fea.html" title="About file management"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec1553c-7fed.html" title="Using cfdirectory"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Developing&#160;ColdFusion 9 Applications</b></a> / <a href="WSc3ff6d0ea77859461172e0811cdd865267-8000.html"><b>Using External Resources</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec1553c-7fe8.html"><b>Managing Files on the Server</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+      <div id="content_wrapper">
+<!-- BEGIN PAGE TITLE -->
+        <h1>Using cffile</h1>
+<!-- END PAGE TITLE -->
+<!-- BEGIN IONCOMMENTCOUNT -->
+        <div id="ionCount">
+        </div>
+<!-- END IONCOMMENTCOUNT -->
+<table id="inner_content_table" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>
+          <div style="border-top:#ccc solid 1px;"><p> </p>
+          </div>
+<p id="chcPromo" style="display:none;">
+<a id="chcLink" href="http://www.adobe.com/support/chc/">
+<img id="chcImage" src="http://www.adobe.com/support/chc/GetMoreHelpFeatures.png"/>
+</a>
+</p>
+<script type="text/javascript" language="javascript" charset="utf-8">
+<!--
+var cfgArray = [];
+//cfgArray["Acrobat_10.0_Professional.helpcfg"] = "acrobatpro";
+//cfgArray["Acrobat_10.0_Standard.helpcfg"] = "acrobatstd";
+cfgArray["Lightroom_3.0.helpcfg"] = "lightroom";
+cfgArray["PhotoshopElements_8.0_Win.helpcfg"] = "photoshopelements";
+cfgArray["PhotoshopElements_8.0_Mac.helpcfg"] = "photoshopelementsmac";
+cfgArray["PremiereElements_8.0_Win.helpcfg"] = "premiereelements";
+
+//cfgArray["AfterEffects_10.0.helpcfg"] = "aftereffects";
+//cfgArray["AIR.helpcfg"] = "air";
+//cfgArray["ColdFusionBuilder.helpcfg"] = "coldfusion";
+//cfgArray["Contribute_6.0.helpcfg"] = "contribute";
+//cfgArray["DeviceCentral_3.0.helpcfg"] = "devicecentral";
+//cfgArray["Dreamweaver_11.0.helpcfg"] = "dreamweaver";
+//cfgArray["EncoreDVD_5.0.helpcfg"] = "encore";
+//cfgArray["ExtensionManager_3.0.helpcfg"] = "extension";
+//cfgArray["Fireworks_11.0.helpcfg"] = "fireworks";
+//cfgArray["Flash_11.0.helpcfg"] = "flash";
+//cfgArray["Flex_4.0.helpcfg"] = "flashbuilder";
+//cfgArray["FlashCatalyst_1.0.helpcfg"] = "flashcatalyst";
+//cfgArray["Illustrator_15.0.helpcfg"] = "illustrator";
+//cfgArray["InCopy_7.0.helpcfg"] = "incopy";
+//cfgArray["InDesign_7.0.helpcfg"] = "indesign";
+//cfgArray["OnLocation_5.0.helpcfg"] = "onlocation";
+//cfgArray["Photoshop_12.0.helpcfg"] = "photoshop";
+//cfgArray["PremierePro_5.0.helpcfg"] = "premierepro";
+
+function getLangName() {
+    var lang = "en-us";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if (ptn.test(lang)) {
+        var languageCode = lang.replace(ptn, "$1");
+        var countryCode = lang.replace(ptn, "$2");
+        lang = languageCode + "_" + countryCode.toUpperCase();
+    }
+    return lang;
+}
+
+function getCountryName() {
+    var lang = "";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if ((ptn.test(lang)) && (lang != "en-us")) {
+        var countryCode = lang.replace(ptn, "$2");
+        return "/" + countryCode;
+    }
+    return "";
+}
+
+if ( (typeof(terms_HELPCFG) != 'undefined')  && (terms_HELPCFG.indexOf(".helpcfg") != -1) ) {
+    var stage   = (document.location.href.indexOf(".stage.") != -1) ? 'stage.' : '';
+    var baseUrl = 'http://www.' + stage + 'adobe.com';
+    var refpage = document.location.href.replace(/#.*$/, '');
+	
+	if ((!use_robohelp_behavior) && (terms_HELPCFG.length > 0) && (typeof(cfgArray[terms_HELPCFG]) != 'undefined') && (cfgArray[terms_HELPCFG].length > 0)) {
+		if (document.getElementById) { // DOM3 = IE5, NS6
+			var newHref = baseUrl + getCountryName() + "/support/chc/" + "?helpcfg=http://help." + stage + "adobe.com/HelpCfg/" + getLangName() + "/" + terms_HELPCFG + "&url=" + refpage + "&product=" + cfgArray[terms_HELPCFG];
+			var newSrc = baseUrl + getCountryName() + "/support/chc/GetMoreHelpFeatures.png";
+			document.getElementById("chcPromo").style.display = "block";
+			document.getElementById("chcLink").href = newHref;
+			document.getElementById("chcImage").src = newSrc;
+		}
+	}
+}
+
+//-->
+</script>
+
+
+
+          <div id="minitoc"><div class="t"><div class="b"><div><ul id="minitoc-links"><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec1553c-7ff3"><span class="topictitle1">Uploading files</span>
+</a></p><ul><li><p><a href="#WSf01dbd23413dda0e-255a1b312013079327-8000"><span class="topictitle2">Create an HTML file to specify file upload information</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-77fc"><span class="topictitle2">Resolving conflicting filenames</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec1553c-7ffb"><span class="topictitle2">Controlling the type of file uploaded</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec1553c-7ffa"><span class="topictitle2">Setting file and directory attributes</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-780e"><span class="topictitle2">Evaluating the results of a file upload</span>
+</a></p></li></ul></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec1553c-7ff4"><span class="topictitle1">Moving, renaming, copying, and deleting server files</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec1553c-7ff6"><span class="topictitle1">Reading, writing, and appending to a text file</span>
+</a></p><ul><li><p><a href="#WSf01dbd23413dda0e-255a1b312013079327-7fff"><span class="topictitle2">Reading a text file</span>
+</a></p><ul><li><p><a href="#WSf01dbd23413dda0e-255a1b312013079327-7ffe"><span class="topictitle3">Read a text file</span>
+</a></p></li></ul></li><li><p><a href="#WSf01dbd23413dda0e-255a1b312013079327-7ffd"><span class="topictitle2">Writing a text file on the server</span>
+</a></p><ul><li><p><a href="#WSf01dbd23413dda0e-255a1b312013079327-7ffc"><span class="topictitle3">Create a form in to capture data for a text file</span>
+</a></p></li><li><p><a href="#WSf01dbd23413dda0e-255a1b312013079327-7ffb"><span class="topictitle3">Write a text file</span>
+</a></p></li></ul></li><li><p><a href="#WSf01dbd23413dda0e-255a1b312013079327-7ffa"><span class="topictitle2">Appending a text file</span>
+</a></p><ul><li><p><a href="#WSf01dbd23413dda0e-255a1b312013079327-7ff9"><span class="topictitle3">Append a text file</span>
+</a></p></li></ul></li></ul></li></ul></div></div></div></div><div><p>You can use the <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7fa1.html" target="_self">cffile</a> tag to work with files on the
+server in several ways:</p>
+<ul><li><p>Upload
+files from a client to the web server using an HTML form</p>
+</li>
+<li><p>Move, rename, copy, or delete files on the server</p>
+</li>
+<li><p>Read, write, or append to text files on the server</p>
+</li>
+</ul>
+<p>You use the <samp class="codeph">action</samp> attribute to specify any
+of the following file actions: <samp class="codeph">upload</samp>, <samp class="codeph">move</samp>, <samp class="codeph">rename</samp>, <samp class="codeph">copy</samp>, <samp class="codeph">delete</samp>, <samp class="codeph">read</samp>, <samp class="codeph">readBinary</samp>, <samp class="codeph">write</samp>,
+and <samp class="codeph">append</samp>. The required attributes depend on the <samp class="codeph">action</samp> specified.
+For example, if <samp class="codeph">action="write"</samp>, ColdFusion expects
+the attributes associated with writing a text file.</p>
+<div class="note"><span class="notetitle">Note:  </span>Consider the security and logical structure
+of directories on the server before allowing users access to them.
+You can disable the <samp class="codeph">cffile</samp> tag in the ColdFusion Administrator.
+Also, to access files that are not located on the local ColdFusion system,
+ColdFusion services must run using an account with permission to
+access the remote files and directories. </div>
+</div>
+<div id="WSc3ff6d0ea77859461172e0811cbec1553c-7ff3" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec1553c-7ff3"><!-- --></a><h2 class="topictitle2">Uploading files</h2><div><p>File
+uploading requires that you create two files:</p>
+<ul><li><p>An HTML form to specify file upload information</p>
+</li>
+<li><p>An action page containing the file upload code</p>
+</li>
+</ul>
+<p>The following procedures describe how to create these files.</p>
+</div><div id="WSf01dbd23413dda0e-255a1b312013079327-8000" class="nochunk"><a name="WSf01dbd23413dda0e-255a1b312013079327-8000"><!-- --></a><h3 class="topictitle3">Create an HTML file to specify file upload information</h3><div><ol><li><p>Create a ColdFusion page with the following content:</p>
+<pre>&lt;head&gt;&lt;title&gt;Specify File to Upload&lt;/title&gt;&lt;/head&gt; 
+&lt;body&gt; 
+&lt;h2&gt;Specify File to Upload&lt;/h2&gt; 
+&lt;!--- the action attribute is the name of the action page ---&gt; 
+&lt;form action="uploadfileaction.cfm"  
+        enctype="multipart/form-data"  
+        method="post"&gt; 
+    &lt;p&gt;Enter the complete path and filename of the file to upload: 
+    &lt;input type="file" 
+            name="FiletoUpload" 
+            size="45"&gt; 
+    &lt;/p&gt; 
+    &lt;input     type="submit" 
+            value="Upload"&gt; 
+&lt;/form&gt; 
+&lt;/body&gt;</pre>
+</li>
+<li><p>Save the file as uploadfileform.cfm in the myapps directory
+under your <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">web_root</i> and view it in the browser.</p>
+</li>
+</ol>
+<div class="note"><span class="notetitle">Note:  </span>The form does not work until you write an action
+page for it (see the next procedure).</div>
+<div class="section" id="WSf01dbd23413dda0e-255a1b312013079327-8000__WSc3ff6d0ea77859461172e0811cbec1553c-7ffe"><a name="WSf01dbd23413dda0e-255a1b312013079327-8000__WSc3ff6d0ea77859461172e0811cbec1553c-7ffe"><!-- --></a><h4 class="sectiontitle">Reviewing the code</h4><p>The following table describes the code and its
+function:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e113742"><p>Code</p>
+</th>
+<th valign="top" width="NaN%" id="d17e113745"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e113742 "><div class="para"><pre>&lt;form action="uploadfileaction.cfm" enctype="multipart/form-data" method="post"&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e113745 "><p>Create a form that contains file selection
+fields for upload by the user. The <samp class="codeph">action</samp> attribute
+value specifies the ColdFusion template that processes the submitted form.
+The <samp class="codeph">enctype</samp> attribute value tells the server that
+the form submission contains an uploaded file. The<samp class="codeph"> method</samp> attribute
+is set to <samp class="codeph">post</samp> to submit a ColdFusion form.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e113742 "><div class="para"><pre>&lt;input type="file" name="FiletoUpload" size="45"&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e113745 "><p>Allow the user to specify the file to upload.
+The <samp class="codeph">file</samp> type instructs the browser to prepare
+to read and transmit a file from the user system to your server.
+It automatically includes a Browse button to let the user look for
+the file instead of manually entering the entire path and filename.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The user can enter a file path or browse
+the system and select a file to send.</p>
+<ol><li><p>Create a ColdFusion
+page with the following content:</p>
+<pre>&lt;html&gt; 
+&lt;head&gt; &lt;title&gt;Upload File&lt;/title&gt; &lt;/head&gt; 
+&lt;body&gt; 
+&lt;h2&gt;Upload File&lt;/h2&gt; 
+ 
+&lt;cffile action="upload" 
+        destination="c:\temp\" 
+        nameConflict="overwrite" 
+        fileField="Form.FiletoUpload"&gt; 
+         
+&lt;cfoutput&gt; 
+You uploaded #cffile.ClientFileName#.#cffile.ClientFileExt# 
+            successfully to #cffile.ServerDirectory#. 
+&lt;/cfoutput&gt; 
+ 
+&lt;/body&gt; 
+&lt;/html&gt;</pre>
+</li>
+<li><p>Change the following line to point to an appropriate location
+on your server:</p>
+<pre>destination="c:\temp\"</pre>
+<div class="note"><span class="notetitle">Note:  </span>This directory must exist on the server.</div>
+</li>
+<li><p>Save the file as uploadfileaction.cfm in the myapps directory
+under your <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">web_root</i>.</p>
+</li>
+<li><p>View uploadfileform.cfm in the browser, enter a file to upload,
+and submit the form.</p>
+<p>The file you specified uploads.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="WSf01dbd23413dda0e-255a1b312013079327-8000__WSc3ff6d0ea77859461172e0811cbec1553c-7ffd"><a name="WSf01dbd23413dda0e-255a1b312013079327-8000__WSc3ff6d0ea77859461172e0811cbec1553c-7ffd"><!-- --></a><h4 class="sectiontitle">Reviewing the code</h4><p>The following table describes the code and its
+function:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e113817"><p>Code</p>
+</th>
+<th valign="top" width="NaN%" id="d17e113820"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e113817 "><div class="para"><pre>&lt;cffile action="upload"</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e113820 "><p>Output the name and location of the uploaded
+file on the client machine.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e113817 "><div class="para"><pre>destination="c:\temp\"</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e113820 "><p>Specify the destination of the file.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e113817 "><div class="para"><pre>nameConflict="overwrite"</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e113820 "><p>If the file exists, overwrite it.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e113817 "><div class="para"><pre>fileField="Form.FiletoUpload"&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e113820 "><p>Specify the name of the file to upload.
+Do not enclose the variable in number signs.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e113817 "><div class="para"><pre>You uploaded #cffile.ClientFileName#.#cffile. 
+ClientFileExt# successfully to 
+#cffile.ServerDirectory#.</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e113820 "><p>Inform the user of the file that was uploaded
+and its destination. For information on scope variables, see <a href="WSc3ff6d0ea77859461172e0811cbec22c24-780e.html">Evaluating the results of a file upload</a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note"><span class="notetitle">Note:  </span>This example performs
+no error checking and does not incorporate any security measures.
+Before deploying an application that performs file uploads, ensure
+that you incorporate both error handling and security. For more
+information, see <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7e34.html">Securing Applications</a> and <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7fc4.html">Handling Errors</a>.</div>
+</div>
+</div></div><div id="WSc3ff6d0ea77859461172e0811cbec22c24-77fc" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-77fc"><!-- --></a><h3 class="topictitle3">Resolving conflicting filenames</h3><div><p>When you save a file to the server, a
+file with the same name could exist. To resolve this problem, assign
+one of these values to the <samp class="codeph">nameConflict</samp> attribute of
+the <samp class="codeph">cffile</samp> tag:</p>
+<dl><dt class="dlterm">Error</dt>
+<dd xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">(default) ColdFusion stops processing the page and returns
+an error. The file is not saved.</dd><p class="dlseparator"></p><dt class="dlterm">Skip</dt>
+<dd xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Allows custom behavior based on file properties. The tag
+does not save the file or return an error.</dd><p class="dlseparator"></p><dt class="dlterm">Overwrite</dt>
+<dd xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Overwrites a file that has the same name as the uploaded
+file.</dd><p class="dlseparator"></p><dt class="dlterm">MakeUnique</dt>
+<dd xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Generates a unique filename for the uploaded file. The name
+is stored in the file object variables serverFile and serverFileName.
+You can use this variable to record the name used when the file
+was saved. The unique name might not resemble the attempted name.
+For more information on file upload status variables, see <a href="WSc3ff6d0ea77859461172e0811cbec22c24-780e.html">Evaluating the results of a file upload</a>.</dd><p class="dlseparator"></p></dl>
+</div></div><div id="WSc3ff6d0ea77859461172e0811cbec1553c-7ffb" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec1553c-7ffb"><!-- --></a><h3 class="topictitle3">Controlling the type of file uploaded</h3><div><p>For some applications, you could want
+to restrict the type of file that is uploaded, for example, to not
+accept graphic files in a document library.</p>
+<p>You use the <samp class="codeph">accept</samp> attribute to restrict the
+type of file that you allow in an upload. When an <samp class="codeph">accept</samp> qualifier
+is present, the uploaded file MIME content type must match the criteria
+specified or an error occurs. The <samp class="codeph">accept</samp> attribute takes
+a comma-separated list of MIME data names, optionally with wildcards.</p>
+<p>The browser determines the file MIME type. Common types, such
+as image/gif and text/plain, are registered in the browser.</p>
+<div class="note"><span class="notetitle">Note:  </span>Current versions of Microsoft Internet Explorer
+and Netscape support MIME type associations. Other browsers and
+earlier versions might ignore these associations.</div>
+<p>ColdFusion saves any uploaded file if you omit the <samp class="codeph">accept</samp> attribute
+or specify "*/*". You can restrict the file types, as demonstrated
+in the following examples.</p>
+<p>The following <samp class="codeph">cffile</samp> tag saves an image file
+only if it is in the GIF format:</p>
+<pre>&lt;cffile action="Upload" 
+    fileField="Form.FiletoUpload" 
+    destination="c:\uploads\" 
+    nameConflict="Overwrite" 
+    accept="image/gif"&gt;</pre>
+<p>The following <samp class="codeph">cffile</samp> tag saves an image file
+only if it is in GIF or JPEG format:</p>
+<pre>&lt;cffile action="Upload" 
+    fileField="Form.FiletoUpload" 
+    destination="c:\uploads\" 
+    nameConflict="Overwrite" 
+    accept="image/gif, image/jpeg"&gt; </pre>
+<div class="note"><span class="notetitle">Note:  </span>If you receive an error like "The MIME type
+of the uploaded file (image/jpeg) was not accepted by the server",
+enter <samp class="codeph">accept="image/jpeg"</samp> to accept JPEG files.</div>
+<p>This <samp class="codeph">cffile</samp> tag saves any image file, regardless
+of the format:</p>
+<pre>&lt;cffile action="Upload" 
+    fileField="Form.FiletoUpload" 
+    destination="c:\uploads\" 
+    nameConflict="Overwrite" 
+    accept="image/*"&gt;</pre>
+</div></div><div id="WSc3ff6d0ea77859461172e0811cbec1553c-7ffa" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec1553c-7ffa"><!-- --></a><h3 class="topictitle3">Setting file and directory attributes</h3><div><p>In
+Windows, you specify file attributes using <samp class="codeph">attributes</samp> attribute
+of the <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7fa1.html" target="_self">cffile</a> tag. In UNIX, you specify file
+or directory permissions using the <samp class="codeph">mode</samp> attribute
+of the <samp class="codeph">cffile</samp> or <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7f99.html" target="_self">cfdirectory</a> tag.</p>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec1553c-7ffa__WSc3ff6d0ea77859461172e0811cbec1553c-7ff7"><a name="WSc3ff6d0ea77859461172e0811cbec1553c-7ffa__WSc3ff6d0ea77859461172e0811cbec1553c-7ff7"><!-- --></a><h4 class="sectiontitle">Windows</h4><p>In Windows, you can set the following
+file attributes:</p>
+<ul><li><p>Hidden</p>
+</li>
+<li><p>Normal</p>
+</li>
+<li><p>ReadOnly</p>
+</li>
+</ul>
+<p>To specify several attributes in
+CFML, use a comma-separated list for the <samp class="codeph">attributes</samp> attribute;
+for example, <samp class="codeph">attributes="ReadOnly,Hidden"</samp>. If you
+do not use the <samp class="codeph">attributes</samp> attribute, the existing
+attributes of the file are maintained. If you specify any other
+attributes in addition to Normal, the additional attribute overrides
+the Normal setting.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec1553c-7ffa__WSc3ff6d0ea77859461172e0811cbec1553c-7ff8"><a name="WSc3ff6d0ea77859461172e0811cbec1553c-7ffa__WSc3ff6d0ea77859461172e0811cbec1553c-7ff8"><!-- --></a><h4 class="sectiontitle">UNIX</h4><p>In
+UNIX, you can individually set permissions on files and directories
+for each of three types of users—owner, group, and other. You use
+a number for each user type. This number is the sum of the numbers
+for the individual permissions allowed. Values for the <samp class="codeph">mode</samp> attribute
+correspond to octal values for the UNIX <samp class="codeph">chmod</samp> command:</p>
+<ul><li><p>4 = read</p>
+</li>
+<li><p>2 = write</p>
+</li>
+<li><p>1 = execute</p>
+</li>
+</ul>
+<p>You enter permissions values
+in the <samp class="codeph">mode</samp> attribute for each type of user: owner, group,
+and other in that order. For example, use the following code to
+assign read permissions for everyone:</p>
+<pre>mode=444</pre>
+<p>To
+give a file or directory owner read/write/execute permissions and
+read-only permissions for everyone else:</p>
+<pre>mode=744</pre>
+</div>
+</div></div><div id="WSc3ff6d0ea77859461172e0811cbec22c24-780e" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-780e"><!-- --></a><h3 class="topictitle3">Evaluating the results of a file upload</h3><div><p>After
+a file upload is completed, you can retrieve status information
+using file upload status variables. This status information includes
+data about the file, such as its name and the directory where it
+was saved. </p>
+<p>You
+can access file upload status variables using dot notation, using
+either file.varname or cffile.varname. Although you can use either
+the File or cffile prefix for file upload status variables, cffile
+is preferred; for example, cffile.ClientDirectory. The File prefix
+is retained for backward compatibility.</p>
+<div class="note"><span class="notetitle">Note:  </span>File status variables are read only. They are
+set to the results of the most recent <samp class="codeph">cffile</samp> operation.
+If two <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7fa1.html" target="_self">cffile</a> tags execute, the results of
+the first are overwritten by the subsequent <samp class="codeph">cffile</samp> operation.</div>
+<p>The following table describes the file upload status variables
+that are available after an upload:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e114078"><p>Variable</p>
+</th>
+<th valign="top" width="NaN%" id="d17e114081"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e114078 "><p>attemptedServerFile</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e114081 "><p>Initial name that ColdFusion uses when attempting
+to save a file; for example, myfile.txt. (see <a href="WSc3ff6d0ea77859461172e0811cbec22c24-77fc.html">Resolving conflicting filenames</a>).</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e114078 "><p>clientDirectory</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e114081 "><p>Directory on the client system from which
+the file was uploaded.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e114078 "><p>clientFile</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e114081 "><p>Full name of the source file on the client
+system with the filename extension; for example, myfile.txt.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e114078 "><p>clientFileExt</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e114081 "><p>Extension of the source file on the client
+system without a period; for example, txt (not .txt).</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e114078 "><p>clientFileName</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e114081 "><p>Name of the source file on the client system
+without an extension; for example, myfile.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e114078 "><p>contentType</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e114081 "><p>MIME content type of the saved file; for
+example, <samp class="codeph">image</samp> for <samp class="codeph">image/gif</samp>.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e114078 "><p>contentSubType</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e114081 "><p>MIME content subtype of the saved file;
+for example, <samp class="codeph">gif</samp> for <samp class="codeph">image/gif</samp>.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e114078 "><p>dateLastAccessed</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e114081 "><p>Date that the uploaded file was last accessed.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e114078 "><p>fileExisted</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e114081 "><p>Indicates (Yes or No) whether the file existed
+with the same path.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e114078 "><p>fileSize</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e114081 "><p>Size of the uploaded file.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e114078 "><p>fileWasAppended</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e114081 "><p>Indicates (Yes or No) whether ColdFusion
+appended the uploaded file to an existing file.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e114078 "><p>fileWasOverwritten</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e114081 "><p>Indicates (Yes or No) whether ColdFusion
+overwrote a file. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e114078 "><p>fileWasRenamed</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e114081 "><p>Indicates (Yes or No) whether the uploaded
+file was renamed to avoid a name conflict.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e114078 "><p>fileWasSaved</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e114081 "><p>Indicates (Yes or No) whether ColdFusion
+saved the uploaded file. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e114078 "><p>oldFileSize</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e114081 "><p>Size of the file that was overwritten in
+the file upload operation. Empty if no file was overwritten.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e114078 "><p>serverDirectory</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e114081 "><p>Directory where the file was saved on the
+server.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e114078 "><p>serverFile</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e114081 "><p>Full name of the file saved on the server
+with the filename extension; for example, myfile.txt.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e114078 "><p>serverFileExt</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e114081 "><p>Extension of the file saved on the server
+without a period; for example, txt (not .txt).</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e114078 "><p>serverFileName</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e114081 "><p>Name of the file saved on the server without
+an extension; for example, myfile.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e114078 "><p>timeCreated</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e114081 "><p>Date and time the uploaded file was created.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e114078 "><p>timeLastModified</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e114081 "><p>Date and time of the last modification to
+the uploaded file.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec1553c-7ff4" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec1553c-7ff4"><!-- --></a><h2 class="topictitle2">Moving, renaming, copying, and deleting server files</h2><div><p>With the <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7fa1.html" target="_self">cffile</a> tag, you can create application
+pages to manage files on your web server. You can use the tag to
+move files from one directory to another, rename files, copy a file,
+or delete a file.</p>
+<p>The examples in the following table show static values for many
+of the attributes. However, the value of all or part of any attribute
+in a <samp class="codeph">cffile</samp> tag can be a dynamic parameter.</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e114270"><p>Action</p>
+</th>
+<th valign="top" width="NaN%" id="d17e114273"><p>Example code</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e114270 "><p>Move a file</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e114273 "><div class="para"><pre>&lt;cffile action="move" source="c:\files\upload\KeyMemo.doc" destination="c:\files\memo\"&gt;</pre>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e114270 "><p>Rename a file</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e114273 "><div class="para"><pre>&lt;cffile action="rename" source="c:\files\memo\KeyMemo.doc" destination="c:\files\memo\OldMemo.doc"&gt;</pre>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e114270 "><p>Copy a file</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e114273 "><div class="para"><pre>&lt;cffile action="copy" source="c:\files\upload\KeyMemo.doc" destination="c:\files\backup\"&gt;</pre>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e114270 "><p>Delete a file</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e114273 "><div class="para"><pre>&lt;cffile action="delete" file="c:\files\upload\oldfile.txt"&gt;</pre>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This example sets the ReadOnly flag bit for the uploaded file:</p>
+<pre>&lt;cffile action="Copy" 
+    source="c:\files\upload\keymemo.doc" 
+    destination="c:\files\backup\" 
+    attributes="ReadOnly"&gt;</pre>
+<div class="note"><span class="notetitle">Note:  </span>Ensure that you include the trailing slash (\)
+when you specify the destination directory. Otherwise, ColdFusion
+treats the last element in the path as a filename. This rule only
+applies to copy actions.</div>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec1553c-7ff6" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec1553c-7ff6"><!-- --></a><h2 class="topictitle2">Reading, writing, and appending to a text file</h2><div><p>In addition to managing files on the server, you can use
+the <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7fa1.html" target="_self">cffile</a> tag to read, create, and modify
+text files. As a result, you can do the following things:</p>
+<ul><li><p>Create log files. (You can also use <samp class="codeph">cflog</samp> to
+create and write to log files.)</p>
+</li>
+<li><p>Generate static HTML documents.</p>
+</li>
+<li><p>Use text files to store information that can be incorporated
+into web pages.</p>
+</li>
+</ul>
+</div><div id="WSf01dbd23413dda0e-255a1b312013079327-7fff" class="nochunk"><a name="WSf01dbd23413dda0e-255a1b312013079327-7fff"><!-- --></a><h3 class="topictitle3">Reading a text file</h3><div><p>You can use the <samp class="codeph">cffile</samp> tag
+to read an existing text file. The file is read into a local variable
+that you can use anywhere in the application page. For example, you
+could read a text file and then insert its contents into a database,
+or you could read a text file and then use one of the string replacement
+functions to modify the contents.</p>
+</div><div id="WSf01dbd23413dda0e-255a1b312013079327-7ffe" class="nochunk"><a name="WSf01dbd23413dda0e-255a1b312013079327-7ffe"><!-- --></a><h4 class="topictitle4">Read a text file</h4><div><ol><li><p>Create a ColdFusion page with the following content:</p>
+<pre>&lt;html&gt; 
+&lt;head&gt; 
+    &lt;title&gt;Read a Text File&lt;/title&gt; 
+&lt;/head&gt; 
+ 
+&lt;body&gt; 
+Ready to read the file:&lt;br&gt; 
+&lt;cffile action="read" 
+    file="C:\inetpub\wwwroot\mine\message.txt" 
+    variable="Message"&gt; 
+ 
+&lt;cfoutput&gt; 
+    #Message# 
+&lt;/cfoutput&gt; 
+&lt;/body&gt; 
+&lt;/html&gt;</pre>
+</li>
+<li><p>Replace C:\inetpub\wwwroot\mine\message.txt with the location
+and name of a text file on the server.</p>
+</li>
+<li><p>Save the file as readtext.cfm in the myapps directory under
+your <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">web_root</i> and view it in the browser.</p>
+</li>
+</ol>
+</div></div></div><div id="WSf01dbd23413dda0e-255a1b312013079327-7ffd" class="nochunk"><a name="WSf01dbd23413dda0e-255a1b312013079327-7ffd"><!-- --></a><h3 class="topictitle3">Writing a text file on the server</h3><div><p>You can use
+the <samp class="codeph">cffile</samp> tag to write a text file based on dynamic
+content. For example, you could create static HTML files or log
+actions in a text file.</p>
+</div><div id="WSf01dbd23413dda0e-255a1b312013079327-7ffc" class="nochunk"><a name="WSf01dbd23413dda0e-255a1b312013079327-7ffc"><!-- --></a><h4 class="topictitle4">Create a form in to capture data for a text file</h4><div><ol><li><p>Create a ColdFusion page with the following content:</p>
+<pre>&lt;html&gt; 
+&lt;head&gt; 
+    &lt;title&gt;Put Information into a Text File&lt;/title&gt; 
+&lt;/head&gt; 
+ 
+&lt;body&gt; 
+&lt;h2&gt;Put Information into a Text File&lt;/h2&gt; 
+ 
+&lt;form action="writetextfileaction.cfm" method="Post"&gt; 
+    &lt;p&gt;Enter your name: &lt;input type="text" name="Name" size="25"&gt;&lt;/p&gt; 
+    &lt;p&gt;Enter the name of the file: &lt;input type="text" name="FileName" size="25"&gt;.txt&lt;/p&gt; 
+    &lt;p&gt;Enter your message: 
+    &lt;textarea name="message"cols=45 rows=6&gt;&lt;/textarea&gt; 
+    &lt;/p&gt; 
+    &lt;input type="submit" name="submit" value="Submit"&gt;  
+&lt;/form&gt; 
+&lt;/body&gt; 
+&lt;/html&gt;</pre>
+</li>
+<li><p>Save the file as writetextfileform.cfm in the myapps directory
+under your <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">web_root</i><samp class="codeph">.</samp></p>
+</li>
+</ol>
+<div class="note"><span class="notetitle">Note:  </span>The form does not work until you write an action
+page for it (see the next procedure).</div>
+</div></div><div id="WSf01dbd23413dda0e-255a1b312013079327-7ffb" class="nochunk"><a name="WSf01dbd23413dda0e-255a1b312013079327-7ffb"><!-- --></a><h4 class="topictitle4">Write a text file</h4><div><ol><li><p>Create a ColdFusion page with the following content:</p>
+<pre>&lt;html&gt; 
+&lt;head&gt; 
+    &lt;title&gt;Write a Text File&lt;/title&gt; 
+&lt;/head&gt; 
+&lt;body&gt; 
+&lt;cffile action="write" 
+    file="C:\inetpub\wwwroot\mine\#Form.FileName#.txt" 
+    output="Created By: #Form.Name# 
+#Form.Message# "&gt; 
+&lt;/body&gt; 
+&lt;/html&gt;</pre>
+</li>
+<li><p>Modify the path C:\inetpub\wwwroot\mine\ to point to a path
+on your server.</p>
+</li>
+<li><p>Save the file as writetextfileaction.cfm in the myapps directory
+under your <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">web_root</i>.</p>
+</li>
+<li><p>View the file writetextfileform.cfm in the browser, enter
+values, and submit the form.</p>
+<p>The text file is written to the
+location you specified. If the file exists, it is replaced.</p>
+</li>
+</ol>
+</div></div></div><div id="WSf01dbd23413dda0e-255a1b312013079327-7ffa" class="nochunk"><a name="WSf01dbd23413dda0e-255a1b312013079327-7ffa"><!-- --></a><h3 class="topictitle3">Appending a text file</h3><div><p>You
+can use the <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7fa1.html" target="_self">cffile</a> tag to append additional text
+to the end of a text file; for example, when you create log files. </p>
+</div><div id="WSf01dbd23413dda0e-255a1b312013079327-7ff9" class="nochunk"><a name="WSf01dbd23413dda0e-255a1b312013079327-7ff9"><!-- --></a><h4 class="topictitle4">Append a text file</h4><div><ol><li><p>Open the writetextfileaction.cfm file.</p>
+</li>
+<li><p>Change the value for the <samp class="codeph">action</samp> attribute
+from <samp class="codeph">write</samp> to <samp class="codeph">append</samp> so that the
+file appears as follows:</p>
+<pre>&lt;html&gt; 
+&lt;head&gt; 
+    &lt;title&gt;Append a Text File&lt;/title&gt; 
+&lt;/head&gt; 
+&lt;body&gt; 
+&lt;cffile action="append" 
+    file="C:\inetpub\wwwroot\mine\message.txt" 
+    output="Appended By: #Form.Name#"&gt; 
+&lt;/body&gt; 
+&lt;/html&gt;</pre>
+</li>
+<li><p>Save the file as writetextfileaction.cfm in the myapps directory
+under your <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">web_root</i>.</p>
+</li>
+<li><p>View the file in the browser, enter values, and submit the
+form.</p>
+<p>The appended information displays at the end of the
+text file.</p>
+</li>
+</ol>
+</div></div></div></div>
+
+
+<!-- BEGIN USER PREFERENCES -->
+          <div id="userprefs">
+          </div>
+<!-- END USER PREFERENCES -->
+
+          <div id="related">
+            
+            
+            <div class="separator"><a href="#top"><img src="images/BTT.jpg" /></a>&#160;</div>
+          </div>
+          <div id="footer">
+<!-- BEGIN IONCOMMENTS -->
+            <div id="ionComHere">
+            </div>
+<!-- END IONCOMMENTS -->
+
+
+            <p id="creativecommons"><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" id="creativecommons_text"><img id="creativecommons_img" src="images/CC.png" alt="This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License" /></a>&nbsp;Twitter™ and Facebook posts are not covered under the terms of Creative Commons.</p>
+          </div>
+</td>
+<td width="10px"></td>
+<td id="inner_rightcolumn">
+
+</td></tr></table>
+      </div>
+<!-- BEGIN BREADCRUMBS -->
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec1553c-7fea.html" title="About file management"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec1553c-7fed.html" title="Using cfdirectory"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Developing&#160;ColdFusion 9 Applications</b></a> / <a href="WSc3ff6d0ea77859461172e0811cdd865267-8000.html"><b>Using External Resources</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec1553c-7fe8.html"><b>Managing Files on the Server</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+<!-- END CONTENT WRAPPER -->
+
+</td>
+<td id="col3">
+    <div>
+        <img src="images/adobe-lq.png" />
+    </div>
+</td>
+</tr>
+</table>
+    </div>
+<!-- END PAGE CONTENT WRAPPER -->
+<script type="text/javascript">
+<!--[CDATA[
+scrollToNameAnchor();
+// ]]-->
+</script> 
+<!--
+    Description:
+    This file generates the link to product support in the top right corner
+-->
+
+<style>
+#menutop{
+    position:absolute;
+    top:4px;
+    right:24px;
+    width:auto;    
+    font-size:11px;
+    color:#fff;
+    text-align:right;
+}
+#menutop a{
+    color:#fff;
+}
+#menutop a:hover{
+        text-decoration:underline;
+}
+</style>  
+  
+  
+  
+  
+<div id="productmenu">
+<!--googleoff: index-->
+  <div id="menutop">
+
+
+<script language=javascript type='text/javascript'>
+    // darken menu text for products with light backgrounds
+    var path = document.location.href.toLowerCase();
+    if (path.indexOf("/acrobat/")           	> 0 ||
+        path.indexOf("/acrobat.com/")       	> 0 ||
+        path.indexOf("/acrobatConnectPro/") 	> 0 ||
+        path.indexOf("/connect/")           	> 0 ||
+        path.indexOf("/livecycledataserviceses/") > 0 ||
+        path.indexOf("/muse/")         	> 0 ||
+	path.indexOf("/presenter/")         	> 0 ||
+        path.indexOf("/scene7/")            	> 0 ||
+        path.indexOf("/flashmediaserver/")  	> 0 ||
+        path.indexOf("/wave/")              	> 0 )
+    {
+        document.write('<style>#menutop a{color:#505050}</style>');
+    }
+    if (typeof('terms_AHV_PRODUCT_SUPPORT') != "undefined" && ! use_robohelp_behavior ){      
+        if (path.indexOf("/muse/") > -1 ){
+            var supportlink = '<a href="http://muse.adobe.com/support.html">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }else{
+            var supportlink = '<a href="http://adobe.com/support">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }
+        document.write( supportlink );
+     }
+
+</script> 
+
+  </div>
+<!--googleon: index-->
+</div>
+
+
+
+<style>
+#online-privacy-policy{ 
+    margin:10px 40px; 
+    font-size:11px;
+}
+</style>
+
+<p id="online-privacy-policy">
+<script language="javascript">
+var pageLoc = "en_US";
+var metaElements = document.all ?
+document.all.tags('meta') :
+document.getElementsByTagName ?
+document.getElementsByTagName ('meta') : new Array();
+for (var m = 0; m < metaElements.length; m++) {
+	if (metaElements[m].name == "lang") {
+		pageLoc = metaElements[m].content;
+		break;
+	}
+}
+var ptn = /(..)-(..)/;
+if (ptn.test(pageLoc)) {
+	var languageCode = pageLoc.replace(ptn, "$1");
+	var countryCode = pageLoc.replace(ptn, "$2");
+	pageLoc = languageCode + "_" + countryCode.toUpperCase();
+}
+
+var policyLoc = "en_US";
+var policyText = "Online Privacy Policy";
+var policyPath = "";
+var policyArray=[
+"da_DK", "Online fortrolighedserklæring",
+"de_DE", "Online-Datenschutzrichtlinie",
+"es_ES", "Política de confidencialidad en línea",
+"fi_FI", "Yksityisyyttä koskeva Online-toimintaohjelma",
+"fr_FR", "Confidentialité et sécurité",
+"it_IT", "Informativa sulla privacy online",
+"ja_JP", "プライバシーポリシー",
+"ko_KR", "Adobe 온라인 개인정보 보호정책",
+"pt_BR", "Política de Confidencialidade On-line", 
+"zh_CN", "在线隐私政策",
+"zh_TW", "線上隱私政策"
+];
+var legalLoc = "en_US";
+var legalText = "Legal Notices";
+var legalPath = legalLoc;
+var legalArray=[
+"ar_AE", "إشعارات قانونية",
+"bg_BG", "Юридически бележки",
+"cs_CZ", "Právní upozornění",
+"da_DK", "Juridiske meddelelser",
+"de_DE", "Rechtliche Hinweise",
+"el_GR", "Σημειώσεις νομικού περιεχομένου",
+"es_ES", "Avisos legales",
+"et_EE", "Juriidilised teated",
+"fi_FI", "Lakisääteiset ilmoitukset",
+"fr_FR", "Mentions légales",
+"he_IL", "הצהרות משפטיות",
+"hr_HR", "Pravne napomene",
+"hu_HU", "Jogi közlemények",
+"it_IT", "Informazioni legali",
+"ja_JP", "法律上の注意",
+"ko_KR", "법적 고지 사항",
+"lt_LT", "Teisinės pastabos",
+"lv_LV", "Juridisks paziņojums",
+"nb_NO", "Juridiske merknader",
+"nl_NL", "Juridische kennisgevingen",
+"pl_PL", "Informacje prawne",
+"pt_BR", "Aspectos jurídicos",
+"ro_RO", "Prevederi legale",
+"ru_RU", "Юридическая информация",
+"sk_SK", "Právne upozornenie",
+"sl_SI", "Pravni pouk",
+"sv_SE", "Upphovsrätt",
+"tr_TR", "Yasal uyarılar",
+"uk_UA", "Юридична інформація",
+"zh_CN", "法律声明",
+"zh_TW", "法律注意事項"
+];
+
+ruPolicy = "http://www.adobe.com/ru/misc/privacy.html";
+trPolicy = "http://www.adobe.com/tr/misc/privacy.html";
+
+// Bug 2846992: LOC: RUS, TUR: The link to "Online Privacy Policy" should include language, currently it is not appearing.
+if (pageLoc == "ru_RU") {
+	policyPath = "ru";
+}
+else if (pageLoc == "tr_TR") {
+	policyPath = "tr";
+}
+for (var i = 0; i < policyArray.length; i+=2) {
+	if (pageLoc == policyArray[i]) {
+		policyLoc = pageLoc;
+		policyText = policyArray[i+1];
+		var ptn = /(..)_(..)/;
+		if (ptn.test(policyLoc)) {
+			var countryCode = policyLoc.replace(ptn, "$2");
+			policyPath = countryCode.toLowerCase();
+		}
+		break;
+	}
+}
+
+for (var i = 0; i < legalArray.length; i+=2) {
+	if (pageLoc == legalArray[i]) {
+		legalLoc = pageLoc;
+		legalText = legalArray[i+1];
+		legalPath = legalLoc;
+		break;
+	}
+}
+if(agt.indexOf("community help client") > -1 ){
+	document.write('<a href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+}else{
+	//Open the privacy policy in a new window
+	document.write('<a target="_blank" href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a target="_blank" href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+} 
+</script>
+</p>
+
+
+
+<!-- localfooter.ssi -->
+
+<script type="text/javascript">
+    var debug = (top.location.href.indexOf("debug=true") > -1);
+</script>
+
+<script language="javascript">
+document.write('<scr'+'ipt ' +
+               'src="/en_US/ssi/_pod.js" ' +
+               'language="javascript" ' +
+               'charset="UTF-8"> ' +
+               '</scr'+'ipt>');
+</script>
+
+
+<script type="text/javascript">
+//
+//  Ethnio survey code
+//
+/*          DocumentID      EthnioID */
+/*          -------------   -------- */
+var ethnio=["/en_US/flash/cs/using/WSb03e830bd6f770ee6664507612436d7dede-8000.html", "87462",
+            "/en_US/creativesuite/cs/using/WSe851854fd1e0856a-4b08a77612477f69f15-8000.html",  "10441",
+            "/en_US/dreamweaver/cs/using/WSEE4C0148-A6F4-4bf5-9DEF-CE06AB026214a.html",  "57412"
+ 
+    ];
+                        
+    for ( var i = 0; i < ethnio.length ; i = i+2 ){
+        if ( document.location.href.indexOf( ethnio[i] ) > -1 ){ 
+            var headID = document.getElementsByTagName("head")[0];         
+            var ethnioScript = document.createElement('script');
+            ethnioScript.type = 'text/javascript';
+            ethnioScript.src = 'http://ethn.io/remotes/' + ethnio[i+1];        
+            if ( debug ){
+                alert ("Using Ethnio script: " + ethnioScript.src );
+            }else{
+                headID.appendChild(ethnioScript);
+            }
+        }
+    }
+</script>
+
+
+
+<div style="display: none;">
+<!-- SiteCatalyst -->
+<script language="JavaScript" type="text/javascript"><!--
+var s_code=' ';
+var s_docHost = window.location.hostname.toLowerCase();
+var s_docURL = window.location.pathname.toLowerCase();
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+if (s_docHost.indexOf(".corp.adobe") != -1 || s_docHost.indexOf("stage.") != -1 || s_docHost.indexOf(".dev.adobe") != -1 || s_docHost.indexOf("staging.") != -1) scJsHost="";
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/omniture_s_code.js' type='text/javascript'%3E%3C/script%3E"));
+//--></script>
+<script type="text/javascript"><!--
+var s_accountName;
+s_server="www.adobe.com static content pages";
+if (!window.s_account) s_accountName="mxmacromedia";
+else s_accountName=window.s_account;
+
+if (window.s_docURL.indexOf("/designcenter/") != -1)
+  s_channel="Adobe Design Center";	
+else if ((window.s_docHost.indexOf("labs.adobe") != -1) ||
+(window.s_docHost.indexOf("labs-staging.") != -1))
+  s_channel="Labs";
+else if (window.s_docHost.indexOf("help.adobe.com") != -1) {
+  s_channel="Support Help.adobe.com";
+  if (window.s_docURL.indexOf("/en_us/") == -1) {
+    s_docURLArray=s_docURL.split('/');
+    s_pageName="http://help.adobe.com/"+s_docURLArray[1]+"/"+ s_docURLArray[2]+"/"+s_docURLArray[3];
+    s_prop23="http://help.adobe.com"+window.location.pathname;
+  }
+}
+else if (window.s_docHost.indexOf("kb2.adobe.com") != -1) {
+  s_channel="Support Knowledgebase";
+  s_prop23="http://kb2.adobe.com"+s_docURL+":";
+  if (typeof(omtrProductList) != 'undefined' && omtrProductList.length > 0)
+ {
+    s_prop23=s_prop23+omtrProductList;
+  }
+}
+else if (window.s_docHost.indexOf("resellers.adobe.com") != -1) {
+		var s_pageName=document.getElementsByTagName("title")[0].text;
+}
+
+if (!window.scMMInclude) {
+	var s_wd=window,s_tm=new Date;
+	if(s_code!=' '){
+		s_code=s_dc(s_accountName);
+		if(s_code)document.write(s_code)
+	} 
+} else {
+	s_wds(s_accountName);s_ca(s_accountName); 
+}	
+
+function sendAnalyticsEvent(str){var ns=s_accountName;if(str!=null)ns+=","+str;void(s_gs(ns));}
+function sendLinkEvent(accnt,lnkname,type){
+accnt=s_accountName;s_linkType=type;s_lnk=true;s_linkName=lnkname;void(s_gs(accnt));}
+//--></script>
+<noscript><img src="http://stats.adobe.com/b/ss/mxmacromedia/1/H.15-XELvs/0?pageName=http%3A//www.adobe.com%3A%20noscript&ch=http%3A//www.adobe.com%3A%20noscript&g=http%3A//www.adobe.com" height="1" width="1" border="0" alt="" /></noscript>
+<!-- End SiteCatalyst -->
+</div>
+
+<script language="JavaScript" type="text/javascript">//<![CDATA[
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/atm/s_code_www.js' type='text/javascript'%3E%3C/script%3E"));
+//]]></script>
+<script type="text/javascript">//<![CDATA[
+if(s_adobe){	
+	s_adobe.server="www.adobe.com Static Content pages";
+	/* Set pageName */
+	s_adobe.s_URL="adobe.com"+((location.pathname.charAt(0)=='/')?location.pathname:'/'+location.pathname);
+	if (s_adobe.s_URL.substring(s_adobe.s_URL.lastIndexOf('/')+1)=="") s_adobe.s_URL=s_adobe.s_URL+"index.html";
+	s_adobe.s_URLSplit=s_adobe.s_URL.split("/");
+	s_adobe.pageName=s_adobe.s_URLSplit.join(":");
+
+	/* Set prop4 to language-locale */
+	var s_meta=document.getElementsByTagName('meta'); 
+      for (i=0; i<s_meta.length; i++) { 
+        if (s_meta[i].getAttribute("http-equiv") == "Content-Language") { 
+          s_adobe.prop4=s_meta[i].getAttribute("content"); 
+	    s_adobe.prop4=s_adobe.prop4.replace(/\s+/g,'');
+        } 
+      } 
+	s_adobe.t()
+}
+//]]></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

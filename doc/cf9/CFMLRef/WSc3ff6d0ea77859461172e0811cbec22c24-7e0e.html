@@ -1,0 +1,1076 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0022)http://help.adobe.com/ -->
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="lang" content="en-us" />
+    <meta name="area" content="livedocs" />
+    <title>Adobe&#160;ColdFusion&#160;9 * cfcomponent</title>
+    <link rel="shortcut icon" href="images/ColdFusionLinkIndicator.png" />
+    <meta name="book" content="ColdFusion&#160;9&#160;CFML&#160;Reference" />
+    <meta name="product" content="ColdFusion" />
+    <meta name="keywords" content="" /><!--<PageMap><DataObject type="document"><Attribute name="product" value="ColdFusion"></Attribute><Attribute name="book" value="ColdFusion&#160;9&#160;CFML&#160;Reference"></Attribute><Attribute name="keywords" value=""></Attribute></DataObject></PageMap>-->
+    
+    <script type="text/javascript" language="Javascript" charset="UTF-8"><!--[CDATA[
+        var currentTreeNode = "WSc3ff6d0ea77859461172e0811cbec22c24-7e0e.html";
+    document.cookie = "topicId=" + "WSc3ff6d0ea77859461172e0811cbec22c24-7e0e.html";
+// ]]--></script>
+<script src="terms.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="help.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script>  <script src="utilities.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="event.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="treeview.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="toc.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script> <script src="swfobject.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>  <script src="booklist.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>
+<script type="text/javascript">
+<!--[CDATA[
+var topictype = "topic";
+var headId = document.getElementsByTagName("head")[0];         
+if (use_ie_6_behavior) {
+  var linkId = document.createElement("link");
+  linkId.href = "content-ie6.css";
+  linkId.rel = "stylesheet";
+  linkId.type = "text/css";
+  headId.appendChild(linkId);
+}
+function initRoboHelpDOM() {
+  if (use_chm_behavior) {
+    hideElement("search");
+  }
+  if (use_robohelp_behavior) {
+    hideElement("search");
+    hideElement("productmenu");
+    //hideElement("notyourversion");
+  }
+  if(!use_chc_behavior) {
+    //document.getElementById("notyourversion").style.display = "inline";;
+  }
+}
+var dirname = location.pathname.match( /.*\// );    
+function setSearchUserPref(){
+  if ( document.cookie.indexOf( "ah_searchpref" ) > -1 ) {
+    if ( document.cookie.indexOf( dirname ) > 0 ) {
+      document.search.gsa.checked = true ;
+    }else{
+      document.search.gsa.checked = false ;            
+    }
+  }
+}
+YAHOO.util.Event.onDOMReady(initRoboHelpDOM);
+YAHOO.util.Event.onDOMReady(setSearchUserPref);
+// ]]-->
+</script>
+
+<!-- ********************************** -->
+<!-- START: ForeSee survey code in: /ssi/globalheader.ssi -->
+
+<script type="text/javascript">
+<!-- 
+// Enable the survey for only English, German and Japanese
+var agt=navigator.userAgent.toLowerCase();
+if ( agt.indexOf("community help client") == -1 ){
+    if ( document.location.href.indexOf("/en_US/") != -1 ){
+        showSurvey();
+//    }else if (document.location.href.indexOf("/de_DE/") != -1){
+//         var locale="de";
+//         showSurvey();
+    }else if (document.location.href.indexOf("/ja_JP/") != -1 ){
+         var locale="ja";
+         showSurvey();
+    }	
+}
+
+function showSurvey(){
+	document.write('<script type="text/javascript" src="/js/foresee/foresee-trigger.js"><\/scr'+'ipt>');
+}
+
+// -->
+</script>
+
+<!-- END: ForeSee survey code -->
+<!-- ******************************** -->
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="tree.css" />
+    <link rel="stylesheet" type="text/css" href="content.css" />
+    <link rel="stylesheet" type="text/css" href="localeSpecific.css" />
+  </head>
+  <body id="content_body" onload="window.focus();">
+    <a name="top" shape="rect"><!--LeaveCommentHere--></a>
+    
+    <div id="mnemonic">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon" class="ColdFusion"><div class="banner"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html">Adobe&#160;ColdFusion&#160;9</a><span id="notyourversion">|&#160;
+                    <a rel="nofollow" href="http://www.adobe.com/support/documentation/en/coldfusion/">Not your version?</a></span></div></div><!--googleon: index-->
+    </div>
+    
+    <div id="searchbar">
+<table id="searchbartable">
+<tr>
+<td colspan="2">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon"><div id="pdf"><img src="images/PDF.gif" width="16" height="16" /><a title="View Help PDF" href="coldfusion_9_cfmlref.pdf">View Help PDF ( 32MB)</a></div></div><!--googleon: index-->
+</td>
+</tr>
+</table>
+    </div>
+
+<!-- BEGIN SEARCH CONTENT -->
+<form id="search" name="search" action="search.html" target="_self">
+<script type="text/javascript">
+<!--[CDATA[
+if ( !use_chc_behavior ){
+    if (typeof(terms_AHV_SEARCH_CONSTRAINT) != "undefined" && 
+        terms_AHV_SEARCH_CONSTRAINT.length > 0 && 
+        document.location.href.indexOf(".adobe.com") > 0){
+        if ( typeof(terms_SEARCH_THIS_HELP_ONLY) != "undefined" && terms_SEARCH_THIS_HELP_ONLY == "ON" ) {
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                checked="checked" \
+                value="1" ><\/input>'); 
+                
+        // Leave the "Search this help system only" checkbox unckecked
+        }else{    
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                value="1" ><\/input>'); 
+        }
+        document.write('<span class="gsalabel">' + terms_AHV_SEARCH_CONSTRAINT + '<\/span><\/div>'); 
+    }
+    document.write('<input class="searchinput" \
+        name="q" \
+        id="q" \
+        type="text" \
+        maxlength="256" \
+        value="' + terms_AHV_SEARCH_BUTTON + '" \
+        onclick="clearSearch()"><\/input><input \
+        type="button" \
+        name="searchbutton" \
+        class="searchbutton" \
+        onclick="submit()"><\/input>'); 
+} 
+ 
+/* 
+ * Start Functions 
+ */
+function clearSearch(){
+    if (document.search.q.value == terms_AHV_SEARCH_BUTTON){document.search.q.value = ""}; 
+}
+
+// set search preferences
+function setAHSearchPref(){
+    if (document.search.gsa.checked == 1){
+        setAHSearchCookie( dirname );
+    }else{
+        setAHSearchCookie( "community" );
+    }
+}
+
+// Set search preferences cookie
+function setAHSearchCookie( p ){
+    // set cookie ah_searchpref with a value of the document path
+    var expire=new Date();
+    expire.setDate(expire.getDate()+365); // Cookie expires after 1 year (365 days) 
+    document.cookie="ah_searchpref=" +p+ "; expires=" +expire.toGMTString()+ ";";
+}
+
+// ]]-->
+</script> 
+ </form>
+<!-- END SEARCH CONTENT -->    
+
+
+
+<!-- BEGIN PAGE CONTENT WRAPPER -->
+    <div id="page_content_wrapper">
+<!-- BEGIN PAGE WRAPPER -->
+<table id="page_content_table">
+<tr>
+
+<td id="col2">
+<!-- BEGIN CONTENT WRAPPER -->
+<!-- BEGIN BREADCRUMBS -->
+
+      
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec22c24-7d03.html" title="cfcollection"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-7c82.html" title="cfcontent"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>ColdFusion&#160;9&#160;CFML&#160;Reference</b></a> / <a href="WSc3ff6d0ea77859461172e0811cbec17576-7ffe.html"><b>ColdFusion Tags</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec1793f-7feb.html"><b>Tags c</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+      <div id="content_wrapper">
+<!-- BEGIN PAGE TITLE -->
+        <h1>cfcomponent</h1>
+<!-- END PAGE TITLE -->
+<!-- BEGIN IONCOMMENTCOUNT -->
+        <div id="ionCount">
+        </div>
+<!-- END IONCOMMENTCOUNT -->
+<table id="inner_content_table" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>
+          <div style="border-top:#ccc solid 1px;"><p> </p>
+          </div>
+<p id="chcPromo" style="display:none;">
+<a id="chcLink" href="http://www.adobe.com/support/chc/">
+<img id="chcImage" src="http://www.adobe.com/support/chc/GetMoreHelpFeatures.png"/>
+</a>
+</p>
+<script type="text/javascript" language="javascript" charset="utf-8">
+<!--
+var cfgArray = [];
+//cfgArray["Acrobat_10.0_Professional.helpcfg"] = "acrobatpro";
+//cfgArray["Acrobat_10.0_Standard.helpcfg"] = "acrobatstd";
+cfgArray["Lightroom_3.0.helpcfg"] = "lightroom";
+cfgArray["PhotoshopElements_8.0_Win.helpcfg"] = "photoshopelements";
+cfgArray["PhotoshopElements_8.0_Mac.helpcfg"] = "photoshopelementsmac";
+cfgArray["PremiereElements_8.0_Win.helpcfg"] = "premiereelements";
+
+//cfgArray["AfterEffects_10.0.helpcfg"] = "aftereffects";
+//cfgArray["AIR.helpcfg"] = "air";
+//cfgArray["ColdFusionBuilder.helpcfg"] = "coldfusion";
+//cfgArray["Contribute_6.0.helpcfg"] = "contribute";
+//cfgArray["DeviceCentral_3.0.helpcfg"] = "devicecentral";
+//cfgArray["Dreamweaver_11.0.helpcfg"] = "dreamweaver";
+//cfgArray["EncoreDVD_5.0.helpcfg"] = "encore";
+//cfgArray["ExtensionManager_3.0.helpcfg"] = "extension";
+//cfgArray["Fireworks_11.0.helpcfg"] = "fireworks";
+//cfgArray["Flash_11.0.helpcfg"] = "flash";
+//cfgArray["Flex_4.0.helpcfg"] = "flashbuilder";
+//cfgArray["FlashCatalyst_1.0.helpcfg"] = "flashcatalyst";
+//cfgArray["Illustrator_15.0.helpcfg"] = "illustrator";
+//cfgArray["InCopy_7.0.helpcfg"] = "incopy";
+//cfgArray["InDesign_7.0.helpcfg"] = "indesign";
+//cfgArray["OnLocation_5.0.helpcfg"] = "onlocation";
+//cfgArray["Photoshop_12.0.helpcfg"] = "photoshop";
+//cfgArray["PremierePro_5.0.helpcfg"] = "premierepro";
+
+function getLangName() {
+    var lang = "en-us";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if (ptn.test(lang)) {
+        var languageCode = lang.replace(ptn, "$1");
+        var countryCode = lang.replace(ptn, "$2");
+        lang = languageCode + "_" + countryCode.toUpperCase();
+    }
+    return lang;
+}
+
+function getCountryName() {
+    var lang = "";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if ((ptn.test(lang)) && (lang != "en-us")) {
+        var countryCode = lang.replace(ptn, "$2");
+        return "/" + countryCode;
+    }
+    return "";
+}
+
+if ( (typeof(terms_HELPCFG) != 'undefined')  && (terms_HELPCFG.indexOf(".helpcfg") != -1) ) {
+    var stage   = (document.location.href.indexOf(".stage.") != -1) ? 'stage.' : '';
+    var baseUrl = 'http://www.' + stage + 'adobe.com';
+    var refpage = document.location.href.replace(/#.*$/, '');
+	
+	if ((!use_robohelp_behavior) && (terms_HELPCFG.length > 0) && (typeof(cfgArray[terms_HELPCFG]) != 'undefined') && (cfgArray[terms_HELPCFG].length > 0)) {
+		if (document.getElementById) { // DOM3 = IE5, NS6
+			var newHref = baseUrl + getCountryName() + "/support/chc/" + "?helpcfg=http://help." + stage + "adobe.com/HelpCfg/" + getLangName() + "/" + terms_HELPCFG + "&url=" + refpage + "&product=" + cfgArray[terms_HELPCFG];
+			var newSrc = baseUrl + getCountryName() + "/support/chc/GetMoreHelpFeatures.png";
+			document.getElementById("chcPromo").style.display = "block";
+			document.getElementById("chcLink").href = newHref;
+			document.getElementById("chcImage").src = newSrc;
+		}
+	}
+}
+
+//-->
+</script>
+
+
+
+          <div><div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7e0e__WSc3ff6d0ea77859461172e0811cbec1793f-7fb1"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7e0e__WSc3ff6d0ea77859461172e0811cbec1793f-7fb1"><!-- --></a><h4 class="sectiontitle">Description</h4><p>Creates
+and defines a component object; encloses functionality that you
+build in CFML and enclose in <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7f5c.html">cffunction</a></samp> tags. This tag
+contains one or more <samp class="codeph">cffunction</samp> tags that define
+methods. Code within the body of this tag, other than <samp class="codeph">cffunction</samp> tags,
+is executed when the component is instantiated.</p>
+<p>A component
+file has the extension CFC and is stored in any directory of an
+application.</p>
+<p>A component method is invoked in the following
+ways:</p>
+<ul><li><p>In the <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7e0a.html">cfinvoke</a></samp> tag in a ColdFusion
+page</p>
+</li>
+<li><p>In a URL that calls a CFC file and passes a method name as
+a URL parameter</p>
+</li>
+<li><p>In the <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7ebf.html">cfscript</a></samp> tag</p>
+</li>
+<li><p>As a web service</p>
+</li>
+<li><p>From Flash code </p>
+</li>
+</ul>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7e0e__WSc3ff6d0ea77859461172e0811cbec1793f-7fb0"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7e0e__WSc3ff6d0ea77859461172e0811cbec1793f-7fb0"><!-- --></a><h4 class="sectiontitle">Category</h4><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777d.html">Extensibility tags</a></p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7e0e__WSc3ff6d0ea77859461172e0811cbec1793f-7faf"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7e0e__WSc3ff6d0ea77859461172e0811cbec1793f-7faf"><!-- --></a><h4 class="sectiontitle">Syntax</h4><pre>&lt;cfcomponent 
+    accessors = "yes|no" 
+    alias = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">ActionScript 3 type alias</i>" 
+    bindingname = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">binding element name</i>" 
+    displayname = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">string</i>" 
+    extends = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">component name</i>" 
+    hint = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">string</i>" 
+    implements = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">ColdFusion interface</i>" 
+    mappedSuperClass = "yes|no" 
+    namespace = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">default service namespace</i>" 
+    output = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">no value</i>|no|yes" 
+    porttypename = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">port type element name</i>" 
+    Serializable = "yes|no" 
+    serviceaddress = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">service URL</i>" 
+    serviceportname = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">port element name</i>" 
+    style = "rpc|document" 
+    wsdlfile = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">path</i>"&gt; 
+    <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">variable declarations</i> 
+    &lt;cffunction ...&gt; 
+        ... 
+    &lt;/cffunction&gt;  
+     
+    &lt;cffunction ...&gt; 
+        ... 
+    &lt;/cffunction&gt;  
+&lt;/cfcomponent&gt;</pre>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7e0e__WSc3ff6d0ea77859461172e0811cbec1793f-7fae"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7e0e__WSc3ff6d0ea77859461172e0811cbec1793f-7fae"><!-- --></a><h4 class="sectiontitle">See also</h4><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7e47.html">cfargument</a></samp><samp class="codeph">, </samp><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7f5c.html">cffunction</a></samp><samp class="codeph">,</samp><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7715.html">cfinterface</a></samp>, <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7e0a.html">cfinvoke</a></samp><samp class="codeph">,</samp><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7e09.html">cfinvokeargument</a></samp><samp class="codeph">,</samp><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7f6e.html">cfobject</a></samp><samp class="codeph">, </samp><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7e0b.html">cfproperty</a></samp><samp class="codeph">,</samp><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7df7.html">cfreturn</a></samp>, <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-74f8.html">IsInstanceOf</a></samp><samp class="codeph">,</samp><samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/Developing/WSc3ff6d0ea77859461172e0811cbec22c24-7fec.html" target="_self">Building
+and Using ColdFusion Components </a></samp>  in the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Developing ColdFusion Applications</i></p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7e0e__WSc3ff6d0ea77859461172e0811cbec1793f-7f93"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7e0e__WSc3ff6d0ea77859461172e0811cbec1793f-7f93"><!-- --></a><h4 class="sectiontitle">History</h4><p>ColdFusion
+9.0.1: Added the attribute <samp class="codeph">mappedSuperClass</samp></p>
+<p>ColdFusion
+9: Added the attributes <samp class="codeph">serializable</samp> and <samp class="codeph">accessors</samp>.</p>
+<p>ColdFusion
+8:</p>
+<ul><li><p>Added the <samp class="codeph">implements</samp> and <samp class="codeph">serviceaddress</samp> attributes.</p>
+</li>
+<li><p>Added support for the <samp class="codeph">onMissingMethod</samp> function.</p>
+</li>
+</ul>
+<p>ColdFusion
+MX 7:</p>
+<ul><li><p>Added support for publishing document-literal
+style web services.</p>
+</li>
+<li><p>Added the <samp class="codeph">style</samp>, <samp class="codeph">namespace</samp>, <samp class="codeph">serviceportname</samp>, <samp class="codeph">porttypename</samp>, <samp class="codeph">wsdlfile</samp>, <samp class="codeph">bindingname</samp>,
+and <samp class="codeph">output</samp> attributes.</p>
+</li>
+<li><p>Extended functionality for the <samp class="codeph">hint</samp> and <samp class="codeph">displayname</samp> attributes
+when publishing document-literal style web services.</p>
+</li>
+</ul>
+<p>ColdFusion
+MX: Added this tag.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7e0e__WSc3ff6d0ea77859461172e0811cbec1793f-7fad"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7e0e__WSc3ff6d0ea77859461172e0811cbec1793f-7fad"><!-- --></a><h4 class="sectiontitle">Attributes</h4>
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e17458"><p>Attribute</p>
+</th>
+<th valign="top" width="NaN%" id="d17e17461"><p>Req/Opt</p>
+</th>
+<th valign="top" width="NaN%" id="d17e17464"><p>Default</p>
+</th>
+<th valign="top" width="NaN%" id="d17e17467"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e17458 "><p>accessors</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17461 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17464 "><p><samp class="codeph">yes</samp> (for persistent CFC)</p>
+<p><samp class="codeph">no</samp> for
+others</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17467 "><p>If set to <samp class="codeph">yes</samp>, lets you
+invoke implicit getters and setters.</p>
+<p>For persistent CFC, <samp class="codeph">accessors</samp> is
+always enabled.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e17458 "><p><samp class="codeph">alias</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17461 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17464 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17467 "><p>Specifies the <samp class="codeph">type</samp> label
+to give the object when it is converted from CFML to ActionScript
+3. It matches the <samp class="codeph">alias</samp> attribute of AS3 types. This
+is attribute applies only to Flash Remoting and LiveCycle Data Services
+value objects, and lets you work with typed objects in both ColdFusion
+and Flash.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e17458 "><p><samp class="codeph">bindingname</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17461 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17464 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17467 "><p>Specifies the <samp class="codeph">binding</samp> attribute
+of the <samp class="codeph">port</samp> element in the WSDL. If you don’t specify
+this attribute, ColdFusion derives the value from the CFC class
+name.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e17458 "><p><samp class="codeph">displayname</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17461 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17464 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17467 "><p>A string that displays when you use introspection
+to show information about the CFC. The information appears on the
+heading, following the component name.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e17458 "><p><samp class="codeph">extends</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17461 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17464 "><p>WEB-INF.cftags.component</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17467 "><p>Name of parent component from which to inherit
+methods and properties. You can use the keyword <samp class="codeph">component</samp> to
+specify the default value. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e17458 "><p><samp class="codeph">hint</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17461 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17464 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17467 "><p>Text that displays when you use introspection
+to show information about the CFC. The <samp class="codeph">hint</samp> attribute
+value appears below the component name heading. Use this attribute
+to describe the purpose of the parameter.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e17458 "><p><samp class="codeph">implements</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17461 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17464 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17467 "><p>Name of the ColdFusion interface or interfaces
+that this component implements. If the component implements an interface,
+it must define all the functions in the interface, and the function
+definitions must conform to the definitions specified in the interface.
+For more information, see <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7715.html">cfinterface</a></samp>.</p>
+<p>A component
+can implement any number of interfaces. To specify multiple interfaces,
+use a comma-delimited list with the format <samp class="codeph">interface1,interface2</samp>.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e17458 "><p><samp class="codeph">mappedSuperClass</samp></p>
+<p>Added
+in ColdFusion 9.0.1</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17461 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17464 "><p><samp class="codeph">no</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17467 "><p>If set to <samp class="codeph">yes</samp> on a non-persistent
+CFC, child CFCs can inherit its properties. For example, you can
+define a base CFC with common properties such as ID, version, or
+createdOn which all other persistent CFCs would extend and thus
+get one common behavior.</p>
+<p>mappedSuperClass cannot be set to <samp class="codeph">yes</samp> on
+a persistent CFC.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e17458 "><p><samp class="codeph">namespace</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17461 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17464 "><p>class name </p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17467 "><p>Specifies the namespace used in the WSDL
+for a CFC that is invoked as a web service. If you don’t specify
+this attribute, ColdFusion derives the value from the CFC class
+name.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e17458 "><p><samp class="codeph">output</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17461 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17464 "><p>Component body
+displayable text that is processed as standard CFML</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17467 "><p>Specifies whether constructor code in the
+component can generate HTML output; does not affect output in the
+body of <samp class="codeph">cffunction</samp> tags in the component<samp class="codeph">.</samp></p>
+<div class="para"><ul><li><p><samp class="codeph">yes</samp>: Constructor code is processed as if
+it were within a <samp class="codeph">cfoutput</samp> tag. Variable names surrounded
+by number signs (#) are automatically replaced with their values.</p>
+</li>
+<li><p><samp class="codeph">no</samp>: Constructor code is processed as if
+it were within a <samp class="codeph">cfsilent</samp> tag.</p>
+</li>
+<li><p>If you do not specify this attribute, constructor code is
+processed as standard CFML. Any variables must be in <samp class="codeph">cfoutput</samp> tags.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e17458 "><p><samp class="codeph">porttypename</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17461 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17464 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17467 "><p>Specifies the <samp class="codeph">name</samp> attribute
+of the <samp class="codeph">porttype</samp> element in the WSDL. If you don’t
+specify this attribute, ColdFusion derives the value from the CFC
+class name.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e17458 "><p><samp class="codeph">serializable</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17461 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17464 "><p><samp class="codeph">true</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17467 "><p>Specifies whether this component can be
+serialized. If you set this value to <samp class="codeph">false</samp>, the
+component and the data in the component’s This and Variables scopes
+cannot be serialized, so they are not retained on session replication,
+and the component is in its default state.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e17458 "><p><samp class="codeph">serviceaddress</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17461 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17464 "><p>URL of the
+CFC </p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17467 "><p>Specifies the SOAP URL of the web service.
+If you don’t specify this attribute, ColdFusion uses the URL of
+the CFC in the WSDL service description. Use this attribute to specify
+the protocol, for example, by specifying a URL that starts with
+https://.</p>
+<p>This attribute applies only for web services.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e17458 "><p><samp class="codeph">serviceportname</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17461 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17464 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17467 "><p>Specifies the <samp class="codeph">name</samp> attribute
+of the <samp class="codeph">port</samp> element in the WSDL. If you don’t specify
+this attribute, ColdFusion derives the value from the CFC class
+name.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e17458 "><p><samp class="codeph">style</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17461 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17464 "><p><samp class="codeph">rpc</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17467 "><p>Specifies whether a CFC used for web services
+uses RPC-encoded style or document-literal style:</p>
+<div class="para"><ul><li><p><samp class="codeph">rpc</samp>: RPC-encoded style</p>
+</li>
+<li><p><samp class="codeph">document</samp>: Document-literal style</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e17458 "><p><samp class="codeph">wsdlfile</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17461 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17464 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e17467 "><p>A properly formatted WSDL file to be used
+instead of WSDL generated by ColdFusion.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7e0e__WSc3ff6d0ea77859461172e0811cbec1793f-7fac"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7e0e__WSc3ff6d0ea77859461172e0811cbec1793f-7fac"><!-- --></a><h4 class="sectiontitle">Usage</h4><p>If you
+specify the <samp class="codeph">extends</samp> attribute, the data and methods
+of the parent component are available to CFC methods as if they
+were parts of the current component. If the managerCFC component
+extends the employeeCFC component, and the employeeCFC component
+has a <samp class="codeph">getEmployeeName</samp> method, you can call this
+method by using the managerCFC, as follows:</p>
+<pre>&lt;cfinvoke component="managerCFC" method="getEmployeeName" returnVariable="managerName" 
+    EmployeeID=#EmpID#&gt;</pre>
+<p>This tag requires an end tag.</p>
+<p>If
+you specify <samp class="codeph">style="document"</samp>, ColdFusion publishes
+the CFC as a document-literal style web service. For more information,
+see <a href="http://help.adobe.com/en_US/ColdFusion/9.0/Developing/WSc3ff6d0ea77859461172e0811cbec22c24-78ae.html" target="_self">Publishing document-literal
+style web services</a>  in the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Developing ColdFusion Applications</i>.</p>
+<p>CFCs
+support an <samp class="codeph">onMissingMethod</samp> function. By defining
+an <samp class="codeph">onMissingMethod</samp> function in the <samp class="codeph">cfcomponent</samp> tag
+body in the CFC, you can handle calls to methods that are not implemented
+in the CFC. If an application calls a function that is not defined
+in the CFC, ColdFusion calls the <samp class="codeph">onMissingMethod</samp> function
+and passes it the requested method’s name and arguments. If you
+do not define an <samp class="codeph">onMissingMethod</samp> function, a call
+to a method that is not defined in the CFC causes ColdFusion to
+throw an error that must be handled in the calling code.</p>
+<p>The <samp class="codeph">onMissingMethod</samp> function
+is useful for several purposes: </p>
+<ul><li><p>To handle errors
+directly in the component, instead of requiring that each instance
+of code that calls the component handles them.</p>
+</li>
+<li><p>To create a dynamic proxy, an object that can take arbitrary
+calls and dynamically determines the correct action. </p>
+</li>
+</ul>
+<p>The <samp class="codeph">onMissingMethod</samp> function
+must have the following format:</p>
+<pre>&lt;cffunction name="onMissingMethod"&gt; 
+    &lt;cfargument name="missingMethodName" type="string"&gt; 
+    &lt;cfargument name="missingMethodArguments" type="struct"&gt; 
+        <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">code to handle call to nonexistent method</i> 
+&lt;/cffunction&gt;</pre>
+<div class="note"><span class="notetitle">Note:  </span> The argument name for onMissingMethod
+must not change.</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7e0e__WSc3ff6d0ea77859461172e0811cbec1793f-7fff"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7e0e__WSc3ff6d0ea77859461172e0811cbec1793f-7fff"><!-- --></a><h4 class="sectiontitle">Example</h4><pre>&lt;cfcomponent&gt; 
+    &lt;cffunction name="getEmp"&gt; 
+         &lt;cfquery name="empQuery" datasource="cfdocexamples" &gt; 
+             SELECT FIRSTNAME, LASTNAME, EMAIL 
+             FROM tblEmployees 
+         &lt;/cfquery&gt; 
+         &lt;cfreturn empQuery&gt; 
+    &lt;/cffunction&gt; 
+ 
+    &lt;cffunction name="getDept"&gt; 
+        &lt;cfquery name="deptQuery" datasource="cfdocexamples" &gt; 
+             SELECT * 
+             FROM tblDepartments 
+         &lt;/cfquery&gt; 
+         &lt;cfreturn deptQuery&gt; 
+    &lt;/cffunction&gt; 
+&lt;/cfcomponent&gt;</pre>
+</div>
+</div>
+
+
+<!-- BEGIN USER PREFERENCES -->
+          <div id="userprefs">
+          </div>
+<!-- END USER PREFERENCES -->
+
+          <div id="related">
+            
+            
+            <div class="separator">&#160;</div>
+          </div>
+          <div id="footer">
+<!-- BEGIN IONCOMMENTS -->
+            <div id="ionComHere">
+            </div>
+<!-- END IONCOMMENTS -->
+
+
+            <p id="creativecommons"><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" id="creativecommons_text"><img id="creativecommons_img" src="images/CC.png" alt="This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License" /></a>&nbsp;Twitter™ and Facebook posts are not covered under the terms of Creative Commons.</p>
+          </div>
+</td>
+<td width="10px"></td>
+<td id="inner_rightcolumn">
+
+</td></tr></table>
+      </div>
+<!-- BEGIN BREADCRUMBS -->
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec22c24-7d03.html" title="cfcollection"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-7c82.html" title="cfcontent"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>ColdFusion&#160;9&#160;CFML&#160;Reference</b></a> / <a href="WSc3ff6d0ea77859461172e0811cbec17576-7ffe.html"><b>ColdFusion Tags</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec1793f-7feb.html"><b>Tags c</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+<!-- END CONTENT WRAPPER -->
+
+</td>
+<td id="col3">
+    <div>
+        <img src="images/adobe-lq.png" />
+    </div>
+</td>
+</tr>
+</table>
+    </div>
+<!-- END PAGE CONTENT WRAPPER -->
+<script type="text/javascript">
+<!--[CDATA[
+scrollToNameAnchor();
+// ]]-->
+</script> 
+<!--
+    Description:
+    This file generates the link to product support in the top right corner
+-->
+
+<style>
+#menutop{
+    position:absolute;
+    top:4px;
+    right:24px;
+    width:auto;    
+    font-size:11px;
+    color:#fff;
+    text-align:right;
+}
+#menutop a{
+    color:#fff;
+}
+#menutop a:hover{
+        text-decoration:underline;
+}
+</style>  
+  
+  
+  
+  
+<div id="productmenu">
+<!--googleoff: index-->
+  <div id="menutop">
+
+
+<script language=javascript type='text/javascript'>
+    // darken menu text for products with light backgrounds
+    var path = document.location.href.toLowerCase();
+    if (path.indexOf("/acrobat/")           	> 0 ||
+        path.indexOf("/acrobat.com/")       	> 0 ||
+        path.indexOf("/acrobatConnectPro/") 	> 0 ||
+        path.indexOf("/connect/")           	> 0 ||
+        path.indexOf("/livecycledataserviceses/") > 0 ||
+        path.indexOf("/muse/")         	> 0 ||
+	path.indexOf("/presenter/")         	> 0 ||
+        path.indexOf("/scene7/")            	> 0 ||
+        path.indexOf("/flashmediaserver/")  	> 0 ||
+        path.indexOf("/wave/")              	> 0 )
+    {
+        document.write('<style>#menutop a{color:#505050}</style>');
+    }
+    if (typeof('terms_AHV_PRODUCT_SUPPORT') != "undefined" && ! use_robohelp_behavior ){      
+        if (path.indexOf("/muse/") > -1 ){
+            var supportlink = '<a href="http://muse.adobe.com/support.html">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }else{
+            var supportlink = '<a href="http://adobe.com/support">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }
+        document.write( supportlink );
+     }
+
+</script> 
+
+  </div>
+<!--googleon: index-->
+</div>
+
+
+
+<style>
+#online-privacy-policy{ 
+    margin:10px 40px; 
+    font-size:11px;
+}
+</style>
+
+<p id="online-privacy-policy">
+<script language="javascript">
+var pageLoc = "en_US";
+var metaElements = document.all ?
+document.all.tags('meta') :
+document.getElementsByTagName ?
+document.getElementsByTagName ('meta') : new Array();
+for (var m = 0; m < metaElements.length; m++) {
+	if (metaElements[m].name == "lang") {
+		pageLoc = metaElements[m].content;
+		break;
+	}
+}
+var ptn = /(..)-(..)/;
+if (ptn.test(pageLoc)) {
+	var languageCode = pageLoc.replace(ptn, "$1");
+	var countryCode = pageLoc.replace(ptn, "$2");
+	pageLoc = languageCode + "_" + countryCode.toUpperCase();
+}
+
+var policyLoc = "en_US";
+var policyText = "Online Privacy Policy";
+var policyPath = "";
+var policyArray=[
+"da_DK", "Online fortrolighedserklæring",
+"de_DE", "Online-Datenschutzrichtlinie",
+"es_ES", "Política de confidencialidad en línea",
+"fi_FI", "Yksityisyyttä koskeva Online-toimintaohjelma",
+"fr_FR", "Confidentialité et sécurité",
+"it_IT", "Informativa sulla privacy online",
+"ja_JP", "プライバシーポリシー",
+"ko_KR", "Adobe 온라인 개인정보 보호정책",
+"pt_BR", "Política de Confidencialidade On-line", 
+"zh_CN", "在线隐私政策",
+"zh_TW", "線上隱私政策"
+];
+var legalLoc = "en_US";
+var legalText = "Legal Notices";
+var legalPath = legalLoc;
+var legalArray=[
+"ar_AE", "إشعارات قانونية",
+"bg_BG", "Юридически бележки",
+"cs_CZ", "Právní upozornění",
+"da_DK", "Juridiske meddelelser",
+"de_DE", "Rechtliche Hinweise",
+"el_GR", "Σημειώσεις νομικού περιεχομένου",
+"es_ES", "Avisos legales",
+"et_EE", "Juriidilised teated",
+"fi_FI", "Lakisääteiset ilmoitukset",
+"fr_FR", "Mentions légales",
+"he_IL", "הצהרות משפטיות",
+"hr_HR", "Pravne napomene",
+"hu_HU", "Jogi közlemények",
+"it_IT", "Informazioni legali",
+"ja_JP", "法律上の注意",
+"ko_KR", "법적 고지 사항",
+"lt_LT", "Teisinės pastabos",
+"lv_LV", "Juridisks paziņojums",
+"nb_NO", "Juridiske merknader",
+"nl_NL", "Juridische kennisgevingen",
+"pl_PL", "Informacje prawne",
+"pt_BR", "Aspectos jurídicos",
+"ro_RO", "Prevederi legale",
+"ru_RU", "Юридическая информация",
+"sk_SK", "Právne upozornenie",
+"sl_SI", "Pravni pouk",
+"sv_SE", "Upphovsrätt",
+"tr_TR", "Yasal uyarılar",
+"uk_UA", "Юридична інформація",
+"zh_CN", "法律声明",
+"zh_TW", "法律注意事項"
+];
+
+ruPolicy = "http://www.adobe.com/ru/misc/privacy.html";
+trPolicy = "http://www.adobe.com/tr/misc/privacy.html";
+
+// Bug 2846992: LOC: RUS, TUR: The link to "Online Privacy Policy" should include language, currently it is not appearing.
+if (pageLoc == "ru_RU") {
+	policyPath = "ru";
+}
+else if (pageLoc == "tr_TR") {
+	policyPath = "tr";
+}
+for (var i = 0; i < policyArray.length; i+=2) {
+	if (pageLoc == policyArray[i]) {
+		policyLoc = pageLoc;
+		policyText = policyArray[i+1];
+		var ptn = /(..)_(..)/;
+		if (ptn.test(policyLoc)) {
+			var countryCode = policyLoc.replace(ptn, "$2");
+			policyPath = countryCode.toLowerCase();
+		}
+		break;
+	}
+}
+
+for (var i = 0; i < legalArray.length; i+=2) {
+	if (pageLoc == legalArray[i]) {
+		legalLoc = pageLoc;
+		legalText = legalArray[i+1];
+		legalPath = legalLoc;
+		break;
+	}
+}
+if(agt.indexOf("community help client") > -1 ){
+	document.write('<a href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+}else{
+	//Open the privacy policy in a new window
+	document.write('<a target="_blank" href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a target="_blank" href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+} 
+</script>
+</p>
+
+
+
+<!-- localfooter.ssi -->
+
+<script type="text/javascript">
+    var debug = (top.location.href.indexOf("debug=true") > -1);
+</script>
+
+<script language="javascript">
+document.write('<scr'+'ipt ' +
+               'src="/en_US/ssi/_pod.js" ' +
+               'language="javascript" ' +
+               'charset="UTF-8"> ' +
+               '</scr'+'ipt>');
+</script>
+
+
+<script type="text/javascript">
+//
+//  Ethnio survey code
+//
+/*          DocumentID      EthnioID */
+/*          -------------   -------- */
+var ethnio=["/en_US/flash/cs/using/WSb03e830bd6f770ee6664507612436d7dede-8000.html", "87462",
+            "/en_US/creativesuite/cs/using/WSe851854fd1e0856a-4b08a77612477f69f15-8000.html",  "10441",
+            "/en_US/dreamweaver/cs/using/WSEE4C0148-A6F4-4bf5-9DEF-CE06AB026214a.html",  "57412"
+ 
+    ];
+                        
+    for ( var i = 0; i < ethnio.length ; i = i+2 ){
+        if ( document.location.href.indexOf( ethnio[i] ) > -1 ){ 
+            var headID = document.getElementsByTagName("head")[0];         
+            var ethnioScript = document.createElement('script');
+            ethnioScript.type = 'text/javascript';
+            ethnioScript.src = 'http://ethn.io/remotes/' + ethnio[i+1];        
+            if ( debug ){
+                alert ("Using Ethnio script: " + ethnioScript.src );
+            }else{
+                headID.appendChild(ethnioScript);
+            }
+        }
+    }
+</script>
+
+
+
+<div style="display: none;">
+<!-- SiteCatalyst -->
+<script language="JavaScript" type="text/javascript"><!--
+var s_code=' ';
+var s_docHost = window.location.hostname.toLowerCase();
+var s_docURL = window.location.pathname.toLowerCase();
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+if (s_docHost.indexOf(".corp.adobe") != -1 || s_docHost.indexOf("stage.") != -1 || s_docHost.indexOf(".dev.adobe") != -1 || s_docHost.indexOf("staging.") != -1) scJsHost="";
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/omniture_s_code.js' type='text/javascript'%3E%3C/script%3E"));
+//--></script>
+<script type="text/javascript"><!--
+var s_accountName;
+s_server="www.adobe.com static content pages";
+if (!window.s_account) s_accountName="mxmacromedia";
+else s_accountName=window.s_account;
+
+if (window.s_docURL.indexOf("/designcenter/") != -1)
+  s_channel="Adobe Design Center";	
+else if ((window.s_docHost.indexOf("labs.adobe") != -1) ||
+(window.s_docHost.indexOf("labs-staging.") != -1))
+  s_channel="Labs";
+else if (window.s_docHost.indexOf("help.adobe.com") != -1) {
+  s_channel="Support Help.adobe.com";
+  if (window.s_docURL.indexOf("/en_us/") == -1) {
+    s_docURLArray=s_docURL.split('/');
+    s_pageName="http://help.adobe.com/"+s_docURLArray[1]+"/"+ s_docURLArray[2]+"/"+s_docURLArray[3];
+    s_prop23="http://help.adobe.com"+window.location.pathname;
+  }
+}
+else if (window.s_docHost.indexOf("kb2.adobe.com") != -1) {
+  s_channel="Support Knowledgebase";
+  s_prop23="http://kb2.adobe.com"+s_docURL+":";
+  if (typeof(omtrProductList) != 'undefined' && omtrProductList.length > 0)
+ {
+    s_prop23=s_prop23+omtrProductList;
+  }
+}
+else if (window.s_docHost.indexOf("resellers.adobe.com") != -1) {
+		var s_pageName=document.getElementsByTagName("title")[0].text;
+}
+
+if (!window.scMMInclude) {
+	var s_wd=window,s_tm=new Date;
+	if(s_code!=' '){
+		s_code=s_dc(s_accountName);
+		if(s_code)document.write(s_code)
+	} 
+} else {
+	s_wds(s_accountName);s_ca(s_accountName); 
+}	
+
+function sendAnalyticsEvent(str){var ns=s_accountName;if(str!=null)ns+=","+str;void(s_gs(ns));}
+function sendLinkEvent(accnt,lnkname,type){
+accnt=s_accountName;s_linkType=type;s_lnk=true;s_linkName=lnkname;void(s_gs(accnt));}
+//--></script>
+<noscript><img src="http://stats.adobe.com/b/ss/mxmacromedia/1/H.15-XELvs/0?pageName=http%3A//www.adobe.com%3A%20noscript&ch=http%3A//www.adobe.com%3A%20noscript&g=http%3A//www.adobe.com" height="1" width="1" border="0" alt="" /></noscript>
+<!-- End SiteCatalyst -->
+</div>
+
+<script language="JavaScript" type="text/javascript">//<![CDATA[
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/atm/s_code_www.js' type='text/javascript'%3E%3C/script%3E"));
+//]]></script>
+<script type="text/javascript">//<![CDATA[
+if(s_adobe){	
+	s_adobe.server="www.adobe.com Static Content pages";
+	/* Set pageName */
+	s_adobe.s_URL="adobe.com"+((location.pathname.charAt(0)=='/')?location.pathname:'/'+location.pathname);
+	if (s_adobe.s_URL.substring(s_adobe.s_URL.lastIndexOf('/')+1)=="") s_adobe.s_URL=s_adobe.s_URL+"index.html";
+	s_adobe.s_URLSplit=s_adobe.s_URL.split("/");
+	s_adobe.pageName=s_adobe.s_URLSplit.join(":");
+
+	/* Set prop4 to language-locale */
+	var s_meta=document.getElementsByTagName('meta'); 
+      for (i=0; i<s_meta.length; i++) { 
+        if (s_meta[i].getAttribute("http-equiv") == "Content-Language") { 
+          s_adobe.prop4=s_meta[i].getAttribute("content"); 
+	    s_adobe.prop4=s_adobe.prop4.replace(/\s+/g,'');
+        } 
+      } 
+	s_adobe.t()
+}
+//]]></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

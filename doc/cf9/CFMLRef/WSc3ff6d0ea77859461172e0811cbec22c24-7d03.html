@@ -1,0 +1,1424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0022)http://help.adobe.com/ -->
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="lang" content="en-us" />
+    <meta name="area" content="livedocs" />
+    <title>Adobe&#160;ColdFusion&#160;9 * cfcollection</title>
+    <link rel="shortcut icon" href="images/ColdFusionLinkIndicator.png" />
+    <meta name="book" content="ColdFusion&#160;9&#160;CFML&#160;Reference" />
+    <meta name="product" content="ColdFusion" />
+    <meta name="keywords" content="" /><!--<PageMap><DataObject type="document"><Attribute name="product" value="ColdFusion"></Attribute><Attribute name="book" value="ColdFusion&#160;9&#160;CFML&#160;Reference"></Attribute><Attribute name="keywords" value=""></Attribute></DataObject></PageMap>-->
+    
+    <script type="text/javascript" language="Javascript" charset="UTF-8"><!--[CDATA[
+        var currentTreeNode = "WSc3ff6d0ea77859461172e0811cbec22c24-7d03.html";
+    document.cookie = "topicId=" + "WSc3ff6d0ea77859461172e0811cbec22c24-7d03.html";
+// ]]--></script>
+<script src="terms.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="help.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script>  <script src="utilities.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="event.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="treeview.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="toc.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script> <script src="swfobject.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>  <script src="booklist.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>
+<script type="text/javascript">
+<!--[CDATA[
+var topictype = "topic";
+var headId = document.getElementsByTagName("head")[0];         
+if (use_ie_6_behavior) {
+  var linkId = document.createElement("link");
+  linkId.href = "content-ie6.css";
+  linkId.rel = "stylesheet";
+  linkId.type = "text/css";
+  headId.appendChild(linkId);
+}
+function initRoboHelpDOM() {
+  if (use_chm_behavior) {
+    hideElement("search");
+  }
+  if (use_robohelp_behavior) {
+    hideElement("search");
+    hideElement("productmenu");
+    //hideElement("notyourversion");
+  }
+  if(!use_chc_behavior) {
+    //document.getElementById("notyourversion").style.display = "inline";;
+  }
+}
+var dirname = location.pathname.match( /.*\// );    
+function setSearchUserPref(){
+  if ( document.cookie.indexOf( "ah_searchpref" ) > -1 ) {
+    if ( document.cookie.indexOf( dirname ) > 0 ) {
+      document.search.gsa.checked = true ;
+    }else{
+      document.search.gsa.checked = false ;            
+    }
+  }
+}
+YAHOO.util.Event.onDOMReady(initRoboHelpDOM);
+YAHOO.util.Event.onDOMReady(setSearchUserPref);
+// ]]-->
+</script>
+
+<!-- ********************************** -->
+<!-- START: ForeSee survey code in: /ssi/globalheader.ssi -->
+
+<script type="text/javascript">
+<!-- 
+// Enable the survey for only English, German and Japanese
+var agt=navigator.userAgent.toLowerCase();
+if ( agt.indexOf("community help client") == -1 ){
+    if ( document.location.href.indexOf("/en_US/") != -1 ){
+        showSurvey();
+//    }else if (document.location.href.indexOf("/de_DE/") != -1){
+//         var locale="de";
+//         showSurvey();
+    }else if (document.location.href.indexOf("/ja_JP/") != -1 ){
+         var locale="ja";
+         showSurvey();
+    }	
+}
+
+function showSurvey(){
+	document.write('<script type="text/javascript" src="/js/foresee/foresee-trigger.js"><\/scr'+'ipt>');
+}
+
+// -->
+</script>
+
+<!-- END: ForeSee survey code -->
+<!-- ******************************** -->
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="tree.css" />
+    <link rel="stylesheet" type="text/css" href="content.css" />
+    <link rel="stylesheet" type="text/css" href="localeSpecific.css" />
+  </head>
+  <body id="content_body" onload="window.focus();">
+    <a name="top" shape="rect"><!--LeaveCommentHere--></a>
+    
+    <div id="mnemonic">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon" class="ColdFusion"><div class="banner"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html">Adobe&#160;ColdFusion&#160;9</a><span id="notyourversion">|&#160;
+                    <a rel="nofollow" href="http://www.adobe.com/support/documentation/en/coldfusion/">Not your version?</a></span></div></div><!--googleon: index-->
+    </div>
+    
+    <div id="searchbar">
+<table id="searchbartable">
+<tr>
+<td colspan="2">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon"><div id="pdf"><img src="images/PDF.gif" width="16" height="16" /><a title="View Help PDF" href="coldfusion_9_cfmlref.pdf">View Help PDF ( 32MB)</a></div></div><!--googleon: index-->
+</td>
+</tr>
+</table>
+    </div>
+
+<!-- BEGIN SEARCH CONTENT -->
+<form id="search" name="search" action="search.html" target="_self">
+<script type="text/javascript">
+<!--[CDATA[
+if ( !use_chc_behavior ){
+    if (typeof(terms_AHV_SEARCH_CONSTRAINT) != "undefined" && 
+        terms_AHV_SEARCH_CONSTRAINT.length > 0 && 
+        document.location.href.indexOf(".adobe.com") > 0){
+        if ( typeof(terms_SEARCH_THIS_HELP_ONLY) != "undefined" && terms_SEARCH_THIS_HELP_ONLY == "ON" ) {
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                checked="checked" \
+                value="1" ><\/input>'); 
+                
+        // Leave the "Search this help system only" checkbox unckecked
+        }else{    
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                value="1" ><\/input>'); 
+        }
+        document.write('<span class="gsalabel">' + terms_AHV_SEARCH_CONSTRAINT + '<\/span><\/div>'); 
+    }
+    document.write('<input class="searchinput" \
+        name="q" \
+        id="q" \
+        type="text" \
+        maxlength="256" \
+        value="' + terms_AHV_SEARCH_BUTTON + '" \
+        onclick="clearSearch()"><\/input><input \
+        type="button" \
+        name="searchbutton" \
+        class="searchbutton" \
+        onclick="submit()"><\/input>'); 
+} 
+ 
+/* 
+ * Start Functions 
+ */
+function clearSearch(){
+    if (document.search.q.value == terms_AHV_SEARCH_BUTTON){document.search.q.value = ""}; 
+}
+
+// set search preferences
+function setAHSearchPref(){
+    if (document.search.gsa.checked == 1){
+        setAHSearchCookie( dirname );
+    }else{
+        setAHSearchCookie( "community" );
+    }
+}
+
+// Set search preferences cookie
+function setAHSearchCookie( p ){
+    // set cookie ah_searchpref with a value of the document path
+    var expire=new Date();
+    expire.setDate(expire.getDate()+365); // Cookie expires after 1 year (365 days) 
+    document.cookie="ah_searchpref=" +p+ "; expires=" +expire.toGMTString()+ ";";
+}
+
+// ]]-->
+</script> 
+ </form>
+<!-- END SEARCH CONTENT -->    
+
+
+
+<!-- BEGIN PAGE CONTENT WRAPPER -->
+    <div id="page_content_wrapper">
+<!-- BEGIN PAGE WRAPPER -->
+<table id="page_content_table">
+<tr>
+
+<td id="col2">
+<!-- BEGIN CONTENT WRAPPER -->
+<!-- BEGIN BREADCRUMBS -->
+
+      
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec22c24-7769.html" title="cfcol"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-7e0e.html" title="cfcomponent"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>ColdFusion&#160;9&#160;CFML&#160;Reference</b></a> / <a href="WSc3ff6d0ea77859461172e0811cbec17576-7ffe.html"><b>ColdFusion Tags</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec1793f-7feb.html"><b>Tags c</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+      <div id="content_wrapper">
+<!-- BEGIN PAGE TITLE -->
+        <h1>cfcollection</h1>
+<!-- END PAGE TITLE -->
+<!-- BEGIN IONCOMMENTCOUNT -->
+        <div id="ionCount">
+        </div>
+<!-- END IONCOMMENTCOUNT -->
+<table id="inner_content_table" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>
+          <div style="border-top:#ccc solid 1px;"><p> </p>
+          </div>
+<p id="chcPromo" style="display:none;">
+<a id="chcLink" href="http://www.adobe.com/support/chc/">
+<img id="chcImage" src="http://www.adobe.com/support/chc/GetMoreHelpFeatures.png"/>
+</a>
+</p>
+<script type="text/javascript" language="javascript" charset="utf-8">
+<!--
+var cfgArray = [];
+//cfgArray["Acrobat_10.0_Professional.helpcfg"] = "acrobatpro";
+//cfgArray["Acrobat_10.0_Standard.helpcfg"] = "acrobatstd";
+cfgArray["Lightroom_3.0.helpcfg"] = "lightroom";
+cfgArray["PhotoshopElements_8.0_Win.helpcfg"] = "photoshopelements";
+cfgArray["PhotoshopElements_8.0_Mac.helpcfg"] = "photoshopelementsmac";
+cfgArray["PremiereElements_8.0_Win.helpcfg"] = "premiereelements";
+
+//cfgArray["AfterEffects_10.0.helpcfg"] = "aftereffects";
+//cfgArray["AIR.helpcfg"] = "air";
+//cfgArray["ColdFusionBuilder.helpcfg"] = "coldfusion";
+//cfgArray["Contribute_6.0.helpcfg"] = "contribute";
+//cfgArray["DeviceCentral_3.0.helpcfg"] = "devicecentral";
+//cfgArray["Dreamweaver_11.0.helpcfg"] = "dreamweaver";
+//cfgArray["EncoreDVD_5.0.helpcfg"] = "encore";
+//cfgArray["ExtensionManager_3.0.helpcfg"] = "extension";
+//cfgArray["Fireworks_11.0.helpcfg"] = "fireworks";
+//cfgArray["Flash_11.0.helpcfg"] = "flash";
+//cfgArray["Flex_4.0.helpcfg"] = "flashbuilder";
+//cfgArray["FlashCatalyst_1.0.helpcfg"] = "flashcatalyst";
+//cfgArray["Illustrator_15.0.helpcfg"] = "illustrator";
+//cfgArray["InCopy_7.0.helpcfg"] = "incopy";
+//cfgArray["InDesign_7.0.helpcfg"] = "indesign";
+//cfgArray["OnLocation_5.0.helpcfg"] = "onlocation";
+//cfgArray["Photoshop_12.0.helpcfg"] = "photoshop";
+//cfgArray["PremierePro_5.0.helpcfg"] = "premierepro";
+
+function getLangName() {
+    var lang = "en-us";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if (ptn.test(lang)) {
+        var languageCode = lang.replace(ptn, "$1");
+        var countryCode = lang.replace(ptn, "$2");
+        lang = languageCode + "_" + countryCode.toUpperCase();
+    }
+    return lang;
+}
+
+function getCountryName() {
+    var lang = "";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if ((ptn.test(lang)) && (lang != "en-us")) {
+        var countryCode = lang.replace(ptn, "$2");
+        return "/" + countryCode;
+    }
+    return "";
+}
+
+if ( (typeof(terms_HELPCFG) != 'undefined')  && (terms_HELPCFG.indexOf(".helpcfg") != -1) ) {
+    var stage   = (document.location.href.indexOf(".stage.") != -1) ? 'stage.' : '';
+    var baseUrl = 'http://www.' + stage + 'adobe.com';
+    var refpage = document.location.href.replace(/#.*$/, '');
+	
+	if ((!use_robohelp_behavior) && (terms_HELPCFG.length > 0) && (typeof(cfgArray[terms_HELPCFG]) != 'undefined') && (cfgArray[terms_HELPCFG].length > 0)) {
+		if (document.getElementById) { // DOM3 = IE5, NS6
+			var newHref = baseUrl + getCountryName() + "/support/chc/" + "?helpcfg=http://help." + stage + "adobe.com/HelpCfg/" + getLangName() + "/" + terms_HELPCFG + "&url=" + refpage + "&product=" + cfgArray[terms_HELPCFG];
+			var newSrc = baseUrl + getCountryName() + "/support/chc/GetMoreHelpFeatures.png";
+			document.getElementById("chcPromo").style.display = "block";
+			document.getElementById("chcLink").href = newHref;
+			document.getElementById("chcImage").src = newSrc;
+		}
+	}
+}
+
+//-->
+</script>
+
+
+
+          <div><div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7d03__WSc3ff6d0ea77859461172e0811cbec1793f-7fba"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7d03__WSc3ff6d0ea77859461172e0811cbec1793f-7fba"><!-- --></a><h4 class="sectiontitle">Description</h4><p>Creates
+and administers Verity or Solr search engine collections. </p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7d03__WSc3ff6d0ea77859461172e0811cbec1793f-7fb9"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7d03__WSc3ff6d0ea77859461172e0811cbec1793f-7fb9"><!-- --></a><h4 class="sectiontitle">Category</h4><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777d.html">Extensibility tags</a></p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7d03__WSc3ff6d0ea77859461172e0811cbec1793f-7fb8"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7d03__WSc3ff6d0ea77859461172e0811cbec1793f-7fb8"><!-- --></a><h4 class="sectiontitle">Syntax</h4><pre>&lt;cfcollection  
+    action = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">action</i>" 
+    categories = "yes|no" 
+    collection = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">collection name</i>" 
+    engine = "verity|solr 
+    language = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">language</i>" 
+    name = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">query name</i>" 
+    path = "c"&gt;</pre>
+<div class="note"><span class="notetitle">Note:  </span>You can specify
+this tag’s attributes in an <samp class="codeph">attributeCollection</samp> attribute
+whose value is a structure. Specify the structure name in the <samp class="codeph">attributeCollection</samp> attribute
+and use the tag’s attribute names as structure keys.</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7d03__WSc3ff6d0ea77859461172e0811cbec1793f-7fb7"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7d03__WSc3ff6d0ea77859461172e0811cbec1793f-7fb7"><!-- --></a><h4 class="sectiontitle">See also</h4><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d56.html">cfexecute</a></samp><samp class="codeph">, </samp><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d04.html">cfindex</a></samp><samp class="codeph">, </samp><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7f6e.html">cfobject</a></samp><samp class="codeph">, </samp><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d.html">cfreport</a></samp><samp class="codeph">, </samp><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d02.html">cfsearch</a></samp><samp class="codeph">, </samp><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7ca6.html">cfwddx</a></samp></p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7d03__WSc3ff6d0ea77859461172e0811cbec1793f-7fb6"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7d03__WSc3ff6d0ea77859461172e0811cbec1793f-7fb6"><!-- --></a><h4 class="sectiontitle">History</h4><p>ColdFusion
+9: Added the <samp class="codeph">engine</samp> attribute (required for Solr
+support).</p>
+<p>ColdFusion MX 7:</p>
+<ul><li><p>Starting with ColdFusion
+MX 7, you cannot use the cfcollection tag to create alias names
+for existing collections. Because Verity maintains all the collection information,
+you cannot have two names point to the same collection.</p>
+</li>
+<li><p>Removed reference to external collections. </p>
+</li>
+<li><p>Deprecated the <samp class="codeph">map</samp> and <samp class="codeph">repair</samp> options
+of the <samp class="codeph">action</samp> attribute. They might not work, and
+might cause an error, in later releases.</p>
+</li>
+<li><p>Added <samp class="codeph">categories</samp> attribute and <samp class="codeph">categorylist</samp> action.</p>
+</li>
+<li><p>Added CATEGORIES, SIZE, DOCCOUNT, and LASTMODIFIED to list
+of variables returned by the <samp class="codeph">list</samp> action.</p>
+</li>
+<li><p>Marked as obsolete the MAPPED, ONLINE, and REGISTERED variables
+returned by the <samp class="codeph">list</samp> action.</p>
+</li>
+</ul>
+<p>ColdFusion
+MX: </p>
+<ul><li><p>Changed the requirements for the <samp class="codeph">action</samp> attribute:
+it is now required. </p>
+</li>
+<li><p>Added the <samp class="codeph">action</samp> attribute <samp class="codeph">list</samp> value.
+It is the default.</p>
+</li>
+<li><p>Changed the requirements for the <samp class="codeph">action</samp> attribute
+value <samp class="codeph">map</samp>: it is not necessary to specify the <samp class="codeph">action</samp> attribute
+value <samp class="codeph">map</samp>. (ColdFusion detects collections and
+creates maps collections as required.)</p>
+</li>
+<li><p>Changed acceptable collection naming: this tag accepts collection
+names that include spaces. </p>
+</li>
+<li><p>Changed Verity operations behavior: ColdFusion supports Verity
+operations on Acrobat PDF files.</p>
+</li>
+<li><p>Changed thrown exceptions: this tag can throw the SEARCHENGINE exception. </p>
+</li>
+</ul>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7d03__WSc3ff6d0ea77859461172e0811cbec1793f-7fb5"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7d03__WSc3ff6d0ea77859461172e0811cbec1793f-7fb5"><!-- --></a><h4 class="sectiontitle">Attributes</h4>
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e16337"><p>Attribute</p>
+</th>
+<th valign="top" width="NaN%" id="d17e16340"><p>Req/Opt</p>
+</th>
+<th valign="top" width="NaN%" id="d17e16343"><p>Default</p>
+</th>
+<th valign="top" width="NaN%" id="d17e16346"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e16337 "><p><samp class="codeph">action</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16340 "><p>Required; see Usage</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16343 "><p><samp class="codeph">list</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16346 "><div class="para"><ul><li><p><samp class="codeph">categorylist</samp>:
+(Verity only) retrieves categories from the collection and indicates
+how many documents are in each one. Returns a structure of structures
+in which the category representing each substructure is associated
+with a number of documents. For a category in a category tree, the
+number of documents is the number at <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">or below</i> that level
+in the tree.</p>
+</li>
+<li><p><samp class="codeph">create</samp>: registers the collection with ColdFusion.
+If the collection is present, the tag creates a map to it. If the
+collection is not present, the tag creates it.</p>
+</li>
+<li><p><samp class="codeph">delete</samp>: unregisters a collection and deletes
+its directories.</p>
+</li>
+<li><p><samp class="codeph">list</samp>: returns a query result set, named
+from the <samp class="codeph">name</samp> attribute value, of the attributes
+of the collections that are registered by ColdFusion. If you have
+Solr and Verity collections and omit the <samp class="codeph">engine</samp> attribute,
+ColdFusion lists information for both types of collections.</p>
+</li>
+<li><p><samp class="codeph">map</samp>: creates a map to a collection. If the
+action is <samp class="codeph">create</samp> and the collection exists, ColdFusion
+also creates a map to the collection.</p>
+</li>
+<li><p><samp class="codeph">optimize</samp>: optimizes the structure and contents
+of the collection for searching; recovers space. Causes collection
+to be taken offline, preventing searches and indexing.</p>
+</li>
+<li><p><samp class="codeph">repair</samp>: deprecated. Does nothing. </p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16337 "><p><samp class="codeph">categories</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16340 "><p>See Usage</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16343 "><p><samp class="codeph">no</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16346 "><p>Used only for creating a collection:</p>
+<div class="para"><ul><li><p><samp class="codeph">yes</samp>: this collection includes support for
+categories.</p>
+</li>
+<li><p><samp class="codeph">no</samp>: this collection does not support categories.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16337 "><p><samp class="codeph">collection</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16340 "><p>See Usage</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16343 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16346 "><div class="para"><ul><li><p>A collection name. The name can
+include spaces.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16337 "><p><samp class="codeph">engine</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16340 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16343 "><p><samp class="codeph">verity</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16346 "><p>The search engine for the collection:</p>
+<div class="para"><ul><li><p><samp class="codeph">solr</samp>: the Apache Lucene open source search
+engine</p>
+</li>
+<li><p><samp class="codeph">verity</samp>: the Verity search engine.</p>
+</li>
+</ul>
+</div>
+<p>For
+the <samp class="codeph">create</samp> and <samp class="codeph">map</samp> actions, the
+default is <samp class="codeph">verity</samp>. For the <samp class="codeph">list</samp> action,
+the default is to list all collections, Verity and Solr. For all
+other actions ColdFusion determines the collection type.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16337 "><p><samp class="codeph">language</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16340 "><p>See Usage</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16343 "><p><samp class="codeph">English</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16346 "><p>For a list of options, see Usage. </p>
+<p>For
+languages other than English, Verity requires the appropriate (European
+or Asian) Verity Locales language pack.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16337 "><p><samp class="codeph">name</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16340 "><p>See Usage</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16343 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16346 "><p>Name for the query results returned by the <samp class="codeph">list</samp> and <samp class="codeph">categorylist</samp> actions.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16337 "><p><samp class="codeph">path</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16340 "><p>See Usage</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16343 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16346 "><p>Absolute path to a collection. </p>
+<p>To
+map an existing collection, specify a fully qualified path to the
+collection (not including the collection name); for example, <samp class="codeph">"C:\MyCollections\"</samp>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7d03__WSc3ff6d0ea77859461172e0811cbec1793f-7fb4"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7d03__WSc3ff6d0ea77859461172e0811cbec1793f-7fb4"><!-- --></a><h4 class="sectiontitle">Usage</h4><p>With this
+tag you can </p>
+<ul><li><p>Create Solr or Verity collections.</p>
+</li>
+<li><p>Administer Solr or Verity collections created by this tag
+or the ColdFusion Administrator.</p>
+</li>
+<li><p>Administer Verity collections that were created by a Verity
+application.</p>
+</li>
+</ul>
+<p>The following table shows the dependence
+relationships among this tag’s attribute values:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e16579"><p>This attribute is required, optional, or unnecessary
+(blank):</p>
+</th>
+<th colspan="7" valign="top" id="d17e16582"><p>For this action attribute value:</p>
+</th>
+</tr>
+<tr><th valign="top" width="NaN%" id="d17e16586">&#160;</th>
+<th valign="top" width="NaN%" id="d17e16587"><p>list</p>
+</th>
+<th valign="top" width="NaN%" id="d17e16590"><p>create</p>
+</th>
+<th valign="top" width="NaN%" id="d17e16593"><p>map</p>
+</th>
+<th valign="top" width="NaN%" id="d17e16596"><p>optimize</p>
+</th>
+<th valign="top" width="NaN%" id="d17e16599"><p>repair</p>
+</th>
+<th valign="top" width="NaN%" id="d17e16602"><p>delete</p>
+</th>
+<th valign="top" width="NaN%" id="d17e16605"><p>category list</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e16579 d17e16586 "><p><samp class="codeph">collection</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16587 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16590 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16593 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16596 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16599 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16602 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16605 "><p>Required</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16579 d17e16586 "><p><samp class="codeph">path</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16587 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16590 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16593 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16596 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16599 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16602 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16605 "><p>&#160;</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16579 d17e16586 "><p><samp class="codeph">language</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16587 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16590 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16593 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16596 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16599 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16602 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16605 "><p>&#160;</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16579 d17e16586 "><p><samp class="codeph">name</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16587 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16590 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16593 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16596 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16599 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16602 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16605 "><p>Required</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16579 d17e16586 "><p><samp class="codeph">categories</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16587 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16590 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16593 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16596 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16599 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16602 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16582 d17e16605 "><p>&#160;</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The following examples show the structures
+returned by the <samp class="codeph">categorylist</samp> action:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th colspan="2" valign="top" id="d17e16750"><p>CATEGORIES</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e16750 "><p>blue</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16750 "><p>10</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16750 "><p>green</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16750 "><p>3</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16750 "><p>magenta</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16750 "><p>3</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16750 "><p>purple</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16750 "><p>2</p>
+</td>
+</tr>
+<tr><td colspan="2" valign="top" headers="d17e16750 "><p><strong>CATEGORYTREES</strong></p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16750 "><p>a/</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16750 "><p>10</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16750 "><p>a/b</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16750 "><p>10</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16750 "><p>a/b/c</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16750 "><p>10</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16750 "><p>a/b/c/subdir</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16750 "><p>3</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The <samp class="codeph">list</samp> action returns
+the following information in a result set that contains one row
+per collection: </p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e16826"><p>Column</p>
+</th>
+<th valign="top" width="NaN%" id="d17e16829"><p>Contents</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e16826 "><p>CATEGORIES</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16829 "><div class="para"><ul><li><p><samp class="codeph">yes</samp>: the collection
+has category support enabled.</p>
+</li>
+<li><p><samp class="codeph">no</samp>: the collection does not have category
+support enabled.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16826 "><p>CHARSET</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16829 "><p>The character set of the collection.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16826 "><p>CREATED</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16829 "><p>The date and time that the collection was
+created.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16826 "><p>DOCCOUNT</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16829 "><p>The number of documents in this collection.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16826 "><p>EXTERNAL</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16829 "><div class="para"><ul><li><p><samp class="codeph">yes</samp>: the collection
+is external.</p>
+</li>
+<li><p><samp class="codeph">no</samp>: the collection is not external.</p>
+</li>
+<li><p><samp class="codeph">not found</samp>: the collection is registered
+but is not available in the defined path.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16826 "><p>LANGUAGE</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16829 "><p>The locale setting of the collection. </p>
+<p>This
+information is not available for K2Server collections.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16826 "><p>LASTMODIFIED</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16829 "><p>The date and time that the collection was
+last changed.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16826 "><p>MAPPED</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16829 "><p>Obsolete.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16826 "><p>NAME</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16829 "><p>The name of the collection. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16826 "><p>ONLINE</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16829 "><p>Obsolete.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16826 "><p>PATH</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16829 "><p>Absolute path to the collection. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16826 "><p>REGISTERED</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16829 "><p>Obsolete.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16826 "><p>SIZE</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16829 "><p>The size of the collection, expressed in
+kilobytes.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>You can also specify <samp class="codeph">uni</samp> to
+enable support for multiple languages.</p>
+<p>If the Verity Server
+is not running when the <samp class="codeph">list</samp> action is executed
+on a Verity collection, the tag throws an error.</p>
+<p>To determine
+whether a collection exists, use code, such as the following, to execute
+a query of queries:</p>
+<pre>&lt;cfcollection action="list" name="myCollections" &gt;  
+&lt;cfquery name="qoq" dbtype="query"&gt; 
+    SELECT * from myCollections  
+    WHERE myCollections.name = 'myCollectionName' 
+    &lt;/cfquery&gt;  
+&lt;cfif qoq.recordcount GT 0&gt; 
+    &lt;!--- Collection exists ---&gt; 
+    &lt;cfdump var = #qoq#&gt; 
+&lt;/cfif&gt;</pre>
+<p>The code determines whether a Verity
+collection exists as Verity is the default engine. You may also
+specify <samp class="codeph">engine="verity" </samp>in the code.</p>
+<p>To determine
+whether a Solr collection exists, you must specifically add the attribute <samp class="codeph">engine</samp> and
+provide the value as <samp class="codeph">solr</samp>. For example,</p>
+<p><samp class="codeph">&lt;cfcollection action="list" name="myCollections" engine="solr"&gt;</samp></p>
+<p>To
+get a result set with values for all the collections that are registered
+with the search server, use code such as the following:</p>
+<pre>&lt;cfcollection action="list" name="myCollections"&gt; 
+&lt;cfoutput query="myCollections"&gt; 
+    #name#&lt;br&gt; 
+&lt;/cfoutput&gt;</pre>
+<p>To add content to a collection,
+use <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d04.html">cfindex</a></samp>. To search a collection,
+use <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d02.html">cfsearch</a></samp><samp class="codeph">.</samp></p>
+<p>You
+cannot delete Verity collections on Windows if they are created
+outside of the ColdFusion collections directory or on a drive other
+than C:, D: or E:. To use a different drive letter, edit the cf_dir/verity/common/verity.cfg
+file and replace an entry with the directory you wish to use as
+follows:</p>
+<pre>alias11=path6 
+mapping11=F:\ 
+dirmode11=rw</pre>
+<p>Restart the ColdFusion Search Service
+for this change to take effect.</p>
+<p>For Solr collections, the <samp class="codeph">language</samp> attribute
+of this tag supports the following options: </p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><tbody><tr><td valign="top" width="NaN%"><p>Brazilian</p>
+</td>
+<td valign="top" width="NaN%"><p>cjk (Chinese, Japanese, Korean)</p>
+</td>
+<td valign="top" width="NaN%"><p>French</p>
+</td>
+<td valign="top" width="NaN%"><p>Russian</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p>Czech</p>
+</td>
+<td valign="top" width="NaN%"><p>Dutch</p>
+</td>
+<td valign="top" width="NaN%"><p>German</p>
+</td>
+<td valign="top" width="NaN%"><p>Thai</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p>Chinese</p>
+</td>
+<td valign="top" width="NaN%"><p>English</p>
+</td>
+<td valign="top" width="NaN%"><p>Greek</p>
+</td>
+<td valign="top" width="NaN%"><p>&#160;</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For Verity collections, the <samp class="codeph">language</samp> attribute
+of this tag supports the following options: </p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><tbody><tr><td colspan="4" valign="top"><p><strong>Asian Language Pack</strong></p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p>Japanese</p>
+</td>
+<td valign="top" width="NaN%"><p>Korean</p>
+</td>
+<td valign="top" width="NaN%"><p>Chinese </p>
+</td>
+<td valign="top" width="NaN%"><p>Traditional Chinese</p>
+</td>
+</tr>
+<tr><td colspan="4" valign="top"><p><strong>Multilanguage Language Pac</strong></p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p>Unicode</p>
+</td>
+<td valign="top" width="NaN%"><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%"><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%"><p>&#160;</p>
+</td>
+</tr>
+<tr><td colspan="4" valign="top"><p><strong>Western European Language Pack</strong></p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p>Bokmal</p>
+</td>
+<td valign="top" width="NaN%"><p>Finnish</p>
+</td>
+<td valign="top" width="NaN%"><p>Italian</p>
+</td>
+<td valign="top" width="NaN%"><p>Spanish</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p>Danish</p>
+</td>
+<td valign="top" width="NaN%"><p>French</p>
+</td>
+<td valign="top" width="NaN%"><p>Nynorsk</p>
+</td>
+<td valign="top" width="NaN%"><p>Swedish</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p>Dutch</p>
+</td>
+<td valign="top" width="NaN%"><p>German</p>
+</td>
+<td valign="top" width="NaN%"><p>Portuguese</p>
+</td>
+<td valign="top" width="NaN%"><p>&#160;</p>
+</td>
+</tr>
+<tr><td colspan="4" valign="top"><p><strong>Eastern European/Middle Eastern Language Pack</strong></p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p>Arabic</p>
+</td>
+<td valign="top" width="NaN%"><p>Greek</p>
+</td>
+<td valign="top" width="NaN%"><p>Polish</p>
+</td>
+<td valign="top" width="NaN%"><p>Turkish</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p>Bulgarian</p>
+</td>
+<td valign="top" width="NaN%"><p>Hebrew</p>
+</td>
+<td valign="top" width="NaN%"><p>Russian</p>
+</td>
+<td valign="top" width="NaN%"><p>&#160;</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p>Czech</p>
+</td>
+<td valign="top" width="NaN%"><p>Hungarian</p>
+</td>
+<td valign="top" width="NaN%"><p>Russian2</p>
+</td>
+<td valign="top" width="NaN%"><p>&#160;</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The default location for all collections
+is as follows:</p>
+<ul><li><p>Server configuration:</p>
+<ul><li><p>Windows: C:\ColdFusion9\verity\collections</p>
+</li>
+<li><p>UNIX system: /opt/coldfusion9/verity/collections</p>
+</li>
+</ul>
+</li>
+<li><p>J2EE configuration: <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">webapp_root</i>/WEB-INF/cfusion/verity/collections</p>
+</li>
+</ul>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7d03__WSc3ff6d0ea77859461172e0811cbec1793f-7fb3"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7d03__WSc3ff6d0ea77859461172e0811cbec1793f-7fb3"><!-- --></a><h4 class="sectiontitle">Example</h4><pre>&lt;!------------------------------------------------------------------------- 
+(coll_actn.cfm) 
+Check for server platform and use its default Verity Collection directory. 
+If you did not install ColdFusion in the default directory, or if you use 
+the J2EE configuration, or if your webroot is not C:\ColdFusion9\wwwroot, you 
+might need to change the path in this example. For example, for JRun4 the path 
+might be C:\JRun4\Verity\Collections\ 
+---------------------------------------------------------------------------&gt; 
+&lt;cfif Find("Windows", Server.OS.Name)&gt; 
+    &lt;cfset collPath = "C:\JRun4\Verity\Collections\"&gt; 
+&lt;cfelse&gt; 
+    &lt;cfset collpath = "/opt/coldfusion9/verity/collections/"&gt; 
+&lt;/cfif&gt; 
+ 
+&lt;!-------------------------------------------------------------------------- 
+Process form input and do the requested cfcollection operation.  
+---------------------------------------------------------------------------&gt; 
+ 
+&lt;cfif IsDefined("form.CollectionName") AND IsDefined("form.CollectionAction")&gt; 
+    &lt;cfif form.CollectionName is not ""&gt; 
+        &lt;cfswitch expression="#FORM.CollectionAction#"&gt; 
+        &lt;cfcase value="Create"&gt; 
+        &lt;cfcollection action="CREATE" collection="#FORM.CollectionName#" 
+                    path="#collPath#" categories="yes"&gt; 
+        &lt;h3&gt;Collection created.&lt;br&gt; 
+            Use CFINDEX to populate it.&lt;/h3&gt; 
+        &lt;/cfcase&gt; 
+        &lt;cfcase value="Repair"&gt; 
+        &lt;cfcollection action="REPAIR" collection="#FORM.CollectionName#"&gt; 
+        &lt;h3&gt;Collection repaired.&lt;/h3&gt; 
+        &lt;/cfcase&gt; 
+        &lt;cfcase value="Optimize"&gt; 
+        &lt;cfcollection action="OPTIMIZE" collection="#FORM.CollectionName#"&gt; 
+        &lt;h3&gt;Collection optimized.&lt;/h3&gt; 
+        &lt;/cfcase&gt; 
+        &lt;cfcase value="Delete"&gt; 
+        &lt;cfcollection action="DELETE" collection="#FORM.CollectionName#"&gt; 
+         &lt;h3&gt;Collection deleted.&lt;/h3&gt; 
+        &lt;/cfcase&gt; 
+        &lt;/cfswitch&gt; 
+    &lt;cfelse&gt; 
+    &lt;h3&gt;Please enter a name for your collection&lt;/h3&gt;     
+    &lt;/cfif&gt; 
+&lt;/cfif&gt; 
+ 
+&lt;!-------------------------------------------------------------------- 
+(coll_form.cfm) 
+Form to specify the collection name and action 
+    coll_form.cfm 
+---------------------------------------------------------------------&gt; 
+ 
+&lt;form action="coll_actn.cfm" method="POST" &gt; 
+&lt;select name="CollectionAction"&gt; 
+    &lt;option value="Create"&gt;Create this collection 
+    &lt;option value="Optimize"&gt;Optimize this collection 
+    &lt;option value="Repair"&gt;Repair this collection 
+    &lt;option value="Delete"&gt;Delete this collection 
+&lt;/select&gt; 
+ 
+&lt;p&gt;&lt;strong&gt;Collection on which to act&lt;/strong&gt;&lt;br&gt; 
+Use the default value or enter your own Collection name&lt;br&gt; 
+&lt;input type="Text" name="CollectionName" value="My_coll"&gt;&lt;/p&gt; 
+ 
+&lt;input type="Submit" name="" value="alter or create my collection"&gt; 
+&lt;/form&gt;</pre>
+</div>
+</div>
+
+
+<!-- BEGIN USER PREFERENCES -->
+          <div id="userprefs">
+          </div>
+<!-- END USER PREFERENCES -->
+
+          <div id="related">
+            
+            
+            <div class="separator">&#160;</div>
+          </div>
+          <div id="footer">
+<!-- BEGIN IONCOMMENTS -->
+            <div id="ionComHere">
+            </div>
+<!-- END IONCOMMENTS -->
+
+
+            <p id="creativecommons"><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" id="creativecommons_text"><img id="creativecommons_img" src="images/CC.png" alt="This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License" /></a>&nbsp;Twitter™ and Facebook posts are not covered under the terms of Creative Commons.</p>
+          </div>
+</td>
+<td width="10px"></td>
+<td id="inner_rightcolumn">
+
+</td></tr></table>
+      </div>
+<!-- BEGIN BREADCRUMBS -->
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec22c24-7769.html" title="cfcol"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-7e0e.html" title="cfcomponent"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>ColdFusion&#160;9&#160;CFML&#160;Reference</b></a> / <a href="WSc3ff6d0ea77859461172e0811cbec17576-7ffe.html"><b>ColdFusion Tags</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec1793f-7feb.html"><b>Tags c</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+<!-- END CONTENT WRAPPER -->
+
+</td>
+<td id="col3">
+    <div>
+        <img src="images/adobe-lq.png" />
+    </div>
+</td>
+</tr>
+</table>
+    </div>
+<!-- END PAGE CONTENT WRAPPER -->
+<script type="text/javascript">
+<!--[CDATA[
+scrollToNameAnchor();
+// ]]-->
+</script> 
+<!--
+    Description:
+    This file generates the link to product support in the top right corner
+-->
+
+<style>
+#menutop{
+    position:absolute;
+    top:4px;
+    right:24px;
+    width:auto;    
+    font-size:11px;
+    color:#fff;
+    text-align:right;
+}
+#menutop a{
+    color:#fff;
+}
+#menutop a:hover{
+        text-decoration:underline;
+}
+</style>  
+  
+  
+  
+  
+<div id="productmenu">
+<!--googleoff: index-->
+  <div id="menutop">
+
+
+<script language=javascript type='text/javascript'>
+    // darken menu text for products with light backgrounds
+    var path = document.location.href.toLowerCase();
+    if (path.indexOf("/acrobat/")           	> 0 ||
+        path.indexOf("/acrobat.com/")       	> 0 ||
+        path.indexOf("/acrobatConnectPro/") 	> 0 ||
+        path.indexOf("/connect/")           	> 0 ||
+        path.indexOf("/livecycledataserviceses/") > 0 ||
+        path.indexOf("/muse/")         	> 0 ||
+	path.indexOf("/presenter/")         	> 0 ||
+        path.indexOf("/scene7/")            	> 0 ||
+        path.indexOf("/flashmediaserver/")  	> 0 ||
+        path.indexOf("/wave/")              	> 0 )
+    {
+        document.write('<style>#menutop a{color:#505050}</style>');
+    }
+    if (typeof('terms_AHV_PRODUCT_SUPPORT') != "undefined" && ! use_robohelp_behavior ){      
+        if (path.indexOf("/muse/") > -1 ){
+            var supportlink = '<a href="http://muse.adobe.com/support.html">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }else{
+            var supportlink = '<a href="http://adobe.com/support">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }
+        document.write( supportlink );
+     }
+
+</script> 
+
+  </div>
+<!--googleon: index-->
+</div>
+
+
+
+<style>
+#online-privacy-policy{ 
+    margin:10px 40px; 
+    font-size:11px;
+}
+</style>
+
+<p id="online-privacy-policy">
+<script language="javascript">
+var pageLoc = "en_US";
+var metaElements = document.all ?
+document.all.tags('meta') :
+document.getElementsByTagName ?
+document.getElementsByTagName ('meta') : new Array();
+for (var m = 0; m < metaElements.length; m++) {
+	if (metaElements[m].name == "lang") {
+		pageLoc = metaElements[m].content;
+		break;
+	}
+}
+var ptn = /(..)-(..)/;
+if (ptn.test(pageLoc)) {
+	var languageCode = pageLoc.replace(ptn, "$1");
+	var countryCode = pageLoc.replace(ptn, "$2");
+	pageLoc = languageCode + "_" + countryCode.toUpperCase();
+}
+
+var policyLoc = "en_US";
+var policyText = "Online Privacy Policy";
+var policyPath = "";
+var policyArray=[
+"da_DK", "Online fortrolighedserklæring",
+"de_DE", "Online-Datenschutzrichtlinie",
+"es_ES", "Política de confidencialidad en línea",
+"fi_FI", "Yksityisyyttä koskeva Online-toimintaohjelma",
+"fr_FR", "Confidentialité et sécurité",
+"it_IT", "Informativa sulla privacy online",
+"ja_JP", "プライバシーポリシー",
+"ko_KR", "Adobe 온라인 개인정보 보호정책",
+"pt_BR", "Política de Confidencialidade On-line", 
+"zh_CN", "在线隐私政策",
+"zh_TW", "線上隱私政策"
+];
+var legalLoc = "en_US";
+var legalText = "Legal Notices";
+var legalPath = legalLoc;
+var legalArray=[
+"ar_AE", "إشعارات قانونية",
+"bg_BG", "Юридически бележки",
+"cs_CZ", "Právní upozornění",
+"da_DK", "Juridiske meddelelser",
+"de_DE", "Rechtliche Hinweise",
+"el_GR", "Σημειώσεις νομικού περιεχομένου",
+"es_ES", "Avisos legales",
+"et_EE", "Juriidilised teated",
+"fi_FI", "Lakisääteiset ilmoitukset",
+"fr_FR", "Mentions légales",
+"he_IL", "הצהרות משפטיות",
+"hr_HR", "Pravne napomene",
+"hu_HU", "Jogi közlemények",
+"it_IT", "Informazioni legali",
+"ja_JP", "法律上の注意",
+"ko_KR", "법적 고지 사항",
+"lt_LT", "Teisinės pastabos",
+"lv_LV", "Juridisks paziņojums",
+"nb_NO", "Juridiske merknader",
+"nl_NL", "Juridische kennisgevingen",
+"pl_PL", "Informacje prawne",
+"pt_BR", "Aspectos jurídicos",
+"ro_RO", "Prevederi legale",
+"ru_RU", "Юридическая информация",
+"sk_SK", "Právne upozornenie",
+"sl_SI", "Pravni pouk",
+"sv_SE", "Upphovsrätt",
+"tr_TR", "Yasal uyarılar",
+"uk_UA", "Юридична інформація",
+"zh_CN", "法律声明",
+"zh_TW", "法律注意事項"
+];
+
+ruPolicy = "http://www.adobe.com/ru/misc/privacy.html";
+trPolicy = "http://www.adobe.com/tr/misc/privacy.html";
+
+// Bug 2846992: LOC: RUS, TUR: The link to "Online Privacy Policy" should include language, currently it is not appearing.
+if (pageLoc == "ru_RU") {
+	policyPath = "ru";
+}
+else if (pageLoc == "tr_TR") {
+	policyPath = "tr";
+}
+for (var i = 0; i < policyArray.length; i+=2) {
+	if (pageLoc == policyArray[i]) {
+		policyLoc = pageLoc;
+		policyText = policyArray[i+1];
+		var ptn = /(..)_(..)/;
+		if (ptn.test(policyLoc)) {
+			var countryCode = policyLoc.replace(ptn, "$2");
+			policyPath = countryCode.toLowerCase();
+		}
+		break;
+	}
+}
+
+for (var i = 0; i < legalArray.length; i+=2) {
+	if (pageLoc == legalArray[i]) {
+		legalLoc = pageLoc;
+		legalText = legalArray[i+1];
+		legalPath = legalLoc;
+		break;
+	}
+}
+if(agt.indexOf("community help client") > -1 ){
+	document.write('<a href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+}else{
+	//Open the privacy policy in a new window
+	document.write('<a target="_blank" href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a target="_blank" href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+} 
+</script>
+</p>
+
+
+
+<!-- localfooter.ssi -->
+
+<script type="text/javascript">
+    var debug = (top.location.href.indexOf("debug=true") > -1);
+</script>
+
+<script language="javascript">
+document.write('<scr'+'ipt ' +
+               'src="/en_US/ssi/_pod.js" ' +
+               'language="javascript" ' +
+               'charset="UTF-8"> ' +
+               '</scr'+'ipt>');
+</script>
+
+
+<script type="text/javascript">
+//
+//  Ethnio survey code
+//
+/*          DocumentID      EthnioID */
+/*          -------------   -------- */
+var ethnio=["/en_US/flash/cs/using/WSb03e830bd6f770ee6664507612436d7dede-8000.html", "87462",
+            "/en_US/creativesuite/cs/using/WSe851854fd1e0856a-4b08a77612477f69f15-8000.html",  "10441",
+            "/en_US/dreamweaver/cs/using/WSEE4C0148-A6F4-4bf5-9DEF-CE06AB026214a.html",  "57412"
+ 
+    ];
+                        
+    for ( var i = 0; i < ethnio.length ; i = i+2 ){
+        if ( document.location.href.indexOf( ethnio[i] ) > -1 ){ 
+            var headID = document.getElementsByTagName("head")[0];         
+            var ethnioScript = document.createElement('script');
+            ethnioScript.type = 'text/javascript';
+            ethnioScript.src = 'http://ethn.io/remotes/' + ethnio[i+1];        
+            if ( debug ){
+                alert ("Using Ethnio script: " + ethnioScript.src );
+            }else{
+                headID.appendChild(ethnioScript);
+            }
+        }
+    }
+</script>
+
+
+
+<div style="display: none;">
+<!-- SiteCatalyst -->
+<script language="JavaScript" type="text/javascript"><!--
+var s_code=' ';
+var s_docHost = window.location.hostname.toLowerCase();
+var s_docURL = window.location.pathname.toLowerCase();
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+if (s_docHost.indexOf(".corp.adobe") != -1 || s_docHost.indexOf("stage.") != -1 || s_docHost.indexOf(".dev.adobe") != -1 || s_docHost.indexOf("staging.") != -1) scJsHost="";
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/omniture_s_code.js' type='text/javascript'%3E%3C/script%3E"));
+//--></script>
+<script type="text/javascript"><!--
+var s_accountName;
+s_server="www.adobe.com static content pages";
+if (!window.s_account) s_accountName="mxmacromedia";
+else s_accountName=window.s_account;
+
+if (window.s_docURL.indexOf("/designcenter/") != -1)
+  s_channel="Adobe Design Center";	
+else if ((window.s_docHost.indexOf("labs.adobe") != -1) ||
+(window.s_docHost.indexOf("labs-staging.") != -1))
+  s_channel="Labs";
+else if (window.s_docHost.indexOf("help.adobe.com") != -1) {
+  s_channel="Support Help.adobe.com";
+  if (window.s_docURL.indexOf("/en_us/") == -1) {
+    s_docURLArray=s_docURL.split('/');
+    s_pageName="http://help.adobe.com/"+s_docURLArray[1]+"/"+ s_docURLArray[2]+"/"+s_docURLArray[3];
+    s_prop23="http://help.adobe.com"+window.location.pathname;
+  }
+}
+else if (window.s_docHost.indexOf("kb2.adobe.com") != -1) {
+  s_channel="Support Knowledgebase";
+  s_prop23="http://kb2.adobe.com"+s_docURL+":";
+  if (typeof(omtrProductList) != 'undefined' && omtrProductList.length > 0)
+ {
+    s_prop23=s_prop23+omtrProductList;
+  }
+}
+else if (window.s_docHost.indexOf("resellers.adobe.com") != -1) {
+		var s_pageName=document.getElementsByTagName("title")[0].text;
+}
+
+if (!window.scMMInclude) {
+	var s_wd=window,s_tm=new Date;
+	if(s_code!=' '){
+		s_code=s_dc(s_accountName);
+		if(s_code)document.write(s_code)
+	} 
+} else {
+	s_wds(s_accountName);s_ca(s_accountName); 
+}	
+
+function sendAnalyticsEvent(str){var ns=s_accountName;if(str!=null)ns+=","+str;void(s_gs(ns));}
+function sendLinkEvent(accnt,lnkname,type){
+accnt=s_accountName;s_linkType=type;s_lnk=true;s_linkName=lnkname;void(s_gs(accnt));}
+//--></script>
+<noscript><img src="http://stats.adobe.com/b/ss/mxmacromedia/1/H.15-XELvs/0?pageName=http%3A//www.adobe.com%3A%20noscript&ch=http%3A//www.adobe.com%3A%20noscript&g=http%3A//www.adobe.com" height="1" width="1" border="0" alt="" /></noscript>
+<!-- End SiteCatalyst -->
+</div>
+
+<script language="JavaScript" type="text/javascript">//<![CDATA[
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/atm/s_code_www.js' type='text/javascript'%3E%3C/script%3E"));
+//]]></script>
+<script type="text/javascript">//<![CDATA[
+if(s_adobe){	
+	s_adobe.server="www.adobe.com Static Content pages";
+	/* Set pageName */
+	s_adobe.s_URL="adobe.com"+((location.pathname.charAt(0)=='/')?location.pathname:'/'+location.pathname);
+	if (s_adobe.s_URL.substring(s_adobe.s_URL.lastIndexOf('/')+1)=="") s_adobe.s_URL=s_adobe.s_URL+"index.html";
+	s_adobe.s_URLSplit=s_adobe.s_URL.split("/");
+	s_adobe.pageName=s_adobe.s_URLSplit.join(":");
+
+	/* Set prop4 to language-locale */
+	var s_meta=document.getElementsByTagName('meta'); 
+      for (i=0; i<s_meta.length; i++) { 
+        if (s_meta[i].getAttribute("http-equiv") == "Content-Language") { 
+          s_adobe.prop4=s_meta[i].getAttribute("content"); 
+	    s_adobe.prop4=s_adobe.prop4.replace(/\s+/g,'');
+        } 
+      } 
+	s_adobe.t()
+}
+//]]></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

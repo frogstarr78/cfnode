@@ -1,0 +1,1087 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0022)http://help.adobe.com/ -->
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="lang" content="en-us" />
+    <meta name="area" content="livedocs" />
+    <title>Adobe&#160;ColdFusion&#160;9 * Sending outgoing messages</title>
+    <link rel="shortcut icon" href="images/ColdFusionLinkIndicator.png" />
+    <meta name="book" content="Developing&#160;ColdFusion 9 Applications" />
+    <meta name="product" content="ColdFusion" />
+    <meta name="keywords" content="" /><!--<PageMap><DataObject type="document"><Attribute name="product" value="ColdFusion"></Attribute><Attribute name="book" value="Developing&#160;ColdFusion 9 Applications"></Attribute><Attribute name="keywords" value=""></Attribute></DataObject></PageMap>-->
+    
+    <script type="text/javascript" language="Javascript" charset="UTF-8"><!--[CDATA[
+        var currentTreeNode = "WSc3ff6d0ea77859461172e0811cbec22c24-77e0.html";
+    document.cookie = "topicId=" + "WSc3ff6d0ea77859461172e0811cbec22c24-77e0.html";
+// ]]--></script>
+<script src="terms.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="help.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script>  <script src="utilities.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="event.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="treeview.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="toc.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script> <script src="swfobject.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>  <script src="booklist.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>
+<script type="text/javascript">
+<!--[CDATA[
+var topictype = "topic";
+var headId = document.getElementsByTagName("head")[0];         
+if (use_ie_6_behavior) {
+  var linkId = document.createElement("link");
+  linkId.href = "content-ie6.css";
+  linkId.rel = "stylesheet";
+  linkId.type = "text/css";
+  headId.appendChild(linkId);
+}
+function initRoboHelpDOM() {
+  if (use_chm_behavior) {
+    hideElement("search");
+  }
+  if (use_robohelp_behavior) {
+    hideElement("search");
+    hideElement("productmenu");
+    //hideElement("notyourversion");
+  }
+  if(!use_chc_behavior) {
+    //document.getElementById("notyourversion").style.display = "inline";;
+  }
+}
+var dirname = location.pathname.match( /.*\// );    
+function setSearchUserPref(){
+  if ( document.cookie.indexOf( "ah_searchpref" ) > -1 ) {
+    if ( document.cookie.indexOf( dirname ) > 0 ) {
+      document.search.gsa.checked = true ;
+    }else{
+      document.search.gsa.checked = false ;            
+    }
+  }
+}
+YAHOO.util.Event.onDOMReady(initRoboHelpDOM);
+YAHOO.util.Event.onDOMReady(setSearchUserPref);
+// ]]-->
+</script>
+
+<!-- ********************************** -->
+<!-- START: ForeSee survey code in: /ssi/globalheader.ssi -->
+
+<script type="text/javascript">
+<!-- 
+// Enable the survey for only English, German and Japanese
+var agt=navigator.userAgent.toLowerCase();
+if ( agt.indexOf("community help client") == -1 ){
+    if ( document.location.href.indexOf("/en_US/") != -1 ){
+        showSurvey();
+//    }else if (document.location.href.indexOf("/de_DE/") != -1){
+//         var locale="de";
+//         showSurvey();
+    }else if (document.location.href.indexOf("/ja_JP/") != -1 ){
+         var locale="ja";
+         showSurvey();
+    }	
+}
+
+function showSurvey(){
+	document.write('<script type="text/javascript" src="/js/foresee/foresee-trigger.js"><\/scr'+'ipt>');
+}
+
+// -->
+</script>
+
+<!-- END: ForeSee survey code -->
+<!-- ******************************** -->
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="tree.css" />
+    <link rel="stylesheet" type="text/css" href="content.css" />
+    <link rel="stylesheet" type="text/css" href="localeSpecific.css" />
+  </head>
+  <body id="content_body" onload="window.focus();">
+    <a name="top" shape="rect"><!--LeaveCommentHere--></a>
+    
+    <div id="mnemonic">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon" class="ColdFusion"><div class="banner"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html">Adobe&#160;ColdFusion&#160;9</a><span id="notyourversion">|&#160;
+                    <a rel="nofollow" href="http://www.adobe.com/support/documentation/en/coldfusion/">Not your version?</a></span></div></div><!--googleon: index-->
+    </div>
+    
+    <div id="searchbar">
+<table id="searchbartable">
+<tr>
+<td colspan="2">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon"><div id="pdf"><img src="images/PDF.gif" width="16" height="16" /><a title="View Help PDF" href="coldfusion_9_dev.pdf">View Help PDF ( 23MB)</a></div></div><!--googleon: index-->
+</td>
+</tr>
+</table>
+    </div>
+
+<!-- BEGIN SEARCH CONTENT -->
+<form id="search" name="search" action="search.html" target="_self">
+<script type="text/javascript">
+<!--[CDATA[
+if ( !use_chc_behavior ){
+    if (typeof(terms_AHV_SEARCH_CONSTRAINT) != "undefined" && 
+        terms_AHV_SEARCH_CONSTRAINT.length > 0 && 
+        document.location.href.indexOf(".adobe.com") > 0){
+        if ( typeof(terms_SEARCH_THIS_HELP_ONLY) != "undefined" && terms_SEARCH_THIS_HELP_ONLY == "ON" ) {
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                checked="checked" \
+                value="1" ><\/input>'); 
+                
+        // Leave the "Search this help system only" checkbox unckecked
+        }else{    
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                value="1" ><\/input>'); 
+        }
+        document.write('<span class="gsalabel">' + terms_AHV_SEARCH_CONSTRAINT + '<\/span><\/div>'); 
+    }
+    document.write('<input class="searchinput" \
+        name="q" \
+        id="q" \
+        type="text" \
+        maxlength="256" \
+        value="' + terms_AHV_SEARCH_BUTTON + '" \
+        onclick="clearSearch()"><\/input><input \
+        type="button" \
+        name="searchbutton" \
+        class="searchbutton" \
+        onclick="submit()"><\/input>'); 
+} 
+ 
+/* 
+ * Start Functions 
+ */
+function clearSearch(){
+    if (document.search.q.value == terms_AHV_SEARCH_BUTTON){document.search.q.value = ""}; 
+}
+
+// set search preferences
+function setAHSearchPref(){
+    if (document.search.gsa.checked == 1){
+        setAHSearchCookie( dirname );
+    }else{
+        setAHSearchCookie( "community" );
+    }
+}
+
+// Set search preferences cookie
+function setAHSearchCookie( p ){
+    // set cookie ah_searchpref with a value of the document path
+    var expire=new Date();
+    expire.setDate(expire.getDate()+365); // Cookie expires after 1 year (365 days) 
+    document.cookie="ah_searchpref=" +p+ "; expires=" +expire.toGMTString()+ ";";
+}
+
+// ]]-->
+</script> 
+ </form>
+<!-- END SEARCH CONTENT -->    
+
+
+
+<!-- BEGIN PAGE CONTENT WRAPPER -->
+    <div id="page_content_wrapper">
+<!-- BEGIN PAGE WRAPPER -->
+<table id="page_content_table">
+<tr>
+
+<td id="col2">
+<!-- BEGIN CONTENT WRAPPER -->
+<!-- BEGIN BREADCRUMBS -->
+
+      
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec22c24-77e1.html" title="Handling incoming messages"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec15d4b-7fe0.html" title="ColdFusion SMS development tools"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Developing&#160;ColdFusion 9 Applications</b></a> / <a href="WSc3ff6d0ea77859461172e0811cdd865267-8000.html"><b>Using External Resources</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec22c24-77f6.html"><b>Using the SMS Event Gateway</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+      <div id="content_wrapper">
+<!-- BEGIN PAGE TITLE -->
+        <h1>Sending outgoing messages</h1>
+<!-- END PAGE TITLE -->
+<!-- BEGIN IONCOMMENTCOUNT -->
+        <div id="ionCount">
+        </div>
+<!-- END IONCOMMENTCOUNT -->
+<table id="inner_content_table" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>
+          <div style="border-top:#ccc solid 1px;"><p> </p>
+          </div>
+<p id="chcPromo" style="display:none;">
+<a id="chcLink" href="http://www.adobe.com/support/chc/">
+<img id="chcImage" src="http://www.adobe.com/support/chc/GetMoreHelpFeatures.png"/>
+</a>
+</p>
+<script type="text/javascript" language="javascript" charset="utf-8">
+<!--
+var cfgArray = [];
+//cfgArray["Acrobat_10.0_Professional.helpcfg"] = "acrobatpro";
+//cfgArray["Acrobat_10.0_Standard.helpcfg"] = "acrobatstd";
+cfgArray["Lightroom_3.0.helpcfg"] = "lightroom";
+cfgArray["PhotoshopElements_8.0_Win.helpcfg"] = "photoshopelements";
+cfgArray["PhotoshopElements_8.0_Mac.helpcfg"] = "photoshopelementsmac";
+cfgArray["PremiereElements_8.0_Win.helpcfg"] = "premiereelements";
+
+//cfgArray["AfterEffects_10.0.helpcfg"] = "aftereffects";
+//cfgArray["AIR.helpcfg"] = "air";
+//cfgArray["ColdFusionBuilder.helpcfg"] = "coldfusion";
+//cfgArray["Contribute_6.0.helpcfg"] = "contribute";
+//cfgArray["DeviceCentral_3.0.helpcfg"] = "devicecentral";
+//cfgArray["Dreamweaver_11.0.helpcfg"] = "dreamweaver";
+//cfgArray["EncoreDVD_5.0.helpcfg"] = "encore";
+//cfgArray["ExtensionManager_3.0.helpcfg"] = "extension";
+//cfgArray["Fireworks_11.0.helpcfg"] = "fireworks";
+//cfgArray["Flash_11.0.helpcfg"] = "flash";
+//cfgArray["Flex_4.0.helpcfg"] = "flashbuilder";
+//cfgArray["FlashCatalyst_1.0.helpcfg"] = "flashcatalyst";
+//cfgArray["Illustrator_15.0.helpcfg"] = "illustrator";
+//cfgArray["InCopy_7.0.helpcfg"] = "incopy";
+//cfgArray["InDesign_7.0.helpcfg"] = "indesign";
+//cfgArray["OnLocation_5.0.helpcfg"] = "onlocation";
+//cfgArray["Photoshop_12.0.helpcfg"] = "photoshop";
+//cfgArray["PremierePro_5.0.helpcfg"] = "premierepro";
+
+function getLangName() {
+    var lang = "en-us";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if (ptn.test(lang)) {
+        var languageCode = lang.replace(ptn, "$1");
+        var countryCode = lang.replace(ptn, "$2");
+        lang = languageCode + "_" + countryCode.toUpperCase();
+    }
+    return lang;
+}
+
+function getCountryName() {
+    var lang = "";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if ((ptn.test(lang)) && (lang != "en-us")) {
+        var countryCode = lang.replace(ptn, "$2");
+        return "/" + countryCode;
+    }
+    return "";
+}
+
+if ( (typeof(terms_HELPCFG) != 'undefined')  && (terms_HELPCFG.indexOf(".helpcfg") != -1) ) {
+    var stage   = (document.location.href.indexOf(".stage.") != -1) ? 'stage.' : '';
+    var baseUrl = 'http://www.' + stage + 'adobe.com';
+    var refpage = document.location.href.replace(/#.*$/, '');
+	
+	if ((!use_robohelp_behavior) && (terms_HELPCFG.length > 0) && (typeof(cfgArray[terms_HELPCFG]) != 'undefined') && (cfgArray[terms_HELPCFG].length > 0)) {
+		if (document.getElementById) { // DOM3 = IE5, NS6
+			var newHref = baseUrl + getCountryName() + "/support/chc/" + "?helpcfg=http://help." + stage + "adobe.com/HelpCfg/" + getLangName() + "/" + terms_HELPCFG + "&url=" + refpage + "&product=" + cfgArray[terms_HELPCFG];
+			var newSrc = baseUrl + getCountryName() + "/support/chc/GetMoreHelpFeatures.png";
+			document.getElementById("chcPromo").style.display = "block";
+			document.getElementById("chcLink").href = newHref;
+			document.getElementById("chcImage").src = newSrc;
+		}
+	}
+}
+
+//-->
+</script>
+
+
+
+          <div id="minitoc"><div class="t"><div class="b"><div><ul id="minitoc-links"><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec15d4b-7fe7"><span class="topictitle1">The submit command</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec15d4b-7fe4"><span class="topictitle1">The submitMulti command</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec15d4b-7fe2"><span class="topictitle1">The data command</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-77df"><span class="topictitle1">Controlling SMS message sending and response</span>
+</a></p><ul><li><p><a href="#WSf01dbd23413dda0e534c3c5412013d36366-7ff9"><span class="topictitle2">Synchronization mode</span>
+</a></p></li><li><p><a href="#WSfd7453be0f56bba4-46607a5b122e4a3a28a-8000"><span class="topictitle2">Optional parameters for outgoing SMS</span>
+</a></p></li><li><p><a href="#WSf01dbd23413dda0e534c3c5412013d36366-7ff8"><span class="topictitle2">Message disposition notification</span>
+</a></p></li><li><p><a href="#WSf01dbd23413dda0e534c3c5412013d36366-7ff7"><span class="topictitle2">Validity period</span>
+</a></p></li></ul></li></ul></div></div></div></div><div><p>Your
+ColdFusion application can send <samp class="codeph">submit</samp>, <samp class="codeph">submitMulti</samp>,
+and <samp class="codeph">data</samp> commands to the event gateway in an outgoing
+message.</p>
+</div>
+<div id="WSc3ff6d0ea77859461172e0811cbec15d4b-7fe7" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec15d4b-7fe7"><!-- --></a><h2 class="topictitle2">The submit command</h2><div><p>To
+send a message to a single destination address in an SMPP SUBMIT_SM
+PDU, the structure used in the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Data</i> parameter of a <samp class="codeph">SendGatewayMessage</samp> function or
+the return variable of the CFC listener method normally has the
+following fields:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e118620"><p>Field</p>
+</th>
+<th valign="top" width="NaN%" id="d17e118623"><p>Contents</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e118620 "><p>command</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e118623 "><p>If present, the value must be <samp class="codeph">"submit"</samp>.
+If you omit this field, the event gateway sends a submit message.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e118620 "><p>shortMessage</p>
+<p><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">or</i></p>
+<p>messagePayload</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e118623 "><p>The Message contents. specify one of these
+fields, but not both. The SMPP specification imposes a maximum size
+of 254 bytes on the <samp class="codeph">shortMessage</samp> field, and some
+carriers could limit its size further. The <samp class="codeph">messagePayload</samp> field
+can contain up to 64 K bytes; it must start with 0x0424, followed
+by 2 bytes specifying the payload length, followed by the message
+contents.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e118620 "><p>destAddress</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e118623 "><p>The address to which to send the message
+(required).</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e118620 "><p>sourceAddress</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e118623 "><p>The address of this application. You can
+omit this field if it is specified in the configuration file.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>You can also set optional fields in the structure, such as a
+field that requests a delivery receipt. For a complete list of fields,
+see <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-77e5.html" target="_self">submit
+command</a> in the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">CFML Reference</i>. For detailed descriptions
+of these fields, see the documentation for the SUBMIT_MULTI PDU
+in the SMPP3.4 specification, which you can download from the SMS
+Forum at <a href="http://www.smsforum.net/" target="_self">www.smsforum.net/</a>. </p>
+<div class="note"><span class="notetitle">Note:  </span>To send long messages, you can separate the
+message into multiple chunks and use a submit command to send each
+chunk separately. In this case, a CFC would use multiple <samp class="codeph">SendGatewayMessage</samp> functions,
+instead of the <samp class="codeph">cfreturn</samp> function.</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec15d4b-7fe7__WSc3ff6d0ea77859461172e0811cbec22c24-77dc"><a name="WSc3ff6d0ea77859461172e0811cbec15d4b-7fe7__WSc3ff6d0ea77859461172e0811cbec22c24-77dc"><!-- --></a><h4 class="sectiontitle">Example: Using the submit command in sendGatewayMessage function</h4><p>The
+following example from a CFM page uses a <samp class="codeph">sendGatewyMessage</samp> CFML function
+with a <samp class="codeph">submit</samp> command to send an SMS messages that
+you enter in the form. This example uses the SMS gateway that is
+configured in the ColdFusion installation, and sends the message
+to the SMS client simulator. </p>
+<pre>&lt;h3&gt;Sending SMS From a Web Page Example&lt;/h3&gt; 
+&lt;cfif IsDefined("form.oncethrough") is "Yes"&gt; 
+&lt;cfif IsDefined("form.SMSMessage") is True AND form.SMSMessage is not ""&gt; 
+    &lt;h3&gt;Sending Text Message: &lt;/h3&gt; 
+        &lt;cfoutput&gt;#form.SMSMessage#&lt;/cfoutput&gt;&lt;br&gt; 
+        &lt;cfscript&gt; 
+        /* Create a structure that contains the message. */ 
+        msg = structNew(); 
+        msg.command = "submit"; 
+        msg.destAddress = "5551234"; 
+        msg.shortMessage = form.SMSMessage;     
+        ret = sendGatewayMessage("SMS Menu App - 5551212", msg); 
+        &lt;/cfscript&gt; 
+&lt;/cfif&gt; 
+&lt;hr noshade&gt; 
+&lt;/cfif&gt; 
+&lt;!--- begin by calling the cfform tag ---&gt; 
+&lt;cfform action="command.cfm" method="POST"&gt; 
+    SMS Text Message: &lt;cfinput type="Text" name="SMSMessage" value="Sample text Message" required="No" maxlength="160"&gt; 
+&lt;p&gt;&lt;input type = "submit" name = "submit" value = "Submit"&gt; 
+&lt;input type = "hidden" name = "oncethrough" value = "Yes"&gt; 
+&lt;/cfform&gt; 
+&lt;/body&gt; 
+&lt;/html&gt; </pre>
+<p>For a simple example of a listener
+CFC uses the <samp class="codeph">submit</samp> command to echo incoming SMS
+messages to the message originator, see <a href="WSc3ff6d0ea77859461172e0811cbec22c24-77dd.html">Incoming message handling example</a>.</p>
+</div>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec15d4b-7fe4" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec15d4b-7fe4"><!-- --></a><h2 class="topictitle2">The submitMulti command</h2><div><p>To
+send a single text message to multiple recipients using an SMPP SUBMIT_MULTI
+PDU, the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Data</i> parameter of a <samp class="codeph">SendGatewayMessage</samp> function or
+the return variable of the CFC listener method normally has the
+following fields:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e118729"><p>Field</p>
+</th>
+<th valign="top" width="NaN%" id="d17e118732"><p>Contents</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e118729 "><p>command</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e118732 "><p>Must be <samp class="codeph">"submitMulti"</samp>.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e118729 "><p>shortMessage</p>
+<p><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">or</i></p>
+<p>messagePayload</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e118732 "><p>The message contents. Specify one of these
+fields, but not both. The SMPP specification imposes a maximum size of
+254 bytes on the <samp class="codeph">shortMessage</samp> field, and some carriers
+could limit its size further. The <samp class="codeph">messagePayload</samp> field
+can contain up to 64 K bytes; it must start with 0x0424, followed
+by 2 bytes specifying the payload length, followed by the message
+contents.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e118729 "><p>destAddress</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e118732 "><p>A ColdFusion array of destination addresses
+(required).</p>
+<p>You cannot specify individual TON and NPI values
+for these addresses; all must conform to a single setting.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e118729 "><p>sourceAddress</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e118732 "><p>The address of this application; you can
+omit this field if it is specified in the configuration file.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>You can also set optional fields in the structure, such as a
+field that requests delivery receipts. For a complete list of fields,
+see <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-77e3.html" target="_self">submitMulti
+command</a>  in the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">CFML Reference</i>. For detailed descriptions
+of these fields, see the documentation for the SUBMIT_MULTI PDU
+in the SMPP 3.4 specification, which you can download from the SMS
+Forum at <a href="http://www.smsforum.net/" target="_self">www.smsforum.net/</a>. </p>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec15d4b-7fe4__WSc3ff6d0ea77859461172e0811cbec15d4b-7fe9"><a name="WSc3ff6d0ea77859461172e0811cbec15d4b-7fe4__WSc3ff6d0ea77859461172e0811cbec15d4b-7fe9"><!-- --></a><h4 class="sectiontitle">Example: Using the submitMulti command in an onIncomingMessage method</h4><p>The
+following example <samp class="codeph">onIncomingMessage</samp> method sends
+a response that echoes an incoming message to the originator address,
+and sends a copy of the response to a second address. To test the
+example, run two instances of the ColdFusion SMS client application.
+Use the default phone number of 5551212 for the first, and set the
+second one to have a phone number of 555-1235. (Notice that the
+second phone number requires a hyphen (-).) Send a message from
+the first simulator, and the response appears in both windows.</p>
+<pre>&lt;cffunction name="onIncomingMessage" output="no"&gt; 
+    &lt;cfargument name="CFEvent" type="struct" required="yes"&gt; 
+    &lt;!--- Get the message. ---&gt; 
+&lt;cfset data=CFEvent.DATA&gt; 
+&lt;cfset message="#data.message#"&gt; 
+    &lt;!--- Create the return structure. ---&gt; 
+    &lt;cfset retValue = structNew()&gt; 
+    &lt;cfset retValue.command = "submitmulti"&gt; 
+    &lt;cfset retValue.sourceAddress = arguments.CFEVENT.gatewayid&gt; 
+    &lt;cfset retValue.destAddresses=arraynew(1)&gt; 
+    &lt;!--- One destination is incoming message originator;  
+                    get the address from CFEvent originator ID. ---&gt; 
+    &lt;cfset retValue.destAddresses[1] = arguments.CFEvent.originatorid&gt; 
+    &lt;cfset retValue.destAddresses[2] = "555-1235"&gt; 
+    &lt;cfset retValue.shortMessage = "echo: " &amp; message&gt; 
+&lt;cfreturn retValue&gt; 
+&lt;/cffunction&gt; 
+&lt;/cffunction&gt;</pre>
+</div>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec15d4b-7fe2" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec15d4b-7fe2"><!-- --></a><h2 class="topictitle2">The data command</h2><div><p>To send
+binary data to a single destination address in an SMPP DATA_SM PDU, the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Data</i> parameter
+of a <samp class="codeph">SendGatewayMessage</samp> function or the return variable
+of the CFC listener method must have the following fields:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e118821"><p>Field</p>
+</th>
+<th valign="top" width="NaN%" id="d17e118824"><p>Contents</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e118821 "><p>command</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e118824 "><p>Must be<samp class="codeph"> "data" </samp>.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e118821 "><p>messagePayload</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e118824 "><p>Message data. To convert data to binary
+format, use the ColdFusion <samp class="codeph">toBinary</samp> function.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e118821 "><p>destAddress</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e118824 "><p>Address to which to send the message.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e118821 "><p>sourceAddress</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e118824 "><p>Address of this application; can be omitted
+if specified in the configuration file.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>You can also set optional fields in the structure, such as a
+field that requests a delivery receipt. For a complete list of fields,
+see <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-77e2.html" target="_self">data
+command</a>  in the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">CFML Reference</i>. For detailed descriptions
+of these fields, see the documentation for the SUBMIT_MULTI PDU
+in the SMPP3.4 specification, which you can download from the SMS
+Forum at <a href="http://www.smsforum.net/" target="_self">www.smsforum.net/</a>. </p>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec15d4b-7fe2__WSc3ff6d0ea77859461172e0811cbec15d4b-7fe5"><a name="WSc3ff6d0ea77859461172e0811cbec15d4b-7fe2__WSc3ff6d0ea77859461172e0811cbec15d4b-7fe5"><!-- --></a><h4 class="sectiontitle">Example: Using the data command</h4><p>The following example <samp class="codeph">onIncomingMessage</samp> method
+converts an incoming message to binary data, and sends the binary
+version of the message back to the originator address:</p>
+<pre>&lt;cffunction name="onIncomingMessage" output="no"&gt; 
+    &lt;cfargument name="CFEvent" type="struct" required="yes"&gt; 
+    &lt;!--- Get the message. ---&gt; 
+&lt;cfset data=CFEvent.DATA&gt; 
+&lt;cfset message="#data.message#"&gt; 
+    &lt;!--- Create the return structure. ---&gt; 
+    &lt;cfset retValue = structNew()&gt; 
+    &lt;cfset retValue.command = "data"&gt; 
+    &lt;!--- Sending to incoming message originator; get value from CFEvent. ---&gt; 
+    &lt;cfset retValue.destAddress = arguments.CFEvent.originatorid&gt; 
+    &lt;cfset retValue.messagePayload = tobinary(tobase64("echo: " &amp; message))&gt; 
+    &lt;cfreturn retValue&gt; 
+&lt;/cffunction&gt;</pre>
+</div>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec22c24-77df" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-77df"><!-- --></a><h2 class="topictitle2">Controlling SMS message sending and response</h2><div><p>This documentation describes some of the more common options
+for sending messages, and how they affect your application. For
+information on other ways to configure outgoing message, see the
+SMPP specification.</p>
+</div><div id="WSf01dbd23413dda0e534c3c5412013d36366-7ff9" class="nochunk"><a name="WSf01dbd23413dda0e534c3c5412013d36366-7ff9"><!-- --></a><h3 class="topictitle3">Synchronization mode</h3><div><p>You
+can specify asynchronous or synchronous message mode in the gateway configuration
+file.</p>
+<ul><li><p>If
+you specify <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">asynchronous</i> mode, the <samp class="codeph">sendGatewayMessage</samp> function returns
+an empty string when the gateway submits the message to service code
+for sending to the SMSC. ColdFusion logs errors that occur after
+this point, such as if a message sent by the gateway to the SMSC
+times out or if the gateway gets an error response; the application
+does not get notified of any errors.</p>
+</li>
+<li><p>If
+you specify <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">synchronous</i> mode (the default), the <samp class="codeph">sendGatewayMessage</samp> function
+does not return until the gateway gets a response from the SMSC
+or the attempt to communicate times out. If the message is sent
+successfully, the function returns the SMPP message ID string. If
+an error occurs, the function returns an error string.</p>
+</li>
+</ul>
+<p>Use synchronous mode if your
+application must determine whether its messages reach the SMSC.
+Also use synchronous mode if the application requests return receipts.</p>
+<div class="note"><span class="notetitle">Note:  </span>If you use synchronous mode and the SMSC returns
+the messgeID as a hexadecimal string, ColdFusion converts it automatically
+to its decimal value.</div>
+<p>The
+following example is an expansion of <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Example: Using the submit command in sendGatewayMessage function</i> discussed
+in <a href="WSc3ff6d0ea77859461172e0811cbec15d4b-7fe7.html">The submit command</a>. It checks for a nonempty return value and
+displays the message number returned by the SMS. This example uses
+the SMS gateway that is configured when ColdFusion is installed.
+If you change the gateway specified in the <samp class="codeph">SendGatewayMessage</samp> function,
+make sure that your gateway’s configuration file specifies synchronous mode.</p>
+<pre>&lt;h3&gt;Sending SMS From a Web Page Example&lt;/h3&gt; 
+ 
+&lt;cfif IsDefined("form.oncethrough") is "Yes"&gt; 
+    &lt;cfif IsDefined("form.SMSMessage") is True AND form.SMSMessage is not ""&gt; 
+         &lt;h3&gt;Sending a Text Message: &lt;/h3&gt; 
+            &lt;cfoutput&gt;#form.SMSMessage#&lt;/cfoutput&gt;&lt;br&gt;&lt;br&gt; 
+ 
+        &lt;cfscript&gt; 
+            /* Create a structure that contains the message. */ 
+            msg = structNew(); 
+            msg.command = "submit"; 
+            msg.destAddress = "5551234"; 
+            msg.shortMessage = form.SMSMessage;     
+            ret = sendGatewayMessage("SMS Menu App - 5551212", msg); 
+        &lt;/cfscript&gt; 
+    &lt;/cfif&gt; 
+    &lt;cfif isDefined("ret") AND ret NEQ ""&gt; 
+        &lt;h3&gt;Text message sent&lt;/h3&gt; 
+        &lt;cfoutput&gt;The Message Id is: #ret#&lt;/cfoutput&gt; 
+        &lt;br&gt;&lt;br&gt; 
+    &lt;/cfif&gt;     
+    &lt;hr noshade&gt; 
+&lt;/cfif&gt; 
+ 
+&lt;!--- begin by calling the cfform tag ---&gt; 
+&lt;cfform&gt; 
+    SMS Text Message: &lt;cfinput type="Text" name="SMSMessage"  
+        value="Sample text Message" required="No" maxlength="160"&gt; 
+    &lt;p&gt;&lt;input type = "submit" name = "submit" value = "Submit"&gt; 
+    &lt;input type = "hidden" name = "oncethrough" value = "Yes"&gt; 
+&lt;/cfform&gt;</pre>
+</div></div><div id="WSfd7453be0f56bba4-46607a5b122e4a3a28a-8000" class="nochunk"><a name="WSfd7453be0f56bba4-46607a5b122e4a3a28a-8000"><!-- --></a><h3 class="topictitle3">Optional parameters for outgoing SMS</h3><div><p>You can send vendor-specific optional parameters by way
+of ColdFusion SMS gateway. </p>
+<p>To set the optional parameters, specify them using the <samp class="codeph">optionalparameter</samp> attribute. </p>
+<p>If the gateway receives optional parameters in a message, they
+are included in the data struct that is returned to the listener
+CFC method named <samp class="codeph">onIncomingMessage</samp> under the <samp class="codeph">optionalParameters</samp> key.</p>
+<p>The following code describes how to add optional parameters:</p>
+<div class="para"><pre>params=StructNew(); 
+params["<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">parameter</i>"]=BinaryDecode("<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">string</i>","<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">binaryencoding</i>"); 
+params["parameter"]=CharsetDecode("<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">string</i>, <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">encoding</i>"); 
+outgoingSMS.optionalParameters=params;</pre>
+</div>
+<ul><li><p><samp class="codeph">parameter</samp>: Vendor-specific optional
+parameter. </p>
+</li>
+<li><p><samp class="codeph">BinaryDecode</samp>: See <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7fc5.html" target="_self">BinaryDecode</a> in <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">CFML Reference.</i></p>
+</li>
+<li><p><samp class="codeph">CharsetDecode</samp>: See <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7f64.html" target="_self">CharsetDecode</a> in <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">CFML Reference.</i></p>
+</li>
+</ul>
+<div class="para">If there is only one optional parameter, you can instead use
+the following code: <pre>out.optionalParameter=<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">parameter</i>; 
+out.optionalParameterValue="<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">value</i>";</pre>
+</div>
+<div class="para"><div class="note"><span class="notetitle">Note:  </span>Ensure that the Java Short.decode(String) function can
+parse the key or the value is a byte.</div>
+</div>
+</div></div><div id="WSf01dbd23413dda0e534c3c5412013d36366-7ff8" class="nochunk"><a name="WSf01dbd23413dda0e534c3c5412013d36366-7ff8"><!-- --></a><h3 class="topictitle3">Message disposition notification</h3><div><p>You can request the SMSC
+to return a message disposition response to indicate the fate of
+your message. To request a delivery receipt, include a RegisteredDelivery
+field in the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Data</i> parameter of a <samp class="codeph">SendGatewayMessage</samp> function
+or the return variable of the CFC listener method. This field can
+have the following values:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e119035"><p>Value</p>
+</th>
+<th valign="top" width="NaN%" id="d17e119038"><p>Meaning</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e119035 "><p>0</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e119038 "><p>(Default) Do not return delivery information.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e119035 "><p>1</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e119038 "><p>Return a receipt if the message is not delivered
+before the time-out.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e119035 "><p>2</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e119038 "><p>Return a receipt if the message is delivered
+or fails.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Some providers also support intermediate delivery notifications.
+For more information, see your provider’s documentation.</p>
+<p>To use delivery notification, send your message using synchronous
+mode, so you get a message ID. Your incoming message routine must
+be able to handle the receipts (see <a href="WSc3ff6d0ea77859461172e0811cbec22c24-77e1.html">Handling incoming messages</a>).</p>
+</div></div><div id="WSf01dbd23413dda0e534c3c5412013d36366-7ff7" class="nochunk"><a name="WSf01dbd23413dda0e534c3c5412013d36366-7ff7"><!-- --></a><h3 class="topictitle3">Validity period</h3><div><p>You can change the length
+of time that the SMSC keeps a message and tries to deliver it. (Often
+the default value is 72 hours.) For a message sent to an emergency
+worker, for example, a short validity period (such as 15 min.) can
+be appropriate. To change this value, include a validityPeriod field
+in the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Data</i> parameter of a <samp class="codeph">SendGatewayMessage</samp> function
+or the return variable of the CFC listener method. To specify a
+time period, use the following pattern: <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">YYMMDDhhmmsst</i>00R.
+In this pattern, <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">t</i> indicates tenths of seconds, and 00R specifies
+that this value is a relative time period, not a date-time value.
+The time format 000001063000000R, for example, specifies a validity
+period of 0 years, 0 months, 1 day, 6 hours, 30 minutes.</p>
+</div></div></div>
+
+
+<!-- BEGIN USER PREFERENCES -->
+          <div id="userprefs">
+          </div>
+<!-- END USER PREFERENCES -->
+
+          <div id="related">
+            
+            
+            <div class="separator"><a href="#top"><img src="images/BTT.jpg" /></a>&#160;</div>
+          </div>
+          <div id="footer">
+<!-- BEGIN IONCOMMENTS -->
+            <div id="ionComHere">
+            </div>
+<!-- END IONCOMMENTS -->
+
+
+            <p id="creativecommons"><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" id="creativecommons_text"><img id="creativecommons_img" src="images/CC.png" alt="This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License" /></a>&nbsp;Twitter™ and Facebook posts are not covered under the terms of Creative Commons.</p>
+          </div>
+</td>
+<td width="10px"></td>
+<td id="inner_rightcolumn">
+
+</td></tr></table>
+      </div>
+<!-- BEGIN BREADCRUMBS -->
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec22c24-77e1.html" title="Handling incoming messages"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec15d4b-7fe0.html" title="ColdFusion SMS development tools"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Developing&#160;ColdFusion 9 Applications</b></a> / <a href="WSc3ff6d0ea77859461172e0811cdd865267-8000.html"><b>Using External Resources</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec22c24-77f6.html"><b>Using the SMS Event Gateway</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+<!-- END CONTENT WRAPPER -->
+
+</td>
+<td id="col3">
+    <div>
+        <img src="images/adobe-lq.png" />
+    </div>
+</td>
+</tr>
+</table>
+    </div>
+<!-- END PAGE CONTENT WRAPPER -->
+<script type="text/javascript">
+<!--[CDATA[
+scrollToNameAnchor();
+// ]]-->
+</script> 
+<!--
+    Description:
+    This file generates the link to product support in the top right corner
+-->
+
+<style>
+#menutop{
+    position:absolute;
+    top:4px;
+    right:24px;
+    width:auto;    
+    font-size:11px;
+    color:#fff;
+    text-align:right;
+}
+#menutop a{
+    color:#fff;
+}
+#menutop a:hover{
+        text-decoration:underline;
+}
+</style>  
+  
+  
+  
+  
+<div id="productmenu">
+<!--googleoff: index-->
+  <div id="menutop">
+
+
+<script language=javascript type='text/javascript'>
+    // darken menu text for products with light backgrounds
+    var path = document.location.href.toLowerCase();
+    if (path.indexOf("/acrobat/")           	> 0 ||
+        path.indexOf("/acrobat.com/")       	> 0 ||
+        path.indexOf("/acrobatConnectPro/") 	> 0 ||
+        path.indexOf("/connect/")           	> 0 ||
+        path.indexOf("/livecycledataserviceses/") > 0 ||
+        path.indexOf("/muse/")         	> 0 ||
+	path.indexOf("/presenter/")         	> 0 ||
+        path.indexOf("/scene7/")            	> 0 ||
+        path.indexOf("/flashmediaserver/")  	> 0 ||
+        path.indexOf("/wave/")              	> 0 )
+    {
+        document.write('<style>#menutop a{color:#505050}</style>');
+    }
+    if (typeof('terms_AHV_PRODUCT_SUPPORT') != "undefined" && ! use_robohelp_behavior ){      
+        if (path.indexOf("/muse/") > -1 ){
+            var supportlink = '<a href="http://muse.adobe.com/support.html">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }else{
+            var supportlink = '<a href="http://adobe.com/support">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }
+        document.write( supportlink );
+     }
+
+</script> 
+
+  </div>
+<!--googleon: index-->
+</div>
+
+
+
+<style>
+#online-privacy-policy{ 
+    margin:10px 40px; 
+    font-size:11px;
+}
+</style>
+
+<p id="online-privacy-policy">
+<script language="javascript">
+var pageLoc = "en_US";
+var metaElements = document.all ?
+document.all.tags('meta') :
+document.getElementsByTagName ?
+document.getElementsByTagName ('meta') : new Array();
+for (var m = 0; m < metaElements.length; m++) {
+	if (metaElements[m].name == "lang") {
+		pageLoc = metaElements[m].content;
+		break;
+	}
+}
+var ptn = /(..)-(..)/;
+if (ptn.test(pageLoc)) {
+	var languageCode = pageLoc.replace(ptn, "$1");
+	var countryCode = pageLoc.replace(ptn, "$2");
+	pageLoc = languageCode + "_" + countryCode.toUpperCase();
+}
+
+var policyLoc = "en_US";
+var policyText = "Online Privacy Policy";
+var policyPath = "";
+var policyArray=[
+"da_DK", "Online fortrolighedserklæring",
+"de_DE", "Online-Datenschutzrichtlinie",
+"es_ES", "Política de confidencialidad en línea",
+"fi_FI", "Yksityisyyttä koskeva Online-toimintaohjelma",
+"fr_FR", "Confidentialité et sécurité",
+"it_IT", "Informativa sulla privacy online",
+"ja_JP", "プライバシーポリシー",
+"ko_KR", "Adobe 온라인 개인정보 보호정책",
+"pt_BR", "Política de Confidencialidade On-line", 
+"zh_CN", "在线隐私政策",
+"zh_TW", "線上隱私政策"
+];
+var legalLoc = "en_US";
+var legalText = "Legal Notices";
+var legalPath = legalLoc;
+var legalArray=[
+"ar_AE", "إشعارات قانونية",
+"bg_BG", "Юридически бележки",
+"cs_CZ", "Právní upozornění",
+"da_DK", "Juridiske meddelelser",
+"de_DE", "Rechtliche Hinweise",
+"el_GR", "Σημειώσεις νομικού περιεχομένου",
+"es_ES", "Avisos legales",
+"et_EE", "Juriidilised teated",
+"fi_FI", "Lakisääteiset ilmoitukset",
+"fr_FR", "Mentions légales",
+"he_IL", "הצהרות משפטיות",
+"hr_HR", "Pravne napomene",
+"hu_HU", "Jogi közlemények",
+"it_IT", "Informazioni legali",
+"ja_JP", "法律上の注意",
+"ko_KR", "법적 고지 사항",
+"lt_LT", "Teisinės pastabos",
+"lv_LV", "Juridisks paziņojums",
+"nb_NO", "Juridiske merknader",
+"nl_NL", "Juridische kennisgevingen",
+"pl_PL", "Informacje prawne",
+"pt_BR", "Aspectos jurídicos",
+"ro_RO", "Prevederi legale",
+"ru_RU", "Юридическая информация",
+"sk_SK", "Právne upozornenie",
+"sl_SI", "Pravni pouk",
+"sv_SE", "Upphovsrätt",
+"tr_TR", "Yasal uyarılar",
+"uk_UA", "Юридична інформація",
+"zh_CN", "法律声明",
+"zh_TW", "法律注意事項"
+];
+
+ruPolicy = "http://www.adobe.com/ru/misc/privacy.html";
+trPolicy = "http://www.adobe.com/tr/misc/privacy.html";
+
+// Bug 2846992: LOC: RUS, TUR: The link to "Online Privacy Policy" should include language, currently it is not appearing.
+if (pageLoc == "ru_RU") {
+	policyPath = "ru";
+}
+else if (pageLoc == "tr_TR") {
+	policyPath = "tr";
+}
+for (var i = 0; i < policyArray.length; i+=2) {
+	if (pageLoc == policyArray[i]) {
+		policyLoc = pageLoc;
+		policyText = policyArray[i+1];
+		var ptn = /(..)_(..)/;
+		if (ptn.test(policyLoc)) {
+			var countryCode = policyLoc.replace(ptn, "$2");
+			policyPath = countryCode.toLowerCase();
+		}
+		break;
+	}
+}
+
+for (var i = 0; i < legalArray.length; i+=2) {
+	if (pageLoc == legalArray[i]) {
+		legalLoc = pageLoc;
+		legalText = legalArray[i+1];
+		legalPath = legalLoc;
+		break;
+	}
+}
+if(agt.indexOf("community help client") > -1 ){
+	document.write('<a href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+}else{
+	//Open the privacy policy in a new window
+	document.write('<a target="_blank" href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a target="_blank" href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+} 
+</script>
+</p>
+
+
+
+<!-- localfooter.ssi -->
+
+<script type="text/javascript">
+    var debug = (top.location.href.indexOf("debug=true") > -1);
+</script>
+
+<script language="javascript">
+document.write('<scr'+'ipt ' +
+               'src="/en_US/ssi/_pod.js" ' +
+               'language="javascript" ' +
+               'charset="UTF-8"> ' +
+               '</scr'+'ipt>');
+</script>
+
+
+<script type="text/javascript">
+//
+//  Ethnio survey code
+//
+/*          DocumentID      EthnioID */
+/*          -------------   -------- */
+var ethnio=["/en_US/flash/cs/using/WSb03e830bd6f770ee6664507612436d7dede-8000.html", "87462",
+            "/en_US/creativesuite/cs/using/WSe851854fd1e0856a-4b08a77612477f69f15-8000.html",  "10441",
+            "/en_US/dreamweaver/cs/using/WSEE4C0148-A6F4-4bf5-9DEF-CE06AB026214a.html",  "57412"
+ 
+    ];
+                        
+    for ( var i = 0; i < ethnio.length ; i = i+2 ){
+        if ( document.location.href.indexOf( ethnio[i] ) > -1 ){ 
+            var headID = document.getElementsByTagName("head")[0];         
+            var ethnioScript = document.createElement('script');
+            ethnioScript.type = 'text/javascript';
+            ethnioScript.src = 'http://ethn.io/remotes/' + ethnio[i+1];        
+            if ( debug ){
+                alert ("Using Ethnio script: " + ethnioScript.src );
+            }else{
+                headID.appendChild(ethnioScript);
+            }
+        }
+    }
+</script>
+
+
+
+<div style="display: none;">
+<!-- SiteCatalyst -->
+<script language="JavaScript" type="text/javascript"><!--
+var s_code=' ';
+var s_docHost = window.location.hostname.toLowerCase();
+var s_docURL = window.location.pathname.toLowerCase();
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+if (s_docHost.indexOf(".corp.adobe") != -1 || s_docHost.indexOf("stage.") != -1 || s_docHost.indexOf(".dev.adobe") != -1 || s_docHost.indexOf("staging.") != -1) scJsHost="";
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/omniture_s_code.js' type='text/javascript'%3E%3C/script%3E"));
+//--></script>
+<script type="text/javascript"><!--
+var s_accountName;
+s_server="www.adobe.com static content pages";
+if (!window.s_account) s_accountName="mxmacromedia";
+else s_accountName=window.s_account;
+
+if (window.s_docURL.indexOf("/designcenter/") != -1)
+  s_channel="Adobe Design Center";	
+else if ((window.s_docHost.indexOf("labs.adobe") != -1) ||
+(window.s_docHost.indexOf("labs-staging.") != -1))
+  s_channel="Labs";
+else if (window.s_docHost.indexOf("help.adobe.com") != -1) {
+  s_channel="Support Help.adobe.com";
+  if (window.s_docURL.indexOf("/en_us/") == -1) {
+    s_docURLArray=s_docURL.split('/');
+    s_pageName="http://help.adobe.com/"+s_docURLArray[1]+"/"+ s_docURLArray[2]+"/"+s_docURLArray[3];
+    s_prop23="http://help.adobe.com"+window.location.pathname;
+  }
+}
+else if (window.s_docHost.indexOf("kb2.adobe.com") != -1) {
+  s_channel="Support Knowledgebase";
+  s_prop23="http://kb2.adobe.com"+s_docURL+":";
+  if (typeof(omtrProductList) != 'undefined' && omtrProductList.length > 0)
+ {
+    s_prop23=s_prop23+omtrProductList;
+  }
+}
+else if (window.s_docHost.indexOf("resellers.adobe.com") != -1) {
+		var s_pageName=document.getElementsByTagName("title")[0].text;
+}
+
+if (!window.scMMInclude) {
+	var s_wd=window,s_tm=new Date;
+	if(s_code!=' '){
+		s_code=s_dc(s_accountName);
+		if(s_code)document.write(s_code)
+	} 
+} else {
+	s_wds(s_accountName);s_ca(s_accountName); 
+}	
+
+function sendAnalyticsEvent(str){var ns=s_accountName;if(str!=null)ns+=","+str;void(s_gs(ns));}
+function sendLinkEvent(accnt,lnkname,type){
+accnt=s_accountName;s_linkType=type;s_lnk=true;s_linkName=lnkname;void(s_gs(accnt));}
+//--></script>
+<noscript><img src="http://stats.adobe.com/b/ss/mxmacromedia/1/H.15-XELvs/0?pageName=http%3A//www.adobe.com%3A%20noscript&ch=http%3A//www.adobe.com%3A%20noscript&g=http%3A//www.adobe.com" height="1" width="1" border="0" alt="" /></noscript>
+<!-- End SiteCatalyst -->
+</div>
+
+<script language="JavaScript" type="text/javascript">//<![CDATA[
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/atm/s_code_www.js' type='text/javascript'%3E%3C/script%3E"));
+//]]></script>
+<script type="text/javascript">//<![CDATA[
+if(s_adobe){	
+	s_adobe.server="www.adobe.com Static Content pages";
+	/* Set pageName */
+	s_adobe.s_URL="adobe.com"+((location.pathname.charAt(0)=='/')?location.pathname:'/'+location.pathname);
+	if (s_adobe.s_URL.substring(s_adobe.s_URL.lastIndexOf('/')+1)=="") s_adobe.s_URL=s_adobe.s_URL+"index.html";
+	s_adobe.s_URLSplit=s_adobe.s_URL.split("/");
+	s_adobe.pageName=s_adobe.s_URLSplit.join(":");
+
+	/* Set prop4 to language-locale */
+	var s_meta=document.getElementsByTagName('meta'); 
+      for (i=0; i<s_meta.length; i++) { 
+        if (s_meta[i].getAttribute("http-equiv") == "Content-Language") { 
+          s_adobe.prop4=s_meta[i].getAttribute("content"); 
+	    s_adobe.prop4=s_adobe.prop4.replace(/\s+/g,'');
+        } 
+      } 
+	s_adobe.t()
+}
+//]]></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

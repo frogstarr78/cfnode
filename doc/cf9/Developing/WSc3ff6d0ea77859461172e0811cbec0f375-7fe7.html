@@ -1,0 +1,1657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0022)http://help.adobe.com/ -->
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="lang" content="en-us" />
+    <meta name="area" content="livedocs" />
+    <title>Adobe&#160;ColdFusion&#160;9 * Composing search expressions</title>
+    <link rel="shortcut icon" href="images/ColdFusionLinkIndicator.png" />
+    <meta name="book" content="Developing&#160;ColdFusion 9 Applications" />
+    <meta name="product" content="ColdFusion" />
+    <meta name="keywords" content="" /><!--<PageMap><DataObject type="document"><Attribute name="product" value="ColdFusion"></Attribute><Attribute name="book" value="Developing&#160;ColdFusion 9 Applications"></Attribute><Attribute name="keywords" value=""></Attribute></DataObject></PageMap>-->
+    
+    <script type="text/javascript" language="Javascript" charset="UTF-8"><!--[CDATA[
+        var currentTreeNode = "WSc3ff6d0ea77859461172e0811cbec0f375-7fe7.html";
+    document.cookie = "topicId=" + "WSc3ff6d0ea77859461172e0811cbec0f375-7fe7.html";
+// ]]--></script>
+<script src="terms.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="help.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script>  <script src="utilities.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="event.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="treeview.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="toc.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script> <script src="swfobject.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>  <script src="booklist.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>
+<script type="text/javascript">
+<!--[CDATA[
+var topictype = "topic";
+var headId = document.getElementsByTagName("head")[0];         
+if (use_ie_6_behavior) {
+  var linkId = document.createElement("link");
+  linkId.href = "content-ie6.css";
+  linkId.rel = "stylesheet";
+  linkId.type = "text/css";
+  headId.appendChild(linkId);
+}
+function initRoboHelpDOM() {
+  if (use_chm_behavior) {
+    hideElement("search");
+  }
+  if (use_robohelp_behavior) {
+    hideElement("search");
+    hideElement("productmenu");
+    //hideElement("notyourversion");
+  }
+  if(!use_chc_behavior) {
+    //document.getElementById("notyourversion").style.display = "inline";;
+  }
+}
+var dirname = location.pathname.match( /.*\// );    
+function setSearchUserPref(){
+  if ( document.cookie.indexOf( "ah_searchpref" ) > -1 ) {
+    if ( document.cookie.indexOf( dirname ) > 0 ) {
+      document.search.gsa.checked = true ;
+    }else{
+      document.search.gsa.checked = false ;            
+    }
+  }
+}
+YAHOO.util.Event.onDOMReady(initRoboHelpDOM);
+YAHOO.util.Event.onDOMReady(setSearchUserPref);
+// ]]-->
+</script>
+
+<!-- ********************************** -->
+<!-- START: ForeSee survey code in: /ssi/globalheader.ssi -->
+
+<script type="text/javascript">
+<!-- 
+// Enable the survey for only English, German and Japanese
+var agt=navigator.userAgent.toLowerCase();
+if ( agt.indexOf("community help client") == -1 ){
+    if ( document.location.href.indexOf("/en_US/") != -1 ){
+        showSurvey();
+//    }else if (document.location.href.indexOf("/de_DE/") != -1){
+//         var locale="de";
+//         showSurvey();
+    }else if (document.location.href.indexOf("/ja_JP/") != -1 ){
+         var locale="ja";
+         showSurvey();
+    }	
+}
+
+function showSurvey(){
+	document.write('<script type="text/javascript" src="/js/foresee/foresee-trigger.js"><\/scr'+'ipt>');
+}
+
+// -->
+</script>
+
+<!-- END: ForeSee survey code -->
+<!-- ******************************** -->
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="tree.css" />
+    <link rel="stylesheet" type="text/css" href="content.css" />
+    <link rel="stylesheet" type="text/css" href="localeSpecific.css" />
+  </head>
+  <body id="content_body" onload="window.focus();">
+    <a name="top" shape="rect"><!--LeaveCommentHere--></a>
+    
+    <div id="mnemonic">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon" class="ColdFusion"><div class="banner"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html">Adobe&#160;ColdFusion&#160;9</a><span id="notyourversion">|&#160;
+                    <a rel="nofollow" href="http://www.adobe.com/support/documentation/en/coldfusion/">Not your version?</a></span></div></div><!--googleon: index-->
+    </div>
+    
+    <div id="searchbar">
+<table id="searchbartable">
+<tr>
+<td colspan="2">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon"><div id="pdf"><img src="images/PDF.gif" width="16" height="16" /><a title="View Help PDF" href="coldfusion_9_dev.pdf">View Help PDF ( 23MB)</a></div></div><!--googleon: index-->
+</td>
+</tr>
+</table>
+    </div>
+
+<!-- BEGIN SEARCH CONTENT -->
+<form id="search" name="search" action="search.html" target="_self">
+<script type="text/javascript">
+<!--[CDATA[
+if ( !use_chc_behavior ){
+    if (typeof(terms_AHV_SEARCH_CONSTRAINT) != "undefined" && 
+        terms_AHV_SEARCH_CONSTRAINT.length > 0 && 
+        document.location.href.indexOf(".adobe.com") > 0){
+        if ( typeof(terms_SEARCH_THIS_HELP_ONLY) != "undefined" && terms_SEARCH_THIS_HELP_ONLY == "ON" ) {
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                checked="checked" \
+                value="1" ><\/input>'); 
+                
+        // Leave the "Search this help system only" checkbox unckecked
+        }else{    
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                value="1" ><\/input>'); 
+        }
+        document.write('<span class="gsalabel">' + terms_AHV_SEARCH_CONSTRAINT + '<\/span><\/div>'); 
+    }
+    document.write('<input class="searchinput" \
+        name="q" \
+        id="q" \
+        type="text" \
+        maxlength="256" \
+        value="' + terms_AHV_SEARCH_BUTTON + '" \
+        onclick="clearSearch()"><\/input><input \
+        type="button" \
+        name="searchbutton" \
+        class="searchbutton" \
+        onclick="submit()"><\/input>'); 
+} 
+ 
+/* 
+ * Start Functions 
+ */
+function clearSearch(){
+    if (document.search.q.value == terms_AHV_SEARCH_BUTTON){document.search.q.value = ""}; 
+}
+
+// set search preferences
+function setAHSearchPref(){
+    if (document.search.gsa.checked == 1){
+        setAHSearchCookie( dirname );
+    }else{
+        setAHSearchCookie( "community" );
+    }
+}
+
+// Set search preferences cookie
+function setAHSearchCookie( p ){
+    // set cookie ah_searchpref with a value of the document path
+    var expire=new Date();
+    expire.setDate(expire.getDate()+365); // Cookie expires after 1 year (365 days) 
+    document.cookie="ah_searchpref=" +p+ "; expires=" +expire.toGMTString()+ ";";
+}
+
+// ]]-->
+</script> 
+ </form>
+<!-- END SEARCH CONTENT -->    
+
+
+
+<!-- BEGIN PAGE CONTENT WRAPPER -->
+    <div id="page_content_wrapper">
+<!-- BEGIN PAGE WRAPPER -->
+<table id="page_content_table">
+<tr>
+
+<td id="col2">
+<!-- BEGIN CONTENT WRAPPER -->
+<!-- BEGIN BREADCRUMBS -->
+
+      
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec0f375-7ff5.html" title="Using Internet queries"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-7b18.html" title="Refining your searches with zones and fields"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Developing&#160;ColdFusion 9 Applications</b></a> / <a href="WS8f0cc78011fffa7168855f811cdb0b0cce-8000.html"><b>Accessing and Using Data</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7b4a.html"><b>Using Verity Search Expressions</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+      <div id="content_wrapper">
+<!-- BEGIN PAGE TITLE -->
+        <h1>Composing search expressions</h1>
+<!-- END PAGE TITLE -->
+<!-- BEGIN IONCOMMENTCOUNT -->
+        <div id="ionCount">
+        </div>
+<!-- END IONCOMMENTCOUNT -->
+<table id="inner_content_table" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>
+          <div style="border-top:#ccc solid 1px;"><p> </p>
+          </div>
+<p id="chcPromo" style="display:none;">
+<a id="chcLink" href="http://www.adobe.com/support/chc/">
+<img id="chcImage" src="http://www.adobe.com/support/chc/GetMoreHelpFeatures.png"/>
+</a>
+</p>
+<script type="text/javascript" language="javascript" charset="utf-8">
+<!--
+var cfgArray = [];
+//cfgArray["Acrobat_10.0_Professional.helpcfg"] = "acrobatpro";
+//cfgArray["Acrobat_10.0_Standard.helpcfg"] = "acrobatstd";
+cfgArray["Lightroom_3.0.helpcfg"] = "lightroom";
+cfgArray["PhotoshopElements_8.0_Win.helpcfg"] = "photoshopelements";
+cfgArray["PhotoshopElements_8.0_Mac.helpcfg"] = "photoshopelementsmac";
+cfgArray["PremiereElements_8.0_Win.helpcfg"] = "premiereelements";
+
+//cfgArray["AfterEffects_10.0.helpcfg"] = "aftereffects";
+//cfgArray["AIR.helpcfg"] = "air";
+//cfgArray["ColdFusionBuilder.helpcfg"] = "coldfusion";
+//cfgArray["Contribute_6.0.helpcfg"] = "contribute";
+//cfgArray["DeviceCentral_3.0.helpcfg"] = "devicecentral";
+//cfgArray["Dreamweaver_11.0.helpcfg"] = "dreamweaver";
+//cfgArray["EncoreDVD_5.0.helpcfg"] = "encore";
+//cfgArray["ExtensionManager_3.0.helpcfg"] = "extension";
+//cfgArray["Fireworks_11.0.helpcfg"] = "fireworks";
+//cfgArray["Flash_11.0.helpcfg"] = "flash";
+//cfgArray["Flex_4.0.helpcfg"] = "flashbuilder";
+//cfgArray["FlashCatalyst_1.0.helpcfg"] = "flashcatalyst";
+//cfgArray["Illustrator_15.0.helpcfg"] = "illustrator";
+//cfgArray["InCopy_7.0.helpcfg"] = "incopy";
+//cfgArray["InDesign_7.0.helpcfg"] = "indesign";
+//cfgArray["OnLocation_5.0.helpcfg"] = "onlocation";
+//cfgArray["Photoshop_12.0.helpcfg"] = "photoshop";
+//cfgArray["PremierePro_5.0.helpcfg"] = "premierepro";
+
+function getLangName() {
+    var lang = "en-us";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if (ptn.test(lang)) {
+        var languageCode = lang.replace(ptn, "$1");
+        var countryCode = lang.replace(ptn, "$2");
+        lang = languageCode + "_" + countryCode.toUpperCase();
+    }
+    return lang;
+}
+
+function getCountryName() {
+    var lang = "";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if ((ptn.test(lang)) && (lang != "en-us")) {
+        var countryCode = lang.replace(ptn, "$2");
+        return "/" + countryCode;
+    }
+    return "";
+}
+
+if ( (typeof(terms_HELPCFG) != 'undefined')  && (terms_HELPCFG.indexOf(".helpcfg") != -1) ) {
+    var stage   = (document.location.href.indexOf(".stage.") != -1) ? 'stage.' : '';
+    var baseUrl = 'http://www.' + stage + 'adobe.com';
+    var refpage = document.location.href.replace(/#.*$/, '');
+	
+	if ((!use_robohelp_behavior) && (terms_HELPCFG.length > 0) && (typeof(cfgArray[terms_HELPCFG]) != 'undefined') && (cfgArray[terms_HELPCFG].length > 0)) {
+		if (document.getElementById) { // DOM3 = IE5, NS6
+			var newHref = baseUrl + getCountryName() + "/support/chc/" + "?helpcfg=http://help." + stage + "adobe.com/HelpCfg/" + getLangName() + "/" + terms_HELPCFG + "&url=" + refpage + "&product=" + cfgArray[terms_HELPCFG];
+			var newSrc = baseUrl + getCountryName() + "/support/chc/GetMoreHelpFeatures.png";
+			document.getElementById("chcPromo").style.display = "block";
+			document.getElementById("chcLink").href = newHref;
+			document.getElementById("chcImage").src = newSrc;
+		}
+	}
+}
+
+//-->
+</script>
+
+
+
+          <div id="minitoc"><div class="t"><div class="b"><div><ul id="minitoc-links"><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec0f375-7fed"><span class="topictitle1">Case sensitivity</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec0f375-7ffc"><span class="topictitle1">Prefix and infix notation</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec0f375-7ffd"><span class="topictitle1">Commas in expressions</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec0f375-7fff"><span class="topictitle1">Precedence rules</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec0f375-7fec"><span class="topictitle1">Delimiters in expressions</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-7b25"><span class="topictitle1">Operators and modifiers</span>
+</a></p><ul><li><p><a href="#WSf01dbd23413dda0e-30d8face1200ff8a69d-8000"><span class="topictitle2">Operators</span>
+</a></p></li><li><p><a href="#WSf01dbd23413dda0e-30d8face1200ff8a69d-7fff"><span class="topictitle2">Concept operators</span>
+</a></p></li><li><p><a href="#WSf01dbd23413dda0e-30d8face1200ff8a69d-7ffe"><span class="topictitle2">Relational operators</span>
+</a></p></li><li><p><a href="#WSf01dbd23413dda0e-30d8face1200ff8a69d-7ffd"><span class="topictitle2">Evidence operators</span>
+</a></p></li><li><p><a href="#WSf01dbd23413dda0e-30d8face1200ff8a69d-7ffc"><span class="topictitle2">Proximity operators</span>
+</a></p></li><li><p><a href="#WSf01dbd23413dda0e-30d8face1200ff8a69d-7ffb"><span class="topictitle2">Score operators</span>
+</a></p></li><li><p><a href="#WSf01dbd23413dda0e-30d8face1200ff8a69d-7ffa"><span class="topictitle2">Modifiers</span>
+</a></p></li></ul></li></ul></div></div></div></div><div><p>The following rules apply to the composition
+of search expressions.</p>
+</div>
+<div id="WSc3ff6d0ea77859461172e0811cbec0f375-7fed" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec0f375-7fed"><!-- --></a><h2 class="topictitle2">Case sensitivity</h2><div><p>Verity searches are case sensitive only when
+the search term is entered in mixed case. For example, a search
+for <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">zeus</i> finds zeus, Zeus, or ZEUS; however, a search for <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Zeus</i> finds
+only Zeus.</p>
+<p>To have your application always ignore the case that the user
+types, use the ColdFusion <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7b1c.html" target="_self">LCase</a></samp> function in the <samp class="codeph">criteria</samp> attribute
+of <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7d02.html" target="_self">cfsearch</a></samp>. The following code
+converts user input to lowercase, thereby eliminating case sensitivity
+concerns:</p>
+<pre>&lt;cfsearch name="results"  
+    collection="#form.collname#" 
+    <strong>criteria="#LCase(form.criteria)#"</strong> 
+    type="#form.type#"&gt;</pre>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec0f375-7ffc" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec0f375-7ffc"><!-- --></a><h2 class="topictitle2">Prefix and infix notation</h2><div><p>By default, Verity uses <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">infix notation</i>,
+in which precedence is implicit in the expression; for example,
+the AND operator takes precedence over the OR operator.</p>
+<p>You can use <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">prefix notation</i> with any operator except an
+evidence operator (typically, STEM, WILDCARD, or WORD; for a description
+of evidence operators, see <a href="WSf01dbd23413dda0e-30d8face1200ff8a69d-7ffd.html">Evidence operators</a>). In prefix notation, the expression explicitly
+specifies precedence. Rather than repeating an operator, you can
+use prefix notation to list the operator once and list the search
+targets in parentheses. For example, the following expressions are
+equivalent:</p>
+<ul><li><p>Moses &lt;NEAR&gt; Larry &lt;NEAR&gt; Jerome &lt;NEAR&gt;
+Daniel &lt;NEAR&gt; Jacob</p>
+</li>
+<li><p>&lt;NEAR&gt;(Moses,Larry,Jerome,Daniel,Jacob)</p>
+</li>
+</ul>
+<p>The following prefix notation example searches first for documents
+that contain Larry and Jerome, and then for documents that contain
+Moses:</p>
+<p>OR (Moses, AND (Larry,Jerome))</p>
+<p>The infix notation equivalent of this is as follows:</p>
+<p>Moses OR (Larry AND Jerome) </p>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec0f375-7ffd" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec0f375-7ffd"><!-- --></a><h2 class="topictitle2">Commas in expressions</h2><div><p>If
+an expression includes two or more search terms within parentheses,
+a comma is required between the elements (whitespace is ignored).
+The following example searches for documents that contain any combination
+of Larry and Jerome together:</p>
+<p>AND (Larry, Jerome)</p>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec0f375-7fff" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec0f375-7fff"><!-- --></a><h2 class="topictitle2">Precedence rules</h2><div><p>Expressions
+are read from left to right. The AND operator takes precedence over the
+OR operator; however, terms enclosed in parentheses are evaluated
+first. When the search engine encounters nested parentheses, it
+starts with the innermost term.</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e51484"><p>Example</p>
+</th>
+<th valign="top" width="NaN%" id="d17e51487"><p>Search result</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e51484 "><p>Moses AND Larry OR Jerome</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51487 "><p>Documents that contain Moses and Larry,
+or Jerome</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51484 "><p>(Moses AND Larry) OR Jerome</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51487 "><p>(Same as above)</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51484 "><p>Moses AND (Larry OR Jerome)</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51487 "><p>Documents that contain Moses and either
+Larry or Jerome</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec0f375-7fec" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec0f375-7fec"><!-- --></a><h2 class="topictitle2">Delimiters in expressions</h2><div><p>You use angle brackets (&lt;
+&gt;), double quotation marks ("), and backslashes (\) to delimit
+various elements in a search expression, as the following table
+describes:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><tbody><tr><td valign="top" width="NaN%"><p>Character</p>
+</td>
+<td valign="top" width="NaN%"><p>Usage</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p>&lt; &gt;</p>
+</td>
+<td valign="top" width="NaN%"><p>Left and right angle brackets are reserved
+for designating operators and modifiers. They are optional for the
+AND, OR, and NOT, but required for all other operators.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p>"</p>
+</td>
+<td valign="top" width="NaN%"><p>Use double quotation marks in expressions
+to search for a word that is otherwise reserved as an operator or
+modifier, such as AND, OR, and NOT.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p>\</p>
+</td>
+<td valign="top" width="NaN%"><p>To include a backslash in a search expression,
+insert two backslashes for each backslash character that you want included
+in the search; for example, C:\\CFusion\\bin.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec22c24-7b25" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7b25"><!-- --></a><h2 class="topictitle2">Operators and modifiers</h2><div><p>You are probably familiar with searches containing AND,
+OR, and NOT. Verity has many additional operators and modifiers,
+of various types, that offer you a high degree of specificity in
+setting search parameters.</p>
+</div><div id="WSf01dbd23413dda0e-30d8face1200ff8a69d-8000" class="nochunk"><a name="WSf01dbd23413dda0e-30d8face1200ff8a69d-8000"><!-- --></a><h3 class="topictitle3">Operators</h3><div><p>An <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">operator</i> represents
+logic to be applied to a search element. This logic defines the
+qualifications that a document must meet to be retrieved. You can
+use operators to refine your search or to influence the results
+in other ways. </p>
+<p>For example, you can construct an HTML form for conducting searches.
+In the form, you can search for a single term. You can refine the
+search by limiting the search scope in many ways. Operators are
+available for limiting a query to a sentence or paragraph, and you
+can search words based on proximity.</p>
+<p>Ordinarily, you use operators in explicit searches, as follows:</p>
+<pre>"&lt;operator&gt;search_string"</pre>
+<p>The following operator types are available:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e51586"><p>Operator type</p>
+</th>
+<th valign="top" width="NaN%" id="d17e51589"><p>Purpose</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e51586 "><p>Concept</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51589 "><p>Identifies a concept in a document by combining
+the meanings of search elements.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51586 "><p>Relational</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51589 "><p>Searches fields in a collection.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51586 "><p>Evidence</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51589 "><p>Specifies basic and intelligent word searches.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51586 "><p>Proximity</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51589 "><p>Specifies the relative location of words
+in a document.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51586 "><p>Score</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51589 "><p>Manipulates the score returned by a search
+element. You can set the score percentage display to four decimal places.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The following table shows the operators, according to type, that
+are available for conducting searches of ColdFusion Verity collections:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><tbody><tr><td valign="top" width="NaN%"><p>Concept</p>
+</td>
+<td valign="top" width="NaN%"><p>Relational</p>
+</td>
+<td valign="top" width="NaN%"><p>Evidence</p>
+</td>
+<td valign="top" width="NaN%"><p>Proximity</p>
+</td>
+<td valign="top" width="NaN%"><p>Score</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p>ACCRUE</p>
+</td>
+<td valign="top" width="NaN%"><p>&lt; </p>
+</td>
+<td valign="top" width="NaN%"><p>STEM</p>
+</td>
+<td valign="top" width="NaN%"><p>NEAR</p>
+</td>
+<td valign="top" width="NaN%"><p>YESNO</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p>ALL</p>
+</td>
+<td valign="top" width="NaN%"><p>&lt;= </p>
+</td>
+<td valign="top" width="NaN%"><p>WILDCARD</p>
+</td>
+<td valign="top" width="NaN%"><p>NEAR/N</p>
+</td>
+<td valign="top" width="NaN%"><p>PRODUCT</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p>AND</p>
+</td>
+<td valign="top" width="NaN%"><p>=</p>
+</td>
+<td valign="top" width="NaN%"><p>WORD</p>
+</td>
+<td valign="top" width="NaN%"><p>PARAGRAPH</p>
+</td>
+<td valign="top" width="NaN%"><p>SUM</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p>ANY</p>
+</td>
+<td valign="top" width="NaN%"><p>&gt;</p>
+</td>
+<td valign="top" width="NaN%"><p>THESAURUS</p>
+</td>
+<td valign="top" width="NaN%"><p>PHRASE</p>
+</td>
+<td valign="top" width="NaN%"><p>COMPLEMENT</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p>OR</p>
+</td>
+<td valign="top" width="NaN%"><p>&gt;=</p>
+</td>
+<td valign="top" width="NaN%"><p>SOUNDEX</p>
+</td>
+<td valign="top" width="NaN%"><p>SENTENCE</p>
+</td>
+<td valign="top" width="NaN%"><p>&#160;</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%"><p>CONTAINS</p>
+</td>
+<td valign="top" width="NaN%"><p>TYPO/N</p>
+</td>
+<td valign="top" width="NaN%"><p>IN</p>
+</td>
+<td valign="top" width="NaN%"><p>&#160;</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%"><p>MATCHES</p>
+</td>
+<td valign="top" width="NaN%"><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%"><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%"><p>&#160;</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%"><p>STARTS</p>
+</td>
+<td valign="top" width="NaN%"><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%"><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%"><p>&#160;</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%"><p>ENDS</p>
+</td>
+<td valign="top" width="NaN%"><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%"><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%"><p>&#160;</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%"><p>SUBSTRING</p>
+</td>
+<td valign="top" width="NaN%"><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%"><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%"><p>&#160;</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div><div id="WSf01dbd23413dda0e-30d8face1200ff8a69d-7fff" class="nochunk"><a name="WSf01dbd23413dda0e-30d8face1200ff8a69d-7fff"><!-- --></a><h3 class="topictitle3">Concept operators</h3><div><p>Concept
+operators combine the meaning of search elements to identify a concept
+in a document. Documents retrieved using concept operators are ranked
+by relevance. The following table describes each concept operator:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e51828"><p>Operator</p>
+</th>
+<th valign="top" width="NaN%" id="d17e51831"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e51828 "><p>AND</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51831 "><p>Selects documents that contain all the search
+elements that you specify.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51828 "><p>OR</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51831 "><p>Selects documents that show evidence of
+at least one of the search elements that you specify.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51828 "><p>ACCRUE</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51831 "><p>Selects documents that include at least
+one of the search elements that you specify. Documents are ranked
+based on the number of search elements found.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51828 "><p>ALL</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51831 "><p>Selects documents that contain all of the
+search elements that you specify. A score of 1.00 is assigned to
+each retrieved document. ALL and AND retrieve the same results,
+but queries using ALL are always assigned a score of 1.00.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51828 "><p>ANY</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51831 "><p>Selects documents that contain at least
+one of the search elements that you specify. A score of 1.00 is
+assigned to each retrieved document. ANY and OR retrieve the same
+results, but queries using ANY are always assigned a score of 1.00.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div><div id="WSf01dbd23413dda0e-30d8face1200ff8a69d-7ffe" class="nochunk"><a name="WSf01dbd23413dda0e-30d8face1200ff8a69d-7ffe"><!-- --></a><h3 class="topictitle3">Relational operators</h3><div><p>Relational operators search document fields
+(such as AUTHOR) that you defined in the collection. Documents that
+contain specified field values are returned. Documents retrieved
+using relational operators are not ranked by relevance, and you
+cannot use the MANY modifier with relational operators.</p>
+<p>You use the following operators for numeric and date comparisons:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e51886"><p>Operator</p>
+</th>
+<th valign="top" width="NaN%" id="d17e51889"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e51886 "><p>=</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51889 "><p>Equal</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51886 "><p>!=</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51889 "><p>Not equal</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51886 "><p>&gt;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51889 "><p>Greater than</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51886 "><p>&gt;=</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51889 "><p>Greater than or equal to</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51886 "><p>&lt;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51889 "><p>Less than</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51886 "><p>&lt;=</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51889 "><p>Less than or equal to</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For example, to search for documents that contain values for
+1999 through 2002, you perform either of the following searches:</p>
+<ul><li><p>A simple search for 1999,2000,2001,2002</p>
+</li>
+<li><p>An explicit search using the = operator: &gt;=1999,&lt;=2002</p>
+</li>
+</ul>
+<p>If a document field named PAGES is defined, you can search for
+documents that are five pages or fewer by entering <strong>PAGES &lt; 5</strong> in
+your search. Similarly, if a document field named DATE is defined,
+you can search for documents dated before and including December
+31, 1999 by entering <strong>DATE &lt;= 12-31-99</strong> in your search.</p>
+<p>The following relational operators compare text and match words
+and parts of words:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e51961"><p>Operator</p>
+</th>
+<th valign="top" width="NaN%" id="d17e51964"><p>Description</p>
+</th>
+<th valign="top" width="NaN%" id="d17e51967"><p>Example</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e51961 "><p>CONTAINS</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51964 "><p>Selects documents by matching the word or
+phrase that you specify with the values stored in a specific document
+field. Documents are selected only if the search elements specified
+appear in the same sequential and contiguous order in the field
+value.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51967 "><div class="para"><ul><li><p>In a document field named TITLE,
+to retrieve documents whose titles contain music, musical, or musician,
+search for <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">TITLE &lt;CONTAINS&gt; Musi*</i>.</p>
+</li>
+<li><p>To retrieve CFML and HTML pages whose meta tags contain Framingham
+as a content word, search for <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">KEYWORD &lt;CONTAINS&gt; Framingham</i>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51961 "><p>MATCHES</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51964 "><p>Selects documents by matching the query
+string with values stored in a specific document field. Documents
+are selected only if the search elements specified match the field
+value exactly. If a partial match is found, a document is not selected.
+When you use the MATCHES operator, you specify the field name to
+search, and the word, phrase, or number to locate. You can use ?
+and * to represent individual and multiple characters, respectively,
+within a string.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51967 "><p>For examples, see the text immediately following this
+table.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51961 "><p>STARTS</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51964 "><p>Selects documents by matching the character
+string that you specify with the starting characters of the values
+stored in a specific document field.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51967 "><p>In a document field named REPORTER, to retrieve documents
+written by Clark, Clarks, and Clarkson, search for <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">REPORTER &lt;STARTS&gt; Clark</i>.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51961 "><p>ENDS</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51964 "><p>Selects documents by matching the character
+string that you specify with the ending characters of the values
+stored in a specific document field.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51967 "><p>In a document field named OFFICER, to retrieve arrest
+reports written by Tanner, Garner, and Milner, search for <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">OFFICER &lt;ENDS&gt; ner</i>.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51961 "><p>SUBSTRING</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51964 "><p>Selects documents by matching the query
+string that you specify with any portion of the strings in a specific
+document field.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51967 "><p>In a document field named TITLE, to retrieve
+documents whose titles contain words such as solution, resolution,
+solve, and resolve, search for <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">TITLE &lt;SUBSTRING&gt; sol</i>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For example, assume a document field named SOURCE includes the
+following values:</p>
+<ul><li><p>Computer</p>
+</li>
+<li><p>Computerworld</p>
+</li>
+<li><p>Computer Currents</p>
+</li>
+<li><p>PC Computing</p>
+</li>
+</ul>
+<p>To locate documents whose source is Computer, enter the following:</p>
+<pre><strong>SOURCE &lt;MATCHES&gt; computer</strong></pre>
+<p>To locate documents whose source is Computer, Computerworld,
+and Computer Currents, enter the following:</p>
+<pre><strong>SOURCE &lt;MATCHES&gt; computer*</strong></pre>
+<p>To locate documents whose source is Computer, Computerworld,
+Computer Currents, and PC Computing, enter the following:</p>
+<pre><strong>SOURCE &lt;MATCHES&gt; *comput*</strong></pre>
+<p>For an example of ColdFusion code that uses the CONTAINS relational
+operator, see <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7b24.html">Field searches</a>.</p>
+<p>You can use the SUBSTRING operator to match a character string
+with data stored in a specified data source. In the example described
+here, a data source called TEST1 contains the table YearPlaceText,
+which contains three columns: Year, Place, and Text. Year and Place
+make up the primary key. The following table shows the TEST1 schema:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e52090"><p>Year</p>
+</th>
+<th valign="top" width="NaN%" id="d17e52093"><p>Place</p>
+</th>
+<th valign="top" width="NaN%" id="d17e52096"><p>Text</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e52090 "><p>1990</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52093 "><p>Utah</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52096 "><p>Text about Utah 1990</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e52090 "><p>1990</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52093 "><p>Oregon</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52096 "><p>Text about Oregon 1990</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e52090 "><p>1991</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52093 "><p>Utah</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52096 "><p>Text about Utah 1991</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e52090 "><p>1991</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52093 "><p>Oregon</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52096 "><p>Text about Oregon 1991</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e52090 "><p>1992</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52093 "><p>Utah</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52096 "><p>Text about Utah 1992</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The following application page matches records that have 1990
+in the TEXT column and are in the Place Utah. The search operates
+on the collection that contains the TEXT column and then narrows
+further by searching for the string <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Utah</i> in the CF_TITLE
+document field. Document fields are defaults defined in every collection
+corresponding to the values that you define for URL, TITLE, and KEY
+in the <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7d04.html" target="_self">cfindex</a></samp> tag.</p>
+<pre>&lt;cfquery name="GetText" 
+    datasource="TEST1"&gt; 
+    SELECT Year || Place AS Identifier, text 
+    FROM YearPlaceText 
+&lt;/cfquery&gt; 
+ 
+&lt;cfindex collection="testcollection" 
+    action="Update" 
+    type="Custom" 
+    title="Identifier" 
+    key="Identifier" 
+    body="TEXT" 
+    query="GetText"&gt; 
+ 
+&lt;cfsearch name="GetText_Search" 
+    collection="testcollection" 
+    type="Explicit" 
+    criteria="1990 and CF_TITLE &lt;SUBSTRING&gt; Utah"&gt; 
+&lt;cfoutput&gt; 
+    Record Counts: &lt;br&gt; 
+    #GetText.RecordCount# &lt;br&gt; 
+    #GetText_Search.RecordCount# &lt;br&gt; 
+&lt;/cfoutput&gt; 
+ 
+Query Results --- Should be 5 rows &lt;br&gt; 
+&lt;cfoutput query="Gettext"&gt; 
+    #Identifier# &lt;br&gt; 
+&lt;/cfoutput&gt; 
+ 
+Search Results -- should be 1 row &lt;br&gt; 
+&lt;cfoutput query="GetText_Search"&gt; 
+    #GetText_Search.TITLE# &lt;br&gt; 
+&lt;/cfoutput&gt;</pre>
+</div></div><div id="WSf01dbd23413dda0e-30d8face1200ff8a69d-7ffd" class="nochunk"><a name="WSf01dbd23413dda0e-30d8face1200ff8a69d-7ffd"><!-- --></a><h3 class="topictitle3">Evidence operators</h3><div><p>Evidence
+operators let you specify a basic word search or an intelligent
+word search. A <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">basic word search</i> finds documents that contain
+only the word or words specified in the query. An <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">intelligent word search</i> expands
+the query terms to create an expanded word list so that the search
+returns documents that contain variations of the query terms.</p>
+<p>Documents retrieved using evidence operators are not ranked by
+relevance unless you use the MANY modifier.</p>
+<p>The following table describes the evidence operators:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e52186"><p>Operator</p>
+</th>
+<th valign="top" width="NaN%" id="d17e52189"><p>Description</p>
+</th>
+<th valign="top" width="NaN%" id="d17e52192"><p>Example</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e52186 "><p>STEM</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52189 "><p>Expands the search to include the word that
+you enter and its variations. The STEM operator is automatically
+implied in any simple query.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52192 "><p><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">&lt;STEM&gt;believe</i> retrieves matches
+such as “believe,” “believing,” and “believer”.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e52186 "><p>WILDCARD</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52189 "><p>Matches wildcard characters included in
+search strings. Certain characters automatically indicate a wildcard
+specification, such as apostrophe (*) and question mark(?). </p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52192 "><p><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">spam*</i> retrieves matches such as,
+spam, spammer, and spamming.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e52186 "><p>WORD</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52189 "><p>Performs a basic word search, selecting
+documents that include one or more instances of the specific word
+that you enter. The WORD operator is automatically implied in any
+SIMPLE query.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52192 "><p><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">&lt;WORD&gt; logic</i> retrieves logic,
+but not variations such as logical and logician.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e52186 "><p>THESAURUS</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52189 "><p>Expands the search to include the word that
+you enter and its synonyms. Collections do not have a thesaurus
+by default; to use this feature you must build one.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52192 "><p><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">&lt;THESAURUS&gt; altitude</i> retrieves
+documents containing synonyms of the word altitude, such as height
+or elevation.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e52186 "><p>SOUNDEX</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52189 "><p>Expands the search to include the word that
+you enter and one or more words that “sound like,” or whose letter
+pattern is similar to, the word specified. Collections do not have
+sound-alike indexes by default; to use this feature you must build
+sound-alike indexes.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52192 "><p><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">&lt;SOUNDEX&gt; sale</i> retrieves words
+such as sale, sell, seal, shell, soul, and scale. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e52186 "><p>TYPO/N</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52189 "><p>Expands the search to include the word that
+you enter plus words that are similar to the query term. This operator
+performs “approximate pattern matching” to identify similar words.
+The optional N variable in the operator name expresses the maximum
+number of errors between the query term and a matched term, a value
+called the error distance. If N is not specified, the default error
+distance is 2.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52192 "><p><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">&lt;TYPO&gt; swept</i> retrieves kept.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The following example uses an evidence operator:</p>
+<pre>&lt;cfsearch name = "quick_search" 
+    collection="bbb"  
+    type = "explicit" 
+    criteria="&lt;WORD&gt;film"&gt;</pre>
+</div></div><div id="WSf01dbd23413dda0e-30d8face1200ff8a69d-7ffc" class="nochunk"><a name="WSf01dbd23413dda0e-30d8face1200ff8a69d-7ffc"><!-- --></a><h3 class="topictitle3">Proximity operators</h3><div><p>Proximity
+operators specify the relative location of specific words in the document.
+To retrieve a document, the specified words must be in the same phrase,
+paragraph, or sentence. In the case of NEAR and NEAR/N operators, retrieved
+documents are ranked by relevance based on the proximity of the specified
+words. Proximity operators can be nested; phrases or words can appear within
+SENTENCE or PARAGRAPH operators, and SENTENCE operators can appear within
+PARAGRAPH operators.</p>
+<p>The following table describes the proximity operators:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e52289"><p>Operator</p>
+</th>
+<th valign="top" width="NaN%" id="d17e52292"><p>Description</p>
+</th>
+<th valign="top" width="NaN%" id="d17e52295"><p>Example</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e52289 "><p>NEAR</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52292 "><p>Selects documents containing specified search
+terms. The closer the search terms are to one another within a document,
+the higher the document’s score. The document with the smallest
+possible region containing all search terms always receives the
+highest score. Documents whose search terms are not within 1000
+words of each other are not selected.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52295 "><p><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">war &lt;NEAR&gt; peace</i> retrieves
+documents that contain stemmed variations of these words within close
+proximity to each other (as defined by Verity). To control search
+proximity, use NEAR/N.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e52289 "><p>NEAR/N</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52292 "><p>Selects documents containing two or more
+search terms within N number of words of each other, where N is
+an integer between 1 and 1024. NEAR/1 searches for two words that
+are next to each other. The closer the search terms are within a
+document, the higher the document's score.</p>
+<p>You can specify
+multiple search terms using multiple instances of NEAR/N as long
+as the value of N is the same.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52295 "><p><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">commute &lt;NEAR/10&gt; bicycle &lt;NEAR/10&gt; train &lt;NEAR/10&gt;</i> retrieves
+documents that contain stemmed variations of these words within
+10 words of each other.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e52289 "><p>PARAGRAPH</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52292 "><p>Selects documents that include all of the
+words you specify within the same paragraph. To search for three
+or more words or phrases in a paragraph, you must use the PARAGRAPH
+operator between each word or phrase. </p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52295 "><p><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">&lt;PARAGRAPH&gt; (mission, goal, statement)</i> retrieves documents
+that contain these terms within a paragraph.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e52289 "><p>PHRASE</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52292 "><p>Selects documents that include a phrase
+you specify. A phrase is a grouping of two or more words that occur
+in a specific order.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52295 "><p><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">&lt;PHRASE&gt; (mission, oak)</i> returns
+documents that contain the phrase mission oak.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e52289 "><p>SENTENCE</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52292 "><p>Selects documents that include all of the
+words you specify within the same sentence.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52295 "><p><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">&lt;SENTENCE&gt; (jazz, musician)</i> returns
+documents that contain these words in the same sentence.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e52289 "><p>IN</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52292 "><p>Selects documents that contain specified
+values in one or more document zones. A document zone represents
+a region of a document, such as the document’s summary, date, or
+body text. To search for a term only within the one or more zones
+that have certain conditions, you qualify the IN operator with the
+WHEN operator.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52295 "><p><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Chang &lt;IN&gt; author</i> searches
+document zones named author for the word Chang.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The following example uses a proximity operator:</p>
+<pre>&lt;cfsearch name = "quick_search" 
+    collection="bbb"  
+    type = "explicit" 
+    criteria="red&lt;near&gt;socks"&gt;</pre>
+<p>For an example using the IN proximity operator to search XML
+documents, see <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7b23.html">Zone searches</a>.</p>
+</div></div><div id="WSf01dbd23413dda0e-30d8face1200ff8a69d-7ffb" class="nochunk"><a name="WSf01dbd23413dda0e-30d8face1200ff8a69d-7ffb"><!-- --></a><h3 class="topictitle3">Score operators</h3><div><p>Score
+operators control how the search engine calculates scores for retrieved documents.
+The maximum score that a returned search element can have is 1.000.
+You can set the score to display a maximum of four decimal places.</p>
+<p>When you use a score operator, the search engine first calculates
+a separate score for each search element found in a document, and
+then performs a mathematical operation on the individual element
+scores to arrive at the final score for each document.</p>
+<p>The document’s score is available as a result column. You can
+use the SCORE result column to get the relevancy score of any document
+retrieved, for example:</p>
+<pre>&lt;cfoutput&gt; 
+    &lt;a href="#Search1.URL#"&gt;#Search1.Title#&lt;/a&gt;&lt;br&gt; 
+    Document Score=#Search1.SCORE#&lt;BR&gt; 
+&lt;/cfoutput&gt;</pre>
+<p>The following table describes the score operators:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e52405"><p>Operator</p>
+</th>
+<th valign="top" width="NaN%" id="d17e52408"><p>Description</p>
+</th>
+<th valign="top" width="NaN%" id="d17e52411"><p>Example</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e52405 "><p>YESNO</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52408 "><p>Forces the score of an element to 1 if the
+element’s score is nonzero.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52411 "><p><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">&lt;YESNO&gt;mainframe</i>. If the retrieval
+result of the search on mainframe is 0.75, the YESNO operator forces
+the result to 1. You can use YESNO to avoid relevance ranking.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e52405 "><p>PRODUCT</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52408 "><p>Multiplies the scores for the search elements
+in each document matching a query.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52411 "><p><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">&lt;PRODUCT&gt;(computers, laptops)</i> takes
+the product of the resulting scores.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e52405 "><p>SUM</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52408 "><p>Adds the scores for the search element in
+each document matching a query, up to a maximum value of 1.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52411 "><p><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">&lt;SUM&gt;(computers, laptops)</i> takes
+the sum of the resulting scores.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e52405 "><p>COMPLEMENT</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52408 "><p>Calculates scores for documents matching
+a query by taking the complement (subtracting from 1) of the scores
+for the query’s search elements. The new score is 1 minus the search
+element’s original score.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52411 "><p><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">&lt;COMPLEMENT&gt;computers</i>. If the
+search element’s original score is .785, the COMPLEMENT operator
+recalculates the score as .215.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div><div id="WSf01dbd23413dda0e-30d8face1200ff8a69d-7ffa" class="nochunk"><a name="WSf01dbd23413dda0e-30d8face1200ff8a69d-7ffa"><!-- --></a><h3 class="topictitle3">Modifiers</h3><div><p>You
+combine modifiers with operators to change the standard behavior
+of an operator in some way. The following table describes the available
+modifiers:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e52478"><p>Modifier</p>
+</th>
+<th valign="top" width="NaN%" id="d17e52481"><p>Description</p>
+</th>
+<th valign="top" width="NaN%" id="d17e52484"><p>Example</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e52478 "><p>CASE</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52481 "><p>Specifies a case-sensitive search. Normally,
+Verity searches are case-insensitive for search text entered in
+all uppercase or all lowercase, and case-sensitive for mixed-case
+search strings.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52484 "><p><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">&lt;CASE&gt;Java OR &lt;CASE&gt;java</i> retrieves
+documents that contain Java or java, but not JAVA.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e52478 "><p>MANY</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52481 "><p>Counts the density of words, stemmed variations,
+or phrases in a document and produces a relevance-ranked score for
+retrieved documents. Use with the following operators:</p>
+<div class="para"><ul><li><p>WORD</p>
+</li>
+<li><p>WILDCARD</p>
+</li>
+<li><p>STEM</p>
+</li>
+<li><p>PHRASE</p>
+</li>
+<li><p>SENTENCE</p>
+</li>
+<li><p>PARAGRAPH</p>
+</li>
+</ul>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e52484 "><p><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">&lt;PARAGRAPH&gt;&lt;MANY&gt;javascript &lt;AND&gt; vbscript</i>.</p>
+<p>You
+cannot use the MANY modifier with the following operators:</p>
+<div class="para"><ul><li><p>AND</p>
+</li>
+<li><p>OR</p>
+</li>
+<li><p>ACCRUE</p>
+</li>
+<li><p>Relational operators</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e52478 "><p>NOT</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52481 "><p>Excludes documents that contain the specified
+word or phrase. Use only with the AND and OR operators.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52484 "><p><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Java &lt;AND&gt; programming &lt;NOT&gt; coffee</i> retrieves
+documents that contain Java and programming, but not coffee.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e52478 "><p>ORDER</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52481 "><p>Specifies that the search elements must
+occur in the same order in which you specify them in the query.
+Use with the following operators:</p>
+<div class="para"><ul><li><p>PARAGRAPH</p>
+</li>
+<li><p>SENTENCE </p>
+</li>
+<li><p>NEAR/N </p>
+</li>
+</ul>
+</div>
+<p>Place the ORDER modifier before
+any operator.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e52484 "><p><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">&lt;ORDER&gt;&lt;PARAGRAPH&gt; ("server", "Java")</i> retrieves
+documents that contain server before Java.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div></div>
+
+
+<!-- BEGIN USER PREFERENCES -->
+          <div id="userprefs">
+          </div>
+<!-- END USER PREFERENCES -->
+
+          <div id="related">
+            
+            
+            <div class="separator"><a href="#top"><img src="images/BTT.jpg" /></a>&#160;</div>
+          </div>
+          <div id="footer">
+<!-- BEGIN IONCOMMENTS -->
+            <div id="ionComHere">
+            </div>
+<!-- END IONCOMMENTS -->
+
+
+            <p id="creativecommons"><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" id="creativecommons_text"><img id="creativecommons_img" src="images/CC.png" alt="This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License" /></a>&nbsp;Twitter™ and Facebook posts are not covered under the terms of Creative Commons.</p>
+          </div>
+</td>
+<td width="10px"></td>
+<td id="inner_rightcolumn">
+
+</td></tr></table>
+      </div>
+<!-- BEGIN BREADCRUMBS -->
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec0f375-7ff5.html" title="Using Internet queries"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-7b18.html" title="Refining your searches with zones and fields"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Developing&#160;ColdFusion 9 Applications</b></a> / <a href="WS8f0cc78011fffa7168855f811cdb0b0cce-8000.html"><b>Accessing and Using Data</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7b4a.html"><b>Using Verity Search Expressions</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+<!-- END CONTENT WRAPPER -->
+
+</td>
+<td id="col3">
+    <div>
+        <img src="images/adobe-lq.png" />
+    </div>
+</td>
+</tr>
+</table>
+    </div>
+<!-- END PAGE CONTENT WRAPPER -->
+<script type="text/javascript">
+<!--[CDATA[
+scrollToNameAnchor();
+// ]]-->
+</script> 
+<!--
+    Description:
+    This file generates the link to product support in the top right corner
+-->
+
+<style>
+#menutop{
+    position:absolute;
+    top:4px;
+    right:24px;
+    width:auto;    
+    font-size:11px;
+    color:#fff;
+    text-align:right;
+}
+#menutop a{
+    color:#fff;
+}
+#menutop a:hover{
+        text-decoration:underline;
+}
+</style>  
+  
+  
+  
+  
+<div id="productmenu">
+<!--googleoff: index-->
+  <div id="menutop">
+
+
+<script language=javascript type='text/javascript'>
+    // darken menu text for products with light backgrounds
+    var path = document.location.href.toLowerCase();
+    if (path.indexOf("/acrobat/")           	> 0 ||
+        path.indexOf("/acrobat.com/")       	> 0 ||
+        path.indexOf("/acrobatConnectPro/") 	> 0 ||
+        path.indexOf("/connect/")           	> 0 ||
+        path.indexOf("/livecycledataserviceses/") > 0 ||
+        path.indexOf("/muse/")         	> 0 ||
+	path.indexOf("/presenter/")         	> 0 ||
+        path.indexOf("/scene7/")            	> 0 ||
+        path.indexOf("/flashmediaserver/")  	> 0 ||
+        path.indexOf("/wave/")              	> 0 )
+    {
+        document.write('<style>#menutop a{color:#505050}</style>');
+    }
+    if (typeof('terms_AHV_PRODUCT_SUPPORT') != "undefined" && ! use_robohelp_behavior ){      
+        if (path.indexOf("/muse/") > -1 ){
+            var supportlink = '<a href="http://muse.adobe.com/support.html">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }else{
+            var supportlink = '<a href="http://adobe.com/support">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }
+        document.write( supportlink );
+     }
+
+</script> 
+
+  </div>
+<!--googleon: index-->
+</div>
+
+
+
+<style>
+#online-privacy-policy{ 
+    margin:10px 40px; 
+    font-size:11px;
+}
+</style>
+
+<p id="online-privacy-policy">
+<script language="javascript">
+var pageLoc = "en_US";
+var metaElements = document.all ?
+document.all.tags('meta') :
+document.getElementsByTagName ?
+document.getElementsByTagName ('meta') : new Array();
+for (var m = 0; m < metaElements.length; m++) {
+	if (metaElements[m].name == "lang") {
+		pageLoc = metaElements[m].content;
+		break;
+	}
+}
+var ptn = /(..)-(..)/;
+if (ptn.test(pageLoc)) {
+	var languageCode = pageLoc.replace(ptn, "$1");
+	var countryCode = pageLoc.replace(ptn, "$2");
+	pageLoc = languageCode + "_" + countryCode.toUpperCase();
+}
+
+var policyLoc = "en_US";
+var policyText = "Online Privacy Policy";
+var policyPath = "";
+var policyArray=[
+"da_DK", "Online fortrolighedserklæring",
+"de_DE", "Online-Datenschutzrichtlinie",
+"es_ES", "Política de confidencialidad en línea",
+"fi_FI", "Yksityisyyttä koskeva Online-toimintaohjelma",
+"fr_FR", "Confidentialité et sécurité",
+"it_IT", "Informativa sulla privacy online",
+"ja_JP", "プライバシーポリシー",
+"ko_KR", "Adobe 온라인 개인정보 보호정책",
+"pt_BR", "Política de Confidencialidade On-line", 
+"zh_CN", "在线隐私政策",
+"zh_TW", "線上隱私政策"
+];
+var legalLoc = "en_US";
+var legalText = "Legal Notices";
+var legalPath = legalLoc;
+var legalArray=[
+"ar_AE", "إشعارات قانونية",
+"bg_BG", "Юридически бележки",
+"cs_CZ", "Právní upozornění",
+"da_DK", "Juridiske meddelelser",
+"de_DE", "Rechtliche Hinweise",
+"el_GR", "Σημειώσεις νομικού περιεχομένου",
+"es_ES", "Avisos legales",
+"et_EE", "Juriidilised teated",
+"fi_FI", "Lakisääteiset ilmoitukset",
+"fr_FR", "Mentions légales",
+"he_IL", "הצהרות משפטיות",
+"hr_HR", "Pravne napomene",
+"hu_HU", "Jogi közlemények",
+"it_IT", "Informazioni legali",
+"ja_JP", "法律上の注意",
+"ko_KR", "법적 고지 사항",
+"lt_LT", "Teisinės pastabos",
+"lv_LV", "Juridisks paziņojums",
+"nb_NO", "Juridiske merknader",
+"nl_NL", "Juridische kennisgevingen",
+"pl_PL", "Informacje prawne",
+"pt_BR", "Aspectos jurídicos",
+"ro_RO", "Prevederi legale",
+"ru_RU", "Юридическая информация",
+"sk_SK", "Právne upozornenie",
+"sl_SI", "Pravni pouk",
+"sv_SE", "Upphovsrätt",
+"tr_TR", "Yasal uyarılar",
+"uk_UA", "Юридична інформація",
+"zh_CN", "法律声明",
+"zh_TW", "法律注意事項"
+];
+
+ruPolicy = "http://www.adobe.com/ru/misc/privacy.html";
+trPolicy = "http://www.adobe.com/tr/misc/privacy.html";
+
+// Bug 2846992: LOC: RUS, TUR: The link to "Online Privacy Policy" should include language, currently it is not appearing.
+if (pageLoc == "ru_RU") {
+	policyPath = "ru";
+}
+else if (pageLoc == "tr_TR") {
+	policyPath = "tr";
+}
+for (var i = 0; i < policyArray.length; i+=2) {
+	if (pageLoc == policyArray[i]) {
+		policyLoc = pageLoc;
+		policyText = policyArray[i+1];
+		var ptn = /(..)_(..)/;
+		if (ptn.test(policyLoc)) {
+			var countryCode = policyLoc.replace(ptn, "$2");
+			policyPath = countryCode.toLowerCase();
+		}
+		break;
+	}
+}
+
+for (var i = 0; i < legalArray.length; i+=2) {
+	if (pageLoc == legalArray[i]) {
+		legalLoc = pageLoc;
+		legalText = legalArray[i+1];
+		legalPath = legalLoc;
+		break;
+	}
+}
+if(agt.indexOf("community help client") > -1 ){
+	document.write('<a href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+}else{
+	//Open the privacy policy in a new window
+	document.write('<a target="_blank" href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a target="_blank" href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+} 
+</script>
+</p>
+
+
+
+<!-- localfooter.ssi -->
+
+<script type="text/javascript">
+    var debug = (top.location.href.indexOf("debug=true") > -1);
+</script>
+
+<script language="javascript">
+document.write('<scr'+'ipt ' +
+               'src="/en_US/ssi/_pod.js" ' +
+               'language="javascript" ' +
+               'charset="UTF-8"> ' +
+               '</scr'+'ipt>');
+</script>
+
+
+<script type="text/javascript">
+//
+//  Ethnio survey code
+//
+/*          DocumentID      EthnioID */
+/*          -------------   -------- */
+var ethnio=["/en_US/flash/cs/using/WSb03e830bd6f770ee6664507612436d7dede-8000.html", "87462",
+            "/en_US/creativesuite/cs/using/WSe851854fd1e0856a-4b08a77612477f69f15-8000.html",  "10441",
+            "/en_US/dreamweaver/cs/using/WSEE4C0148-A6F4-4bf5-9DEF-CE06AB026214a.html",  "57412"
+ 
+    ];
+                        
+    for ( var i = 0; i < ethnio.length ; i = i+2 ){
+        if ( document.location.href.indexOf( ethnio[i] ) > -1 ){ 
+            var headID = document.getElementsByTagName("head")[0];         
+            var ethnioScript = document.createElement('script');
+            ethnioScript.type = 'text/javascript';
+            ethnioScript.src = 'http://ethn.io/remotes/' + ethnio[i+1];        
+            if ( debug ){
+                alert ("Using Ethnio script: " + ethnioScript.src );
+            }else{
+                headID.appendChild(ethnioScript);
+            }
+        }
+    }
+</script>
+
+
+
+<div style="display: none;">
+<!-- SiteCatalyst -->
+<script language="JavaScript" type="text/javascript"><!--
+var s_code=' ';
+var s_docHost = window.location.hostname.toLowerCase();
+var s_docURL = window.location.pathname.toLowerCase();
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+if (s_docHost.indexOf(".corp.adobe") != -1 || s_docHost.indexOf("stage.") != -1 || s_docHost.indexOf(".dev.adobe") != -1 || s_docHost.indexOf("staging.") != -1) scJsHost="";
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/omniture_s_code.js' type='text/javascript'%3E%3C/script%3E"));
+//--></script>
+<script type="text/javascript"><!--
+var s_accountName;
+s_server="www.adobe.com static content pages";
+if (!window.s_account) s_accountName="mxmacromedia";
+else s_accountName=window.s_account;
+
+if (window.s_docURL.indexOf("/designcenter/") != -1)
+  s_channel="Adobe Design Center";	
+else if ((window.s_docHost.indexOf("labs.adobe") != -1) ||
+(window.s_docHost.indexOf("labs-staging.") != -1))
+  s_channel="Labs";
+else if (window.s_docHost.indexOf("help.adobe.com") != -1) {
+  s_channel="Support Help.adobe.com";
+  if (window.s_docURL.indexOf("/en_us/") == -1) {
+    s_docURLArray=s_docURL.split('/');
+    s_pageName="http://help.adobe.com/"+s_docURLArray[1]+"/"+ s_docURLArray[2]+"/"+s_docURLArray[3];
+    s_prop23="http://help.adobe.com"+window.location.pathname;
+  }
+}
+else if (window.s_docHost.indexOf("kb2.adobe.com") != -1) {
+  s_channel="Support Knowledgebase";
+  s_prop23="http://kb2.adobe.com"+s_docURL+":";
+  if (typeof(omtrProductList) != 'undefined' && omtrProductList.length > 0)
+ {
+    s_prop23=s_prop23+omtrProductList;
+  }
+}
+else if (window.s_docHost.indexOf("resellers.adobe.com") != -1) {
+		var s_pageName=document.getElementsByTagName("title")[0].text;
+}
+
+if (!window.scMMInclude) {
+	var s_wd=window,s_tm=new Date;
+	if(s_code!=' '){
+		s_code=s_dc(s_accountName);
+		if(s_code)document.write(s_code)
+	} 
+} else {
+	s_wds(s_accountName);s_ca(s_accountName); 
+}	
+
+function sendAnalyticsEvent(str){var ns=s_accountName;if(str!=null)ns+=","+str;void(s_gs(ns));}
+function sendLinkEvent(accnt,lnkname,type){
+accnt=s_accountName;s_linkType=type;s_lnk=true;s_linkName=lnkname;void(s_gs(accnt));}
+//--></script>
+<noscript><img src="http://stats.adobe.com/b/ss/mxmacromedia/1/H.15-XELvs/0?pageName=http%3A//www.adobe.com%3A%20noscript&ch=http%3A//www.adobe.com%3A%20noscript&g=http%3A//www.adobe.com" height="1" width="1" border="0" alt="" /></noscript>
+<!-- End SiteCatalyst -->
+</div>
+
+<script language="JavaScript" type="text/javascript">//<![CDATA[
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/atm/s_code_www.js' type='text/javascript'%3E%3C/script%3E"));
+//]]></script>
+<script type="text/javascript">//<![CDATA[
+if(s_adobe){	
+	s_adobe.server="www.adobe.com Static Content pages";
+	/* Set pageName */
+	s_adobe.s_URL="adobe.com"+((location.pathname.charAt(0)=='/')?location.pathname:'/'+location.pathname);
+	if (s_adobe.s_URL.substring(s_adobe.s_URL.lastIndexOf('/')+1)=="") s_adobe.s_URL=s_adobe.s_URL+"index.html";
+	s_adobe.s_URLSplit=s_adobe.s_URL.split("/");
+	s_adobe.pageName=s_adobe.s_URLSplit.join(":");
+
+	/* Set prop4 to language-locale */
+	var s_meta=document.getElementsByTagName('meta'); 
+      for (i=0; i<s_meta.length; i++) { 
+        if (s_meta[i].getAttribute("http-equiv") == "Content-Language") { 
+          s_adobe.prop4=s_meta[i].getAttribute("content"); 
+	    s_adobe.prop4=s_adobe.prop4.replace(/\s+/g,'');
+        } 
+      } 
+	s_adobe.t()
+}
+//]]></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,1110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0022)http://help.adobe.com/ -->
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="lang" content="en-us" />
+    <meta name="area" content="livedocs" />
+    <title>Adobe&#160;ColdFusion&#160;9 * Interoperating with JSP pages and servlets</title>
+    <link rel="shortcut icon" href="images/ColdFusionLinkIndicator.png" />
+    <meta name="book" content="Developing&#160;ColdFusion 9 Applications" />
+    <meta name="product" content="ColdFusion" />
+    <meta name="keywords" content="" /><!--<PageMap><DataObject type="document"><Attribute name="product" value="ColdFusion"></Attribute><Attribute name="book" value="Developing&#160;ColdFusion 9 Applications"></Attribute><Attribute name="keywords" value=""></Attribute></DataObject></PageMap>-->
+    
+    <script type="text/javascript" language="Javascript" charset="UTF-8"><!--[CDATA[
+        var currentTreeNode = "WSc3ff6d0ea77859461172e0811cbec22c24-786c.html";
+    document.cookie = "topicId=" + "WSc3ff6d0ea77859461172e0811cbec22c24-786c.html";
+// ]]--></script>
+<script src="terms.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="help.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script>  <script src="utilities.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="event.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="treeview.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="toc.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script> <script src="swfobject.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>  <script src="booklist.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>
+<script type="text/javascript">
+<!--[CDATA[
+var topictype = "topic";
+var headId = document.getElementsByTagName("head")[0];         
+if (use_ie_6_behavior) {
+  var linkId = document.createElement("link");
+  linkId.href = "content-ie6.css";
+  linkId.rel = "stylesheet";
+  linkId.type = "text/css";
+  headId.appendChild(linkId);
+}
+function initRoboHelpDOM() {
+  if (use_chm_behavior) {
+    hideElement("search");
+  }
+  if (use_robohelp_behavior) {
+    hideElement("search");
+    hideElement("productmenu");
+    //hideElement("notyourversion");
+  }
+  if(!use_chc_behavior) {
+    //document.getElementById("notyourversion").style.display = "inline";;
+  }
+}
+var dirname = location.pathname.match( /.*\// );    
+function setSearchUserPref(){
+  if ( document.cookie.indexOf( "ah_searchpref" ) > -1 ) {
+    if ( document.cookie.indexOf( dirname ) > 0 ) {
+      document.search.gsa.checked = true ;
+    }else{
+      document.search.gsa.checked = false ;            
+    }
+  }
+}
+YAHOO.util.Event.onDOMReady(initRoboHelpDOM);
+YAHOO.util.Event.onDOMReady(setSearchUserPref);
+// ]]-->
+</script>
+
+<!-- ********************************** -->
+<!-- START: ForeSee survey code in: /ssi/globalheader.ssi -->
+
+<script type="text/javascript">
+<!-- 
+// Enable the survey for only English, German and Japanese
+var agt=navigator.userAgent.toLowerCase();
+if ( agt.indexOf("community help client") == -1 ){
+    if ( document.location.href.indexOf("/en_US/") != -1 ){
+        showSurvey();
+//    }else if (document.location.href.indexOf("/de_DE/") != -1){
+//         var locale="de";
+//         showSurvey();
+    }else if (document.location.href.indexOf("/ja_JP/") != -1 ){
+         var locale="ja";
+         showSurvey();
+    }	
+}
+
+function showSurvey(){
+	document.write('<script type="text/javascript" src="/js/foresee/foresee-trigger.js"><\/scr'+'ipt>');
+}
+
+// -->
+</script>
+
+<!-- END: ForeSee survey code -->
+<!-- ******************************** -->
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="tree.css" />
+    <link rel="stylesheet" type="text/css" href="content.css" />
+    <link rel="stylesheet" type="text/css" href="localeSpecific.css" />
+  </head>
+  <body id="content_body" onload="window.focus();">
+    <a name="top" shape="rect"><!--LeaveCommentHere--></a>
+    
+    <div id="mnemonic">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon" class="ColdFusion"><div class="banner"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html">Adobe&#160;ColdFusion&#160;9</a><span id="notyourversion">|&#160;
+                    <a rel="nofollow" href="http://www.adobe.com/support/documentation/en/coldfusion/">Not your version?</a></span></div></div><!--googleon: index-->
+    </div>
+    
+    <div id="searchbar">
+<table id="searchbartable">
+<tr>
+<td colspan="2">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon"><div id="pdf"><img src="images/PDF.gif" width="16" height="16" /><a title="View Help PDF" href="coldfusion_9_dev.pdf">View Help PDF ( 23MB)</a></div></div><!--googleon: index-->
+</td>
+</tr>
+</table>
+    </div>
+
+<!-- BEGIN SEARCH CONTENT -->
+<form id="search" name="search" action="search.html" target="_self">
+<script type="text/javascript">
+<!--[CDATA[
+if ( !use_chc_behavior ){
+    if (typeof(terms_AHV_SEARCH_CONSTRAINT) != "undefined" && 
+        terms_AHV_SEARCH_CONSTRAINT.length > 0 && 
+        document.location.href.indexOf(".adobe.com") > 0){
+        if ( typeof(terms_SEARCH_THIS_HELP_ONLY) != "undefined" && terms_SEARCH_THIS_HELP_ONLY == "ON" ) {
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                checked="checked" \
+                value="1" ><\/input>'); 
+                
+        // Leave the "Search this help system only" checkbox unckecked
+        }else{    
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                value="1" ><\/input>'); 
+        }
+        document.write('<span class="gsalabel">' + terms_AHV_SEARCH_CONSTRAINT + '<\/span><\/div>'); 
+    }
+    document.write('<input class="searchinput" \
+        name="q" \
+        id="q" \
+        type="text" \
+        maxlength="256" \
+        value="' + terms_AHV_SEARCH_BUTTON + '" \
+        onclick="clearSearch()"><\/input><input \
+        type="button" \
+        name="searchbutton" \
+        class="searchbutton" \
+        onclick="submit()"><\/input>'); 
+} 
+ 
+/* 
+ * Start Functions 
+ */
+function clearSearch(){
+    if (document.search.q.value == terms_AHV_SEARCH_BUTTON){document.search.q.value = ""}; 
+}
+
+// set search preferences
+function setAHSearchPref(){
+    if (document.search.gsa.checked == 1){
+        setAHSearchCookie( dirname );
+    }else{
+        setAHSearchCookie( "community" );
+    }
+}
+
+// Set search preferences cookie
+function setAHSearchCookie( p ){
+    // set cookie ah_searchpref with a value of the document path
+    var expire=new Date();
+    expire.setDate(expire.getDate()+365); // Cookie expires after 1 year (365 days) 
+    document.cookie="ah_searchpref=" +p+ "; expires=" +expire.toGMTString()+ ";";
+}
+
+// ]]-->
+</script> 
+ </form>
+<!-- END SEARCH CONTENT -->    
+
+
+
+<!-- BEGIN PAGE CONTENT WRAPPER -->
+    <div id="page_content_wrapper">
+<!-- BEGIN PAGE WRAPPER -->
+<table id="page_content_table">
+<tr>
+
+<td id="col2">
+<!-- BEGIN CONTENT WRAPPER -->
+<!-- BEGIN BREADCRUMBS -->
+
+      
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec22c24-786d.html" title="Using JSP tags and tag libraries"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-79bb.html" title="Using Java objects"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Developing&#160;ColdFusion 9 Applications</b></a> / <a href="WSc3ff6d0ea77859461172e0811cdd7c7008-8000.html"><b>Using Web Elements and External Objects</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7fff.html"><b>Integrating J2EE and Java Elements in CFML Applications</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+      <div id="content_wrapper">
+<!-- BEGIN PAGE TITLE -->
+        <h1>Interoperating with JSP pages and servlets</h1>
+<!-- END PAGE TITLE -->
+<!-- BEGIN IONCOMMENTCOUNT -->
+        <div id="ionCount">
+        </div>
+<!-- END IONCOMMENTCOUNT -->
+<table id="inner_content_table" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>
+          <div style="border-top:#ccc solid 1px;"><p> </p>
+          </div>
+<p id="chcPromo" style="display:none;">
+<a id="chcLink" href="http://www.adobe.com/support/chc/">
+<img id="chcImage" src="http://www.adobe.com/support/chc/GetMoreHelpFeatures.png"/>
+</a>
+</p>
+<script type="text/javascript" language="javascript" charset="utf-8">
+<!--
+var cfgArray = [];
+//cfgArray["Acrobat_10.0_Professional.helpcfg"] = "acrobatpro";
+//cfgArray["Acrobat_10.0_Standard.helpcfg"] = "acrobatstd";
+cfgArray["Lightroom_3.0.helpcfg"] = "lightroom";
+cfgArray["PhotoshopElements_8.0_Win.helpcfg"] = "photoshopelements";
+cfgArray["PhotoshopElements_8.0_Mac.helpcfg"] = "photoshopelementsmac";
+cfgArray["PremiereElements_8.0_Win.helpcfg"] = "premiereelements";
+
+//cfgArray["AfterEffects_10.0.helpcfg"] = "aftereffects";
+//cfgArray["AIR.helpcfg"] = "air";
+//cfgArray["ColdFusionBuilder.helpcfg"] = "coldfusion";
+//cfgArray["Contribute_6.0.helpcfg"] = "contribute";
+//cfgArray["DeviceCentral_3.0.helpcfg"] = "devicecentral";
+//cfgArray["Dreamweaver_11.0.helpcfg"] = "dreamweaver";
+//cfgArray["EncoreDVD_5.0.helpcfg"] = "encore";
+//cfgArray["ExtensionManager_3.0.helpcfg"] = "extension";
+//cfgArray["Fireworks_11.0.helpcfg"] = "fireworks";
+//cfgArray["Flash_11.0.helpcfg"] = "flash";
+//cfgArray["Flex_4.0.helpcfg"] = "flashbuilder";
+//cfgArray["FlashCatalyst_1.0.helpcfg"] = "flashcatalyst";
+//cfgArray["Illustrator_15.0.helpcfg"] = "illustrator";
+//cfgArray["InCopy_7.0.helpcfg"] = "incopy";
+//cfgArray["InDesign_7.0.helpcfg"] = "indesign";
+//cfgArray["OnLocation_5.0.helpcfg"] = "onlocation";
+//cfgArray["Photoshop_12.0.helpcfg"] = "photoshop";
+//cfgArray["PremierePro_5.0.helpcfg"] = "premierepro";
+
+function getLangName() {
+    var lang = "en-us";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if (ptn.test(lang)) {
+        var languageCode = lang.replace(ptn, "$1");
+        var countryCode = lang.replace(ptn, "$2");
+        lang = languageCode + "_" + countryCode.toUpperCase();
+    }
+    return lang;
+}
+
+function getCountryName() {
+    var lang = "";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if ((ptn.test(lang)) && (lang != "en-us")) {
+        var countryCode = lang.replace(ptn, "$2");
+        return "/" + countryCode;
+    }
+    return "";
+}
+
+if ( (typeof(terms_HELPCFG) != 'undefined')  && (terms_HELPCFG.indexOf(".helpcfg") != -1) ) {
+    var stage   = (document.location.href.indexOf(".stage.") != -1) ? 'stage.' : '';
+    var baseUrl = 'http://www.' + stage + 'adobe.com';
+    var refpage = document.location.href.replace(/#.*$/, '');
+	
+	if ((!use_robohelp_behavior) && (terms_HELPCFG.length > 0) && (typeof(cfgArray[terms_HELPCFG]) != 'undefined') && (cfgArray[terms_HELPCFG].length > 0)) {
+		if (document.getElementById) { // DOM3 = IE5, NS6
+			var newHref = baseUrl + getCountryName() + "/support/chc/" + "?helpcfg=http://help." + stage + "adobe.com/HelpCfg/" + getLangName() + "/" + terms_HELPCFG + "&url=" + refpage + "&product=" + cfgArray[terms_HELPCFG];
+			var newSrc = baseUrl + getCountryName() + "/support/chc/GetMoreHelpFeatures.png";
+			document.getElementById("chcPromo").style.display = "block";
+			document.getElementById("chcLink").href = newHref;
+			document.getElementById("chcImage").src = newSrc;
+		}
+	}
+}
+
+//-->
+</script>
+
+
+
+          <div id="minitoc"><div class="t"><div class="b"><div><ul id="minitoc-links"><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec14231-7fdf"><span class="topictitle1">Integrating JSP and servlets in a ColdFusion application</span>
+</a></p><ul><li><p><a href="#WS96891155-4351-45ea-9D0A-30C329F49FBE"><span class="topictitle2">Accessing a JSP page or servlet from a ColdFusion page</span>
+</a></p></li><li><p><a href="#WS9566E41B-7FC8-4ec8-B7C2-AE94728B2E02"><span class="topictitle2">Accessing ColdFusion application and session variables in JSP pages</span>
+</a></p></li><li><p><a href="#WSA602A121-DA27-43a3-B8AE-341F006B9431"><span class="topictitle2">Sharing data between ColdFusion pages and JSP pages or servlets</span>
+</a></p></li><li><p><a href="#WS41907850-9945-4243-834F-A0B35AE0450D"><span class="topictitle2">Unnamed ColdFusion Application and Session scopes</span>
+</a></p></li></ul></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-788b"><span class="topictitle1">Examples: using JSP with CFML</span>
+</a></p><ul><li><p><a href="#WSEBB9CD1C-F847-4f17-AECE-72AE946A9C9B"><span class="topictitle2">Calling a JSP page from a ColdFusion page</span>
+</a></p></li><li><p><a href="#WSA0035455-0E0B-4866-8F04-E44A66B33A90"><span class="topictitle2">Calling a ColdFusion page from a JSP page</span>
+</a></p></li></ul></li></ul></div></div></div></div><div><p>ColdFusion pages and JSP pages can interoperate in several
+ways:</p>
+<ul><li><p>ColdFusion pages can invoke JSP pages and servlets.</p>
+</li>
+<li><p>JSP pages can invoke ColdFusion pages.</p>
+</li>
+<li><p>ColdFusion pages, JSP pages, and servlets can share data
+in three scopes.</p>
+</li>
+</ul>
+</div>
+<div id="WSc3ff6d0ea77859461172e0811cbec14231-7fdf" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec14231-7fdf"><!-- --></a><h2 class="topictitle2">Integrating JSP and servlets in a ColdFusion application</h2><div><p>You can integrate JSP pages and servlets in your
+ColdFusion application. For example, you can write some application
+pages in JSP and write others in CFML. ColdFusion pages can access
+JSP pages by using the JSP <samp class="codeph">include</samp> and <samp class="codeph">forward</samp> methods
+to call the page. As with any web application, you can use <samp class="codeph">href</samp> links
+in ColdFusion pages to open JSP pages.</p>
+<p>The ability to use JSP lets you incorporate legacy JSP pages
+in your ColdFusion application, or conversely, use CFML to expand
+an existing JSP application using ColdFusion pages.</p>
+<p>If you have a JSP page that must call a ColdFusion page, you
+also use a <samp class="codeph">jsp:forward</samp> or <samp class="codeph">jsp:include</samp> tag
+to call the ColdFusion page. For an example of calling a ColdFusion
+page from a JSP page, see <a href="WSEBB9CD1C-F847-4f17-AECE-72AE946A9C9B.html">Calling a JSP page from a ColdFusion page</a>.</p>
+</div><div id="WS96891155-4351-45ea-9D0A-30C329F49FBE" class="nochunk"><a name="WS96891155-4351-45ea-9D0A-30C329F49FBE"><!-- --></a><h3 class="topictitle3">Accessing a JSP page or servlet from a ColdFusion page</h3><div><p>To
+access a JSP page or servlet from a ColdFusion page, you use the <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-787f.html" target="_self">GetPageContext</a> function with the <samp class="codeph">forward</samp> or
+the <samp class="codeph">include</samp> method. For example, to include a JSP
+“Hello World" page in your ColdFusion application, use the following
+line:</p>
+<pre>GetPageContext().include("hello.jsp");</pre>
+<p>To pass parameters to the JSP page, include the parameters in
+the page URL.</p>
+<p>For example, you could want to integrate an existing JSP customer
+response component into a new ColdFusion order processing application.
+The order processing application provides the order number, total
+cost, and expected shipping date, and the customer response component
+sends the response to the e-mail address on file for the particular
+customer number. The ColdFusion application could use the following
+CFScript code to call the response JSP page:</p>
+<pre>urlParams = "UID=#order.uid#&amp;cost=#order.total#&amp;orderNo=#order.orderNo#&amp;shipDate=#order.shipDateNo#" 
+getPageContext().forward(URLEncodedFormat("/responsegen/responsegen.jsp?#urlParams#"));</pre>
+<p>To access a servlet that exposes the same functionality, you
+use the same code, although the URL would change. For example, to
+run a servlet called HelloWorldServlet, you place the servlet .java
+or .class file in the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">serverroot/</i>WEB-INF/classes directory
+and access the servlet with the URL /servlet/HelloWorldServlet.</p>
+</div></div><div id="WS9566E41B-7FC8-4ec8-B7C2-AE94728B2E02" class="nochunk"><a name="WS9566E41B-7FC8-4ec8-B7C2-AE94728B2E02"><!-- --></a><h3 class="topictitle3">Accessing ColdFusion application and session variables in JSP pages</h3><div><p>ColdFusion runs as a J2EE application on the J2EE application
+server. The J2EE application ServletContext is a data structure
+that stores objects as attributes. A ColdFusion Application scope
+is represented as an attribute named by the Application scope name.
+The attribute contains the scope values as a hash table. Therefore,
+you access ColdFusion Application scope variable in a JSP page or servlet
+using the following format:</p>
+<pre>((Map)application.getAttribute("CFApplicationName"))).get("appVarName")</pre>
+<p>Similarly, the ColdFusion Session scope is a structure within
+the J2EE session. Because ColdFusion identifies sessions by the
+application name. the session structure is contained in an attribute
+of the J2EE session that the application name identifies. Therefore,
+you access ColdFusion session variables as follows:</p>
+<pre>((Map)(session.getAttribute("CFApplicationName"))).get("sessionVarName")</pre>
+</div></div><div id="WSA602A121-DA27-43a3-B8AE-341F006B9431" class="nochunk"><a name="WSA602A121-DA27-43a3-B8AE-341F006B9431"><!-- --></a><h3 class="topictitle3">Sharing data between ColdFusion pages and JSP pages or servlets</h3><div><p>If an application includes ColdFusion
+pages and JSP pages or servlets, they can share data in the Request,
+Session and Application scopes. The following table lists the ways
+that you can access JSP pages with which you want to share the scope
+data:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e104025"><p>Scope</p>
+</th>
+<th valign="top" width="NaN%" id="d17e104028"><p>Can share data using</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e104025 "><p>Request</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e104028 "><p>forward, include</p>
+<p><strong>Note:</strong> Shared
+Request scope variable names in the JSP page or servlet must be
+all-lowercase.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e104025 "><p>Session</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e104028 "><p>href, cfhttp, forward, include</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e104025 "><p>Application</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e104028 "><p>href, cfhttp, forward, include</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note"><span class="notetitle">Note:  </span>When you share data between ColdFusion pages
+and JSP pages, be careful about data type conversion issues. For
+more information, see <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7884.html">Java and ColdFusion data type conversions</a>.</div>
+<p>To share session variables, specify J2EE session management in
+the ColdFusion Administrator. For more information on configuring
+and using J2EE Session scope management, see <a href="WS88096532-E1B5-40d6-92CF-41A5E402994B.html">ColdFusion and J2EE session management</a>.</p>
+<p>For example, you could put the customer order structure used
+in the previous example in the Session scope. Then, you would not
+have to pass the order values as a set of parameters. Instead, the
+JSP pages could access the Session scope variables directly, and
+the ColdFusion page would only require a line like the following
+to call the JSP page:</p>
+<pre>getPageContext().forward(URLEncodedFormat("/responsegen/responsegen.jsp"));</pre>
+<p>For examples of using the Request, Session, and Application scopes
+to share data between ColdFusion pages and JSP pages, including
+samples of the appropriate JSP code, see <a href="WSc3ff6d0ea77859461172e0811cbec22c24-788b.html">Examples: using JSP with CFML</a>. </p>
+<div class="note"><span class="notetitle">Note:  </span>When running in the server
+configuration, ColdFusion also shares the Form scope when calling
+a JSP or servlet. In the J2EE configuration, however, sharing the Form
+scope is dependent on the J2EE application server. For example,
+JRun shares the Form scope, IBM WebSphere does not. ColdFusion always
+shares the Request, Session, and Application scopes.</div>
+</div></div><div id="WS41907850-9945-4243-834F-A0B35AE0450D" class="nochunk"><a name="WS41907850-9945-4243-834F-A0B35AE0450D"><!-- --></a><h3 class="topictitle3">Unnamed ColdFusion Application and Session scopes</h3><div><p>If
+you do not specify an application name in the This.name variable
+in the Application.cfc initialization code or by using the ColdFusion <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7d69.html" target="_self">cfapplication</a> tag, the application
+is unnamed, and the Application scope corresponds to the ColdFusion
+J2EE servlet context. ColdFusion, therefore, supports only a single unnamed
+application. If multiple <samp class="codeph">cfapplication</samp> tags and
+Application.cfc files do not specify an application name, all pages
+in these applications share the servlet context as their Application
+scope. </p>
+<p>All sessions of unnamed applications correspond directly to the
+session object of the J2EE application server. (If you do not use
+J2EE session variables, ColdFusion ensures that the J2EE session
+lasts at least as long as the session time-out.)</p>
+<p>You access an Application scope variable from a ColdFusion unnamed
+application in a JSP page using the following format:</p>
+<pre>application.getAttribute("applicationVariableName")</pre>
+<p>You access Session scope variables in a ColdFusion unnamed application
+as follows:</p>
+<pre>session.getAttribute("sessionVariableName")</pre>
+<div class="note"><span class="notetitle">Note:  </span>When you use application and session variables
+for the unnamed ColdFusion application in JSP pages and servlets,
+the variable names must be case-correct. The characters in the variable
+name must have the same case as you used when you created the variable
+in ColdFusion. You do not have to use case-correct application and
+session variable names for named ColdFusion applications.</div>
+</div></div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec22c24-788b" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-788b"><!-- --></a><h2 class="topictitle2">Examples: using JSP with CFML</h2><div><p>The following simple examples show
+how you can integrate JSP pages, servlets, and ColdFusion pages.
+They also show how you can use the Request, Application, and Session
+scopes to share data between ColdFusion pages, JSP pages, and servlets.</p>
+</div><div id="WSEBB9CD1C-F847-4f17-AECE-72AE946A9C9B" class="nochunk"><a name="WSEBB9CD1C-F847-4f17-AECE-72AE946A9C9B"><!-- --></a><h3 class="topictitle3">Calling a JSP page from a ColdFusion page</h3><div><p>The following page sets Request, Session, and application
+variables and calls a JSP page, passing it a name parameter:</p>
+<pre>&lt;cfapplication name="myApp" sessionmanagement="yes"&gt; 
+&lt;cfscript&gt; 
+Request.myVariable = "This"; 
+Session.myVariable = "is a"; 
+Application.myVariable = "test."; 
+GetPageContext().include("hello.jsp?name=Bobby"); 
+&lt;/cfscript&gt;</pre>
+<div class="section" id="WSEBB9CD1C-F847-4f17-AECE-72AE946A9C9B__WSc3ff6d0ea77859461172e0811cbec14231-7fe7"><a name="WSEBB9CD1C-F847-4f17-AECE-72AE946A9C9B__WSc3ff6d0ea77859461172e0811cbec14231-7fe7"><!-- --></a><h4 class="sectiontitle">Reviewing the code</h4><p>The following table describes the CFML code and
+its function:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e104133"><p>Code</p>
+</th>
+<th valign="top" width="NaN%" id="d17e104136"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e104133 "><div class="para"><pre>&lt;cfapplication name="myApp" sessionmanagement="yes"&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e104136 "><p>Specifies the application name as myApp
+and enables session management. In most applications, this tag is
+in the Application.cfm page.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e104133 "><div class="para"><pre>&lt;cfscript&gt; 
+Request.myVariable = "This"; 
+Session.myVariable = "is a"; 
+Application.myVariable = "test.";</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e104136 "><p>Sets ColdFusion Request, Session, and Application,
+scope variables. Uses the same name, myVariable, for each variable.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e104133 "><div class="para"><pre>GetPageContext().include("hello.jsp?name=Bobby"); 
+&lt;/cfscript&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e104136 "><p>Uses the <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-787f.html" target="_self">GetPageContext</a> function to get the
+current servlet page context for the ColdFusion page. Uses the <samp class="codeph">include</samp> method
+of the page context object to call the hello.jsp page. Passes the
+name parameter in the URL. </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The ColdFusion page calls the hello.jsp
+page. It displays the <samp class="codeph">name</samp> parameter in a header
+and the three variables in the remainder of the body.</p>
+<pre>&lt;%@page import="java.util.*" %&gt; 
+&lt;h2&gt;Hello &lt;%= request.getParameter("name")%&gt;!&lt;/h2&gt; 
+ 
+&lt;br&gt;Request.myVariable: &lt;%= request.getAttribute("myVariable")%&gt; 
+&lt;br&gt;session.myVariable: &lt;%= ((Map)(session.getAttribute("myApp"))).get("myVariable")%&gt; 
+&lt;br&gt;Application.myVariable: &lt;%= ((Map)(application.getAttribute("myApp"))).get("myVariable")%&gt;</pre>
+<p>The
+following table describes the JSP code and its function (line breaks
+added for clarity):</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e104185"><p>Code</p>
+</th>
+<th valign="top" width="NaN%" id="d17e104188"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e104185 "><div class="para"><pre>&lt;%@page import="java.util.*" %&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e104188 "><p>Imports the java.util package. This package
+contains methods required in the JSP page.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e104185 "><div class="para"><pre>&lt;h2&gt;Hello &lt;%= request.getParameter ("name")%&gt;!&lt;/h2&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e104188 "><p>Displays the name passed as a URL parameter
+from the ColdFusion page. The parameter name is case sensitive,</p>
+<p>Note:
+The <samp class="codeph">getParameter</samp> request method cannot get all
+ColdFusion page request parameter values on some application servers.
+For example, on IBM WebSphere, you cannot use <samp class="codeph">getParameter</samp> to
+get form fields.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e104185 "><div class="para"><pre>&lt;br&gt;request.myVariable: &lt;%= request. getAttribute("myvariable")%&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e104188 "><p>Uses the <samp class="codeph">getAttribute</samp> method
+of the JSP request object to displays the value of the Request scope
+variable myVariable.</p>
+<p>The JSP page must use all lowercase characters
+to reference all request scope variables that it shares with CFML
+pages. You can use any case on the CFML page, but if you use mixed
+case or all uppercase on the JSP page, the variable is not set from
+the ColdFusion page.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e104185 "><div class="para"><pre>&lt;br&gt;session.myVariable: &lt;%= ((Map)(session.getAttribute("myApp"))).get("myVariable")%&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e104188 "><p>Uses the <samp class="codeph">getAttribute</samp> method
+of the JSP session object to get the myApp object (the Application
+scope). Casts this object to a Java Map object and uses the get
+method to obtain the myVariable value for display.</p>
+<p>CFML pages
+and JSP pages share Session variables independent of the variable
+name case. The variable on the JSP page can have any case mixture
+and still receive the value from the ColdFusion page. For example,
+instead of myVariable, you could use MYVARIABLE or myvariable on
+this line.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e104185 "><div class="para"><pre>&lt;br&gt;Application.myVariable: &lt;%=((Map)(application.getAttribute("myApp"))).get("myVariable")%&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e104188 "><p>Uses the <samp class="codeph">getAttribute</samp> method
+of the JSP myApp application object to obtain the value of myVariable
+in the Application scope.</p>
+<p>CFML pages and JSP pages share Application
+variables independent of the variable name case. The variable on
+the JSP page can have any case mixture and still receive the value
+from the ColdFusion page. For example, instead of myVariable, you
+could use MYVARIABLE or myvariable on this line.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div><div id="WSA0035455-0E0B-4866-8F04-E44A66B33A90" class="nochunk"><a name="WSA0035455-0E0B-4866-8F04-E44A66B33A90"><!-- --></a><h3 class="topictitle3">Calling a ColdFusion page from a JSP page</h3><div><p>The following JSP page sets Request,
+Session, and application variables and calls a ColdFusion page,
+passing it a name parameter:</p>
+<pre>&lt;%@page import="java.util.*" %&gt; 
+ 
+&lt;% request.setAttribute("myvariable", "This");%&gt; 
+&lt;% ((Map)session.getAttribute("myApp")).put("myVariable", "is a");%&gt; 
+&lt;% ((Map)application.getAttribute("myApp")).put("myVariable", "test.");%&gt; 
+ 
+&lt;jsp:include page="hello.cfm"&gt;  
+    &lt;jsp:param name="name" value="Robert" /&gt; 
+&lt;/jsp:include&gt;</pre>
+<div class="section" id="WSA0035455-0E0B-4866-8F04-E44A66B33A90__WSc3ff6d0ea77859461172e0811cbec14231-7fe6"><a name="WSA0035455-0E0B-4866-8F04-E44A66B33A90__WSc3ff6d0ea77859461172e0811cbec14231-7fe6"><!-- --></a><h4 class="sectiontitle">Reviewing the code</h4><p>The following table describes the JSP code and
+its function:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e104276"><p>Code</p>
+</th>
+<th valign="top" width="NaN%" id="d17e104279"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e104276 "><div class="para"><pre>&lt;%@page import="java.util.*" %&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e104279 "><p>Imports the java.util package. This package
+contains methods required in the JSP page.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e104276 "><div class="para"><pre>&lt;% request.setAttribute("myvariable", "This");%&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e104279 "><p>Uses the <samp class="codeph">setAttribute</samp> method
+of the JSP request object to set the value of the Request scope
+variable myVariable. </p>
+<p>The JSP page must use all lowercase
+characters to refer to all request scope variables that it shares
+with CFML pages. You can use any case on the CFML page, but if you
+use mixed case to all uppercase on the JSP page, the JSP page does
+not share it with the ColdFusion page.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e104276 "><div class="para"><pre>&lt;% ((Map)session.getAttribute("myApp")).put("myVariable", "is a");%&gt; </pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e104279 "><p>Uses the <samp class="codeph">getAttribute</samp> method
+of the JSP session object to get the myApp object (the Application
+scope). Casts this object to a Java Map object and uses the <samp class="codeph">set</samp> method
+to set the myVariable value.</p>
+<p>CFML pages and JSP pages share
+Session variables independent of the variable name case. The variable
+on the JSP page can have any case mixture and still share the value
+with the ColdFusion page. For example, instead of myVariable, you
+could use MYVARIABLE or myvariable on this line.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e104276 "><div class="para"><pre>&lt;% ((Map)application.getAttribute("myApp")).put("myVariable","test.");%&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e104279 "><p>Uses the <samp class="codeph">getAttribute</samp> method
+of the JSP application object to get myApp object (the Application
+scope) and casts it to a Map object. It then sets the value of myVariable
+in the myApp application scope object.</p>
+<p>CFML pages and JSP
+pages share Application variables independent of the variable name
+case. The variable on the JSP page can have any case mixture and
+still share the value with the ColdFusion page. For example, instead
+of myVariable, you could use MYVARIABLE or myvariable on this line.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e104276 "><div class="para"><pre>&lt;jsp:include page="hello.cfm"&gt; 
+    &lt;jsp:param name="name" value="Robert"/&gt; 
+&lt;/jsp:include&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e104279 "><p>Sets the name parameter to Robert and calls
+the ColdFusion page hello.cfm.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The JSP page calls the following hello.cfm
+page. It displays the Name parameter in a heading and the three
+variables in the remainder of the body.</p>
+<pre>&lt;cfapplication name="myApp" sessionmanagement="yes"&gt; 
+&lt;cfoutput&gt; 
+&lt;h2&gt;Hello #URL.name#!&lt;/h2&gt; 
+Request.myVariable: #Request.myVariable#&lt;br&gt; 
+Session.myVariable: #Session.myVariable#&lt;br&gt; 
+Application.myVariable: #Application.myVariable#&lt;br&gt; 
+ 
+&lt;/cfoutput&gt;</pre>
+<p>The following table describes the
+CFML code and its function:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e104353"><p>Code</p>
+</th>
+<th valign="top" width="NaN%" id="d17e104356"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e104353 "><div class="para"><pre>&lt;cfapplication name="myApp" sessionmanagement="yes"&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e104356 "><p>Specifies the application name as myApp
+and enables session management. In most applications, this tag is
+in the Application.cfm page.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e104353 "><div class="para"><pre>&lt;cfoutput&gt;&lt;h2&gt;Hello #URL.name#!&lt;/h2&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e104356 "><p>Displays the name passed using the <samp class="codeph">jsp:param</samp> tag
+on the JSP page. The parameter name is not case sensitive.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e104353 "><div class="para"><pre>Request.myVariable: #Request.myVariable#&lt;br&gt; 
+Session.myVariable: #Session.myVariable#&lt;br&gt; 
+Application.myVariable: #Application.myVariable#&lt;br&gt; 
+&lt;/cfoutput&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e104356 "><p>Displays the Request.myVariable, Session.
+myVariable, and Application.myVariable values. All variable names
+on CFML pages are case independent.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div></div>
+
+
+<!-- BEGIN USER PREFERENCES -->
+          <div id="userprefs">
+          </div>
+<!-- END USER PREFERENCES -->
+
+          <div id="related">
+            
+            
+            <div class="separator"><a href="#top"><img src="images/BTT.jpg" /></a>&#160;</div>
+          </div>
+          <div id="footer">
+<!-- BEGIN IONCOMMENTS -->
+            <div id="ionComHere">
+            </div>
+<!-- END IONCOMMENTS -->
+
+
+            <p id="creativecommons"><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" id="creativecommons_text"><img id="creativecommons_img" src="images/CC.png" alt="This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License" /></a>&nbsp;Twitter™ and Facebook posts are not covered under the terms of Creative Commons.</p>
+          </div>
+</td>
+<td width="10px"></td>
+<td id="inner_rightcolumn">
+
+</td></tr></table>
+      </div>
+<!-- BEGIN BREADCRUMBS -->
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec22c24-786d.html" title="Using JSP tags and tag libraries"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-79bb.html" title="Using Java objects"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Developing&#160;ColdFusion 9 Applications</b></a> / <a href="WSc3ff6d0ea77859461172e0811cdd7c7008-8000.html"><b>Using Web Elements and External Objects</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7fff.html"><b>Integrating J2EE and Java Elements in CFML Applications</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+<!-- END CONTENT WRAPPER -->
+
+</td>
+<td id="col3">
+    <div>
+        <img src="images/adobe-lq.png" />
+    </div>
+</td>
+</tr>
+</table>
+    </div>
+<!-- END PAGE CONTENT WRAPPER -->
+<script type="text/javascript">
+<!--[CDATA[
+scrollToNameAnchor();
+// ]]-->
+</script> 
+<!--
+    Description:
+    This file generates the link to product support in the top right corner
+-->
+
+<style>
+#menutop{
+    position:absolute;
+    top:4px;
+    right:24px;
+    width:auto;    
+    font-size:11px;
+    color:#fff;
+    text-align:right;
+}
+#menutop a{
+    color:#fff;
+}
+#menutop a:hover{
+        text-decoration:underline;
+}
+</style>  
+  
+  
+  
+  
+<div id="productmenu">
+<!--googleoff: index-->
+  <div id="menutop">
+
+
+<script language=javascript type='text/javascript'>
+    // darken menu text for products with light backgrounds
+    var path = document.location.href.toLowerCase();
+    if (path.indexOf("/acrobat/")           	> 0 ||
+        path.indexOf("/acrobat.com/")       	> 0 ||
+        path.indexOf("/acrobatConnectPro/") 	> 0 ||
+        path.indexOf("/connect/")           	> 0 ||
+        path.indexOf("/livecycledataserviceses/") > 0 ||
+        path.indexOf("/muse/")         	> 0 ||
+	path.indexOf("/presenter/")         	> 0 ||
+        path.indexOf("/scene7/")            	> 0 ||
+        path.indexOf("/flashmediaserver/")  	> 0 ||
+        path.indexOf("/wave/")              	> 0 )
+    {
+        document.write('<style>#menutop a{color:#505050}</style>');
+    }
+    if (typeof('terms_AHV_PRODUCT_SUPPORT') != "undefined" && ! use_robohelp_behavior ){      
+        if (path.indexOf("/muse/") > -1 ){
+            var supportlink = '<a href="http://muse.adobe.com/support.html">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }else{
+            var supportlink = '<a href="http://adobe.com/support">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }
+        document.write( supportlink );
+     }
+
+</script> 
+
+  </div>
+<!--googleon: index-->
+</div>
+
+
+
+<style>
+#online-privacy-policy{ 
+    margin:10px 40px; 
+    font-size:11px;
+}
+</style>
+
+<p id="online-privacy-policy">
+<script language="javascript">
+var pageLoc = "en_US";
+var metaElements = document.all ?
+document.all.tags('meta') :
+document.getElementsByTagName ?
+document.getElementsByTagName ('meta') : new Array();
+for (var m = 0; m < metaElements.length; m++) {
+	if (metaElements[m].name == "lang") {
+		pageLoc = metaElements[m].content;
+		break;
+	}
+}
+var ptn = /(..)-(..)/;
+if (ptn.test(pageLoc)) {
+	var languageCode = pageLoc.replace(ptn, "$1");
+	var countryCode = pageLoc.replace(ptn, "$2");
+	pageLoc = languageCode + "_" + countryCode.toUpperCase();
+}
+
+var policyLoc = "en_US";
+var policyText = "Online Privacy Policy";
+var policyPath = "";
+var policyArray=[
+"da_DK", "Online fortrolighedserklæring",
+"de_DE", "Online-Datenschutzrichtlinie",
+"es_ES", "Política de confidencialidad en línea",
+"fi_FI", "Yksityisyyttä koskeva Online-toimintaohjelma",
+"fr_FR", "Confidentialité et sécurité",
+"it_IT", "Informativa sulla privacy online",
+"ja_JP", "プライバシーポリシー",
+"ko_KR", "Adobe 온라인 개인정보 보호정책",
+"pt_BR", "Política de Confidencialidade On-line", 
+"zh_CN", "在线隐私政策",
+"zh_TW", "線上隱私政策"
+];
+var legalLoc = "en_US";
+var legalText = "Legal Notices";
+var legalPath = legalLoc;
+var legalArray=[
+"ar_AE", "إشعارات قانونية",
+"bg_BG", "Юридически бележки",
+"cs_CZ", "Právní upozornění",
+"da_DK", "Juridiske meddelelser",
+"de_DE", "Rechtliche Hinweise",
+"el_GR", "Σημειώσεις νομικού περιεχομένου",
+"es_ES", "Avisos legales",
+"et_EE", "Juriidilised teated",
+"fi_FI", "Lakisääteiset ilmoitukset",
+"fr_FR", "Mentions légales",
+"he_IL", "הצהרות משפטיות",
+"hr_HR", "Pravne napomene",
+"hu_HU", "Jogi közlemények",
+"it_IT", "Informazioni legali",
+"ja_JP", "法律上の注意",
+"ko_KR", "법적 고지 사항",
+"lt_LT", "Teisinės pastabos",
+"lv_LV", "Juridisks paziņojums",
+"nb_NO", "Juridiske merknader",
+"nl_NL", "Juridische kennisgevingen",
+"pl_PL", "Informacje prawne",
+"pt_BR", "Aspectos jurídicos",
+"ro_RO", "Prevederi legale",
+"ru_RU", "Юридическая информация",
+"sk_SK", "Právne upozornenie",
+"sl_SI", "Pravni pouk",
+"sv_SE", "Upphovsrätt",
+"tr_TR", "Yasal uyarılar",
+"uk_UA", "Юридична інформація",
+"zh_CN", "法律声明",
+"zh_TW", "法律注意事項"
+];
+
+ruPolicy = "http://www.adobe.com/ru/misc/privacy.html";
+trPolicy = "http://www.adobe.com/tr/misc/privacy.html";
+
+// Bug 2846992: LOC: RUS, TUR: The link to "Online Privacy Policy" should include language, currently it is not appearing.
+if (pageLoc == "ru_RU") {
+	policyPath = "ru";
+}
+else if (pageLoc == "tr_TR") {
+	policyPath = "tr";
+}
+for (var i = 0; i < policyArray.length; i+=2) {
+	if (pageLoc == policyArray[i]) {
+		policyLoc = pageLoc;
+		policyText = policyArray[i+1];
+		var ptn = /(..)_(..)/;
+		if (ptn.test(policyLoc)) {
+			var countryCode = policyLoc.replace(ptn, "$2");
+			policyPath = countryCode.toLowerCase();
+		}
+		break;
+	}
+}
+
+for (var i = 0; i < legalArray.length; i+=2) {
+	if (pageLoc == legalArray[i]) {
+		legalLoc = pageLoc;
+		legalText = legalArray[i+1];
+		legalPath = legalLoc;
+		break;
+	}
+}
+if(agt.indexOf("community help client") > -1 ){
+	document.write('<a href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+}else{
+	//Open the privacy policy in a new window
+	document.write('<a target="_blank" href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a target="_blank" href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+} 
+</script>
+</p>
+
+
+
+<!-- localfooter.ssi -->
+
+<script type="text/javascript">
+    var debug = (top.location.href.indexOf("debug=true") > -1);
+</script>
+
+<script language="javascript">
+document.write('<scr'+'ipt ' +
+               'src="/en_US/ssi/_pod.js" ' +
+               'language="javascript" ' +
+               'charset="UTF-8"> ' +
+               '</scr'+'ipt>');
+</script>
+
+
+<script type="text/javascript">
+//
+//  Ethnio survey code
+//
+/*          DocumentID      EthnioID */
+/*          -------------   -------- */
+var ethnio=["/en_US/flash/cs/using/WSb03e830bd6f770ee6664507612436d7dede-8000.html", "87462",
+            "/en_US/creativesuite/cs/using/WSe851854fd1e0856a-4b08a77612477f69f15-8000.html",  "10441",
+            "/en_US/dreamweaver/cs/using/WSEE4C0148-A6F4-4bf5-9DEF-CE06AB026214a.html",  "57412"
+ 
+    ];
+                        
+    for ( var i = 0; i < ethnio.length ; i = i+2 ){
+        if ( document.location.href.indexOf( ethnio[i] ) > -1 ){ 
+            var headID = document.getElementsByTagName("head")[0];         
+            var ethnioScript = document.createElement('script');
+            ethnioScript.type = 'text/javascript';
+            ethnioScript.src = 'http://ethn.io/remotes/' + ethnio[i+1];        
+            if ( debug ){
+                alert ("Using Ethnio script: " + ethnioScript.src );
+            }else{
+                headID.appendChild(ethnioScript);
+            }
+        }
+    }
+</script>
+
+
+
+<div style="display: none;">
+<!-- SiteCatalyst -->
+<script language="JavaScript" type="text/javascript"><!--
+var s_code=' ';
+var s_docHost = window.location.hostname.toLowerCase();
+var s_docURL = window.location.pathname.toLowerCase();
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+if (s_docHost.indexOf(".corp.adobe") != -1 || s_docHost.indexOf("stage.") != -1 || s_docHost.indexOf(".dev.adobe") != -1 || s_docHost.indexOf("staging.") != -1) scJsHost="";
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/omniture_s_code.js' type='text/javascript'%3E%3C/script%3E"));
+//--></script>
+<script type="text/javascript"><!--
+var s_accountName;
+s_server="www.adobe.com static content pages";
+if (!window.s_account) s_accountName="mxmacromedia";
+else s_accountName=window.s_account;
+
+if (window.s_docURL.indexOf("/designcenter/") != -1)
+  s_channel="Adobe Design Center";	
+else if ((window.s_docHost.indexOf("labs.adobe") != -1) ||
+(window.s_docHost.indexOf("labs-staging.") != -1))
+  s_channel="Labs";
+else if (window.s_docHost.indexOf("help.adobe.com") != -1) {
+  s_channel="Support Help.adobe.com";
+  if (window.s_docURL.indexOf("/en_us/") == -1) {
+    s_docURLArray=s_docURL.split('/');
+    s_pageName="http://help.adobe.com/"+s_docURLArray[1]+"/"+ s_docURLArray[2]+"/"+s_docURLArray[3];
+    s_prop23="http://help.adobe.com"+window.location.pathname;
+  }
+}
+else if (window.s_docHost.indexOf("kb2.adobe.com") != -1) {
+  s_channel="Support Knowledgebase";
+  s_prop23="http://kb2.adobe.com"+s_docURL+":";
+  if (typeof(omtrProductList) != 'undefined' && omtrProductList.length > 0)
+ {
+    s_prop23=s_prop23+omtrProductList;
+  }
+}
+else if (window.s_docHost.indexOf("resellers.adobe.com") != -1) {
+		var s_pageName=document.getElementsByTagName("title")[0].text;
+}
+
+if (!window.scMMInclude) {
+	var s_wd=window,s_tm=new Date;
+	if(s_code!=' '){
+		s_code=s_dc(s_accountName);
+		if(s_code)document.write(s_code)
+	} 
+} else {
+	s_wds(s_accountName);s_ca(s_accountName); 
+}	
+
+function sendAnalyticsEvent(str){var ns=s_accountName;if(str!=null)ns+=","+str;void(s_gs(ns));}
+function sendLinkEvent(accnt,lnkname,type){
+accnt=s_accountName;s_linkType=type;s_lnk=true;s_linkName=lnkname;void(s_gs(accnt));}
+//--></script>
+<noscript><img src="http://stats.adobe.com/b/ss/mxmacromedia/1/H.15-XELvs/0?pageName=http%3A//www.adobe.com%3A%20noscript&ch=http%3A//www.adobe.com%3A%20noscript&g=http%3A//www.adobe.com" height="1" width="1" border="0" alt="" /></noscript>
+<!-- End SiteCatalyst -->
+</div>
+
+<script language="JavaScript" type="text/javascript">//<![CDATA[
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/atm/s_code_www.js' type='text/javascript'%3E%3C/script%3E"));
+//]]></script>
+<script type="text/javascript">//<![CDATA[
+if(s_adobe){	
+	s_adobe.server="www.adobe.com Static Content pages";
+	/* Set pageName */
+	s_adobe.s_URL="adobe.com"+((location.pathname.charAt(0)=='/')?location.pathname:'/'+location.pathname);
+	if (s_adobe.s_URL.substring(s_adobe.s_URL.lastIndexOf('/')+1)=="") s_adobe.s_URL=s_adobe.s_URL+"index.html";
+	s_adobe.s_URLSplit=s_adobe.s_URL.split("/");
+	s_adobe.pageName=s_adobe.s_URLSplit.join(":");
+
+	/* Set prop4 to language-locale */
+	var s_meta=document.getElementsByTagName('meta'); 
+      for (i=0; i<s_meta.length; i++) { 
+        if (s_meta[i].getAttribute("http-equiv") == "Content-Language") { 
+          s_adobe.prop4=s_meta[i].getAttribute("content"); 
+	    s_adobe.prop4=s_adobe.prop4.replace(/\s+/g,'');
+        } 
+      } 
+	s_adobe.t()
+}
+//]]></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

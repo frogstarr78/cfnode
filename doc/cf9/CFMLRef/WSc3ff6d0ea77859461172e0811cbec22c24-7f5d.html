@@ -1,0 +1,1082 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0022)http://help.adobe.com/ -->
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="lang" content="en-us" />
+    <meta name="area" content="livedocs" />
+    <title>Adobe&#160;ColdFusion&#160;9 * cflock</title>
+    <link rel="shortcut icon" href="images/ColdFusionLinkIndicator.png" />
+    <meta name="book" content="ColdFusion&#160;9&#160;CFML&#160;Reference" />
+    <meta name="product" content="ColdFusion" />
+    <meta name="keywords" content="" /><!--<PageMap><DataObject type="document"><Attribute name="product" value="ColdFusion"></Attribute><Attribute name="book" value="ColdFusion&#160;9&#160;CFML&#160;Reference"></Attribute><Attribute name="keywords" value=""></Attribute></DataObject></PageMap>-->
+    
+    <script type="text/javascript" language="Javascript" charset="UTF-8"><!--[CDATA[
+        var currentTreeNode = "WSc3ff6d0ea77859461172e0811cbec22c24-7f5d.html";
+    document.cookie = "topicId=" + "WSc3ff6d0ea77859461172e0811cbec22c24-7f5d.html";
+// ]]--></script>
+<script src="terms.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="help.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script>  <script src="utilities.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="event.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="treeview.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="toc.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script> <script src="swfobject.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>  <script src="booklist.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>
+<script type="text/javascript">
+<!--[CDATA[
+var topictype = "topic";
+var headId = document.getElementsByTagName("head")[0];         
+if (use_ie_6_behavior) {
+  var linkId = document.createElement("link");
+  linkId.href = "content-ie6.css";
+  linkId.rel = "stylesheet";
+  linkId.type = "text/css";
+  headId.appendChild(linkId);
+}
+function initRoboHelpDOM() {
+  if (use_chm_behavior) {
+    hideElement("search");
+  }
+  if (use_robohelp_behavior) {
+    hideElement("search");
+    hideElement("productmenu");
+    //hideElement("notyourversion");
+  }
+  if(!use_chc_behavior) {
+    //document.getElementById("notyourversion").style.display = "inline";;
+  }
+}
+var dirname = location.pathname.match( /.*\// );    
+function setSearchUserPref(){
+  if ( document.cookie.indexOf( "ah_searchpref" ) > -1 ) {
+    if ( document.cookie.indexOf( dirname ) > 0 ) {
+      document.search.gsa.checked = true ;
+    }else{
+      document.search.gsa.checked = false ;            
+    }
+  }
+}
+YAHOO.util.Event.onDOMReady(initRoboHelpDOM);
+YAHOO.util.Event.onDOMReady(setSearchUserPref);
+// ]]-->
+</script>
+
+<!-- ********************************** -->
+<!-- START: ForeSee survey code in: /ssi/globalheader.ssi -->
+
+<script type="text/javascript">
+<!-- 
+// Enable the survey for only English, German and Japanese
+var agt=navigator.userAgent.toLowerCase();
+if ( agt.indexOf("community help client") == -1 ){
+    if ( document.location.href.indexOf("/en_US/") != -1 ){
+        showSurvey();
+//    }else if (document.location.href.indexOf("/de_DE/") != -1){
+//         var locale="de";
+//         showSurvey();
+    }else if (document.location.href.indexOf("/ja_JP/") != -1 ){
+         var locale="ja";
+         showSurvey();
+    }	
+}
+
+function showSurvey(){
+	document.write('<script type="text/javascript" src="/js/foresee/foresee-trigger.js"><\/scr'+'ipt>');
+}
+
+// -->
+</script>
+
+<!-- END: ForeSee survey code -->
+<!-- ******************************** -->
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="tree.css" />
+    <link rel="stylesheet" type="text/css" href="content.css" />
+    <link rel="stylesheet" type="text/css" href="localeSpecific.css" />
+  </head>
+  <body id="content_body" onload="window.focus();">
+    <a name="top" shape="rect"><!--LeaveCommentHere--></a>
+    
+    <div id="mnemonic">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon" class="ColdFusion"><div class="banner"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html">Adobe&#160;ColdFusion&#160;9</a><span id="notyourversion">|&#160;
+                    <a rel="nofollow" href="http://www.adobe.com/support/documentation/en/coldfusion/">Not your version?</a></span></div></div><!--googleon: index-->
+    </div>
+    
+    <div id="searchbar">
+<table id="searchbartable">
+<tr>
+<td colspan="2">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon"><div id="pdf"><img src="images/PDF.gif" width="16" height="16" /><a title="View Help PDF" href="coldfusion_9_cfmlref.pdf">View Help PDF ( 32MB)</a></div></div><!--googleon: index-->
+</td>
+</tr>
+</table>
+    </div>
+
+<!-- BEGIN SEARCH CONTENT -->
+<form id="search" name="search" action="search.html" target="_self">
+<script type="text/javascript">
+<!--[CDATA[
+if ( !use_chc_behavior ){
+    if (typeof(terms_AHV_SEARCH_CONSTRAINT) != "undefined" && 
+        terms_AHV_SEARCH_CONSTRAINT.length > 0 && 
+        document.location.href.indexOf(".adobe.com") > 0){
+        if ( typeof(terms_SEARCH_THIS_HELP_ONLY) != "undefined" && terms_SEARCH_THIS_HELP_ONLY == "ON" ) {
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                checked="checked" \
+                value="1" ><\/input>'); 
+                
+        // Leave the "Search this help system only" checkbox unckecked
+        }else{    
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                value="1" ><\/input>'); 
+        }
+        document.write('<span class="gsalabel">' + terms_AHV_SEARCH_CONSTRAINT + '<\/span><\/div>'); 
+    }
+    document.write('<input class="searchinput" \
+        name="q" \
+        id="q" \
+        type="text" \
+        maxlength="256" \
+        value="' + terms_AHV_SEARCH_BUTTON + '" \
+        onclick="clearSearch()"><\/input><input \
+        type="button" \
+        name="searchbutton" \
+        class="searchbutton" \
+        onclick="submit()"><\/input>'); 
+} 
+ 
+/* 
+ * Start Functions 
+ */
+function clearSearch(){
+    if (document.search.q.value == terms_AHV_SEARCH_BUTTON){document.search.q.value = ""}; 
+}
+
+// set search preferences
+function setAHSearchPref(){
+    if (document.search.gsa.checked == 1){
+        setAHSearchCookie( dirname );
+    }else{
+        setAHSearchCookie( "community" );
+    }
+}
+
+// Set search preferences cookie
+function setAHSearchCookie( p ){
+    // set cookie ah_searchpref with a value of the document path
+    var expire=new Date();
+    expire.setDate(expire.getDate()+365); // Cookie expires after 1 year (365 days) 
+    document.cookie="ah_searchpref=" +p+ "; expires=" +expire.toGMTString()+ ";";
+}
+
+// ]]-->
+</script> 
+ </form>
+<!-- END SEARCH CONTENT -->    
+
+
+
+<!-- BEGIN PAGE CONTENT WRAPPER -->
+    <div id="page_content_wrapper">
+<!-- BEGIN PAGE WRAPPER -->
+<table id="page_content_table">
+<tr>
+
+<td id="col2">
+<!-- BEGIN CONTENT WRAPPER -->
+<!-- BEGIN BREADCRUMBS -->
+
+      
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec22c24-7cac.html" title="cflocation"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-7d0d.html" title="cflog"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>ColdFusion&#160;9&#160;CFML&#160;Reference</b></a> / <a href="WSc3ff6d0ea77859461172e0811cbec17576-7ffe.html"><b>ColdFusion Tags</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec18db1-7ffe.html"><b>Tags j-l</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+      <div id="content_wrapper">
+<!-- BEGIN PAGE TITLE -->
+        <h1>cflock</h1>
+<!-- END PAGE TITLE -->
+<!-- BEGIN IONCOMMENTCOUNT -->
+        <div id="ionCount">
+        </div>
+<!-- END IONCOMMENTCOUNT -->
+<table id="inner_content_table" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>
+          <div style="border-top:#ccc solid 1px;"><p> </p>
+          </div>
+<p id="chcPromo" style="display:none;">
+<a id="chcLink" href="http://www.adobe.com/support/chc/">
+<img id="chcImage" src="http://www.adobe.com/support/chc/GetMoreHelpFeatures.png"/>
+</a>
+</p>
+<script type="text/javascript" language="javascript" charset="utf-8">
+<!--
+var cfgArray = [];
+//cfgArray["Acrobat_10.0_Professional.helpcfg"] = "acrobatpro";
+//cfgArray["Acrobat_10.0_Standard.helpcfg"] = "acrobatstd";
+cfgArray["Lightroom_3.0.helpcfg"] = "lightroom";
+cfgArray["PhotoshopElements_8.0_Win.helpcfg"] = "photoshopelements";
+cfgArray["PhotoshopElements_8.0_Mac.helpcfg"] = "photoshopelementsmac";
+cfgArray["PremiereElements_8.0_Win.helpcfg"] = "premiereelements";
+
+//cfgArray["AfterEffects_10.0.helpcfg"] = "aftereffects";
+//cfgArray["AIR.helpcfg"] = "air";
+//cfgArray["ColdFusionBuilder.helpcfg"] = "coldfusion";
+//cfgArray["Contribute_6.0.helpcfg"] = "contribute";
+//cfgArray["DeviceCentral_3.0.helpcfg"] = "devicecentral";
+//cfgArray["Dreamweaver_11.0.helpcfg"] = "dreamweaver";
+//cfgArray["EncoreDVD_5.0.helpcfg"] = "encore";
+//cfgArray["ExtensionManager_3.0.helpcfg"] = "extension";
+//cfgArray["Fireworks_11.0.helpcfg"] = "fireworks";
+//cfgArray["Flash_11.0.helpcfg"] = "flash";
+//cfgArray["Flex_4.0.helpcfg"] = "flashbuilder";
+//cfgArray["FlashCatalyst_1.0.helpcfg"] = "flashcatalyst";
+//cfgArray["Illustrator_15.0.helpcfg"] = "illustrator";
+//cfgArray["InCopy_7.0.helpcfg"] = "incopy";
+//cfgArray["InDesign_7.0.helpcfg"] = "indesign";
+//cfgArray["OnLocation_5.0.helpcfg"] = "onlocation";
+//cfgArray["Photoshop_12.0.helpcfg"] = "photoshop";
+//cfgArray["PremierePro_5.0.helpcfg"] = "premierepro";
+
+function getLangName() {
+    var lang = "en-us";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if (ptn.test(lang)) {
+        var languageCode = lang.replace(ptn, "$1");
+        var countryCode = lang.replace(ptn, "$2");
+        lang = languageCode + "_" + countryCode.toUpperCase();
+    }
+    return lang;
+}
+
+function getCountryName() {
+    var lang = "";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if ((ptn.test(lang)) && (lang != "en-us")) {
+        var countryCode = lang.replace(ptn, "$2");
+        return "/" + countryCode;
+    }
+    return "";
+}
+
+if ( (typeof(terms_HELPCFG) != 'undefined')  && (terms_HELPCFG.indexOf(".helpcfg") != -1) ) {
+    var stage   = (document.location.href.indexOf(".stage.") != -1) ? 'stage.' : '';
+    var baseUrl = 'http://www.' + stage + 'adobe.com';
+    var refpage = document.location.href.replace(/#.*$/, '');
+	
+	if ((!use_robohelp_behavior) && (terms_HELPCFG.length > 0) && (typeof(cfgArray[terms_HELPCFG]) != 'undefined') && (cfgArray[terms_HELPCFG].length > 0)) {
+		if (document.getElementById) { // DOM3 = IE5, NS6
+			var newHref = baseUrl + getCountryName() + "/support/chc/" + "?helpcfg=http://help." + stage + "adobe.com/HelpCfg/" + getLangName() + "/" + terms_HELPCFG + "&url=" + refpage + "&product=" + cfgArray[terms_HELPCFG];
+			var newSrc = baseUrl + getCountryName() + "/support/chc/GetMoreHelpFeatures.png";
+			document.getElementById("chcPromo").style.display = "block";
+			document.getElementById("chcLink").href = newHref;
+			document.getElementById("chcImage").src = newSrc;
+		}
+	}
+}
+
+//-->
+</script>
+
+
+
+          <div><div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7f5d__WSc3ff6d0ea77859461172e0811cbec18db1-7fd1"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7f5d__WSc3ff6d0ea77859461172e0811cbec18db1-7fd1"><!-- --></a><h4 class="sectiontitle">Description</h4><p>Ensures
+the integrity of shared data. Instantiates the following kinds of
+locks:</p>
+<ul><li><p>Exclusive - Allows single-thread access to
+the CFML constructs in its body. The tag body can be executed by
+one request at a time. No other requests can start executing code
+within the tag while a request has an exclusive lock. ColdFusion
+issues exclusive locks on a first-come, first-served basis.</p>
+</li>
+<li><p>Read-only - Allows multiple requests to access CFML constructs
+within the tag body concurrently. Use a read-only lock only when
+shared data is read and not modified. If another request has an
+exclusive lock on shared data, the new request waits for the exclusive
+lock to be released.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7f5d__WSc3ff6d0ea77859461172e0811cbec18db1-7fe7"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7f5d__WSc3ff6d0ea77859461172e0811cbec18db1-7fe7"><!-- --></a><h4 class="sectiontitle">Category</h4><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777f.html">Application framework tags</a></p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7f5d__WSc3ff6d0ea77859461172e0811cbec18db1-7fe5"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7f5d__WSc3ff6d0ea77859461172e0811cbec18db1-7fe5"><!-- --></a><h4 class="sectiontitle">Syntax</h4><pre>&lt;cflock  
+    timeout = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">time-out in seconds</i>" 
+    name = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">lock name</i>" 
+    scope = "Application|Server|Session|Request" 
+    throwOnTimeout = "yes|no" 
+    type = "readOnly|exclusive"&gt;  
+    &lt;!--- CFML to be synchronized. ---&gt;  
+&lt;/cflock&gt;</pre>
+<div class="note"><span class="notetitle">Note:  </span>You can specify
+this tag’s attributes in an <samp class="codeph">attributeCollection</samp> attribute
+whose value is a structure. Specify the structure name in the <samp class="codeph">attributeCollection</samp> attribute
+and use the tag’s attribute names as structure keys.</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7f5d__WSc3ff6d0ea77859461172e0811cbec18db1-7fd0"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7f5d__WSc3ff6d0ea77859461172e0811cbec18db1-7fd0"><!-- --></a><h4 class="sectiontitle">See also</h4><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d69.html">cfapplication</a></samp><samp class="codeph">, </samp><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7f5b.html">cfassociate</a></samp><samp class="codeph">, </samp><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7ea2.html">cfmessagebox</a></samp><samp class="codeph">,</samp><samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/Developing/WSc3ff6d0ea77859461172e0811cbec22c24-7fd4.html" target="_self">Using Persistent
+Data and Locking</a></samp>  in the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Developing ColdFusion Applications</i></p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7f5d__WSc3ff6d0ea77859461172e0811cbec18db1-7fec"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7f5d__WSc3ff6d0ea77859461172e0811cbec18db1-7fec"><!-- --></a><h4 class="sectiontitle">History</h4><p>ColdFusion
+8: Added <samp class="codeph">Request</samp> value to <samp class="codeph">scope</samp> attribute.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7f5d__WSc3ff6d0ea77859461172e0811cbec18db1-7fcf"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7f5d__WSc3ff6d0ea77859461172e0811cbec18db1-7fcf"><!-- --></a><h4 class="sectiontitle">Attributes</h4>
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e61043"><p>Attribute</p>
+</th>
+<th valign="top" width="NaN%" id="d17e61046"><p>Req/Opt</p>
+</th>
+<th valign="top" width="NaN%" id="d17e61049"><p>Default</p>
+</th>
+<th valign="top" width="NaN%" id="d17e61052"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e61043 "><p><samp class="codeph">timeout</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e61046 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e61049 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e61052 "><p>Maximum length of time, in seconds, to wait
+to obtain a lock. If lock is obtained, tag execution continues.
+Otherwise, behavior depends on <samp class="codeph">throwOnTimeout</samp> attribute
+value. If you set <samp class="codeph">timout="0"</samp>, the timeout is determined
+by the "Timeout Requests after <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">x</i>" setting in the ColdFusion
+Administrator Settings page, if that setting is enabled. However,
+if the setting is not enabled, and you set <samp class="codeph">timeout="0"</samp>, ColdFusion
+can wait indefinitely to obtain the lock.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e61043 "><p><samp class="codeph">name</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e61046 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e61049 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e61052 "><p>Locks name. Mutually exclusive with the <samp class="codeph">scope</samp> attribute.
+Only one request can execute the code within a <samp class="codeph">cflock</samp>tag
+with a given name at a time. Cannot be an empty string.</p>
+<p>Permits
+synchronizing access to resources from different parts of an application. Lock
+names are global to a ColdFusion server. They are shared among applications and
+user sessions, but not clustered servers.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e61043 "><p><samp class="codeph">scope</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e61046 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e61049 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e61052 "><p>Locks scope. Mutually exclusive with the <samp class="codeph">name</samp> attribute.
+Only one request in the specified scope can execute the code within
+this tag (or within any other <samp class="codeph">cflock</samp> tag with the
+same lock scope) at a time. </p>
+<div class="para"><ul><li><p><samp class="codeph">Application</samp></p>
+</li>
+<li><p><samp class="codeph">Request</samp></p>
+</li>
+<li><p><samp class="codeph">Server</samp></p>
+</li>
+<li><p><samp class="codeph">Session </samp></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e61043 "><p><samp class="codeph">throwOnTimeout</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e61046 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e61049 "><p><samp class="codeph">yes</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e61052 "><p>How time-out conditions are handled:</p>
+<div class="para"><ul><li><p><samp class="codeph">yes</samp>: exception is generated for the time-out.</p>
+</li>
+<li><p><samp class="codeph">no</samp>: execution continues past this tag.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e61043 "><p><samp class="codeph">type</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e61046 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e61049 "><p><samp class="codeph">exclusive</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e61052 "><div class="para"><ul><li><p><samp class="codeph">readOnly</samp>: lets
+more than one request read shared data.</p>
+</li>
+<li><p><samp class="codeph">exclusive</samp>: lets one request read or write
+shared data.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note"><span class="notetitle">Note:  </span>Limit the scope of code
+that updates shared data structures, files, and CFXs. Exclusive
+locks are required to ensure the integrity of updates, but read-only
+locks are faster. In a performance-sensitive application, substitute
+read-only locks for exclusive locks where possible, for example,
+when reading shared data.</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7f5d__WSc3ff6d0ea77859461172e0811cbec18db1-7fce"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7f5d__WSc3ff6d0ea77859461172e0811cbec18db1-7fce"><!-- --></a><h4 class="sectiontitle">Usage</h4><p>ColdFusion
+is a multi-threaded server; it can process multiple page requests
+at a time. Use the <samp class="codeph">cflock</samp> tag for these purposes:</p>
+<ul><li><p>To ensure that modifications to shared data and objects made
+in concurrently executing requests occur sequentially.</p>
+</li>
+<li><p>Around file manipulation constructs, to ensure that file
+updates do not fail because files are open for writing by other
+applications or tags.</p>
+</li>
+<li><p>Around CFX invocations, to ensure that ColdFusion can safely
+invoke CFXs that are not implemented in a thread-safe manner. (This
+applies only to CFXs developed in C++.) </p>
+<p>To work safely with
+ColdFusion, a C++ CFX that maintains and manipulates shared (global)
+data structures must be made thread-safe; however, this requires
+advanced knowledge. You can use a CFML custom tag wrapper around
+a CFX to make its invocation thread-safe.</p>
+<p>When you display,
+set, or update variables in a shared scope, use the <samp class="codeph">scope</samp> attribute
+to identify the scope as Server, Application or Session.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7f5d__WSc3ff6d0ea77859461172e0811cbec18db1-7fcd"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7f5d__WSc3ff6d0ea77859461172e0811cbec18db1-7fcd"><!-- --></a><h4 class="sectiontitle">Deadlocks</h4><p>A <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">deadlock</i> is
+a state in which no request can execute the locked section of a
+page. After a deadlock occurs, neither user can break it, because
+all requests to the protected section of the page are blocked until
+the deadlock can be resolved by a lock time-out.</p>
+<p>The <samp class="codeph">cflock</samp> tag
+uses kernel level synchronization objects that are released automatically
+upon time out and/or the abnormal termination of the thread that owns
+them. Therefore, while processing a <samp class="codeph">cflock</samp> tag,
+ColdFusion never deadlocks for an infinite period. However, large
+time-outs can block request threads for long periods, and radically
+decrease throughput. To prevent this, always use the minimum time-out
+value.</p>
+<p>Another cause of blocked request threads is inconsistent
+nesting of <samp class="codeph">cflock</samp> tags and inconsistent naming
+of locks. If you nest locks, everyone accessing the locked variables
+must consistently nest <samp class="codeph">cflock</samp> tags in the same
+order. Otherwise, a deadlock can occur. </p>
+<p>These examples show
+situations that cause deadlocks:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th colspan="2" valign="top" id="d17e61250"><p>Example deadlock with two users</p>
+</th>
+</tr>
+<tr><th valign="top" width="NaN%" id="d17e61254"><p>User 1</p>
+</th>
+<th valign="top" width="NaN%" id="d17e61257"><p>User 2</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e61250 d17e61254 "><p>Locks the session scope.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e61250 d17e61257 "><p>Locks the Application scope.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e61250 d17e61254 "><p>Deadlock: Tries to lock the Application
+scope, but it is already locked by User 2.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e61250 d17e61257 "><p>Deadlock: Tries to lock the Session scope,
+but it is already locked by User 1.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The following deadlock could occur if you
+tried to nest an exclusive lock inside a read lock: </p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e61282"><p>Example deadlock with one user</p>
+</th>
+</tr>
+<tr><th valign="top" width="NaN%" id="d17e61286"><p>User 1</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e61282 d17e61286 "><p>Locks the Session scope with a read lock.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e61282 d17e61286 "><p>Attempts to lock the Session scope with
+an exclusive lock. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e61282 d17e61286 "><p>Deadlock: Cannot lock the Session scope
+with an exclusive lock because the scope is already locked for reading.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The following code shows this scenario:</p>
+<pre>&lt;cflock timeout = "60" scope = "SESSION" type = "readOnly"&gt; 
+    ............... 
+    &lt;cflock timeout = "60" scope = "SESSION" type = "Exclusive"&gt; 
+    ......... 
+    &lt;/cflock&gt; 
+&lt;/cflock&gt;</pre>
+<p>To avoid a deadlock, everyone who
+nests locks must do so in a well-specified order and name the locks
+consistently. If you must lock access to the Server, Application,
+and Session scopes, do so in this order:</p>
+<ol><li><p>Lock the
+Session scope. In the <samp class="codeph">cflock</samp> tag, specify <samp class="codeph">scope</samp> = <samp class="codeph">"session"</samp>.</p>
+</li>
+<li><p>Lock the Application scope. In the <samp class="codeph">cflock</samp> tag,
+specify <samp class="codeph">scope </samp>=<samp class="codeph"> "Application"</samp>.</p>
+</li>
+<li><p>Lock the Server scope. In the <samp class="codeph">cflock</samp> tag,
+specify <samp class="codeph">scope</samp> = <samp class="codeph">"server"</samp>.</p>
+</li>
+<li><p>Unlock the Server scope.</p>
+</li>
+<li><p>Unlock the Application scope.</p>
+</li>
+<li><p>Unlock the Session scope.</p>
+<div class="note"><span class="notetitle">Note:  </span>If you do
+not have to lock a scope, you can skip any pair of these lock/unlock steps.
+For example, if you do not have to lock the Server scope, you can
+skip Steps 3 and 4. Similar rules apply for named locks.</div>
+<p>For
+more information, see the following:</p>
+<ul><li><p><a href="http://help.adobe.com/en_US/ColdFusion/9.0/Developing/WSc3ff6d0ea77859461172e0811cbec22c24-7fd4.html" target="_self">Using
+Persistent Data and Locking</a>  in the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Developing ColdFusion Applications</i>.</p>
+</li>
+<li><p><a href="http://help.adobe.com/en_US/ColdFusion/9.0/Developing/WSc3ff6d0ea77859461172e0811cbec22c24-7cc7.html" target="_self">Locking
+thread data and resource access</a>  in the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Developing ColdFusion Applications</i> (for
+information on locking the Request scope when you use the <samp class="codeph">cfthread</samp> tag
+to create multithreaded ColdFusion applications).</p>
+</li>
+<li><p><a href="http://www.adobe.com/go/learn_cfu_locking_bestpractices_en" target="_self">ColdFusion Locking Best Practices</a><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">,</i> on
+the Adobe website.</p>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7f5d__WSc3ff6d0ea77859461172e0811cbec18db1-7fed"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7f5d__WSc3ff6d0ea77859461172e0811cbec18db1-7fed"><!-- --></a><h4 class="sectiontitle">Example</h4><pre>&lt;!---  
+This example shows how cflock can guarantee consistency of data updates to variables in the 
+    Application, Server, and Session scopes. ---&gt; 
+ 
+&lt;!--- Copy the following code into an Application.cfm file in the  
+    application root directory. ---&gt; 
+&lt;!----------------   Beginning of Application.cfm code   ---------------&gt; 
+&lt;!--- cfapplication defines scoping for a ColdFusion application and enables or disables 
+    storing of application and session variables. Put this tag in a special file called 
+    Application.cfm. It is run before any other ColdFusion page in its directory. ---&gt; 
+ 
+&lt;!--- Enable session management for this application. ---&gt; 
+&lt;cfapplication name = "ETurtle"  
+    sessionTimeout = #CreateTimeSpan(0,0, 0, 60)#  
+    sessionManagement = "yes"&gt; 
+ 
+&lt;!--- Initialize session and application variables used by E-Turtleneck. Use session scope 
+    for the session variables. ---&gt;  
+&lt;cflock scope = "Session"  
+    timeout = "30" type = "Exclusive"&gt; 
+    &lt;cfif NOT IsDefined("session.size")&gt; 
+        &lt;cfset session.size = ""&gt; 
+    &lt;/cfif&gt; 
+    &lt;cfif NOT IsDefined("session.color")&gt; 
+        &lt;cfset session.color = ""&gt; 
+    &lt;/cfif&gt; 
+&lt;/cflock&gt; 
+ 
+&lt;!--- Use an application lock for the application-wide variable that keeps track of the 
+    number of turtlenecks sold. For a more efficient, but more complex, way of handling 
+    Application scope locking, see the "Developing ColdFusion Applications"---&gt; 
+&lt;cflock scope = "Application" timeout = "30" type = "Exclusive"&gt; 
+    &lt;cfif NOT IsDefined("application.number")&gt; 
+        &lt;cfset application.number = 0&gt; 
+    &lt;/cfif&gt; 
+&lt;/cflock&gt; 
+ 
+&lt;!----------------------- End of Application.cfm -----------------------&gt; 
+ 
+&lt;h3&gt;cflock Example&lt;/h3&gt; 
+ 
+&lt;cfif IsDefined("form.submit")&gt; 
+&lt;!--- The form has been submitted; process the request. ---&gt; 
+    &lt;cfoutput&gt; 
+        Thanks for shopping E-Turtleneck. You chose size &lt;b&gt;#form.size#&lt;/b&gt;,  
+        color &lt;b&gt;#form.color#&lt;/b&gt;.&lt;br&gt;&lt;br&gt; 
+    &lt;/cfoutput&gt; 
+ 
+&lt;!--- Lock the code that assigns values to session variables. ----&gt;  
+    &lt;cflock scope = "Session" timeout = "30" type = "Exclusive"&gt; 
+        &lt;cfparam name = session.size Default = #form.size#&gt; 
+        &lt;cfparam name = session.color Default = #form.color#&gt; 
+    &lt;/cflock&gt; 
+ 
+&lt;!---- Lock the code that updates the Application scope number of turtlenecks sold. ---&gt;  
+    &lt;cflock scope = "Application" timeout = "30" type = "Exclusive"&gt; 
+        &lt;cfset application.number = application.number + 1&gt; 
+    &lt;cfoutput&gt; 
+        E-Turtleneck has now sold #application.number# turtlenecks! 
+    &lt;/cfoutput&gt; 
+    &lt;/cflock&gt; 
+ 
+&lt;cfelse&gt; 
+&lt;!--- Show the form only if it has not been submitted. ---&gt; 
+    &lt;cflock scope = "Application" timeout = "30" type = "Readonly"&gt; 
+        &lt;cfoutput&gt; 
+            E-Turtleneck has sold #application.number# turtlenecks to date. 
+        &lt;/cfoutput&gt; 
+    &lt;/cflock&gt; 
+ 
+    &lt;form method="post" action="cflocktest.cfm"&gt; 
+        &lt;p&gt;Congratulations! You selected the most comfortable turtleneck in the world. 
+        Please select color and size.&lt;/p&gt;  
+        &lt;table cellspacing = "2" cellpadding = "2" border = "0"&gt; 
+            &lt;tr&gt; 
+                &lt;td&gt;Select a color.&lt;/td&gt; 
+                &lt;td&gt;&lt;select type = "Text" name = "color"&gt; 
+                        &lt;option&gt;red 
+                        &lt;option&gt;white 
+                        &lt;option&gt;blue 
+                        &lt;option&gt;turquoise 
+                        &lt;option&gt;black 
+                        &lt;option&gt;forest green 
+                    &lt;/select&gt; 
+                &lt;/td&gt; 
+            &lt;/tr&gt; 
+            &lt;tr&gt; 
+                &lt;td&gt;Select a size.&lt;/td&gt; 
+                &lt;td&gt;&lt;select type = "Text" name = "size" &gt; 
+                        &lt;option&gt;XXsmall 
+                        &lt;option&gt;Xsmall 
+                        &lt;option&gt;small 
+                        &lt;option&gt;medium 
+                        &lt;option&gt;large 
+                        &lt;option&gt;Xlarge 
+                    &lt;/select&gt; 
+                &lt;/td&gt; 
+            &lt;/tr&gt; 
+            &lt;tr&gt; 
+                &lt;td&gt;Press Submit when you are finished making your selection.&lt;/td&gt; 
+                &lt;td&gt;&lt;input type = "Submit" name = "submit" value = "Submit"&gt; &lt;/td&gt; 
+            &lt;/tr&gt; 
+        &lt;/table&gt; 
+    &lt;/form&gt; 
+&lt;/cfif&gt;</pre>
+</div>
+</div>
+
+
+<!-- BEGIN USER PREFERENCES -->
+          <div id="userprefs">
+          </div>
+<!-- END USER PREFERENCES -->
+
+          <div id="related">
+            
+            
+            <div class="separator">&#160;</div>
+          </div>
+          <div id="footer">
+<!-- BEGIN IONCOMMENTS -->
+            <div id="ionComHere">
+            </div>
+<!-- END IONCOMMENTS -->
+
+
+            <p id="creativecommons"><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" id="creativecommons_text"><img id="creativecommons_img" src="images/CC.png" alt="This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License" /></a>&nbsp;Twitter™ and Facebook posts are not covered under the terms of Creative Commons.</p>
+          </div>
+</td>
+<td width="10px"></td>
+<td id="inner_rightcolumn">
+
+</td></tr></table>
+      </div>
+<!-- BEGIN BREADCRUMBS -->
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec22c24-7cac.html" title="cflocation"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-7d0d.html" title="cflog"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>ColdFusion&#160;9&#160;CFML&#160;Reference</b></a> / <a href="WSc3ff6d0ea77859461172e0811cbec17576-7ffe.html"><b>ColdFusion Tags</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec18db1-7ffe.html"><b>Tags j-l</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+<!-- END CONTENT WRAPPER -->
+
+</td>
+<td id="col3">
+    <div>
+        <img src="images/adobe-lq.png" />
+    </div>
+</td>
+</tr>
+</table>
+    </div>
+<!-- END PAGE CONTENT WRAPPER -->
+<script type="text/javascript">
+<!--[CDATA[
+scrollToNameAnchor();
+// ]]-->
+</script> 
+<!--
+    Description:
+    This file generates the link to product support in the top right corner
+-->
+
+<style>
+#menutop{
+    position:absolute;
+    top:4px;
+    right:24px;
+    width:auto;    
+    font-size:11px;
+    color:#fff;
+    text-align:right;
+}
+#menutop a{
+    color:#fff;
+}
+#menutop a:hover{
+        text-decoration:underline;
+}
+</style>  
+  
+  
+  
+  
+<div id="productmenu">
+<!--googleoff: index-->
+  <div id="menutop">
+
+
+<script language=javascript type='text/javascript'>
+    // darken menu text for products with light backgrounds
+    var path = document.location.href.toLowerCase();
+    if (path.indexOf("/acrobat/")           	> 0 ||
+        path.indexOf("/acrobat.com/")       	> 0 ||
+        path.indexOf("/acrobatConnectPro/") 	> 0 ||
+        path.indexOf("/connect/")           	> 0 ||
+        path.indexOf("/livecycledataserviceses/") > 0 ||
+        path.indexOf("/muse/")         	> 0 ||
+	path.indexOf("/presenter/")         	> 0 ||
+        path.indexOf("/scene7/")            	> 0 ||
+        path.indexOf("/flashmediaserver/")  	> 0 ||
+        path.indexOf("/wave/")              	> 0 )
+    {
+        document.write('<style>#menutop a{color:#505050}</style>');
+    }
+    if (typeof('terms_AHV_PRODUCT_SUPPORT') != "undefined" && ! use_robohelp_behavior ){      
+        if (path.indexOf("/muse/") > -1 ){
+            var supportlink = '<a href="http://muse.adobe.com/support.html">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }else{
+            var supportlink = '<a href="http://adobe.com/support">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }
+        document.write( supportlink );
+     }
+
+</script> 
+
+  </div>
+<!--googleon: index-->
+</div>
+
+
+
+<style>
+#online-privacy-policy{ 
+    margin:10px 40px; 
+    font-size:11px;
+}
+</style>
+
+<p id="online-privacy-policy">
+<script language="javascript">
+var pageLoc = "en_US";
+var metaElements = document.all ?
+document.all.tags('meta') :
+document.getElementsByTagName ?
+document.getElementsByTagName ('meta') : new Array();
+for (var m = 0; m < metaElements.length; m++) {
+	if (metaElements[m].name == "lang") {
+		pageLoc = metaElements[m].content;
+		break;
+	}
+}
+var ptn = /(..)-(..)/;
+if (ptn.test(pageLoc)) {
+	var languageCode = pageLoc.replace(ptn, "$1");
+	var countryCode = pageLoc.replace(ptn, "$2");
+	pageLoc = languageCode + "_" + countryCode.toUpperCase();
+}
+
+var policyLoc = "en_US";
+var policyText = "Online Privacy Policy";
+var policyPath = "";
+var policyArray=[
+"da_DK", "Online fortrolighedserklæring",
+"de_DE", "Online-Datenschutzrichtlinie",
+"es_ES", "Política de confidencialidad en línea",
+"fi_FI", "Yksityisyyttä koskeva Online-toimintaohjelma",
+"fr_FR", "Confidentialité et sécurité",
+"it_IT", "Informativa sulla privacy online",
+"ja_JP", "プライバシーポリシー",
+"ko_KR", "Adobe 온라인 개인정보 보호정책",
+"pt_BR", "Política de Confidencialidade On-line", 
+"zh_CN", "在线隐私政策",
+"zh_TW", "線上隱私政策"
+];
+var legalLoc = "en_US";
+var legalText = "Legal Notices";
+var legalPath = legalLoc;
+var legalArray=[
+"ar_AE", "إشعارات قانونية",
+"bg_BG", "Юридически бележки",
+"cs_CZ", "Právní upozornění",
+"da_DK", "Juridiske meddelelser",
+"de_DE", "Rechtliche Hinweise",
+"el_GR", "Σημειώσεις νομικού περιεχομένου",
+"es_ES", "Avisos legales",
+"et_EE", "Juriidilised teated",
+"fi_FI", "Lakisääteiset ilmoitukset",
+"fr_FR", "Mentions légales",
+"he_IL", "הצהרות משפטיות",
+"hr_HR", "Pravne napomene",
+"hu_HU", "Jogi közlemények",
+"it_IT", "Informazioni legali",
+"ja_JP", "法律上の注意",
+"ko_KR", "법적 고지 사항",
+"lt_LT", "Teisinės pastabos",
+"lv_LV", "Juridisks paziņojums",
+"nb_NO", "Juridiske merknader",
+"nl_NL", "Juridische kennisgevingen",
+"pl_PL", "Informacje prawne",
+"pt_BR", "Aspectos jurídicos",
+"ro_RO", "Prevederi legale",
+"ru_RU", "Юридическая информация",
+"sk_SK", "Právne upozornenie",
+"sl_SI", "Pravni pouk",
+"sv_SE", "Upphovsrätt",
+"tr_TR", "Yasal uyarılar",
+"uk_UA", "Юридична інформація",
+"zh_CN", "法律声明",
+"zh_TW", "法律注意事項"
+];
+
+ruPolicy = "http://www.adobe.com/ru/misc/privacy.html";
+trPolicy = "http://www.adobe.com/tr/misc/privacy.html";
+
+// Bug 2846992: LOC: RUS, TUR: The link to "Online Privacy Policy" should include language, currently it is not appearing.
+if (pageLoc == "ru_RU") {
+	policyPath = "ru";
+}
+else if (pageLoc == "tr_TR") {
+	policyPath = "tr";
+}
+for (var i = 0; i < policyArray.length; i+=2) {
+	if (pageLoc == policyArray[i]) {
+		policyLoc = pageLoc;
+		policyText = policyArray[i+1];
+		var ptn = /(..)_(..)/;
+		if (ptn.test(policyLoc)) {
+			var countryCode = policyLoc.replace(ptn, "$2");
+			policyPath = countryCode.toLowerCase();
+		}
+		break;
+	}
+}
+
+for (var i = 0; i < legalArray.length; i+=2) {
+	if (pageLoc == legalArray[i]) {
+		legalLoc = pageLoc;
+		legalText = legalArray[i+1];
+		legalPath = legalLoc;
+		break;
+	}
+}
+if(agt.indexOf("community help client") > -1 ){
+	document.write('<a href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+}else{
+	//Open the privacy policy in a new window
+	document.write('<a target="_blank" href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a target="_blank" href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+} 
+</script>
+</p>
+
+
+
+<!-- localfooter.ssi -->
+
+<script type="text/javascript">
+    var debug = (top.location.href.indexOf("debug=true") > -1);
+</script>
+
+<script language="javascript">
+document.write('<scr'+'ipt ' +
+               'src="/en_US/ssi/_pod.js" ' +
+               'language="javascript" ' +
+               'charset="UTF-8"> ' +
+               '</scr'+'ipt>');
+</script>
+
+
+<script type="text/javascript">
+//
+//  Ethnio survey code
+//
+/*          DocumentID      EthnioID */
+/*          -------------   -------- */
+var ethnio=["/en_US/flash/cs/using/WSb03e830bd6f770ee6664507612436d7dede-8000.html", "87462",
+            "/en_US/creativesuite/cs/using/WSe851854fd1e0856a-4b08a77612477f69f15-8000.html",  "10441",
+            "/en_US/dreamweaver/cs/using/WSEE4C0148-A6F4-4bf5-9DEF-CE06AB026214a.html",  "57412"
+ 
+    ];
+                        
+    for ( var i = 0; i < ethnio.length ; i = i+2 ){
+        if ( document.location.href.indexOf( ethnio[i] ) > -1 ){ 
+            var headID = document.getElementsByTagName("head")[0];         
+            var ethnioScript = document.createElement('script');
+            ethnioScript.type = 'text/javascript';
+            ethnioScript.src = 'http://ethn.io/remotes/' + ethnio[i+1];        
+            if ( debug ){
+                alert ("Using Ethnio script: " + ethnioScript.src );
+            }else{
+                headID.appendChild(ethnioScript);
+            }
+        }
+    }
+</script>
+
+
+
+<div style="display: none;">
+<!-- SiteCatalyst -->
+<script language="JavaScript" type="text/javascript"><!--
+var s_code=' ';
+var s_docHost = window.location.hostname.toLowerCase();
+var s_docURL = window.location.pathname.toLowerCase();
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+if (s_docHost.indexOf(".corp.adobe") != -1 || s_docHost.indexOf("stage.") != -1 || s_docHost.indexOf(".dev.adobe") != -1 || s_docHost.indexOf("staging.") != -1) scJsHost="";
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/omniture_s_code.js' type='text/javascript'%3E%3C/script%3E"));
+//--></script>
+<script type="text/javascript"><!--
+var s_accountName;
+s_server="www.adobe.com static content pages";
+if (!window.s_account) s_accountName="mxmacromedia";
+else s_accountName=window.s_account;
+
+if (window.s_docURL.indexOf("/designcenter/") != -1)
+  s_channel="Adobe Design Center";	
+else if ((window.s_docHost.indexOf("labs.adobe") != -1) ||
+(window.s_docHost.indexOf("labs-staging.") != -1))
+  s_channel="Labs";
+else if (window.s_docHost.indexOf("help.adobe.com") != -1) {
+  s_channel="Support Help.adobe.com";
+  if (window.s_docURL.indexOf("/en_us/") == -1) {
+    s_docURLArray=s_docURL.split('/');
+    s_pageName="http://help.adobe.com/"+s_docURLArray[1]+"/"+ s_docURLArray[2]+"/"+s_docURLArray[3];
+    s_prop23="http://help.adobe.com"+window.location.pathname;
+  }
+}
+else if (window.s_docHost.indexOf("kb2.adobe.com") != -1) {
+  s_channel="Support Knowledgebase";
+  s_prop23="http://kb2.adobe.com"+s_docURL+":";
+  if (typeof(omtrProductList) != 'undefined' && omtrProductList.length > 0)
+ {
+    s_prop23=s_prop23+omtrProductList;
+  }
+}
+else if (window.s_docHost.indexOf("resellers.adobe.com") != -1) {
+		var s_pageName=document.getElementsByTagName("title")[0].text;
+}
+
+if (!window.scMMInclude) {
+	var s_wd=window,s_tm=new Date;
+	if(s_code!=' '){
+		s_code=s_dc(s_accountName);
+		if(s_code)document.write(s_code)
+	} 
+} else {
+	s_wds(s_accountName);s_ca(s_accountName); 
+}	
+
+function sendAnalyticsEvent(str){var ns=s_accountName;if(str!=null)ns+=","+str;void(s_gs(ns));}
+function sendLinkEvent(accnt,lnkname,type){
+accnt=s_accountName;s_linkType=type;s_lnk=true;s_linkName=lnkname;void(s_gs(accnt));}
+//--></script>
+<noscript><img src="http://stats.adobe.com/b/ss/mxmacromedia/1/H.15-XELvs/0?pageName=http%3A//www.adobe.com%3A%20noscript&ch=http%3A//www.adobe.com%3A%20noscript&g=http%3A//www.adobe.com" height="1" width="1" border="0" alt="" /></noscript>
+<!-- End SiteCatalyst -->
+</div>
+
+<script language="JavaScript" type="text/javascript">//<![CDATA[
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/atm/s_code_www.js' type='text/javascript'%3E%3C/script%3E"));
+//]]></script>
+<script type="text/javascript">//<![CDATA[
+if(s_adobe){	
+	s_adobe.server="www.adobe.com Static Content pages";
+	/* Set pageName */
+	s_adobe.s_URL="adobe.com"+((location.pathname.charAt(0)=='/')?location.pathname:'/'+location.pathname);
+	if (s_adobe.s_URL.substring(s_adobe.s_URL.lastIndexOf('/')+1)=="") s_adobe.s_URL=s_adobe.s_URL+"index.html";
+	s_adobe.s_URLSplit=s_adobe.s_URL.split("/");
+	s_adobe.pageName=s_adobe.s_URLSplit.join(":");
+
+	/* Set prop4 to language-locale */
+	var s_meta=document.getElementsByTagName('meta'); 
+      for (i=0; i<s_meta.length; i++) { 
+        if (s_meta[i].getAttribute("http-equiv") == "Content-Language") { 
+          s_adobe.prop4=s_meta[i].getAttribute("content"); 
+	    s_adobe.prop4=s_adobe.prop4.replace(/\s+/g,'');
+        } 
+      } 
+	s_adobe.t()
+}
+//]]></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

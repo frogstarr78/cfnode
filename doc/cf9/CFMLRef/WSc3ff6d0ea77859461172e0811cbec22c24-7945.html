@@ -1,0 +1,1531 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0022)http://help.adobe.com/ -->
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="lang" content="en-us" />
+    <meta name="area" content="livedocs" />
+    <title>Adobe&#160;ColdFusion&#160;9 * cfimage</title>
+    <link rel="shortcut icon" href="images/ColdFusionLinkIndicator.png" />
+    <meta name="book" content="ColdFusion&#160;9&#160;CFML&#160;Reference" />
+    <meta name="product" content="ColdFusion" />
+    <meta name="keywords" content="" /><!--<PageMap><DataObject type="document"><Attribute name="product" value="ColdFusion"></Attribute><Attribute name="book" value="ColdFusion&#160;9&#160;CFML&#160;Reference"></Attribute><Attribute name="keywords" value=""></Attribute></DataObject></PageMap>-->
+    
+    <script type="text/javascript" language="Javascript" charset="UTF-8"><!--[CDATA[
+        var currentTreeNode = "WSc3ff6d0ea77859461172e0811cbec22c24-7945.html";
+    document.cookie = "topicId=" + "WSc3ff6d0ea77859461172e0811cbec22c24-7945.html";
+// ]]--></script>
+<script src="terms.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="help.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script>  <script src="utilities.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="event.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="treeview.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="toc.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script> <script src="swfobject.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>  <script src="booklist.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>
+<script type="text/javascript">
+<!--[CDATA[
+var topictype = "topic";
+var headId = document.getElementsByTagName("head")[0];         
+if (use_ie_6_behavior) {
+  var linkId = document.createElement("link");
+  linkId.href = "content-ie6.css";
+  linkId.rel = "stylesheet";
+  linkId.type = "text/css";
+  headId.appendChild(linkId);
+}
+function initRoboHelpDOM() {
+  if (use_chm_behavior) {
+    hideElement("search");
+  }
+  if (use_robohelp_behavior) {
+    hideElement("search");
+    hideElement("productmenu");
+    //hideElement("notyourversion");
+  }
+  if(!use_chc_behavior) {
+    //document.getElementById("notyourversion").style.display = "inline";;
+  }
+}
+var dirname = location.pathname.match( /.*\// );    
+function setSearchUserPref(){
+  if ( document.cookie.indexOf( "ah_searchpref" ) > -1 ) {
+    if ( document.cookie.indexOf( dirname ) > 0 ) {
+      document.search.gsa.checked = true ;
+    }else{
+      document.search.gsa.checked = false ;            
+    }
+  }
+}
+YAHOO.util.Event.onDOMReady(initRoboHelpDOM);
+YAHOO.util.Event.onDOMReady(setSearchUserPref);
+// ]]-->
+</script>
+
+<!-- ********************************** -->
+<!-- START: ForeSee survey code in: /ssi/globalheader.ssi -->
+
+<script type="text/javascript">
+<!-- 
+// Enable the survey for only English, German and Japanese
+var agt=navigator.userAgent.toLowerCase();
+if ( agt.indexOf("community help client") == -1 ){
+    if ( document.location.href.indexOf("/en_US/") != -1 ){
+        showSurvey();
+//    }else if (document.location.href.indexOf("/de_DE/") != -1){
+//         var locale="de";
+//         showSurvey();
+    }else if (document.location.href.indexOf("/ja_JP/") != -1 ){
+         var locale="ja";
+         showSurvey();
+    }	
+}
+
+function showSurvey(){
+	document.write('<script type="text/javascript" src="/js/foresee/foresee-trigger.js"><\/scr'+'ipt>');
+}
+
+// -->
+</script>
+
+<!-- END: ForeSee survey code -->
+<!-- ******************************** -->
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="tree.css" />
+    <link rel="stylesheet" type="text/css" href="content.css" />
+    <link rel="stylesheet" type="text/css" href="localeSpecific.css" />
+  </head>
+  <body id="content_body" onload="window.focus();">
+    <a name="top" shape="rect"><!--LeaveCommentHere--></a>
+    
+    <div id="mnemonic">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon" class="ColdFusion"><div class="banner"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html">Adobe&#160;ColdFusion&#160;9</a><span id="notyourversion">|&#160;
+                    <a rel="nofollow" href="http://www.adobe.com/support/documentation/en/coldfusion/">Not your version?</a></span></div></div><!--googleon: index-->
+    </div>
+    
+    <div id="searchbar">
+<table id="searchbartable">
+<tr>
+<td colspan="2">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon"><div id="pdf"><img src="images/PDF.gif" width="16" height="16" /><a title="View Help PDF" href="coldfusion_9_cfmlref.pdf">View Help PDF ( 32MB)</a></div></div><!--googleon: index-->
+</td>
+</tr>
+</table>
+    </div>
+
+<!-- BEGIN SEARCH CONTENT -->
+<form id="search" name="search" action="search.html" target="_self">
+<script type="text/javascript">
+<!--[CDATA[
+if ( !use_chc_behavior ){
+    if (typeof(terms_AHV_SEARCH_CONSTRAINT) != "undefined" && 
+        terms_AHV_SEARCH_CONSTRAINT.length > 0 && 
+        document.location.href.indexOf(".adobe.com") > 0){
+        if ( typeof(terms_SEARCH_THIS_HELP_ONLY) != "undefined" && terms_SEARCH_THIS_HELP_ONLY == "ON" ) {
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                checked="checked" \
+                value="1" ><\/input>'); 
+                
+        // Leave the "Search this help system only" checkbox unckecked
+        }else{    
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                value="1" ><\/input>'); 
+        }
+        document.write('<span class="gsalabel">' + terms_AHV_SEARCH_CONSTRAINT + '<\/span><\/div>'); 
+    }
+    document.write('<input class="searchinput" \
+        name="q" \
+        id="q" \
+        type="text" \
+        maxlength="256" \
+        value="' + terms_AHV_SEARCH_BUTTON + '" \
+        onclick="clearSearch()"><\/input><input \
+        type="button" \
+        name="searchbutton" \
+        class="searchbutton" \
+        onclick="submit()"><\/input>'); 
+} 
+ 
+/* 
+ * Start Functions 
+ */
+function clearSearch(){
+    if (document.search.q.value == terms_AHV_SEARCH_BUTTON){document.search.q.value = ""}; 
+}
+
+// set search preferences
+function setAHSearchPref(){
+    if (document.search.gsa.checked == 1){
+        setAHSearchCookie( dirname );
+    }else{
+        setAHSearchCookie( "community" );
+    }
+}
+
+// Set search preferences cookie
+function setAHSearchCookie( p ){
+    // set cookie ah_searchpref with a value of the document path
+    var expire=new Date();
+    expire.setDate(expire.getDate()+365); // Cookie expires after 1 year (365 days) 
+    document.cookie="ah_searchpref=" +p+ "; expires=" +expire.toGMTString()+ ";";
+}
+
+// ]]-->
+</script> 
+ </form>
+<!-- END SEARCH CONTENT -->    
+
+
+
+<!-- BEGIN PAGE CONTENT WRAPPER -->
+    <div id="page_content_wrapper">
+<!-- BEGIN PAGE WRAPPER -->
+<table id="page_content_table">
+<tr>
+
+<td id="col2">
+<!-- BEGIN CONTENT WRAPPER -->
+<!-- BEGIN BREADCRUMBS -->
+
+      
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec22c24-7fe8.html" title="cfif"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WS371453EC-36D5-44ce-BF1E-750E3016BBD6.html" title="cfimap"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>ColdFusion&#160;9&#160;CFML&#160;Reference</b></a> / <a href="WSc3ff6d0ea77859461172e0811cbec17576-7ffe.html"><b>ColdFusion Tags</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec18a66-8000.html"><b>Tags i</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+      <div id="content_wrapper">
+<!-- BEGIN PAGE TITLE -->
+        <h1>cfimage</h1>
+<!-- END PAGE TITLE -->
+<!-- BEGIN IONCOMMENTCOUNT -->
+        <div id="ionCount">
+        </div>
+<!-- END IONCOMMENTCOUNT -->
+<table id="inner_content_table" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>
+          <div style="border-top:#ccc solid 1px;"><p> </p>
+          </div>
+<p id="chcPromo" style="display:none;">
+<a id="chcLink" href="http://www.adobe.com/support/chc/">
+<img id="chcImage" src="http://www.adobe.com/support/chc/GetMoreHelpFeatures.png"/>
+</a>
+</p>
+<script type="text/javascript" language="javascript" charset="utf-8">
+<!--
+var cfgArray = [];
+//cfgArray["Acrobat_10.0_Professional.helpcfg"] = "acrobatpro";
+//cfgArray["Acrobat_10.0_Standard.helpcfg"] = "acrobatstd";
+cfgArray["Lightroom_3.0.helpcfg"] = "lightroom";
+cfgArray["PhotoshopElements_8.0_Win.helpcfg"] = "photoshopelements";
+cfgArray["PhotoshopElements_8.0_Mac.helpcfg"] = "photoshopelementsmac";
+cfgArray["PremiereElements_8.0_Win.helpcfg"] = "premiereelements";
+
+//cfgArray["AfterEffects_10.0.helpcfg"] = "aftereffects";
+//cfgArray["AIR.helpcfg"] = "air";
+//cfgArray["ColdFusionBuilder.helpcfg"] = "coldfusion";
+//cfgArray["Contribute_6.0.helpcfg"] = "contribute";
+//cfgArray["DeviceCentral_3.0.helpcfg"] = "devicecentral";
+//cfgArray["Dreamweaver_11.0.helpcfg"] = "dreamweaver";
+//cfgArray["EncoreDVD_5.0.helpcfg"] = "encore";
+//cfgArray["ExtensionManager_3.0.helpcfg"] = "extension";
+//cfgArray["Fireworks_11.0.helpcfg"] = "fireworks";
+//cfgArray["Flash_11.0.helpcfg"] = "flash";
+//cfgArray["Flex_4.0.helpcfg"] = "flashbuilder";
+//cfgArray["FlashCatalyst_1.0.helpcfg"] = "flashcatalyst";
+//cfgArray["Illustrator_15.0.helpcfg"] = "illustrator";
+//cfgArray["InCopy_7.0.helpcfg"] = "incopy";
+//cfgArray["InDesign_7.0.helpcfg"] = "indesign";
+//cfgArray["OnLocation_5.0.helpcfg"] = "onlocation";
+//cfgArray["Photoshop_12.0.helpcfg"] = "photoshop";
+//cfgArray["PremierePro_5.0.helpcfg"] = "premierepro";
+
+function getLangName() {
+    var lang = "en-us";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if (ptn.test(lang)) {
+        var languageCode = lang.replace(ptn, "$1");
+        var countryCode = lang.replace(ptn, "$2");
+        lang = languageCode + "_" + countryCode.toUpperCase();
+    }
+    return lang;
+}
+
+function getCountryName() {
+    var lang = "";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if ((ptn.test(lang)) && (lang != "en-us")) {
+        var countryCode = lang.replace(ptn, "$2");
+        return "/" + countryCode;
+    }
+    return "";
+}
+
+if ( (typeof(terms_HELPCFG) != 'undefined')  && (terms_HELPCFG.indexOf(".helpcfg") != -1) ) {
+    var stage   = (document.location.href.indexOf(".stage.") != -1) ? 'stage.' : '';
+    var baseUrl = 'http://www.' + stage + 'adobe.com';
+    var refpage = document.location.href.replace(/#.*$/, '');
+	
+	if ((!use_robohelp_behavior) && (terms_HELPCFG.length > 0) && (typeof(cfgArray[terms_HELPCFG]) != 'undefined') && (cfgArray[terms_HELPCFG].length > 0)) {
+		if (document.getElementById) { // DOM3 = IE5, NS6
+			var newHref = baseUrl + getCountryName() + "/support/chc/" + "?helpcfg=http://help." + stage + "adobe.com/HelpCfg/" + getLangName() + "/" + terms_HELPCFG + "&url=" + refpage + "&product=" + cfgArray[terms_HELPCFG];
+			var newSrc = baseUrl + getCountryName() + "/support/chc/GetMoreHelpFeatures.png";
+			document.getElementById("chcPromo").style.display = "block";
+			document.getElementById("chcLink").href = newHref;
+			document.getElementById("chcImage").src = newSrc;
+		}
+	}
+}
+
+//-->
+</script>
+
+
+
+          <div><div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7945__WSc3ff6d0ea77859461172e0811cbec18a66-7ff3"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7945__WSc3ff6d0ea77859461172e0811cbec18a66-7ff3"><!-- --></a><h4 class="sectiontitle">Description</h4><p>Creates
+a ColdFusion image. You can use the <samp class="codeph">cfimage</samp> tag
+to perform common image manipulation operations as a shortcut to <samp class="codeph">Image</samp> functions.
+You can use the <samp class="codeph">cfimage</samp> tag independently or in
+conjunction with <samp class="codeph">Image</samp> functions.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7945__WSc3ff6d0ea77859461172e0811cbec18a66-7ff2"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7945__WSc3ff6d0ea77859461172e0811cbec18a66-7ff2"><!-- --></a><h4 class="sectiontitle">History</h4><p>ColdFusion
+8: Added this tag.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7945__WSc3ff6d0ea77859461172e0811cbec18a66-7ff1"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7945__WSc3ff6d0ea77859461172e0811cbec18a66-7ff1"><!-- --></a><h4 class="sectiontitle">Category</h4><p>Other
+tag</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7945__WSc3ff6d0ea77859461172e0811cbec18a66-7ff0"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7945__WSc3ff6d0ea77859461172e0811cbec18a66-7ff0"><!-- --></a><h4 class="sectiontitle">Syntax</h4><pre><strong>Add a border to an image </strong> 
+&lt;cfimage 
+    <strong>required </strong> 
+    action = "border" 
+    <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">source = "absolute pathname|pathname relative to the web root|URL|#cfimage variable#"</i> 
+    <strong>optional</strong> 
+    color = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">hexadecimal value</i>|<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">web color</i>" 
+    destination = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">absolute pathname</i>|<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">pathname relative to the web root</i>" 
+    isBase64 = "yes|no" 
+    name = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">cfimage variable</i>" 
+    overwrite = "yes|no" 
+    thickness = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">number of pixels</i>"&gt; 
+ 
+<strong>Create a CAPTCHA image</strong> 
+&lt;cfimage 
+    <strong>required</strong> 
+    action = "captcha" 
+    height = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">number of pixels</i>" 
+    text = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">text string</i>" 
+    width = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">number of pixels</i>" 
+    <strong>optional</strong> 
+    destination = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">absolute pathname</i>|<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">pathname relative to the web root</i>" 
+    difficulty = "high|medium|low" 
+    overwrite = "yes|no" 
+    fonts = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">comma-separated list of font names</i>" 
+    fontSize = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">point size</i>"&gt; 
+ 
+<strong>Convert an image file format</strong> 
+&lt;cfimage 
+    <strong>required</strong> 
+    action = "convert" 
+    destination = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">absolute pathname</i>|<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">pathname relative to the web root</i>" 
+    <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">source = "absolute pathname|pathname relative to the web root"|URL|#cfimage variable#</i> 
+    <strong>optional</strong> 
+    isBase64 = "yes|no" 
+    name = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">cfimage variable</i>" 
+    overwrite = "yes|no"&gt; 
+ 
+<strong>Retrieve information about an image</strong> 
+&lt;cfimage 
+    <strong>required</strong> 
+    action = "info" 
+    <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">source = "absolute pathname|pathname relative to the web </i>root|URL|#cfimage variable#" 
+    structname = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">structure name</i>" 
+    <strong>optional</strong> 
+    isBase64 = "yes|no"&gt; 
+ 
+<strong>Read an image into memory</strong> 
+&lt;cfimage 
+    <strong>required</strong> 
+    name = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">cfimage variable</i>" 
+    <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">source = "absolute pathname|pathname relative to the web </i>root|URL|#cfimage variable#" 
+    <strong>optional</strong> 
+    action = "read" 
+    isBase64 = "yes|no"&gt; 
+ 
+<strong>Resize an image</strong> 
+&lt;cfimage 
+    <strong>required</strong> 
+    action = "resize" 
+    height = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">number of pixels</i>|<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">percent%</i>" 
+    <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">source = "absolute pathname|pathname relative to the web </i>root|URL|#cfimage variable#" 
+    width = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">number of pixels</i>|<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">percent%</i>" 
+    <strong>optional</strong> 
+    destination = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">absolute pathname</i>|<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">pathname relative to the web root</i>" 
+    isBase64 = "yes|no" 
+    name = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">cfimage variable</i>" 
+    overwrite = "yes|no"&gt; 
+ 
+<strong>Rotate an image</strong> 
+&lt;cfimage 
+    <strong>required</strong> 
+    action = "rotate" 
+    angle = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">angle in degrees</i>" 
+    <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">source = "absolute pathname|pathname relative to the web </i>root|URL|#cfimage variable#" 
+    <strong>optional</strong> 
+    destination = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">absolute pathname</i>|<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">pathname relative to the web root</i>" 
+    isBase64= "yes|no" 
+    name = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">cfimage variable</i>" 
+    overwrite = "yes|no"&gt; 
+ 
+<strong>Write an image to a file</strong> 
+&lt;cfimage 
+    <strong>required</strong> 
+    action = "write" 
+    destination = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">absolute pathname</i>|<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">pathname relative to the web root</i>" 
+    source = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">absolute or relative pathname</i>|<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">URL</i>|<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">#cfimage variable#</i>" 
+    <strong>optional</strong> 
+    isBase64= "yes|no" 
+    overwrite = "yes|no" 
+    quality = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">JPEG image quality</i>"&gt; 
+ 
+<strong>Write an image to the browser</strong> 
+&lt;cfimage 
+    <strong>required</strong> 
+    action = "writeToBrowser" 
+    <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">source = "absolute pathname|pathname relative to the web </i>root|URL|#cfimage variable#" 
+    <strong>optional</strong> 
+    format = "png|jpg|jpeg" 
+    isBase64= "yes|no"&gt;</pre>
+<div class="note"><span class="notetitle">Note:  </span>You can
+specify this tag’s attributes in an <samp class="codeph">attributeCollection</samp> attribute
+whose value is a structure. Specify the structure name in the <samp class="codeph">attributeCollection</samp> attribute
+and use the tag’s attribute names as structure keys.</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7945__WSc3ff6d0ea77859461172e0811cbec18a66-7fef"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7945__WSc3ff6d0ea77859461172e0811cbec18a66-7fef"><!-- --></a><h4 class="sectiontitle">See also</h4><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-796a.html">ImageAddBorder</a></samp>, <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7972.html">ImageInfo</a></samp>, <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-796f.html">ImageNew</a></samp>, <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-796e.html">ImageRead</a></samp>, <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-796d.html">ImageReadBase64</a></samp>, <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7961.html">ImageResize</a></samp>, <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7960.html">ImageRotate</a></samp>, <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-796c.html">ImageWrite</a></samp>, <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-796b.html">ImageWriteBase64</a></samp>, <a href="http://help.adobe.com/en_US/ColdFusion/9.0/Developing/WSc3ff6d0ea77859461172e0811cbec22c24-7985.html" target="_self">Creating
+and Manipulating ColdFusion Images</a>  in the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Developing ColdFusion Applications</i></p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7945__WSc3ff6d0ea77859461172e0811cbec18a66-7fee"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7945__WSc3ff6d0ea77859461172e0811cbec18a66-7fee"><!-- --></a><h4 class="sectiontitle">Attributes</h4>
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e50530"><p>Attribute</p>
+</th>
+<th valign="top" width="NaN%" id="d17e50533"><p>Action</p>
+</th>
+<th valign="top" width="NaN%" id="d17e50536"><p>Req/Opt</p>
+</th>
+<th valign="top" width="NaN%" id="d17e50539"><p>Default</p>
+</th>
+<th valign="top" width="NaN%" id="d17e50542"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e50530 "><p><samp class="codeph">action</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50533 "><p>N/A</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50536 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50539 "><p><samp class="codeph">read</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50542 "><p>Action to take. Must be one of the following:</p>
+<div class="para"><ul><li><p><samp class="codeph">border</samp></p>
+</li>
+<li><p><samp class="codeph">captcha</samp></p>
+</li>
+<li><p><samp class="codeph">convert</samp></p>
+</li>
+<li><p><samp class="codeph">info</samp></p>
+</li>
+<li><p><samp class="codeph">read</samp></p>
+</li>
+<li><p><samp class="codeph">resize</samp></p>
+</li>
+<li><p><samp class="codeph">rotate</samp></p>
+</li>
+<li><p><samp class="codeph">write</samp></p>
+</li>
+<li><p><samp class="codeph">writeToBrowser</samp></p>
+</li>
+</ul>
+</div>
+<p>The default
+action is <samp class="codeph">read</samp>, which you do not need to specify
+explicitly.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e50530 "><p><samp class="codeph">angle</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50533 "><p><samp class="codeph">rotate</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50536 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50539 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50542 "><p>Angle in degrees to rotate the image.</p>
+<p>Specify
+an integer for the value.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e50530 "><p><samp class="codeph">color</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50533 "><p><samp class="codeph">border</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50536 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50539 "><p><samp class="codeph">black</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50542 "><p>Border color.</p>
+<p>Hexadecimal value or
+supported named color; see the name list in Valid HTML named colors
+section. For a hexadecimal value, use the form <samp class="codeph">"##xxxxxx" </samp>or
+"<samp class="codeph">xxxxxx"</samp>, where x = 0-9 or A-F; use two number
+signs or none.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e50530 "><p><samp class="codeph">destination</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50533 "><p><samp class="codeph">border</samp></p>
+<p><samp class="codeph">captcha</samp></p>
+<p><samp class="codeph">convert</samp></p>
+<p><samp class="codeph">resize</samp></p>
+<p><samp class="codeph">rotate</samp></p>
+<p><samp class="codeph">write</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50536 "><p>Optional (see Description)</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50539 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50542 "><p>Absolute or relative pathname where the
+image output is written. The image format is determined by the file
+extension.</p>
+<p>The <samp class="codeph">convert</samp> and <samp class="codeph">write</samp> actions
+require a <samp class="codeph">destination</samp> attribute. The <samp class="codeph">border</samp>, <samp class="codeph">captcha</samp>, <samp class="codeph">resize</samp>,
+and <samp class="codeph">rotate</samp> actions require a <samp class="codeph">name</samp> attribute
+or a <samp class="codeph">destination</samp> attribute. You can specify both. ColdFusion
+supports only CAPTCHA images in PNG format.</p>
+<p>If you do not
+enter a <samp class="codeph">destination</samp>, the CAPTCHA image is placed inline
+in the HTML output and displayed in the web browser.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e50530 "><p><samp class="codeph">difficulty</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50533 "><p><samp class="codeph">captcha</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50536 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50539 "><p><samp class="codeph">low</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50542 "><p>Level of complexity of the CAPTCHA text.
+Specify one of the following levels of text distortion:</p>
+<div class="para"><ul><li><p><samp class="codeph">low</samp></p>
+</li>
+<li><p><samp class="codeph">medium</samp></p>
+</li>
+<li><p><samp class="codeph">high</samp></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e50530 "><p><samp class="codeph">fonts</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50533 "><p><samp class="codeph">captcha</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50536 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50539 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50542 "><p>One or more valid fonts to use for the CAPTCHA
+text. Separate multiple fonts with commas. ColdFusion supports only
+the system fonts that the JDK can recognize. For example, TTF fonts
+in the Windows directory are supported on Windows.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e50530 "><p><samp class="codeph">fontSize</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50533 "><p><samp class="codeph">captcha</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50536 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50539 "><p>24 </p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50542 "><p>Font size of the text in the CAPTCHA image.</p>
+<p>The
+value must be an integer.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e50530 "><p><samp class="codeph">format</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50533 "><p><samp class="codeph">writeToBrowser</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50536 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50539 "><p><samp class="codeph">PNG</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50542 "><p>Format of the image displayed in the browser.
+If you do not specify a format, the image is displayed in PNG format.</p>
+<p>You
+cannot display a GIF image in a browser. GIF images are displayed
+in PNG format.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e50530 "><p><samp class="codeph">height</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50533 "><p><samp class="codeph">captcha</samp></p>
+<p><samp class="codeph">resize</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50536 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50539 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50542 "><p>Height in pixels of the image.</p>
+<p>For
+the <samp class="codeph">resize</samp> attribute, you also can specify the
+height as a percentage (an integer followed by the percent (<samp class="codeph">%</samp>)symbol).</p>
+<p>When
+you resize an image, if you specify a value for the width, you can
+let ColdFusion calculate the aspect ratio by specifying "" as the height.</p>
+<p>If
+specified, the value must be an integer.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e50530 "><p><samp class="codeph">isBase64</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50533 "><p><samp class="codeph">border</samp></p>
+<p><samp class="codeph">convert</samp></p>
+<p><samp class="codeph">info</samp></p>
+<p><samp class="codeph">read</samp></p>
+<p><samp class="codeph">resize</samp></p>
+<p><samp class="codeph">rotate</samp></p>
+<p><samp class="codeph">write</samp></p>
+<p><samp class="codeph">writeToBrowser</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50536 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50539 "><p><samp class="codeph">no </samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50542 "><p>Specifies whether the source is a Base64
+string:</p>
+<div class="para"><ul><li><p><samp class="codeph">yes</samp>: the source is a Base64
+string.</p>
+</li>
+<li><p><samp class="codeph">no</samp>: the source is not a Base64 string.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e50530 "><p><samp class="codeph">name</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50533 "><p>border</p>
+<p>convert</p>
+<p>read</p>
+<p>resize</p>
+<p>rotate</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50536 "><p>Optional</p>
+<p>(see Description)</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50539 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50542 "><p>Name of the ColdFusion image variable to
+create.</p>
+<p>The <samp class="codeph">read</samp> action requires a <samp class="codeph">name</samp> attribute.</p>
+<p>The <samp class="codeph">border</samp>, <samp class="codeph">resize</samp>,
+and <samp class="codeph">rotate</samp> actions require a <samp class="codeph">name</samp> attribute or
+a <samp class="codeph">destination</samp> attribute. You can specify both.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e50530 "><p><samp class="codeph">overwrite</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50533 "><p>border</p>
+<p>captcha</p>
+<p>convert</p>
+<p>read</p>
+<p>resize</p>
+<p>rotate </p>
+<p><samp class="codeph">write </samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50536 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50539 "><p><samp class="codeph">no</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50542 "><p>Valid only if the <samp class="codeph">destination</samp> attribute
+is specified. The <samp class="codeph">overwrite</samp> values are:</p>
+<div class="para"><ul><li><p><samp class="codeph">yes</samp>: overwrites the destination file.</p>
+</li>
+<li><p><samp class="codeph">no</samp>: does not overwrite the destination file.</p>
+</li>
+</ul>
+</div>
+<p>If
+the destination file exists, ColdFusion generates an error if the <samp class="codeph">overwrite</samp> action
+is not set to yes.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e50530 "><p><samp class="codeph">quality</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50533 "><p><samp class="codeph">write</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50536 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50539 "><p>0.75</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50542 "><p>Quality of the JPEG destination file. Applies
+only to files with an extension of JPG or JPEG. Valid values are
+fractions that range from 0 through 1 (the lower the number, the
+lower the quality).</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e50530 "><p><samp class="codeph">source</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50533 "><p><samp class="codeph">border</samp></p>
+<p><samp class="codeph">convert</samp></p>
+<p><samp class="codeph">info</samp></p>
+<p><samp class="codeph">read</samp></p>
+<p><samp class="codeph">resize</samp></p>
+<p><samp class="codeph">rotate</samp></p>
+<p><samp class="codeph">write</samp></p>
+<p><samp class="codeph">writeToBrowser</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50536 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50539 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50542 "><div class="para"><ul><li><p>URL of the source image; for
+example, "<samp class="codeph">http://www.google.com/images/logo.gif</samp>"</p>
+</li>
+<li><p>Absolute pathname or a pathname relative to the web root;
+for example: <samp class="codeph">"c:\images\logo.jpg"</samp></p>
+</li>
+<li><p>ColdFusion image variable containing another image, BLOB,
+or byte array; for example, "#<samp class="codeph">myImage</samp>#"</p>
+</li>
+<li><p>Base64 string; for example, "data:image/jpg;base64,/9j/4AAQSkZJRgABAQA.............."</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e50530 "><p><samp class="codeph">structName</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50533 "><p><samp class="codeph">info</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50536 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50539 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50542 "><p>Name of the ColdFusion structure
+to be created.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e50530 "><p><samp class="codeph">text</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50533 "><p><samp class="codeph">captcha</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50536 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50539 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50542 "><p>Text string displayed in the CAPTCHA image.
+Use capital letters for better readability. Do not include spaces
+because users cannot detect them in the resulting CAPTCHA image.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e50530 "><p><samp class="codeph">thickness</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50533 "><p><samp class="codeph">border</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50536 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50539 "><p>1</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50542 "><p>Border thickness in pixels. The border is
+added to the outside edge of the source image, increasing the image
+area accordingly.</p>
+<p>The value must be an integer.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e50530 "><p><samp class="codeph">width</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50533 "><p><samp class="codeph">captcha</samp></p>
+<p><samp class="codeph">resize</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50536 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50539 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e50542 "><p>Width in pixels of the image.</p>
+<p>For <samp class="codeph">resize</samp>,
+you also can specify the width as a percentage (an integer followed
+by the % symbol).</p>
+<p>When you resize an image, if you specify
+a value for the height, you can let ColdFusion calculate the aspect
+ratio by specifying "" as the width.</p>
+<p>If specified, the value
+must be an integer.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7945__WSc3ff6d0ea77859461172e0811cbec18a66-7fed"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7945__WSc3ff6d0ea77859461172e0811cbec18a66-7fed"><!-- --></a><h4 class="sectiontitle">Usage</h4><p>ColdFusion
+provides the <samp class="codeph">cfimage</samp> tag and the ColdFusion image,
+a construct native to ColdFusion that contains image data. You can
+manipulate ColdFusion images in memory and write them to a file,
+a database, or directly to a browser. You use the <samp class="codeph">cfimage</samp> tag
+to create ColdFusion images from existing image files and perform
+simple image actions, such as rotating or resizing. Alternatively,
+you can use the <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-796f.html">ImageNew</a></samp> function to create
+a ColdFusion image from the beginning or from an existing image.
+You can use the <samp class="codeph">Image</samp> functions to perform complex
+image manipulation operations on ColdFusion images that you create
+with the <samp class="codeph">cfimage</samp> tag or with the <samp class="codeph">ImageNew</samp> function.</p>
+<p>You
+can perform the following tasks with ColdFusion images:</p>
+<ul><li><p>Convert an image from one file format to another. For example,
+you can convert a BMP file to a JPEG file or a Base64 string to
+a GIF.</p>
+</li>
+<li><p>Enforce consistent sizes on files uploaded to the server.</p>
+</li>
+<li><p>Enforce size limits on JPEG images (by changing the quality
+of the image).</p>
+</li>
+<li><p>Save a ColdFusion image to a file or write the image directly
+to a browser.</p>
+</li>
+<li><p>Use the <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7971.html">ImageGetBlob</a></samp> function within
+the <samp class="codeph">cfquery</samp> tag to insert a ColdFusion image as
+a Binary Large Object Bitmap (BLOB) in a database. Also, you can
+extract a BLOB from a database and generate a ColdFusion image from
+it.</p>
+</li>
+<li><p>Create watermark images.</p>
+</li>
+<li><p>Create thumbnail images.</p>
+</li>
+<li><p>Create a Completely Automated Public Turing test to tell
+Computers and Humans Apart (CAPTCHA) image, a distorted text image
+that is human-readable, but not machine-readable, used in a challenge-response
+test for preventing spam.</p>
+</li>
+</ul>
+<p>For more detailed examples,
+see <a href="http://help.adobe.com/en_US/ColdFusion/9.0/Developing/WSc3ff6d0ea77859461172e0811cbec22c24-7985.html" target="_self">Creating
+and Manipulating ColdFusion Images</a>  in the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Developing ColdFusion Applications</i>.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7945__WSc3ff6d0ea77859461172e0811cbec18a66-7ffd"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7945__WSc3ff6d0ea77859461172e0811cbec18a66-7ffd"><!-- --></a><h4 class="sectiontitle">File attributes</h4><p>Use the following syntax to specify an in-memory
+file, which is not written to disk in the <samp class="codeph">destination</samp> and <samp class="codeph">source</samp> attributes.
+In-memory files speed processing of transient data.</p>
+<pre>ram:///<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">filepath</i></pre>
+<p>The
+filepath can include directories, for example <samp class="codeph">ram:///petStore/images/poodle.jpg</samp>.
+Create the directories in the path before you specify the file.
+For more information on using in-memory files, see <a href="http://help.adobe.com/en_US/ColdFusion/9.0/Developing/WSe9cbe5cf462523a0-70e2363b121825b20e7-8000.html" target="_self">Working
+with in-memory files</a> in the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Developing ColdFusion Applications</i>.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7945__WSc3ff6d0ea77859461172e0811cbec22c24-7940"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7945__WSc3ff6d0ea77859461172e0811cbec22c24-7940"><!-- --></a><h4 class="sectiontitle">Supported image file formats</h4><p>The <samp class="codeph">cfimage</samp> tag operates
+on a number of different file formats. To list the formats that
+are supported on the server where the ColdFusion application is deployed,
+use the <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-797a.html">GetReadableImageFormats</a></samp> function
+and the <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7979.html">GetWriteableImageFormats</a></samp> function.</p>
+<p>ColdFusion
+supports the following default image formats on Macintosh, Windows,
+and Unix operating systems:</p>
+<ul><li><p>JPEG</p>
+</li>
+<li><p>GIF</p>
+</li>
+<li><p>TIFF</p>
+</li>
+<li><p>PNG</p>
+</li>
+<li><p>BMP</p>
+</li>
+</ul>
+<p>ColdFusion does not support the following
+image formats:</p>
+<ul><li><p>Animated GIF</p>
+</li>
+<li><p>Multipage TIFF</p>
+</li>
+<li><p>PSD</p>
+</li>
+<li><p>AI</p>
+</li>
+</ul>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7945__WSc3ff6d0ea77859461172e0811cbec18a66-7fbf"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7945__WSc3ff6d0ea77859461172e0811cbec18a66-7fbf"><!-- --></a><h4 class="sectiontitle">CMYK support</h4><p>The <samp class="codeph">cfimage</samp> tag supports reading
+and writing CMYK images, but does not support actions that require
+converting the images. For example, you can use CMYK images with
+the <samp class="codeph">read</samp>, <samp class="codeph">write</samp>, <samp class="codeph">writeToBrowser</samp>, <samp class="codeph">resize</samp>, <samp class="codeph">rotate</samp>, and <samp class="codeph">info</samp> actions.
+You cannot use CMYK images with the <samp class="codeph">convert</samp>, <samp class="codeph">captcha</samp>, and <samp class="codeph">border</samp> actions.
+The same rule applies to image functions. For example, the <samp class="codeph">ImageNew</samp>, <samp class="codeph">ImageRead</samp>,
+and <samp class="codeph">ImageWrite</samp> functions support CMYK images, but
+the <samp class="codeph">ImageAddBorder</samp> function does not.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7945__WSc3ff6d0ea77859461172e0811cbec22c24-7281"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7945__WSc3ff6d0ea77859461172e0811cbec22c24-7281"><!-- --></a><h4 class="sectiontitle">Valid HTML named colors</h4><p>The following table lists the W3C HTML
+4 named color value or hexadecimal values that the <samp class="codeph">color</samp> attribute
+accepts:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e51365"><p>Color name</p>
+</th>
+<th valign="top" width="NaN%" id="d17e51368"><p>RGB value </p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e51365 "><p>Black </p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51368 "><p>##000000</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51365 "><p>Blue</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51368 "><p>##0000FF</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51365 "><p>Red</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51368 "><p>##FF0000</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51365 "><p>Gray</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51368 "><p>##808080</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51365 "><p>LightGray</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51368 "><p>##D3D3D3</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51365 "><p>DarkGray</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51368 "><p>##A9A9A9</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51365 "><p>Green</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51368 "><p>##008000</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51365 "><p>Pink</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51368 "><p>##FFC0CB</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51365 "><p>Cyan</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51368 "><p>##00FFFF</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51365 "><p>Magenta </p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51368 "><p>##FF00FF</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51365 "><p>Orange</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51368 "><p>##FFA500</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51365 "><p>White</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51368 "><p>##FFFFFF</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e51365 "><p>Yellow</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e51368 "><p>##FFFF00</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For all other color values, enter the hexadecimal
+value. Enter a six-digit value, which specifies the RGB value. Values
+between 00 and FF are allowed.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7945__WSc3ff6d0ea77859461172e0811cbec18a66-7fec"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7945__WSc3ff6d0ea77859461172e0811cbec18a66-7fec"><!-- --></a><h4 class="sectiontitle">Image quality</h4><p>By default, the <samp class="codeph">cfimage</samp> tag generates
+images with antialiasing turned on (to remove the appearance of
+jagged edges). The interpolation method is set to <samp class="codeph">highestQuality</samp>:
+this produces a high-quality image, but decreases processing speed.
+To turn off antialiasing, use the <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-794e.html">ImageSetAntialiasing</a></samp> function.
+To change the interpolation method or for more control over image attributes,
+use the following functions:</p>
+<ul><li><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7961.html">ImageResize</a></samp></p>
+</li>
+<li><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7960.html">ImageRotate</a></samp></p>
+</li>
+<li><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7975.html">ImageScaleToFit</a></samp></p>
+</li>
+<li><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-795d.html">ImageShear</a></samp></p>
+</li>
+<li><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-795c.html">ImageTranslate</a></samp></p>
+<dl><dt class="dlterm">border action</dt>
+<dd xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Use the <samp class="codeph">border</samp> action to create a rectangular
+border around the outer edge of an image. You can control the thickness
+of the border and its color. For more control, use the <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-796a.html">ImageAddBorder</a></samp> function.
+The following example shows how to set the thickness and color of
+a border:<pre>&lt;!--- This example shows how to create a ColdFusion image from an existing JPEG file, add a 
+    five-pixel-wide red border to the image, and save it to a new JPEG file. ---&gt; 
+&lt;cfimage source="../cfdocs/images/artgallery/jeff05.jpg" action="border" thickness="5" 
+    destination="jeff05.jpg" color="red" overwrite="yes"&gt;</pre>
+</dd><p class="dlseparator"></p><dt class="dlterm">captcha action</dt>
+<dd xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Use the <samp class="codeph">captcha</samp> action to create a distorted
+text image that is human-readable but not machine-readable. When
+you create a CAPTCHA image, you specify the text that is displayed
+in the CAPTCHA image; ColdFusion randomly distorts the text. You
+can specify the height and width of the text area, which affects
+the spacing between letters, the font size, the fonts used for the
+CAPTCHA text, and the level of difficulty, which affects readability. The
+following example shows how to write a CAPTCHA image directly to
+the browser:<pre>&lt;cfimage action="captcha" fontSize="25" width="400" height="150" text="rEadMe" 
+    fonts="Arial,Verdana,Courier New"&gt;</pre>
+<div class="note"><span class="notetitle">Note:  </span>For
+the CAPTCHA image to display, the <samp class="codeph">width</samp> value must
+be greater than: <samp class="codeph">fontSize</samp> times the number of characters
+specified in <samp class="codeph">text </samp>times 1.08. In this example,
+the minimum <samp class="codeph">width</samp> is 162.</div>
+<p>ColdFusion supports
+CAPTCHA images in PNG format only.</p>
+<div class="note"><span class="notetitle">Note:  </span>Use unique
+names for the CAPTCHA image files so that when multiple users access
+the CAPTCHA images, the files are not overwritten.</div>
+<p>The
+following example shows how to create CAPTCHA images with a medium level
+of difficulty that are written to files:</p>
+<pre>&lt;!--- Use the GetTickCount function to generate unique names for the CAPTCHA files. ---&gt; 
+&lt;cfset tc = GetTickCount()&gt; 
+&lt;cfimage action="captcha" fontSize="15" width="180" height="50" text="rEadMe" 
+    destination="images/rEadMe#tc#.png" difficulty="medium"&gt;</pre>
+<p>For
+a detailed example, see the <a href="http://help.adobe.com/en_US/ColdFusion/9.0/Developing/WSc3ff6d0ea77859461172e0811cbec22c24-7985.html" target="_self">Creating
+and Manipulating ColdFusion Images</a> in the <i>Developing ColdFusion Applications</i>.</p>
+</dd><p class="dlseparator"></p><dt class="dlterm">convert action</dt>
+<dd xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Use the <samp class="codeph">convert</samp> action to convert an image
+from one file format to another. For more information on file formats,
+see the section Supported image file formats. The following example
+shows how to convert a JPEG file to a PNG file:<pre>&lt;!--- This example shows how to convert a JPEG image to a PNG image. ---&gt; 
+&lt;cfimage source="../cfdocs/images/artgallery/aiden02.jpg" action="convert" 
+    destination="aiden02.png"&gt;</pre>
+<div class="note"><span class="notetitle">Note:  </span>Converting
+images between one file format to another is time-consuming. Also,
+image quality can degrade; for example, PNG images support 24-bit
+color, but GIF images support only 256 colors. Converting transparent
+images (images with alpha) can degrade image quality.</div>
+</dd><p class="dlseparator"></p><dt class="dlterm">info action</dt>
+<dd xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Use the <samp class="codeph">info</samp> action to create a ColdFusion
+structure that contains information about the image, including the
+color model, height, width, and source of the image. The structure
+is the same as returned by the <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7972.html">ImageInfo</a></samp> function. The following
+example shows how to retrieve all of the information about an image:<pre>&lt;!--- This example shows how to retrieve and display image information. ---&gt; 
+&lt;cfimage source="../cfdocs/images/artgallery/viata03.jpg" action="info" structName="viatoInfo"&gt; 
+&lt;cfdump var="#viatoInfo#"&gt; 
+ 
+&lt;!--- Alternatively, you can use the cfoutput tag to display specific image information, as 
+    shown in the following example. ---&gt; 
+&lt;cfoutput&gt; 
+    &lt;p&gt;height: #viatoInfo.height# pixels&lt;/p&gt; 
+    &lt;p&gt;width: #viatoInfo.width# pixels&lt;/p&gt; 
+    &lt;p&gt;source: #viatoInfo.source#&lt;/p&gt; 
+    &lt;p&gt;transparency: #viatoInfo.colormodel.transparency#&lt;/p&gt; 
+    &lt;p&gt;pixel size: #viatoInfo.colormodel.pixel_size#&lt;/p&gt; 
+    &lt;p&gt;color model: #viatoInfo.colormodel.colormodel_type#&lt;/p&gt; 
+    &lt;p&gt;alpha channel support: #viatoInfo.colormodel.alpha_channel_support#&lt;/p&gt; 
+    &lt;p&gt;color space: #viatoInfo.colormodel.colorspace#&lt;/p&gt; 
+&lt;/cfoutput&gt;</pre>
+</dd><p class="dlseparator"></p><dt class="dlterm">read action</dt>
+<dd xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Use the <samp class="codeph">read</samp> action to read an image from
+the specified local file pathname or URL, and create a ColdFusion
+image in memory. You can use the ColdFusion image variable as the
+source for another <samp class="codeph">cfimage</samp> tag or for <samp class="codeph">Image</samp> functions.
+The <samp class="codeph">read</samp> action performs the same operation as
+the <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-796e.html">ImageRead</a></samp> function. The following
+example shows how to create a ColdFusion image from a JPEG file
+and manipulate it using the <samp class="codeph">ImageGrayscale</samp> function:<pre>&lt;!--- This code shows how to create a ColdFusion image from a JPEG file. 
+    ---&gt; 
+&lt;cfimage source="../cfdocs/images/artgallery/jeff01.jpg" name="myImage"&gt; 
+&lt;!--- This code shows how to convert the image to grayscale. ---&gt; 
+&lt;cfset ImageGrayscale(myImage)&gt; 
+&lt;!--- This code shows how to write the grayscale image to a JPEG file. ---&gt; 
+&lt;cfimage source="#myImage#" action="write" destination="myGrayscaleImage.jpg" overwrite="yes"&gt;</pre>
+</dd><p class="dlseparator"></p><dt class="dlterm">resize action</dt>
+<dd xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Use the <samp class="codeph">resize</samp> action to resize an image
+to the specified height and width. You can specify the height and
+width in pixels or as a percentage: <pre>&lt;!--- This example shows how to specify the height and width of an image in pixels. ---&gt; 
+&lt;cfimage source="../cfdocs/images/artgallery/jeff01.jpg" action="resize" width="100" height="100" destination="jeff01_thumbnail.jpg" overwrite="yes"&gt; 
+&lt;!--- This example shows how to specify the height and width of an image as percentages. ---&gt; 
+&lt;cfimage source="../cfdocs/images/artgallery/jeff02.jpg" action="resize"  
+    width="50%" height="50%" destination="jeff02_thumbnail.jpg" overwrite="yes"&gt; 
+&lt;!--- This example shows how to specify the height of an image in pixels and its width as a 
+    percentage. ---&gt; 
+&lt;cfimage source="../cfdocs/images/artgallery/jeff03.jpg" action="resize"  
+    width="50%" height="100" destination="jeff03_thumbnail.jpg" overwrite="yes"&gt;</pre>
+<p>For
+more control of resize attributes, use the <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7961.html">ImageResize</a></samp> function. </p>
+</dd><p class="dlseparator"></p><dt class="dlterm">rotate action</dt>
+<dd xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Use the <samp class="codeph">rotate</samp> action to rotate an image
+by degrees:<pre>&lt;!--- This example shows how to rotate an image by 30 degrees. ---&gt; 
+&lt;cfimage source="../cfdocs/images/artgallery/maxwell01.jpg" action="rotate" angle="30" 
+    name="maxwellAngle"&gt; 
+&lt;!--- Display the rotated image in a browser. ---&gt; 
+&lt;cfimage source="#maxwellAngle#" action="writeToBrowser"&gt;</pre>
+<p>For
+more control of the rotate attributes, use the <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7960.html">ImageRotate</a></samp> function.</p>
+</dd><p class="dlseparator"></p><dt class="dlterm">write action</dt>
+<dd xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Use the <samp class="codeph">write</samp> action to write an image to
+the specified path. The new image is converted to the file type
+specified in the destination attribute. The <samp class="codeph">write</samp> action
+performs the same operation as the <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-796c.html">ImageWrite</a></samp> function. When
+you write an image to a JPEG file, the image quality is set to 75%
+of the original image by default. To control the image size, use
+the <samp class="codeph">quality</samp> attribute of the <samp class="codeph">write</samp> action.<p>You
+can use the write action to change the quality of a JPEG image to
+reduce file size. The following example shows how to change image
+quality to .5:</p>
+<pre>&lt;!--- This example shows how to create a PNG file from a JPEG file by using the write action. ---&gt; 
+&lt;cfimage source="../cfdocs/images/artgallery/aiden01.jpg" action="write" 
+    destination="aiden01.png"&gt; 
+&lt;!--- This example shows how to create a low-quality JPEG image. ---&gt; 
+&lt;cfimage source="../cfdocs/images/artgallery/jeff05.jpg" action="write" 
+    destination="jeff05_lq.jpg" quality=".5"&gt; 
+&lt;!--- This example shows how to write a JPEG file to a new location. ---&gt; 
+&lt;cfimage source="../cfdocs/images/artgallery/jeff05.jpg" action="write" 
+    destination="jeff05.jpg"&gt;</pre>
+</dd><p class="dlseparator"></p><dt class="dlterm">writeToBrowser action</dt>
+<dd xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Use the <samp class="codeph">writeToBrowser</samp> action to display
+one or more ColdFusion images directly to the browser without writing
+them to files. Images are displayed in PNG format. The following
+example shows how to reduce the size of an image and display it
+in the browser:<pre>&lt;!--- This example shows how to create a ColdFusion image from a JPEG file, resize it, and 
+    then display it in the browser as a PNG image. ---&gt; 
+&lt;cfimage source="../cfdocs/images/artgallery/jeff05.jpg" action="resize"  
+    width="50%" height="50%" name="smLogo"&gt; 
+&lt;cfimage source="#smLogo#" action="writeToBrowser"&gt;</pre>
+</dd><p class="dlseparator"></p></dl>
+</li>
+</ul>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7945__WSc3ff6d0ea77859461172e0811cbec18a66-7feb"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7945__WSc3ff6d0ea77859461172e0811cbec18a66-7feb"><!-- --></a><h4 class="sectiontitle">Example</h4><p>This
+example shows how to create a ColdFusion image and manipulate it
+by using <samp class="codeph">Image</samp> functions:</p>
+<pre>&lt;!--- Create the ColdFusion image variable "myImage" from a JPEG file. ---&gt; 
+&lt;cfimage source="../cfdocs/images/artgallery/jeff05.jpg" name="myImage"&gt; 
+&lt;!--- Pass the ColdFusion image to the Image functions to blur the image by a radius of 5, 
+    flip the image 90 degrees, and convert the image to grayscale. ---&gt; 
+&lt;cfset ImageBlur(myImage,5)&gt; 
+&lt;cfset ImageFlip(myImage,"90")&gt; 
+&lt;cfset ImageGrayscale(myImage)&gt; 
+&lt;!--- Write the transformed image to a browser. ---&gt; 
+&lt;cfimage source="#myImage#" action="writeToBrowser"&gt;</pre>
+</div>
+</div>
+
+
+<!-- BEGIN USER PREFERENCES -->
+          <div id="userprefs">
+          </div>
+<!-- END USER PREFERENCES -->
+
+          <div id="related">
+            
+            
+            <div class="separator">&#160;</div>
+          </div>
+          <div id="footer">
+<!-- BEGIN IONCOMMENTS -->
+            <div id="ionComHere">
+            </div>
+<!-- END IONCOMMENTS -->
+
+
+            <p id="creativecommons"><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" id="creativecommons_text"><img id="creativecommons_img" src="images/CC.png" alt="This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License" /></a>&nbsp;Twitter™ and Facebook posts are not covered under the terms of Creative Commons.</p>
+          </div>
+</td>
+<td width="10px"></td>
+<td id="inner_rightcolumn">
+
+</td></tr></table>
+      </div>
+<!-- BEGIN BREADCRUMBS -->
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec22c24-7fe8.html" title="cfif"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WS371453EC-36D5-44ce-BF1E-750E3016BBD6.html" title="cfimap"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>ColdFusion&#160;9&#160;CFML&#160;Reference</b></a> / <a href="WSc3ff6d0ea77859461172e0811cbec17576-7ffe.html"><b>ColdFusion Tags</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec18a66-8000.html"><b>Tags i</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+<!-- END CONTENT WRAPPER -->
+
+</td>
+<td id="col3">
+    <div>
+        <img src="images/adobe-lq.png" />
+    </div>
+</td>
+</tr>
+</table>
+    </div>
+<!-- END PAGE CONTENT WRAPPER -->
+<script type="text/javascript">
+<!--[CDATA[
+scrollToNameAnchor();
+// ]]-->
+</script> 
+<!--
+    Description:
+    This file generates the link to product support in the top right corner
+-->
+
+<style>
+#menutop{
+    position:absolute;
+    top:4px;
+    right:24px;
+    width:auto;    
+    font-size:11px;
+    color:#fff;
+    text-align:right;
+}
+#menutop a{
+    color:#fff;
+}
+#menutop a:hover{
+        text-decoration:underline;
+}
+</style>  
+  
+  
+  
+  
+<div id="productmenu">
+<!--googleoff: index-->
+  <div id="menutop">
+
+
+<script language=javascript type='text/javascript'>
+    // darken menu text for products with light backgrounds
+    var path = document.location.href.toLowerCase();
+    if (path.indexOf("/acrobat/")           	> 0 ||
+        path.indexOf("/acrobat.com/")       	> 0 ||
+        path.indexOf("/acrobatConnectPro/") 	> 0 ||
+        path.indexOf("/connect/")           	> 0 ||
+        path.indexOf("/livecycledataserviceses/") > 0 ||
+        path.indexOf("/muse/")         	> 0 ||
+	path.indexOf("/presenter/")         	> 0 ||
+        path.indexOf("/scene7/")            	> 0 ||
+        path.indexOf("/flashmediaserver/")  	> 0 ||
+        path.indexOf("/wave/")              	> 0 )
+    {
+        document.write('<style>#menutop a{color:#505050}</style>');
+    }
+    if (typeof('terms_AHV_PRODUCT_SUPPORT') != "undefined" && ! use_robohelp_behavior ){      
+        if (path.indexOf("/muse/") > -1 ){
+            var supportlink = '<a href="http://muse.adobe.com/support.html">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }else{
+            var supportlink = '<a href="http://adobe.com/support">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }
+        document.write( supportlink );
+     }
+
+</script> 
+
+  </div>
+<!--googleon: index-->
+</div>
+
+
+
+<style>
+#online-privacy-policy{ 
+    margin:10px 40px; 
+    font-size:11px;
+}
+</style>
+
+<p id="online-privacy-policy">
+<script language="javascript">
+var pageLoc = "en_US";
+var metaElements = document.all ?
+document.all.tags('meta') :
+document.getElementsByTagName ?
+document.getElementsByTagName ('meta') : new Array();
+for (var m = 0; m < metaElements.length; m++) {
+	if (metaElements[m].name == "lang") {
+		pageLoc = metaElements[m].content;
+		break;
+	}
+}
+var ptn = /(..)-(..)/;
+if (ptn.test(pageLoc)) {
+	var languageCode = pageLoc.replace(ptn, "$1");
+	var countryCode = pageLoc.replace(ptn, "$2");
+	pageLoc = languageCode + "_" + countryCode.toUpperCase();
+}
+
+var policyLoc = "en_US";
+var policyText = "Online Privacy Policy";
+var policyPath = "";
+var policyArray=[
+"da_DK", "Online fortrolighedserklæring",
+"de_DE", "Online-Datenschutzrichtlinie",
+"es_ES", "Política de confidencialidad en línea",
+"fi_FI", "Yksityisyyttä koskeva Online-toimintaohjelma",
+"fr_FR", "Confidentialité et sécurité",
+"it_IT", "Informativa sulla privacy online",
+"ja_JP", "プライバシーポリシー",
+"ko_KR", "Adobe 온라인 개인정보 보호정책",
+"pt_BR", "Política de Confidencialidade On-line", 
+"zh_CN", "在线隐私政策",
+"zh_TW", "線上隱私政策"
+];
+var legalLoc = "en_US";
+var legalText = "Legal Notices";
+var legalPath = legalLoc;
+var legalArray=[
+"ar_AE", "إشعارات قانونية",
+"bg_BG", "Юридически бележки",
+"cs_CZ", "Právní upozornění",
+"da_DK", "Juridiske meddelelser",
+"de_DE", "Rechtliche Hinweise",
+"el_GR", "Σημειώσεις νομικού περιεχομένου",
+"es_ES", "Avisos legales",
+"et_EE", "Juriidilised teated",
+"fi_FI", "Lakisääteiset ilmoitukset",
+"fr_FR", "Mentions légales",
+"he_IL", "הצהרות משפטיות",
+"hr_HR", "Pravne napomene",
+"hu_HU", "Jogi közlemények",
+"it_IT", "Informazioni legali",
+"ja_JP", "法律上の注意",
+"ko_KR", "법적 고지 사항",
+"lt_LT", "Teisinės pastabos",
+"lv_LV", "Juridisks paziņojums",
+"nb_NO", "Juridiske merknader",
+"nl_NL", "Juridische kennisgevingen",
+"pl_PL", "Informacje prawne",
+"pt_BR", "Aspectos jurídicos",
+"ro_RO", "Prevederi legale",
+"ru_RU", "Юридическая информация",
+"sk_SK", "Právne upozornenie",
+"sl_SI", "Pravni pouk",
+"sv_SE", "Upphovsrätt",
+"tr_TR", "Yasal uyarılar",
+"uk_UA", "Юридична інформація",
+"zh_CN", "法律声明",
+"zh_TW", "法律注意事項"
+];
+
+ruPolicy = "http://www.adobe.com/ru/misc/privacy.html";
+trPolicy = "http://www.adobe.com/tr/misc/privacy.html";
+
+// Bug 2846992: LOC: RUS, TUR: The link to "Online Privacy Policy" should include language, currently it is not appearing.
+if (pageLoc == "ru_RU") {
+	policyPath = "ru";
+}
+else if (pageLoc == "tr_TR") {
+	policyPath = "tr";
+}
+for (var i = 0; i < policyArray.length; i+=2) {
+	if (pageLoc == policyArray[i]) {
+		policyLoc = pageLoc;
+		policyText = policyArray[i+1];
+		var ptn = /(..)_(..)/;
+		if (ptn.test(policyLoc)) {
+			var countryCode = policyLoc.replace(ptn, "$2");
+			policyPath = countryCode.toLowerCase();
+		}
+		break;
+	}
+}
+
+for (var i = 0; i < legalArray.length; i+=2) {
+	if (pageLoc == legalArray[i]) {
+		legalLoc = pageLoc;
+		legalText = legalArray[i+1];
+		legalPath = legalLoc;
+		break;
+	}
+}
+if(agt.indexOf("community help client") > -1 ){
+	document.write('<a href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+}else{
+	//Open the privacy policy in a new window
+	document.write('<a target="_blank" href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a target="_blank" href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+} 
+</script>
+</p>
+
+
+
+<!-- localfooter.ssi -->
+
+<script type="text/javascript">
+    var debug = (top.location.href.indexOf("debug=true") > -1);
+</script>
+
+<script language="javascript">
+document.write('<scr'+'ipt ' +
+               'src="/en_US/ssi/_pod.js" ' +
+               'language="javascript" ' +
+               'charset="UTF-8"> ' +
+               '</scr'+'ipt>');
+</script>
+
+
+<script type="text/javascript">
+//
+//  Ethnio survey code
+//
+/*          DocumentID      EthnioID */
+/*          -------------   -------- */
+var ethnio=["/en_US/flash/cs/using/WSb03e830bd6f770ee6664507612436d7dede-8000.html", "87462",
+            "/en_US/creativesuite/cs/using/WSe851854fd1e0856a-4b08a77612477f69f15-8000.html",  "10441",
+            "/en_US/dreamweaver/cs/using/WSEE4C0148-A6F4-4bf5-9DEF-CE06AB026214a.html",  "57412"
+ 
+    ];
+                        
+    for ( var i = 0; i < ethnio.length ; i = i+2 ){
+        if ( document.location.href.indexOf( ethnio[i] ) > -1 ){ 
+            var headID = document.getElementsByTagName("head")[0];         
+            var ethnioScript = document.createElement('script');
+            ethnioScript.type = 'text/javascript';
+            ethnioScript.src = 'http://ethn.io/remotes/' + ethnio[i+1];        
+            if ( debug ){
+                alert ("Using Ethnio script: " + ethnioScript.src );
+            }else{
+                headID.appendChild(ethnioScript);
+            }
+        }
+    }
+</script>
+
+
+
+<div style="display: none;">
+<!-- SiteCatalyst -->
+<script language="JavaScript" type="text/javascript"><!--
+var s_code=' ';
+var s_docHost = window.location.hostname.toLowerCase();
+var s_docURL = window.location.pathname.toLowerCase();
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+if (s_docHost.indexOf(".corp.adobe") != -1 || s_docHost.indexOf("stage.") != -1 || s_docHost.indexOf(".dev.adobe") != -1 || s_docHost.indexOf("staging.") != -1) scJsHost="";
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/omniture_s_code.js' type='text/javascript'%3E%3C/script%3E"));
+//--></script>
+<script type="text/javascript"><!--
+var s_accountName;
+s_server="www.adobe.com static content pages";
+if (!window.s_account) s_accountName="mxmacromedia";
+else s_accountName=window.s_account;
+
+if (window.s_docURL.indexOf("/designcenter/") != -1)
+  s_channel="Adobe Design Center";	
+else if ((window.s_docHost.indexOf("labs.adobe") != -1) ||
+(window.s_docHost.indexOf("labs-staging.") != -1))
+  s_channel="Labs";
+else if (window.s_docHost.indexOf("help.adobe.com") != -1) {
+  s_channel="Support Help.adobe.com";
+  if (window.s_docURL.indexOf("/en_us/") == -1) {
+    s_docURLArray=s_docURL.split('/');
+    s_pageName="http://help.adobe.com/"+s_docURLArray[1]+"/"+ s_docURLArray[2]+"/"+s_docURLArray[3];
+    s_prop23="http://help.adobe.com"+window.location.pathname;
+  }
+}
+else if (window.s_docHost.indexOf("kb2.adobe.com") != -1) {
+  s_channel="Support Knowledgebase";
+  s_prop23="http://kb2.adobe.com"+s_docURL+":";
+  if (typeof(omtrProductList) != 'undefined' && omtrProductList.length > 0)
+ {
+    s_prop23=s_prop23+omtrProductList;
+  }
+}
+else if (window.s_docHost.indexOf("resellers.adobe.com") != -1) {
+		var s_pageName=document.getElementsByTagName("title")[0].text;
+}
+
+if (!window.scMMInclude) {
+	var s_wd=window,s_tm=new Date;
+	if(s_code!=' '){
+		s_code=s_dc(s_accountName);
+		if(s_code)document.write(s_code)
+	} 
+} else {
+	s_wds(s_accountName);s_ca(s_accountName); 
+}	
+
+function sendAnalyticsEvent(str){var ns=s_accountName;if(str!=null)ns+=","+str;void(s_gs(ns));}
+function sendLinkEvent(accnt,lnkname,type){
+accnt=s_accountName;s_linkType=type;s_lnk=true;s_linkName=lnkname;void(s_gs(accnt));}
+//--></script>
+<noscript><img src="http://stats.adobe.com/b/ss/mxmacromedia/1/H.15-XELvs/0?pageName=http%3A//www.adobe.com%3A%20noscript&ch=http%3A//www.adobe.com%3A%20noscript&g=http%3A//www.adobe.com" height="1" width="1" border="0" alt="" /></noscript>
+<!-- End SiteCatalyst -->
+</div>
+
+<script language="JavaScript" type="text/javascript">//<![CDATA[
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/atm/s_code_www.js' type='text/javascript'%3E%3C/script%3E"));
+//]]></script>
+<script type="text/javascript">//<![CDATA[
+if(s_adobe){	
+	s_adobe.server="www.adobe.com Static Content pages";
+	/* Set pageName */
+	s_adobe.s_URL="adobe.com"+((location.pathname.charAt(0)=='/')?location.pathname:'/'+location.pathname);
+	if (s_adobe.s_URL.substring(s_adobe.s_URL.lastIndexOf('/')+1)=="") s_adobe.s_URL=s_adobe.s_URL+"index.html";
+	s_adobe.s_URLSplit=s_adobe.s_URL.split("/");
+	s_adobe.pageName=s_adobe.s_URLSplit.join(":");
+
+	/* Set prop4 to language-locale */
+	var s_meta=document.getElementsByTagName('meta'); 
+      for (i=0; i<s_meta.length; i++) { 
+        if (s_meta[i].getAttribute("http-equiv") == "Content-Language") { 
+          s_adobe.prop4=s_meta[i].getAttribute("content"); 
+	    s_adobe.prop4=s_adobe.prop4.replace(/\s+/g,'');
+        } 
+      } 
+	s_adobe.t()
+}
+//]]></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

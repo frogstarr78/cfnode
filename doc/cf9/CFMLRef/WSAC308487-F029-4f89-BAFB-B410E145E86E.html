@@ -1,0 +1,1201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0022)http://help.adobe.com/ -->
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="lang" content="en-us" />
+    <meta name="area" content="livedocs" />
+    <title>Adobe&#160;ColdFusion&#160;9 * cfmap</title>
+    <link rel="shortcut icon" href="images/ColdFusionLinkIndicator.png" />
+    <meta name="book" content="ColdFusion&#160;9&#160;CFML&#160;Reference" />
+    <meta name="product" content="ColdFusion" />
+    <meta name="keywords" content="" /><!--<PageMap><DataObject type="document"><Attribute name="product" value="ColdFusion"></Attribute><Attribute name="book" value="ColdFusion&#160;9&#160;CFML&#160;Reference"></Attribute><Attribute name="keywords" value=""></Attribute></DataObject></PageMap>-->
+    
+    <script type="text/javascript" language="Javascript" charset="UTF-8"><!--[CDATA[
+        var currentTreeNode = "WSAC308487-F029-4f89-BAFB-B410E145E86E.html";
+    document.cookie = "topicId=" + "WSAC308487-F029-4f89-BAFB-B410E145E86E.html";
+// ]]--></script>
+<script src="terms.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="help.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script>  <script src="utilities.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="event.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="treeview.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="toc.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script> <script src="swfobject.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>  <script src="booklist.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>
+<script type="text/javascript">
+<!--[CDATA[
+var topictype = "topic";
+var headId = document.getElementsByTagName("head")[0];         
+if (use_ie_6_behavior) {
+  var linkId = document.createElement("link");
+  linkId.href = "content-ie6.css";
+  linkId.rel = "stylesheet";
+  linkId.type = "text/css";
+  headId.appendChild(linkId);
+}
+function initRoboHelpDOM() {
+  if (use_chm_behavior) {
+    hideElement("search");
+  }
+  if (use_robohelp_behavior) {
+    hideElement("search");
+    hideElement("productmenu");
+    //hideElement("notyourversion");
+  }
+  if(!use_chc_behavior) {
+    //document.getElementById("notyourversion").style.display = "inline";;
+  }
+}
+var dirname = location.pathname.match( /.*\// );    
+function setSearchUserPref(){
+  if ( document.cookie.indexOf( "ah_searchpref" ) > -1 ) {
+    if ( document.cookie.indexOf( dirname ) > 0 ) {
+      document.search.gsa.checked = true ;
+    }else{
+      document.search.gsa.checked = false ;            
+    }
+  }
+}
+YAHOO.util.Event.onDOMReady(initRoboHelpDOM);
+YAHOO.util.Event.onDOMReady(setSearchUserPref);
+// ]]-->
+</script>
+
+<!-- ********************************** -->
+<!-- START: ForeSee survey code in: /ssi/globalheader.ssi -->
+
+<script type="text/javascript">
+<!-- 
+// Enable the survey for only English, German and Japanese
+var agt=navigator.userAgent.toLowerCase();
+if ( agt.indexOf("community help client") == -1 ){
+    if ( document.location.href.indexOf("/en_US/") != -1 ){
+        showSurvey();
+//    }else if (document.location.href.indexOf("/de_DE/") != -1){
+//         var locale="de";
+//         showSurvey();
+    }else if (document.location.href.indexOf("/ja_JP/") != -1 ){
+         var locale="ja";
+         showSurvey();
+    }	
+}
+
+function showSurvey(){
+	document.write('<script type="text/javascript" src="/js/foresee/foresee-trigger.js"><\/scr'+'ipt>');
+}
+
+// -->
+</script>
+
+<!-- END: ForeSee survey code -->
+<!-- ******************************** -->
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="tree.css" />
+    <link rel="stylesheet" type="text/css" href="content.css" />
+    <link rel="stylesheet" type="text/css" href="localeSpecific.css" />
+  </head>
+  <body id="content_body" onload="window.focus();">
+    <a name="top" shape="rect"><!--LeaveCommentHere--></a>
+    
+    <div id="mnemonic">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon" class="ColdFusion"><div class="banner"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html">Adobe&#160;ColdFusion&#160;9</a><span id="notyourversion">|&#160;
+                    <a rel="nofollow" href="http://www.adobe.com/support/documentation/en/coldfusion/">Not your version?</a></span></div></div><!--googleon: index-->
+    </div>
+    
+    <div id="searchbar">
+<table id="searchbartable">
+<tr>
+<td colspan="2">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon"><div id="pdf"><img src="images/PDF.gif" width="16" height="16" /><a title="View Help PDF" href="coldfusion_9_cfmlref.pdf">View Help PDF ( 32MB)</a></div></div><!--googleon: index-->
+</td>
+</tr>
+</table>
+    </div>
+
+<!-- BEGIN SEARCH CONTENT -->
+<form id="search" name="search" action="search.html" target="_self">
+<script type="text/javascript">
+<!--[CDATA[
+if ( !use_chc_behavior ){
+    if (typeof(terms_AHV_SEARCH_CONSTRAINT) != "undefined" && 
+        terms_AHV_SEARCH_CONSTRAINT.length > 0 && 
+        document.location.href.indexOf(".adobe.com") > 0){
+        if ( typeof(terms_SEARCH_THIS_HELP_ONLY) != "undefined" && terms_SEARCH_THIS_HELP_ONLY == "ON" ) {
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                checked="checked" \
+                value="1" ><\/input>'); 
+                
+        // Leave the "Search this help system only" checkbox unckecked
+        }else{    
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                value="1" ><\/input>'); 
+        }
+        document.write('<span class="gsalabel">' + terms_AHV_SEARCH_CONSTRAINT + '<\/span><\/div>'); 
+    }
+    document.write('<input class="searchinput" \
+        name="q" \
+        id="q" \
+        type="text" \
+        maxlength="256" \
+        value="' + terms_AHV_SEARCH_BUTTON + '" \
+        onclick="clearSearch()"><\/input><input \
+        type="button" \
+        name="searchbutton" \
+        class="searchbutton" \
+        onclick="submit()"><\/input>'); 
+} 
+ 
+/* 
+ * Start Functions 
+ */
+function clearSearch(){
+    if (document.search.q.value == terms_AHV_SEARCH_BUTTON){document.search.q.value = ""}; 
+}
+
+// set search preferences
+function setAHSearchPref(){
+    if (document.search.gsa.checked == 1){
+        setAHSearchCookie( dirname );
+    }else{
+        setAHSearchCookie( "community" );
+    }
+}
+
+// Set search preferences cookie
+function setAHSearchCookie( p ){
+    // set cookie ah_searchpref with a value of the document path
+    var expire=new Date();
+    expire.setDate(expire.getDate()+365); // Cookie expires after 1 year (365 days) 
+    document.cookie="ah_searchpref=" +p+ "; expires=" +expire.toGMTString()+ ";";
+}
+
+// ]]-->
+</script> 
+ </form>
+<!-- END SEARCH CONTENT -->    
+
+
+
+<!-- BEGIN PAGE CONTENT WRAPPER -->
+    <div id="page_content_wrapper">
+<!-- BEGIN PAGE WRAPPER -->
+<table id="page_content_table">
+<tr>
+
+<td id="col2">
+<!-- BEGIN CONTENT WRAPPER -->
+<!-- BEGIN BREADCRUMBS -->
+
+      
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec22c24-7c14.html" title="cfmailpart"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WS175F191F-BA24-4ace-AC7A-44A5A4A9BAEE.html" title="cfmapitem"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>ColdFusion&#160;9&#160;CFML&#160;Reference</b></a> / <a href="WSc3ff6d0ea77859461172e0811cbec17576-7ffe.html"><b>ColdFusion Tags</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec1912c-7fbf.html"><b>Tags m-o</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+      <div id="content_wrapper">
+<!-- BEGIN PAGE TITLE -->
+        <h1>cfmap</h1>
+<!-- END PAGE TITLE -->
+<!-- BEGIN IONCOMMENTCOUNT -->
+        <div id="ionCount">
+        </div>
+<!-- END IONCOMMENTCOUNT -->
+<table id="inner_content_table" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>
+          <div style="border-top:#ccc solid 1px;"><p> </p>
+          </div>
+<p id="chcPromo" style="display:none;">
+<a id="chcLink" href="http://www.adobe.com/support/chc/">
+<img id="chcImage" src="http://www.adobe.com/support/chc/GetMoreHelpFeatures.png"/>
+</a>
+</p>
+<script type="text/javascript" language="javascript" charset="utf-8">
+<!--
+var cfgArray = [];
+//cfgArray["Acrobat_10.0_Professional.helpcfg"] = "acrobatpro";
+//cfgArray["Acrobat_10.0_Standard.helpcfg"] = "acrobatstd";
+cfgArray["Lightroom_3.0.helpcfg"] = "lightroom";
+cfgArray["PhotoshopElements_8.0_Win.helpcfg"] = "photoshopelements";
+cfgArray["PhotoshopElements_8.0_Mac.helpcfg"] = "photoshopelementsmac";
+cfgArray["PremiereElements_8.0_Win.helpcfg"] = "premiereelements";
+
+//cfgArray["AfterEffects_10.0.helpcfg"] = "aftereffects";
+//cfgArray["AIR.helpcfg"] = "air";
+//cfgArray["ColdFusionBuilder.helpcfg"] = "coldfusion";
+//cfgArray["Contribute_6.0.helpcfg"] = "contribute";
+//cfgArray["DeviceCentral_3.0.helpcfg"] = "devicecentral";
+//cfgArray["Dreamweaver_11.0.helpcfg"] = "dreamweaver";
+//cfgArray["EncoreDVD_5.0.helpcfg"] = "encore";
+//cfgArray["ExtensionManager_3.0.helpcfg"] = "extension";
+//cfgArray["Fireworks_11.0.helpcfg"] = "fireworks";
+//cfgArray["Flash_11.0.helpcfg"] = "flash";
+//cfgArray["Flex_4.0.helpcfg"] = "flashbuilder";
+//cfgArray["FlashCatalyst_1.0.helpcfg"] = "flashcatalyst";
+//cfgArray["Illustrator_15.0.helpcfg"] = "illustrator";
+//cfgArray["InCopy_7.0.helpcfg"] = "incopy";
+//cfgArray["InDesign_7.0.helpcfg"] = "indesign";
+//cfgArray["OnLocation_5.0.helpcfg"] = "onlocation";
+//cfgArray["Photoshop_12.0.helpcfg"] = "photoshop";
+//cfgArray["PremierePro_5.0.helpcfg"] = "premierepro";
+
+function getLangName() {
+    var lang = "en-us";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if (ptn.test(lang)) {
+        var languageCode = lang.replace(ptn, "$1");
+        var countryCode = lang.replace(ptn, "$2");
+        lang = languageCode + "_" + countryCode.toUpperCase();
+    }
+    return lang;
+}
+
+function getCountryName() {
+    var lang = "";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if ((ptn.test(lang)) && (lang != "en-us")) {
+        var countryCode = lang.replace(ptn, "$2");
+        return "/" + countryCode;
+    }
+    return "";
+}
+
+if ( (typeof(terms_HELPCFG) != 'undefined')  && (terms_HELPCFG.indexOf(".helpcfg") != -1) ) {
+    var stage   = (document.location.href.indexOf(".stage.") != -1) ? 'stage.' : '';
+    var baseUrl = 'http://www.' + stage + 'adobe.com';
+    var refpage = document.location.href.replace(/#.*$/, '');
+	
+	if ((!use_robohelp_behavior) && (terms_HELPCFG.length > 0) && (typeof(cfgArray[terms_HELPCFG]) != 'undefined') && (cfgArray[terms_HELPCFG].length > 0)) {
+		if (document.getElementById) { // DOM3 = IE5, NS6
+			var newHref = baseUrl + getCountryName() + "/support/chc/" + "?helpcfg=http://help." + stage + "adobe.com/HelpCfg/" + getLangName() + "/" + terms_HELPCFG + "&url=" + refpage + "&product=" + cfgArray[terms_HELPCFG];
+			var newSrc = baseUrl + getCountryName() + "/support/chc/GetMoreHelpFeatures.png";
+			document.getElementById("chcPromo").style.display = "block";
+			document.getElementById("chcLink").href = newHref;
+			document.getElementById("chcImage").src = newSrc;
+		}
+	}
+}
+
+//-->
+</script>
+
+
+
+          <div><div class="section"><h4 class="sectiontitle">Description</h4><p>Embeds
+a geographical map within a ColdFusion web page.</p>
+<p>Currently,
+ColdFusion supports only embedding of Google map. To generate a map,
+provide a valid Google map API key, and specify the latitude and
+longitude of the location, or the address of the location. </p>
+<div class="para">The
+Google map API key can be specified in the following ways: <ol><li><p>Using the <samp class="codeph">cfajaximport</samp> tag. You specify
+the map API key in the params attribute as follows: </p>
+<div class="para"><pre>&lt;cfajaximport params="#{googlemapkey='Map API Key'}#"&gt;</pre>
+</div>
+</li>
+<li><p>Using Application.cfc as follows:</p>
+<div class="para"><pre>&lt;cfset this.googlemapkey="<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Map API Key</i>"&gt;</pre>
+</div>
+</li>
+<li><p>Using the Settings page in the ColdFusion Administrator.
+Specify the map API key in the Google Map Key field. You can also
+specify the map API key in runtime.cfc</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle">Category</h4><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-757f.html">Display management tags</a></p>
+</div>
+<div class="section"><h4 class="sectiontitle">Syntax</h4><pre>&lt;cfmap 
+        centeraddress="<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">address</i>" 
+        centerlatitude="<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">latitude in degrees</i>" 
+        centerlongitude="<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">longitude in degrees</i>" 
+        collapsible="true|false" 
+        continuouszoom="true|false" 
+        doubleclickzoom="true|false" 
+        height="<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">integer</i>" 
+        hideborder="true|false" 
+        initshow="true|false" 
+        markerbind="<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">bind expression</i>" 
+        markercolor="<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">marker color</i>" 
+        markericon="<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">icon path</i>    " 
+        markerwindowcontent="<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">content</i>" 
+        name="<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">name</i>" 
+        onerror="<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">JavaScript function name</i>" 
+        onload="<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">JavaScript function name</i>" 
+        overview="true|false" 
+        scrollwheelzoom="true|false" 
+        showallmarkers="true|false" 
+        showcentermarker="true|false" 
+        showmarkerwinodw="true|false" 
+        showscale="true|false" 
+        tip="<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">center property marker tips</i>" 
+        title="<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">string</i>" 
+        type="map|satellite|hybrid|earth|terrain" 
+        typecontrol="none|basic|advanced" 
+        width="<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">integer</i>" 
+        zoomcontrol="none|small|large|small3d|large3d" 
+        zoomlevel="<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">integer</i>"&gt; 
+&lt;/cfmap&gt;</pre>
+</div>
+<div class="section"><h4 class="sectiontitle">See also</h4><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7a07.html">cfdiv</a></samp>, <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-79e6.html">cfwindow</a></samp>, <samp class="codeph"><a href="WS175F191F-BA24-4ace-AC7A-44A5A4A9BAEE.html">cfmapitem</a></samp></p>
+</div>
+<div class="section"><h4 class="sectiontitle">History</h4><p>ColdFusion
+9.0.1: Added the attribute <samp class="codeph">initShow</samp>.</p>
+<p>ColdFusion
+9: Added this tag.</p>
+</div>
+<div class="section"><h4 class="sectiontitle">Attributes</h4>
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e65335"><p>Attribute</p>
+</th>
+<th valign="top" width="NaN%" id="d17e65338"><p>Req/Opt</p>
+</th>
+<th valign="top" width="NaN%" id="d17e65341"><p>Default</p>
+</th>
+<th valign="top" width="NaN%" id="d17e65344"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">centeraddress</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Required if centerlatitude and centerlongitude
+are not specified</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><p>The address of the location, which is set
+as the center of the map. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">centerlatitude</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Required if centeraddress is not specified</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><p>The latitude value for the location, in
+degrees. This value is set as the center of the map.</p>
+<p>This
+attribute must be used with the <samp class="codeph">centerlatitude</samp> attribute.</p>
+<p>In
+ColdFusion 9.0.1, the valid values for <samp class="codeph">centerlatitude</samp> are
+-90 to + 90</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">centerlongitude</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Required if centeraddress is not specified</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><p>The longitude value for the location, in
+degrees. This value is set as the center of the map.</p>
+<p>This
+attribute must be used with the <samp class="codeph">centerlongitude</samp> attribute.</p>
+<p>In
+ColdFusion 9.0.1, the valid values for centerlongitude are -180
+to +180.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">collapsible</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 "><p><samp class="codeph">false</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><div class="para">Whether to provide a collapsible property
+for the surrounding panel:<ul><li><p><samp class="codeph">true</samp></p>
+</li>
+<li><p><samp class="codeph">false</samp></p>
+</li>
+</ul>
+</div>
+<p>If you set collapsible
+to true, you cannot set hideborders to true.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">continuouszoom</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 "><p><samp class="codeph">true</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><div class="para">Whether to provide zoom control that enables
+smooth zooming for the map:<ul><li><p><samp class="codeph">true</samp></p>
+</li>
+<li><p><samp class="codeph">false</samp></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">doubleclickzoom</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 "><p>true</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><div class="para">Whether to enable double-click zoom:<ul><li><p><samp class="codeph">true</samp></p>
+</li>
+<li><p><samp class="codeph">false</samp></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">height</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 "><p>400 pixels</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><p>Height of the map, in pixels.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">hideborder</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 "><p>true</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><div class="para">Whether to hide border for surrounding panel:<ul><li><p><samp class="codeph">true</samp></p>
+</li>
+<li><p><samp class="codeph">false</samp></p>
+</li>
+</ul>
+</div>
+<p>If you set <samp class="codeph">hideborder</samp> to
+true, you cannot set <samp class="codeph">collapsible</samp> to true.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">initshow</samp></p>
+<p>Added in
+ColdFusion 9.0.1</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 "><p>true</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><p>Use to show/hide a map when the page loads.</p>
+<p>This
+is useful if you have collapsible divs or collapsible spry regions,
+where the user has to show the map on click of a link or button</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">markerbind</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><p>A bind expression to dynamically populate
+data in the window that is opened when you click the marker icon.
+The bind expression can specify a CFC function, a JavaScript function, or
+a URL. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">markercolor</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><p>The color of the marker specified as a hexadecimal
+value. </p>
+<p>By default, the centermarker is green in color.</p>
+<p>The
+attributes <samp class="codeph">markericon</samp> and <samp class="codeph">markercolor </samp>are
+mutually exclusive.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">markericon</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><p>Location of an image file to use as the
+marker icon. The attributes markericon and markercolor are mutually
+exclusive.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">markerwindowcontent</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><p>Static content displayed in the marker window.
+This attribute is mutually exclusive with the <samp class="codeph">markerbind</samp> attribute. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">name</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><p>Name of the map.</p>
+<p>The name attribute
+is required to invoke JavaScript functions.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">onerror</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><p>The JavaScript function to run when there
+is a Google map API error. </p>
+<p>The JavaScript function is passed
+with two parameters, Google map status code and error message. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">onload</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><p>Custom JavaScript function that runs after
+the map loads, for instance, registering an event.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">overview</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 "><p><samp class="codeph">false</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><div class="para">Whether to add an Overview panel to the
+map:<ul><li><p><samp class="codeph">true</samp></p>
+</li>
+<li><p><samp class="codeph">false</samp></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><div class="para"><pre>showmarkerwindow</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 "><p><samp class="codeph">false</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><p>If set to <samp class="codeph">true</samp>, displays
+the marker window. If the attribute <samp class="codeph">markerbind</samp> is
+used, unless you set this attribute to <samp class="codeph">true</samp>, the
+marker window is not displayed.</p>
+<p>This attribute is ignored
+if <samp class="codeph">markerwindowcontent</samp> is set to <samp class="codeph">true</samp>.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">scrollwheelzoom</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 "><p><samp class="codeph">true</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><div class="para">Whether to enable mouse wheel zooming control:<ul><li><p><samp class="codeph">true</samp></p>
+</li>
+<li><p><samp class="codeph">false</samp></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">showallmarkers</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 "><p><samp class="codeph">true</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><div class="para">Whether to display all markers added to
+the map:<ul><li><p><samp class="codeph">true</samp></p>
+</li>
+<li><p><samp class="codeph">false</samp></p>
+</li>
+</ul>
+</div>
+<p>When you specify <samp class="codeph">showallmarkers </samp>as
+true, to display all the markers within the map area, the zoom level
+specified for the map may be overridden.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">showcentermarker</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 "><p><samp class="codeph">true</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><div class="para">Whether to display the marker icon that
+identifies the map center:<ul><li><p><samp class="codeph">true</samp></p>
+</li>
+<li><p><samp class="codeph">false</samp></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">showscale</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 "><p><samp class="codeph">false</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><div class="para">Whether to show scale control:<ul><li><p><samp class="codeph">true</samp></p>
+</li>
+<li><p><samp class="codeph">false</samp></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">tip</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><p>A short description of the center location
+that appears as a tool tip.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">title</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><p>Title of the panel.</p>
+<p>You cannot define
+a title, if you set <samp class="codeph">hideborder</samp> to true.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">type</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 "><p><samp class="codeph">map</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><div class="para">Type of the Google map:<ul><li><p><samp class="codeph">map</samp></p>
+</li>
+<li><p><samp class="codeph">satellite</samp></p>
+</li>
+<li><p><samp class="codeph">hybrid</samp></p>
+</li>
+<li><p><samp class="codeph">terrain</samp></p>
+</li>
+<li><p><samp class="codeph">earth: </samp>If you use <samp class="codeph">type="earth"</samp>,
+you are prompted to download Google Earth 3D plug-in.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">typecontrol</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 "><p><samp class="codeph">basic</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><div class="para">Whether to provide a type control that lets
+you switch the map:<ul><li><p><samp class="codeph">basic</samp>: Displays the
+marker types that provides the options <samp class="codeph">map</samp>, <samp class="codeph">satellite</samp>,
+and <samp class="codeph">hybrid</samp>.</p>
+</li>
+<li><p><samp class="codeph">none</samp></p>
+</li>
+<li><p><samp class="codeph">advanced</samp>: Displays a drop-down list with
+five options defined for the attribute <samp class="codeph">type</samp>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">width</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 "><p>400 pixels</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><p>Map width, in pixels.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">zoomcontrol</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 "><p><samp class="codeph">small</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><div class="para">Whether to enable zoom control:<ul><li><p><samp class="codeph">none</samp></p>
+</li>
+<li><p><samp class="codeph">small</samp></p>
+</li>
+<li><p><samp class="codeph">large</samp></p>
+</li>
+<li><p><samp class="codeph">large3d</samp></p>
+</li>
+<li><p><samp class="codeph">small3d</samp></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e65335 "><p><samp class="codeph">zoomlevel</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65338 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65341 "><p>3</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e65344 "><p>Specifies the starting zoom value.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle">Usage</h4><p>This
+tag can be used to create a map within an HTML page, a div tag,
+or in a new window. If you use this tag in a new window, you must
+use the <samp class="codeph">cfmap</samp> tag within the cfwindow tag.</p>
+<p>The <samp class="codeph">zoomcontrol</samp>attribute
+lets you change the size of the embedded map. You can increase the
+zoom value to get a close-up view of the map. Or, decrease the zoom
+value to view a larger area of the map at a reduced size. Each time
+you change the zoom value, the entire map does not refresh, but
+only those portions of the map that change, making the display of
+data fast.</p>
+<p>The <samp class="codeph">cfmap</samp> tag supports the map
+display in five formats - <samp class="codeph">map</samp>, <samp class="codeph">satellite</samp>, <samp class="codeph">terrain</samp>, <samp class="codeph">earth</samp>,
+and <samp class="codeph">hybrid</samp>. The map format displays a standard
+road map image. The satellite format displays a satellite image
+of the map. The hybrid format displays a combination of the roadmap
+and the satellite image of the map, with important street names
+and places marked on the satellite image.</p>
+<p>The following attributes
+do not work if <samp class="codeph">type="earth"</samp>: <samp class="codeph">Zoomlevel</samp>, <samp class="codeph">showScale</samp>, <samp class="codeph">overview</samp>, <samp class="codeph">tip</samp>, <samp class="codeph">zoomControl</samp>, <samp class="codeph">showCenterMarker</samp>,
+and <samp class="codeph">showAllMarkers</samp>.</p>
+<p>For cfmap tag to work
+on Safari 3.x and Google Chrome, specify the HTML head tag (<samp class="codeph">&lt;head&gt;&lt;/head&gt;</samp>).</p>
+</div>
+<div class="section"><h4 class="sectiontitle">Examples</h4><pre>&lt;h3&gt;cfmap Example using latitude and longitude attributes&lt;/h3&gt; 
+&lt;cfmap name="gmap01" 
+    centerlatitude="71.094224" 
+    centerlongitude="42.339641" 
+    doubleclickzoom="true" 
+    overview="true" 
+    scrollwheelzoom="true" 
+    showscale="true" 
+    tip="My Map" 
+    zoomlevel="4"/&gt; </pre>
+</div>
+<div class="section"><pre>&lt;h3&gt;cfmap Example using center address&lt;/h3&gt; 
+&lt;cfmap name="gmap02" 
+    centeraddress="345 Park Avenue, san jose, CA 95110-2704, USA" 
+    doubleclickzoom="true" 
+    scrollwheelzoom="true" 
+    showscale="false" 
+    tip="My Map"/&gt; </pre>
+</div>
+</div>
+
+
+<!-- BEGIN USER PREFERENCES -->
+          <div id="userprefs">
+          </div>
+<!-- END USER PREFERENCES -->
+
+          <div id="related">
+            
+            
+            <div class="separator">&#160;</div>
+          </div>
+          <div id="footer">
+<!-- BEGIN IONCOMMENTS -->
+            <div id="ionComHere">
+            </div>
+<!-- END IONCOMMENTS -->
+
+
+            <p id="creativecommons"><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" id="creativecommons_text"><img id="creativecommons_img" src="images/CC.png" alt="This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License" /></a>&nbsp;Twitter™ and Facebook posts are not covered under the terms of Creative Commons.</p>
+          </div>
+</td>
+<td width="10px"></td>
+<td id="inner_rightcolumn">
+
+</td></tr></table>
+      </div>
+<!-- BEGIN BREADCRUMBS -->
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec22c24-7c14.html" title="cfmailpart"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WS175F191F-BA24-4ace-AC7A-44A5A4A9BAEE.html" title="cfmapitem"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>ColdFusion&#160;9&#160;CFML&#160;Reference</b></a> / <a href="WSc3ff6d0ea77859461172e0811cbec17576-7ffe.html"><b>ColdFusion Tags</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec1912c-7fbf.html"><b>Tags m-o</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+<!-- END CONTENT WRAPPER -->
+
+</td>
+<td id="col3">
+    <div>
+        <img src="images/adobe-lq.png" />
+    </div>
+</td>
+</tr>
+</table>
+    </div>
+<!-- END PAGE CONTENT WRAPPER -->
+<script type="text/javascript">
+<!--[CDATA[
+scrollToNameAnchor();
+// ]]-->
+</script> 
+<!--
+    Description:
+    This file generates the link to product support in the top right corner
+-->
+
+<style>
+#menutop{
+    position:absolute;
+    top:4px;
+    right:24px;
+    width:auto;    
+    font-size:11px;
+    color:#fff;
+    text-align:right;
+}
+#menutop a{
+    color:#fff;
+}
+#menutop a:hover{
+        text-decoration:underline;
+}
+</style>  
+  
+  
+  
+  
+<div id="productmenu">
+<!--googleoff: index-->
+  <div id="menutop">
+
+
+<script language=javascript type='text/javascript'>
+    // darken menu text for products with light backgrounds
+    var path = document.location.href.toLowerCase();
+    if (path.indexOf("/acrobat/")           	> 0 ||
+        path.indexOf("/acrobat.com/")       	> 0 ||
+        path.indexOf("/acrobatConnectPro/") 	> 0 ||
+        path.indexOf("/connect/")           	> 0 ||
+        path.indexOf("/livecycledataserviceses/") > 0 ||
+        path.indexOf("/muse/")         	> 0 ||
+	path.indexOf("/presenter/")         	> 0 ||
+        path.indexOf("/scene7/")            	> 0 ||
+        path.indexOf("/flashmediaserver/")  	> 0 ||
+        path.indexOf("/wave/")              	> 0 )
+    {
+        document.write('<style>#menutop a{color:#505050}</style>');
+    }
+    if (typeof('terms_AHV_PRODUCT_SUPPORT') != "undefined" && ! use_robohelp_behavior ){      
+        if (path.indexOf("/muse/") > -1 ){
+            var supportlink = '<a href="http://muse.adobe.com/support.html">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }else{
+            var supportlink = '<a href="http://adobe.com/support">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }
+        document.write( supportlink );
+     }
+
+</script> 
+
+  </div>
+<!--googleon: index-->
+</div>
+
+
+
+<style>
+#online-privacy-policy{ 
+    margin:10px 40px; 
+    font-size:11px;
+}
+</style>
+
+<p id="online-privacy-policy">
+<script language="javascript">
+var pageLoc = "en_US";
+var metaElements = document.all ?
+document.all.tags('meta') :
+document.getElementsByTagName ?
+document.getElementsByTagName ('meta') : new Array();
+for (var m = 0; m < metaElements.length; m++) {
+	if (metaElements[m].name == "lang") {
+		pageLoc = metaElements[m].content;
+		break;
+	}
+}
+var ptn = /(..)-(..)/;
+if (ptn.test(pageLoc)) {
+	var languageCode = pageLoc.replace(ptn, "$1");
+	var countryCode = pageLoc.replace(ptn, "$2");
+	pageLoc = languageCode + "_" + countryCode.toUpperCase();
+}
+
+var policyLoc = "en_US";
+var policyText = "Online Privacy Policy";
+var policyPath = "";
+var policyArray=[
+"da_DK", "Online fortrolighedserklæring",
+"de_DE", "Online-Datenschutzrichtlinie",
+"es_ES", "Política de confidencialidad en línea",
+"fi_FI", "Yksityisyyttä koskeva Online-toimintaohjelma",
+"fr_FR", "Confidentialité et sécurité",
+"it_IT", "Informativa sulla privacy online",
+"ja_JP", "プライバシーポリシー",
+"ko_KR", "Adobe 온라인 개인정보 보호정책",
+"pt_BR", "Política de Confidencialidade On-line", 
+"zh_CN", "在线隐私政策",
+"zh_TW", "線上隱私政策"
+];
+var legalLoc = "en_US";
+var legalText = "Legal Notices";
+var legalPath = legalLoc;
+var legalArray=[
+"ar_AE", "إشعارات قانونية",
+"bg_BG", "Юридически бележки",
+"cs_CZ", "Právní upozornění",
+"da_DK", "Juridiske meddelelser",
+"de_DE", "Rechtliche Hinweise",
+"el_GR", "Σημειώσεις νομικού περιεχομένου",
+"es_ES", "Avisos legales",
+"et_EE", "Juriidilised teated",
+"fi_FI", "Lakisääteiset ilmoitukset",
+"fr_FR", "Mentions légales",
+"he_IL", "הצהרות משפטיות",
+"hr_HR", "Pravne napomene",
+"hu_HU", "Jogi közlemények",
+"it_IT", "Informazioni legali",
+"ja_JP", "法律上の注意",
+"ko_KR", "법적 고지 사항",
+"lt_LT", "Teisinės pastabos",
+"lv_LV", "Juridisks paziņojums",
+"nb_NO", "Juridiske merknader",
+"nl_NL", "Juridische kennisgevingen",
+"pl_PL", "Informacje prawne",
+"pt_BR", "Aspectos jurídicos",
+"ro_RO", "Prevederi legale",
+"ru_RU", "Юридическая информация",
+"sk_SK", "Právne upozornenie",
+"sl_SI", "Pravni pouk",
+"sv_SE", "Upphovsrätt",
+"tr_TR", "Yasal uyarılar",
+"uk_UA", "Юридична інформація",
+"zh_CN", "法律声明",
+"zh_TW", "法律注意事項"
+];
+
+ruPolicy = "http://www.adobe.com/ru/misc/privacy.html";
+trPolicy = "http://www.adobe.com/tr/misc/privacy.html";
+
+// Bug 2846992: LOC: RUS, TUR: The link to "Online Privacy Policy" should include language, currently it is not appearing.
+if (pageLoc == "ru_RU") {
+	policyPath = "ru";
+}
+else if (pageLoc == "tr_TR") {
+	policyPath = "tr";
+}
+for (var i = 0; i < policyArray.length; i+=2) {
+	if (pageLoc == policyArray[i]) {
+		policyLoc = pageLoc;
+		policyText = policyArray[i+1];
+		var ptn = /(..)_(..)/;
+		if (ptn.test(policyLoc)) {
+			var countryCode = policyLoc.replace(ptn, "$2");
+			policyPath = countryCode.toLowerCase();
+		}
+		break;
+	}
+}
+
+for (var i = 0; i < legalArray.length; i+=2) {
+	if (pageLoc == legalArray[i]) {
+		legalLoc = pageLoc;
+		legalText = legalArray[i+1];
+		legalPath = legalLoc;
+		break;
+	}
+}
+if(agt.indexOf("community help client") > -1 ){
+	document.write('<a href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+}else{
+	//Open the privacy policy in a new window
+	document.write('<a target="_blank" href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a target="_blank" href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+} 
+</script>
+</p>
+
+
+
+<!-- localfooter.ssi -->
+
+<script type="text/javascript">
+    var debug = (top.location.href.indexOf("debug=true") > -1);
+</script>
+
+<script language="javascript">
+document.write('<scr'+'ipt ' +
+               'src="/en_US/ssi/_pod.js" ' +
+               'language="javascript" ' +
+               'charset="UTF-8"> ' +
+               '</scr'+'ipt>');
+</script>
+
+
+<script type="text/javascript">
+//
+//  Ethnio survey code
+//
+/*          DocumentID      EthnioID */
+/*          -------------   -------- */
+var ethnio=["/en_US/flash/cs/using/WSb03e830bd6f770ee6664507612436d7dede-8000.html", "87462",
+            "/en_US/creativesuite/cs/using/WSe851854fd1e0856a-4b08a77612477f69f15-8000.html",  "10441",
+            "/en_US/dreamweaver/cs/using/WSEE4C0148-A6F4-4bf5-9DEF-CE06AB026214a.html",  "57412"
+ 
+    ];
+                        
+    for ( var i = 0; i < ethnio.length ; i = i+2 ){
+        if ( document.location.href.indexOf( ethnio[i] ) > -1 ){ 
+            var headID = document.getElementsByTagName("head")[0];         
+            var ethnioScript = document.createElement('script');
+            ethnioScript.type = 'text/javascript';
+            ethnioScript.src = 'http://ethn.io/remotes/' + ethnio[i+1];        
+            if ( debug ){
+                alert ("Using Ethnio script: " + ethnioScript.src );
+            }else{
+                headID.appendChild(ethnioScript);
+            }
+        }
+    }
+</script>
+
+
+
+<div style="display: none;">
+<!-- SiteCatalyst -->
+<script language="JavaScript" type="text/javascript"><!--
+var s_code=' ';
+var s_docHost = window.location.hostname.toLowerCase();
+var s_docURL = window.location.pathname.toLowerCase();
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+if (s_docHost.indexOf(".corp.adobe") != -1 || s_docHost.indexOf("stage.") != -1 || s_docHost.indexOf(".dev.adobe") != -1 || s_docHost.indexOf("staging.") != -1) scJsHost="";
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/omniture_s_code.js' type='text/javascript'%3E%3C/script%3E"));
+//--></script>
+<script type="text/javascript"><!--
+var s_accountName;
+s_server="www.adobe.com static content pages";
+if (!window.s_account) s_accountName="mxmacromedia";
+else s_accountName=window.s_account;
+
+if (window.s_docURL.indexOf("/designcenter/") != -1)
+  s_channel="Adobe Design Center";	
+else if ((window.s_docHost.indexOf("labs.adobe") != -1) ||
+(window.s_docHost.indexOf("labs-staging.") != -1))
+  s_channel="Labs";
+else if (window.s_docHost.indexOf("help.adobe.com") != -1) {
+  s_channel="Support Help.adobe.com";
+  if (window.s_docURL.indexOf("/en_us/") == -1) {
+    s_docURLArray=s_docURL.split('/');
+    s_pageName="http://help.adobe.com/"+s_docURLArray[1]+"/"+ s_docURLArray[2]+"/"+s_docURLArray[3];
+    s_prop23="http://help.adobe.com"+window.location.pathname;
+  }
+}
+else if (window.s_docHost.indexOf("kb2.adobe.com") != -1) {
+  s_channel="Support Knowledgebase";
+  s_prop23="http://kb2.adobe.com"+s_docURL+":";
+  if (typeof(omtrProductList) != 'undefined' && omtrProductList.length > 0)
+ {
+    s_prop23=s_prop23+omtrProductList;
+  }
+}
+else if (window.s_docHost.indexOf("resellers.adobe.com") != -1) {
+		var s_pageName=document.getElementsByTagName("title")[0].text;
+}
+
+if (!window.scMMInclude) {
+	var s_wd=window,s_tm=new Date;
+	if(s_code!=' '){
+		s_code=s_dc(s_accountName);
+		if(s_code)document.write(s_code)
+	} 
+} else {
+	s_wds(s_accountName);s_ca(s_accountName); 
+}	
+
+function sendAnalyticsEvent(str){var ns=s_accountName;if(str!=null)ns+=","+str;void(s_gs(ns));}
+function sendLinkEvent(accnt,lnkname,type){
+accnt=s_accountName;s_linkType=type;s_lnk=true;s_linkName=lnkname;void(s_gs(accnt));}
+//--></script>
+<noscript><img src="http://stats.adobe.com/b/ss/mxmacromedia/1/H.15-XELvs/0?pageName=http%3A//www.adobe.com%3A%20noscript&ch=http%3A//www.adobe.com%3A%20noscript&g=http%3A//www.adobe.com" height="1" width="1" border="0" alt="" /></noscript>
+<!-- End SiteCatalyst -->
+</div>
+
+<script language="JavaScript" type="text/javascript">//<![CDATA[
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/atm/s_code_www.js' type='text/javascript'%3E%3C/script%3E"));
+//]]></script>
+<script type="text/javascript">//<![CDATA[
+if(s_adobe){	
+	s_adobe.server="www.adobe.com Static Content pages";
+	/* Set pageName */
+	s_adobe.s_URL="adobe.com"+((location.pathname.charAt(0)=='/')?location.pathname:'/'+location.pathname);
+	if (s_adobe.s_URL.substring(s_adobe.s_URL.lastIndexOf('/')+1)=="") s_adobe.s_URL=s_adobe.s_URL+"index.html";
+	s_adobe.s_URLSplit=s_adobe.s_URL.split("/");
+	s_adobe.pageName=s_adobe.s_URLSplit.join(":");
+
+	/* Set prop4 to language-locale */
+	var s_meta=document.getElementsByTagName('meta'); 
+      for (i=0; i<s_meta.length; i++) { 
+        if (s_meta[i].getAttribute("http-equiv") == "Content-Language") { 
+          s_adobe.prop4=s_meta[i].getAttribute("content"); 
+	    s_adobe.prop4=s_adobe.prop4.replace(/\s+/g,'');
+        } 
+      } 
+	s_adobe.t()
+}
+//]]></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

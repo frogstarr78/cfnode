@@ -1,0 +1,1108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0022)http://help.adobe.com/ -->
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="lang" content="en-us" />
+    <meta name="area" content="livedocs" />
+    <title>Adobe&#160;ColdFusion&#160;9 * cfdirectory</title>
+    <link rel="shortcut icon" href="images/ColdFusionLinkIndicator.png" />
+    <meta name="book" content="ColdFusion&#160;9&#160;CFML&#160;Reference" />
+    <meta name="product" content="ColdFusion" />
+    <meta name="keywords" content="" /><!--<PageMap><DataObject type="document"><Attribute name="product" value="ColdFusion"></Attribute><Attribute name="book" value="ColdFusion&#160;9&#160;CFML&#160;Reference"></Attribute><Attribute name="keywords" value=""></Attribute></DataObject></PageMap>-->
+    
+    <script type="text/javascript" language="Javascript" charset="UTF-8"><!--[CDATA[
+        var currentTreeNode = "WSc3ff6d0ea77859461172e0811cbec22c24-7f99.html";
+    document.cookie = "topicId=" + "WSc3ff6d0ea77859461172e0811cbec22c24-7f99.html";
+// ]]--></script>
+<script src="terms.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="help.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script>  <script src="utilities.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="event.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="treeview.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="toc.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script> <script src="swfobject.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>  <script src="booklist.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>
+<script type="text/javascript">
+<!--[CDATA[
+var topictype = "topic";
+var headId = document.getElementsByTagName("head")[0];         
+if (use_ie_6_behavior) {
+  var linkId = document.createElement("link");
+  linkId.href = "content-ie6.css";
+  linkId.rel = "stylesheet";
+  linkId.type = "text/css";
+  headId.appendChild(linkId);
+}
+function initRoboHelpDOM() {
+  if (use_chm_behavior) {
+    hideElement("search");
+  }
+  if (use_robohelp_behavior) {
+    hideElement("search");
+    hideElement("productmenu");
+    //hideElement("notyourversion");
+  }
+  if(!use_chc_behavior) {
+    //document.getElementById("notyourversion").style.display = "inline";;
+  }
+}
+var dirname = location.pathname.match( /.*\// );    
+function setSearchUserPref(){
+  if ( document.cookie.indexOf( "ah_searchpref" ) > -1 ) {
+    if ( document.cookie.indexOf( dirname ) > 0 ) {
+      document.search.gsa.checked = true ;
+    }else{
+      document.search.gsa.checked = false ;            
+    }
+  }
+}
+YAHOO.util.Event.onDOMReady(initRoboHelpDOM);
+YAHOO.util.Event.onDOMReady(setSearchUserPref);
+// ]]-->
+</script>
+
+<!-- ********************************** -->
+<!-- START: ForeSee survey code in: /ssi/globalheader.ssi -->
+
+<script type="text/javascript">
+<!-- 
+// Enable the survey for only English, German and Japanese
+var agt=navigator.userAgent.toLowerCase();
+if ( agt.indexOf("community help client") == -1 ){
+    if ( document.location.href.indexOf("/en_US/") != -1 ){
+        showSurvey();
+//    }else if (document.location.href.indexOf("/de_DE/") != -1){
+//         var locale="de";
+//         showSurvey();
+    }else if (document.location.href.indexOf("/ja_JP/") != -1 ){
+         var locale="ja";
+         showSurvey();
+    }	
+}
+
+function showSurvey(){
+	document.write('<script type="text/javascript" src="/js/foresee/foresee-trigger.js"><\/scr'+'ipt>');
+}
+
+// -->
+</script>
+
+<!-- END: ForeSee survey code -->
+<!-- ******************************** -->
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="tree.css" />
+    <link rel="stylesheet" type="text/css" href="content.css" />
+    <link rel="stylesheet" type="text/css" href="localeSpecific.css" />
+  </head>
+  <body id="content_body" onload="window.focus();">
+    <a name="top" shape="rect"><!--LeaveCommentHere--></a>
+    
+    <div id="mnemonic">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon" class="ColdFusion"><div class="banner"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html">Adobe&#160;ColdFusion&#160;9</a><span id="notyourversion">|&#160;
+                    <a rel="nofollow" href="http://www.adobe.com/support/documentation/en/coldfusion/">Not your version?</a></span></div></div><!--googleon: index-->
+    </div>
+    
+    <div id="searchbar">
+<table id="searchbartable">
+<tr>
+<td colspan="2">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon"><div id="pdf"><img src="images/PDF.gif" width="16" height="16" /><a title="View Help PDF" href="coldfusion_9_cfmlref.pdf">View Help PDF ( 32MB)</a></div></div><!--googleon: index-->
+</td>
+</tr>
+</table>
+    </div>
+
+<!-- BEGIN SEARCH CONTENT -->
+<form id="search" name="search" action="search.html" target="_self">
+<script type="text/javascript">
+<!--[CDATA[
+if ( !use_chc_behavior ){
+    if (typeof(terms_AHV_SEARCH_CONSTRAINT) != "undefined" && 
+        terms_AHV_SEARCH_CONSTRAINT.length > 0 && 
+        document.location.href.indexOf(".adobe.com") > 0){
+        if ( typeof(terms_SEARCH_THIS_HELP_ONLY) != "undefined" && terms_SEARCH_THIS_HELP_ONLY == "ON" ) {
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                checked="checked" \
+                value="1" ><\/input>'); 
+                
+        // Leave the "Search this help system only" checkbox unckecked
+        }else{    
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                value="1" ><\/input>'); 
+        }
+        document.write('<span class="gsalabel">' + terms_AHV_SEARCH_CONSTRAINT + '<\/span><\/div>'); 
+    }
+    document.write('<input class="searchinput" \
+        name="q" \
+        id="q" \
+        type="text" \
+        maxlength="256" \
+        value="' + terms_AHV_SEARCH_BUTTON + '" \
+        onclick="clearSearch()"><\/input><input \
+        type="button" \
+        name="searchbutton" \
+        class="searchbutton" \
+        onclick="submit()"><\/input>'); 
+} 
+ 
+/* 
+ * Start Functions 
+ */
+function clearSearch(){
+    if (document.search.q.value == terms_AHV_SEARCH_BUTTON){document.search.q.value = ""}; 
+}
+
+// set search preferences
+function setAHSearchPref(){
+    if (document.search.gsa.checked == 1){
+        setAHSearchCookie( dirname );
+    }else{
+        setAHSearchCookie( "community" );
+    }
+}
+
+// Set search preferences cookie
+function setAHSearchCookie( p ){
+    // set cookie ah_searchpref with a value of the document path
+    var expire=new Date();
+    expire.setDate(expire.getDate()+365); // Cookie expires after 1 year (365 days) 
+    document.cookie="ah_searchpref=" +p+ "; expires=" +expire.toGMTString()+ ";";
+}
+
+// ]]-->
+</script> 
+ </form>
+<!-- END SEARCH CONTENT -->    
+
+
+
+<!-- BEGIN PAGE CONTENT WRAPPER -->
+    <div id="page_content_wrapper">
+<!-- BEGIN PAGE WRAPPER -->
+<table id="page_content_table">
+<tr>
+
+<td id="col2">
+<!-- BEGIN CONTENT WRAPPER -->
+<!-- BEGIN BREADCRUMBS -->
+
+      
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec22c24-7fe3.html" title="cfdefaultcase"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-7a07.html" title="cfdiv"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>ColdFusion&#160;9&#160;CFML&#160;Reference</b></a> / <a href="WSc3ff6d0ea77859461172e0811cbec17576-7ffe.html"><b>ColdFusion Tags</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec17cba-8000.html"><b>Tags d-e</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+      <div id="content_wrapper">
+<!-- BEGIN PAGE TITLE -->
+        <h1>cfdirectory</h1>
+<!-- END PAGE TITLE -->
+<!-- BEGIN IONCOMMENTCOUNT -->
+        <div id="ionCount">
+        </div>
+<!-- END IONCOMMENTCOUNT -->
+<table id="inner_content_table" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>
+          <div style="border-top:#ccc solid 1px;"><p> </p>
+          </div>
+<p id="chcPromo" style="display:none;">
+<a id="chcLink" href="http://www.adobe.com/support/chc/">
+<img id="chcImage" src="http://www.adobe.com/support/chc/GetMoreHelpFeatures.png"/>
+</a>
+</p>
+<script type="text/javascript" language="javascript" charset="utf-8">
+<!--
+var cfgArray = [];
+//cfgArray["Acrobat_10.0_Professional.helpcfg"] = "acrobatpro";
+//cfgArray["Acrobat_10.0_Standard.helpcfg"] = "acrobatstd";
+cfgArray["Lightroom_3.0.helpcfg"] = "lightroom";
+cfgArray["PhotoshopElements_8.0_Win.helpcfg"] = "photoshopelements";
+cfgArray["PhotoshopElements_8.0_Mac.helpcfg"] = "photoshopelementsmac";
+cfgArray["PremiereElements_8.0_Win.helpcfg"] = "premiereelements";
+
+//cfgArray["AfterEffects_10.0.helpcfg"] = "aftereffects";
+//cfgArray["AIR.helpcfg"] = "air";
+//cfgArray["ColdFusionBuilder.helpcfg"] = "coldfusion";
+//cfgArray["Contribute_6.0.helpcfg"] = "contribute";
+//cfgArray["DeviceCentral_3.0.helpcfg"] = "devicecentral";
+//cfgArray["Dreamweaver_11.0.helpcfg"] = "dreamweaver";
+//cfgArray["EncoreDVD_5.0.helpcfg"] = "encore";
+//cfgArray["ExtensionManager_3.0.helpcfg"] = "extension";
+//cfgArray["Fireworks_11.0.helpcfg"] = "fireworks";
+//cfgArray["Flash_11.0.helpcfg"] = "flash";
+//cfgArray["Flex_4.0.helpcfg"] = "flashbuilder";
+//cfgArray["FlashCatalyst_1.0.helpcfg"] = "flashcatalyst";
+//cfgArray["Illustrator_15.0.helpcfg"] = "illustrator";
+//cfgArray["InCopy_7.0.helpcfg"] = "incopy";
+//cfgArray["InDesign_7.0.helpcfg"] = "indesign";
+//cfgArray["OnLocation_5.0.helpcfg"] = "onlocation";
+//cfgArray["Photoshop_12.0.helpcfg"] = "photoshop";
+//cfgArray["PremierePro_5.0.helpcfg"] = "premierepro";
+
+function getLangName() {
+    var lang = "en-us";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if (ptn.test(lang)) {
+        var languageCode = lang.replace(ptn, "$1");
+        var countryCode = lang.replace(ptn, "$2");
+        lang = languageCode + "_" + countryCode.toUpperCase();
+    }
+    return lang;
+}
+
+function getCountryName() {
+    var lang = "";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if ((ptn.test(lang)) && (lang != "en-us")) {
+        var countryCode = lang.replace(ptn, "$2");
+        return "/" + countryCode;
+    }
+    return "";
+}
+
+if ( (typeof(terms_HELPCFG) != 'undefined')  && (terms_HELPCFG.indexOf(".helpcfg") != -1) ) {
+    var stage   = (document.location.href.indexOf(".stage.") != -1) ? 'stage.' : '';
+    var baseUrl = 'http://www.' + stage + 'adobe.com';
+    var refpage = document.location.href.replace(/#.*$/, '');
+	
+	if ((!use_robohelp_behavior) && (terms_HELPCFG.length > 0) && (typeof(cfgArray[terms_HELPCFG]) != 'undefined') && (cfgArray[terms_HELPCFG].length > 0)) {
+		if (document.getElementById) { // DOM3 = IE5, NS6
+			var newHref = baseUrl + getCountryName() + "/support/chc/" + "?helpcfg=http://help." + stage + "adobe.com/HelpCfg/" + getLangName() + "/" + terms_HELPCFG + "&url=" + refpage + "&product=" + cfgArray[terms_HELPCFG];
+			var newSrc = baseUrl + getCountryName() + "/support/chc/GetMoreHelpFeatures.png";
+			document.getElementById("chcPromo").style.display = "block";
+			document.getElementById("chcLink").href = newHref;
+			document.getElementById("chcImage").src = newSrc;
+		}
+	}
+}
+
+//-->
+</script>
+
+
+
+          <div><div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7f99__WSc3ff6d0ea77859461172e0811cbec17cba-7feb"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7f99__WSc3ff6d0ea77859461172e0811cbec17cba-7feb"><!-- --></a><h4 class="sectiontitle">Description</h4><p>Manages
+interactions with directories.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7f99__WSc3ff6d0ea77859461172e0811cbec17cba-7fea"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7f99__WSc3ff6d0ea77859461172e0811cbec17cba-7fea"><!-- --></a><h4 class="sectiontitle">Category</h4><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-775b.html">File management tags</a></p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7f99__WSc3ff6d0ea77859461172e0811cbec17cba-7fe9"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7f99__WSc3ff6d0ea77859461172e0811cbec17cba-7fe9"><!-- --></a><h4 class="sectiontitle">Syntax</h4><pre>&lt;cfdirectory  
+    directory = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">directory name</i>" 
+    action = "list|create|delete|rename" 
+    filter = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">list filter</i>" 
+    listInfo = "name|all" 
+    mode = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">permission</i>" 
+    name = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">query name</i>" 
+    newDirectory = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">new directory name</i>" 
+    recurse = "yes|no" 
+    sort = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">sort specification</i>" 
+    storeACL = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">S3_premissions</i>" 
+    storeLocation = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">location</i>" 
+    type = "file|dir|all"&gt;</pre>
+<div class="note"><span class="notetitle">Note:  </span>You can
+specify this tag’s attributes in an <samp class="codeph">attributeCollection</samp> attribute
+whose value is a structure. Specify the structure name in the <samp class="codeph">attributeCollection</samp> attribute
+and use the tag’s attribute names as structure keys.</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7f99__WSc3ff6d0ea77859461172e0811cbec17cba-7fe8"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7f99__WSc3ff6d0ea77859461172e0811cbec17cba-7fe8"><!-- --></a><h4 class="sectiontitle">See also</h4><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7fa1.html">cffile</a></samp></p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7f99__WSc3ff6d0ea77859461172e0811cbec17cba-7fe7"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7f99__WSc3ff6d0ea77859461172e0811cbec17cba-7fe7"><!-- --></a><h4 class="sectiontitle">History</h4><p>ColdFusion
+9.0.1: Added the <samp class="codeph">storeACL</samp> and <samp class="codeph">storeLocation</samp> attributes.</p>
+<p>ColdFusion
+8: Added the <samp class="codeph">listinfo</samp> and <samp class="codeph">type</samp> attributes.</p>
+<p>ColdFusion
+MX 7: Added the <samp class="codeph">recurse</samp> attribute and <samp class="codeph">directory</samp> result‑set column.</p>
+<p>ColdFusion
+MX: </p>
+<div class="para"><img src="images/dingbat.png" />&#160;Changed behavior for <samp class="codeph">action = "list": </samp><ul><li><p>On Windows, <samp class="codeph">cfdirectory</samp><samp class="codeph">action = "list"</samp> no
+longer returns the directory entries <samp class="codeph">"."</samp> (dot)
+or <samp class="codeph">".."</samp> (dot dot), which represent "the current directory"
+and "the parent directory."</p>
+</li>
+<li><p>On Windows, <samp class="codeph">cfdirectory</samp><samp class="codeph">action = "list"</samp> no
+longer returns the values of the Archive and System attributes.</p>
+</li>
+<li><p>On UNIX and Linux, <samp class="codeph">cfdirectory</samp><samp class="codeph">action = "list"</samp> does
+not return any information in the <samp class="codeph">mode</samp> column.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7f99__WSc3ff6d0ea77859461172e0811cbec17cba-7fe6"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7f99__WSc3ff6d0ea77859461172e0811cbec17cba-7fe6"><!-- --></a><h4 class="sectiontitle">Attributes</h4>
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e19616"><p>Attribute</p>
+</th>
+<th valign="top" width="NaN%" id="d17e19619"><p>Req/Opt</p>
+</th>
+<th valign="top" width="NaN%" id="d17e19622"><p>Default</p>
+</th>
+<th valign="top" width="NaN%" id="d17e19625"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e19616 "><p><samp class="codeph">directory</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19619 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19622 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19625 "><p>Absolute pathname of directory against which
+to perform action. </p>
+<p>You can use an IP address, as in the following
+example:</p>
+<div class="para"><pre>&lt;cfdirectory directory="//12.3.123.123/c_drive/" name="dirQuery" action="LIST"&gt;</pre>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e19616 "><p><samp class="codeph">action</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19619 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19622 "><p><samp class="codeph">list</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19625 "><div class="para"><ul><li><p><samp class="codeph">list</samp>: returns
+a query record set of the files in the specified directory. The directory
+entries "." (dot) and ".." (dot dot), which represent the current
+directory and the parent directory, are not returned. </p>
+</li>
+<li><p><samp class="codeph">create</samp></p>
+</li>
+<li><p><samp class="codeph">delete</samp></p>
+</li>
+<li><p><samp class="codeph">rename</samp></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e19616 "><p><samp class="codeph">filter</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19619 "><p>Optional if <samp class="codeph">action = "list"</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19622 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19625 "><p>File extension filter applied to returned
+names, for example, *.cfm. One filter can be applied. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e19616 "><p><samp class="codeph">listinfo</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19619 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19622 "><p>all</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19625 "><div class="para"><ul><li><p><samp class="codeph">all</samp>: includes
+all information in the result set.</p>
+</li>
+<li><p><samp class="codeph">name</samp>: includes only filenames in the result
+set.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e19616 "><p><samp class="codeph">mode</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19619 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19622 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19625 "><p>Used with <samp class="codeph">action = "create"</samp>.
+Permissions. Applies only to UNIX and Linux. Octal values of <samp class="codeph">chmod</samp> command.
+Assigned to owner, group, and other, respectively, for example: </p>
+<div class="para"><ul><li><p>644: assigns read/write permission to owner; read permission
+to group and other.</p>
+</li>
+<li><p>777: assigns read/write/execute permission to all.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e19616 "><p><samp class="codeph">name</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19619 "><p>Required if <samp class="codeph">action = "list"</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19622 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19625 "><p>Name for output record set. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e19616 "><p><samp class="codeph">newDirectory</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19619 "><p>Required if <samp class="codeph">action = "rename"</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19622 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19625 "><p>New name for directory.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e19616 "><p><samp class="codeph">recurse</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19619 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19622 "><p><samp class="codeph">no</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19625 "><p>Whether ColdFusion performs the action on
+subdirectories:</p>
+<div class="para"><ul><li><p><samp class="codeph">yes</samp></p>
+</li>
+<li><p><samp class="codeph">no</samp></p>
+</li>
+</ul>
+</div>
+<p>Valid for <samp class="codeph">action="list"</samp> and <samp class="codeph">action="delete"</samp>.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e19616 "><p><samp class="codeph">sort</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19619 "><p>Optional; used if <samp class="codeph">action = "list"</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19622 "><p>ASC</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19625 "><p>Query columns by which to sort a directory
+listing. Delimited list of columns from query output. </p>
+<p>To
+qualify a column, use one of the following values:</p>
+<div class="para"><ul><li><p><samp class="codeph">asc</samp>: ascending (a to z) sort order. </p>
+</li>
+<li><p><samp class="codeph">desc</samp>: descending (z to a) sort order. </p>
+</li>
+</ul>
+</div>
+<p>For
+example:</p>
+<div class="para"><pre>sort = "directory ASC, size DESC, datelastmodified"</pre>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e19616 "><p><samp class="codeph">storeACL</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19619 "><p>Optional; used if <samp class="codeph">action = "create"</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19622 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e19625 "><p>An array of struct where each struct represents
+a permission or grant.</p>
+<p>For details, see Using Amazon S3 storage
+in <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Developing Adobe ColdFusion 9 Applications</i></p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e19616 "><p><samp class="codeph">StoreLocation</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19619 "><p>Optional; used if <samp class="codeph">action = "create"</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19622 "><p><samp class="codeph">US</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19625 "><p>Used to change the location of the created
+bucket. The location can either be <samp class="codeph">EU</samp>, <samp class="codeph">US</samp>,
+or <samp class="codeph">US-WEST</samp>.</p>
+<p>For details, see Using Amazon
+S3 storage in <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Developing Adobe ColdFusion 9 Applications.</i></p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e19616 "><p><samp class="codeph">type</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19619 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19622 "><p>all</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19625 "><div class="para"><ul><li><p><samp class="codeph">file</samp>: includes
+only filenames.</p>
+</li>
+<li><p><samp class="codeph">dir</samp>: includes only directory names.</p>
+</li>
+<li><p><samp class="codeph">all</samp>: includes both filenames and directory
+names.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e19616 "><p>storeLocation</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19619 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19622 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e19625 "><p>Used to change the location of the created
+bucket. The location can either be EU or US. The default location
+is US.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e19616 "><p>storeACL</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19619 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e19622 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e19625 "><p>An array of struct where each struct represents
+a permission or grant.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7f99__WSc3ff6d0ea77859461172e0811cbec17cba-7fe5"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7f99__WSc3ff6d0ea77859461172e0811cbec17cba-7fe5"><!-- --></a><h4 class="sectiontitle">Usage</h4><p>If you
+put ColdFusion applications on a server that is used by multiple
+customers, you must consider the security of files and directories
+that could be uploaded or otherwise manipulated with this tag by
+unauthorized users. For more information about securing ColdFusion
+tags, see <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Configuring and Administering ColdFusion</i>.</p>
+<p>If <samp class="codeph">action = "list"</samp>, <samp class="codeph">cfdirectory</samp> returns
+the following result columns, which you can reference in a <samp class="codeph">cfoutput</samp> tag:</p>
+<ul><li><p><samp class="codeph">name</samp>: Directory entry name. The entries <samp class="codeph">"."</samp> and <samp class="codeph">".." </samp>are
+not returned. </p>
+</li>
+<li><p><samp class="codeph">directory</samp>: Directory that contains the entry.</p>
+</li>
+<li><p><samp class="codeph">size</samp>: Directory entry size.</p>
+</li>
+<li><p><samp class="codeph">type</samp>: File type: <samp class="codeph">file</samp>,
+for a file; <samp class="codeph">dir</samp>, for a directory.</p>
+</li>
+<li><p><samp class="codeph">dateLastModified</samp>: The date that an entry
+was last modified.</p>
+</li>
+<li><p><samp class="codeph">attributes</samp>: File attributes, if applicable.</p>
+</li>
+<li><p><samp class="codeph">mode</samp>: Empty column; retained for backward
+compatibility with ColdFusion 5 applications on UNIX.</p>
+</li>
+</ul>
+<p>Use
+the following result columns in standard CFML expressions, preceding
+the result column name with the query name:</p>
+<pre>#mydirectory.name# 
+#mydirectory.directory# 
+#mydirectory.size# 
+#mydirectory.type# 
+#mydirectory.dateLastModified# 
+#mydirectory.attributes# 
+#mydirectory.mode# </pre>
+<div class="note"><span class="notetitle">Note:  </span>If the <samp class="codeph">cfdirectory</samp> tag
+does not appear to work, for example, if a list operation returns
+an empty result set, make sure that you have correct permissions
+to access the directory. For example, if you run ColdFusion as a
+service on Windows, it operates by default as System, and cannot
+access directories on a remote system or mapped drive; to resolve
+this issue, do not run ColdFusion using the local system account.</div>
+<p>The <samp class="codeph">filter</samp> attribute
+specifies a pattern of one or more characters. All names that match
+that pattern are included in the list. On Windows systems, pattern matching
+ignores text case, on UNIX and Linux, pattern matches are case-sensitive. </p>
+<p>The
+following two characters have special meaning in the pattern and
+are called metacharacters: </p>
+<ul><li><p>The asterisk (*) matches
+any zero or more characters.</p>
+</li>
+<li><p>The question mark (?) matches any single character.</p>
+</li>
+</ul>
+<p>The
+following table shows examples of patterns and filenames that they
+match:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e20042"><p>Pattern</p>
+</th>
+<th valign="top" width="NaN%" id="d17e20045"><p>Matches</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e20042 "><p>foo.*</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e20045 "><p>Any file called foo with any extension;
+for example, foo.html, foo.cfm, and foo.xml.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e20042 "><p>*.html</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e20045 "><p>All files with the suffix .html, but not
+files with the suffix .htm.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e20042 "><p>??</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e20045 "><p>All files with two-character names.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7f99__WSc3ff6d0ea77859461172e0811cbec17cba-7fe4"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7f99__WSc3ff6d0ea77859461172e0811cbec17cba-7fe4"><!-- --></a><h4 class="sectiontitle">Example</h4><pre>&lt;!--- EXAMPLE 1: Creating and Renaming  
+Check that the directory exists to avoid getting a ColdFusion error message. ---&gt; 
+&lt;cfset newDirectory = "otherNewDir"&gt; 
+&lt;cfset currentDirectory = GetDirectoryFromPath(GetTemplatePath()) &amp; "newDir"&gt; 
+&lt;!--- Check whether the directory exists. ---&gt; 
+&lt;cfif DirectoryExists(currentDirectory)&gt; 
+&lt;!--- If yes, rename the directory. ---&gt;  
+    &lt;cfdirectory action = "rename" directory = "#currentDirectory#"  
+        newDirectory = "#newDirectory#" &gt; 
+    &lt;cfoutput&gt; 
+    &lt;p&gt;The directory existed and the name has been changed to: #newDirectory#&lt;/p&gt; 
+    &lt;/cfoutput&gt; 
+&lt;cfelse&gt; 
+    &lt;!--- If no, create the directory. ---&gt; 
+    &lt;cfdirectory action = "create" directory = "#currentDirectory#" &gt; 
+    &lt;cfoutput&gt;&lt;p&gt;Your directory has been created.&lt;/p&gt;&lt;/cfoutput&gt; 
+&lt;/cfif&gt; 
+ 
+&lt;!--- EXAMPLE 2: Deleting a directory  
+Check that the directory exists and that files are not in the directory to avoid getting ColdFusion error messages. ---&gt; 
+ 
+&lt;cfset currentDirectory = GetDirectoryFromPath(GetTemplatePath()) &amp; "otherNewDir"&gt; 
+&lt;!--- Check whether the directory exists. ---&gt; 
+&lt;cfif DirectoryExists(currentDirectory)&gt; 
+    &lt;!--- If yes, check whether there are files in the directory before deleting. ---&gt; 
+    &lt;cfdirectory action="list" directory="#currentDirectory#"  
+    name="myDirectory"&gt; 
+    &lt;cfif myDirectory.recordcount gt 0&gt; 
+    &lt;!--- If yes, delete the files from the directory. ---&gt; 
+        &lt;cfoutput&gt; 
+        &lt;p&gt;Files exist in this directory. Either delete the files or code  
+            something to do so.&lt;/P&gt; 
+        &lt;/cfoutput&gt;  
+    &lt;cfelse&gt; 
+    &lt;!--- Directory is empty - just delete the directory. ---&gt; 
+        &lt;cfdirectory action = "delete" directory = "#currentDirectory#"&gt; 
+        &lt;cfoutput&gt; 
+        &lt;p&gt;The directory existed and has been deleted.&lt;/P&gt; 
+        &lt;/cfoutput&gt; 
+    &lt;/cfif&gt;  
+&lt;cfelse&gt; 
+    &lt;!--- If no, post message or do some other function. ---&gt; 
+    &lt;cfoutput&gt;&lt;p&gt;The directory did NOT exist.&lt;/p&gt;&lt;/cfoutput&gt; 
+&lt;/cfif&gt;  
+&lt;!---EXAMPLE 3: List directories  
+The following example creates both an array of directory names and a query that contains entries for the directories only. ---&gt; 
+ 
+&lt;cfdirectory directory="C:/temp" name="dirQuery" action="LIST"&gt; 
+ 
+&lt;!--- Get an array of directory names. ---&gt; 
+&lt;cfset dirsArray=arraynew(1)&gt; 
+&lt;cfset i=1&gt; 
+&lt;cfloop query="dirQuery"&gt; 
+&lt;cfif dirQuery.type IS "dir"&gt; 
+    &lt;cfset dirsArray[i]=dirQuery.name&gt; 
+    &lt;cfset i = i + 1&gt; 
+&lt;/cfif&gt; 
+&lt;/cfloop&gt; 
+&lt;cfdump var="#dirsArray#"&gt; 
+&lt;br&gt; 
+&lt;!--- Get all directory information in a query of queries.---&gt; 
+&lt;cfquery dbtype="query" name="dirsOnly"&gt; 
+SELECT * FROM dirQuery 
+WHERE TYPE='Dir' 
+&lt;/cfquery&gt; 
+&lt;cfdump var="#dirsOnly#"&gt;</pre>
+</div>
+</div>
+
+
+<!-- BEGIN USER PREFERENCES -->
+          <div id="userprefs">
+          </div>
+<!-- END USER PREFERENCES -->
+
+          <div id="related">
+            
+            
+            <div class="separator">&#160;</div>
+          </div>
+          <div id="footer">
+<!-- BEGIN IONCOMMENTS -->
+            <div id="ionComHere">
+            </div>
+<!-- END IONCOMMENTS -->
+
+
+            <p id="creativecommons"><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" id="creativecommons_text"><img id="creativecommons_img" src="images/CC.png" alt="This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License" /></a>&nbsp;Twitter™ and Facebook posts are not covered under the terms of Creative Commons.</p>
+          </div>
+</td>
+<td width="10px"></td>
+<td id="inner_rightcolumn">
+
+</td></tr></table>
+      </div>
+<!-- BEGIN BREADCRUMBS -->
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec22c24-7fe3.html" title="cfdefaultcase"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-7a07.html" title="cfdiv"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>ColdFusion&#160;9&#160;CFML&#160;Reference</b></a> / <a href="WSc3ff6d0ea77859461172e0811cbec17576-7ffe.html"><b>ColdFusion Tags</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec17cba-8000.html"><b>Tags d-e</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+<!-- END CONTENT WRAPPER -->
+
+</td>
+<td id="col3">
+    <div>
+        <img src="images/adobe-lq.png" />
+    </div>
+</td>
+</tr>
+</table>
+    </div>
+<!-- END PAGE CONTENT WRAPPER -->
+<script type="text/javascript">
+<!--[CDATA[
+scrollToNameAnchor();
+// ]]-->
+</script> 
+<!--
+    Description:
+    This file generates the link to product support in the top right corner
+-->
+
+<style>
+#menutop{
+    position:absolute;
+    top:4px;
+    right:24px;
+    width:auto;    
+    font-size:11px;
+    color:#fff;
+    text-align:right;
+}
+#menutop a{
+    color:#fff;
+}
+#menutop a:hover{
+        text-decoration:underline;
+}
+</style>  
+  
+  
+  
+  
+<div id="productmenu">
+<!--googleoff: index-->
+  <div id="menutop">
+
+
+<script language=javascript type='text/javascript'>
+    // darken menu text for products with light backgrounds
+    var path = document.location.href.toLowerCase();
+    if (path.indexOf("/acrobat/")           	> 0 ||
+        path.indexOf("/acrobat.com/")       	> 0 ||
+        path.indexOf("/acrobatConnectPro/") 	> 0 ||
+        path.indexOf("/connect/")           	> 0 ||
+        path.indexOf("/livecycledataserviceses/") > 0 ||
+        path.indexOf("/muse/")         	> 0 ||
+	path.indexOf("/presenter/")         	> 0 ||
+        path.indexOf("/scene7/")            	> 0 ||
+        path.indexOf("/flashmediaserver/")  	> 0 ||
+        path.indexOf("/wave/")              	> 0 )
+    {
+        document.write('<style>#menutop a{color:#505050}</style>');
+    }
+    if (typeof('terms_AHV_PRODUCT_SUPPORT') != "undefined" && ! use_robohelp_behavior ){      
+        if (path.indexOf("/muse/") > -1 ){
+            var supportlink = '<a href="http://muse.adobe.com/support.html">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }else{
+            var supportlink = '<a href="http://adobe.com/support">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }
+        document.write( supportlink );
+     }
+
+</script> 
+
+  </div>
+<!--googleon: index-->
+</div>
+
+
+
+<style>
+#online-privacy-policy{ 
+    margin:10px 40px; 
+    font-size:11px;
+}
+</style>
+
+<p id="online-privacy-policy">
+<script language="javascript">
+var pageLoc = "en_US";
+var metaElements = document.all ?
+document.all.tags('meta') :
+document.getElementsByTagName ?
+document.getElementsByTagName ('meta') : new Array();
+for (var m = 0; m < metaElements.length; m++) {
+	if (metaElements[m].name == "lang") {
+		pageLoc = metaElements[m].content;
+		break;
+	}
+}
+var ptn = /(..)-(..)/;
+if (ptn.test(pageLoc)) {
+	var languageCode = pageLoc.replace(ptn, "$1");
+	var countryCode = pageLoc.replace(ptn, "$2");
+	pageLoc = languageCode + "_" + countryCode.toUpperCase();
+}
+
+var policyLoc = "en_US";
+var policyText = "Online Privacy Policy";
+var policyPath = "";
+var policyArray=[
+"da_DK", "Online fortrolighedserklæring",
+"de_DE", "Online-Datenschutzrichtlinie",
+"es_ES", "Política de confidencialidad en línea",
+"fi_FI", "Yksityisyyttä koskeva Online-toimintaohjelma",
+"fr_FR", "Confidentialité et sécurité",
+"it_IT", "Informativa sulla privacy online",
+"ja_JP", "プライバシーポリシー",
+"ko_KR", "Adobe 온라인 개인정보 보호정책",
+"pt_BR", "Política de Confidencialidade On-line", 
+"zh_CN", "在线隐私政策",
+"zh_TW", "線上隱私政策"
+];
+var legalLoc = "en_US";
+var legalText = "Legal Notices";
+var legalPath = legalLoc;
+var legalArray=[
+"ar_AE", "إشعارات قانونية",
+"bg_BG", "Юридически бележки",
+"cs_CZ", "Právní upozornění",
+"da_DK", "Juridiske meddelelser",
+"de_DE", "Rechtliche Hinweise",
+"el_GR", "Σημειώσεις νομικού περιεχομένου",
+"es_ES", "Avisos legales",
+"et_EE", "Juriidilised teated",
+"fi_FI", "Lakisääteiset ilmoitukset",
+"fr_FR", "Mentions légales",
+"he_IL", "הצהרות משפטיות",
+"hr_HR", "Pravne napomene",
+"hu_HU", "Jogi közlemények",
+"it_IT", "Informazioni legali",
+"ja_JP", "法律上の注意",
+"ko_KR", "법적 고지 사항",
+"lt_LT", "Teisinės pastabos",
+"lv_LV", "Juridisks paziņojums",
+"nb_NO", "Juridiske merknader",
+"nl_NL", "Juridische kennisgevingen",
+"pl_PL", "Informacje prawne",
+"pt_BR", "Aspectos jurídicos",
+"ro_RO", "Prevederi legale",
+"ru_RU", "Юридическая информация",
+"sk_SK", "Právne upozornenie",
+"sl_SI", "Pravni pouk",
+"sv_SE", "Upphovsrätt",
+"tr_TR", "Yasal uyarılar",
+"uk_UA", "Юридична інформація",
+"zh_CN", "法律声明",
+"zh_TW", "法律注意事項"
+];
+
+ruPolicy = "http://www.adobe.com/ru/misc/privacy.html";
+trPolicy = "http://www.adobe.com/tr/misc/privacy.html";
+
+// Bug 2846992: LOC: RUS, TUR: The link to "Online Privacy Policy" should include language, currently it is not appearing.
+if (pageLoc == "ru_RU") {
+	policyPath = "ru";
+}
+else if (pageLoc == "tr_TR") {
+	policyPath = "tr";
+}
+for (var i = 0; i < policyArray.length; i+=2) {
+	if (pageLoc == policyArray[i]) {
+		policyLoc = pageLoc;
+		policyText = policyArray[i+1];
+		var ptn = /(..)_(..)/;
+		if (ptn.test(policyLoc)) {
+			var countryCode = policyLoc.replace(ptn, "$2");
+			policyPath = countryCode.toLowerCase();
+		}
+		break;
+	}
+}
+
+for (var i = 0; i < legalArray.length; i+=2) {
+	if (pageLoc == legalArray[i]) {
+		legalLoc = pageLoc;
+		legalText = legalArray[i+1];
+		legalPath = legalLoc;
+		break;
+	}
+}
+if(agt.indexOf("community help client") > -1 ){
+	document.write('<a href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+}else{
+	//Open the privacy policy in a new window
+	document.write('<a target="_blank" href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a target="_blank" href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+} 
+</script>
+</p>
+
+
+
+<!-- localfooter.ssi -->
+
+<script type="text/javascript">
+    var debug = (top.location.href.indexOf("debug=true") > -1);
+</script>
+
+<script language="javascript">
+document.write('<scr'+'ipt ' +
+               'src="/en_US/ssi/_pod.js" ' +
+               'language="javascript" ' +
+               'charset="UTF-8"> ' +
+               '</scr'+'ipt>');
+</script>
+
+
+<script type="text/javascript">
+//
+//  Ethnio survey code
+//
+/*          DocumentID      EthnioID */
+/*          -------------   -------- */
+var ethnio=["/en_US/flash/cs/using/WSb03e830bd6f770ee6664507612436d7dede-8000.html", "87462",
+            "/en_US/creativesuite/cs/using/WSe851854fd1e0856a-4b08a77612477f69f15-8000.html",  "10441",
+            "/en_US/dreamweaver/cs/using/WSEE4C0148-A6F4-4bf5-9DEF-CE06AB026214a.html",  "57412"
+ 
+    ];
+                        
+    for ( var i = 0; i < ethnio.length ; i = i+2 ){
+        if ( document.location.href.indexOf( ethnio[i] ) > -1 ){ 
+            var headID = document.getElementsByTagName("head")[0];         
+            var ethnioScript = document.createElement('script');
+            ethnioScript.type = 'text/javascript';
+            ethnioScript.src = 'http://ethn.io/remotes/' + ethnio[i+1];        
+            if ( debug ){
+                alert ("Using Ethnio script: " + ethnioScript.src );
+            }else{
+                headID.appendChild(ethnioScript);
+            }
+        }
+    }
+</script>
+
+
+
+<div style="display: none;">
+<!-- SiteCatalyst -->
+<script language="JavaScript" type="text/javascript"><!--
+var s_code=' ';
+var s_docHost = window.location.hostname.toLowerCase();
+var s_docURL = window.location.pathname.toLowerCase();
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+if (s_docHost.indexOf(".corp.adobe") != -1 || s_docHost.indexOf("stage.") != -1 || s_docHost.indexOf(".dev.adobe") != -1 || s_docHost.indexOf("staging.") != -1) scJsHost="";
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/omniture_s_code.js' type='text/javascript'%3E%3C/script%3E"));
+//--></script>
+<script type="text/javascript"><!--
+var s_accountName;
+s_server="www.adobe.com static content pages";
+if (!window.s_account) s_accountName="mxmacromedia";
+else s_accountName=window.s_account;
+
+if (window.s_docURL.indexOf("/designcenter/") != -1)
+  s_channel="Adobe Design Center";	
+else if ((window.s_docHost.indexOf("labs.adobe") != -1) ||
+(window.s_docHost.indexOf("labs-staging.") != -1))
+  s_channel="Labs";
+else if (window.s_docHost.indexOf("help.adobe.com") != -1) {
+  s_channel="Support Help.adobe.com";
+  if (window.s_docURL.indexOf("/en_us/") == -1) {
+    s_docURLArray=s_docURL.split('/');
+    s_pageName="http://help.adobe.com/"+s_docURLArray[1]+"/"+ s_docURLArray[2]+"/"+s_docURLArray[3];
+    s_prop23="http://help.adobe.com"+window.location.pathname;
+  }
+}
+else if (window.s_docHost.indexOf("kb2.adobe.com") != -1) {
+  s_channel="Support Knowledgebase";
+  s_prop23="http://kb2.adobe.com"+s_docURL+":";
+  if (typeof(omtrProductList) != 'undefined' && omtrProductList.length > 0)
+ {
+    s_prop23=s_prop23+omtrProductList;
+  }
+}
+else if (window.s_docHost.indexOf("resellers.adobe.com") != -1) {
+		var s_pageName=document.getElementsByTagName("title")[0].text;
+}
+
+if (!window.scMMInclude) {
+	var s_wd=window,s_tm=new Date;
+	if(s_code!=' '){
+		s_code=s_dc(s_accountName);
+		if(s_code)document.write(s_code)
+	} 
+} else {
+	s_wds(s_accountName);s_ca(s_accountName); 
+}	
+
+function sendAnalyticsEvent(str){var ns=s_accountName;if(str!=null)ns+=","+str;void(s_gs(ns));}
+function sendLinkEvent(accnt,lnkname,type){
+accnt=s_accountName;s_linkType=type;s_lnk=true;s_linkName=lnkname;void(s_gs(accnt));}
+//--></script>
+<noscript><img src="http://stats.adobe.com/b/ss/mxmacromedia/1/H.15-XELvs/0?pageName=http%3A//www.adobe.com%3A%20noscript&ch=http%3A//www.adobe.com%3A%20noscript&g=http%3A//www.adobe.com" height="1" width="1" border="0" alt="" /></noscript>
+<!-- End SiteCatalyst -->
+</div>
+
+<script language="JavaScript" type="text/javascript">//<![CDATA[
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/atm/s_code_www.js' type='text/javascript'%3E%3C/script%3E"));
+//]]></script>
+<script type="text/javascript">//<![CDATA[
+if(s_adobe){	
+	s_adobe.server="www.adobe.com Static Content pages";
+	/* Set pageName */
+	s_adobe.s_URL="adobe.com"+((location.pathname.charAt(0)=='/')?location.pathname:'/'+location.pathname);
+	if (s_adobe.s_URL.substring(s_adobe.s_URL.lastIndexOf('/')+1)=="") s_adobe.s_URL=s_adobe.s_URL+"index.html";
+	s_adobe.s_URLSplit=s_adobe.s_URL.split("/");
+	s_adobe.pageName=s_adobe.s_URLSplit.join(":");
+
+	/* Set prop4 to language-locale */
+	var s_meta=document.getElementsByTagName('meta'); 
+      for (i=0; i<s_meta.length; i++) { 
+        if (s_meta[i].getAttribute("http-equiv") == "Content-Language") { 
+          s_adobe.prop4=s_meta[i].getAttribute("content"); 
+	    s_adobe.prop4=s_adobe.prop4.replace(/\s+/g,'');
+        } 
+      } 
+	s_adobe.t()
+}
+//]]></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

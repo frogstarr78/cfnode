@@ -1,0 +1,1119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0022)http://help.adobe.com/ -->
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="lang" content="en-us" />
+    <meta name="area" content="livedocs" />
+    <title>Adobe&#160;ColdFusion&#160;9 * Understanding errors</title>
+    <link rel="shortcut icon" href="images/ColdFusionLinkIndicator.png" />
+    <meta name="book" content="Developing&#160;ColdFusion 9 Applications" />
+    <meta name="product" content="ColdFusion" />
+    <meta name="keywords" content="" /><!--<PageMap><DataObject type="document"><Attribute name="product" value="ColdFusion"></Attribute><Attribute name="book" value="Developing&#160;ColdFusion 9 Applications"></Attribute><Attribute name="keywords" value=""></Attribute></DataObject></PageMap>-->
+    
+    <script type="text/javascript" language="Javascript" charset="UTF-8"><!--[CDATA[
+        var currentTreeNode = "WSc3ff6d0ea77859461172e0811cbec0bb9b-7fe0.html";
+    document.cookie = "topicId=" + "WSc3ff6d0ea77859461172e0811cbec0bb9b-7fe0.html";
+// ]]--></script>
+<script src="terms.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="help.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script>  <script src="utilities.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="event.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="treeview.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="toc.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script> <script src="swfobject.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>  <script src="booklist.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>
+<script type="text/javascript">
+<!--[CDATA[
+var topictype = "topic";
+var headId = document.getElementsByTagName("head")[0];         
+if (use_ie_6_behavior) {
+  var linkId = document.createElement("link");
+  linkId.href = "content-ie6.css";
+  linkId.rel = "stylesheet";
+  linkId.type = "text/css";
+  headId.appendChild(linkId);
+}
+function initRoboHelpDOM() {
+  if (use_chm_behavior) {
+    hideElement("search");
+  }
+  if (use_robohelp_behavior) {
+    hideElement("search");
+    hideElement("productmenu");
+    //hideElement("notyourversion");
+  }
+  if(!use_chc_behavior) {
+    //document.getElementById("notyourversion").style.display = "inline";;
+  }
+}
+var dirname = location.pathname.match( /.*\// );    
+function setSearchUserPref(){
+  if ( document.cookie.indexOf( "ah_searchpref" ) > -1 ) {
+    if ( document.cookie.indexOf( dirname ) > 0 ) {
+      document.search.gsa.checked = true ;
+    }else{
+      document.search.gsa.checked = false ;            
+    }
+  }
+}
+YAHOO.util.Event.onDOMReady(initRoboHelpDOM);
+YAHOO.util.Event.onDOMReady(setSearchUserPref);
+// ]]-->
+</script>
+
+<!-- ********************************** -->
+<!-- START: ForeSee survey code in: /ssi/globalheader.ssi -->
+
+<script type="text/javascript">
+<!-- 
+// Enable the survey for only English, German and Japanese
+var agt=navigator.userAgent.toLowerCase();
+if ( agt.indexOf("community help client") == -1 ){
+    if ( document.location.href.indexOf("/en_US/") != -1 ){
+        showSurvey();
+//    }else if (document.location.href.indexOf("/de_DE/") != -1){
+//         var locale="de";
+//         showSurvey();
+    }else if (document.location.href.indexOf("/ja_JP/") != -1 ){
+         var locale="ja";
+         showSurvey();
+    }	
+}
+
+function showSurvey(){
+	document.write('<script type="text/javascript" src="/js/foresee/foresee-trigger.js"><\/scr'+'ipt>');
+}
+
+// -->
+</script>
+
+<!-- END: ForeSee survey code -->
+<!-- ******************************** -->
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="tree.css" />
+    <link rel="stylesheet" type="text/css" href="content.css" />
+    <link rel="stylesheet" type="text/css" href="localeSpecific.css" />
+  </head>
+  <body id="content_body" onload="window.focus();">
+    <a name="top" shape="rect"><!--LeaveCommentHere--></a>
+    
+    <div id="mnemonic">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon" class="ColdFusion"><div class="banner"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html">Adobe&#160;ColdFusion&#160;9</a><span id="notyourversion">|&#160;
+                    <a rel="nofollow" href="http://www.adobe.com/support/documentation/en/coldfusion/">Not your version?</a></span></div></div><!--googleon: index-->
+    </div>
+    
+    <div id="searchbar">
+<table id="searchbartable">
+<tr>
+<td colspan="2">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon"><div id="pdf"><img src="images/PDF.gif" width="16" height="16" /><a title="View Help PDF" href="coldfusion_9_dev.pdf">View Help PDF ( 23MB)</a></div></div><!--googleon: index-->
+</td>
+</tr>
+</table>
+    </div>
+
+<!-- BEGIN SEARCH CONTENT -->
+<form id="search" name="search" action="search.html" target="_self">
+<script type="text/javascript">
+<!--[CDATA[
+if ( !use_chc_behavior ){
+    if (typeof(terms_AHV_SEARCH_CONSTRAINT) != "undefined" && 
+        terms_AHV_SEARCH_CONSTRAINT.length > 0 && 
+        document.location.href.indexOf(".adobe.com") > 0){
+        if ( typeof(terms_SEARCH_THIS_HELP_ONLY) != "undefined" && terms_SEARCH_THIS_HELP_ONLY == "ON" ) {
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                checked="checked" \
+                value="1" ><\/input>'); 
+                
+        // Leave the "Search this help system only" checkbox unckecked
+        }else{    
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                value="1" ><\/input>'); 
+        }
+        document.write('<span class="gsalabel">' + terms_AHV_SEARCH_CONSTRAINT + '<\/span><\/div>'); 
+    }
+    document.write('<input class="searchinput" \
+        name="q" \
+        id="q" \
+        type="text" \
+        maxlength="256" \
+        value="' + terms_AHV_SEARCH_BUTTON + '" \
+        onclick="clearSearch()"><\/input><input \
+        type="button" \
+        name="searchbutton" \
+        class="searchbutton" \
+        onclick="submit()"><\/input>'); 
+} 
+ 
+/* 
+ * Start Functions 
+ */
+function clearSearch(){
+    if (document.search.q.value == terms_AHV_SEARCH_BUTTON){document.search.q.value = ""}; 
+}
+
+// set search preferences
+function setAHSearchPref(){
+    if (document.search.gsa.checked == 1){
+        setAHSearchCookie( dirname );
+    }else{
+        setAHSearchCookie( "community" );
+    }
+}
+
+// Set search preferences cookie
+function setAHSearchCookie( p ){
+    // set cookie ah_searchpref with a value of the document path
+    var expire=new Date();
+    expire.setDate(expire.getDate()+365); // Cookie expires after 1 year (365 days) 
+    document.cookie="ah_searchpref=" +p+ "; expires=" +expire.toGMTString()+ ";";
+}
+
+// ]]-->
+</script> 
+ </form>
+<!-- END SEARCH CONTENT -->    
+
+
+
+<!-- BEGIN PAGE CONTENT WRAPPER -->
+    <div id="page_content_wrapper">
+<!-- BEGIN PAGE WRAPPER -->
+<table id="page_content_table">
+<tr>
+
+<td id="col2">
+<!-- BEGIN CONTENT WRAPPER -->
+<!-- BEGIN BREADCRUMBS -->
+
+      
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec0bb9b-7ffe.html" title="About error handling in ColdFusion"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-7d24.html" title="Error messages and the standard error format"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Developing&#160;ColdFusion 9 Applications</b></a> / <a href="WS8f0cc78011fffa71-ea0996f11cdae56045-8000.html"><b>Developing CFML Applications</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7fc4.html"><b>Handling Errors</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+      <div id="content_wrapper">
+<!-- BEGIN PAGE TITLE -->
+        <h1>Understanding errors</h1>
+<!-- END PAGE TITLE -->
+<!-- BEGIN IONCOMMENTCOUNT -->
+        <div id="ionCount">
+        </div>
+<!-- END IONCOMMENTCOUNT -->
+<table id="inner_content_table" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>
+          <div style="border-top:#ccc solid 1px;"><p> </p>
+          </div>
+<p id="chcPromo" style="display:none;">
+<a id="chcLink" href="http://www.adobe.com/support/chc/">
+<img id="chcImage" src="http://www.adobe.com/support/chc/GetMoreHelpFeatures.png"/>
+</a>
+</p>
+<script type="text/javascript" language="javascript" charset="utf-8">
+<!--
+var cfgArray = [];
+//cfgArray["Acrobat_10.0_Professional.helpcfg"] = "acrobatpro";
+//cfgArray["Acrobat_10.0_Standard.helpcfg"] = "acrobatstd";
+cfgArray["Lightroom_3.0.helpcfg"] = "lightroom";
+cfgArray["PhotoshopElements_8.0_Win.helpcfg"] = "photoshopelements";
+cfgArray["PhotoshopElements_8.0_Mac.helpcfg"] = "photoshopelementsmac";
+cfgArray["PremiereElements_8.0_Win.helpcfg"] = "premiereelements";
+
+//cfgArray["AfterEffects_10.0.helpcfg"] = "aftereffects";
+//cfgArray["AIR.helpcfg"] = "air";
+//cfgArray["ColdFusionBuilder.helpcfg"] = "coldfusion";
+//cfgArray["Contribute_6.0.helpcfg"] = "contribute";
+//cfgArray["DeviceCentral_3.0.helpcfg"] = "devicecentral";
+//cfgArray["Dreamweaver_11.0.helpcfg"] = "dreamweaver";
+//cfgArray["EncoreDVD_5.0.helpcfg"] = "encore";
+//cfgArray["ExtensionManager_3.0.helpcfg"] = "extension";
+//cfgArray["Fireworks_11.0.helpcfg"] = "fireworks";
+//cfgArray["Flash_11.0.helpcfg"] = "flash";
+//cfgArray["Flex_4.0.helpcfg"] = "flashbuilder";
+//cfgArray["FlashCatalyst_1.0.helpcfg"] = "flashcatalyst";
+//cfgArray["Illustrator_15.0.helpcfg"] = "illustrator";
+//cfgArray["InCopy_7.0.helpcfg"] = "incopy";
+//cfgArray["InDesign_7.0.helpcfg"] = "indesign";
+//cfgArray["OnLocation_5.0.helpcfg"] = "onlocation";
+//cfgArray["Photoshop_12.0.helpcfg"] = "photoshop";
+//cfgArray["PremierePro_5.0.helpcfg"] = "premierepro";
+
+function getLangName() {
+    var lang = "en-us";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if (ptn.test(lang)) {
+        var languageCode = lang.replace(ptn, "$1");
+        var countryCode = lang.replace(ptn, "$2");
+        lang = languageCode + "_" + countryCode.toUpperCase();
+    }
+    return lang;
+}
+
+function getCountryName() {
+    var lang = "";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if ((ptn.test(lang)) && (lang != "en-us")) {
+        var countryCode = lang.replace(ptn, "$2");
+        return "/" + countryCode;
+    }
+    return "";
+}
+
+if ( (typeof(terms_HELPCFG) != 'undefined')  && (terms_HELPCFG.indexOf(".helpcfg") != -1) ) {
+    var stage   = (document.location.href.indexOf(".stage.") != -1) ? 'stage.' : '';
+    var baseUrl = 'http://www.' + stage + 'adobe.com';
+    var refpage = document.location.href.replace(/#.*$/, '');
+	
+	if ((!use_robohelp_behavior) && (terms_HELPCFG.length > 0) && (typeof(cfgArray[terms_HELPCFG]) != 'undefined') && (cfgArray[terms_HELPCFG].length > 0)) {
+		if (document.getElementById) { // DOM3 = IE5, NS6
+			var newHref = baseUrl + getCountryName() + "/support/chc/" + "?helpcfg=http://help." + stage + "adobe.com/HelpCfg/" + getLangName() + "/" + terms_HELPCFG + "&url=" + refpage + "&product=" + cfgArray[terms_HELPCFG];
+			var newSrc = baseUrl + getCountryName() + "/support/chc/GetMoreHelpFeatures.png";
+			document.getElementById("chcPromo").style.display = "block";
+			document.getElementById("chcLink").href = newHref;
+			document.getElementById("chcImage").src = newSrc;
+		}
+	}
+}
+
+//-->
+</script>
+
+
+
+          <div id="minitoc"><div class="t"><div class="b"><div><ul id="minitoc-links"><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec0bb9b-7ffd"><span class="topictitle1">About error causes and recovery</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec0bb9b-7fe5"><span class="topictitle1">ColdFusion error types</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-7d1d"><span class="topictitle1">About ColdFusion exceptions</span>
+</a></p><ul><li><p><a href="#WS7F984CE2-CE87-4c1a-8BB3-FAE238D5079F"><span class="topictitle2">When exceptions occur</span>
+</a></p></li><li><p><a href="#WS353933E0-B17D-47bc-91EF-DCB3D0D999A8"><span class="topictitle2">Compiler exceptions</span>
+</a></p></li><li><p><a href="#WS50E30388-6F24-4f4b-A77D-DABB197C87FC"><span class="topictitle2">Runtime exception</span>
+</a></p></li><li><p><a href="#WSBCE67D34-F716-487a-B98E-4BFC4295A69A"><span class="topictitle2">ColdFusion exception types</span>
+</a></p></li><li><p><a href="#WS0B83541F-E86B-43e5-B380-178897064592"><span class="topictitle2">Basic exception types</span>
+</a></p></li><li><p><a href="#WS7F6CC8E4-CA22-45a1-8941-9CE8C56541D5"><span class="topictitle2">Custom exceptions</span>
+</a></p></li><li><p><a href="#WS529102CB-E44C-4273-BF93-590475F8843C"><span class="topictitle2">Advanced exception types</span>
+</a></p></li><li><p><a href="#WSF62471F5-221B-4e49-8CFB-63C8A6780CFC"><span class="topictitle2">Java exception classes</span>
+</a></p></li></ul></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-7d23"><span class="topictitle1">How ColdFusion handles errors</span>
+</a></p><ul><li><p><a href="#WSF2151491-D238-4fcc-80B3-522DC2B2159A"><span class="topictitle2">Missing template errors</span>
+</a></p></li><li><p><a href="#WS9DAEBCF7-D0C9-430f-99A2-D8949E21D34A"><span class="topictitle2">Form field validation errors</span>
+</a></p></li><li><p><a href="#WSD59776F6-EA6A-4a73-81D1-236EE9BF6391"><span class="topictitle2">Compiler exception errors</span>
+</a></p></li><li><p><a href="#WS0395D24E-E893-4770-9375-4013AA5386E4"><span class="topictitle2">Runtime exception errors</span>
+</a></p></li></ul></li></ul></div></div></div></div><div><p>You can look at errors in many ways; for example, you can
+look at errors by their causes. You can also look at them by their
+effects, particularly by whether your application can recover from
+them. You can also look at them the way ColdFusion does, as follows:</p>
+</div>
+<div id="WSc3ff6d0ea77859461172e0811cbec0bb9b-7ffd" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec0bb9b-7ffd"><!-- --></a><h2 class="topictitle2">About error causes and recovery</h2><div><p>Errors
+can have many causes. Depending on the cause, the error can be <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">recoverable</i>.
+A recoverable error is one for which your application can identify
+the error cause and take action on the problem. Some errors, such
+as time-out errors, are recoverable without indicating to the user
+that an error was encountered. An error for which a requested application
+page does not exist is not recoverable, and the application can
+only display an error message.</p>
+<p>Errors such as validation errors, for which the application cannot
+continue processing the request, but can provide an error-specific
+response, can also be considered recoverable. For example, an error
+that occurs when a user enters text where a number is required can
+be considered recoverable, because the application can recognize
+the error and redisplay the data field with a message providing
+information about the cause of the error and telling the user to
+reenter the data. </p>
+<p>Some types of errors are recoverable in some, but not all circumstances.
+For example, your application can retry a request following a time-out
+error, but it must also be prepared for the case where the request
+always times out.</p>
+<p>Error causes
+fall in the broad categories listed in the following table:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e28208"><p>Category</p>
+</th>
+<th valign="top" width="NaN%" id="d17e28211"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e28208 "><p>Program errors</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28211 "><p>Can be in the code syntax or the program
+logic. The ColdFusion compiler identifies and reports program syntax errors
+when it compiles CFML into Java classes. Errors in your application
+logic are harder to locate. For information on debugging tools and
+techniques, see <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d60.html">Debugging and Troubleshooting Applications</a>.</p>
+<p>Unlike ColdFusion
+syntax errors, SQL syntax errors are only caught at runtime.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e28208 "><p>Data errors</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28211 "><p>Are typically user data input errors. You
+use validation techniques to identify errors in user input data
+and enable the user to correct the errors.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e28208 "><p>System errors</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28211 "><p>Can come from a variety of causes, including
+database system problems, time-outs due to excessive demands on your
+server, out-of-memory errors in the system, file errors, and disk
+errors.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Although these categories do not map completely to the way ColdFusion categorizes
+errors they provide a useful way of thinking about errors and can help
+you in preventing and handling errors in your code.</p>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec0bb9b-7fe5" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec0bb9b-7fe5"><!-- --></a><h2 class="topictitle2">ColdFusion error types</h2><div><p>Before you can effectively manage ColdFusion
+errors, you must understand how ColdFusion classifies and handles
+them. ColdFusion categorizes errors as detailed in the following
+table:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e28257"><p>Type</p>
+</th>
+<th valign="top" width="NaN%" id="d17e28260"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e28257 "><p>Exception</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28260 "><p>An error that prevents normal processing
+from continuing. All ColdFusion exceptions are, at their root, Java
+exceptions. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e28257 "><p>Missing template</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28260 "><p>An HTTP request for a ColdFusion page that
+cannot be found. Generated if a browser requests a ColdFusion page
+that does not exist.</p>
+<p>Missing template errors are different
+from missing include exceptions, which result from <samp class="codeph">cfinclude</samp> tags
+or custom tag calls that cannot find their targets.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e28257 "><p>Form field data validation</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28260 "><p>Server-side form field validation errors
+are a special kind of ColdFusion exception. You specify server-side
+form validation by using <samp class="codeph">cfform</samp> attributes or hidden
+HTML form fields. All other types of server-side validation, such
+as the <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7faf.html" target="_self">cfparam</a> tag generate runtime exceptions.
+For more information on validating form fields see <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7fb8.html">Validating Data</a>.</p>
+<p>ColdFusion includes a built-in
+error page for server-side form field validation errors, and the <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7d29.html" target="_self">cferror</a> tag includes a <samp class="codeph">type</samp> attribute
+that lets you handle these errors in a custom error page, but if
+you use <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7d4a.html" target="_self">onError</a> processing in Application.cfc,
+or try/catch error handling, the error appears as an Application exception.
+For more information on handling Form field validation in Application.cfc
+see <a href="WS311D0E54-CA8A-45e9-8242-7A6B43689EE1.html">Handling server-side validation errors in the onError method</a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note"><span class="notetitle">Note:  </span>The onSubmit and onBlur form field validation
+techniques use JavaScript or Flash validation on the client browser.</div>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec22c24-7d1d" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7d1d"><!-- --></a><h2 class="topictitle2">About ColdFusion exceptions</h2><div><p>Most
+ColdFusion errors are exceptions. You can categorize ColdFusion
+exceptions in two ways: </p>
+<ul><li><p>When they occur</p>
+</li>
+<li><p>Their type</p>
+</li>
+</ul>
+</div><div id="WS7F984CE2-CE87-4c1a-8BB3-FAE238D5079F" class="nochunk"><a name="WS7F984CE2-CE87-4c1a-8BB3-FAE238D5079F"><!-- --></a><h3 class="topictitle3">When exceptions occur</h3><div><p>ColdFusion errors can occur at two times, when the CFML
+is compiled into Java and when the resulting Java executes, called
+runtime exceptions.</p>
+</div></div><div id="WS353933E0-B17D-47bc-91EF-DCB3D0D999A8" class="nochunk"><a name="WS353933E0-B17D-47bc-91EF-DCB3D0D999A8"><!-- --></a><h3 class="topictitle3">Compiler exceptions</h3><div><p>Compiler
+exceptions are programming errors that ColdFusion identifies when
+it compiles CFML into Java. Because compiler exceptions occur before
+the ColdFusion page is converted to executable code, you cannot
+handle them on the page that causes them. However, other pages can
+handle these errors. For more information, see <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d1b.html">Handling compiler exceptions</a>.</p>
+</div></div><div id="WS50E30388-6F24-4f4b-A77D-DABB197C87FC" class="nochunk"><a name="WS50E30388-6F24-4f4b-A77D-DABB197C87FC"><!-- --></a><h3 class="topictitle3">Runtime exception</h3><div><p>A
+runtime exception occurs when the compiled ColdFusion Java code
+runs. It is an event that disrupts the normal flow of instructions
+in the application. Exceptions can result from system errors or
+program logic errors. Runtime exceptions include:</p>
+<ul><li><p>Error responses from external services, such as an ODBC
+driver or CORBA server</p>
+</li>
+<li><p>CFML errors or the results of <samp class="codeph">cfthrow</samp> or <samp class="codeph">cfabort</samp> tags</p>
+</li>
+<li><p>Internal errors in ColdFusion</p>
+</li>
+</ul>
+</div></div><div id="WSBCE67D34-F716-487a-B98E-4BFC4295A69A" class="nochunk"><a name="WSBCE67D34-F716-487a-B98E-4BFC4295A69A"><!-- --></a><h3 class="topictitle3">ColdFusion exception types</h3><div><p>ColdFusion
+exceptions have types that you specify in the <samp class="codeph">cferror</samp>, <samp class="codeph">cfcatch</samp>, and <samp class="codeph">cfthrow</samp> error-handling
+tags. A <samp class="codeph">cferror</samp> or <samp class="codeph">cfcatch</samp> tag
+handles only exceptions of the specified type. You identify an exception
+type by using an identifier from one (or more) of the following
+type categories:</p>
+<ul><li><p>Basic</p>
+</li>
+<li><p>Custom</p>
+</li>
+<li><p>Advanced</p>
+</li>
+<li><p>Java class</p>
+</li>
+</ul>
+<div class="note"><span class="notetitle">Note:  </span>Use only custom error type names and the <samp class="codeph">Application</samp> basic
+type name in <samp class="codeph">cfthrow</samp> tags. All other built-in exception
+type names identify specific types of system-identified errors,
+so do not use them for errors that you identify yourself.</div>
+</div></div><div id="WS0B83541F-E86B-43e5-B380-178897064592" class="nochunk"><a name="WS0B83541F-E86B-43e5-B380-178897064592"><!-- --></a><h3 class="topictitle3">Basic exception types</h3><div><p>All ColdFusion exceptions except
+for custom exceptions belong to a basic type category. These types
+consist of a broadly defined categorization of ColdFusion exceptions.
+The following table describes the basic exception types:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e28432"><p>Type</p>
+</th>
+<th valign="top" width="NaN%" id="d17e28435"><p>Type name</p>
+</th>
+<th valign="top" width="NaN%" id="d17e28438"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e28432 "><p>Database
+failures</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28435 "><p>Database</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28438 "><p>Failed database operations, such as failed
+SQL statements, ODBC problems, and so on.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e28432 "><p>Missing include file errors</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28435 "><p>MissingInclude</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28438 "><p>Errors where files specified by the <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7ea7.html" target="_self">cfinclude</a>, <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7ea2.html" target="_self">cfmessagebox</a>, and <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7d29.html" target="_self">cferror</a> tags are missing. (A <samp class="codeph">cferror</samp> tag
+generates a missingInclude error only when an error of the type
+specified in the tag occurs.)</p>
+<p>The <samp class="codeph">MissingInclude</samp> error
+type is a subcategory of Template error. If you do not specifically
+handle the MissingInclude error type, but do handle the Template
+error type, the Template error handler catches these errors. <samp class="codeph">MissingInclude</samp> errors
+are caught at runtime.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e28432 "><p>Template
+errors</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28435 "><p>Template</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28438 "><p>General application page errors, including
+invalid tag and attribute names. Most <samp class="codeph">Template</samp> errors
+are caught at compile time, not runtime. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e28432 "><p>Object
+exceptions</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28435 "><p>Object</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28438 "><p>Exceptions in ColdFusion code that works
+with objects.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e28432 "><p>Security
+exceptions</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28435 "><p>Security</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28438 "><p>Catchable exceptions in ColdFusion code
+that works with security.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e28432 "><p>Expression
+exceptions</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28435 "><p>Expression</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28438 "><p>Failed expression evaluations; for example,
+if you try to add 1 and "a".</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e28432 "><p>Locking
+exceptions</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28435 "><p>Lock</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28438 "><p>Failed locking operations, such as when
+a <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7f5d.html" target="_self">cflock</a> critical section times out
+or fails at runtime.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e28432 "><p>Verity
+Search engine exception</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28435 "><p>SearchEngine </p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28438 "><p>Exceptions generated by the Verity search
+engine when processing <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7d04.html" target="_self">cfindex</a></samp>, <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7d03.html" target="_self">cfcollection</a>, or <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7d02.html" target="_self">cfsearch</a> tags.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e28432 "><p>Application-defined
+exception events raised by <samp class="codeph">cfthrow</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28435 "><p>Application</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28438 "><p>Custom exceptions generated by a <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7e25.html" target="_self">cfthrow</a> tag that do not specify a type,
+or specify the type as <samp class="codeph">Application</samp>.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e28432 "><p>All exceptions</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28435 "><p>Any</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28438 "><p>Any exceptions. Includes all types in this
+table and any exceptions that are not handled in another error handler,
+including unexpected internal and external errors.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note"><span class="notetitle">Note:  </span>The Any type includes all error with the Java
+object type of java.lang.Exception. It does not include java.lang.Throwable
+errors. To catch Throwable errors, specify java.lang.Throwable in
+the <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7ec5.html" target="_self">cfcatch</a></samp> tag <samp class="codeph">type</samp> attribute.</div>
+</div></div><div id="WS7F6CC8E4-CA22-45a1-8941-9CE8C56541D5" class="nochunk"><a name="WS7F6CC8E4-CA22-45a1-8941-9CE8C56541D5"><!-- --></a><h3 class="topictitle3">Custom exceptions</h3><div><p>You can generate an exception with
+your own type by specifying a custom exception type name, for example
+MyCustomErrorType, in a <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7e25.html" target="_self">cfthrow</a></samp> tag. You then specify
+the custom type name in a <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7ec5.html" target="_self">cfcatch</a></samp> or <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7d29.html" target="_self">cferror</a></samp> tag to handle the exception.
+Custom type names must be different from any built-in type names, including
+basic types and Java exception classes.</p>
+</div></div><div id="WS529102CB-E44C-4273-BF93-590475F8843C" class="nochunk"><a name="WS529102CB-E44C-4273-BF93-590475F8843C"><!-- --></a><h3 class="topictitle3">Advanced exception types</h3><div><p>The
+Advanced exceptions consist of a set of specific, narrow exception
+types. These types are supported in ColdFusion for backward-compatibility.</p>
+</div></div><div id="WSF62471F5-221B-4e49-8CFB-63C8A6780CFC" class="nochunk"><a name="WSF62471F5-221B-4e49-8CFB-63C8A6780CFC"><!-- --></a><h3 class="topictitle3">Java exception classes</h3><div><p>Every
+ColdFusion exception belongs to, and is identified by, a specific
+Java exception class in addition to its basic, custom, or advanced
+type. The first line of the stack trace in the standard error output
+for an exception identifies the Java class of the exception.</p>
+<p>For example, if you attempt to use an array function such as <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7f1c.html" target="_self">ArrayIsEmpty</a></samp> on an integer
+variable, ColdFusion generates an exception that belongs to the <samp class="codeph">Expression</samp> exception
+basic type and the <samp class="codeph">coldfusion.runtime.NonArrayException</samp> Java
+class.</p>
+<p>In general, most applications do not use Java exception classes
+to identify exceptions. However, you can use Java class names to
+catch exceptions in non-CFML Java objects; for example, the following
+line catches all Java input/output exceptions:</p>
+<pre>&lt;cfcatch type="java.io.IOException"&gt;</pre>
+</div></div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec22c24-7d23" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7d23"><!-- --></a><h2 class="topictitle2">How ColdFusion handles errors</h2><div><p>The
+following information describes briefly how ColdFusion handles errors. Detailed
+information is provided in the remaining topics.</p>
+</div><div id="WSF2151491-D238-4fcc-80B3-522DC2B2159A" class="nochunk"><a name="WSF2151491-D238-4fcc-80B3-522DC2B2159A"><!-- --></a><h3 class="topictitle3">Missing template errors</h3><div><p>If
+a user requests a page that ColdFusion cannot find, and the Administrator Server
+Settings Missing Template Handler field specifies a Missing Template Handler
+page, ColdFusion uses that page to display error information. Otherwise, it
+displays a standard error message.</p>
+</div></div><div id="WS9DAEBCF7-D0C9-430f-99A2-D8949E21D34A" class="nochunk"><a name="WS9DAEBCF7-D0C9-430f-99A2-D8949E21D34A"><!-- --></a><h3 class="topictitle3">Form field validation errors</h3><div><p>When
+a user enters invalid data in an HTML tag that uses onServer or
+hidden form field server-side data validation ColdFusion does the
+following:</p>
+<ol><li><p>If the Application CFC (Application.cfc) has an <samp class="codeph">onError</samp> event
+handler method, ColdFusion calls the method.</p>
+</li>
+<li><p>If the Application.cfc initialization code or the Application.cfm
+page has a <samp class="codeph">cferror</samp> that specifies a Validation
+error handler, ColdFusion displays the specified error page.</p>
+</li>
+<li><p>Otherwise, it displays the error information in a standard
+format that consists of a default header, a bulleted list describing
+the errors, and a default footer. </p>
+</li>
+</ol>
+<p>For more information on using hidden form field validation, see <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7fb8.html">Validating Data</a>. For more information on Application.cfc, see <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7e19.html">Designing and Optimizing a ColdFusion Application</a>.</p>
+</div></div><div id="WSD59776F6-EA6A-4a73-81D1-236EE9BF6391" class="nochunk"><a name="WSD59776F6-EA6A-4a73-81D1-236EE9BF6391"><!-- --></a><h3 class="topictitle3">Compiler exception errors</h3><div><p>If
+ColdFusion encounters a compiler exception, how it handles the exception depends
+on whether the error occurs on a requested page or on an included page: </p>
+<ul><li><p>If the error occurs on a page that is accessed by a <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7ea7.html" target="_self">cfinclude</a></samp> or <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7ea2.html" target="_self">cfmessagebox</a></samp> tag, or on a
+custom tag page that you access using the cf_ notation, ColdFusion
+handles it as a runtime exception in the page that accesses the
+tag. For a description of how these errors are handled, see the next
+section, “ <a href="WS0395D24E-E893-4770-9375-4013AA5386E4.html">Runtime exception errors</a>.” </p>
+</li>
+<li><p>If the error occurs directly on the requested page, and the
+Administrator Settings Site-wide Error Handler field specifies an
+error handler page, ColdFusion displays the specified error page.
+Otherwise, ColdFusion reports the error using the standard error
+message format described in <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d24.html">Error messages and the standard error format</a>.</p>
+</li>
+</ul>
+</div></div><div id="WS0395D24E-E893-4770-9375-4013AA5386E4" class="nochunk"><a name="WS0395D24E-E893-4770-9375-4013AA5386E4"><!-- --></a><h3 class="topictitle3">Runtime exception errors</h3><div><p>If ColdFusion encounters a runtime exception, it does the
+action for the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">first</i> matching condition in the following
+table:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e28741"><p>Condition</p>
+</th>
+<th valign="top" width="NaN%" id="d17e28744"><p>Action</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e28741 "><p>The code with the error is inside a <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7ec6.html" target="_self">cftry</a> tag and the exception type is specified
+in a <samp class="codeph">cfcatch</samp> tag.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28744 "><p>Executes the code in the <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7ec5.html" target="_self">cfcatch</a> tag.</p>
+<p>If the <samp class="codeph">cftry</samp> block
+does not have a <samp class="codeph">cfcatch</samp> tag for this error, tests
+for an appropriate <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7d29.html" target="_self">cferror</a> handler or site-wide error
+handler.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e28741 "><p>The ColdFusion application has an Application.cfc
+with an <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7d4a.html" target="_self">onError</a> method</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28744 "><p>Executes the code in the <samp class="codeph">onError</samp> method.
+For more information on using the <samp class="codeph">onError</samp> method,
+see <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7cce.html">Handling errors in Application.cfc</a>.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e28741 "><p>A <samp class="codeph">cferror</samp> tag specifies
+an exception error handler for the exception type.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28744 "><p>Uses the error page specified by the <samp class="codeph">cferror</samp> tag.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e28741 "><p>The Administrator Settings Site-wide Error
+Handler field specifies an error handler page.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28744 "><p>Uses the custom error page specified by
+the Administrator setting.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e28741 "><p>A <samp class="codeph">cferror</samp> tag specifies
+a Request error handler.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28744 "><p>Uses the error page specified by the <samp class="codeph">cferror</samp> tag.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e28741 "><p>The default case.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e28744 "><p>Uses the standard error message format</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For example, if an exception occurs in CFML code that is not
+in a <samp class="codeph">cftry</samp> block, and Application.cfc does not
+have an <samp class="codeph">onError</samp> method, but a <samp class="codeph">cferror</samp> tag specifies
+a page to handle this error type, ColdFusion uses the specified
+error page.</p>
+</div></div></div>
+
+
+<!-- BEGIN USER PREFERENCES -->
+          <div id="userprefs">
+          </div>
+<!-- END USER PREFERENCES -->
+
+          <div id="related">
+            
+            
+            <div class="separator"><a href="#top"><img src="images/BTT.jpg" /></a>&#160;</div>
+          </div>
+          <div id="footer">
+<!-- BEGIN IONCOMMENTS -->
+            <div id="ionComHere">
+            </div>
+<!-- END IONCOMMENTS -->
+
+
+            <p id="creativecommons"><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" id="creativecommons_text"><img id="creativecommons_img" src="images/CC.png" alt="This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License" /></a>&nbsp;Twitter™ and Facebook posts are not covered under the terms of Creative Commons.</p>
+          </div>
+</td>
+<td width="10px"></td>
+<td id="inner_rightcolumn">
+
+</td></tr></table>
+      </div>
+<!-- BEGIN BREADCRUMBS -->
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec0bb9b-7ffe.html" title="About error handling in ColdFusion"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-7d24.html" title="Error messages and the standard error format"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Developing&#160;ColdFusion 9 Applications</b></a> / <a href="WS8f0cc78011fffa71-ea0996f11cdae56045-8000.html"><b>Developing CFML Applications</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7fc4.html"><b>Handling Errors</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+<!-- END CONTENT WRAPPER -->
+
+</td>
+<td id="col3">
+    <div>
+        <img src="images/adobe-lq.png" />
+    </div>
+</td>
+</tr>
+</table>
+    </div>
+<!-- END PAGE CONTENT WRAPPER -->
+<script type="text/javascript">
+<!--[CDATA[
+scrollToNameAnchor();
+// ]]-->
+</script> 
+<!--
+    Description:
+    This file generates the link to product support in the top right corner
+-->
+
+<style>
+#menutop{
+    position:absolute;
+    top:4px;
+    right:24px;
+    width:auto;    
+    font-size:11px;
+    color:#fff;
+    text-align:right;
+}
+#menutop a{
+    color:#fff;
+}
+#menutop a:hover{
+        text-decoration:underline;
+}
+</style>  
+  
+  
+  
+  
+<div id="productmenu">
+<!--googleoff: index-->
+  <div id="menutop">
+
+
+<script language=javascript type='text/javascript'>
+    // darken menu text for products with light backgrounds
+    var path = document.location.href.toLowerCase();
+    if (path.indexOf("/acrobat/")           	> 0 ||
+        path.indexOf("/acrobat.com/")       	> 0 ||
+        path.indexOf("/acrobatConnectPro/") 	> 0 ||
+        path.indexOf("/connect/")           	> 0 ||
+        path.indexOf("/livecycledataserviceses/") > 0 ||
+        path.indexOf("/muse/")         	> 0 ||
+	path.indexOf("/presenter/")         	> 0 ||
+        path.indexOf("/scene7/")            	> 0 ||
+        path.indexOf("/flashmediaserver/")  	> 0 ||
+        path.indexOf("/wave/")              	> 0 )
+    {
+        document.write('<style>#menutop a{color:#505050}</style>');
+    }
+    if (typeof('terms_AHV_PRODUCT_SUPPORT') != "undefined" && ! use_robohelp_behavior ){      
+        if (path.indexOf("/muse/") > -1 ){
+            var supportlink = '<a href="http://muse.adobe.com/support.html">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }else{
+            var supportlink = '<a href="http://adobe.com/support">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }
+        document.write( supportlink );
+     }
+
+</script> 
+
+  </div>
+<!--googleon: index-->
+</div>
+
+
+
+<style>
+#online-privacy-policy{ 
+    margin:10px 40px; 
+    font-size:11px;
+}
+</style>
+
+<p id="online-privacy-policy">
+<script language="javascript">
+var pageLoc = "en_US";
+var metaElements = document.all ?
+document.all.tags('meta') :
+document.getElementsByTagName ?
+document.getElementsByTagName ('meta') : new Array();
+for (var m = 0; m < metaElements.length; m++) {
+	if (metaElements[m].name == "lang") {
+		pageLoc = metaElements[m].content;
+		break;
+	}
+}
+var ptn = /(..)-(..)/;
+if (ptn.test(pageLoc)) {
+	var languageCode = pageLoc.replace(ptn, "$1");
+	var countryCode = pageLoc.replace(ptn, "$2");
+	pageLoc = languageCode + "_" + countryCode.toUpperCase();
+}
+
+var policyLoc = "en_US";
+var policyText = "Online Privacy Policy";
+var policyPath = "";
+var policyArray=[
+"da_DK", "Online fortrolighedserklæring",
+"de_DE", "Online-Datenschutzrichtlinie",
+"es_ES", "Política de confidencialidad en línea",
+"fi_FI", "Yksityisyyttä koskeva Online-toimintaohjelma",
+"fr_FR", "Confidentialité et sécurité",
+"it_IT", "Informativa sulla privacy online",
+"ja_JP", "プライバシーポリシー",
+"ko_KR", "Adobe 온라인 개인정보 보호정책",
+"pt_BR", "Política de Confidencialidade On-line", 
+"zh_CN", "在线隐私政策",
+"zh_TW", "線上隱私政策"
+];
+var legalLoc = "en_US";
+var legalText = "Legal Notices";
+var legalPath = legalLoc;
+var legalArray=[
+"ar_AE", "إشعارات قانونية",
+"bg_BG", "Юридически бележки",
+"cs_CZ", "Právní upozornění",
+"da_DK", "Juridiske meddelelser",
+"de_DE", "Rechtliche Hinweise",
+"el_GR", "Σημειώσεις νομικού περιεχομένου",
+"es_ES", "Avisos legales",
+"et_EE", "Juriidilised teated",
+"fi_FI", "Lakisääteiset ilmoitukset",
+"fr_FR", "Mentions légales",
+"he_IL", "הצהרות משפטיות",
+"hr_HR", "Pravne napomene",
+"hu_HU", "Jogi közlemények",
+"it_IT", "Informazioni legali",
+"ja_JP", "法律上の注意",
+"ko_KR", "법적 고지 사항",
+"lt_LT", "Teisinės pastabos",
+"lv_LV", "Juridisks paziņojums",
+"nb_NO", "Juridiske merknader",
+"nl_NL", "Juridische kennisgevingen",
+"pl_PL", "Informacje prawne",
+"pt_BR", "Aspectos jurídicos",
+"ro_RO", "Prevederi legale",
+"ru_RU", "Юридическая информация",
+"sk_SK", "Právne upozornenie",
+"sl_SI", "Pravni pouk",
+"sv_SE", "Upphovsrätt",
+"tr_TR", "Yasal uyarılar",
+"uk_UA", "Юридична інформація",
+"zh_CN", "法律声明",
+"zh_TW", "法律注意事項"
+];
+
+ruPolicy = "http://www.adobe.com/ru/misc/privacy.html";
+trPolicy = "http://www.adobe.com/tr/misc/privacy.html";
+
+// Bug 2846992: LOC: RUS, TUR: The link to "Online Privacy Policy" should include language, currently it is not appearing.
+if (pageLoc == "ru_RU") {
+	policyPath = "ru";
+}
+else if (pageLoc == "tr_TR") {
+	policyPath = "tr";
+}
+for (var i = 0; i < policyArray.length; i+=2) {
+	if (pageLoc == policyArray[i]) {
+		policyLoc = pageLoc;
+		policyText = policyArray[i+1];
+		var ptn = /(..)_(..)/;
+		if (ptn.test(policyLoc)) {
+			var countryCode = policyLoc.replace(ptn, "$2");
+			policyPath = countryCode.toLowerCase();
+		}
+		break;
+	}
+}
+
+for (var i = 0; i < legalArray.length; i+=2) {
+	if (pageLoc == legalArray[i]) {
+		legalLoc = pageLoc;
+		legalText = legalArray[i+1];
+		legalPath = legalLoc;
+		break;
+	}
+}
+if(agt.indexOf("community help client") > -1 ){
+	document.write('<a href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+}else{
+	//Open the privacy policy in a new window
+	document.write('<a target="_blank" href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a target="_blank" href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+} 
+</script>
+</p>
+
+
+
+<!-- localfooter.ssi -->
+
+<script type="text/javascript">
+    var debug = (top.location.href.indexOf("debug=true") > -1);
+</script>
+
+<script language="javascript">
+document.write('<scr'+'ipt ' +
+               'src="/en_US/ssi/_pod.js" ' +
+               'language="javascript" ' +
+               'charset="UTF-8"> ' +
+               '</scr'+'ipt>');
+</script>
+
+
+<script type="text/javascript">
+//
+//  Ethnio survey code
+//
+/*          DocumentID      EthnioID */
+/*          -------------   -------- */
+var ethnio=["/en_US/flash/cs/using/WSb03e830bd6f770ee6664507612436d7dede-8000.html", "87462",
+            "/en_US/creativesuite/cs/using/WSe851854fd1e0856a-4b08a77612477f69f15-8000.html",  "10441",
+            "/en_US/dreamweaver/cs/using/WSEE4C0148-A6F4-4bf5-9DEF-CE06AB026214a.html",  "57412"
+ 
+    ];
+                        
+    for ( var i = 0; i < ethnio.length ; i = i+2 ){
+        if ( document.location.href.indexOf( ethnio[i] ) > -1 ){ 
+            var headID = document.getElementsByTagName("head")[0];         
+            var ethnioScript = document.createElement('script');
+            ethnioScript.type = 'text/javascript';
+            ethnioScript.src = 'http://ethn.io/remotes/' + ethnio[i+1];        
+            if ( debug ){
+                alert ("Using Ethnio script: " + ethnioScript.src );
+            }else{
+                headID.appendChild(ethnioScript);
+            }
+        }
+    }
+</script>
+
+
+
+<div style="display: none;">
+<!-- SiteCatalyst -->
+<script language="JavaScript" type="text/javascript"><!--
+var s_code=' ';
+var s_docHost = window.location.hostname.toLowerCase();
+var s_docURL = window.location.pathname.toLowerCase();
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+if (s_docHost.indexOf(".corp.adobe") != -1 || s_docHost.indexOf("stage.") != -1 || s_docHost.indexOf(".dev.adobe") != -1 || s_docHost.indexOf("staging.") != -1) scJsHost="";
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/omniture_s_code.js' type='text/javascript'%3E%3C/script%3E"));
+//--></script>
+<script type="text/javascript"><!--
+var s_accountName;
+s_server="www.adobe.com static content pages";
+if (!window.s_account) s_accountName="mxmacromedia";
+else s_accountName=window.s_account;
+
+if (window.s_docURL.indexOf("/designcenter/") != -1)
+  s_channel="Adobe Design Center";	
+else if ((window.s_docHost.indexOf("labs.adobe") != -1) ||
+(window.s_docHost.indexOf("labs-staging.") != -1))
+  s_channel="Labs";
+else if (window.s_docHost.indexOf("help.adobe.com") != -1) {
+  s_channel="Support Help.adobe.com";
+  if (window.s_docURL.indexOf("/en_us/") == -1) {
+    s_docURLArray=s_docURL.split('/');
+    s_pageName="http://help.adobe.com/"+s_docURLArray[1]+"/"+ s_docURLArray[2]+"/"+s_docURLArray[3];
+    s_prop23="http://help.adobe.com"+window.location.pathname;
+  }
+}
+else if (window.s_docHost.indexOf("kb2.adobe.com") != -1) {
+  s_channel="Support Knowledgebase";
+  s_prop23="http://kb2.adobe.com"+s_docURL+":";
+  if (typeof(omtrProductList) != 'undefined' && omtrProductList.length > 0)
+ {
+    s_prop23=s_prop23+omtrProductList;
+  }
+}
+else if (window.s_docHost.indexOf("resellers.adobe.com") != -1) {
+		var s_pageName=document.getElementsByTagName("title")[0].text;
+}
+
+if (!window.scMMInclude) {
+	var s_wd=window,s_tm=new Date;
+	if(s_code!=' '){
+		s_code=s_dc(s_accountName);
+		if(s_code)document.write(s_code)
+	} 
+} else {
+	s_wds(s_accountName);s_ca(s_accountName); 
+}	
+
+function sendAnalyticsEvent(str){var ns=s_accountName;if(str!=null)ns+=","+str;void(s_gs(ns));}
+function sendLinkEvent(accnt,lnkname,type){
+accnt=s_accountName;s_linkType=type;s_lnk=true;s_linkName=lnkname;void(s_gs(accnt));}
+//--></script>
+<noscript><img src="http://stats.adobe.com/b/ss/mxmacromedia/1/H.15-XELvs/0?pageName=http%3A//www.adobe.com%3A%20noscript&ch=http%3A//www.adobe.com%3A%20noscript&g=http%3A//www.adobe.com" height="1" width="1" border="0" alt="" /></noscript>
+<!-- End SiteCatalyst -->
+</div>
+
+<script language="JavaScript" type="text/javascript">//<![CDATA[
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/atm/s_code_www.js' type='text/javascript'%3E%3C/script%3E"));
+//]]></script>
+<script type="text/javascript">//<![CDATA[
+if(s_adobe){	
+	s_adobe.server="www.adobe.com Static Content pages";
+	/* Set pageName */
+	s_adobe.s_URL="adobe.com"+((location.pathname.charAt(0)=='/')?location.pathname:'/'+location.pathname);
+	if (s_adobe.s_URL.substring(s_adobe.s_URL.lastIndexOf('/')+1)=="") s_adobe.s_URL=s_adobe.s_URL+"index.html";
+	s_adobe.s_URLSplit=s_adobe.s_URL.split("/");
+	s_adobe.pageName=s_adobe.s_URLSplit.join(":");
+
+	/* Set prop4 to language-locale */
+	var s_meta=document.getElementsByTagName('meta'); 
+      for (i=0; i<s_meta.length; i++) { 
+        if (s_meta[i].getAttribute("http-equiv") == "Content-Language") { 
+          s_adobe.prop4=s_meta[i].getAttribute("content"); 
+	    s_adobe.prop4=s_adobe.prop4.replace(/\s+/g,'');
+        } 
+      } 
+	s_adobe.t()
+}
+//]]></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,1687 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0022)http://help.adobe.com/ -->
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="lang" content="en-us" />
+    <meta name="area" content="livedocs" />
+    <title>Adobe&#160;ColdFusion&#160;9 * Define Relationships</title>
+    <link rel="shortcut icon" href="images/ColdFusionLinkIndicator.png" />
+    <meta name="book" content="Developing&#160;ColdFusion 9 Applications" />
+    <meta name="product" content="ColdFusion" />
+    <meta name="keywords" content="" /><!--<PageMap><DataObject type="document"><Attribute name="product" value="ColdFusion"></Attribute><Attribute name="book" value="Developing&#160;ColdFusion 9 Applications"></Attribute><Attribute name="keywords" value=""></Attribute></DataObject></PageMap>-->
+    
+    <script type="text/javascript" language="Javascript" charset="UTF-8"><!--[CDATA[
+        var currentTreeNode = "WS5FFD2854-7F18-43ea-B383-161E007CE0D1.html";
+    document.cookie = "topicId=" + "WS5FFD2854-7F18-43ea-B383-161E007CE0D1.html";
+// ]]--></script>
+<script src="terms.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="help.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script>  <script src="utilities.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="event.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="treeview.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="toc.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script> <script src="swfobject.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>  <script src="booklist.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>
+<script type="text/javascript">
+<!--[CDATA[
+var topictype = "topic";
+var headId = document.getElementsByTagName("head")[0];         
+if (use_ie_6_behavior) {
+  var linkId = document.createElement("link");
+  linkId.href = "content-ie6.css";
+  linkId.rel = "stylesheet";
+  linkId.type = "text/css";
+  headId.appendChild(linkId);
+}
+function initRoboHelpDOM() {
+  if (use_chm_behavior) {
+    hideElement("search");
+  }
+  if (use_robohelp_behavior) {
+    hideElement("search");
+    hideElement("productmenu");
+    //hideElement("notyourversion");
+  }
+  if(!use_chc_behavior) {
+    //document.getElementById("notyourversion").style.display = "inline";;
+  }
+}
+var dirname = location.pathname.match( /.*\// );    
+function setSearchUserPref(){
+  if ( document.cookie.indexOf( "ah_searchpref" ) > -1 ) {
+    if ( document.cookie.indexOf( dirname ) > 0 ) {
+      document.search.gsa.checked = true ;
+    }else{
+      document.search.gsa.checked = false ;            
+    }
+  }
+}
+YAHOO.util.Event.onDOMReady(initRoboHelpDOM);
+YAHOO.util.Event.onDOMReady(setSearchUserPref);
+// ]]-->
+</script>
+
+<!-- ********************************** -->
+<!-- START: ForeSee survey code in: /ssi/globalheader.ssi -->
+
+<script type="text/javascript">
+<!-- 
+// Enable the survey for only English, German and Japanese
+var agt=navigator.userAgent.toLowerCase();
+if ( agt.indexOf("community help client") == -1 ){
+    if ( document.location.href.indexOf("/en_US/") != -1 ){
+        showSurvey();
+//    }else if (document.location.href.indexOf("/de_DE/") != -1){
+//         var locale="de";
+//         showSurvey();
+    }else if (document.location.href.indexOf("/ja_JP/") != -1 ){
+         var locale="ja";
+         showSurvey();
+    }	
+}
+
+function showSurvey(){
+	document.write('<script type="text/javascript" src="/js/foresee/foresee-trigger.js"><\/scr'+'ipt>');
+}
+
+// -->
+</script>
+
+<!-- END: ForeSee survey code -->
+<!-- ******************************** -->
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="tree.css" />
+    <link rel="stylesheet" type="text/css" href="content.css" />
+    <link rel="stylesheet" type="text/css" href="localeSpecific.css" />
+  </head>
+  <body id="content_body" onload="window.focus();">
+    <a name="top" shape="rect"><!--LeaveCommentHere--></a>
+    
+    <div id="mnemonic">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon" class="ColdFusion"><div class="banner"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html">Adobe&#160;ColdFusion&#160;9</a><span id="notyourversion">|&#160;
+                    <a rel="nofollow" href="http://www.adobe.com/support/documentation/en/coldfusion/">Not your version?</a></span></div></div><!--googleon: index-->
+    </div>
+    
+    <div id="searchbar">
+<table id="searchbartable">
+<tr>
+<td colspan="2">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon"><div id="pdf"><img src="images/PDF.gif" width="16" height="16" /><a title="View Help PDF" href="coldfusion_9_dev.pdf">View Help PDF ( 23MB)</a></div></div><!--googleon: index-->
+</td>
+</tr>
+</table>
+    </div>
+
+<!-- BEGIN SEARCH CONTENT -->
+<form id="search" name="search" action="search.html" target="_self">
+<script type="text/javascript">
+<!--[CDATA[
+if ( !use_chc_behavior ){
+    if (typeof(terms_AHV_SEARCH_CONSTRAINT) != "undefined" && 
+        terms_AHV_SEARCH_CONSTRAINT.length > 0 && 
+        document.location.href.indexOf(".adobe.com") > 0){
+        if ( typeof(terms_SEARCH_THIS_HELP_ONLY) != "undefined" && terms_SEARCH_THIS_HELP_ONLY == "ON" ) {
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                checked="checked" \
+                value="1" ><\/input>'); 
+                
+        // Leave the "Search this help system only" checkbox unckecked
+        }else{    
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                value="1" ><\/input>'); 
+        }
+        document.write('<span class="gsalabel">' + terms_AHV_SEARCH_CONSTRAINT + '<\/span><\/div>'); 
+    }
+    document.write('<input class="searchinput" \
+        name="q" \
+        id="q" \
+        type="text" \
+        maxlength="256" \
+        value="' + terms_AHV_SEARCH_BUTTON + '" \
+        onclick="clearSearch()"><\/input><input \
+        type="button" \
+        name="searchbutton" \
+        class="searchbutton" \
+        onclick="submit()"><\/input>'); 
+} 
+ 
+/* 
+ * Start Functions 
+ */
+function clearSearch(){
+    if (document.search.q.value == terms_AHV_SEARCH_BUTTON){document.search.q.value = ""}; 
+}
+
+// set search preferences
+function setAHSearchPref(){
+    if (document.search.gsa.checked == 1){
+        setAHSearchCookie( dirname );
+    }else{
+        setAHSearchCookie( "community" );
+    }
+}
+
+// Set search preferences cookie
+function setAHSearchCookie( p ){
+    // set cookie ah_searchpref with a value of the document path
+    var expire=new Date();
+    expire.setDate(expire.getDate()+365); // Cookie expires after 1 year (365 days) 
+    document.cookie="ah_searchpref=" +p+ "; expires=" +expire.toGMTString()+ ";";
+}
+
+// ]]-->
+</script> 
+ </form>
+<!-- END SEARCH CONTENT -->    
+
+
+
+<!-- BEGIN PAGE CONTENT WRAPPER -->
+    <div id="page_content_wrapper">
+<!-- BEGIN PAGE WRAPPER -->
+<table id="page_content_table">
+<tr>
+
+<td id="col2">
+<!-- BEGIN CONTENT WRAPPER -->
+<!-- BEGIN BREADCRUMBS -->
+
+      
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSB7BEC0B4-8096-498d-8F9B-77C88878AC6C.html" title="Map the properties"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WS027D3772-2E98-4d5b-8800-054A62EBF8D9.html" title="Advanced mapping"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Developing&#160;ColdFusion 9 Applications</b></a> / <a href="WSD628ADC4-A5F7-4079-99E0-FD725BE9B4BD.html"><b>ColdFusion ORM</b></a> 
+      / <a href="WS53C28604-E798-4175-97AE-D7BDF124056C.html"><b>Define ORM mapping</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+      <div id="content_wrapper">
+<!-- BEGIN PAGE TITLE -->
+        <h1>Define Relationships</h1>
+<!-- END PAGE TITLE -->
+<!-- BEGIN IONCOMMENTCOUNT -->
+        <div id="ionCount">
+        </div>
+<!-- END IONCOMMENTCOUNT -->
+<table id="inner_content_table" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>
+          <div style="border-top:#ccc solid 1px;"><p> </p>
+          </div>
+<p id="chcPromo" style="display:none;">
+<a id="chcLink" href="http://www.adobe.com/support/chc/">
+<img id="chcImage" src="http://www.adobe.com/support/chc/GetMoreHelpFeatures.png"/>
+</a>
+</p>
+<script type="text/javascript" language="javascript" charset="utf-8">
+<!--
+var cfgArray = [];
+//cfgArray["Acrobat_10.0_Professional.helpcfg"] = "acrobatpro";
+//cfgArray["Acrobat_10.0_Standard.helpcfg"] = "acrobatstd";
+cfgArray["Lightroom_3.0.helpcfg"] = "lightroom";
+cfgArray["PhotoshopElements_8.0_Win.helpcfg"] = "photoshopelements";
+cfgArray["PhotoshopElements_8.0_Mac.helpcfg"] = "photoshopelementsmac";
+cfgArray["PremiereElements_8.0_Win.helpcfg"] = "premiereelements";
+
+//cfgArray["AfterEffects_10.0.helpcfg"] = "aftereffects";
+//cfgArray["AIR.helpcfg"] = "air";
+//cfgArray["ColdFusionBuilder.helpcfg"] = "coldfusion";
+//cfgArray["Contribute_6.0.helpcfg"] = "contribute";
+//cfgArray["DeviceCentral_3.0.helpcfg"] = "devicecentral";
+//cfgArray["Dreamweaver_11.0.helpcfg"] = "dreamweaver";
+//cfgArray["EncoreDVD_5.0.helpcfg"] = "encore";
+//cfgArray["ExtensionManager_3.0.helpcfg"] = "extension";
+//cfgArray["Fireworks_11.0.helpcfg"] = "fireworks";
+//cfgArray["Flash_11.0.helpcfg"] = "flash";
+//cfgArray["Flex_4.0.helpcfg"] = "flashbuilder";
+//cfgArray["FlashCatalyst_1.0.helpcfg"] = "flashcatalyst";
+//cfgArray["Illustrator_15.0.helpcfg"] = "illustrator";
+//cfgArray["InCopy_7.0.helpcfg"] = "incopy";
+//cfgArray["InDesign_7.0.helpcfg"] = "indesign";
+//cfgArray["OnLocation_5.0.helpcfg"] = "onlocation";
+//cfgArray["Photoshop_12.0.helpcfg"] = "photoshop";
+//cfgArray["PremierePro_5.0.helpcfg"] = "premierepro";
+
+function getLangName() {
+    var lang = "en-us";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if (ptn.test(lang)) {
+        var languageCode = lang.replace(ptn, "$1");
+        var countryCode = lang.replace(ptn, "$2");
+        lang = languageCode + "_" + countryCode.toUpperCase();
+    }
+    return lang;
+}
+
+function getCountryName() {
+    var lang = "";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if ((ptn.test(lang)) && (lang != "en-us")) {
+        var countryCode = lang.replace(ptn, "$2");
+        return "/" + countryCode;
+    }
+    return "";
+}
+
+if ( (typeof(terms_HELPCFG) != 'undefined')  && (terms_HELPCFG.indexOf(".helpcfg") != -1) ) {
+    var stage   = (document.location.href.indexOf(".stage.") != -1) ? 'stage.' : '';
+    var baseUrl = 'http://www.' + stage + 'adobe.com';
+    var refpage = document.location.href.replace(/#.*$/, '');
+	
+	if ((!use_robohelp_behavior) && (terms_HELPCFG.length > 0) && (typeof(cfgArray[terms_HELPCFG]) != 'undefined') && (cfgArray[terms_HELPCFG].length > 0)) {
+		if (document.getElementById) { // DOM3 = IE5, NS6
+			var newHref = baseUrl + getCountryName() + "/support/chc/" + "?helpcfg=http://help." + stage + "adobe.com/HelpCfg/" + getLangName() + "/" + terms_HELPCFG + "&url=" + refpage + "&product=" + cfgArray[terms_HELPCFG];
+			var newSrc = baseUrl + getCountryName() + "/support/chc/GetMoreHelpFeatures.png";
+			document.getElementById("chcPromo").style.display = "block";
+			document.getElementById("chcLink").href = newHref;
+			document.getElementById("chcImage").src = newSrc;
+		}
+	}
+}
+
+//-->
+</script>
+
+
+
+          <div id="minitoc"><div class="t"><div class="b"><div><ul id="minitoc-links"><li><p><a href="#WS7CF54B7A-8F03-47bf-98B5-56FD8B8C858A"><span class="topictitle1">Relationship attributes</span>
+</a></p></li><li><p><a href="#WS606584AD-43B2-48c1-B9E6-69A670694BBB"><span class="topictitle1">One-to-one relationships</span>
+</a></p></li><li><p><a href="#WSDDE3349B-ECE1-450d-B5B1-0BCACDCC6736"><span class="topictitle1">One-to-many relationship</span>
+</a></p></li><li><p><a href="#WS0A6DEEDD-1725-48d5-B13E-A3D30AC4E67C"><span class="topictitle1">Many-to-one relationship</span>
+</a></p></li><li><p><a href="#WS1B354BBF-382C-4a10-B840-DC6BB384DB21"><span class="topictitle1">Many-to-many relationships</span>
+</a></p></li></ul></div></div></div></div><div><p>Relationship is the most crucial aspect of ORM. In a relational
+database, relation between tables are defined using foreign key.
+However, in case of objects, relation between two objects is defined
+using association where one object has a reference to another. ORM
+defines how the object relation is mapped to the database relation. </p>
+<p>In this topic, relation and association would be used interchangeably.</p>
+<p>Before you learn how to define the mapping for relation, it is
+important to understand few key concepts:</p>
+<ul><li><p>Source object: Object having the reference to the related
+object is termed as source of the relationship.</p>
+</li>
+<li><p>Target object: Object being referred or associated is termed
+as target of the relationship.</p>
+</li>
+<li><p>Direction and Navigability: In relational database, the relationship
+is always unidirectional, which implies that you can navigate from
+one table to another but not back to the same table. However, object
+model can be either unidirectional or bidirectional. A unidirectional
+association means that source has the reference to the target but
+the target does not know about the source. A bidirectional association
+means that both the objects have reference to each other and you
+can navigate from either object to another. In other words, source
+has a reference to the target and target also has a reference to
+the source. This also means that both the objects are source and
+target at the same time.</p>
+<p>To set the association between objects,
+you need to set the references appropriately. For example, in case
+of Person-Address relation, where one person as one address, you
+need to associate Address to person as:</p>
+<pre>person.setAddress(address);</pre>
+<p>At
+this point, person object knows about the Address object but the
+address object does not know the person object. So, this is a unidirectional
+relation between Person-Address. To make this bidirectional, you
+need to associate Person to Address as: </p>
+<pre>address.setPerson(person);</pre>
+</li>
+<li><p>Multiplicity: This defines how many target entities can a
+particular source have and how many source entities can a particular
+target have. Consider the example of artwork and artist, where an
+artist has many artwork pieces. In an object model, an artwork has
+reference to one artist and an artist has reference to many pieces
+of artwork. So, for artwork and artist the multiplicity is many-to-one
+and for artist and artwork, it is one-to-many. The other two type
+of multiplicities are one-to-one and many-to-many. </p>
+<p>In this
+topic, multiplicity would be referred to as the type of relationship.</p>
+</li>
+</ul>
+<p>To indicate that a property defines the relationship between
+two persistent components, as a result of relationship in the database
+table, specify the <samp class="codeph">fieldtype</samp> in the <samp class="codeph">cfproperty</samp> tag
+to one of the following:</p>
+<ul><li><p>one-to-one</p>
+</li>
+<li><p>one-to-many</p>
+</li>
+<li><p>many-to-one</p>
+</li>
+<li><p>many-to-many</p>
+</li>
+</ul>
+<p>You can also use the link table to establish a relationship.
+A link table contains the foreign key to both tables that participate
+in the relationship. ORM looks for the map key column using the
+link table and not the target table.</p>
+</div>
+<div id="WS7CF54B7A-8F03-47bf-98B5-56FD8B8C858A" class="nochunk"><a name="WS7CF54B7A-8F03-47bf-98B5-56FD8B8C858A"><!-- --></a><h2 class="topictitle2">Relationship attributes</h2><div><p>This table specifies the attribute details for all the
+relationship types.</p>
+<p>The "Applies to" column indicates the relationship type that
+the attribute is applicable to; "all" indicates that the attribute
+is applicable to all relationship types.</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e56396"><p>Attribute</p>
+</th>
+<th valign="top" width="NaN%" id="d17e56399"><p>Applies to</p>
+</th>
+<th valign="top" width="NaN%" id="d17e56402"><p>Re/Opt</p>
+</th>
+<th valign="top" width="NaN%" id="d17e56405"><p>Default</p>
+</th>
+<th valign="top" width="NaN%" id="d17e56408"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">batchsize</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>one-to-many</p>
+<p>many-to-many</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>An integer value that specifies the "<samp class="codeph">batchsize</samp>"
+for fetching uninitialized collections. For details, see <a href="WS1AADD402-68CD-49cb-BF3E-E713856DCB11.html">Batch fetching</a>.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">cacheuse</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>one-to-many</p>
+<p> many-to-many</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Use this value to specify the caching strategy
+to be used for caching this component's data in the secondary cache.</p>
+<p>See <a href="WSCAD9638E-2D2C-48d8-9069-AE5A220B75A6.html">Caching</a> for details.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">cachename</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>one-to-many</p>
+<p>many-to-many</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 "><p>&lt;entityname&gt; </p>
+<p>&lt;relationname&gt;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Use this value to specify the name of the
+secondary cache.</p>
+<p>See <a href="WSCAD9638E-2D2C-48d8-9069-AE5A220B75A6.html">Caching</a> for details.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">cascade</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>all</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>See the Cascade options section for details.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">cfc</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>all</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Name of the associated CFC.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">constrained</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>one-to-one</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 "><p>false</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Whether a constraint is set on this table's
+Primary Key column to reference the Primary Key in the other table:</p>
+<p>true</p>
+<p>false</p>
+<p>See <a href="WS606584AD-43B2-48c1-B9E6-69A670694BBB.html">One-to-one relationships</a> for details.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">fetch</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>all</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 "><p>select</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Specifies whether join query or sequential
+select query will be used to retrieve the associated objects. The
+values are: </p>
+<p>join </p>
+<p>select</p>
+<p>See <a href="WSE01EDE03-6E6B-4669-8C54-358460778450.html">Lazy Loading</a> for details.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">fieldtype</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>all</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 "><p>column</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Specifies the type of relationship mapping:</p>
+<p>one-to-one</p>
+<p>one-to-many</p>
+<p>many-to-one</p>
+<p>many-to-many</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">fkcolumn</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>all</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Specifies the foreign key column.</p>
+<p>In
+case the relation is established using link table, this specifies the
+foreign key column in the link table that references the primary
+key of the source object.</p>
+<p>If the relationship is established
+using multiple foreign key columns (that reference the composite
+key of the source table), then you must use comma-separated column
+names.Also, the order in which the column names are specified must
+match the order of composite keys defined. If you do not specify
+any values, then </p>
+<div class="para"><ul><li><p>If the table exists and the constraints
+are defined, ColdFusion automatically selects the values from the
+table</p>
+</li>
+<li><p>If the table does not exist, ColdFusion auto-generates the
+ values</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">foreignkeyname</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>one-to-one</p>
+<p> many-to-one,</p>
+<p> many-to-many</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 "><p>autogenerated</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Specifies the name of the foreign key constraint.
+This is used only when the tables are created by ORM.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">index</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>many-to-one</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 "><p>false</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Specifies the name of the index for the
+foreign key column.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">insert</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>many-to-one</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 "><p>true</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Specifies whether the column should be included
+in SQL UPDATE and/or INSERT statements. Values are:</p>
+<p><samp class="codeph">true
+false</samp></p>
+<p>Set <samp class="codeph">update=false</samp> and <samp class="codeph">insert=false</samp> if
+the column needs to be read-only.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">inverse</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>one-to-many</p>
+<p>many-to-many</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 "><p>false</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Specifies whether SQL query should be executed
+for this association when persisting this object. Value are: </p>
+<p>true</p>
+<p>false </p>
+<p>See
+“Inverse” section for details.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">inversejoincolumn</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>all</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Specifies the foreign key column in the
+Join table that references the primary key column in the target
+table. </p>
+<p>In case of a composite key, you can use a comma-separated
+list of column names. </p>
+<div class="para">If the join table has multiple foreign
+key columns (that reference the composite key of the target table),
+then you must use comma-separated column names.Also, the order in
+which the column names are specified must match the order of composite
+keys defined.If you do not specify any values, then <ul><li><p>If
+the table exists and the constraints are defined, then ColdFusion
+automatically selects the values from the table</p>
+</li>
+<li><p>If the table does not exist, then ColdFusion auto-generates the
+values</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">lazy</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>all</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 "><p>true</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Specifies if the association should be loaded
+lazily. </p>
+<p>true</p>
+<p>false</p>
+<p>extra</p>
+<p>See <a href="WSE01EDE03-6E6B-4669-8C54-358460778450.html">Lazy Loading</a> for details.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">linkcatalog</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>all</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Catalog for the link table.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">linkschema</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>all</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Schema for the link table.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">linktable</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>all</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Name of the link table.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">mappedby</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>all</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>In a relationship, the foreign key can reference
+a unique column other than the primary key. In such cases, use <samp class="codeph">mappedby</samp> to
+specify the property name that maps to the unique key column.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">missingrowIgnored</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>many-to-one, </p>
+<p>many-to-many, </p>
+<p>(in
+ColdFusion 9.0.1) one-to-one</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 "><p>false</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Values are: </p>
+<p>true</p>
+<p>false</p>
+<p>If
+the value is true, and the row that is referenced by the foreign key
+is missing, it is treated as a null association.</p>
+<p>The default
+is false, in which case an exception is thrown.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">name</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>all</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Name of the field</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">notnull</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>many-to-one</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 "><p>false</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Use this to add the not-null constraint
+for the foreign key column when the table is created by ORM.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">optimisticlock</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>all</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 "><p>true</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Whether updates to this property need acquisition
+of the optimistic lock on the table row. Values are:</p>
+<p>true</p>
+<p>false</p>
+<p>See <a href="WS2F0C1CDB-4CAF-42fd-B7D9-500D82C0136A.html">Optimistic locking</a> for details.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">orderby</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>one-to-many</p>
+<p>many-to-many</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><div class="para">Specifies the <samp class="codeph">orderby</samp> string
+that needs to be used to sort the associated collection. Use the
+following format to specify this string:<pre>"col1 &lt;asc/desc&gt; (, col2&lt;asc/desc&gt;)" or "col1(, col2)"</pre>
+</div>
+<p>In
+the latter case, <samp class="codeph">asc</samp> is taken as default.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">readonly</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>one-to-many</p>
+<p>many-to-many</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 "><p>false</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Values are:</p>
+<p>true </p>
+<p>false</p>
+<p>If
+set to true, it indicates that the collection never changes and can
+be cached.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><div class="para"><pre>remotingFetch</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>all</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 "><p>false</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>The value of the remotingFetch attribute
+is false by default for any property that shares one-to-one, one-to-many,
+many-to-one, or many-to-many relationship. Set this value to true
+to retrieve data on the client-side.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">singularname</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>one-to-many</p>
+<p>many-to-many</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 "><p>property name</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Use this property to define the custom name
+for generated relationship methods. See <a href="WSf0ed2a6d7fb07688310730d81223d0356fc-7fff.html">Generated methods for relationships between CFCs</a>.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">structkeycolumn</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>one-to-many</p>
+<p>many-to-many</p>
+<p>type=struct</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e56405 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>The column in the target table to use as
+key if the collection type is struct.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">structkeytype</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>one-to-many</p>
+<p>many-to-many </p>
+<p>type
+=struct</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Specifies the data type of the key, when
+type=struct. </p>
+<p>For the entire list of data types, see the Data
+Types section.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">type</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>one-to-many</p>
+<p>many-to-many</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Specifies the datatype of the relationship
+property:</p>
+<p>array </p>
+<p>struct</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">update</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>many-to-one</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 "><p>true</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Specifies whether the column should be included
+in SQL update statement:</p>
+<p>true</p>
+<p>false</p>
+<p>Set update=false
+and insert=false if the column needs to be read-only.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">unique</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>many-to-one</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 "><p>false</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Use this to add the unique constraint for
+the foreign key column when the table is created by ORM. This effectively
+makes this relation one-to-one.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">uniquekey</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>many-to-one</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Groups columns in a single unique key constraint.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e56396 "><p><samp class="codeph">where</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56399 "><p>one-to-many</p>
+<p>many-to-many</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56402 "><p>optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e56405 ">&#160;</td>
+<td valign="top" width="NaN%" headers="d17e56408 "><p>Use this to specify a SQL that will be used
+to filter the collection retrieved. See “Applying filters on relationship“
+for details.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section"><h4 class="sectiontitle">Cascade options</h4><p>In an association, it
+is cumbersome to apply an action performed on object to the other
+object. For example, in case of an Department-Employee one-to-many association,
+if you add an employee, the same change needs to be updated on the
+Department as well. The cascade option in Hibernate allows you to
+perform such operations. </p>
+<p>You can specify the following values
+in the cascade attribute:</p>
+<ul><li><p><samp class="codeph">all</samp>: Allows
+you to apply all operations to be cascaded to the associated object.</p>
+</li>
+<li><p><samp class="codeph">save-update</samp>: If the parent object is saved,
+the associated objects are saved as well.</p>
+</li>
+<li><p><samp class="codeph">delete</samp>: Deletes the child object if the
+delete operation is called on the parent object.</p>
+</li>
+<li><p><samp class="codeph">delete-orphan</samp>: This is a special kind of
+cascade option that applies to one-to-many relation only. Deletes
+all child objects for which the association has been removed. </p>
+</li>
+<li><p><samp class="codeph">all-delete-orphan</samp>: Cascades all operations
+to child objects, and performs delete-orphan action.</p>
+</li>
+<li><p><samp class="codeph">refresh</samp>: Cascades the refresh action to
+the child object. The refresh action is used to reload an object
+and its collections. </p>
+</li>
+</ul>
+<p>Typically, <samp class="codeph">cascade</samp> attribute
+is not used on a many-to-one or a many-to-many relationship.</p>
+<p>You
+can also specify comma separated cascade values in the <samp class="codeph">cascade</samp> attribute. For
+a one-to-one or a one-to-many relationship, the most common values
+are all-delete-orphan.</p>
+<p>For an association where the child
+object can continue to exist even if the parent object is deleted,
+you can apply the save-update cascade value.</p>
+</div>
+<div class="section"><h4 class="sectiontitle">Applying filter on associated objects</h4><p>In
+one-to-many and many-to-many relationships, an array or struct is
+retrieved. Filters can be applied to retrieve a subset of the associated
+objects. The filter can be specified in the <samp class="codeph">where</samp> attribute,
+which is an SQL where clause. In a one-to-many association for artist
+and artwork:</p>
+<div class="para">If you want to retrieve only the unsold artwork
+for every Artist object, you need to define the mapping as follows:<pre>&lt;cfproperty name="unsoldArts" cfc="Art" fieldtype="one-to-many" fkcolumn="ARTISTID" where="issold=0"&gt;</pre>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle">Inverse</h4><p>In a bidirectional relationship,
+the <samp class="codeph">inverse</samp> attribute is used on an association property
+to specify whether an SQL query should be executed for the association,
+when persisting the object.</p>
+<p>Consider the ART and ARTIST CFCs,
+which have a bidirectional one-to-many relationship. This means
+that each ART object has a reference to the ARTIST object and ARTIST
+object has a reference to the ART object. While persisting ARTIST
+and the associated ART, the relationship can be established in the database
+from both sides of the object. Setting <samp class="codeph">inverse=true</samp> on
+one side of the relation tells ORM to ignore this side of relation
+for executing the SQL. </p>
+<p>As a general rule, in a bidirectional
+relation, one side must set <samp class="codeph">inverse</samp> to <samp class="codeph">true</samp>. For
+one-to-many or many-to-one relation, <samp class="codeph">inverse</samp> should
+be set on the many side of the relation. For example, in ARTIST-ART
+relation, inverse should be set to <samp class="codeph">true</samp> on the
+'<samp class="codeph">art</samp>' property in ARTIST. </p>
+<p>In many-to-many
+relation, you can set <samp class="codeph">inverse=true</samp> on any side
+of the relation. </p>
+</div>
+</div></div>
+<div id="WS606584AD-43B2-48c1-B9E6-69A670694BBB" class="nochunk"><a name="WS606584AD-43B2-48c1-B9E6-69A670694BBB"><!-- --></a><h2 class="topictitle2">One-to-one relationships</h2><div><p>A one-to-one relationship is where the source object has
+an attribute that references another single target object and vice-versa.
+An example of this relationship is the relationship between an employee
+and the assigned office cubicle, where one employee has one office
+cubicle and one office cubicle belongs to only one employee. </p>
+<p>A one-to-one relationship between two persistent components are
+defined using <samp class="codeph">fieldtype</samp> value one-to-one. </p>
+<p><strong>Syntax</strong>:</p>
+<pre>&lt;cfproperty name="fieldname" 
+fieldtype="one-to-one" 
+cfc="Referenced_CFC_Name" 
+linktable="Link table name" 
+linkcatalog="Catalog for the link table" 
+linkschema="Schema for the link table" 
+fkcolumn="Foreign Key column name" 
+inversejoincolumn="Column name or comma-separated list of primary key columns" 
+cascade="cascade_options" 
+constrained="true|[false]" 
+fetch="join|[select]"  
+lazy="[true]|false"&gt;</pre>
+<p>There are two types of one-to-one relationships:</p>
+<ul><li><p>Primary key association</p>
+</li>
+<li><p>Unique Foreign Key association</p>
+</li>
+</ul>
+<div class="section"><h4 class="sectiontitle">Primary key association</h4><p>In this type of
+association, the primary key of one table references to the primary key
+of another table. That is, both the tables share the same primary
+key. </p>
+<p>The following example shows how to define this mapping.</p>
+</div>
+<div class="section"><h4 class="sectiontitle">Example</h4><p>Consider the EMPLOYEE and OFFICECUBICLE
+example. Both the tables share the same primary key. The mapping
+for these tables are as follows:</p>
+<ul><li><p>EMPLOYEE.cfc</p>
+<pre>&lt;cfcomponent persistent="true" table="Employee"&gt; 
+    &lt;cfproperty name="id" fieldtype="id" generator="native"&gt; 
+    &lt;cfproperty name="firstname"&gt; 
+    &lt;cfproperty name="lastname"&gt; 
+    &lt;cfproperty name="officecubicle" fieldtype="one-to-one" cfc="OfficeCubicle"&gt; 
+&lt;/cfcomponent&gt;</pre>
+</li>
+<li><p>OFFICECUBICLE.cfc</p>
+<pre>&lt;cfcomponent persistent="true" table="OfficeCubicle"&gt; 
+    &lt;cfproperty name="id" fieldtype="id" generator="foreign" params="{property='Employee'}" ormtype="int"&gt; 
+    &lt;cfproperty name="Employee" fieldtype="one-to-one" cfc="Employee" constrained="true"&gt; 
+    &lt;cfproperty name="Location"&gt; 
+    &lt;cfproperty name="Size"&gt; 
+&lt;/cfcomponent&gt;</pre>
+<p><samp class="codeph">fieldtype=one-to-one</samp> specifies
+that the property is a one-to-one property.</p>
+<p><samp class="codeph">constrained=true</samp> on <samp class="codeph">Employee</samp> property
+in OFFICECUBICLE.cfc, means that a constraint is set on the OFFICECUBICLE
+table for its ID to reference the ID in the EMPLOYEE table.</p>
+<p>The
+ID of EMPLOYEE table is auto-generated. The ID of the OFFICECUBICLE table
+should be the same as the ID of the Employee table. For this, set <samp class="codeph">generator="foreign"</samp>.
+Foreign generator takes one parameter <samp class="codeph">'property'</samp> as
+input, which should be the relationship property name of OFFICECUBICLE
+entity which is 'EMPLOYEE' in this case.</p>
+<p>Here, primary key
+values of related rows in both the tables must be the same. The
+identity generator algorithm in the mapping for the component (whose mapped
+table has the constraint), must be set to foreign.</p>
+</li>
+</ul>
+</div>
+<div class="section"><h4 class="sectiontitle">Unique foreign key association</h4><p>In this
+type of association, the foreign key of one table references the
+primary key of another table, and the foreign key column has a unique
+constraint. To define this relationship, <samp class="codeph">fkcolumn</samp> attribute
+should be specified on the relationship-property of the CFC whose
+table contains the foreign key column. The other end of relation
+should use <samp class="codeph">mappedby</samp> attribute.</p>
+<div class="para">Syntax<pre>&lt;cfproperty 
+name="fieldname" 
+fieldtype="one-to-one" 
+cfc="Referenced_CFC_Name" 
+linktable="Link table name" 
+linkcatalog="Catalog for the link table" 
+linkschema="Schema for the link table" 
+fkcolumn="Foreign Key column name" 
+inversejoincolumn="Column name or comma-separated list of primary key columns" 
+mappedby="Mapped_Field_name_in_referenced_CFC" 
+cascade="none" 
+fetch="join|[select]" 
+lazy="[true]|false"&gt;</pre>
+</div>
+<div class="note"><span class="notetitle">Note:  </span>The mappedby attribute
+can not be specified with the fkcolumn attribute.</div>
+</div>
+<div class="section"><h4 class="sectiontitle">Example</h4><p>In the EMPLOYEE and OFFICECUBICLE
+example, OFFICECUBICLE has a foreign key column, EMPLOYEEID. This
+foreign key references the primary key of the Employee table. OFFICECUBICLE
+has an auto-generated primary key, which does not participate in
+the relationship.</p>
+<p>EMPLOYEE.cfc</p>
+<pre>&lt;cfcomponent persistent="true" table="Employee"&gt; 
+    &lt;cfproperty name="EmployeeID" fieldtype="id" generator="native"&gt; 
+    &lt;cfproperty name="firstname"&gt; 
+    &lt;cfproperty name="lastname"&gt; 
+    &lt;cfproperty name="officecubicle" fieldtype="one-to-one" cfc="officecubicle" mappedby="Employee"&gt; 
+&lt;/cfcomponent&gt;</pre>
+<p>OFFICECUBICLE.cfc</p>
+<pre>&lt;cfcomponent persistent="true" table="officecubicle"&gt; 
+    &lt;cfproperty name="id" fieldtype="id" generator="native"&gt; 
+    &lt;cfproperty name="Employee" fieldtype="one-to-one" cfc="Employee" fkcolumn="EmployeeID"&gt; 
+    &lt;cfproperty name="Location"&gt; 
+    &lt;cfproperty name="Size"&gt; 
+&lt;/cfcomponent&gt;</pre>
+<div class="para"><ul><li><p>In OFFICECUBICLE entity, <samp class="codeph">fkcolumn="EmployeeID"</samp> specifies
+that EmployeeID is the foreign key column in OFFICECUBICLE table.</p>
+</li>
+<li><p><samp class="codeph">mappedby="Employee"</samp> specifies that the one-to-one
+relationship is with the foreign-key property 'EMPLOYEE' in OFFICECUBICLE
+entity and not with its primary key.</p>
+</li>
+<li><p>In Employee entity, fkcolumn should not be specified.</p>
+</li>
+</ul>
+</div>
+<p>In
+this case, OFFICECUBICLE entity has a independent Primary key which
+is auto-generated.</p>
+</div>
+</div></div>
+<div id="WSDDE3349B-ECE1-450d-B5B1-0BCACDCC6736" class="nochunk"><a name="WSDDE3349B-ECE1-450d-B5B1-0BCACDCC6736"><!-- --></a><h2 class="topictitle2">One-to-many relationship</h2><div><p>A one-to-many relationship is where the source object has
+field that stores a collection of target objects. These target objects
+may also have an inverse relationship back to the source object.
+This relationship is established by having a foreign key in the
+target table that maps to the primary key of the source table.</p>
+<p>An example of a one-to-many relationship is the relation between
+artist and art, where the artist has many artwork pieces.</p>
+<p>A one-to-many relationship between two persistent components
+is defined using the <samp class="codeph">fieldtype</samp> value <samp class="codeph">one-to-many</samp> in
+the <samp class="codeph">cfproperty</samp> tag. The source object contains
+a collection of target objects. ColdFusion allows the collection
+to be one of the following types:</p>
+<ul><li><p>Array</p>
+</li>
+<li><p>Struct</p>
+</li>
+</ul>
+<p>This collection is a persistence aware collection. Any addition
+or deletion from this collection is automatically persisted in the
+database.</p>
+<div class="section"><h4 class="sectiontitle">Array</h4><p>An Artist object can contain the
+Art objects as an array. To define this mapping in the CFC, use
+the following syntax:</p>
+<p><strong>Syntax</strong></p>
+<pre>&lt;cfproperty 
+name="field_name" 
+fieldtype="one-to-many" 
+cfc="Referenced_CFC_name" 
+linktable="Link table name" 
+linkcatalog="Catalog for the link table" 
+linkschema="Schema for the link table" 
+fkcolumn="Foreign Key column name" 
+inversejoincolumn="Column name or comma-separated list of primary key columns " 
+type="array" 
+orderby="order_by_string" 
+cascade="cascade_options" 
+lazy="[true]|false|extra" 
+fetch="join|[select]" 
+inverse="true|[false]" 
+batchsize="N" 
+optimisticlock="[true]|false" 
+readonly="true|[false]"&gt;</pre>
+<p>For the artist-art example,
+the relationship property in Artist.cfc is defined as follows:</p>
+<pre>&lt;cfproperty name="art" type="array" fieldtype="one-to-many" cfc="Art" fkcolumn="ARTISTID"&gt;</pre>
+<ul><li><p><samp class="codeph">type-array</samp> specifies that the artist object
+will contain art objects in an array.</p>
+</li>
+<li><p><samp class="codeph">fkcolumn="ArtistID"</samp> specifies that the foreign
+key column is ARTISTID that references the primary key of ARTIST
+table.</p>
+</li>
+</ul>
+</div>
+<div class="section"><h4 class="sectiontitle">Struct</h4><p>An Artist object can contain the
+Art objects as a struct. The key would be any column in the ART
+table (usually the primary key or a unique key). The value would
+be the Art object. To define this mapping, use the following syntax.</p>
+<p><strong>Syntax</strong></p>
+<pre>&lt;cfproperty 
+name="field_name" 
+fieldtype="one-to-many" 
+cfc="Referenced_CFC_name" 
+linktable="Link table name" 
+linkcatalog="Catalog for the link table" 
+linkschema="Schema for the link table" 
+fkcolumn="Foreign Key column name" 
+inversejoincolumn="Column name or comma-separated list of primary key columns" 
+type="struct" 
+orderby="order_by_String" 
+structkeycolumn = "Structure_Key_Column" 
+structkeytype="ormtype" 
+cascade="cascade_options" 
+lazy="[true]|false|extra" 
+fetch="join|[select]" 
+inverse="true|[false]" 
+batchsize="N" 
+optimisticlock="[true]|false" 
+readonly="true|[false]"&gt;</pre>
+<p>For the artist-art example,
+you can define the relationship property as:</p>
+<pre>&lt;cfproperty name="art" type="struct" fieldtype="one-to-many" cfc="Art" fkcolumn="ARTISTID" structkeytype="int" structkeycolumn="ArtID"&gt;</pre>
+<ul><li><p><samp class="codeph">type=struct</samp> specifies that the artist object
+will contain art objects in a struct.</p>
+</li>
+<li><p><samp class="codeph">structkeycolumn="ArtID"</samp> specifies that the
+key of the struct would be ArtID. </p>
+<p>Note that ARTID is the
+primary key in Art table.</p>
+</li>
+<li><p><samp class="codeph">structkeytype="int"</samp> specifies the datatype
+of <samp class="codeph">structkeycolumn</samp>.</p>
+</li>
+<li><p><samp class="codeph">fkcolumn="ArtistID"</samp> specifies that the foreign
+key column is ARTISTID that references the primary key of Artist
+table.</p>
+</li>
+</ul>
+</div>
+</div></div>
+<div id="WS0A6DEEDD-1725-48d5-B13E-A3D30AC4E67C" class="nochunk"><a name="WS0A6DEEDD-1725-48d5-B13E-A3D30AC4E67C"><!-- --></a><h2 class="topictitle2">Many-to-one relationship</h2><div><p>A many-to-one relationship is the inverse of a one-to-many
+relationship. In this relationship, many source objects can reference
+the same target object.</p>
+<p>An example of this relationship is the relation between Art and
+Artist, where many Art are created by the same Artist. This relationship
+is established with the foreign key in the source table that references
+the primary key in the target table.</p>
+<p>A many-to-one relationship between two persistent components
+is defined using the <samp class="codeph">fieldtype</samp> value <samp class="codeph">many-to-one</samp> in
+the <samp class="codeph">cfproperty</samp> tag.</p>
+<div class="section"><h4 class="sectiontitle">Syntax</h4><pre>&lt;cfproperty 
+name="fieldname" 
+fieldtype="many-to-one" 
+cfc="Referenced_CFC_Name" 
+linktable="Link table name" 
+linkcatalog="Catalog for the link table" 
+linkschema="Schema for the link table" 
+fkcolumn="Foreign Key column name" 
+inversejoincolumn="Column name or comma-separated list of primary key columns" 
+column="Foreign_Key_Column" 
+mappedby="Mapped_Field_name_in_referenced_CFC" 
+cascade="cascade_options" 
+fetch="join|[select]" 
+lazy="true|false" 
+insert="[true]|false" 
+update="[true]|false" 
+optimisticlock="[true]|false" 
+missingrowIgnored="true|[false]"&gt;</pre>
+<p>For the art-artist
+example, the relationship in the ART.cfc can be defined as:</p>
+<pre>&lt;cfproperty name="artist" fieldtype="many-to-one" fkcolumn="artistid" cfc="Artist"&gt;</pre>
+<p><samp class="codeph">fkcolumn="ARTISTID"</samp> indicates
+that the foreign key column in Art table references the primary
+key ARTISTID of ARTIST table.</p>
+</div>
+</div></div>
+<div id="WS1B354BBF-382C-4a10-B840-DC6BB384DB21" class="nochunk"><a name="WS1B354BBF-382C-4a10-B840-DC6BB384DB21"><!-- --></a><h2 class="topictitle2">Many-to-many relationships</h2><div><p>A many-to-many relationship is where the source objects
+contain a collection of target objects and the target objects in
+turn contain a collection of source objects.</p>
+<p>An example of a many-to-many relationship is the relation between
+Order and Product, where an order has many products and a product
+has many orders.</p>
+<p>This relationship is established by using a third table called
+a 'LinkTable'. The LinkTable contains the foreign key to both the
+tables participating in the relation. ORM looks for the map key
+column in the LinkTable and not the target table. </p>
+<p>In the preceding example of Order-Product, a many-to-many relationship
+is established by using LinkTable.</p>
+<p>A many-to-many relationship between two persistent CFCs is defined
+using the <samp class="codeph">fieldtype="many-to-many"</samp> value in the <samp class="codeph">cfproperty</samp> tag.</p>
+<div class="note"><span class="notetitle">Note:  </span>If the fkcolumn name is not specified, ORM generates the fkcolumn
+name in the "#relationName#_ID" format.</div>
+<div class="section"><h4 class="sectiontitle">Syntax</h4><p>Order.cfc</p>
+<pre>&lt;cfproperty 
+name="fieldname" 
+fieldtype="many-to-many" 
+cfc="fully qualified name" 
+linktable="Link table name" 
+linkcatalog="Catalog for the link table" 
+linkschema="Schema for the link table" 
+fkcolumn="Foreign Key column name" 
+inversejoincolumn="Column name or a composite key with comma-separated primary key columns" 
+mappedby="Property in the target component that is referenced by fkcolumn in join table" 
+type="[array]|struct" 
+orderby="order by String 
+structkeycolumn="The structure key column name" 
+structkeydatatype="datatype". 
+cascade="cascade options" inverse="true|[false]" lazy = "[true]|false" [optional] fetch="join|[select]" [optional] batchsize="integer" optimisticlock="[true]|false" readonly="true|[false]" 
+missingrowIgnored="true|[false]"&gt;</pre>
+<p>For the Order-Product
+example, the many-to-many relationship is established using a third
+table "OrderProduct" that has two foreign keys: OrderId and ProductId.
+OrderId references the primary key orderId in the order table, and ProductId
+references the primary key productId in the Product table. This relationship
+can be defined as follows:</p>
+<ul><li><p>Order.cfc</p>
+<pre>&lt;cfproperty 
+name="products" 
+fieldtype="many-to-many" 
+CFC="Product" 
+linktable="Order_Product" 
+FKColumn="orderId" 
+inversejoincolumn="productId" 
+lazy="true" 
+cascade="all" 
+orderby="productId"&gt;</pre>
+</li>
+<li><p>Product.cfc</p>
+<pre>&lt;cfproperty 
+name="orders" 
+fieldtype="many-to-many" 
+CFC="Order" 
+linktable="Order_Product" 
+FKColumn="productId" 
+inversejoincolumn="orderId" 
+lazy="true" 
+cascade="all" 
+orderby="orderId"&gt;</pre>
+<p>The <samp class="codeph">fkcolumn</samp> here
+is the foreign key in the link table that references the primary
+key of the source table. </p>
+<p><samp class="codeph">InverseJoinColumn</samp> is
+the foreign key in the link table that references the primary key
+of the target table. This attribute can also take a composite key value,
+for example you can specify inversejoincolumn=”field1, field2”,
+where field1 and field2 form the composite key.</p>
+</li>
+</ul>
+</div>
+</div></div>
+
+
+<!-- BEGIN USER PREFERENCES -->
+          <div id="userprefs">
+          </div>
+<!-- END USER PREFERENCES -->
+
+          <div id="related">
+            
+            
+            <div class="separator"><a href="#top"><img src="images/BTT.jpg" /></a>&#160;</div>
+          </div>
+          <div id="footer">
+<!-- BEGIN IONCOMMENTS -->
+            <div id="ionComHere">
+            </div>
+<!-- END IONCOMMENTS -->
+
+
+            <p id="creativecommons"><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" id="creativecommons_text"><img id="creativecommons_img" src="images/CC.png" alt="This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License" /></a>&nbsp;Twitter™ and Facebook posts are not covered under the terms of Creative Commons.</p>
+          </div>
+</td>
+<td width="10px"></td>
+<td id="inner_rightcolumn">
+
+</td></tr></table>
+      </div>
+<!-- BEGIN BREADCRUMBS -->
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSB7BEC0B4-8096-498d-8F9B-77C88878AC6C.html" title="Map the properties"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WS027D3772-2E98-4d5b-8800-054A62EBF8D9.html" title="Advanced mapping"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Developing&#160;ColdFusion 9 Applications</b></a> / <a href="WSD628ADC4-A5F7-4079-99E0-FD725BE9B4BD.html"><b>ColdFusion ORM</b></a> 
+      / <a href="WS53C28604-E798-4175-97AE-D7BDF124056C.html"><b>Define ORM mapping</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+<!-- END CONTENT WRAPPER -->
+
+</td>
+<td id="col3">
+    <div>
+        <img src="images/adobe-lq.png" />
+    </div>
+</td>
+</tr>
+</table>
+    </div>
+<!-- END PAGE CONTENT WRAPPER -->
+<script type="text/javascript">
+<!--[CDATA[
+scrollToNameAnchor();
+// ]]-->
+</script> 
+<!--
+    Description:
+    This file generates the link to product support in the top right corner
+-->
+
+<style>
+#menutop{
+    position:absolute;
+    top:4px;
+    right:24px;
+    width:auto;    
+    font-size:11px;
+    color:#fff;
+    text-align:right;
+}
+#menutop a{
+    color:#fff;
+}
+#menutop a:hover{
+        text-decoration:underline;
+}
+</style>  
+  
+  
+  
+  
+<div id="productmenu">
+<!--googleoff: index-->
+  <div id="menutop">
+
+
+<script language=javascript type='text/javascript'>
+    // darken menu text for products with light backgrounds
+    var path = document.location.href.toLowerCase();
+    if (path.indexOf("/acrobat/")           	> 0 ||
+        path.indexOf("/acrobat.com/")       	> 0 ||
+        path.indexOf("/acrobatConnectPro/") 	> 0 ||
+        path.indexOf("/connect/")           	> 0 ||
+        path.indexOf("/livecycledataserviceses/") > 0 ||
+        path.indexOf("/muse/")         	> 0 ||
+	path.indexOf("/presenter/")         	> 0 ||
+        path.indexOf("/scene7/")            	> 0 ||
+        path.indexOf("/flashmediaserver/")  	> 0 ||
+        path.indexOf("/wave/")              	> 0 )
+    {
+        document.write('<style>#menutop a{color:#505050}</style>');
+    }
+    if (typeof('terms_AHV_PRODUCT_SUPPORT') != "undefined" && ! use_robohelp_behavior ){      
+        if (path.indexOf("/muse/") > -1 ){
+            var supportlink = '<a href="http://muse.adobe.com/support.html">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }else{
+            var supportlink = '<a href="http://adobe.com/support">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }
+        document.write( supportlink );
+     }
+
+</script> 
+
+  </div>
+<!--googleon: index-->
+</div>
+
+
+
+<style>
+#online-privacy-policy{ 
+    margin:10px 40px; 
+    font-size:11px;
+}
+</style>
+
+<p id="online-privacy-policy">
+<script language="javascript">
+var pageLoc = "en_US";
+var metaElements = document.all ?
+document.all.tags('meta') :
+document.getElementsByTagName ?
+document.getElementsByTagName ('meta') : new Array();
+for (var m = 0; m < metaElements.length; m++) {
+	if (metaElements[m].name == "lang") {
+		pageLoc = metaElements[m].content;
+		break;
+	}
+}
+var ptn = /(..)-(..)/;
+if (ptn.test(pageLoc)) {
+	var languageCode = pageLoc.replace(ptn, "$1");
+	var countryCode = pageLoc.replace(ptn, "$2");
+	pageLoc = languageCode + "_" + countryCode.toUpperCase();
+}
+
+var policyLoc = "en_US";
+var policyText = "Online Privacy Policy";
+var policyPath = "";
+var policyArray=[
+"da_DK", "Online fortrolighedserklæring",
+"de_DE", "Online-Datenschutzrichtlinie",
+"es_ES", "Política de confidencialidad en línea",
+"fi_FI", "Yksityisyyttä koskeva Online-toimintaohjelma",
+"fr_FR", "Confidentialité et sécurité",
+"it_IT", "Informativa sulla privacy online",
+"ja_JP", "プライバシーポリシー",
+"ko_KR", "Adobe 온라인 개인정보 보호정책",
+"pt_BR", "Política de Confidencialidade On-line", 
+"zh_CN", "在线隐私政策",
+"zh_TW", "線上隱私政策"
+];
+var legalLoc = "en_US";
+var legalText = "Legal Notices";
+var legalPath = legalLoc;
+var legalArray=[
+"ar_AE", "إشعارات قانونية",
+"bg_BG", "Юридически бележки",
+"cs_CZ", "Právní upozornění",
+"da_DK", "Juridiske meddelelser",
+"de_DE", "Rechtliche Hinweise",
+"el_GR", "Σημειώσεις νομικού περιεχομένου",
+"es_ES", "Avisos legales",
+"et_EE", "Juriidilised teated",
+"fi_FI", "Lakisääteiset ilmoitukset",
+"fr_FR", "Mentions légales",
+"he_IL", "הצהרות משפטיות",
+"hr_HR", "Pravne napomene",
+"hu_HU", "Jogi közlemények",
+"it_IT", "Informazioni legali",
+"ja_JP", "法律上の注意",
+"ko_KR", "법적 고지 사항",
+"lt_LT", "Teisinės pastabos",
+"lv_LV", "Juridisks paziņojums",
+"nb_NO", "Juridiske merknader",
+"nl_NL", "Juridische kennisgevingen",
+"pl_PL", "Informacje prawne",
+"pt_BR", "Aspectos jurídicos",
+"ro_RO", "Prevederi legale",
+"ru_RU", "Юридическая информация",
+"sk_SK", "Právne upozornenie",
+"sl_SI", "Pravni pouk",
+"sv_SE", "Upphovsrätt",
+"tr_TR", "Yasal uyarılar",
+"uk_UA", "Юридична інформація",
+"zh_CN", "法律声明",
+"zh_TW", "法律注意事項"
+];
+
+ruPolicy = "http://www.adobe.com/ru/misc/privacy.html";
+trPolicy = "http://www.adobe.com/tr/misc/privacy.html";
+
+// Bug 2846992: LOC: RUS, TUR: The link to "Online Privacy Policy" should include language, currently it is not appearing.
+if (pageLoc == "ru_RU") {
+	policyPath = "ru";
+}
+else if (pageLoc == "tr_TR") {
+	policyPath = "tr";
+}
+for (var i = 0; i < policyArray.length; i+=2) {
+	if (pageLoc == policyArray[i]) {
+		policyLoc = pageLoc;
+		policyText = policyArray[i+1];
+		var ptn = /(..)_(..)/;
+		if (ptn.test(policyLoc)) {
+			var countryCode = policyLoc.replace(ptn, "$2");
+			policyPath = countryCode.toLowerCase();
+		}
+		break;
+	}
+}
+
+for (var i = 0; i < legalArray.length; i+=2) {
+	if (pageLoc == legalArray[i]) {
+		legalLoc = pageLoc;
+		legalText = legalArray[i+1];
+		legalPath = legalLoc;
+		break;
+	}
+}
+if(agt.indexOf("community help client") > -1 ){
+	document.write('<a href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+}else{
+	//Open the privacy policy in a new window
+	document.write('<a target="_blank" href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a target="_blank" href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+} 
+</script>
+</p>
+
+
+
+<!-- localfooter.ssi -->
+
+<script type="text/javascript">
+    var debug = (top.location.href.indexOf("debug=true") > -1);
+</script>
+
+<script language="javascript">
+document.write('<scr'+'ipt ' +
+               'src="/en_US/ssi/_pod.js" ' +
+               'language="javascript" ' +
+               'charset="UTF-8"> ' +
+               '</scr'+'ipt>');
+</script>
+
+
+<script type="text/javascript">
+//
+//  Ethnio survey code
+//
+/*          DocumentID      EthnioID */
+/*          -------------   -------- */
+var ethnio=["/en_US/flash/cs/using/WSb03e830bd6f770ee6664507612436d7dede-8000.html", "87462",
+            "/en_US/creativesuite/cs/using/WSe851854fd1e0856a-4b08a77612477f69f15-8000.html",  "10441",
+            "/en_US/dreamweaver/cs/using/WSEE4C0148-A6F4-4bf5-9DEF-CE06AB026214a.html",  "57412"
+ 
+    ];
+                        
+    for ( var i = 0; i < ethnio.length ; i = i+2 ){
+        if ( document.location.href.indexOf( ethnio[i] ) > -1 ){ 
+            var headID = document.getElementsByTagName("head")[0];         
+            var ethnioScript = document.createElement('script');
+            ethnioScript.type = 'text/javascript';
+            ethnioScript.src = 'http://ethn.io/remotes/' + ethnio[i+1];        
+            if ( debug ){
+                alert ("Using Ethnio script: " + ethnioScript.src );
+            }else{
+                headID.appendChild(ethnioScript);
+            }
+        }
+    }
+</script>
+
+
+
+<div style="display: none;">
+<!-- SiteCatalyst -->
+<script language="JavaScript" type="text/javascript"><!--
+var s_code=' ';
+var s_docHost = window.location.hostname.toLowerCase();
+var s_docURL = window.location.pathname.toLowerCase();
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+if (s_docHost.indexOf(".corp.adobe") != -1 || s_docHost.indexOf("stage.") != -1 || s_docHost.indexOf(".dev.adobe") != -1 || s_docHost.indexOf("staging.") != -1) scJsHost="";
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/omniture_s_code.js' type='text/javascript'%3E%3C/script%3E"));
+//--></script>
+<script type="text/javascript"><!--
+var s_accountName;
+s_server="www.adobe.com static content pages";
+if (!window.s_account) s_accountName="mxmacromedia";
+else s_accountName=window.s_account;
+
+if (window.s_docURL.indexOf("/designcenter/") != -1)
+  s_channel="Adobe Design Center";	
+else if ((window.s_docHost.indexOf("labs.adobe") != -1) ||
+(window.s_docHost.indexOf("labs-staging.") != -1))
+  s_channel="Labs";
+else if (window.s_docHost.indexOf("help.adobe.com") != -1) {
+  s_channel="Support Help.adobe.com";
+  if (window.s_docURL.indexOf("/en_us/") == -1) {
+    s_docURLArray=s_docURL.split('/');
+    s_pageName="http://help.adobe.com/"+s_docURLArray[1]+"/"+ s_docURLArray[2]+"/"+s_docURLArray[3];
+    s_prop23="http://help.adobe.com"+window.location.pathname;
+  }
+}
+else if (window.s_docHost.indexOf("kb2.adobe.com") != -1) {
+  s_channel="Support Knowledgebase";
+  s_prop23="http://kb2.adobe.com"+s_docURL+":";
+  if (typeof(omtrProductList) != 'undefined' && omtrProductList.length > 0)
+ {
+    s_prop23=s_prop23+omtrProductList;
+  }
+}
+else if (window.s_docHost.indexOf("resellers.adobe.com") != -1) {
+		var s_pageName=document.getElementsByTagName("title")[0].text;
+}
+
+if (!window.scMMInclude) {
+	var s_wd=window,s_tm=new Date;
+	if(s_code!=' '){
+		s_code=s_dc(s_accountName);
+		if(s_code)document.write(s_code)
+	} 
+} else {
+	s_wds(s_accountName);s_ca(s_accountName); 
+}	
+
+function sendAnalyticsEvent(str){var ns=s_accountName;if(str!=null)ns+=","+str;void(s_gs(ns));}
+function sendLinkEvent(accnt,lnkname,type){
+accnt=s_accountName;s_linkType=type;s_lnk=true;s_linkName=lnkname;void(s_gs(accnt));}
+//--></script>
+<noscript><img src="http://stats.adobe.com/b/ss/mxmacromedia/1/H.15-XELvs/0?pageName=http%3A//www.adobe.com%3A%20noscript&ch=http%3A//www.adobe.com%3A%20noscript&g=http%3A//www.adobe.com" height="1" width="1" border="0" alt="" /></noscript>
+<!-- End SiteCatalyst -->
+</div>
+
+<script language="JavaScript" type="text/javascript">//<![CDATA[
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/atm/s_code_www.js' type='text/javascript'%3E%3C/script%3E"));
+//]]></script>
+<script type="text/javascript">//<![CDATA[
+if(s_adobe){	
+	s_adobe.server="www.adobe.com Static Content pages";
+	/* Set pageName */
+	s_adobe.s_URL="adobe.com"+((location.pathname.charAt(0)=='/')?location.pathname:'/'+location.pathname);
+	if (s_adobe.s_URL.substring(s_adobe.s_URL.lastIndexOf('/')+1)=="") s_adobe.s_URL=s_adobe.s_URL+"index.html";
+	s_adobe.s_URLSplit=s_adobe.s_URL.split("/");
+	s_adobe.pageName=s_adobe.s_URLSplit.join(":");
+
+	/* Set prop4 to language-locale */
+	var s_meta=document.getElementsByTagName('meta'); 
+      for (i=0; i<s_meta.length; i++) { 
+        if (s_meta[i].getAttribute("http-equiv") == "Content-Language") { 
+          s_adobe.prop4=s_meta[i].getAttribute("content"); 
+	    s_adobe.prop4=s_adobe.prop4.replace(/\s+/g,'');
+        } 
+      } 
+	s_adobe.t()
+}
+//]]></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

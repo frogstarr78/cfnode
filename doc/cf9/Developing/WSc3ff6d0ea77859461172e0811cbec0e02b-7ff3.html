@@ -1,0 +1,1414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0022)http://help.adobe.com/ -->
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="lang" content="en-us" />
+    <meta name="area" content="livedocs" />
+    <title>Adobe&#160;ColdFusion&#160;9 * Updating Your Database</title>
+    <link rel="shortcut icon" href="images/ColdFusionLinkIndicator.png" />
+    <meta name="book" content="Developing&#160;ColdFusion 9 Applications" />
+    <meta name="product" content="ColdFusion" />
+    <meta name="keywords" content="" /><!--<PageMap><DataObject type="document"><Attribute name="product" value="ColdFusion"></Attribute><Attribute name="book" value="Developing&#160;ColdFusion 9 Applications"></Attribute><Attribute name="keywords" value=""></Attribute></DataObject></PageMap>-->
+    
+    <script type="text/javascript" language="Javascript" charset="UTF-8"><!--[CDATA[
+        var currentTreeNode = "WSc3ff6d0ea77859461172e0811cbec0e02b-7ff3.html";
+    document.cookie = "topicId=" + "WSc3ff6d0ea77859461172e0811cbec0e02b-7ff3.html";
+// ]]--></script>
+<script src="terms.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="help.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script>  <script src="utilities.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="event.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="treeview.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="toc.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script> <script src="swfobject.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>  <script src="booklist.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>
+<script type="text/javascript">
+<!--[CDATA[
+var topictype = "topic";
+var headId = document.getElementsByTagName("head")[0];         
+if (use_ie_6_behavior) {
+  var linkId = document.createElement("link");
+  linkId.href = "content-ie6.css";
+  linkId.rel = "stylesheet";
+  linkId.type = "text/css";
+  headId.appendChild(linkId);
+}
+function initRoboHelpDOM() {
+  if (use_chm_behavior) {
+    hideElement("search");
+  }
+  if (use_robohelp_behavior) {
+    hideElement("search");
+    hideElement("productmenu");
+    //hideElement("notyourversion");
+  }
+  if(!use_chc_behavior) {
+    //document.getElementById("notyourversion").style.display = "inline";;
+  }
+}
+var dirname = location.pathname.match( /.*\// );    
+function setSearchUserPref(){
+  if ( document.cookie.indexOf( "ah_searchpref" ) > -1 ) {
+    if ( document.cookie.indexOf( dirname ) > 0 ) {
+      document.search.gsa.checked = true ;
+    }else{
+      document.search.gsa.checked = false ;            
+    }
+  }
+}
+YAHOO.util.Event.onDOMReady(initRoboHelpDOM);
+YAHOO.util.Event.onDOMReady(setSearchUserPref);
+// ]]-->
+</script>
+
+<!-- ********************************** -->
+<!-- START: ForeSee survey code in: /ssi/globalheader.ssi -->
+
+<script type="text/javascript">
+<!-- 
+// Enable the survey for only English, German and Japanese
+var agt=navigator.userAgent.toLowerCase();
+if ( agt.indexOf("community help client") == -1 ){
+    if ( document.location.href.indexOf("/en_US/") != -1 ){
+        showSurvey();
+//    }else if (document.location.href.indexOf("/de_DE/") != -1){
+//         var locale="de";
+//         showSurvey();
+    }else if (document.location.href.indexOf("/ja_JP/") != -1 ){
+         var locale="ja";
+         showSurvey();
+    }	
+}
+
+function showSurvey(){
+	document.write('<script type="text/javascript" src="/js/foresee/foresee-trigger.js"><\/scr'+'ipt>');
+}
+
+// -->
+</script>
+
+<!-- END: ForeSee survey code -->
+<!-- ******************************** -->
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="tree.css" />
+    <link rel="stylesheet" type="text/css" href="content.css" />
+    <link rel="stylesheet" type="text/css" href="localeSpecific.css" />
+  </head>
+  <body id="content_body" onload="window.focus();">
+    <a name="top" shape="rect"><!--LeaveCommentHere--></a>
+    
+    <div id="mnemonic">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon" class="ColdFusion"><div class="banner"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html">Adobe&#160;ColdFusion&#160;9</a><span id="notyourversion">|&#160;
+                    <a rel="nofollow" href="http://www.adobe.com/support/documentation/en/coldfusion/">Not your version?</a></span></div></div><!--googleon: index-->
+    </div>
+    
+    <div id="searchbar">
+<table id="searchbartable">
+<tr>
+<td colspan="2">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon"><div id="pdf"><img src="images/PDF.gif" width="16" height="16" /><a title="View Help PDF" href="coldfusion_9_dev.pdf">View Help PDF ( 23MB)</a></div></div><!--googleon: index-->
+</td>
+</tr>
+</table>
+    </div>
+
+<!-- BEGIN SEARCH CONTENT -->
+<form id="search" name="search" action="search.html" target="_self">
+<script type="text/javascript">
+<!--[CDATA[
+if ( !use_chc_behavior ){
+    if (typeof(terms_AHV_SEARCH_CONSTRAINT) != "undefined" && 
+        terms_AHV_SEARCH_CONSTRAINT.length > 0 && 
+        document.location.href.indexOf(".adobe.com") > 0){
+        if ( typeof(terms_SEARCH_THIS_HELP_ONLY) != "undefined" && terms_SEARCH_THIS_HELP_ONLY == "ON" ) {
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                checked="checked" \
+                value="1" ><\/input>'); 
+                
+        // Leave the "Search this help system only" checkbox unckecked
+        }else{    
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                value="1" ><\/input>'); 
+        }
+        document.write('<span class="gsalabel">' + terms_AHV_SEARCH_CONSTRAINT + '<\/span><\/div>'); 
+    }
+    document.write('<input class="searchinput" \
+        name="q" \
+        id="q" \
+        type="text" \
+        maxlength="256" \
+        value="' + terms_AHV_SEARCH_BUTTON + '" \
+        onclick="clearSearch()"><\/input><input \
+        type="button" \
+        name="searchbutton" \
+        class="searchbutton" \
+        onclick="submit()"><\/input>'); 
+} 
+ 
+/* 
+ * Start Functions 
+ */
+function clearSearch(){
+    if (document.search.q.value == terms_AHV_SEARCH_BUTTON){document.search.q.value = ""}; 
+}
+
+// set search preferences
+function setAHSearchPref(){
+    if (document.search.gsa.checked == 1){
+        setAHSearchCookie( dirname );
+    }else{
+        setAHSearchCookie( "community" );
+    }
+}
+
+// Set search preferences cookie
+function setAHSearchCookie( p ){
+    // set cookie ah_searchpref with a value of the document path
+    var expire=new Date();
+    expire.setDate(expire.getDate()+365); // Cookie expires after 1 year (365 days) 
+    document.cookie="ah_searchpref=" +p+ "; expires=" +expire.toGMTString()+ ";";
+}
+
+// ]]-->
+</script> 
+ </form>
+<!-- END SEARCH CONTENT -->    
+
+
+
+<!-- BEGIN PAGE CONTENT WRAPPER -->
+    <div id="page_content_wrapper">
+<!-- BEGIN PAGE WRAPPER -->
+<table id="page_content_table">
+<tr>
+
+<td id="col2">
+<!-- BEGIN CONTENT WRAPPER -->
+<!-- BEGIN BREADCRUMBS -->
+
+      
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec22c24-7c36.html" title="Enhancing security with cfqueryparam"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-7bb8.html" title="Using Query of Queries"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Developing&#160;ColdFusion 9 Applications</b></a> / <a href="WS8f0cc78011fffa7168855f811cdb0b0cce-8000.html"><b>Accessing and Using Data</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+      <div id="content_wrapper">
+<!-- BEGIN PAGE TITLE -->
+        <h1>Updating Your Database</h1>
+<!-- END PAGE TITLE -->
+<!-- BEGIN IONCOMMENTCOUNT -->
+        <div id="ionCount">
+        </div>
+<!-- END IONCOMMENTCOUNT -->
+<table id="inner_content_table" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>
+          <div style="border-top:#ccc solid 1px;"><p> </p>
+          </div>
+<p id="chcPromo" style="display:none;">
+<a id="chcLink" href="http://www.adobe.com/support/chc/">
+<img id="chcImage" src="http://www.adobe.com/support/chc/GetMoreHelpFeatures.png"/>
+</a>
+</p>
+<script type="text/javascript" language="javascript" charset="utf-8">
+<!--
+var cfgArray = [];
+//cfgArray["Acrobat_10.0_Professional.helpcfg"] = "acrobatpro";
+//cfgArray["Acrobat_10.0_Standard.helpcfg"] = "acrobatstd";
+cfgArray["Lightroom_3.0.helpcfg"] = "lightroom";
+cfgArray["PhotoshopElements_8.0_Win.helpcfg"] = "photoshopelements";
+cfgArray["PhotoshopElements_8.0_Mac.helpcfg"] = "photoshopelementsmac";
+cfgArray["PremiereElements_8.0_Win.helpcfg"] = "premiereelements";
+
+//cfgArray["AfterEffects_10.0.helpcfg"] = "aftereffects";
+//cfgArray["AIR.helpcfg"] = "air";
+//cfgArray["ColdFusionBuilder.helpcfg"] = "coldfusion";
+//cfgArray["Contribute_6.0.helpcfg"] = "contribute";
+//cfgArray["DeviceCentral_3.0.helpcfg"] = "devicecentral";
+//cfgArray["Dreamweaver_11.0.helpcfg"] = "dreamweaver";
+//cfgArray["EncoreDVD_5.0.helpcfg"] = "encore";
+//cfgArray["ExtensionManager_3.0.helpcfg"] = "extension";
+//cfgArray["Fireworks_11.0.helpcfg"] = "fireworks";
+//cfgArray["Flash_11.0.helpcfg"] = "flash";
+//cfgArray["Flex_4.0.helpcfg"] = "flashbuilder";
+//cfgArray["FlashCatalyst_1.0.helpcfg"] = "flashcatalyst";
+//cfgArray["Illustrator_15.0.helpcfg"] = "illustrator";
+//cfgArray["InCopy_7.0.helpcfg"] = "incopy";
+//cfgArray["InDesign_7.0.helpcfg"] = "indesign";
+//cfgArray["OnLocation_5.0.helpcfg"] = "onlocation";
+//cfgArray["Photoshop_12.0.helpcfg"] = "photoshop";
+//cfgArray["PremierePro_5.0.helpcfg"] = "premierepro";
+
+function getLangName() {
+    var lang = "en-us";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if (ptn.test(lang)) {
+        var languageCode = lang.replace(ptn, "$1");
+        var countryCode = lang.replace(ptn, "$2");
+        lang = languageCode + "_" + countryCode.toUpperCase();
+    }
+    return lang;
+}
+
+function getCountryName() {
+    var lang = "";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if ((ptn.test(lang)) && (lang != "en-us")) {
+        var countryCode = lang.replace(ptn, "$2");
+        return "/" + countryCode;
+    }
+    return "";
+}
+
+if ( (typeof(terms_HELPCFG) != 'undefined')  && (terms_HELPCFG.indexOf(".helpcfg") != -1) ) {
+    var stage   = (document.location.href.indexOf(".stage.") != -1) ? 'stage.' : '';
+    var baseUrl = 'http://www.' + stage + 'adobe.com';
+    var refpage = document.location.href.replace(/#.*$/, '');
+	
+	if ((!use_robohelp_behavior) && (terms_HELPCFG.length > 0) && (typeof(cfgArray[terms_HELPCFG]) != 'undefined') && (cfgArray[terms_HELPCFG].length > 0)) {
+		if (document.getElementById) { // DOM3 = IE5, NS6
+			var newHref = baseUrl + getCountryName() + "/support/chc/" + "?helpcfg=http://help." + stage + "adobe.com/HelpCfg/" + getLangName() + "/" + terms_HELPCFG + "&url=" + refpage + "&product=" + cfgArray[terms_HELPCFG];
+			var newSrc = baseUrl + getCountryName() + "/support/chc/GetMoreHelpFeatures.png";
+			document.getElementById("chcPromo").style.display = "block";
+			document.getElementById("chcLink").href = newHref;
+			document.getElementById("chcImage").src = newSrc;
+		}
+	}
+}
+
+//-->
+</script>
+
+
+
+          <div id="minitoc"><div class="t"><div class="b"><div><ul id="minitoc-links"><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec0e02b-7ff7"><span class="topictitle1">About updating your database</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec0e02b-7fed"><span class="topictitle1">Inserting data</span>
+</a></p><ul><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec0e02b-7fff"><span class="topictitle2">Creating an HTML insert form</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec0e02b-7ff9"><span class="topictitle2">Data entry form notes and considerations</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-7bbb"><span class="topictitle2">Creating an action page to insert data</span>
+</a></p><ul><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-7bd4"><span class="topictitle3">Creating an insert action page with cfinsert</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec0e02b-7ffc"><span class="topictitle3">Creating an insert action page with cfquery</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec0e02b-7fec"><span class="topictitle3">Inserting into specific fields</span>
+</a></p></li></ul></li></ul></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec0e02b-7feb"><span class="topictitle1">Updating data</span>
+</a></p><ul><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec0e02b-7ffb"><span class="topictitle2">Creating an update form</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-7bd5"><span class="topictitle2">Creating an action page to update data</span>
+</a></p><ul><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-7bd3"><span class="topictitle3">Creating an update action page with cfupdate</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec0e02b-7fef"><span class="topictitle3">Creating an update action page with cfquery</span>
+</a></p></li></ul></li></ul></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec0e02b-7ff4"><span class="topictitle1">Deleting data</span>
+</a></p><ul><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec0e02b-7ff1"><span class="topictitle2">Deleting a single record</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec0e02b-7ff8"><span class="topictitle2">Deleting multiple records</span>
+</a></p></li></ul></li></ul></div></div></div></div><div><p>Adobe ColdFusion lets you insert, update, and delete information
+in a database.</p>
+<ul class="navlinklist"></ul>
+</div>
+<div id="WSc3ff6d0ea77859461172e0811cbec0e02b-7ff7" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec0e02b-7ff7"><!-- --></a><h2 class="topictitle2">About updating your database</h2><div><p>ColdFusion
+was originally developed as a way to readily interact with databases. You
+can quickly insert, update, and delete the contents of your database
+by using ColdFusion forms, which are typically a pair of pages.
+One page displays the form with which your end user enters values;
+the other page performs the action (insert, update, or delete).</p>
+<p>Depending on the extent and type of data manipulation, you can
+use CFML with or without SQL commands. If you use SQL commands,
+ColdFusion requires a minimal amount of SQL knowledge.</p>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec0e02b-7fed" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec0e02b-7fed"><!-- --></a><h2 class="topictitle2">Inserting data</h2><div><p>You usually use two application pages to
+insert data into a database:</p>
+<ul><li><p>An insert form</p>
+</li>
+<li><p>An insert action page</p>
+</li>
+</ul>
+<p>You
+can create an insert form with standard HTML form tags or with <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7fb7.html" target="_self">cfform</a></samp> tags (see <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7bd2.html">Creating custom forms with the cfform tag</a>). When the user submits
+the form, form variables are passed to a ColdFusion action page
+that performs an insert operation (and whatever else is called for)
+on the specified data source. The insert action page can contain
+either a <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7c78.html" target="_self">cfinsert</a></samp> tag or a <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7fae.html" target="_self">cfquery</a></samp> tag with a SQL INSERT
+statement. The insert action page should also contain a confirmation message
+for the end user.</p>
+</div><div id="WSc3ff6d0ea77859461172e0811cbec0e02b-7fff" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec0e02b-7fff"><!-- --></a><h3 class="topictitle3">Creating an HTML insert form</h3><div><p>The following procedure creates a form using
+standard HTML tags. </p>
+<ol><li><p>Create a ColdFusion page with the following content:</p>
+<pre>&lt;html&gt; 
+&lt;head&gt; 
+&lt;title&gt;Insert Data Form&lt;/title&gt; 
+&lt;/head&gt; 
+ 
+&lt;body&gt; 
+&lt;h2&gt;Insert Data Form&lt;/h2&gt; 
+ 
+&lt;table&gt; 
+&lt;!--- begin html form;  
+put action page in the "action" attribute of the form tag. ---&gt; 
+&lt;form action="insert_action.cfm" method="post"&gt; 
+&lt;tr&gt; 
+    &lt;td&gt;Employee ID:&lt;/td&gt; 
+    &lt;td&gt;&lt;input type="text" name="Emp_ID" size="4" maxlength="4"&gt;&lt;/td&gt; 
+&lt;/tr&gt; 
+&lt;tr&gt; 
+    &lt;td&gt;First Name:&lt;/td&gt; 
+    &lt;td&gt;&lt;input type="Text" name="FirstName" size="35" maxlength="50"&gt;&lt;/td&gt; 
+&lt;/tr&gt; 
+&lt;tr&gt; 
+    &lt;td&gt;Last Name:&lt;/td&gt; 
+    &lt;td&gt;&lt;input type="Text" name="LastName" size="35" maxlength="50"&gt;&lt;/td&gt; 
+&lt;/tr&gt; 
+&lt;tr&gt; 
+    &lt;td&gt;Department Number:&lt;/td&gt; 
+    &lt;td&gt;&lt;input type="Text" name="Dept_ID" size="4" maxlength="4"&gt;&lt;/td&gt; 
+&lt;/tr&gt; 
+&lt;tr&gt; 
+    &lt;td&gt;Start Date:&lt;/td&gt; 
+    &lt;td&gt;&lt;input type="Text" name="StartDate" size="16" maxlength="16"&gt;&lt;/td&gt; 
+&lt;/tr&gt; 
+&lt;tr&gt; 
+    &lt;td&gt;Salary:&lt;/td&gt; 
+    &lt;td&gt;&lt;input type="Text" name="Salary" size="10" maxlength="10"&gt;&lt;/td&gt; 
+&lt;/tr&gt; 
+&lt;tr&gt; 
+    &lt;td&gt;Contractor:&lt;/td&gt; 
+    &lt;td&gt;&lt;input type="checkbox" name="Contract" value="Yes" checked&gt;Yes&lt;/td&gt; 
+&lt;/tr&gt; 
+&lt;tr&gt; 
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt; 
+    &lt;td&gt;&lt;input type="Submit" value="Submit"&gt;&amp;nbsp;&lt;input type="Reset" 
+value="Clear Form"&gt;&lt;/td&gt; 
+&lt;/tr&gt; 
+&lt;/form&gt; 
+&lt;!--- end html form ---&gt; 
+&lt;/table&gt; 
+ 
+&lt;/body&gt; 
+&lt;/html&gt;</pre>
+</li>
+<li><p>Save the file as insert_form.cfm in the myapps directory
+under your <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">web_root</i> and view it in your web browser.</p>
+</li>
+</ol>
+<div class="note"><span class="notetitle">Note:  </span>The form does not work until you write an action
+page for it. For more information, see <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7bbb.html">Creating an action page to insert data</a>.</div>
+</div></div><div id="WSc3ff6d0ea77859461172e0811cbec0e02b-7ff9" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec0e02b-7ff9"><!-- --></a><h3 class="topictitle3">Data entry form notes and considerations</h3><div><p>If
+you use the <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7c78.html" target="_self">cfinsert</a></samp> tag in the action
+page to insert the data into the database, follow these rules for
+creating the form page: </p>
+<ul><li><p>Create HTML form fields for only the database columns
+into which you insert data.</p>
+</li>
+<li><p>By default, <samp class="codeph">cfinsert</samp> inserts all of the
+form’s fields into the database columns with the same names. For
+example, it places the Form.Emp_ID value in the database Emp_ID
+column. The tag ignores form fields that lack corresponding database
+column names.</p>
+</li>
+</ul>
+<div class="note"><span class="notetitle">Note:  </span>You can also use the <samp class="codeph">formfields</samp> attribute
+of the <samp class="codeph">cfinsert</samp> tag to specify which fields to
+insert; for example, <samp class="codeph">formfields="prod_ID,Emp_ID,status"</samp>.</div>
+</div></div><div id="WSc3ff6d0ea77859461172e0811cbec22c24-7bbb" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7bbb"><!-- --></a><h3 class="topictitle3">Creating an action page to insert data</h3><div><p>You
+can use the <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7c78.html" target="_self">cfinsert</a></samp> tag or the <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7fae.html" target="_self">cfquery</a></samp> tag to create an
+action page that inserts data into a database. </p>
+</div><div id="WSc3ff6d0ea77859461172e0811cbec22c24-7bd4" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7bd4"><!-- --></a><h4 class="topictitle4">Creating an insert action page with cfinsert</h4><div><p>The <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7c78.html" target="_self">cfinsert</a></samp> tag is the easiest
+way to handle simple inserts from either a <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7fb7.html" target="_self">cfform</a></samp> or an HTML form. This
+tag inserts data from all the form fields with names that match
+database field names.</p>
+<ol><li><p>Create a ColdFusion page with the following content:</p>
+<pre>&lt;html&gt; 
+&lt;head&gt; &lt;title&gt;Input form&lt;/title&gt; &lt;/head&gt; 
+ 
+&lt;body&gt; 
+&lt;!--- If the Contractor check box is clear,  
+    set the value of the Form.Contract to "No" ---&gt; 
+&lt;cfif not isdefined("Form.Contract")&gt; 
+    &lt;cfset Form.Contract = "N"&gt; 
+&lt;/cfif&gt; 
+ 
+&lt;!--- Insert the new record ---&gt; 
+<strong>&lt;cfinsert datasource="cfdocexamples" tablename="EMPLOYEE"&gt;</strong> 
+ 
+&lt;h1&gt;Employee Added&lt;/h1&gt; 
+&lt;cfoutput&gt; You have added #Form.FirstName# #Form.Lastname# to the employee database. 
+&lt;/cfoutput&gt; 
+ 
+&lt;/body&gt; 
+&lt;/html&gt;</pre>
+</li>
+<li><p>Save the page as insert_action.cfm.</p>
+</li>
+<li><p>View insert_form.cfm in your web browser and enter values.</p>
+<div class="note"><span class="notetitle">Note:  </span>You might want to compare views of the Employee
+table in the cfdocexamples data source before and after inserting
+values in the form.</div>
+</li>
+<li><p>Click Submit. </p>
+<p>ColdFusion inserts your values into
+the Employee table and displays a confirmation message.</p>
+</li>
+</ol>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7bd4__WSc3ff6d0ea77859461172e0811cbec0e02b-8000"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7bd4__WSc3ff6d0ea77859461172e0811cbec0e02b-8000"><!-- --></a><h4 class="sectiontitle">Reviewing the code</h4><p>The following table describes the code and its
+function:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e42312"><p>Code</p>
+</th>
+<th valign="top" width="NaN%" id="d17e42315"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e42312 "><div class="para"><pre>&lt;cfif not isdefined("Form.Contract")&gt; 
+&lt;cfset Form.Contract = "N"&gt; 
+&lt;/cfif&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e42315 "><p>Sets the value of <samp class="codeph">Form.Contract</samp> to <samp class="codeph">No</samp> if
+it is not defined. If the Contractor check box is unchecked, no
+value is passed to the action page; however, the database field
+must have some value.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e42312 "><div class="para"><pre>&lt;cfinsert datasource="cfdocexamples" tablename="EMPLOYEE"&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e42315 "><p>Creates a row in the Employee table of the
+cfdocexamples database. Inserts data from the form into the database
+fields with the same names as the form fields. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e42312 "><div class="para"><pre>&lt;cfoutput&gt;You have added #Form.FirstName# #Form.Lastname# to the employee database.&lt;/cfoutput&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e42315 "><p>Informs the user that values were inserted
+into the database.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note"><span class="notetitle">Note:  </span>If you use form variables
+in <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7c78.html" target="_self">cfinsert</a></samp> or <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7c6a.html" target="_self">cfupdate</a></samp> tags, ColdFusion automatically
+validates any form data it sends to numeric, date, or time database columns.
+You can use the hidden field validation functions for these fields
+to display a custom error message. For more information, see <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7ffe.html">Introduction to Retrieving and Formatting Data</a>.</div>
+</div>
+</div></div><div id="WSc3ff6d0ea77859461172e0811cbec0e02b-7ffc" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec0e02b-7ffc"><!-- --></a><h4 class="topictitle4">Creating an insert action page with cfquery</h4><div><p>For more complex inserts
+from a form submittal, you can use a SQL INSERT statement in a <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7fae.html" target="_self">cfquery</a></samp> tag instead of using
+a <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7c78.html" target="_self">cfinsert</a></samp> tag. The SQL INSERT statement
+is more flexible because you can insert information selectively
+or use functions within the statement.</p>
+<p>The following procedure assumes that you have created the insert_action.cfm page,
+as described in <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7bd4.html">Creating an insert action page with cfinsert</a>.</p>
+<ol><li><p>In insert_action.cfm, replace the <samp class="codeph">cfinsert</samp> tag
+with the following highlighted <samp class="codeph">cfquery</samp> code:</p>
+<pre>&lt;html&gt; 
+&lt;head&gt; 
+    &lt;title&gt;Input form&lt;/title&gt; 
+&lt;/head&gt; 
+ 
+&lt;body&gt; 
+&lt;!--- If the Contractor check box is clear), set the value of the Form.Contract  
+    to "No" ---&gt; 
+&lt;cfif not isdefined("Form.Contract")&gt; 
+    &lt;cfset Form.Contract = "No"&gt; 
+&lt;/cfif&gt; 
+ 
+&lt;!--- Insert the new record ---&gt; 
+<strong>&lt;cfquery name="AddEmployee" datasource="cfdocexamples"&gt;</strong> 
+    <strong>INSERT INTO Employee</strong> 
+    <strong>VALUES (#Form.Emp_ID#, '#Form.FirstName#',</strong> 
+    <strong>'#Form.LastName#', #Form.Dept_ID#,</strong> 
+    <strong>'#Form.StartDate#', #Form.Salary#, '#Form.Contract#')</strong> 
+<strong>&lt;/cfquery&gt;</strong> 
+ 
+&lt;h1&gt;Employee Added&lt;/h1&gt; 
+&lt;cfoutput&gt;You have added #Form.FirstName# #Form.Lastname# to the employee database. 
+&lt;/cfoutput&gt; 
+ 
+&lt;/body&gt; 
+&lt;/html&gt;</pre>
+</li>
+<li><p>Save the page.</p>
+</li>
+<li><p>View insert_form.cfm in your web browser and enter values.</p>
+</li>
+<li><p>Click Submit. </p>
+<p>ColdFusion inserts your values into
+the Employee table and displays a confirmation message.</p>
+</li>
+</ol>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec0e02b-7ffc__WSc3ff6d0ea77859461172e0811cbec0e02b-7ff5"><a name="WSc3ff6d0ea77859461172e0811cbec0e02b-7ffc__WSc3ff6d0ea77859461172e0811cbec0e02b-7ff5"><!-- --></a><h4 class="sectiontitle">Reviewing the code</h4><p>The following table describes the highlighted
+code and its function:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e42436"><p>Code</p>
+</th>
+<th valign="top" width="NaN%" id="d17e42439"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e42436 "><div class="para"><pre>&lt;cfquery name="AddEmployee" datasource="cfdocexamples"&gt; 
+INSERT INTO Employee VALUES (#Form.Emp_ID#, 
+'#Form.FirstName#', '#Form.LastName#', 
+#Form.Dept_ID#, '#Form.StartDate#', 
+#Form.Salary#, '#Form.Contract#') 
+&lt;/cfquery&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e42439 "><p>Inserts a new row into the Employee table
+of the cfdocexamples database. Specifies each form field to be added.</p>
+<p>Because
+you are inserting data into all database fields in the same left-to-right
+order as in the database, you do not have to specify the database
+field names in the query.</p>
+<p>Because <samp class="codeph">#From.Emp_ID#</samp>, <samp class="codeph">#Form.Dept_ID#</samp>,
+and <samp class="codeph">#Form.Salary#</samp> are numeric, they do not need
+to be enclosed in quotation marks.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div><div id="WSc3ff6d0ea77859461172e0811cbec0e02b-7fec" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec0e02b-7fec"><!-- --></a><h4 class="topictitle4">Inserting into specific fields</h4><div><p>The preceding example inserts data into all the fields
+of a table (the Employee table has seven fields). There might be
+times when you do not want users to add data into all fields. To
+insert data into specific fields, the SQL statement in the <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7fae.html" target="_self">cfquery</a></samp> must specify the
+field names following both INSERT INTO and VALUES. For example,
+the following <samp class="codeph">cfquery</samp> omits salary and start date
+information from the update. Database values for these fields are
+0 and NULL, respectively, according to the database’s design.</p>
+<pre>&lt;cfquery name="AddEmployee" datasource="cfdocexamples"&gt; 
+    INSERT INTO Employee 
+        (Emp_ID,FirstName,LastName, 
+        Dept_ID,Contract)     
+    VALUES  
+        (#Form.Emp_ID#,'#Form.FirstName#','#Form.LastName#',  
+        #Form.Dept_ID#,'#Form.Contract#') 
+&lt;/cfquery&gt;</pre>
+</div></div></div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec0e02b-7feb" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec0e02b-7feb"><!-- --></a><h2 class="topictitle2">Updating data</h2><div><p>You
+usually use the following two application pages to update data in
+a database:</p>
+<ul><li><p>An update form</p>
+</li>
+<li><p>An update action page</p>
+</li>
+</ul>
+<p>You can
+create an update form with <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7fb7.html" target="_self">cfform</a></samp> tags or HTML form
+tags. The update form calls an update action page, which can contain
+either a <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7c6a.html" target="_self">cfupdate</a></samp> tag or a <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7fae.html" target="_self">cfquery</a></samp> tag with a SQL UPDATE
+statement. The update action page should also contain a confirmation
+message for the end user.</p>
+</div><div id="WSc3ff6d0ea77859461172e0811cbec0e02b-7ffb" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec0e02b-7ffb"><!-- --></a><h3 class="topictitle3">Creating an update form</h3><div><p>The
+following are the key differences between an update form and an
+insert form:</p>
+<ul><li><p>An update form contains a reference to the primary key
+of the record that is being updated. </p>
+<p>A <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">primary key</i> is
+a fields in a database table that uniquely identifies each record. For
+example, in a table of employee names and addresses, only the Emp_ID
+is unique to each record. </p>
+</li>
+<li><p>An update form is populated with existing record data.</p>
+</li>
+</ul>
+<p>The easiest way to designate the primary key in an update form
+is to include a hidden input field with the value of the primary
+key for the record you want to update. The hidden field indicates
+to ColdFusion which record to update.</p>
+<ol><li><p>Create a ColdFusion page with the following content:</p>
+<pre>&lt;html&gt; 
+&lt;head&gt; 
+&lt;title&gt;Update Form&lt;/title&gt; 
+&lt;/head&gt; 
+ 
+&lt;body&gt; 
+&lt;cfquery name="GetRecordtoUpdate" datasource="cfdocexamples"&gt; 
+    SELECT * FROM Employee 
+    WHERE Emp_ID = #URL.Emp_ID# 
+&lt;/cfquery&gt; 
+ 
+ 
+&lt;cfoutput query="GetRecordtoUpdate"&gt; 
+&lt;table&gt; 
+&lt;form action="update_action.cfm" method="Post"&gt; 
+    &lt;input type="Hidden" name="Emp_ID" value="#Emp_ID#"&gt;&lt;br&gt; 
+&lt;tr&gt; 
+    &lt;td&gt;First Name:&lt;/td&gt;  
+    &lt;td&gt;&lt;input type="text" name="FirstName" value="#FirstName#"&gt;&lt;/td&gt; 
+&lt;/tr&gt; 
+&lt;tr&gt; 
+    &lt;td&gt;Last Name:&lt;/td&gt; 
+    &lt;td&gt;&lt;input type="text" name="LastName" value="#LastName#"&gt;&lt;/td&gt; 
+&lt;/tr&gt; 
+&lt;tr&gt; 
+    &lt;td&gt;Department Number:&lt;/td&gt; 
+    &lt;td&gt;&lt;input type="text" name="Dept_ID" value="#Dept_ID#"&gt;&lt;/td&gt; 
+&lt;/tr&gt; 
+&lt;tr&gt; 
+    &lt;td&gt;Start Date:&lt;/td&gt; 
+    &lt;td&gt;&lt;input type="text" name="StartDate" value="#StartDate#"&gt;&lt;/td&gt; 
+&lt;/tr&gt; 
+&lt;tr&gt; 
+    &lt;td&gt;Salary:&lt;/td&gt; 
+    &lt;td&gt;&lt;input type="text" name="Salary" value="#Salary#"&gt;&lt;/td&gt; 
+&lt;/tr&gt; 
+&lt;tr&gt; 
+    &lt;td&gt;Contractor:&lt;/td&gt; 
+    &lt;td&gt;&lt;cfif #Contract# IS "Yes"&gt; 
+        &lt;input type="checkbox" name="Contract" checked&gt;Yes 
+    &lt;cfelse&gt; 
+        &lt;input type="checkbox" name="Contract"&gt;Yes 
+    &lt;/cfif&gt;&lt;/td&gt; 
+&lt;/tr&gt; 
+&lt;tr&gt; 
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt; 
+    &lt;td&gt;&lt;input type="Submit" value="Update Information"&gt;&lt;/td&gt; 
+&lt;/tr&gt; 
+&lt;/form&gt; 
+&lt;/table&gt; 
+&lt;/cfoutput&gt; 
+ 
+&lt;/body&gt; 
+&lt;/html&gt;</pre>
+</li>
+<li><p>Save the file as update_form.cfm.</p>
+</li>
+<li><p>View update_form.cfm in your web browser by specifying the
+page URL and an Employee ID; for example, enter the following: <strong>http://localhost/myapps/update_form.cfm?Emp_ID=3</strong></p>
+</li>
+</ol>
+<div class="note"><span class="notetitle">Note:  </span>Although you can view an employee’s information,
+code an action page before you can update the database. For more
+information, see <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7bd5.html">Creating an action page to update data</a>.</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec0e02b-7ffb__WSc3ff6d0ea77859461172e0811cbec0e02b-7ffa"><a name="WSc3ff6d0ea77859461172e0811cbec0e02b-7ffb__WSc3ff6d0ea77859461172e0811cbec0e02b-7ffa"><!-- --></a><h4 class="sectiontitle">Reviewing the code</h4><p>The following table describes the code and its
+function:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e42562"><p>Code</p>
+</th>
+<th valign="top" width="NaN%" id="d17e42565"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e42562 "><div class="para"><pre>&lt;cfquery name="GetRecordtoUpdate" datasource="cfdocexamples"&gt; 
+SELECT * FROM Employee 
+WHERE Emp_ID = #URL.Emp_ID# 
+&lt;/cfquery&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e42565 "><p>Queries the cfdocexamples data source and
+returns records in which the employee ID matches what was entered
+in the URL that called this page.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e42562 "><div class="para"><pre>&lt;cfoutput query="GetRecordtoUpdate"&gt; 
+... 
+&lt;/cfoutput&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e42565 "><p>Makes available as variables the results
+of the GetRecordtoUpdate query in the form created in subsequent
+lines.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e42562 "><div class="para"><pre>&lt;form action="update_action.cfm" method="Post"&gt; 
+... 
+&lt;/form&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e42565 "><p>Creates a form whose variables are processed
+on the update_action.cfm action page.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e42562 "><div class="para"><pre>&lt;input type="Hidden" name="Emp_ID" value="#Emp_ID#"&gt;&lt;br&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e42565 "><p>Uses a hidden input field to pass the Emp_ID
+(primary key) value to the action page.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e42562 "><div class="para"><pre>First Name: 
+&lt;input type="text" name="FirstName" value="#FirstName#"&gt;&lt;br&gt; 
+Last Name: 
+&lt;input type="text" name="LastName" value="#LastName#"&gt;&lt;br&gt; 
+Department Number: 
+&lt;input type="text" name="Dept_ID" value="#Dept_ID#"&gt;&lt;br&gt; 
+Start Date: 
+&lt;input type="text" name="StartDate" value="#StartDate#"&gt;&lt;br&gt; 
+Salary: 
+&lt;input type="text" name="Salary" value="#Salary#"&gt;&lt;br&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e42565 "><p>Populates the fields of the update form.
+This example does not use ColdFusion formatting functions. As a
+result, start dates look like 1985-03-12 00:00:00 and salaries do
+not have dollar signs or commas. The user can replace the information
+in any field using any valid input format for the data.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e42562 "><div class="para"><pre>Contracto r: 
+&lt; cfif #Contract# IS "Yes"&gt; 
+&lt;input type="checkbox"  name="C ontract" checked&gt;Yes&lt;br&gt; 
+&lt;cfelse&gt; 
+&lt;input type="checkbox" name="Contract"&gt; Yes &lt;br&gt; 
+&lt;/cfif&gt; 
+&lt;br&gt; 
+&lt;input type="Submit" value="Update Information"&gt; 
+&lt;/form&gt; 
+&lt;/cfoutput&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e42565 "><p>The Contract field requires special treatment
+because a check box appears and sets its value. The <a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7fe8.html" target="_self">cfif</a> structure puts a check mark in
+the check box if the Contract field value is <samp class="codeph">Yes</samp>,
+and leaves the box empty otherwise.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div><div id="WSc3ff6d0ea77859461172e0811cbec22c24-7bd5" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7bd5"><!-- --></a><h3 class="topictitle3">Creating an action page to update data</h3><div><p>You can create an action page
+to update data with either the <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7c6a.html" target="_self">cfupdate</a></samp> tag or <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7fae.html" target="_self">cfquery</a></samp> with the UPDATE statement.</p>
+</div><div id="WSc3ff6d0ea77859461172e0811cbec22c24-7bd3" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7bd3"><!-- --></a><h4 class="topictitle4">Creating an update action page with cfupdate</h4><div><p>The <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7c6a.html" target="_self">cfupdate</a></samp> tag is the easiest
+way to handle simple updates from a front-end form. The <samp class="codeph">cfupdate</samp> tag
+has an almost identical syntax to the <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7c78.html" target="_self">cfinsert</a></samp> tag.</p>
+<p>To use the <samp class="codeph">cfupdate</samp> tag, include the primary
+key fields in your form submittal. The <samp class="codeph">cfupdate</samp> tag
+automatically detects the primary key fields in the table that you
+are updating and looks for them in the submitted form fields. ColdFusion uses
+the primary key fields to select the record to update (therefore,
+you cannot update the primary key value itself). It then uses the
+remaining form fields that you submit to update the corresponding
+fields in the record. Your form only needs to have fields for the
+database fields that you want to change.</p>
+<ol><li><p>Create a ColdFusion page with the following content:</p>
+<pre>&lt;html&gt; 
+&lt;head&gt; 
+    &lt;title&gt;Update Employee&lt;/title&gt; 
+&lt;/head&gt; 
+&lt;body&gt; 
+&lt;cfif not isdefined("Form.Contract")&gt; 
+    &lt;cfset form.contract = "N"&gt; 
+&lt;cfelse&gt; 
+    &lt;cfset form.contract = "Y"&gt; 
+&lt;/cfif&gt; 
+ 
+&lt;cfupdate datasource="cfdocexamples" tablename="EMPLOYEE"&gt; 
+ 
+&lt;h1&gt;Employee Updated&lt;/h1&gt; 
+&lt;cfoutput&gt; 
+You have updated the information for #Form.FirstName# #Form.LastName# in the employee 
+    database. 
+&lt;/cfoutput&gt; 
+ 
+&lt;/body&gt; 
+&lt;/html&gt;</pre>
+</li>
+<li><p>Save the page as update_action.cfm.</p>
+</li>
+<li><p>View update_form.cfm in your web browser by specifying the
+page URL and an Employee ID; for example, enter the following: <strong>http://localhost/myapps/update_form.cfm?Emp_ID=3</strong></p>
+</li>
+<li><p>Enter new values in any of the fields, and click Update Information.</p>
+<p>ColdFusion
+updates the record in the Employee table with your new values and
+displays a confirmation message.</p>
+</li>
+</ol>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7bd3__WSc3ff6d0ea77859461172e0811cbec0e02b-7ff0"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7bd3__WSc3ff6d0ea77859461172e0811cbec0e02b-7ff0"><!-- --></a><h4 class="sectiontitle">Reviewing the code</h4><p>The following table describes the code and its
+function:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e42696"><p>Code</p>
+</th>
+<th valign="top" width="NaN%" id="d17e42699"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e42696 "><div class="para"><pre>&lt;cfif not isdefined("Form.Contract")&gt; 
+&lt;cfset Form.contract = "N"&gt; 
+&lt;cfelse&gt; 
+&lt;cfset form.contract = "Y"&gt; 
+&lt;/cfif&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e42699 "><p>Sets the value of <samp class="codeph">Form.Contract</samp> to <samp class="codeph">No</samp> if
+it is not defined, or to <samp class="codeph">Yes</samp> if it is defined.
+If the Contractor check box is unchecked, no value is passed to
+the action page; however, the database field must have some value. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e42696 "><div class="para"><pre>&lt;cfupdate datasource="cfdocexamples" tablename="EMPLOYEE"&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e42699 "><p>Updates the record in the database that
+matches the primary key on the form (Emp_ID). Updates all fields
+in the record with names that match the names of form controls.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e42696 "><div class="para"><pre>&lt;cfoutput&gt; 
+You have updated the information for #Form.FirstName# #Form.LastName# in the employee database. 
+&lt;/cfoutput&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e42699 "><p>Informs the user that the change was made
+successfully.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div><div id="WSc3ff6d0ea77859461172e0811cbec0e02b-7fef" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec0e02b-7fef"><!-- --></a><h4 class="topictitle4">Creating an update action page with cfquery</h4><div><p>For more complicated updates,
+you can use a SQL UPDATE statement in a <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7fae.html" target="_self">cfquery</a></samp> tag instead of a <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7c6a.html" target="_self">cfupdate</a></samp> tag. The SQL UPDATE
+statement is more flexible for complicated updates.</p>
+<p>The following procedure assumes that you have created the update_action.cfm page
+as described in <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7bd3.html">Creating an update action page with cfupdate</a>.</p>
+<ol><li><p>In update_action.cfm, replace the <samp class="codeph">cfupdate</samp> tag
+with the following highlighted <samp class="codeph">cfquery</samp> code:</p>
+<pre>&lt;html&gt; 
+&lt;head&gt; 
+    &lt;title&gt;Update Employee&lt;/title&gt; 
+&lt;/head&gt; 
+&lt;body&gt; 
+&lt;cfif not isdefined("Form.Contract")&gt; 
+    &lt;cfset form.contract = "No"&gt; 
+&lt;cfelse&gt; 
+    &lt;cfset form.contract = "Yes"&gt; 
+&lt;/cfif&gt; 
+ 
+<strong>&lt;!--- cfquery requires date formatting when retrieving from </strong> 
+<strong>Access. Use the left function when setting StartDate to trim</strong> 
+<strong>the ".0" from the date when it first appears from the </strong> 
+<strong>Access database ---&gt;</strong> 
+    <strong>&lt;cfquery name="UpdateEmployee" datasource="cfdocexamples"&gt;</strong> 
+    <strong>UPDATE Employee</strong> 
+    <strong>SET FirstName = '#Form.Firstname#',</strong> 
+        <strong>LastName = '#Form.LastName#',</strong> 
+        <strong>Dept_ID = #Form.Dept_ID#,</strong> 
+        <strong>StartDate = '#left(Form.StartDate,19)#',</strong> 
+        <strong>Salary = #Form.Salary#</strong> 
+    <strong>WHERE Emp_ID = #Form.Emp_ID#</strong> 
+<strong>&lt;/cfquery&gt;</strong> 
+ 
+&lt;h1&gt;Employee Updated&lt;/h1&gt; 
+&lt;cfoutput&gt; 
+You have updated the information for  
+#Form.FirstName# #Form.LastName#  
+in the employee database. 
+&lt;/cfoutput&gt; 
+&lt;/body&gt; 
+&lt;/html&gt;</pre>
+</li>
+<li><p>Save the page.</p>
+</li>
+<li><p>View update_form.cfm in your web browser by specifying the
+page URL and an Employee ID; for example, enter the following: <strong>http://localhost/myapps/update_form.cfm?Emp_ID=3 </strong></p>
+</li>
+<li><p>Enter new values in any of the fields, and click Update Information.</p>
+<p>ColdFusion
+updates the record in the Employee table with your new values and
+displays a confirmation message.</p>
+</li>
+</ol>
+<p>When the <samp class="codeph">cfquery</samp> tag retrieves date information
+from a Microsoft Access database, it displays the date and time
+with tenths of seconds, as follows:</p>
+</div></div></div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec0e02b-7ff4" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec0e02b-7ff4"><!-- --></a><h2 class="topictitle2">Deleting data</h2><div><p>You use a <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7fae.html" target="_self">cfquery</a></samp> tag with a SQL DELETE
+statement to delete data from a database. ColdFusion has no <samp class="codeph">cfdelete</samp> tag.</p>
+</div><div id="WSc3ff6d0ea77859461172e0811cbec0e02b-7ff1" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec0e02b-7ff1"><!-- --></a><h3 class="topictitle3">Deleting a single record</h3><div><p>To
+delete a single record, use the table’s primary key in the WHERE
+condition of a SQL DELETE statement. In the following procedure,
+Emp_ID is the primary key, so the SQL Delete statement is as follows:</p>
+<pre>DELETE FROM Employee WHERE Emp_ID = #Form.Emp_ID#</pre>
+<p>You often want to see the data before you delete it. The following
+procedure displays the data to be deleted by reusing the form page
+used to insert and update data. Any data that you enter in the form
+before submitting it is not used, so you can use a table to display
+the record to be deleted instead.</p>
+<ol><li><p>In update_form.cfm, change the title to “Delete Form”
+and the text on the submit button to “Delete Record”.</p>
+</li>
+<li><p>Change
+the <samp class="codeph">form</samp> tag so that it appears as follows:</p>
+<pre>&lt;form action="delete_action.cfm" method="Post"&gt;</pre>
+</li>
+<li><p>Save the modified file as delete_form.cfm.</p>
+</li>
+<li><p>Create a ColdFusion page with the following content:</p>
+<pre>&lt;html&gt; 
+&lt;head&gt; 
+&lt;title&gt;Delete Employee Record&lt;/title&gt; 
+&lt;/head&gt; 
+&lt;body&gt; 
+ 
+&lt;cfquery name="DeleteEmployee" 
+    datasource="cfdocexamples"&gt; 
+        DELETE FROM Employee 
+        WHERE Emp_ID = #Form.Emp_ID# 
+&lt;/cfquery&gt; 
+ 
+&lt;h1&gt;The employee record has been deleted.&lt;/h1&gt; 
+&lt;cfoutput&gt; 
+You have deleted #Form.FirstName# #Form.LastName# from the employee database. 
+&lt;/cfoutput&gt; 
+&lt;/body&gt; 
+&lt;/html&gt;</pre>
+</li>
+<li><p>Save the page as delete_action.cfm.</p>
+</li>
+<li><p>View delete_form.cfm in your web browser by specifying the
+page URL and an Employee ID; for example, enter the following: <strong>http://localhost/myapps/delete_form.cfm?Emp_ID=3.Click Delete Record </strong></p>
+<p>ColdFusion
+deletes the record in the Employee table and displays a confirmation
+message.</p>
+</li>
+</ol>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec0e02b-7ff1__WSc3ff6d0ea77859461172e0811cbec0e02b-7ff2"><a name="WSc3ff6d0ea77859461172e0811cbec0e02b-7ff1__WSc3ff6d0ea77859461172e0811cbec0e02b-7ff2"><!-- --></a><h4 class="sectiontitle">Reviewing the code</h4><p>The following table describes the code and its
+function:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e42896"><p>Code</p>
+</th>
+<th valign="top" width="NaN%" id="d17e42899"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e42896 "><div class="para"><pre>&lt;cfquery name="DeleteEmployee" datasource="cfdocexamples"&gt; 
+DELETE FROM Employee WHERE Emp_ID = #Form.Emp_ID# 
+&lt;/cfquery&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e42899 "><p>Deletes the record in the database whose
+Emp_ID column matches the Emp_ID (hidden) field on the form. Since
+the Emp_ID is the table’s primary key, only one record is deleted.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e42896 "><div class="para"><pre>&lt;cfoutput&gt; 
+You have deleted #Form.FirstName# #Form.LastName# from the employee database. 
+&lt;/cfoutput&gt;</pre>
+</div>
+</td>
+<td valign="top" width="NaN%" headers="d17e42899 "><p>Informs the user that the record was deleted.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div><div id="WSc3ff6d0ea77859461172e0811cbec0e02b-7ff8" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec0e02b-7ff8"><!-- --></a><h3 class="topictitle3">Deleting multiple records</h3><div><p>You can use a SQL condition to delete several
+records. The following example deletes the records for everyone
+in the Sales department (which has Dept_ID number 4) from the Employee
+table:</p>
+<pre>DELETE FROM Employee WHERE Dept_ID = 4</pre>
+<p>To delete all the records from the Employee table, use the following
+code:</p>
+<pre>DELETE FROM Employee</pre>
+<div class="important"><span class="importanttitle">Important:  </span>Deleting records from a database is not
+reversible. Use DELETE statements carefully.</div>
+</div></div></div>
+
+
+<!-- BEGIN USER PREFERENCES -->
+          <div id="userprefs">
+          </div>
+<!-- END USER PREFERENCES -->
+
+          <div id="related">
+            
+            
+            <div class="separator"><a href="#top"><img src="images/BTT.jpg" /></a>&#160;</div>
+          </div>
+          <div id="footer">
+<!-- BEGIN IONCOMMENTS -->
+            <div id="ionComHere">
+            </div>
+<!-- END IONCOMMENTS -->
+
+
+            <p id="creativecommons"><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" id="creativecommons_text"><img id="creativecommons_img" src="images/CC.png" alt="This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License" /></a>&nbsp;Twitter™ and Facebook posts are not covered under the terms of Creative Commons.</p>
+          </div>
+</td>
+<td width="10px"></td>
+<td id="inner_rightcolumn">
+
+</td></tr></table>
+      </div>
+<!-- BEGIN BREADCRUMBS -->
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec22c24-7c36.html" title="Enhancing security with cfqueryparam"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-7bb8.html" title="Using Query of Queries"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Developing&#160;ColdFusion 9 Applications</b></a> / <a href="WS8f0cc78011fffa7168855f811cdb0b0cce-8000.html"><b>Accessing and Using Data</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+<!-- END CONTENT WRAPPER -->
+
+</td>
+<td id="col3">
+    <div>
+        <img src="images/adobe-lq.png" />
+    </div>
+</td>
+</tr>
+</table>
+    </div>
+<!-- END PAGE CONTENT WRAPPER -->
+<script type="text/javascript">
+<!--[CDATA[
+scrollToNameAnchor();
+// ]]-->
+</script> 
+<!--
+    Description:
+    This file generates the link to product support in the top right corner
+-->
+
+<style>
+#menutop{
+    position:absolute;
+    top:4px;
+    right:24px;
+    width:auto;    
+    font-size:11px;
+    color:#fff;
+    text-align:right;
+}
+#menutop a{
+    color:#fff;
+}
+#menutop a:hover{
+        text-decoration:underline;
+}
+</style>  
+  
+  
+  
+  
+<div id="productmenu">
+<!--googleoff: index-->
+  <div id="menutop">
+
+
+<script language=javascript type='text/javascript'>
+    // darken menu text for products with light backgrounds
+    var path = document.location.href.toLowerCase();
+    if (path.indexOf("/acrobat/")           	> 0 ||
+        path.indexOf("/acrobat.com/")       	> 0 ||
+        path.indexOf("/acrobatConnectPro/") 	> 0 ||
+        path.indexOf("/connect/")           	> 0 ||
+        path.indexOf("/livecycledataserviceses/") > 0 ||
+        path.indexOf("/muse/")         	> 0 ||
+	path.indexOf("/presenter/")         	> 0 ||
+        path.indexOf("/scene7/")            	> 0 ||
+        path.indexOf("/flashmediaserver/")  	> 0 ||
+        path.indexOf("/wave/")              	> 0 )
+    {
+        document.write('<style>#menutop a{color:#505050}</style>');
+    }
+    if (typeof('terms_AHV_PRODUCT_SUPPORT') != "undefined" && ! use_robohelp_behavior ){      
+        if (path.indexOf("/muse/") > -1 ){
+            var supportlink = '<a href="http://muse.adobe.com/support.html">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }else{
+            var supportlink = '<a href="http://adobe.com/support">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }
+        document.write( supportlink );
+     }
+
+</script> 
+
+  </div>
+<!--googleon: index-->
+</div>
+
+
+
+<style>
+#online-privacy-policy{ 
+    margin:10px 40px; 
+    font-size:11px;
+}
+</style>
+
+<p id="online-privacy-policy">
+<script language="javascript">
+var pageLoc = "en_US";
+var metaElements = document.all ?
+document.all.tags('meta') :
+document.getElementsByTagName ?
+document.getElementsByTagName ('meta') : new Array();
+for (var m = 0; m < metaElements.length; m++) {
+	if (metaElements[m].name == "lang") {
+		pageLoc = metaElements[m].content;
+		break;
+	}
+}
+var ptn = /(..)-(..)/;
+if (ptn.test(pageLoc)) {
+	var languageCode = pageLoc.replace(ptn, "$1");
+	var countryCode = pageLoc.replace(ptn, "$2");
+	pageLoc = languageCode + "_" + countryCode.toUpperCase();
+}
+
+var policyLoc = "en_US";
+var policyText = "Online Privacy Policy";
+var policyPath = "";
+var policyArray=[
+"da_DK", "Online fortrolighedserklæring",
+"de_DE", "Online-Datenschutzrichtlinie",
+"es_ES", "Política de confidencialidad en línea",
+"fi_FI", "Yksityisyyttä koskeva Online-toimintaohjelma",
+"fr_FR", "Confidentialité et sécurité",
+"it_IT", "Informativa sulla privacy online",
+"ja_JP", "プライバシーポリシー",
+"ko_KR", "Adobe 온라인 개인정보 보호정책",
+"pt_BR", "Política de Confidencialidade On-line", 
+"zh_CN", "在线隐私政策",
+"zh_TW", "線上隱私政策"
+];
+var legalLoc = "en_US";
+var legalText = "Legal Notices";
+var legalPath = legalLoc;
+var legalArray=[
+"ar_AE", "إشعارات قانونية",
+"bg_BG", "Юридически бележки",
+"cs_CZ", "Právní upozornění",
+"da_DK", "Juridiske meddelelser",
+"de_DE", "Rechtliche Hinweise",
+"el_GR", "Σημειώσεις νομικού περιεχομένου",
+"es_ES", "Avisos legales",
+"et_EE", "Juriidilised teated",
+"fi_FI", "Lakisääteiset ilmoitukset",
+"fr_FR", "Mentions légales",
+"he_IL", "הצהרות משפטיות",
+"hr_HR", "Pravne napomene",
+"hu_HU", "Jogi közlemények",
+"it_IT", "Informazioni legali",
+"ja_JP", "法律上の注意",
+"ko_KR", "법적 고지 사항",
+"lt_LT", "Teisinės pastabos",
+"lv_LV", "Juridisks paziņojums",
+"nb_NO", "Juridiske merknader",
+"nl_NL", "Juridische kennisgevingen",
+"pl_PL", "Informacje prawne",
+"pt_BR", "Aspectos jurídicos",
+"ro_RO", "Prevederi legale",
+"ru_RU", "Юридическая информация",
+"sk_SK", "Právne upozornenie",
+"sl_SI", "Pravni pouk",
+"sv_SE", "Upphovsrätt",
+"tr_TR", "Yasal uyarılar",
+"uk_UA", "Юридична інформація",
+"zh_CN", "法律声明",
+"zh_TW", "法律注意事項"
+];
+
+ruPolicy = "http://www.adobe.com/ru/misc/privacy.html";
+trPolicy = "http://www.adobe.com/tr/misc/privacy.html";
+
+// Bug 2846992: LOC: RUS, TUR: The link to "Online Privacy Policy" should include language, currently it is not appearing.
+if (pageLoc == "ru_RU") {
+	policyPath = "ru";
+}
+else if (pageLoc == "tr_TR") {
+	policyPath = "tr";
+}
+for (var i = 0; i < policyArray.length; i+=2) {
+	if (pageLoc == policyArray[i]) {
+		policyLoc = pageLoc;
+		policyText = policyArray[i+1];
+		var ptn = /(..)_(..)/;
+		if (ptn.test(policyLoc)) {
+			var countryCode = policyLoc.replace(ptn, "$2");
+			policyPath = countryCode.toLowerCase();
+		}
+		break;
+	}
+}
+
+for (var i = 0; i < legalArray.length; i+=2) {
+	if (pageLoc == legalArray[i]) {
+		legalLoc = pageLoc;
+		legalText = legalArray[i+1];
+		legalPath = legalLoc;
+		break;
+	}
+}
+if(agt.indexOf("community help client") > -1 ){
+	document.write('<a href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+}else{
+	//Open the privacy policy in a new window
+	document.write('<a target="_blank" href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a target="_blank" href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+} 
+</script>
+</p>
+
+
+
+<!-- localfooter.ssi -->
+
+<script type="text/javascript">
+    var debug = (top.location.href.indexOf("debug=true") > -1);
+</script>
+
+<script language="javascript">
+document.write('<scr'+'ipt ' +
+               'src="/en_US/ssi/_pod.js" ' +
+               'language="javascript" ' +
+               'charset="UTF-8"> ' +
+               '</scr'+'ipt>');
+</script>
+
+
+<script type="text/javascript">
+//
+//  Ethnio survey code
+//
+/*          DocumentID      EthnioID */
+/*          -------------   -------- */
+var ethnio=["/en_US/flash/cs/using/WSb03e830bd6f770ee6664507612436d7dede-8000.html", "87462",
+            "/en_US/creativesuite/cs/using/WSe851854fd1e0856a-4b08a77612477f69f15-8000.html",  "10441",
+            "/en_US/dreamweaver/cs/using/WSEE4C0148-A6F4-4bf5-9DEF-CE06AB026214a.html",  "57412"
+ 
+    ];
+                        
+    for ( var i = 0; i < ethnio.length ; i = i+2 ){
+        if ( document.location.href.indexOf( ethnio[i] ) > -1 ){ 
+            var headID = document.getElementsByTagName("head")[0];         
+            var ethnioScript = document.createElement('script');
+            ethnioScript.type = 'text/javascript';
+            ethnioScript.src = 'http://ethn.io/remotes/' + ethnio[i+1];        
+            if ( debug ){
+                alert ("Using Ethnio script: " + ethnioScript.src );
+            }else{
+                headID.appendChild(ethnioScript);
+            }
+        }
+    }
+</script>
+
+
+
+<div style="display: none;">
+<!-- SiteCatalyst -->
+<script language="JavaScript" type="text/javascript"><!--
+var s_code=' ';
+var s_docHost = window.location.hostname.toLowerCase();
+var s_docURL = window.location.pathname.toLowerCase();
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+if (s_docHost.indexOf(".corp.adobe") != -1 || s_docHost.indexOf("stage.") != -1 || s_docHost.indexOf(".dev.adobe") != -1 || s_docHost.indexOf("staging.") != -1) scJsHost="";
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/omniture_s_code.js' type='text/javascript'%3E%3C/script%3E"));
+//--></script>
+<script type="text/javascript"><!--
+var s_accountName;
+s_server="www.adobe.com static content pages";
+if (!window.s_account) s_accountName="mxmacromedia";
+else s_accountName=window.s_account;
+
+if (window.s_docURL.indexOf("/designcenter/") != -1)
+  s_channel="Adobe Design Center";	
+else if ((window.s_docHost.indexOf("labs.adobe") != -1) ||
+(window.s_docHost.indexOf("labs-staging.") != -1))
+  s_channel="Labs";
+else if (window.s_docHost.indexOf("help.adobe.com") != -1) {
+  s_channel="Support Help.adobe.com";
+  if (window.s_docURL.indexOf("/en_us/") == -1) {
+    s_docURLArray=s_docURL.split('/');
+    s_pageName="http://help.adobe.com/"+s_docURLArray[1]+"/"+ s_docURLArray[2]+"/"+s_docURLArray[3];
+    s_prop23="http://help.adobe.com"+window.location.pathname;
+  }
+}
+else if (window.s_docHost.indexOf("kb2.adobe.com") != -1) {
+  s_channel="Support Knowledgebase";
+  s_prop23="http://kb2.adobe.com"+s_docURL+":";
+  if (typeof(omtrProductList) != 'undefined' && omtrProductList.length > 0)
+ {
+    s_prop23=s_prop23+omtrProductList;
+  }
+}
+else if (window.s_docHost.indexOf("resellers.adobe.com") != -1) {
+		var s_pageName=document.getElementsByTagName("title")[0].text;
+}
+
+if (!window.scMMInclude) {
+	var s_wd=window,s_tm=new Date;
+	if(s_code!=' '){
+		s_code=s_dc(s_accountName);
+		if(s_code)document.write(s_code)
+	} 
+} else {
+	s_wds(s_accountName);s_ca(s_accountName); 
+}	
+
+function sendAnalyticsEvent(str){var ns=s_accountName;if(str!=null)ns+=","+str;void(s_gs(ns));}
+function sendLinkEvent(accnt,lnkname,type){
+accnt=s_accountName;s_linkType=type;s_lnk=true;s_linkName=lnkname;void(s_gs(accnt));}
+//--></script>
+<noscript><img src="http://stats.adobe.com/b/ss/mxmacromedia/1/H.15-XELvs/0?pageName=http%3A//www.adobe.com%3A%20noscript&ch=http%3A//www.adobe.com%3A%20noscript&g=http%3A//www.adobe.com" height="1" width="1" border="0" alt="" /></noscript>
+<!-- End SiteCatalyst -->
+</div>
+
+<script language="JavaScript" type="text/javascript">//<![CDATA[
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/atm/s_code_www.js' type='text/javascript'%3E%3C/script%3E"));
+//]]></script>
+<script type="text/javascript">//<![CDATA[
+if(s_adobe){	
+	s_adobe.server="www.adobe.com Static Content pages";
+	/* Set pageName */
+	s_adobe.s_URL="adobe.com"+((location.pathname.charAt(0)=='/')?location.pathname:'/'+location.pathname);
+	if (s_adobe.s_URL.substring(s_adobe.s_URL.lastIndexOf('/')+1)=="") s_adobe.s_URL=s_adobe.s_URL+"index.html";
+	s_adobe.s_URLSplit=s_adobe.s_URL.split("/");
+	s_adobe.pageName=s_adobe.s_URLSplit.join(":");
+
+	/* Set prop4 to language-locale */
+	var s_meta=document.getElementsByTagName('meta'); 
+      for (i=0; i<s_meta.length; i++) { 
+        if (s_meta[i].getAttribute("http-equiv") == "Content-Language") { 
+          s_adobe.prop4=s_meta[i].getAttribute("content"); 
+	    s_adobe.prop4=s_adobe.prop4.replace(/\s+/g,'');
+        } 
+      } 
+	s_adobe.t()
+}
+//]]></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

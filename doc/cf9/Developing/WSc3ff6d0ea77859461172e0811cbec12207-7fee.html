@@ -1,0 +1,1013 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0022)http://help.adobe.com/ -->
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="lang" content="en-us" />
+    <meta name="area" content="livedocs" />
+    <title>Adobe&#160;ColdFusion&#160;9 * Application examples that use ColdFusion images</title>
+    <link rel="shortcut icon" href="images/ColdFusionLinkIndicator.png" />
+    <meta name="book" content="Developing&#160;ColdFusion 9 Applications" />
+    <meta name="product" content="ColdFusion" />
+    <meta name="keywords" content="" /><!--<PageMap><DataObject type="document"><Attribute name="product" value="ColdFusion"></Attribute><Attribute name="book" value="Developing&#160;ColdFusion 9 Applications"></Attribute><Attribute name="keywords" value=""></Attribute></DataObject></PageMap>-->
+    
+    <script type="text/javascript" language="Javascript" charset="UTF-8"><!--[CDATA[
+        var currentTreeNode = "WSc3ff6d0ea77859461172e0811cbec12207-7fee.html";
+    document.cookie = "topicId=" + "WSc3ff6d0ea77859461172e0811cbec12207-7fee.html";
+// ]]--></script>
+<script src="terms.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="help.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script>  <script src="utilities.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="event.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="treeview.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="toc.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script> <script src="swfobject.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>  <script src="booklist.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>
+<script type="text/javascript">
+<!--[CDATA[
+var topictype = "topic";
+var headId = document.getElementsByTagName("head")[0];         
+if (use_ie_6_behavior) {
+  var linkId = document.createElement("link");
+  linkId.href = "content-ie6.css";
+  linkId.rel = "stylesheet";
+  linkId.type = "text/css";
+  headId.appendChild(linkId);
+}
+function initRoboHelpDOM() {
+  if (use_chm_behavior) {
+    hideElement("search");
+  }
+  if (use_robohelp_behavior) {
+    hideElement("search");
+    hideElement("productmenu");
+    //hideElement("notyourversion");
+  }
+  if(!use_chc_behavior) {
+    //document.getElementById("notyourversion").style.display = "inline";;
+  }
+}
+var dirname = location.pathname.match( /.*\// );    
+function setSearchUserPref(){
+  if ( document.cookie.indexOf( "ah_searchpref" ) > -1 ) {
+    if ( document.cookie.indexOf( dirname ) > 0 ) {
+      document.search.gsa.checked = true ;
+    }else{
+      document.search.gsa.checked = false ;            
+    }
+  }
+}
+YAHOO.util.Event.onDOMReady(initRoboHelpDOM);
+YAHOO.util.Event.onDOMReady(setSearchUserPref);
+// ]]-->
+</script>
+
+<!-- ********************************** -->
+<!-- START: ForeSee survey code in: /ssi/globalheader.ssi -->
+
+<script type="text/javascript">
+<!-- 
+// Enable the survey for only English, German and Japanese
+var agt=navigator.userAgent.toLowerCase();
+if ( agt.indexOf("community help client") == -1 ){
+    if ( document.location.href.indexOf("/en_US/") != -1 ){
+        showSurvey();
+//    }else if (document.location.href.indexOf("/de_DE/") != -1){
+//         var locale="de";
+//         showSurvey();
+    }else if (document.location.href.indexOf("/ja_JP/") != -1 ){
+         var locale="ja";
+         showSurvey();
+    }	
+}
+
+function showSurvey(){
+	document.write('<script type="text/javascript" src="/js/foresee/foresee-trigger.js"><\/scr'+'ipt>');
+}
+
+// -->
+</script>
+
+<!-- END: ForeSee survey code -->
+<!-- ******************************** -->
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="tree.css" />
+    <link rel="stylesheet" type="text/css" href="content.css" />
+    <link rel="stylesheet" type="text/css" href="localeSpecific.css" />
+  </head>
+  <body id="content_body" onload="window.focus();">
+    <a name="top" shape="rect"><!--LeaveCommentHere--></a>
+    
+    <div id="mnemonic">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon" class="ColdFusion"><div class="banner"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html">Adobe&#160;ColdFusion&#160;9</a><span id="notyourversion">|&#160;
+                    <a rel="nofollow" href="http://www.adobe.com/support/documentation/en/coldfusion/">Not your version?</a></span></div></div><!--googleon: index-->
+    </div>
+    
+    <div id="searchbar">
+<table id="searchbartable">
+<tr>
+<td colspan="2">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon"><div id="pdf"><img src="images/PDF.gif" width="16" height="16" /><a title="View Help PDF" href="coldfusion_9_dev.pdf">View Help PDF ( 23MB)</a></div></div><!--googleon: index-->
+</td>
+</tr>
+</table>
+    </div>
+
+<!-- BEGIN SEARCH CONTENT -->
+<form id="search" name="search" action="search.html" target="_self">
+<script type="text/javascript">
+<!--[CDATA[
+if ( !use_chc_behavior ){
+    if (typeof(terms_AHV_SEARCH_CONSTRAINT) != "undefined" && 
+        terms_AHV_SEARCH_CONSTRAINT.length > 0 && 
+        document.location.href.indexOf(".adobe.com") > 0){
+        if ( typeof(terms_SEARCH_THIS_HELP_ONLY) != "undefined" && terms_SEARCH_THIS_HELP_ONLY == "ON" ) {
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                checked="checked" \
+                value="1" ><\/input>'); 
+                
+        // Leave the "Search this help system only" checkbox unckecked
+        }else{    
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                value="1" ><\/input>'); 
+        }
+        document.write('<span class="gsalabel">' + terms_AHV_SEARCH_CONSTRAINT + '<\/span><\/div>'); 
+    }
+    document.write('<input class="searchinput" \
+        name="q" \
+        id="q" \
+        type="text" \
+        maxlength="256" \
+        value="' + terms_AHV_SEARCH_BUTTON + '" \
+        onclick="clearSearch()"><\/input><input \
+        type="button" \
+        name="searchbutton" \
+        class="searchbutton" \
+        onclick="submit()"><\/input>'); 
+} 
+ 
+/* 
+ * Start Functions 
+ */
+function clearSearch(){
+    if (document.search.q.value == terms_AHV_SEARCH_BUTTON){document.search.q.value = ""}; 
+}
+
+// set search preferences
+function setAHSearchPref(){
+    if (document.search.gsa.checked == 1){
+        setAHSearchCookie( dirname );
+    }else{
+        setAHSearchCookie( "community" );
+    }
+}
+
+// Set search preferences cookie
+function setAHSearchCookie( p ){
+    // set cookie ah_searchpref with a value of the document path
+    var expire=new Date();
+    expire.setDate(expire.getDate()+365); // Cookie expires after 1 year (365 days) 
+    document.cookie="ah_searchpref=" +p+ "; expires=" +expire.toGMTString()+ ";";
+}
+
+// ]]-->
+</script> 
+ </form>
+<!-- END SEARCH CONTENT -->    
+
+
+
+<!-- BEGIN PAGE CONTENT WRAPPER -->
+    <div id="page_content_wrapper">
+<!-- BEGIN PAGE WRAPPER -->
+<table id="page_content_table">
+<tr>
+
+<td id="col2">
+<!-- BEGIN CONTENT WRAPPER -->
+<!-- BEGIN BREADCRUMBS -->
+
+      
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec12207-7fea.html" title="Writing images to the browser"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-78fe.html" title="Creating Charts and Graphs"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Developing&#160;ColdFusion 9 Applications</b></a> / <a href="WSc3ff6d0ea77859461172e0811cdd76f064-8000.html"><b>Working with Documents, Charts, and Reports</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7985.html"><b>Creating and Manipulating ColdFusion Images</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+      <div id="content_wrapper">
+<!-- BEGIN PAGE TITLE -->
+        <h1>Application examples that use ColdFusion images</h1>
+<!-- END PAGE TITLE -->
+<!-- BEGIN IONCOMMENTCOUNT -->
+        <div id="ionCount">
+        </div>
+<!-- END IONCOMMENTCOUNT -->
+<table id="inner_content_table" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>
+          <div style="border-top:#ccc solid 1px;"><p> </p>
+          </div>
+<p id="chcPromo" style="display:none;">
+<a id="chcLink" href="http://www.adobe.com/support/chc/">
+<img id="chcImage" src="http://www.adobe.com/support/chc/GetMoreHelpFeatures.png"/>
+</a>
+</p>
+<script type="text/javascript" language="javascript" charset="utf-8">
+<!--
+var cfgArray = [];
+//cfgArray["Acrobat_10.0_Professional.helpcfg"] = "acrobatpro";
+//cfgArray["Acrobat_10.0_Standard.helpcfg"] = "acrobatstd";
+cfgArray["Lightroom_3.0.helpcfg"] = "lightroom";
+cfgArray["PhotoshopElements_8.0_Win.helpcfg"] = "photoshopelements";
+cfgArray["PhotoshopElements_8.0_Mac.helpcfg"] = "photoshopelementsmac";
+cfgArray["PremiereElements_8.0_Win.helpcfg"] = "premiereelements";
+
+//cfgArray["AfterEffects_10.0.helpcfg"] = "aftereffects";
+//cfgArray["AIR.helpcfg"] = "air";
+//cfgArray["ColdFusionBuilder.helpcfg"] = "coldfusion";
+//cfgArray["Contribute_6.0.helpcfg"] = "contribute";
+//cfgArray["DeviceCentral_3.0.helpcfg"] = "devicecentral";
+//cfgArray["Dreamweaver_11.0.helpcfg"] = "dreamweaver";
+//cfgArray["EncoreDVD_5.0.helpcfg"] = "encore";
+//cfgArray["ExtensionManager_3.0.helpcfg"] = "extension";
+//cfgArray["Fireworks_11.0.helpcfg"] = "fireworks";
+//cfgArray["Flash_11.0.helpcfg"] = "flash";
+//cfgArray["Flex_4.0.helpcfg"] = "flashbuilder";
+//cfgArray["FlashCatalyst_1.0.helpcfg"] = "flashcatalyst";
+//cfgArray["Illustrator_15.0.helpcfg"] = "illustrator";
+//cfgArray["InCopy_7.0.helpcfg"] = "incopy";
+//cfgArray["InDesign_7.0.helpcfg"] = "indesign";
+//cfgArray["OnLocation_5.0.helpcfg"] = "onlocation";
+//cfgArray["Photoshop_12.0.helpcfg"] = "photoshop";
+//cfgArray["PremierePro_5.0.helpcfg"] = "premierepro";
+
+function getLangName() {
+    var lang = "en-us";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if (ptn.test(lang)) {
+        var languageCode = lang.replace(ptn, "$1");
+        var countryCode = lang.replace(ptn, "$2");
+        lang = languageCode + "_" + countryCode.toUpperCase();
+    }
+    return lang;
+}
+
+function getCountryName() {
+    var lang = "";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if ((ptn.test(lang)) && (lang != "en-us")) {
+        var countryCode = lang.replace(ptn, "$2");
+        return "/" + countryCode;
+    }
+    return "";
+}
+
+if ( (typeof(terms_HELPCFG) != 'undefined')  && (terms_HELPCFG.indexOf(".helpcfg") != -1) ) {
+    var stage   = (document.location.href.indexOf(".stage.") != -1) ? 'stage.' : '';
+    var baseUrl = 'http://www.' + stage + 'adobe.com';
+    var refpage = document.location.href.replace(/#.*$/, '');
+	
+	if ((!use_robohelp_behavior) && (terms_HELPCFG.length > 0) && (typeof(cfgArray[terms_HELPCFG]) != 'undefined') && (cfgArray[terms_HELPCFG].length > 0)) {
+		if (document.getElementById) { // DOM3 = IE5, NS6
+			var newHref = baseUrl + getCountryName() + "/support/chc/" + "?helpcfg=http://help." + stage + "adobe.com/HelpCfg/" + getLangName() + "/" + terms_HELPCFG + "&url=" + refpage + "&product=" + cfgArray[terms_HELPCFG];
+			var newSrc = baseUrl + getCountryName() + "/support/chc/GetMoreHelpFeatures.png";
+			document.getElementById("chcPromo").style.display = "block";
+			document.getElementById("chcLink").href = newHref;
+			document.getElementById("chcImage").src = newSrc;
+		}
+	}
+}
+
+//-->
+</script>
+
+
+
+          <div id="minitoc"><div class="t"><div class="b"><div><ul id="minitoc-links"><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec12207-7fe6"><span class="topictitle1">Generating thumbnail images</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-7946"><span class="topictitle1">Generating a gallery of watermarked images</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-7935"><span class="topictitle1">Using CAPTCHA to verify membership</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec12207-7fd7"><span class="topictitle1">Creating versions of an image</span>
+</a></p></li></ul></div></div></div></div><div><p>You can create simple applications that automate image
+processes by using ColdFusion images.</p>
+</div>
+<div id="WSc3ff6d0ea77859461172e0811cbec12207-7fe6" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec12207-7fe6"><!-- --></a><h2 class="topictitle2">Generating thumbnail images</h2><div><p>The following example shows how to create a form for uploading
+images. A visitor to the site can use the form to upload an image
+file and generate a thumbnail image from it. You use ColdFusion
+image operations to perform the following tasks:</p>
+<ul><li><p>Verify that the uploaded file is a valid image.</p>
+</li>
+<li><p>Ensure that the height or the width of the image does not
+exceed 800 pixels.</p>
+</li>
+<li><p>If the image is valid and within the size limits, generate
+a thumbnail version of the source image and save it to a file.</p>
+</li>
+</ul>
+<p>Enter the following code on the form page:</p>
+<pre>&lt;!--- This code creates a form with one field where the user enters the image file to upload. ---&gt; 
+&lt;cfform action="makeThumbnail.cfm" method="post" enctype="multipart/form-data"&gt; 
+Please upload an image: &lt;cfinput type="file" name="image"&gt; 
+&lt;cfinput type="submit" value="Send Image" name="Submit"&gt; 
+&lt;/cfform&gt;</pre>
+<p>Enter the following code on the action page:</p>
+<pre>&lt;cfset thisDir = expandPath(".")&gt; 
+&lt;!--- Determine whether the form is uploaded with the image. ---&gt; 
+&lt;cfif structKeyExists(form,"image") and len(trim(form.image))&gt; 
+    &lt;!--- Use the cffile tag to upload the image file. ---&gt; 
+    &lt;cffile action="upload" fileField="image" destination="#thisDir#" result="fileUpload" 
+        nameconflict="overwrite"&gt; 
+    &lt;!--- Determine whether the image file is saved. ---&gt; 
+    &lt;cfif fileUpload.fileWasSaved&gt; 
+    <strong>&lt;!--- Determine whether the saved file is a valid image file. ---&gt;</strong> 
+        <strong>&lt;cfif IsImageFile("#fileUpload.serverfile#")&gt;</strong> 
+    <strong>&lt;!--- Read the image file into a variable called myImage. ---&gt;</strong> 
+            <strong>&lt;cfimage action="read" source="#fileUpload.serverfile#" name="myImage"&gt;</strong> 
+            <strong>&lt;!--- Determine whether the image file exceeds the size limits. ---&gt;</strong> 
+            <strong>&lt;cfif ImageGetHeight(myImage) gt 800 or ImageGetWidth(myImage) gt 800&gt;</strong> 
+                &lt;!--- If the file is too large, delete it from the server. ---&gt; 
+                &lt;cffile action="delete" 
+                    file="#fileUpload.serverDirectory#/#fileUpload.serverFile#"&gt; 
+                &lt;cfoutput&gt; 
+                &lt;p&gt; 
+                The image you uploaded was too large. It must be less than 800 pixels wide 
+                    and 800 pixels high. Your image was #imageGetWidth(myImage)# pixels wide 
+                    and #imageGetHeight(myImage)# pixels high. 
+                &lt;/p&gt; 
+                &lt;/cfoutput&gt; 
+                <strong>&lt;!--- If the image is valid and does not exceed the size limits,</strong> 
+                    <strong>create a thumbnail image from the source file that is 75-pixels</strong> 
+                    <strong>square, while maintaining the aspect ratio of the source image. </strong> 
+                    <strong>Use the bilinear interpolation method to improve performance.</strong> 
+                    <strong>---&gt;</strong> 
+            <strong>&lt;cfelse&gt;</strong> 
+ 
+    &lt;cfset ImageScaleToFit(myImage,75,75,"bilinear")&gt; 
+                &lt;!--- Specify the new filename as the source filename with 
+                    "_thumbnail" appended to it. ---&gt; 
+                &lt;cfset newImageName = fileUpload.serverDirectory &amp; "/" &amp; 
+                    fileUpload.serverFilename &amp; "_thumbnail." &amp; 
+                    fileUpload.serverFileExt&gt; 
+                &lt;!--- Save the thumbnail image to a file with the new filename. ---&gt; 
+                <strong>&lt;cfimage source="#myImage#" action="write"</strong> 
+                    <strong>destination="#newImageName#" overwrite="yes"&gt;</strong> 
+                &lt;cfoutput&gt; 
+                &lt;p&gt; 
+                Thank you for uploading the image. We have created a thumbnail for 
+                    your picture. 
+                &lt;/p&gt; 
+                &lt;p&gt; 
+                &lt;!--- Display the thumbnail image. ---&gt; 
+                &lt;img src="#getFileFromPath(newImageName)#"&gt; 
+                &lt;/p&gt; 
+                &lt;/cfoutput&gt;     
+            &lt;/cfif&gt; 
+        &lt;!--- If it is not a valid image file, delete it from the server. ---&gt; 
+        &lt;cfelse&gt; 
+            &lt;cffile action="delete" 
+                file="#fileUpload.serverDirectory#/#fileUpload.serverFile#"&gt; 
+            &lt;cfoutput&gt; 
+            &lt;p&gt; 
+            The file you uploaded, #fileUpload.clientFile#, was not a valid image. 
+            &lt;/p&gt; 
+            &lt;/cfoutput&gt; 
+        &lt;/cfif&gt; 
+    &lt;/cfif&gt; 
+&lt;/cfif&gt;</pre>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec22c24-7946" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7946"><!-- --></a><h2 class="topictitle2">Generating a gallery of watermarked images</h2><div><p>The following example extracts images and information from
+the <samp class="codeph">cfartgallery</samp> database. You use ColdFusion image
+operations to perform the following tasks:</p>
+<ul><li><p>Verify that an image exists for records returned from
+the database.</p>
+</li>
+<li><p>Display the text, <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">SOLD!</i> on images that have been sold.</p>
+</li>
+<li><p>Resize images to 100 pixels, maintaining the aspect ratio
+of the source image.</p>
+</li>
+<li><p>Add a 5-pixel border to the images.</p>
+</li>
+<li><p>Display the modified images directly in the browser without
+writing them to files.</p>
+</li>
+</ul>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7946__WSc3ff6d0ea77859461172e0811cbec12207-7ffe"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7946__WSc3ff6d0ea77859461172e0811cbec12207-7ffe"><!-- --></a><h4 class="sectiontitle">Example</h4><pre>&lt;!--- Create a query to extract artwork and associated information from the cfartgallery database. ---&gt; 
+&lt;cfquery name="artwork" datasource="cfartgallery"&gt; 
+SELECT FIRSTNAME, LASTNAME, ARTNAME, DESCRIPTION, PRICE, LARGEIMAGE, ISSOLD, MEDIATYPE 
+FROM ARTISTS, ART, MEDIA 
+WHERE ARTISTS.ARTISTID = ART.ARTISTID 
+AND ART.MEDIAID = MEDIA.MEDIAID 
+ORDER BY ARTNAME 
+&lt;/cfquery&gt; 
+&lt;cfset xctr = 1&gt; 
+&lt;table border="0" cellpadding="15" cellspacing="0" bgcolor="#FFFFFF"&gt; 
+&lt;cfoutput query="artwork"&gt; 
+    &lt;cfif xctr mod 3 eq 1&gt; 
+    &lt;tr&gt; 
+        &lt;/cfif&gt; 
+        <strong>&lt;!--- Use the IsImageFile function to verify that the image files extracted 
+            from the</strong><strong>database are valid. Use the ImageNew function to create a 
+            ColdFusion image from</strong><strong>valid image files. ---&gt;</strong> 
+        <strong>&lt;cfif IsImageFile("../cfdocs/images/artgallery/#artwork.largeImage#")&gt;</strong> 
+        <strong>&lt;cfset myImage=ImageNew("../cfdocs/images/artgallery/#artwork.largeImage#")&gt;</strong> 
+            &lt;td valign="top" align="center" width="200"&gt; 
+            &lt;cfset xctr = xctr + 1&gt; 
+            <strong>&lt;!--- For artwork that has been sold, display the text string "SOLD!"</strong> 
+                <strong>in white on the image. ---&gt;</strong> 
+                    <strong>&lt;cfif artwork.isSold&gt;</strong> 
+                        <strong>&lt;cfset ImageSetDrawingColor(myImage,"white")&gt;</strong> 
+                            <strong>&lt;cfset attr=StructNew()&gt;</strong> 
+                            <strong>&lt;cfset attr.size=45&gt;</strong> 
+                            <strong>&lt;cfset attr.style="bold"&gt;</strong> 
+                            <strong>&lt;cfset ImageDrawText(myImage,"SOLD!",35,195, attr)&gt;</strong> 
+                            <strong>&lt;/cfif&gt;</strong> 
+        <strong>&lt;!--- Resize myImage to fit in a 110-pixel square, scaled proportionately. ---&gt;</strong> 
+        <strong>&lt;cfset ImageScaleToFit(myImage,110,"","bicubic")&gt;</strong> 
+        <strong>&lt;!--- Add a 5-pixel black border around the images. (Black is the default color. ---&gt;</strong> 
+        <strong>&lt;!--- Add a 5-pixel black border to myImage. ---&gt;</strong> 
+        <strong>&lt;cfset ImageAddBorder(myImage,"5")&gt;</strong> 
+        <strong>&lt;!--- Write the images directly to the browser without saving them to the hard drive.</strong> 
+            <strong>---&gt;</strong> 
+        <strong>&lt;cfimage source="#myImage#" action="writeToBrowser"&gt;&lt;br&gt;</strong> 
+            &lt;strong&gt;#artwork.artName#&lt;/strong&gt;&lt;br&gt; 
+            Artist: #artwork.firstName# #artwork.lastName#&lt;br&gt; 
+            Price: #dollarFormat(artwork.price)#&lt;br&gt; 
+            #artwork.mediaType# - #artwork.description#&lt;br&gt; 
+            &lt;/td&gt; 
+        &lt;/cfif&gt; 
+        &lt;cfif xctr-1 mod 3 eq 0&gt; 
+            &lt;/tr&gt; 
+        &lt;/cfif&gt; 
+&lt;/cfoutput&gt; 
+&lt;/table&gt;</pre>
+</div>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec22c24-7935" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7935"><!-- --></a><h2 class="topictitle2">Using CAPTCHA to verify membership</h2><div><p>The following example shows how to create a simple form
+to verify whether a person (rather than a computer generating spam)
+is registering to receive an online newsletter. You generate the
+CAPTCHA image from a random text string on the form page and verify
+the response on the action page.</p>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7935__WSc3ff6d0ea77859461172e0811cbec12207-7fd8"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7935__WSc3ff6d0ea77859461172e0811cbec12207-7fd8"><!-- --></a><h4 class="sectiontitle">Example</h4><p>Enter
+the following code on the form page:</p>
+<pre>&lt;!--- Set the length of the text string for the CAPTCHA image. ---&gt; 
+&lt;cfset stringLength=6&gt; 
+&lt;!--- Specify the list of characters used for the random text string. The following list 
+    limits the confusion between upper- and lowercase letters as well as between numbers and 
+    letters. ---&gt; 
+&lt;cfset 
+    stringList="2,3,4,5,6,7,8,9,a,b,d,e,f,g,h,j,n,q,r,t,y,A,B,C,D,E,F,G,H,K,L,M,N,P,Q,R,S, 
+    T,U,V,W,X,Y,Z"&gt; 
+&lt;cfset rndString=""&gt; 
+&lt;!--- Create a loop that builds the string from the random characters. ---&gt; 
+&lt;cfloop from="1" to="#stringLength#" index="i"&gt; 
+    &lt;cfset rndNum=RandRange(1,listLen(stringList))&gt; 
+    &lt;cfset rndString=rndString &amp; listGetAt(stringList,rndNum)&gt; 
+&lt;/cfloop&gt; 
+&lt;!--- Hash the random string. ---&gt; 
+&lt;cfset rndHash=Hash(rndString)&gt; 
+ 
+&lt;!--- Create the user entry form. ---&gt; 
+&lt;cfform action="captcha2.cfm" method="post"&gt; 
+&lt;p&gt;Please enter your first name:&lt;/p&gt; 
+&lt;cfinput type="text" name="firstName" required="yes"&gt; 
+&lt;p&gt;Please enter your last name:&lt;/p&gt; 
+&lt;cfinput type="text" name="lastName" required="yes"&gt; 
+&lt;p&gt;Please enter your e-mail address:&lt;/p&gt; 
+&lt;cfinput type="text" name="mailTo" required="yes" validate="email"&gt; 
+<strong>&lt;!--- Use the randomly generated text string for the CAPTCHA image. -</strong><strong>--&gt;</strong> 
+<strong>&lt;p&gt;&lt;cfimage action="captcha" fontSize="24" fonts="Times New Roman" width="200" height="50"</strong> 
+    <strong>text="#rndString#"&gt;&lt;/p&gt;</strong> 
+&lt;p&gt;Please type what you see: &lt;/p&gt; 
+&lt;p&gt;&lt;cfinput type="text" name="userInput" required="yes" maxlength=6&gt; 
+&lt;cfinput type="hidden" name="hashVal" value="#rndHash#"&gt; 
+&lt;p&gt;&lt;cfinput type="Submit" name ="OK" value="OK"&gt;&lt;/p&gt; 
+&lt;/cfform&gt;</pre>
+<p>Enter the following code on the action
+page:</p>
+<pre>&lt;!--- Verify whether the text entered by the user matches the CAPTCHA string. ---&gt; 
+&lt;cfif #form.hashval# eq Hash(#form.userInput#)&gt; 
+    &lt;cfoutput&gt; 
+    &lt;p&gt; 
+    Thank you for registering for our online newsletter, #form.firstName# #form.lastName#. 
+    &lt;/p&gt; 
+    &lt;p&gt; 
+    A notification has been sent to your e-mail address: #form.mailTo#. 
+    &lt;/p&gt; 
+        &lt;cfmail from="newsletter@domain.com" to="#form.mailTo#" subject="Newsletter"&gt; 
+        Thank you for your interest in our Newsletter. 
+        &lt;/cfmail&gt; 
+    &lt;/cfoutput&gt; 
+&lt;cfelse&gt; 
+    &lt;p&gt;I'm sorry; please try again.&lt;/p&gt; 
+&lt;/cfif&gt;</pre>
+</div>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec12207-7fd7" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec12207-7fd7"><!-- --></a><h2 class="topictitle2">Creating versions of an image</h2><div><p>The following example shows how to create an application
+that lets you generate four versions of the same image, display
+the versions in a form, and choose which one to save. The application
+comprises three ColdFusion pages that perform the following tasks:</p>
+<ul><li><p>Dynamically populate a drop-down list box from a database
+query.</p>
+</li>
+<li><p>Use the <samp class="codeph">cfimage</samp> tag to create a ColdFusion
+image from the title selected from the list. Use the <samp class="codeph">ImageNew</samp> function
+to create three clones of the ColdFusion image. Use the <samp class="codeph">ImageSharpen</samp> function
+to change the sharpness setting for each clone.</p>
+</li>
+<li><p>Save the file chosen from the form to a new location.</p>
+</li>
+</ul>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec12207-7fd7__WSc3ff6d0ea77859461172e0811cbec12207-7fda"><a name="WSc3ff6d0ea77859461172e0811cbec12207-7fd7__WSc3ff6d0ea77859461172e0811cbec12207-7fda"><!-- --></a><h4 class="sectiontitle">Example</h4><p>On
+the first form page, create a query that selects the artwork from
+the <samp class="codeph">cfartgallery</samp> database and displays the titles
+in a pop-up menu:</p>
+<pre>&lt;!--- Create a query to extract artwork from the cfartgallery database. ---&gt; 
+&lt;cfquery name="artwork" datasource="cfartgallery"&gt; 
+SELECT ARTID, ARTNAME, LARGEIMAGE 
+FROM ART 
+ORDER BY ARTNAME 
+&lt;/cfquery&gt; 
+ 
+&lt;!--- Create a form that lists the artwork titles generated by the query. Set the value to 
+    LARGEIMAGE so that the image file is passed to the action page. ---&gt; 
+&lt;cfform action="dupImage2.cfm" method="post"&gt; 
+&lt;p&gt;Please choose a title:&lt;/p&gt; 
+&lt;cfselect name="art" query="artwork" display="ARTNAME" value="LARGEIMAGE" required="yes" 
+    multiple="no" size="8"&gt; 
+&lt;/cfselect&gt; 
+&lt;br/&gt;&lt;cfinput type="submit" name="submit" value="OK"&gt; 
+&lt;/cfform&gt;</pre>
+<p>On the first action page, clone the
+original image three times, change the sharpness setting for each
+clone, and display the results:</p>
+<pre><strong>&lt;!--- Determine whether a valid image file exists. ---&gt;</strong> 
+<strong>&lt;cfif IsImageFile("../cfdocs/images/artgallery/#form.art#")&gt;</strong> 
+    <strong>&lt;cfset original=ImageNew("../cfdocs/images/artgallery/#form.art#")&gt;</strong> 
+    <strong>&lt;!--- Use the ImageNew function to create a clone of the ColdFusion image. ---&gt;</strong> 
+    <strong>&lt;cfset clone1=ImageNew(original)&gt;</strong> 
+    <strong>&lt;!--- Use the ImageSharpen function to blur the cloned image. ---&gt;</strong> 
+    <strong>&lt;cfset ImageSharpen(clone1,-1)&gt;</strong> 
+    <strong>&lt;!--- Use the ImageNew function to create a second clone of the original image. ---&gt;</strong> 
+    <strong>&lt;cfset clone2=ImageNew(original)&gt;</strong> 
+    <strong>&lt;!--- Use the ImageSharpen function to sharpen the cloned image. ---&gt;</strong> 
+    <strong>&lt;cfset ImageSharpen(clone2,1)&gt;</strong> 
+    <strong>&lt;!--- Use the ImageNew function to create a third clone for the original image. ---&gt;</strong> 
+    <strong>&lt;cfset clone3=ImageNew(original)&gt;</strong> 
+    <strong>&lt;!--- Use the ImageSharpen function to sharpen the cloned image to the maximum setting.</strong> 
+        <strong>---&gt;</strong> 
+    <strong>&lt;cfset ImageSharpen(clone3,2)&gt;</strong> 
+&lt;!--- Create a form with a radio button for each selection. The value of the hidden field 
+    is the relative path of the original image file. ---&gt; 
+&lt;p&gt;Please choose an image:&lt;/p&gt; 
+&lt;table&gt; 
+    &lt;tr&gt; 
+    &lt;cfform action="dupImage3.cfm" method="post"&gt; 
+        &lt;td&gt;&lt;cfimage source="#original#" action="writeToBrowser"&gt;&lt;br /&gt; 
+        &lt;cfinput type="radio" name="foo" value="original"&gt;Original Image&lt;/td&gt; 
+        &lt;td&gt;&lt;cfimage source="#clone1#" action="writeToBrowser"&gt;&lt;br /&gt; 
+        &lt;cfinput type="radio" name="foo" value="blurred"&gt;Blurred Image&lt;/td&gt; 
+        &lt;td&gt;&lt;cfimage source="#clone2#" action="writeToBrowser"&gt;&lt;br /&gt; 
+        &lt;cfinput type="radio" name="foo" value="sharper"&gt;Sharper Image&lt;/td&gt; 
+        &lt;td&gt;&lt;cfimage source="#clone3#" action="writeToBrowser"&gt;&lt;br /&gt; 
+        &lt;cfinput type="radio" name="foo" value="sharpest"&gt;Sharpest Image&lt;/td&gt; 
+        &lt;tr&gt;&lt;td&gt;&lt;cfinput type="Submit" name="OK" value="OK"&gt; 
+        &lt;cfinput type="hidden" name="orig_file" 
+            value="../cfdocs/images/artgallery/#form.art#"&gt; 
+        &lt;/td&gt;&lt;/tr&gt; 
+    &lt;/cfform&gt; 
+    &lt;/tr&gt; 
+&lt;/table&gt; 
+&lt;cfelse&gt; 
+    &lt;p&gt;There is no image associated with the title you selected. Please click the Back button 
+        and try again.&lt;/p&gt; 
+&lt;/cfif&gt;</pre>
+<p>On the second action page, save the
+selected image to the C drive:</p>
+<pre>&lt;p&gt;The image you have chosen has been saved.&lt;/p&gt; 
+&lt;cfset img=ImageNew("#form.orig_file#")&gt; 
+&lt;cfswitch expression=#form.foo#&gt; 
+    &lt;cfcase value="blurred"&gt; 
+        <strong>&lt;cfset ImageSharpen(img,-1)&gt;</strong> 
+    &lt;/cfcase&gt; 
+    &lt;cfcase value="sharper"&gt; 
+        <strong>&lt;cfset ImageSharpen(img,1)&gt;</strong> 
+    &lt;/cfcase&gt; 
+    &lt;cfcase value="sharpest"&gt; 
+        <strong>&lt;cfset ImageSharpen(img,2)&gt;</strong> 
+    &lt;/cfcase&gt;     
+&lt;/cfswitch&gt; 
+ 
+&lt;!--- Use the cfimage tag to write the image selected from the form to a file in the C drive. 
+    Use the value of the hidden field as the source file for the image. ---&gt; 
+<strong>&lt;cfimage source="#img#" action="write" destination="c:/myImage.jpg" overwrite="yes"&gt;</strong> 
+&lt;img src="c:/myImage.jpg" /&gt;</pre>
+</div>
+</div></div>
+
+
+<!-- BEGIN USER PREFERENCES -->
+          <div id="userprefs">
+          </div>
+<!-- END USER PREFERENCES -->
+
+          <div id="related">
+            
+            
+            <div class="separator"><a href="#top"><img src="images/BTT.jpg" /></a>&#160;</div>
+          </div>
+          <div id="footer">
+<!-- BEGIN IONCOMMENTS -->
+            <div id="ionComHere">
+            </div>
+<!-- END IONCOMMENTS -->
+
+
+            <p id="creativecommons"><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" id="creativecommons_text"><img id="creativecommons_img" src="images/CC.png" alt="This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License" /></a>&nbsp;Twitter™ and Facebook posts are not covered under the terms of Creative Commons.</p>
+          </div>
+</td>
+<td width="10px"></td>
+<td id="inner_rightcolumn">
+
+</td></tr></table>
+      </div>
+<!-- BEGIN BREADCRUMBS -->
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec12207-7fea.html" title="Writing images to the browser"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-78fe.html" title="Creating Charts and Graphs"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Developing&#160;ColdFusion 9 Applications</b></a> / <a href="WSc3ff6d0ea77859461172e0811cdd76f064-8000.html"><b>Working with Documents, Charts, and Reports</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7985.html"><b>Creating and Manipulating ColdFusion Images</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+<!-- END CONTENT WRAPPER -->
+
+</td>
+<td id="col3">
+    <div>
+        <img src="images/adobe-lq.png" />
+    </div>
+</td>
+</tr>
+</table>
+    </div>
+<!-- END PAGE CONTENT WRAPPER -->
+<script type="text/javascript">
+<!--[CDATA[
+scrollToNameAnchor();
+// ]]-->
+</script> 
+<!--
+    Description:
+    This file generates the link to product support in the top right corner
+-->
+
+<style>
+#menutop{
+    position:absolute;
+    top:4px;
+    right:24px;
+    width:auto;    
+    font-size:11px;
+    color:#fff;
+    text-align:right;
+}
+#menutop a{
+    color:#fff;
+}
+#menutop a:hover{
+        text-decoration:underline;
+}
+</style>  
+  
+  
+  
+  
+<div id="productmenu">
+<!--googleoff: index-->
+  <div id="menutop">
+
+
+<script language=javascript type='text/javascript'>
+    // darken menu text for products with light backgrounds
+    var path = document.location.href.toLowerCase();
+    if (path.indexOf("/acrobat/")           	> 0 ||
+        path.indexOf("/acrobat.com/")       	> 0 ||
+        path.indexOf("/acrobatConnectPro/") 	> 0 ||
+        path.indexOf("/connect/")           	> 0 ||
+        path.indexOf("/livecycledataserviceses/") > 0 ||
+        path.indexOf("/muse/")         	> 0 ||
+	path.indexOf("/presenter/")         	> 0 ||
+        path.indexOf("/scene7/")            	> 0 ||
+        path.indexOf("/flashmediaserver/")  	> 0 ||
+        path.indexOf("/wave/")              	> 0 )
+    {
+        document.write('<style>#menutop a{color:#505050}</style>');
+    }
+    if (typeof('terms_AHV_PRODUCT_SUPPORT') != "undefined" && ! use_robohelp_behavior ){      
+        if (path.indexOf("/muse/") > -1 ){
+            var supportlink = '<a href="http://muse.adobe.com/support.html">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }else{
+            var supportlink = '<a href="http://adobe.com/support">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }
+        document.write( supportlink );
+     }
+
+</script> 
+
+  </div>
+<!--googleon: index-->
+</div>
+
+
+
+<style>
+#online-privacy-policy{ 
+    margin:10px 40px; 
+    font-size:11px;
+}
+</style>
+
+<p id="online-privacy-policy">
+<script language="javascript">
+var pageLoc = "en_US";
+var metaElements = document.all ?
+document.all.tags('meta') :
+document.getElementsByTagName ?
+document.getElementsByTagName ('meta') : new Array();
+for (var m = 0; m < metaElements.length; m++) {
+	if (metaElements[m].name == "lang") {
+		pageLoc = metaElements[m].content;
+		break;
+	}
+}
+var ptn = /(..)-(..)/;
+if (ptn.test(pageLoc)) {
+	var languageCode = pageLoc.replace(ptn, "$1");
+	var countryCode = pageLoc.replace(ptn, "$2");
+	pageLoc = languageCode + "_" + countryCode.toUpperCase();
+}
+
+var policyLoc = "en_US";
+var policyText = "Online Privacy Policy";
+var policyPath = "";
+var policyArray=[
+"da_DK", "Online fortrolighedserklæring",
+"de_DE", "Online-Datenschutzrichtlinie",
+"es_ES", "Política de confidencialidad en línea",
+"fi_FI", "Yksityisyyttä koskeva Online-toimintaohjelma",
+"fr_FR", "Confidentialité et sécurité",
+"it_IT", "Informativa sulla privacy online",
+"ja_JP", "プライバシーポリシー",
+"ko_KR", "Adobe 온라인 개인정보 보호정책",
+"pt_BR", "Política de Confidencialidade On-line", 
+"zh_CN", "在线隐私政策",
+"zh_TW", "線上隱私政策"
+];
+var legalLoc = "en_US";
+var legalText = "Legal Notices";
+var legalPath = legalLoc;
+var legalArray=[
+"ar_AE", "إشعارات قانونية",
+"bg_BG", "Юридически бележки",
+"cs_CZ", "Právní upozornění",
+"da_DK", "Juridiske meddelelser",
+"de_DE", "Rechtliche Hinweise",
+"el_GR", "Σημειώσεις νομικού περιεχομένου",
+"es_ES", "Avisos legales",
+"et_EE", "Juriidilised teated",
+"fi_FI", "Lakisääteiset ilmoitukset",
+"fr_FR", "Mentions légales",
+"he_IL", "הצהרות משפטיות",
+"hr_HR", "Pravne napomene",
+"hu_HU", "Jogi közlemények",
+"it_IT", "Informazioni legali",
+"ja_JP", "法律上の注意",
+"ko_KR", "법적 고지 사항",
+"lt_LT", "Teisinės pastabos",
+"lv_LV", "Juridisks paziņojums",
+"nb_NO", "Juridiske merknader",
+"nl_NL", "Juridische kennisgevingen",
+"pl_PL", "Informacje prawne",
+"pt_BR", "Aspectos jurídicos",
+"ro_RO", "Prevederi legale",
+"ru_RU", "Юридическая информация",
+"sk_SK", "Právne upozornenie",
+"sl_SI", "Pravni pouk",
+"sv_SE", "Upphovsrätt",
+"tr_TR", "Yasal uyarılar",
+"uk_UA", "Юридична інформація",
+"zh_CN", "法律声明",
+"zh_TW", "法律注意事項"
+];
+
+ruPolicy = "http://www.adobe.com/ru/misc/privacy.html";
+trPolicy = "http://www.adobe.com/tr/misc/privacy.html";
+
+// Bug 2846992: LOC: RUS, TUR: The link to "Online Privacy Policy" should include language, currently it is not appearing.
+if (pageLoc == "ru_RU") {
+	policyPath = "ru";
+}
+else if (pageLoc == "tr_TR") {
+	policyPath = "tr";
+}
+for (var i = 0; i < policyArray.length; i+=2) {
+	if (pageLoc == policyArray[i]) {
+		policyLoc = pageLoc;
+		policyText = policyArray[i+1];
+		var ptn = /(..)_(..)/;
+		if (ptn.test(policyLoc)) {
+			var countryCode = policyLoc.replace(ptn, "$2");
+			policyPath = countryCode.toLowerCase();
+		}
+		break;
+	}
+}
+
+for (var i = 0; i < legalArray.length; i+=2) {
+	if (pageLoc == legalArray[i]) {
+		legalLoc = pageLoc;
+		legalText = legalArray[i+1];
+		legalPath = legalLoc;
+		break;
+	}
+}
+if(agt.indexOf("community help client") > -1 ){
+	document.write('<a href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+}else{
+	//Open the privacy policy in a new window
+	document.write('<a target="_blank" href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a target="_blank" href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+} 
+</script>
+</p>
+
+
+
+<!-- localfooter.ssi -->
+
+<script type="text/javascript">
+    var debug = (top.location.href.indexOf("debug=true") > -1);
+</script>
+
+<script language="javascript">
+document.write('<scr'+'ipt ' +
+               'src="/en_US/ssi/_pod.js" ' +
+               'language="javascript" ' +
+               'charset="UTF-8"> ' +
+               '</scr'+'ipt>');
+</script>
+
+
+<script type="text/javascript">
+//
+//  Ethnio survey code
+//
+/*          DocumentID      EthnioID */
+/*          -------------   -------- */
+var ethnio=["/en_US/flash/cs/using/WSb03e830bd6f770ee6664507612436d7dede-8000.html", "87462",
+            "/en_US/creativesuite/cs/using/WSe851854fd1e0856a-4b08a77612477f69f15-8000.html",  "10441",
+            "/en_US/dreamweaver/cs/using/WSEE4C0148-A6F4-4bf5-9DEF-CE06AB026214a.html",  "57412"
+ 
+    ];
+                        
+    for ( var i = 0; i < ethnio.length ; i = i+2 ){
+        if ( document.location.href.indexOf( ethnio[i] ) > -1 ){ 
+            var headID = document.getElementsByTagName("head")[0];         
+            var ethnioScript = document.createElement('script');
+            ethnioScript.type = 'text/javascript';
+            ethnioScript.src = 'http://ethn.io/remotes/' + ethnio[i+1];        
+            if ( debug ){
+                alert ("Using Ethnio script: " + ethnioScript.src );
+            }else{
+                headID.appendChild(ethnioScript);
+            }
+        }
+    }
+</script>
+
+
+
+<div style="display: none;">
+<!-- SiteCatalyst -->
+<script language="JavaScript" type="text/javascript"><!--
+var s_code=' ';
+var s_docHost = window.location.hostname.toLowerCase();
+var s_docURL = window.location.pathname.toLowerCase();
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+if (s_docHost.indexOf(".corp.adobe") != -1 || s_docHost.indexOf("stage.") != -1 || s_docHost.indexOf(".dev.adobe") != -1 || s_docHost.indexOf("staging.") != -1) scJsHost="";
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/omniture_s_code.js' type='text/javascript'%3E%3C/script%3E"));
+//--></script>
+<script type="text/javascript"><!--
+var s_accountName;
+s_server="www.adobe.com static content pages";
+if (!window.s_account) s_accountName="mxmacromedia";
+else s_accountName=window.s_account;
+
+if (window.s_docURL.indexOf("/designcenter/") != -1)
+  s_channel="Adobe Design Center";	
+else if ((window.s_docHost.indexOf("labs.adobe") != -1) ||
+(window.s_docHost.indexOf("labs-staging.") != -1))
+  s_channel="Labs";
+else if (window.s_docHost.indexOf("help.adobe.com") != -1) {
+  s_channel="Support Help.adobe.com";
+  if (window.s_docURL.indexOf("/en_us/") == -1) {
+    s_docURLArray=s_docURL.split('/');
+    s_pageName="http://help.adobe.com/"+s_docURLArray[1]+"/"+ s_docURLArray[2]+"/"+s_docURLArray[3];
+    s_prop23="http://help.adobe.com"+window.location.pathname;
+  }
+}
+else if (window.s_docHost.indexOf("kb2.adobe.com") != -1) {
+  s_channel="Support Knowledgebase";
+  s_prop23="http://kb2.adobe.com"+s_docURL+":";
+  if (typeof(omtrProductList) != 'undefined' && omtrProductList.length > 0)
+ {
+    s_prop23=s_prop23+omtrProductList;
+  }
+}
+else if (window.s_docHost.indexOf("resellers.adobe.com") != -1) {
+		var s_pageName=document.getElementsByTagName("title")[0].text;
+}
+
+if (!window.scMMInclude) {
+	var s_wd=window,s_tm=new Date;
+	if(s_code!=' '){
+		s_code=s_dc(s_accountName);
+		if(s_code)document.write(s_code)
+	} 
+} else {
+	s_wds(s_accountName);s_ca(s_accountName); 
+}	
+
+function sendAnalyticsEvent(str){var ns=s_accountName;if(str!=null)ns+=","+str;void(s_gs(ns));}
+function sendLinkEvent(accnt,lnkname,type){
+accnt=s_accountName;s_linkType=type;s_lnk=true;s_linkName=lnkname;void(s_gs(accnt));}
+//--></script>
+<noscript><img src="http://stats.adobe.com/b/ss/mxmacromedia/1/H.15-XELvs/0?pageName=http%3A//www.adobe.com%3A%20noscript&ch=http%3A//www.adobe.com%3A%20noscript&g=http%3A//www.adobe.com" height="1" width="1" border="0" alt="" /></noscript>
+<!-- End SiteCatalyst -->
+</div>
+
+<script language="JavaScript" type="text/javascript">//<![CDATA[
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/atm/s_code_www.js' type='text/javascript'%3E%3C/script%3E"));
+//]]></script>
+<script type="text/javascript">//<![CDATA[
+if(s_adobe){	
+	s_adobe.server="www.adobe.com Static Content pages";
+	/* Set pageName */
+	s_adobe.s_URL="adobe.com"+((location.pathname.charAt(0)=='/')?location.pathname:'/'+location.pathname);
+	if (s_adobe.s_URL.substring(s_adobe.s_URL.lastIndexOf('/')+1)=="") s_adobe.s_URL=s_adobe.s_URL+"index.html";
+	s_adobe.s_URLSplit=s_adobe.s_URL.split("/");
+	s_adobe.pageName=s_adobe.s_URLSplit.join(":");
+
+	/* Set prop4 to language-locale */
+	var s_meta=document.getElementsByTagName('meta'); 
+      for (i=0; i<s_meta.length; i++) { 
+        if (s_meta[i].getAttribute("http-equiv") == "Content-Language") { 
+          s_adobe.prop4=s_meta[i].getAttribute("content"); 
+	    s_adobe.prop4=s_adobe.prop4.replace(/\s+/g,'');
+        } 
+      } 
+	s_adobe.t()
+}
+//]]></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

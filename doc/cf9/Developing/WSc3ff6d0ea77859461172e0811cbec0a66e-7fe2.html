@@ -1,0 +1,1157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0022)http://help.adobe.com/ -->
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="lang" content="en-us" />
+    <meta name="area" content="livedocs" />
+    <title>Adobe&#160;ColdFusion&#160;9 * Working with arguments and variables in functions</title>
+    <link rel="shortcut icon" href="images/ColdFusionLinkIndicator.png" />
+    <meta name="book" content="Developing&#160;ColdFusion 9 Applications" />
+    <meta name="product" content="ColdFusion" />
+    <meta name="keywords" content="" /><!--<PageMap><DataObject type="document"><Attribute name="product" value="ColdFusion"></Attribute><Attribute name="book" value="Developing&#160;ColdFusion 9 Applications"></Attribute><Attribute name="keywords" value=""></Attribute></DataObject></PageMap>-->
+    
+    <script type="text/javascript" language="Javascript" charset="UTF-8"><!--[CDATA[
+        var currentTreeNode = "WSc3ff6d0ea77859461172e0811cbec0a66e-7fe2.html";
+    document.cookie = "topicId=" + "WSc3ff6d0ea77859461172e0811cbec0a66e-7fe2.html";
+// ]]--></script>
+<script src="terms.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="help.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script>  <script src="utilities.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="event.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="treeview.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="toc.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script> <script src="swfobject.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>  <script src="booklist.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>
+<script type="text/javascript">
+<!--[CDATA[
+var topictype = "topic";
+var headId = document.getElementsByTagName("head")[0];         
+if (use_ie_6_behavior) {
+  var linkId = document.createElement("link");
+  linkId.href = "content-ie6.css";
+  linkId.rel = "stylesheet";
+  linkId.type = "text/css";
+  headId.appendChild(linkId);
+}
+function initRoboHelpDOM() {
+  if (use_chm_behavior) {
+    hideElement("search");
+  }
+  if (use_robohelp_behavior) {
+    hideElement("search");
+    hideElement("productmenu");
+    //hideElement("notyourversion");
+  }
+  if(!use_chc_behavior) {
+    //document.getElementById("notyourversion").style.display = "inline";;
+  }
+}
+var dirname = location.pathname.match( /.*\// );    
+function setSearchUserPref(){
+  if ( document.cookie.indexOf( "ah_searchpref" ) > -1 ) {
+    if ( document.cookie.indexOf( dirname ) > 0 ) {
+      document.search.gsa.checked = true ;
+    }else{
+      document.search.gsa.checked = false ;            
+    }
+  }
+}
+YAHOO.util.Event.onDOMReady(initRoboHelpDOM);
+YAHOO.util.Event.onDOMReady(setSearchUserPref);
+// ]]-->
+</script>
+
+<!-- ********************************** -->
+<!-- START: ForeSee survey code in: /ssi/globalheader.ssi -->
+
+<script type="text/javascript">
+<!-- 
+// Enable the survey for only English, German and Japanese
+var agt=navigator.userAgent.toLowerCase();
+if ( agt.indexOf("community help client") == -1 ){
+    if ( document.location.href.indexOf("/en_US/") != -1 ){
+        showSurvey();
+//    }else if (document.location.href.indexOf("/de_DE/") != -1){
+//         var locale="de";
+//         showSurvey();
+    }else if (document.location.href.indexOf("/ja_JP/") != -1 ){
+         var locale="ja";
+         showSurvey();
+    }	
+}
+
+function showSurvey(){
+	document.write('<script type="text/javascript" src="/js/foresee/foresee-trigger.js"><\/scr'+'ipt>');
+}
+
+// -->
+</script>
+
+<!-- END: ForeSee survey code -->
+<!-- ******************************** -->
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="tree.css" />
+    <link rel="stylesheet" type="text/css" href="content.css" />
+    <link rel="stylesheet" type="text/css" href="localeSpecific.css" />
+  </head>
+  <body id="content_body" onload="window.focus();">
+    <a name="top" shape="rect"><!--LeaveCommentHere--></a>
+    
+    <div id="mnemonic">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon" class="ColdFusion"><div class="banner"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html">Adobe&#160;ColdFusion&#160;9</a><span id="notyourversion">|&#160;
+                    <a rel="nofollow" href="http://www.adobe.com/support/documentation/en/coldfusion/">Not your version?</a></span></div></div><!--googleon: index-->
+    </div>
+    
+    <div id="searchbar">
+<table id="searchbartable">
+<tr>
+<td colspan="2">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon"><div id="pdf"><img src="images/PDF.gif" width="16" height="16" /><a title="View Help PDF" href="coldfusion_9_dev.pdf">View Help PDF ( 23MB)</a></div></div><!--googleon: index-->
+</td>
+</tr>
+</table>
+    </div>
+
+<!-- BEGIN SEARCH CONTENT -->
+<form id="search" name="search" action="search.html" target="_self">
+<script type="text/javascript">
+<!--[CDATA[
+if ( !use_chc_behavior ){
+    if (typeof(terms_AHV_SEARCH_CONSTRAINT) != "undefined" && 
+        terms_AHV_SEARCH_CONSTRAINT.length > 0 && 
+        document.location.href.indexOf(".adobe.com") > 0){
+        if ( typeof(terms_SEARCH_THIS_HELP_ONLY) != "undefined" && terms_SEARCH_THIS_HELP_ONLY == "ON" ) {
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                checked="checked" \
+                value="1" ><\/input>'); 
+                
+        // Leave the "Search this help system only" checkbox unckecked
+        }else{    
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                value="1" ><\/input>'); 
+        }
+        document.write('<span class="gsalabel">' + terms_AHV_SEARCH_CONSTRAINT + '<\/span><\/div>'); 
+    }
+    document.write('<input class="searchinput" \
+        name="q" \
+        id="q" \
+        type="text" \
+        maxlength="256" \
+        value="' + terms_AHV_SEARCH_BUTTON + '" \
+        onclick="clearSearch()"><\/input><input \
+        type="button" \
+        name="searchbutton" \
+        class="searchbutton" \
+        onclick="submit()"><\/input>'); 
+} 
+ 
+/* 
+ * Start Functions 
+ */
+function clearSearch(){
+    if (document.search.q.value == terms_AHV_SEARCH_BUTTON){document.search.q.value = ""}; 
+}
+
+// set search preferences
+function setAHSearchPref(){
+    if (document.search.gsa.checked == 1){
+        setAHSearchCookie( dirname );
+    }else{
+        setAHSearchCookie( "community" );
+    }
+}
+
+// Set search preferences cookie
+function setAHSearchCookie( p ){
+    // set cookie ah_searchpref with a value of the document path
+    var expire=new Date();
+    expire.setDate(expire.getDate()+365); // Cookie expires after 1 year (365 days) 
+    document.cookie="ah_searchpref=" +p+ "; expires=" +expire.toGMTString()+ ";";
+}
+
+// ]]-->
+</script> 
+ </form>
+<!-- END SEARCH CONTENT -->    
+
+
+
+<!-- BEGIN PAGE CONTENT WRAPPER -->
+    <div id="page_content_wrapper">
+<!-- BEGIN PAGE WRAPPER -->
+<table id="page_content_table">
+<tr>
+
+<td id="col2">
+<!-- BEGIN CONTENT WRAPPER -->
+<!-- BEGIN BREADCRUMBS -->
+
+      
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec0a66e-7fea.html" title="Calling user-defined functions"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-7d00.html" title="Handling errors in UDFs"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Developing&#160;ColdFusion 9 Applications</b></a> / <a href="WS8f0cc78011fffa71-51fc803311cdadf3dc5-8000.html"><b>Building Blocks of ColdFusion Applications</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7ff3.html"><b>Writing and Calling User-Defined Functions</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+      <div id="content_wrapper">
+<!-- BEGIN PAGE TITLE -->
+        <h1>Working with arguments and variables in functions</h1>
+<!-- END PAGE TITLE -->
+<!-- BEGIN IONCOMMENTCOUNT -->
+        <div id="ionCount">
+        </div>
+<!-- END IONCOMMENTCOUNT -->
+<table id="inner_content_table" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>
+          <div style="border-top:#ccc solid 1px;"><p> </p>
+          </div>
+<p id="chcPromo" style="display:none;">
+<a id="chcLink" href="http://www.adobe.com/support/chc/">
+<img id="chcImage" src="http://www.adobe.com/support/chc/GetMoreHelpFeatures.png"/>
+</a>
+</p>
+<script type="text/javascript" language="javascript" charset="utf-8">
+<!--
+var cfgArray = [];
+//cfgArray["Acrobat_10.0_Professional.helpcfg"] = "acrobatpro";
+//cfgArray["Acrobat_10.0_Standard.helpcfg"] = "acrobatstd";
+cfgArray["Lightroom_3.0.helpcfg"] = "lightroom";
+cfgArray["PhotoshopElements_8.0_Win.helpcfg"] = "photoshopelements";
+cfgArray["PhotoshopElements_8.0_Mac.helpcfg"] = "photoshopelementsmac";
+cfgArray["PremiereElements_8.0_Win.helpcfg"] = "premiereelements";
+
+//cfgArray["AfterEffects_10.0.helpcfg"] = "aftereffects";
+//cfgArray["AIR.helpcfg"] = "air";
+//cfgArray["ColdFusionBuilder.helpcfg"] = "coldfusion";
+//cfgArray["Contribute_6.0.helpcfg"] = "contribute";
+//cfgArray["DeviceCentral_3.0.helpcfg"] = "devicecentral";
+//cfgArray["Dreamweaver_11.0.helpcfg"] = "dreamweaver";
+//cfgArray["EncoreDVD_5.0.helpcfg"] = "encore";
+//cfgArray["ExtensionManager_3.0.helpcfg"] = "extension";
+//cfgArray["Fireworks_11.0.helpcfg"] = "fireworks";
+//cfgArray["Flash_11.0.helpcfg"] = "flash";
+//cfgArray["Flex_4.0.helpcfg"] = "flashbuilder";
+//cfgArray["FlashCatalyst_1.0.helpcfg"] = "flashcatalyst";
+//cfgArray["Illustrator_15.0.helpcfg"] = "illustrator";
+//cfgArray["InCopy_7.0.helpcfg"] = "incopy";
+//cfgArray["InDesign_7.0.helpcfg"] = "indesign";
+//cfgArray["OnLocation_5.0.helpcfg"] = "onlocation";
+//cfgArray["Photoshop_12.0.helpcfg"] = "photoshop";
+//cfgArray["PremierePro_5.0.helpcfg"] = "premierepro";
+
+function getLangName() {
+    var lang = "en-us";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if (ptn.test(lang)) {
+        var languageCode = lang.replace(ptn, "$1");
+        var countryCode = lang.replace(ptn, "$2");
+        lang = languageCode + "_" + countryCode.toUpperCase();
+    }
+    return lang;
+}
+
+function getCountryName() {
+    var lang = "";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if ((ptn.test(lang)) && (lang != "en-us")) {
+        var countryCode = lang.replace(ptn, "$2");
+        return "/" + countryCode;
+    }
+    return "";
+}
+
+if ( (typeof(terms_HELPCFG) != 'undefined')  && (terms_HELPCFG.indexOf(".helpcfg") != -1) ) {
+    var stage   = (document.location.href.indexOf(".stage.") != -1) ? 'stage.' : '';
+    var baseUrl = 'http://www.' + stage + 'adobe.com';
+    var refpage = document.location.href.replace(/#.*$/, '');
+	
+	if ((!use_robohelp_behavior) && (terms_HELPCFG.length > 0) && (typeof(cfgArray[terms_HELPCFG]) != 'undefined') && (cfgArray[terms_HELPCFG].length > 0)) {
+		if (document.getElementById) { // DOM3 = IE5, NS6
+			var newHref = baseUrl + getCountryName() + "/support/chc/" + "?helpcfg=http://help." + stage + "adobe.com/HelpCfg/" + getLangName() + "/" + terms_HELPCFG + "&url=" + refpage + "&product=" + cfgArray[terms_HELPCFG];
+			var newSrc = baseUrl + getCountryName() + "/support/chc/GetMoreHelpFeatures.png";
+			document.getElementById("chcPromo").style.display = "block";
+			document.getElementById("chcLink").href = newHref;
+			document.getElementById("chcImage").src = newSrc;
+		}
+	}
+}
+
+//-->
+</script>
+
+
+
+          <div id="minitoc"><div class="t"><div class="b"><div><ul id="minitoc-links"><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec0a66e-7ffa"><span class="topictitle1">Good argument naming practice</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec0a66e-7fe5"><span class="topictitle1">Passing arguments</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-7e53"><span class="topictitle1">Passing complex data</span>
+</a></p><ul><li><p><a href="#WS613F05EC-843E-43ac-9AF1-FB1B8523A087"><span class="topictitle2">Passing structures, queries, and objects</span>
+</a></p></li><li><p><a href="#WS8A46A5E6-BDAE-4c9b-9365-B0EA46633550"><span class="topictitle2">Passing arrays</span>
+</a></p></li></ul></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-7f7b"><span class="topictitle1">About the Arguments scope</span>
+</a></p><ul><li><p><a href="#WSf01dbd23413dda0e49d8e86e1200f2aecd8-8000"><span class="topictitle2">The contents of the Arguments scope</span>
+</a></p></li><li><p><a href="#WSf01dbd23413dda0e49d8e86e1200f2aecd8-7fff"><span class="topictitle2">Using the Arguments scope as an array</span>
+</a></p></li><li><p><a href="#WSf01dbd23413dda0e49d8e86e1200f2aecd8-7ffe"><span class="topictitle2">Using the Arguments scope as a structure</span>
+</a></p></li><li><p><a href="#WSf01dbd23413dda0e49d8e86e1200f2aecd8-7ffd"><span class="topictitle2">Using the Arguments scope in CFScript</span>
+</a></p></li><li><p><a href="#WSf01dbd23413dda0e49d8e86e1200f2aecd8-7ffc"><span class="topictitle2">Using the Arguments scope in cffunction definitions</span>
+</a></p></li></ul></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec0a66e-7fe6"><span class="topictitle1">Function-only variables</span>
+</a></p><ul><li><p><a href="#WSf01dbd23413dda0e-1b2da9951200f2c4fb3-8000"><span class="topictitle2">Using function-only variables</span>
+</a></p></li></ul></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-7e4e"><span class="topictitle1">Referencing caller variables</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec0a66e-7fd1"><span class="topictitle1">Using arguments</span>
+</a></p></li></ul></div></div></div></div><div><ul class="navlinklist"></ul>
+</div>
+<div id="WSc3ff6d0ea77859461172e0811cbec0a66e-7ffa" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec0a66e-7ffa"><!-- --></a><h2 class="topictitle2">Good argument naming practice</h2><div><p>Use
+an argument name that represents its use. For example, the following
+code is unlikely to result in confusion:</p>
+<pre>&lt;cfscript&gt; 
+    function SumN(Addend1,Addend2) 
+    { return Addend1 + Addend2; } 
+&lt;/cfscript&gt; 
+&lt;cfset x = 10&gt; 
+&lt;cfset y = 12&gt; 
+&lt;cfoutput&gt;#SumN(x,y)#&lt;/cfoutput&gt;</pre>
+<p>The following, similar code is more likely to result in programming
+errors:</p>
+<pre>&lt;cfscript&gt; 
+    function SumN(x,y) 
+    { return x + y; } 
+&lt;/cfscript&gt; 
+&lt;cfset x = 10&gt; 
+&lt;cfset y = 12&gt; 
+&lt;cfoutput&gt;#SumN(x,y)#&lt;cfoutput&gt;</pre>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec0a66e-7fe5" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec0a66e-7fe5"><!-- --></a><h2 class="topictitle2">Passing arguments</h2><div><p>ColdFusion passes the following data
+types to the function by value: </p>
+<ul><li><p>Integers</p>
+</li>
+<li><p>Real numbers</p>
+</li>
+<li><p>Strings (including lists)</p>
+</li>
+<li><p>Date-time objects</p>
+</li>
+<li><p>Arrays</p>
+</li>
+</ul>
+<p>As a result, any changes that you make in the function to these
+arguments do not affect the variable that was used to call the function,
+even if the calling code is on the same ColdFusion page as the function
+definition. </p>
+<p>ColdFusion passes queries, structures, and external objects such
+as COM objects into the function by reference. As a result, any
+changes to these arguments in the function also change the value
+of the variable in the calling code. </p>
+<p>For an example of the effects of passing arguments, see <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7e53.html">Passing complex data</a>.</p>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec22c24-7e53" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7e53"><!-- --></a><h2 class="topictitle2">Passing complex data</h2><div><p>Structures, queries, and complex objects
+such as COM objects are passed to UDFs by reference, so the function
+uses the same copy of the data as the caller. Arrays are passed
+to user-defined functions by value, so the function gets a new copy
+of the array data, and the array in the calling page is unchanged
+by the function. As a result, always handle arrays differently from
+all other complex data types.</p>
+</div><div id="WS613F05EC-843E-43ac-9AF1-FB1B8523A087" class="nochunk"><a name="WS613F05EC-843E-43ac-9AF1-FB1B8523A087"><!-- --></a><h3 class="topictitle3">Passing structures, queries, and objects</h3><div><p>For your function to modify the copy of a structure, query,
+or object, in the caller, pass the variable as an argument. Because
+the function gets a reference to the structure in the caller, the
+caller variable reflects all changes in the function. You do not
+have to return the structure to the caller. After the function returns,
+the calling page accesses the changed data by using the structure
+variable that it passed to the function.</p>
+<p>If you do not want a function to modify the copy of a structure,
+query, or object, in the caller, use the <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7f9b.html" target="_self">Duplicate</a></samp> function to make
+a copy and pass the copy to the function.</p>
+</div></div><div id="WS8A46A5E6-BDAE-4c9b-9365-B0EA46633550" class="nochunk"><a name="WS8A46A5E6-BDAE-4c9b-9365-B0EA46633550"><!-- --></a><h3 class="topictitle3">Passing arrays</h3><div><p>If you want your function
+to modify the caller’s copy of the array, the simplest solution
+is to pass the array to the function and return the changed array
+to the caller in the function <samp class="codeph">return</samp> statement.
+In the caller, use the same variable name in the function argument
+and return variable. </p>
+<p>The following example shows how to directly pass and return arrays.
+In this example, the <samp class="codeph">doubleOneDArray</samp> function doubles
+the value of each element in a one-dimensional array. </p>
+<pre>&lt;cfscript&gt; 
+//Initialize some variables 
+//This creates a simple array. 
+a=ArrayNew(1); 
+a[1]=2; 
+a[2]=22; 
+//Define the function. 
+function doubleOneDArray(OneDArray) { 
+    var i = 0; 
+    for ( i = 1; i LE arrayLen(OneDArray); i = i + 1) 
+        { OneDArray[i] = OneDArray[i] * 2; } 
+    return OneDArray; 
+} 
+//Call the function. 
+a = doubleOneDArray(a); 
+&lt;/cfscript&gt; 
+&lt;cfdump var="#a#"&gt;</pre>
+<p>This solution is simple, but it is not always optimal:</p>
+<ul><li><p>This technique requires ColdFusion to copy the entire
+array twice, once when you call the function and once when the function
+returns. Doing so is inefficient for large arrays and can reduce
+performance, particularly if the function is called frequently.</p>
+</li>
+<li><p>You can use the return value for other purposes, such as
+a status variable.</p>
+</li>
+</ul>
+<p>If you do not use the <samp class="codeph">return</samp> statement to return
+the array to the caller, you can pass the array as an element in
+a structure and change the array values inside the structure. Then
+the calling page can access the changed data by using the structure
+variable it passed to the UDF.</p>
+<p>The following code shows how to rewrite the previous example
+using an array in a structure. It returns True as a status indicator
+to the calling page and uses the structure to pass the array data
+back to the calling page.</p>
+<pre>&lt;cfscript&gt; 
+//Initialize some variables. 
+//This creates a simple array as an element in a structure. 
+arrayStruct=StructNew(); 
+arrayStruct.Array=ArrayNew(1); 
+arrayStruct.Array[1]=2; 
+arrayStruct.Array[2]=22; 
+//Define the function. 
+function doubleOneDArrayS(OneDArrayStruct) { 
+    var i = 0; 
+    for ( i = 1; i LE arrayLen(OneDArrayStruct.Array); i = i + 1) 
+        { OneDArrayStruct.Array[i] = OneDArrayStruct.Array[i] * 2; } 
+    return True; 
+} 
+//Call the function. 
+Status = doubleOneDArrayS(arrayStruct); 
+WriteOutput("Status: " &amp; Status); 
+&lt;/cfscript&gt; 
+&lt;/br&gt; 
+&lt;cfdump var="#arrayStruct#"&gt;</pre>
+<p>Use the same structure element name for the array (in this case
+Array) in the calling page and the function.</p>
+</div></div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec22c24-7f7b" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7f7b"><!-- --></a><h2 class="topictitle2">About the Arguments scope</h2><div><p>All function arguments exist in their
+own scope, the Arguments scope. </p>
+<p>The Arguments scope exists for the life of a function call. When
+the function returns, the scope and its variables are destroyed. </p>
+<p>However, destroying the Argument scope does not destroy variables,
+such as structures or query objects, that ColdFusion passes to the
+function by reference. The variables on the calling page that you
+use as function arguments continue to exist; if the function changes
+the argument value, the variable in the calling page reflects the
+changed value.</p>
+<p>The Arguments scope is special, in that you can treat the scope
+as either an array <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">or</i> a structure. This dual nature of the
+Arguments scope is useful because it makes it easy to use arguments
+in any of the following circumstances: </p>
+<ul><li><p>You define the function using CFScript.</p>
+</li>
+<li><p>You define the function using the <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7f5c.html" target="_self">cffunction</a></samp> tag.</p>
+</li>
+<li><p>You pass arguments using argument name=value format.</p>
+</li>
+<li><p>You pass arguments as values only.</p>
+</li>
+<li><p>The function takes optional, undeclared arguments.</p>
+</li>
+</ul>
+</div><div id="WSf01dbd23413dda0e49d8e86e1200f2aecd8-8000" class="nochunk"><a name="WSf01dbd23413dda0e49d8e86e1200f2aecd8-8000"><!-- --></a><h3 class="topictitle3">The contents of the Arguments scope</h3><div><p>The following rules apply to the Arguments scope and its
+contents:</p>
+<ul><li><p>The scope contains all the arguments passed into a function. </p>
+</li>
+<li><p>If you use <samp class="codeph">cffunction</samp> to define the function,
+the scope always contains an entry “slot” for each declared argument,
+even if you do not pass the argument to the function when you call
+it. If you do not pass a declared (optional) argument, the scope
+entry for that argument is empty.</p>
+<p>When you call a function
+that you defined using CFScript, Pass the function a value for each
+argument declared in the function definition. Therefore, the Arguments
+scope for a CFScript call does not have empty slots.</p>
+</li>
+</ul>
+<p>The following example shows these rules. Assume that you have
+a function declared, as follows:</p>
+<pre>&lt;cffunction name="TestFunction"&gt; 
+    &lt;cfargument name="Arg1"&gt; 
+    &lt;cfargument name="Arg2"&gt; 
+&lt;/cffunction&gt;    </pre>
+<p>You can call this function with a single argument, as in the
+following line:</p>
+<pre>&lt;cfset TestFunction(1)&gt;</pre>
+<p>The resulting Arguments scope looks like the following:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th colspan="2" valign="top" id="d17e16813"><p>As an array</p>
+</th>
+<th colspan="2" valign="top" id="d17e16816"><p>As a structure</p>
+</th>
+</tr>
+<tr><th valign="top" width="NaN%" id="d17e16820"><p>Entry</p>
+</th>
+<th valign="top" width="NaN%" id="d17e16823"><p>Value</p>
+</th>
+<th valign="top" width="NaN%" id="d17e16826"><p>Entry</p>
+</th>
+<th valign="top" width="NaN%" id="d17e16829"><p>Value</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e16813 d17e16820 "><p>1</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16813 d17e16823 "><p>1</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16816 d17e16826 "><p>Arg1</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16816 d17e16829 "><p>1 </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e16813 d17e16820 "><p>2</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16813 d17e16823 "><p>undefined </p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16816 d17e16826 "><p>Arg2</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e16816 d17e16829 "><p>undefined </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In this example, the following functions return the value 2 because
+the scope contains two defined arguments:</p>
+<pre>ArrayLen(Arguments) 
+StructCount(Arguments)</pre>
+<p>However, the following tests return the value <samp class="codeph">false</samp>,
+because the contents of the second element in the Arguments scope
+is undefined.</p>
+<pre>Isdefined("Arguments.Arg2") 
+testArg2 = Arguments[2]&gt; 
+Isdefined("testArg2")</pre>
+<div class="note"><span class="notetitle">Note:  </span>The <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7fbd.html" target="_self">IsDefined</a></samp> function does not
+test the existence of array elements. Use the function <samp class="codeph">ArrayContains</samp> to
+search the array elements.</div>
+</div></div><div id="WSf01dbd23413dda0e49d8e86e1200f2aecd8-7fff" class="nochunk"><a name="WSf01dbd23413dda0e49d8e86e1200f2aecd8-7fff"><!-- --></a><h3 class="topictitle3">Using the Arguments scope as an array</h3><div><p>The
+following rules apply to referencing Arguments scope as an array:</p>
+<ul><li><p>If you call the function using unnamed arguments, the
+array index is the position of the argument in the function call. </p>
+</li>
+<li><p>If you use names to pass the arguments, the array indexes
+correspond to the order in which the arguments are declared in the
+function definition.</p>
+</li>
+<li><p>If you use names to pass arguments, and do not pass all the
+arguments defined in the function, the Arguments array has an empty
+entry at the index corresponding to the argument that was not passed.
+This rule applies only to functions created using the <samp class="codeph">cffunction</samp> tag.</p>
+</li>
+<li><p>If you use a name to pass an optional argument that is not
+declared in the function definition, the array index of the argument
+is the sum of the following:</p>
+<ul><li><p>The number of arguments
+defined with names in the function.</p>
+</li>
+<li><p>The position of the optional argument among the arguments
+passed in that do not have names defined in the function. </p>
+</li>
+</ul>
+<p>However,
+using argument names in this manner is not good programming practice
+because you cannot ensure that you always use the same optional argument
+names when calling the function.</p>
+</li>
+</ul>
+<p>To demonstrate these rules, define a simple function that displays
+the contents of its Arguments array and call the function with various
+argument combinations, as the following example shows:</p>
+<pre>&lt;cffunction name="TestFunction" &gt; 
+    &lt;cfargument name="Arg1"&gt; 
+    &lt;cfargument name="Arg2"&gt; 
+    &lt;cfloop index="i" from="1" to="#ArrayLen(Arguments)#"&gt; 
+        &lt;cfoutput&gt;Argument #i#: #Arguments[i]#&lt;br&gt;&lt;/cfoutput&gt; 
+    &lt;/cfloop&gt; 
+&lt;/cffunction&gt;     
+ 
+&lt;strong&gt;One Unnamed argument&lt;/strong&gt;&lt;br&gt; 
+&lt;cfset TestFunction(1)&gt; 
+&lt;strong&gt;Two Unnamed arguments&lt;/strong&gt;&lt;br&gt; 
+&lt;cfset TestFunction(1, 2)&gt; 
+&lt;strong&gt;Three Unnamed arguments&lt;/strong&gt;&lt;br&gt; 
+&lt;cfset TestFunction(1, 2, 3)&gt; 
+&lt;strong&gt;Arg1:&lt;/strong&gt;&lt;br&gt; 
+&lt;cfset TestFunction(Arg1=8)&gt; 
+&lt;strong&gt;Arg2:&lt;/strong&gt;&lt;br&gt; 
+&lt;cfset TestFunction(Arg2=9)&gt; 
+&lt;strong&gt;Arg1=8, Arg2=9:&lt;/strong&gt;&lt;br&gt; 
+&lt;cfset TestFunction(Arg1=8, Arg2=9)&gt; 
+&lt;strong&gt;Arg2=6, Arg1=7&lt;/strong&gt;&lt;br&gt; 
+&lt;cfset TestFunction(Arg2=6, Arg1=7)&gt; 
+&lt;strong&gt;Arg1=8, Arg2=9, Arg3=10:&lt;/strong&gt;&lt;br&gt; 
+&lt;cfset TestFunction(Arg1=8, Arg2=9, Arg3=10)&gt; 
+&lt;strong&gt;Arg2=6, Arg3=99, Arg1=7&lt;/strong&gt;&lt;br&gt; 
+&lt;cfset TestFunction(Arg2=6, Arg3=99, Arg1=7)&gt;</pre>
+<div class="note"><span class="notetitle">Note:  </span>Although you can use the Arguments scope as
+an array, the <samp class="codeph">IsArray(Arguments)</samp> function always
+returns <samp class="codeph">false</samp> and the <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7ef7.html" target="_self">cfdump</a></samp> tag displays the scope
+as a structure.</div>
+</div></div><div id="WSf01dbd23413dda0e49d8e86e1200f2aecd8-7ffe" class="nochunk"><a name="WSf01dbd23413dda0e49d8e86e1200f2aecd8-7ffe"><!-- --></a><h3 class="topictitle3">Using the Arguments scope as a structure</h3><div><p>The
+following rule applies when referencing Arguments scope as a structure:</p>
+<ul><li><p>Use the argument names as structure keys. For example,
+if your function definition includes a Principal argument, reference
+the argument as Arguments.Principal.</p>
+<p>The following rules are
+also true, but <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">avoid writing code that uses them</i>. To ensure
+program clarity, only use the Arguments structure for arguments
+that you name in the function definition. Use the Arguments scope
+as an array for optional arguments that you do not declare in the
+function definition.</p>
+</li>
+<li><p>If you do not name an optional argument in the function definition,
+but do use a name for it in the function call, use the name specified
+in the function call For example, if you have an unnamed optional
+argument and call the function using the name myOptArg for the argument,
+you can reference the argument as Arguments.myOptArg in the function
+body. This usage, however, is poor programming practice, as it makes
+the function definition contents depend on variable names in the
+code that calls the function.</p>
+</li>
+</ul>
+</div></div><div id="WSf01dbd23413dda0e49d8e86e1200f2aecd8-7ffd" class="nochunk"><a name="WSf01dbd23413dda0e49d8e86e1200f2aecd8-7ffd"><!-- --></a><h3 class="topictitle3">Using the Arguments scope in CFScript</h3><div><p>A function can have optional arguments that you do not
+have to specify when you call the function. To determine the number
+of arguments passed to the function, use the following function:</p>
+<pre>ArrayLen(Arguments)</pre>
+<p>When you define a function using CFScript, the function must
+use the Arguments scope to retrieve the optional arguments. For
+example, the following SumN function adds two or more numbers together.
+It requires two arguments and supports any number of additional
+optional arguments. You can reference the first two, required, arguments
+as <samp class="codeph">Arg1</samp> and <samp class="codeph">Arg2</samp> or as <samp class="codeph">Arguments[1]</samp> and <samp class="codeph">Arguments[2]</samp>.
+Access the third, fourth, and any additional optional arguments
+as <samp class="codeph">Arguments[3]</samp>, <samp class="codeph">Arguments[4]</samp>,
+and so on</p>
+<pre>function SumN(Arg1,Arg2) { 
+    var arg_count = ArrayLen(Arguments); 
+    var sum = 0; 
+    var i = 0; 
+    for( i = 1 ; i LTE arg_count; i = i + 1 ) 
+    { 
+        sum = sum + Arguments[i]; 
+    } 
+    return sum;  
+} </pre>
+<p>With this function, any of the following function calls are valid:</p>
+<pre>SumN(Value1, Value2) 
+SumN(Value1, Value2, Value3) 
+SumN(Value1, Value2, Value3, Value4)</pre>
+<p>and so on. </p>
+<p>The code never uses the Arg1 and Arg2 argument variables directly,
+because their values are always the first two elements in the Arguments
+array and it is simpler to step through the array. Specifying Arg1
+and Arg2 in the function definition ensures that ColdFusion generates
+an error if you pass the function one or no arguments.</p>
+<div class="note"><span class="notetitle">Note:  </span>Avoid referring to a required argument in the
+body of a function by both the argument name and its place in the
+Arguments scope array or structure, as doing so can be confusing
+and makes it easier to introduce errors. </div>
+</div></div><div id="WSf01dbd23413dda0e49d8e86e1200f2aecd8-7ffc" class="nochunk"><a name="WSf01dbd23413dda0e49d8e86e1200f2aecd8-7ffc"><!-- --></a><h3 class="topictitle3">Using the Arguments scope in cffunction definitions</h3><div><p>When you define a function using
+the <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7f5c.html" target="_self">cffunction</a></samp> tag, you generally
+reference the arguments directly by name if all arguments are named
+in the <samp class="codeph">cfargument</samp> tags. If you do use the Arguments
+scope identifier, follow the rules listed in <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7f7b.html">About the Arguments scope</a>. </p>
+<p>For more information on using the Arguments scope in functions
+defined using CFScript, see <a href="WSf01dbd23413dda0e49d8e86e1200f2aecd8-7ffd.html">Using the Arguments scope in CFScript</a>.</p>
+</div></div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec0a66e-7fe6" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec0a66e-7fe6"><!-- --></a><h2 class="topictitle2">Function-only variables</h2><div><p>In
+addition to the Arguments scope, each function can have variables
+that exist only inside the function, and are not saved between times
+the function gets called. As soon as the function exits, all the
+variables in this scope are removed.</p>
+<p>In CFScript, you create function-only variables with the <samp class="codeph">var</samp> statement.
+Unlike other variables, you <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">never</i> prefix function-only variables
+with a scope name.</p>
+</div><div id="WSf01dbd23413dda0e-1b2da9951200f2c4fb3-8000" class="nochunk"><a name="WSf01dbd23413dda0e-1b2da9951200f2c4fb3-8000"><!-- --></a><h3 class="topictitle3">Using function-only variables</h3><div><p>Make
+sure to use the <samp class="codeph">var</samp> statement in CFScript UDFs
+to declare all function-specific variables, such as loop indexes
+and temporary variables that are required only for the duration
+of the function call. Doing so ensures that these variables are
+available inside the function only, and makes sure that the variable
+names do not conflict with the names of variables in other scopes.
+If the calling page has variables of the same name, the two variables
+are independent and do not affect each other. </p>
+<p>For example, if a ColdFusion page has a <samp class="codeph"><a href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7fe2.html" target="_self">cfloop</a></samp> tag with an index
+variable i, and the tag body calls a CFScript UDF that also has
+a loop with a function-only index variable i, the UDF does not change
+the value of the calling page loop index, and the calling page does
+not change the UDF index. So you can safely call the function inside
+the <samp class="codeph">cfloop</samp> tag body.</p>
+<p>In general, use the <samp class="codeph">var</samp> statement to declare
+all UDF variables, other than the function arguments or shared-scope
+variables, that you use only inside CFScript functions. Use another
+scope, however, if the value of the variable must persist between
+function calls; for example, for a counter that the function increments each
+time it is called.</p>
+</div></div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec22c24-7e4e" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7e4e"><!-- --></a><h2 class="topictitle2">Referencing caller variables</h2><div><p>A function can use and change any
+variable that is available in the calling page, including variables
+in the caller’s Variables (local) scope, as if the function was part
+of the calling page. For example, if you know that the calling page
+has a local variable called Customer_name (and no function scope
+variable named Customer_name exists) the function can read and change
+the variable by referring to it as Customer_name or (using better
+coding practice) Variables.Customer_name. Similarly, you can create
+a local variable inside a function and then use it anywhere in the
+calling page <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">after</i> the function call. You cannot use the
+variable before you call the function.</p>
+<p>However, generally avoid using the caller’s variables directly
+inside a function. Using the caller’s variables creates a dependency
+on the caller. Ensure that the code outside the function uses the
+same variable names as the function. Doing so can become difficult
+if you call the function from many pages.</p>
+<p>You can avoid these problems by using only the function arguments
+and the return value to pass data between the caller and the function.
+Do not reference calling page variables directly in the function.
+As a result, you can use the function anywhere in an application
+(or even in multiple applications), without concern for the calling
+code variables.</p>
+<p>As with other programming practices, valid exceptions to this
+recommendation exist. For example, you can do any of the following:</p>
+<ul><li><p>Use a shared scope variable, such as an Application or
+Session scope counter variable.</p>
+</li>
+<li><p>Use the Request scope to store variables used in the function.
+For more information, see <a href="WS033FDDAD-E3DF-4243-B537-CCF64341F412.html">Using the Request scope for static variables and constants</a>.</p>
+</li>
+<li><p>Create context-specific functions that work directly with
+caller data if you <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">always</i> synchronize variable names.</p>
+</li>
+</ul>
+<div class="note"><span class="notetitle">Note:  </span>If your function must directly change a simple
+variable in the caller (one that is not passed to the function by
+reference), you can place the variable inside a structure argument.</div>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec0a66e-7fd1" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec0a66e-7fd1"><!-- --></a><h2 class="topictitle2">Using arguments</h2><div><p>Function arguments can have the same names, but different
+values, as variables in the caller. Avoid such uses for clarity,
+however.</p>
+<p>The following rules apply to argument persistence: </p>
+<ul><li><p>Because ColdFusion passes simple variable and array arguments
+by value, their names and values exist only while the function executes. </p>
+</li>
+<li><p>Because ColdFusion passes structures, queries, and objects
+such as COM objects by reference, the argument <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">name</i> exists
+only while the function executes, but the underlying <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">data</i> persists
+after the function returns and can be accessed by using the variable
+name of the caller. The variable name of the caller and the argument
+name can be different.</p>
+</li>
+</ul>
+<div class="note"><span class="notetitle">Note:  </span>If a function must use a variable from another
+scope that has the same name as a function-only variable, prefix
+the external variable with its scope identifier, such as Variables
+or Form. (However, remember that using variables from other scopes directly
+in your code is often poor practice.)</div>
+</div></div>
+
+
+<!-- BEGIN USER PREFERENCES -->
+          <div id="userprefs">
+          </div>
+<!-- END USER PREFERENCES -->
+
+          <div id="related">
+            
+            
+            <div class="separator"><a href="#top"><img src="images/BTT.jpg" /></a>&#160;</div>
+          </div>
+          <div id="footer">
+<!-- BEGIN IONCOMMENTS -->
+            <div id="ionComHere">
+            </div>
+<!-- END IONCOMMENTS -->
+
+
+            <p id="creativecommons"><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" id="creativecommons_text"><img id="creativecommons_img" src="images/CC.png" alt="This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License" /></a>&nbsp;Twitter™ and Facebook posts are not covered under the terms of Creative Commons.</p>
+          </div>
+</td>
+<td width="10px"></td>
+<td id="inner_rightcolumn">
+
+</td></tr></table>
+      </div>
+<!-- BEGIN BREADCRUMBS -->
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec0a66e-7fea.html" title="Calling user-defined functions"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-7d00.html" title="Handling errors in UDFs"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Developing&#160;ColdFusion 9 Applications</b></a> / <a href="WS8f0cc78011fffa71-51fc803311cdadf3dc5-8000.html"><b>Building Blocks of ColdFusion Applications</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7ff3.html"><b>Writing and Calling User-Defined Functions</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+<!-- END CONTENT WRAPPER -->
+
+</td>
+<td id="col3">
+    <div>
+        <img src="images/adobe-lq.png" />
+    </div>
+</td>
+</tr>
+</table>
+    </div>
+<!-- END PAGE CONTENT WRAPPER -->
+<script type="text/javascript">
+<!--[CDATA[
+scrollToNameAnchor();
+// ]]-->
+</script> 
+<!--
+    Description:
+    This file generates the link to product support in the top right corner
+-->
+
+<style>
+#menutop{
+    position:absolute;
+    top:4px;
+    right:24px;
+    width:auto;    
+    font-size:11px;
+    color:#fff;
+    text-align:right;
+}
+#menutop a{
+    color:#fff;
+}
+#menutop a:hover{
+        text-decoration:underline;
+}
+</style>  
+  
+  
+  
+  
+<div id="productmenu">
+<!--googleoff: index-->
+  <div id="menutop">
+
+
+<script language=javascript type='text/javascript'>
+    // darken menu text for products with light backgrounds
+    var path = document.location.href.toLowerCase();
+    if (path.indexOf("/acrobat/")           	> 0 ||
+        path.indexOf("/acrobat.com/")       	> 0 ||
+        path.indexOf("/acrobatConnectPro/") 	> 0 ||
+        path.indexOf("/connect/")           	> 0 ||
+        path.indexOf("/livecycledataserviceses/") > 0 ||
+        path.indexOf("/muse/")         	> 0 ||
+	path.indexOf("/presenter/")         	> 0 ||
+        path.indexOf("/scene7/")            	> 0 ||
+        path.indexOf("/flashmediaserver/")  	> 0 ||
+        path.indexOf("/wave/")              	> 0 )
+    {
+        document.write('<style>#menutop a{color:#505050}</style>');
+    }
+    if (typeof('terms_AHV_PRODUCT_SUPPORT') != "undefined" && ! use_robohelp_behavior ){      
+        if (path.indexOf("/muse/") > -1 ){
+            var supportlink = '<a href="http://muse.adobe.com/support.html">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }else{
+            var supportlink = '<a href="http://adobe.com/support">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }
+        document.write( supportlink );
+     }
+
+</script> 
+
+  </div>
+<!--googleon: index-->
+</div>
+
+
+
+<style>
+#online-privacy-policy{ 
+    margin:10px 40px; 
+    font-size:11px;
+}
+</style>
+
+<p id="online-privacy-policy">
+<script language="javascript">
+var pageLoc = "en_US";
+var metaElements = document.all ?
+document.all.tags('meta') :
+document.getElementsByTagName ?
+document.getElementsByTagName ('meta') : new Array();
+for (var m = 0; m < metaElements.length; m++) {
+	if (metaElements[m].name == "lang") {
+		pageLoc = metaElements[m].content;
+		break;
+	}
+}
+var ptn = /(..)-(..)/;
+if (ptn.test(pageLoc)) {
+	var languageCode = pageLoc.replace(ptn, "$1");
+	var countryCode = pageLoc.replace(ptn, "$2");
+	pageLoc = languageCode + "_" + countryCode.toUpperCase();
+}
+
+var policyLoc = "en_US";
+var policyText = "Online Privacy Policy";
+var policyPath = "";
+var policyArray=[
+"da_DK", "Online fortrolighedserklæring",
+"de_DE", "Online-Datenschutzrichtlinie",
+"es_ES", "Política de confidencialidad en línea",
+"fi_FI", "Yksityisyyttä koskeva Online-toimintaohjelma",
+"fr_FR", "Confidentialité et sécurité",
+"it_IT", "Informativa sulla privacy online",
+"ja_JP", "プライバシーポリシー",
+"ko_KR", "Adobe 온라인 개인정보 보호정책",
+"pt_BR", "Política de Confidencialidade On-line", 
+"zh_CN", "在线隐私政策",
+"zh_TW", "線上隱私政策"
+];
+var legalLoc = "en_US";
+var legalText = "Legal Notices";
+var legalPath = legalLoc;
+var legalArray=[
+"ar_AE", "إشعارات قانونية",
+"bg_BG", "Юридически бележки",
+"cs_CZ", "Právní upozornění",
+"da_DK", "Juridiske meddelelser",
+"de_DE", "Rechtliche Hinweise",
+"el_GR", "Σημειώσεις νομικού περιεχομένου",
+"es_ES", "Avisos legales",
+"et_EE", "Juriidilised teated",
+"fi_FI", "Lakisääteiset ilmoitukset",
+"fr_FR", "Mentions légales",
+"he_IL", "הצהרות משפטיות",
+"hr_HR", "Pravne napomene",
+"hu_HU", "Jogi közlemények",
+"it_IT", "Informazioni legali",
+"ja_JP", "法律上の注意",
+"ko_KR", "법적 고지 사항",
+"lt_LT", "Teisinės pastabos",
+"lv_LV", "Juridisks paziņojums",
+"nb_NO", "Juridiske merknader",
+"nl_NL", "Juridische kennisgevingen",
+"pl_PL", "Informacje prawne",
+"pt_BR", "Aspectos jurídicos",
+"ro_RO", "Prevederi legale",
+"ru_RU", "Юридическая информация",
+"sk_SK", "Právne upozornenie",
+"sl_SI", "Pravni pouk",
+"sv_SE", "Upphovsrätt",
+"tr_TR", "Yasal uyarılar",
+"uk_UA", "Юридична інформація",
+"zh_CN", "法律声明",
+"zh_TW", "法律注意事項"
+];
+
+ruPolicy = "http://www.adobe.com/ru/misc/privacy.html";
+trPolicy = "http://www.adobe.com/tr/misc/privacy.html";
+
+// Bug 2846992: LOC: RUS, TUR: The link to "Online Privacy Policy" should include language, currently it is not appearing.
+if (pageLoc == "ru_RU") {
+	policyPath = "ru";
+}
+else if (pageLoc == "tr_TR") {
+	policyPath = "tr";
+}
+for (var i = 0; i < policyArray.length; i+=2) {
+	if (pageLoc == policyArray[i]) {
+		policyLoc = pageLoc;
+		policyText = policyArray[i+1];
+		var ptn = /(..)_(..)/;
+		if (ptn.test(policyLoc)) {
+			var countryCode = policyLoc.replace(ptn, "$2");
+			policyPath = countryCode.toLowerCase();
+		}
+		break;
+	}
+}
+
+for (var i = 0; i < legalArray.length; i+=2) {
+	if (pageLoc == legalArray[i]) {
+		legalLoc = pageLoc;
+		legalText = legalArray[i+1];
+		legalPath = legalLoc;
+		break;
+	}
+}
+if(agt.indexOf("community help client") > -1 ){
+	document.write('<a href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+}else{
+	//Open the privacy policy in a new window
+	document.write('<a target="_blank" href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a target="_blank" href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+} 
+</script>
+</p>
+
+
+
+<!-- localfooter.ssi -->
+
+<script type="text/javascript">
+    var debug = (top.location.href.indexOf("debug=true") > -1);
+</script>
+
+<script language="javascript">
+document.write('<scr'+'ipt ' +
+               'src="/en_US/ssi/_pod.js" ' +
+               'language="javascript" ' +
+               'charset="UTF-8"> ' +
+               '</scr'+'ipt>');
+</script>
+
+
+<script type="text/javascript">
+//
+//  Ethnio survey code
+//
+/*          DocumentID      EthnioID */
+/*          -------------   -------- */
+var ethnio=["/en_US/flash/cs/using/WSb03e830bd6f770ee6664507612436d7dede-8000.html", "87462",
+            "/en_US/creativesuite/cs/using/WSe851854fd1e0856a-4b08a77612477f69f15-8000.html",  "10441",
+            "/en_US/dreamweaver/cs/using/WSEE4C0148-A6F4-4bf5-9DEF-CE06AB026214a.html",  "57412"
+ 
+    ];
+                        
+    for ( var i = 0; i < ethnio.length ; i = i+2 ){
+        if ( document.location.href.indexOf( ethnio[i] ) > -1 ){ 
+            var headID = document.getElementsByTagName("head")[0];         
+            var ethnioScript = document.createElement('script');
+            ethnioScript.type = 'text/javascript';
+            ethnioScript.src = 'http://ethn.io/remotes/' + ethnio[i+1];        
+            if ( debug ){
+                alert ("Using Ethnio script: " + ethnioScript.src );
+            }else{
+                headID.appendChild(ethnioScript);
+            }
+        }
+    }
+</script>
+
+
+
+<div style="display: none;">
+<!-- SiteCatalyst -->
+<script language="JavaScript" type="text/javascript"><!--
+var s_code=' ';
+var s_docHost = window.location.hostname.toLowerCase();
+var s_docURL = window.location.pathname.toLowerCase();
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+if (s_docHost.indexOf(".corp.adobe") != -1 || s_docHost.indexOf("stage.") != -1 || s_docHost.indexOf(".dev.adobe") != -1 || s_docHost.indexOf("staging.") != -1) scJsHost="";
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/omniture_s_code.js' type='text/javascript'%3E%3C/script%3E"));
+//--></script>
+<script type="text/javascript"><!--
+var s_accountName;
+s_server="www.adobe.com static content pages";
+if (!window.s_account) s_accountName="mxmacromedia";
+else s_accountName=window.s_account;
+
+if (window.s_docURL.indexOf("/designcenter/") != -1)
+  s_channel="Adobe Design Center";	
+else if ((window.s_docHost.indexOf("labs.adobe") != -1) ||
+(window.s_docHost.indexOf("labs-staging.") != -1))
+  s_channel="Labs";
+else if (window.s_docHost.indexOf("help.adobe.com") != -1) {
+  s_channel="Support Help.adobe.com";
+  if (window.s_docURL.indexOf("/en_us/") == -1) {
+    s_docURLArray=s_docURL.split('/');
+    s_pageName="http://help.adobe.com/"+s_docURLArray[1]+"/"+ s_docURLArray[2]+"/"+s_docURLArray[3];
+    s_prop23="http://help.adobe.com"+window.location.pathname;
+  }
+}
+else if (window.s_docHost.indexOf("kb2.adobe.com") != -1) {
+  s_channel="Support Knowledgebase";
+  s_prop23="http://kb2.adobe.com"+s_docURL+":";
+  if (typeof(omtrProductList) != 'undefined' && omtrProductList.length > 0)
+ {
+    s_prop23=s_prop23+omtrProductList;
+  }
+}
+else if (window.s_docHost.indexOf("resellers.adobe.com") != -1) {
+		var s_pageName=document.getElementsByTagName("title")[0].text;
+}
+
+if (!window.scMMInclude) {
+	var s_wd=window,s_tm=new Date;
+	if(s_code!=' '){
+		s_code=s_dc(s_accountName);
+		if(s_code)document.write(s_code)
+	} 
+} else {
+	s_wds(s_accountName);s_ca(s_accountName); 
+}	
+
+function sendAnalyticsEvent(str){var ns=s_accountName;if(str!=null)ns+=","+str;void(s_gs(ns));}
+function sendLinkEvent(accnt,lnkname,type){
+accnt=s_accountName;s_linkType=type;s_lnk=true;s_linkName=lnkname;void(s_gs(accnt));}
+//--></script>
+<noscript><img src="http://stats.adobe.com/b/ss/mxmacromedia/1/H.15-XELvs/0?pageName=http%3A//www.adobe.com%3A%20noscript&ch=http%3A//www.adobe.com%3A%20noscript&g=http%3A//www.adobe.com" height="1" width="1" border="0" alt="" /></noscript>
+<!-- End SiteCatalyst -->
+</div>
+
+<script language="JavaScript" type="text/javascript">//<![CDATA[
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/atm/s_code_www.js' type='text/javascript'%3E%3C/script%3E"));
+//]]></script>
+<script type="text/javascript">//<![CDATA[
+if(s_adobe){	
+	s_adobe.server="www.adobe.com Static Content pages";
+	/* Set pageName */
+	s_adobe.s_URL="adobe.com"+((location.pathname.charAt(0)=='/')?location.pathname:'/'+location.pathname);
+	if (s_adobe.s_URL.substring(s_adobe.s_URL.lastIndexOf('/')+1)=="") s_adobe.s_URL=s_adobe.s_URL+"index.html";
+	s_adobe.s_URLSplit=s_adobe.s_URL.split("/");
+	s_adobe.pageName=s_adobe.s_URLSplit.join(":");
+
+	/* Set prop4 to language-locale */
+	var s_meta=document.getElementsByTagName('meta'); 
+      for (i=0; i<s_meta.length; i++) { 
+        if (s_meta[i].getAttribute("http-equiv") == "Content-Language") { 
+          s_adobe.prop4=s_meta[i].getAttribute("content"); 
+	    s_adobe.prop4=s_adobe.prop4.replace(/\s+/g,'');
+        } 
+      } 
+	s_adobe.t()
+}
+//]]></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

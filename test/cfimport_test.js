@@ -1,0 +1,29 @@
+var is = require('assert'),
+	cf = require(__dirname + '/../cf');
+
+var r;
+is.throws(function () {
+	r = cf.parse('<cfimport>');
+}, Error, "Missing required attributes");
+
+is.throws(function () {
+	r = cf.parse('<cfimport taglib="/path/to/taglib.cfc">');
+}, Error, "Missing required prefix attribute");
+
+is.throws(function () {
+	r = cf.parse('<cfimport prefix="cfnode_test">');
+}, Error, "Missing required taglib attribute");
+
+r = cf.parse('<cfimport taglib="/path/to/taglib.jsp" prefix="cfnode">');
+is.equal(r instanceof Object, true);
+is.equal(r.tag, 'import');
+is.equal(r.attributes.prefix, 'cfnode');
+is.equal(r.attributes.taglib, '/path/to/taglib.jsp');
+
+r = cf.parse('<cfimport prefix="" taglib="/path/to/taglib.cfc">');
+is.equal(r instanceof Object, true);
+is.equal(r.tag, 'import');
+is.equal(r.attributes.prefix, '');
+is.equal(r.attributes.taglib, '/path/to/taglib.cfc');
+
+console.log("Success!");

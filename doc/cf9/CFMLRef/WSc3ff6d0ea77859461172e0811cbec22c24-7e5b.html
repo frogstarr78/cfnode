@@ -1,0 +1,1302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0022)http://help.adobe.com/ -->
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="lang" content="en-us" />
+    <meta name="area" content="livedocs" />
+    <title>Adobe&#160;ColdFusion&#160;9 * CCFXRequest class</title>
+    <link rel="shortcut icon" href="images/ColdFusionLinkIndicator.png" />
+    <meta name="book" content="ColdFusion&#160;9&#160;CFML&#160;Reference" />
+    <meta name="product" content="ColdFusion" />
+    <meta name="keywords" content="" /><!--<PageMap><DataObject type="document"><Attribute name="product" value="ColdFusion"></Attribute><Attribute name="book" value="ColdFusion&#160;9&#160;CFML&#160;Reference"></Attribute><Attribute name="keywords" value=""></Attribute></DataObject></PageMap>-->
+    
+    <script type="text/javascript" language="Javascript" charset="UTF-8"><!--[CDATA[
+        var currentTreeNode = "WSc3ff6d0ea77859461172e0811cbec22c24-7e5b.html";
+    document.cookie = "topicId=" + "WSc3ff6d0ea77859461172e0811cbec22c24-7e5b.html";
+// ]]--></script>
+<script src="terms.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="help.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script>  <script src="utilities.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="event.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="treeview.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="toc.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script> <script src="swfobject.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>  <script src="booklist.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>
+<script type="text/javascript">
+<!--[CDATA[
+var topictype = "topic";
+var headId = document.getElementsByTagName("head")[0];         
+if (use_ie_6_behavior) {
+  var linkId = document.createElement("link");
+  linkId.href = "content-ie6.css";
+  linkId.rel = "stylesheet";
+  linkId.type = "text/css";
+  headId.appendChild(linkId);
+}
+function initRoboHelpDOM() {
+  if (use_chm_behavior) {
+    hideElement("search");
+  }
+  if (use_robohelp_behavior) {
+    hideElement("search");
+    hideElement("productmenu");
+    //hideElement("notyourversion");
+  }
+  if(!use_chc_behavior) {
+    //document.getElementById("notyourversion").style.display = "inline";;
+  }
+}
+var dirname = location.pathname.match( /.*\// );    
+function setSearchUserPref(){
+  if ( document.cookie.indexOf( "ah_searchpref" ) > -1 ) {
+    if ( document.cookie.indexOf( dirname ) > 0 ) {
+      document.search.gsa.checked = true ;
+    }else{
+      document.search.gsa.checked = false ;            
+    }
+  }
+}
+YAHOO.util.Event.onDOMReady(initRoboHelpDOM);
+YAHOO.util.Event.onDOMReady(setSearchUserPref);
+// ]]-->
+</script>
+
+<!-- ********************************** -->
+<!-- START: ForeSee survey code in: /ssi/globalheader.ssi -->
+
+<script type="text/javascript">
+<!-- 
+// Enable the survey for only English, German and Japanese
+var agt=navigator.userAgent.toLowerCase();
+if ( agt.indexOf("community help client") == -1 ){
+    if ( document.location.href.indexOf("/en_US/") != -1 ){
+        showSurvey();
+//    }else if (document.location.href.indexOf("/de_DE/") != -1){
+//         var locale="de";
+//         showSurvey();
+    }else if (document.location.href.indexOf("/ja_JP/") != -1 ){
+         var locale="ja";
+         showSurvey();
+    }	
+}
+
+function showSurvey(){
+	document.write('<script type="text/javascript" src="/js/foresee/foresee-trigger.js"><\/scr'+'ipt>');
+}
+
+// -->
+</script>
+
+<!-- END: ForeSee survey code -->
+<!-- ******************************** -->
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="tree.css" />
+    <link rel="stylesheet" type="text/css" href="content.css" />
+    <link rel="stylesheet" type="text/css" href="localeSpecific.css" />
+  </head>
+  <body id="content_body" onload="window.focus();">
+    <a name="top" shape="rect"><!--LeaveCommentHere--></a>
+    
+    <div id="mnemonic">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon" class="ColdFusion"><div class="banner"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html">Adobe&#160;ColdFusion&#160;9</a><span id="notyourversion">|&#160;
+                    <a rel="nofollow" href="http://www.adobe.com/support/documentation/en/coldfusion/">Not your version?</a></span></div></div><!--googleon: index-->
+    </div>
+    
+    <div id="searchbar">
+<table id="searchbartable">
+<tr>
+<td colspan="2">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon"><div id="pdf"><img src="images/PDF.gif" width="16" height="16" /><a title="View Help PDF" href="coldfusion_9_cfmlref.pdf">View Help PDF ( 32MB)</a></div></div><!--googleon: index-->
+</td>
+</tr>
+</table>
+    </div>
+
+<!-- BEGIN SEARCH CONTENT -->
+<form id="search" name="search" action="search.html" target="_self">
+<script type="text/javascript">
+<!--[CDATA[
+if ( !use_chc_behavior ){
+    if (typeof(terms_AHV_SEARCH_CONSTRAINT) != "undefined" && 
+        terms_AHV_SEARCH_CONSTRAINT.length > 0 && 
+        document.location.href.indexOf(".adobe.com") > 0){
+        if ( typeof(terms_SEARCH_THIS_HELP_ONLY) != "undefined" && terms_SEARCH_THIS_HELP_ONLY == "ON" ) {
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                checked="checked" \
+                value="1" ><\/input>'); 
+                
+        // Leave the "Search this help system only" checkbox unckecked
+        }else{    
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                value="1" ><\/input>'); 
+        }
+        document.write('<span class="gsalabel">' + terms_AHV_SEARCH_CONSTRAINT + '<\/span><\/div>'); 
+    }
+    document.write('<input class="searchinput" \
+        name="q" \
+        id="q" \
+        type="text" \
+        maxlength="256" \
+        value="' + terms_AHV_SEARCH_BUTTON + '" \
+        onclick="clearSearch()"><\/input><input \
+        type="button" \
+        name="searchbutton" \
+        class="searchbutton" \
+        onclick="submit()"><\/input>'); 
+} 
+ 
+/* 
+ * Start Functions 
+ */
+function clearSearch(){
+    if (document.search.q.value == terms_AHV_SEARCH_BUTTON){document.search.q.value = ""}; 
+}
+
+// set search preferences
+function setAHSearchPref(){
+    if (document.search.gsa.checked == 1){
+        setAHSearchCookie( dirname );
+    }else{
+        setAHSearchCookie( "community" );
+    }
+}
+
+// Set search preferences cookie
+function setAHSearchCookie( p ){
+    // set cookie ah_searchpref with a value of the document path
+    var expire=new Date();
+    expire.setDate(expire.getDate()+365); // Cookie expires after 1 year (365 days) 
+    document.cookie="ah_searchpref=" +p+ "; expires=" +expire.toGMTString()+ ";";
+}
+
+// ]]-->
+</script> 
+ </form>
+<!-- END SEARCH CONTENT -->    
+
+
+
+<!-- BEGIN PAGE CONTENT WRAPPER -->
+    <div id="page_content_wrapper">
+<!-- BEGIN PAGE WRAPPER -->
+<table id="page_content_table">
+<tr>
+
+<td id="col2">
+<!-- BEGIN CONTENT WRAPPER -->
+<!-- BEGIN BREADCRUMBS -->
+
+      
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec22c24-5eac.html" title="CCFXQuery class"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-5e96.html" title="CCFXStringSet class"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>ColdFusion&#160;9&#160;CFML&#160;Reference</b></a> / <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7e5a.html"><b>ColdFusion C++ CFX Reference</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+      <div id="content_wrapper">
+<!-- BEGIN PAGE TITLE -->
+        <h1>CCFXRequest class</h1>
+<!-- END PAGE TITLE -->
+<!-- BEGIN IONCOMMENTCOUNT -->
+        <div id="ionCount">
+        </div>
+<!-- END IONCOMMENTCOUNT -->
+<table id="inner_content_table" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>
+          <div style="border-top:#ccc solid 1px;"><p> </p>
+          </div>
+<p id="chcPromo" style="display:none;">
+<a id="chcLink" href="http://www.adobe.com/support/chc/">
+<img id="chcImage" src="http://www.adobe.com/support/chc/GetMoreHelpFeatures.png"/>
+</a>
+</p>
+<script type="text/javascript" language="javascript" charset="utf-8">
+<!--
+var cfgArray = [];
+//cfgArray["Acrobat_10.0_Professional.helpcfg"] = "acrobatpro";
+//cfgArray["Acrobat_10.0_Standard.helpcfg"] = "acrobatstd";
+cfgArray["Lightroom_3.0.helpcfg"] = "lightroom";
+cfgArray["PhotoshopElements_8.0_Win.helpcfg"] = "photoshopelements";
+cfgArray["PhotoshopElements_8.0_Mac.helpcfg"] = "photoshopelementsmac";
+cfgArray["PremiereElements_8.0_Win.helpcfg"] = "premiereelements";
+
+//cfgArray["AfterEffects_10.0.helpcfg"] = "aftereffects";
+//cfgArray["AIR.helpcfg"] = "air";
+//cfgArray["ColdFusionBuilder.helpcfg"] = "coldfusion";
+//cfgArray["Contribute_6.0.helpcfg"] = "contribute";
+//cfgArray["DeviceCentral_3.0.helpcfg"] = "devicecentral";
+//cfgArray["Dreamweaver_11.0.helpcfg"] = "dreamweaver";
+//cfgArray["EncoreDVD_5.0.helpcfg"] = "encore";
+//cfgArray["ExtensionManager_3.0.helpcfg"] = "extension";
+//cfgArray["Fireworks_11.0.helpcfg"] = "fireworks";
+//cfgArray["Flash_11.0.helpcfg"] = "flash";
+//cfgArray["Flex_4.0.helpcfg"] = "flashbuilder";
+//cfgArray["FlashCatalyst_1.0.helpcfg"] = "flashcatalyst";
+//cfgArray["Illustrator_15.0.helpcfg"] = "illustrator";
+//cfgArray["InCopy_7.0.helpcfg"] = "incopy";
+//cfgArray["InDesign_7.0.helpcfg"] = "indesign";
+//cfgArray["OnLocation_5.0.helpcfg"] = "onlocation";
+//cfgArray["Photoshop_12.0.helpcfg"] = "photoshop";
+//cfgArray["PremierePro_5.0.helpcfg"] = "premierepro";
+
+function getLangName() {
+    var lang = "en-us";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if (ptn.test(lang)) {
+        var languageCode = lang.replace(ptn, "$1");
+        var countryCode = lang.replace(ptn, "$2");
+        lang = languageCode + "_" + countryCode.toUpperCase();
+    }
+    return lang;
+}
+
+function getCountryName() {
+    var lang = "";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if ((ptn.test(lang)) && (lang != "en-us")) {
+        var countryCode = lang.replace(ptn, "$2");
+        return "/" + countryCode;
+    }
+    return "";
+}
+
+if ( (typeof(terms_HELPCFG) != 'undefined')  && (terms_HELPCFG.indexOf(".helpcfg") != -1) ) {
+    var stage   = (document.location.href.indexOf(".stage.") != -1) ? 'stage.' : '';
+    var baseUrl = 'http://www.' + stage + 'adobe.com';
+    var refpage = document.location.href.replace(/#.*$/, '');
+	
+	if ((!use_robohelp_behavior) && (terms_HELPCFG.length > 0) && (typeof(cfgArray[terms_HELPCFG]) != 'undefined') && (cfgArray[terms_HELPCFG].length > 0)) {
+		if (document.getElementById) { // DOM3 = IE5, NS6
+			var newHref = baseUrl + getCountryName() + "/support/chc/" + "?helpcfg=http://help." + stage + "adobe.com/HelpCfg/" + getLangName() + "/" + terms_HELPCFG + "&url=" + refpage + "&product=" + cfgArray[terms_HELPCFG];
+			var newSrc = baseUrl + getCountryName() + "/support/chc/GetMoreHelpFeatures.png";
+			document.getElementById("chcPromo").style.display = "block";
+			document.getElementById("chcLink").href = newHref;
+			document.getElementById("chcImage").src = newSrc;
+		}
+	}
+}
+
+//-->
+</script>
+
+
+
+          <div id="minitoc"><div class="t"><div class="b"><div><ul id="minitoc-links"><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec220e9-7fd6"><span class="topictitle1">Class methods</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-5ea4"><span class="topictitle1">CCFXRequest::AddQuery</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-5ea3"><span class="topictitle1">CCFXRequest::AttributeExists</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-5ea2"><span class="topictitle1">CCFXRequest::CreateStringSet</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-5ea1"><span class="topictitle1">CCFXRequest::Debug</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-5ea0"><span class="topictitle1">CCFXRequest::GetAttribute</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-5e9f"><span class="topictitle1">CCFXRequest::GetAttributeList</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-5e9e"><span class="topictitle1">CCFXRequest::GetCustomData</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-5e9d"><span class="topictitle1">CCFXRequest::GetQuery</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-5e9c"><span class="topictitle1">CCFXRequest::ReThrowException</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-5e9b"><span class="topictitle1">CCFXRequest::SetCustomData</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-5e9a"><span class="topictitle1">CCFXRequest::SetVariable</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-5e99"><span class="topictitle1">CCFXRequest::ThrowException</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-5e98"><span class="topictitle1">CCFXRequest::Write</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec22c24-5e97"><span class="topictitle1">CCFXRequest::WriteDebug</span>
+</a></p></li></ul></div></div></div></div><div><p>Abstract
+class that represents a request made to a ColdFusion Extension (CFX).
+An instance of this class is passed to the main function of your
+extension DLL. The class provides interfaces that can be used by
+the custom extension for the following actions:</p>
+<ul><li><p>Reading and writing variables</p>
+</li>
+<li><p>Returning output</p>
+</li>
+<li><p>Creating and using queries</p>
+</li>
+<li><p>Throwing exceptions</p>
+</li>
+</ul>
+<ul class="navlinklist"></ul>
+</div>
+<div id="WSc3ff6d0ea77859461172e0811cbec220e9-7fd6" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec220e9-7fd6"><!-- --></a><h2 class="topictitle2">Class methods</h2><div>
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><tbody><tr><td valign="top" width="NaN%"><p><samp class="codeph">virtual BOOL AttributeExists( LPCSTR </samp><samp class="codeph">lpszName</samp><samp class="codeph"> )</samp></p>
+</td>
+<td valign="top" width="NaN%"><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-5ea3.html">CCFXRequest::AttributeExists</a></samp> checks
+whether the attribute was passed to the tag.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p><samp class="codeph">virtual LPCSTR GetAttribute( LPCSTR </samp><samp class="codeph">lpszName</samp><samp class="codeph"> )</samp></p>
+</td>
+<td valign="top" width="NaN%"><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-5ea0.html">CCFXRequest::GetAttribute</a></samp> gets
+the value of the passed attribute.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p><samp class="codeph">virtual CCFXStringSet* GetAttributeList()</samp></p>
+</td>
+<td valign="top" width="NaN%"><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-5e9f.html">CCFXRequest::GetAttributeList</a></samp> gets
+an array of attribute names passed to the tag.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p><samp class="codeph">virtual CCFXQuery* GetQuery()</samp></p>
+</td>
+<td valign="top" width="NaN%"><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-5e9d.html">CCFXRequest::GetQuery</a></samp> gets
+the query that was passed to the tag.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p><samp class="codeph">virtual LPCSTR GetSetting( LPCSTR lpszSettingName )</samp></p>
+</td>
+<td valign="top" width="NaN%"><p><samp class="codeph">CCFXRequest::GetSetting</samp></p>
+<p>This
+method is deprecated. It might not work, and might cause an error,
+in later releases.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p><samp class="codeph">virtual void Write( LPCSTR lpszOutput )</samp></p>
+</td>
+<td valign="top" width="NaN%"><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-5e98.html">CCFXRequest::Write</a></samp> writes
+text output back to the user.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p><samp class="codeph">virtual void SetVariable( LPCSTR </samp><samp class="codeph">lpszName</samp><samp class="codeph">, LPCSTR lpszValue )</samp></p>
+</td>
+<td valign="top" width="NaN%"><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-5e9a.html">CCFXRequest::SetVariable</a></samp> sets
+a variable in the template that contains this tag.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p><samp class="codeph">virtual CCFXQuery* AddQuery( LPCSTR </samp><samp class="codeph">lpszName</samp><samp class="codeph">, CCFXStringSet* </samp><samp class="codeph">pColumns</samp><samp class="codeph"> )</samp></p>
+</td>
+<td valign="top" width="NaN%"><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-5ea4.html">CCFXRequest::AddQuery</a></samp> adds
+a query to the template that contains this tag.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p><samp class="codeph">virtual BOOL Debug()</samp></p>
+</td>
+<td valign="top" width="NaN%"><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-5ea1.html">CCFXRequest::Debug</a></samp> checks
+whether the tag contains the <samp class="codeph">Debug</samp> attribute.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p><samp class="codeph">virtual void WriteDebug( LPCSTR lpszOutput )</samp></p>
+</td>
+<td valign="top" width="NaN%"><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-5e97.html">CCFXRequest::WriteDebug</a></samp> writes
+text output into the debug stream.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p><samp class="codeph">virtual CCFXStringSet* CreateStringSet()</samp></p>
+</td>
+<td valign="top" width="NaN%"><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-5ea2.html">CCFXRequest::CreateStringSet</a></samp> allocates
+and returns a <samp class="codeph">CCFXStringSet</samp> instance.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p><samp class="codeph">virtual void ThrowException( LPCSTR lpszError, LPCSTR lpszDiagnostics )</samp></p>
+</td>
+<td valign="top" width="NaN%"><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-5e99.html">CCFXRequest::ThrowException</a></samp> throws
+an exception and ends processing of this request.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p><samp class="codeph">virtual void ReThrowException( CCFXException* e )</samp></p>
+</td>
+<td valign="top" width="NaN%"><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-5e9c.html">CCFXRequest::ReThrowException</a></samp> rethrows
+an exception that has been caught.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p><samp class="codeph">virtual void SetCustomData( LPVOID lpvData )</samp></p>
+</td>
+<td valign="top" width="NaN%"><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-5e9b.html">CCFXRequest::SetCustomData</a></samp> sets
+custom (tag specific) data to carry with a request.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%"><p><samp class="codeph">virtual LPVOID GetCustomData()</samp></p>
+</td>
+<td valign="top" width="NaN%"><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-5e9e.html">CCFXRequest::GetCustomData</a></samp> gets
+custom (tag specific) data for a request.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec22c24-5ea4" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5ea4"><!-- --></a><h2 class="topictitle2">CCFXRequest::AddQuery</h2><div><div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5ea4__WSc3ff6d0ea77859461172e0811cbec220e9-7fd4"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5ea4__WSc3ff6d0ea77859461172e0811cbec220e9-7fd4"><!-- --></a><h4 class="sectiontitle">Syntax</h4><pre>CCFXQuery* CCFXRequest::AddQuery(LPCSTR <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">lpszName</i>, CCFXStringSet* <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">pColumns</i>)</pre>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5ea4__WSc3ff6d0ea77859461172e0811cbec220e9-7fd3"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5ea4__WSc3ff6d0ea77859461172e0811cbec220e9-7fd3"><!-- --></a><h4 class="sectiontitle">Description</h4><p>Adds
+a query to the calling template. The query can be accessed by CFML
+tags (for example, <samp class="codeph">cfoutput</samp> or <samp class="codeph">cftable</samp>)
+within the template. After calling <samp class="codeph">AddQuery</samp>, the
+query is empty (it has 0 rows). To populate the query with data, call
+the <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-5eab.html">CCFXQuery::AddRow</a></samp> and <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-5ea6.html">CCFXQuery::SetData</a></samp> functions.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5ea4__WSc3ff6d0ea77859461172e0811cbec220e9-7fd2"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5ea4__WSc3ff6d0ea77859461172e0811cbec220e9-7fd2"><!-- --></a><h4 class="sectiontitle">Returns</h4><p>Returns
+a pointer to the query that was added to the template (an object
+of class <samp class="codeph">CCFXQuery</samp>). The memory allocated for the
+returned query is freed automatically by ColdFusion after the request
+is completed.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5ea4__WSc3ff6d0ea77859461172e0811cbec220e9-7fd1"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5ea4__WSc3ff6d0ea77859461172e0811cbec220e9-7fd1"><!-- --></a><h4 class="sectiontitle">Parameters</h4>
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e204378"><p>Parameter</p>
+</th>
+<th valign="top" width="NaN%" id="d17e204381"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e204378 "><p><samp class="codeph">lpszName</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e204381 "><p>Name of query to add to the template (must
+be unique)</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e204378 "><p><samp class="codeph">pColumns</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e204381 "><p>List of column names to be used in the query</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5ea4__WSc3ff6d0ea77859461172e0811cbec220e9-7fd0"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5ea4__WSc3ff6d0ea77859461172e0811cbec220e9-7fd0"><!-- --></a><h4 class="sectiontitle">Example</h4><p>The
+following example adds a query named 'People' to the calling template.
+The query has two columns ('FirstName' and 'LastName') and two rows:</p>
+<pre>// Create a string set and add the column names to it 
+    CCFXStringSet* pColumns = pRequest-&gt;CreateStringSet() ; 
+    int iFirstName = pColumns-&gt;AddString( "FirstName" ) ; 
+    int iLastName = pColumns-&gt;AddString( "LastName" ) ; 
+     
+    // Create a query that contains these columns 
+    CCFXQuery* pQuery = pRequest-&gt;AddQuery( "People", pColumns ) ; 
+     
+    // Add data to the query 
+    int iRow ; 
+    iRow = pQuery-&gt;AddRow() ; 
+    pQuery-&gt;SetData( iRow, iFirstName, "John" ) ; 
+    pQuery-&gt;SetData( iRow, iLastName, "Smith" ) ; 
+    iRow = pQuery-&gt;AddRow() ; 
+    pQuery-&gt;SetData( iRow, iFirstName, "Jane" ) ; 
+    pQuery-&gt;SetData( iRow, iLastName, "Doe" ) ;</pre>
+</div>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec22c24-5ea3" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5ea3"><!-- --></a><h2 class="topictitle2">CCFXRequest::AttributeExists</h2><div><div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5ea3__WSc3ff6d0ea77859461172e0811cbec220e9-7fce"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5ea3__WSc3ff6d0ea77859461172e0811cbec220e9-7fce"><!-- --></a><h4 class="sectiontitle">Syntax</h4><pre>BOOL CCFXRequest::AttributeExists(LPCSTR <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">lpszName</i>)</pre>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5ea3__WSc3ff6d0ea77859461172e0811cbec220e9-7fcd"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5ea3__WSc3ff6d0ea77859461172e0811cbec220e9-7fcd"><!-- --></a><h4 class="sectiontitle">Description</h4><p>Checks
+whether the parameter was passed to the tag. Returns True if the parameter
+is available; False, otherwise.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5ea3__WSc3ff6d0ea77859461172e0811cbec220e9-7fcc"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5ea3__WSc3ff6d0ea77859461172e0811cbec220e9-7fcc"><!-- --></a><h4 class="sectiontitle">Parameters</h4>
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e204436"><p>Parameter</p>
+</th>
+<th valign="top" width="NaN%" id="d17e204439"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e204436 "><p><samp class="codeph">lpszName</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e204439 "><p>Name of the parameter to check (case insensitive)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5ea3__WSc3ff6d0ea77859461172e0811cbec220e9-7fcb"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5ea3__WSc3ff6d0ea77859461172e0811cbec220e9-7fcb"><!-- --></a><h4 class="sectiontitle">Example</h4><p>The
+following example checks whether the user passed an attribute named <samp class="codeph">DESTINATION</samp> to
+the tag, and throws an exception if the attribute was not passed:</p>
+<pre>if ( pRequest-&gt;AttributeExists("DESTINATION")==FALSE ) 
+    { 
+        pRequest-&gt;ThrowException( 
+            "Missing DESTINATION parameter", 
+            "You must pass a DESTINATION parameter in " 
+            "order for this tag to work correctly." ) ; 
+    }</pre>
+</div>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec22c24-5ea2" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5ea2"><!-- --></a><h2 class="topictitle2">CCFXRequest::CreateStringSet</h2><div><div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5ea2__WSc3ff6d0ea77859461172e0811cbec220e9-7fc9"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5ea2__WSc3ff6d0ea77859461172e0811cbec220e9-7fc9"><!-- --></a><h4 class="sectiontitle">Syntax</h4><pre>CCFXStringSet* CCFXRequest::CreateStringSet(void)</pre>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5ea2__WSc3ff6d0ea77859461172e0811cbec220e9-7fc8"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5ea2__WSc3ff6d0ea77859461172e0811cbec220e9-7fc8"><!-- --></a><h4 class="sectiontitle">Description</h4><p>Allocates
+and returns an instance. Always use this function to create string
+sets, as opposed to directly using the <samp class="codeph">new</samp> operator.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5ea2__WSc3ff6d0ea77859461172e0811cbec220e9-7fc7"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5ea2__WSc3ff6d0ea77859461172e0811cbec220e9-7fc7"><!-- --></a><h4 class="sectiontitle">Returns</h4><p>Returns
+an object of <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-5e96.html">CCFXStringSet class</a></samp>. The
+memory allocated for the returned string set is freed automatically
+by ColdFusion after the request is completed</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5ea2__WSc3ff6d0ea77859461172e0811cbec220e9-7fc6"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5ea2__WSc3ff6d0ea77859461172e0811cbec220e9-7fc6"><!-- --></a><h4 class="sectiontitle">Example</h4><p>The
+following example creates a string set and adds three strings to
+it:</p>
+<pre>CCFXStringSet* pColors = pRequest-&gt;CreateStringSet() ; 
+    pColors-&gt;AddString( "Red" ) ; 
+    pColors-&gt;AddString( "Green" ) ; 
+    pColors-&gt;AddString( "Blue" ) ;</pre>
+</div>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec22c24-5ea1" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5ea1"><!-- --></a><h2 class="topictitle2">CCFXRequest::Debug</h2><div><div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5ea1__WSc3ff6d0ea77859461172e0811cbec220e9-7fc4"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5ea1__WSc3ff6d0ea77859461172e0811cbec220e9-7fc4"><!-- --></a><h4 class="sectiontitle">Syntax</h4><pre>BOOL CCFXRequest::Debug(void) </pre>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5ea1__WSc3ff6d0ea77859461172e0811cbec220e9-7fc3"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5ea1__WSc3ff6d0ea77859461172e0811cbec220e9-7fc3"><!-- --></a><h4 class="sectiontitle">Description</h4><p>Checks
+whether the tag contains the <samp class="codeph">Debug</samp> attribute. Use
+this function to determine whether to write debug information for
+a request. For more information, see <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-5e97.html">CCFXRequest::WriteDebug</a></samp>.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5ea1__WSc3ff6d0ea77859461172e0811cbec220e9-7fc2"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5ea1__WSc3ff6d0ea77859461172e0811cbec220e9-7fc2"><!-- --></a><h4 class="sectiontitle">Returns</h4><p>Returns
+True if the tag contains the <samp class="codeph">Debug</samp> attribute; False,
+otherwise.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5ea1__WSc3ff6d0ea77859461172e0811cbec220e9-7fc1"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5ea1__WSc3ff6d0ea77859461172e0811cbec220e9-7fc1"><!-- --></a><h4 class="sectiontitle">Example</h4><p>The
+following example checks whether the <samp class="codeph">Debug</samp> attribute
+is present, and if it is, it writes a brief debug message:</p>
+<pre>if ( pRequest-&gt;Debug() ) 
+    { 
+        pRequest-&gt;WriteDebug( "Top secret debug info" ) ; 
+    }</pre>
+</div>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec22c24-5ea0" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5ea0"><!-- --></a><h2 class="topictitle2">CCFXRequest::GetAttribute</h2><div><div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5ea0__WSc3ff6d0ea77859461172e0811cbec220e9-7fbf"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5ea0__WSc3ff6d0ea77859461172e0811cbec220e9-7fbf"><!-- --></a><h4 class="sectiontitle">Syntax</h4><pre>LPCSTR CCFXRequest::GetAttribute(LPCSTR <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">lpszName</i>)</pre>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5ea0__WSc3ff6d0ea77859461172e0811cbec220e9-7fbe"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5ea0__WSc3ff6d0ea77859461172e0811cbec220e9-7fbe"><!-- --></a><h4 class="sectiontitle">Description</h4><p>Retrieves
+the value of the passed attribute. Returns an empty string if the attribute
+does not exist. (To test whether an attribute was passed to the
+tag, use <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-5ea3.html">CCFXRequest::AttributeExists</a></samp>.)</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5ea0__WSc3ff6d0ea77859461172e0811cbec220e9-7fbd"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5ea0__WSc3ff6d0ea77859461172e0811cbec220e9-7fbd"><!-- --></a><h4 class="sectiontitle">Returns</h4><p>Returns
+the value of the attribute passed to the tag. If no attribute of
+that name was passed to the tag, an empty string is returned.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5ea0__WSc3ff6d0ea77859461172e0811cbec220e9-7fbc"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5ea0__WSc3ff6d0ea77859461172e0811cbec220e9-7fbc"><!-- --></a><h4 class="sectiontitle">Parameters</h4>
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e204574"><p>Parameter</p>
+</th>
+<th valign="top" width="NaN%" id="d17e204577"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e204574 "><p><samp class="codeph">lpszName</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e204577 "><p>Name of the attribute to retrieve (case
+insensitive)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5ea0__WSc3ff6d0ea77859461172e0811cbec220e9-7fbb"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5ea0__WSc3ff6d0ea77859461172e0811cbec220e9-7fbb"><!-- --></a><h4 class="sectiontitle">Example</h4><p>The
+following example retrieves an attribute named <samp class="codeph">DESTINATION</samp> and
+writes its value back to the user:</p>
+<pre>LPCSTR lpszDestination = pRequest-&gt;GetAttribute("DESTINATION") ; 
+    pRequest-&gt;Write( "The destination is: " ) ; 
+    pRequest-&gt;Write( lpszDestination ) ;</pre>
+</div>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9f" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9f"><!-- --></a><h2 class="topictitle2">CCFXRequest::GetAttributeList</h2><div><div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9f__WSc3ff6d0ea77859461172e0811cbec220e9-7fb9"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9f__WSc3ff6d0ea77859461172e0811cbec220e9-7fb9"><!-- --></a><h4 class="sectiontitle">Syntax</h4><pre>CCFXStringSet* CCFXRequest::GetAttributeList(void)</pre>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9f__WSc3ff6d0ea77859461172e0811cbec220e9-7fb8"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9f__WSc3ff6d0ea77859461172e0811cbec220e9-7fb8"><!-- --></a><h4 class="sectiontitle">Description</h4><p>Gets
+an array of attribute names passed to the tag. To get the value
+of one attribute, use <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-5ea0.html">CCFXRequest::GetAttribute</a></samp>.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9f__WSc3ff6d0ea77859461172e0811cbec220e9-7fb7"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9f__WSc3ff6d0ea77859461172e0811cbec220e9-7fb7"><!-- --></a><h4 class="sectiontitle">Returns</h4><p>Returns
+an object of class <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-5e96.html">CCFXStringSet class</a></samp> that
+contains a list of attributes passed to the tag. The memory allocated
+for the returned string set is freed automatically by ColdFusion
+after the request is completed. </p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9f__WSc3ff6d0ea77859461172e0811cbec220e9-7fb6"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9f__WSc3ff6d0ea77859461172e0811cbec220e9-7fb6"><!-- --></a><h4 class="sectiontitle">Example</h4><p>The
+following example gets the list of attributes and iterates over
+the list, writing each attribute and its value back to the user.</p>
+<pre>LPCSTR lpszName, lpszValue ; 
+    CCFXStringSet* pAttribs = pRequest-&gt;GetAttributeList() ; 
+    int nNumAttribs = pAttribs-&gt;GetCount() ; 
+     
+    for( int i=1; i&lt;=nNumAttribs; i++ ) 
+    { 
+        lpszName = pAttribs-&gt;GetString( i ) ; 
+        lpszValue = pRequest-&gt;GetAttribute( lpszName ) ; 
+        pRequest-&gt;Write( lpszName ) ;     
+        pRequest-&gt;Write( " = " ) ; 
+        pRequest-&gt;Write( lpszValue ) ; 
+        pRequest-&gt;Write( "&lt;BR&gt;" ) ; 
+    }</pre>
+</div>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9e" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9e"><!-- --></a><h2 class="topictitle2">CCFXRequest::GetCustomData</h2><div><div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9e__WSc3ff6d0ea77859461172e0811cbec220e9-7fb4"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9e__WSc3ff6d0ea77859461172e0811cbec220e9-7fb4"><!-- --></a><h4 class="sectiontitle">Syntax</h4><pre>LPVOID CCFXRequest::GetCustomData(void)</pre>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9e__WSc3ff6d0ea77859461172e0811cbec220e9-7fb3"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9e__WSc3ff6d0ea77859461172e0811cbec220e9-7fb3"><!-- --></a><h4 class="sectiontitle">Description</h4><p>Gets
+the custom (tag specific) data for the request. This method is typically
+used from within subroutines of a tag implementation to extract
+tag data from a request.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9e__WSc3ff6d0ea77859461172e0811cbec220e9-7fb2"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9e__WSc3ff6d0ea77859461172e0811cbec220e9-7fb2"><!-- --></a><h4 class="sectiontitle">Returns</h4><p>Returns
+a pointer to the custom data, or <samp class="codeph">NULL</samp> if no custom
+data has been set during this request using <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-5e9b.html">CCFXRequest::SetCustomData</a></samp>.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9e__WSc3ff6d0ea77859461172e0811cbec220e9-7fb1"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9e__WSc3ff6d0ea77859461172e0811cbec220e9-7fb1"><!-- --></a><h4 class="sectiontitle">Example</h4><p>The
+following example retrieves a pointer to a request specific data
+structure of hypothetical type MYTAGDATA:</p>
+<pre>void DoSomeGruntWork( CCFXRequest* pRequest ) 
+    { 
+        MYTAGDATA* pTagData = 
+            (MYTAGDATA*)pRequest-&gt;GetCustomData() ; 
+     
+        ... remainder of procedure ... 
+    }</pre>
+</div>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9d" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9d"><!-- --></a><h2 class="topictitle2">CCFXRequest::GetQuery</h2><div><div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9d__WSc3ff6d0ea77859461172e0811cbec220e9-7faf"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9d__WSc3ff6d0ea77859461172e0811cbec220e9-7faf"><!-- --></a><h4 class="sectiontitle">Syntax</h4><pre>CCFXQuery* CCFXRequest::GetQuery(void)</pre>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9d__WSc3ff6d0ea77859461172e0811cbec220e9-7fae"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9d__WSc3ff6d0ea77859461172e0811cbec220e9-7fae"><!-- --></a><h4 class="sectiontitle">Description</h4><p>Retrieves
+a query that was passed to a tag. To pass a query to a custom tag,
+you use the <samp class="codeph">QUERY</samp> attribute. Set the attribute
+to the name of a query (created using the <samp class="codeph">cfquery</samp> tag
+or another custom tag). The <samp class="codeph">QUERY</samp> attribute is
+optional and must be used only by tags that process an existing
+data set.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9d__WSc3ff6d0ea77859461172e0811cbec220e9-7fad"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9d__WSc3ff6d0ea77859461172e0811cbec220e9-7fad"><!-- --></a><h4 class="sectiontitle">Returns</h4><p>Returns
+an object of the <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-5eac.html">CCFXQuery class</a></samp> that represents
+the query passed to the tag. If no query was passed to the tag, <samp class="codeph">NULL</samp> is
+returned. The memory allocated for the returned query is freed automatically
+by ColdFusion after the request is completed.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9d__WSc3ff6d0ea77859461172e0811cbec220e9-7fac"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9d__WSc3ff6d0ea77859461172e0811cbec220e9-7fac"><!-- --></a><h4 class="sectiontitle">Example</h4><p>The
+following example retrieves the query that was passed to the tag.
+If no query was passed, an exception is thrown:</p>
+<pre>CCFXQuery* pQuery = pRequest-&gt;GetQuery() ; 
+    if ( pQuery == NULL ) 
+    { 
+        pRequest-&gt;ThrowException( 
+                "Missing QUERY parameter", 
+                "You must pass a QUERY parameter in " 
+                "order for this tag to work correctly." ) ; 
+    }</pre>
+</div>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9c" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9c"><!-- --></a><h2 class="topictitle2">CCFXRequest::ReThrowException</h2><div><div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9c__WSc3ff6d0ea77859461172e0811cbec220e9-7faa"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9c__WSc3ff6d0ea77859461172e0811cbec220e9-7faa"><!-- --></a><h4 class="sectiontitle">Syntax</h4><pre>void CCFXRequest::ReThrowException(CCFXException* <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">e</i>)</pre>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9c__WSc3ff6d0ea77859461172e0811cbec220e9-7fa9"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9c__WSc3ff6d0ea77859461172e0811cbec220e9-7fa9"><!-- --></a><h4 class="sectiontitle">Description</h4><p>Rethrows
+an exception that has been caught within an extension procedure.
+This function is used to avoid having C++ exceptions that are thrown
+by DLL extension code propagate back into ColdFusion. Catch ALL
+C++ exceptions that occur in extension code, and either re-throw
+them (if they are of the <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-5eaf.html">CCFXException class</a></samp>) or create
+and throw a new exception pointer using <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-5e99.html">CCFXRequest::ThrowException</a></samp>.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9c__WSc3ff6d0ea77859461172e0811cbec220e9-7fa8"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9c__WSc3ff6d0ea77859461172e0811cbec220e9-7fa8"><!-- --></a><h4 class="sectiontitle">Parameters</h4>
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e204751"><p>Parameter</p>
+</th>
+<th valign="top" width="NaN%" id="d17e204754"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e204751 "><p><samp class="codeph">e</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e204754 "><p>A CCFXException that has been caught</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9c__WSc3ff6d0ea77859461172e0811cbec220e9-7fa7"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9c__WSc3ff6d0ea77859461172e0811cbec220e9-7fa7"><!-- --></a><h4 class="sectiontitle">Example</h4><p>The
+following code demonstrates how to handle exceptions in ColdFusion Extension
+DLL procedures:</p>
+<pre>try 
+    { 
+        ...Code that could throw an exception... 
+    } 
+    catch( CCFXException* e ) 
+    { 
+        ...Do appropriate resource cleanup here... 
+        // Re-throw the exception 
+        pRequest-&gt;ReThrowException( e ) ; 
+    } 
+    catch( ... ) 
+    { 
+        // Something nasty happened 
+     
+        pRequest-&gt;ThrowException( 
+            "Unexpected error occurred in CFX tag", "" ) ; 
+    }</pre>
+</div>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9b" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9b"><!-- --></a><h2 class="topictitle2">CCFXRequest::SetCustomData</h2><div><div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9b__WSc3ff6d0ea77859461172e0811cbec220e9-7fa5"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9b__WSc3ff6d0ea77859461172e0811cbec220e9-7fa5"><!-- --></a><h4 class="sectiontitle">Syntax</h4><pre>void CCFXRequest::SetCustomData(LPVOID <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">lpvData</i>)</pre>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9b__WSc3ff6d0ea77859461172e0811cbec220e9-7fa4"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9b__WSc3ff6d0ea77859461172e0811cbec220e9-7fa4"><!-- --></a><h4 class="sectiontitle">Description</h4><p>Sets
+custom (tag specific) data to carry with the request. Use this function
+to store request specific data to pass to procedures within your
+custom tag implementation.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9b__WSc3ff6d0ea77859461172e0811cbec220e9-7fa3"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9b__WSc3ff6d0ea77859461172e0811cbec220e9-7fa3"><!-- --></a><h4 class="sectiontitle">Parameters</h4>
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e204801"><p>Parameter</p>
+</th>
+<th valign="top" width="NaN%" id="d17e204804"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e204801 "><p><samp class="codeph">lpvData</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e204804 "><p>Pointer to custom data</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9b__WSc3ff6d0ea77859461172e0811cbec220e9-7fa2"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9b__WSc3ff6d0ea77859461172e0811cbec220e9-7fa2"><!-- --></a><h4 class="sectiontitle">Example</h4><p>The
+following example creates a request-specific data structure of hypothetical type
+MYTAGDATA and stores a pointer to the structure in the request for
+future use:</p>
+<pre>void ProcessTagRequest( CCFXRequest* pRequest ) 
+    try 
+    { 
+        MYTAGDATA tagData ; 
+        pRequest-&gt;SetCustomData( (LPVOID)&amp;tagData ) ; 
+     
+        ... remainder of procedure ... 
+    }</pre>
+</div>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9a" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9a"><!-- --></a><h2 class="topictitle2">CCFXRequest::SetVariable</h2><div><div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9a__WSc3ff6d0ea77859461172e0811cbec220e9-7fa0"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9a__WSc3ff6d0ea77859461172e0811cbec220e9-7fa0"><!-- --></a><h4 class="sectiontitle">Syntax</h4><pre>void CCFXRequest::SetVariable(LPCSTR <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">lpszName</i>, LPCSTR <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">lpszValue</i>)</pre>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9a__WSc3ff6d0ea77859461172e0811cbec220e9-7f9f"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9a__WSc3ff6d0ea77859461172e0811cbec220e9-7f9f"><!-- --></a><h4 class="sectiontitle">Description</h4><p>Sets
+a variable in the calling template. If the variable name already
+exists in the template, its value is replaced. If it does not exist,
+a variable is created. The values of variables created using <samp class="codeph">SetVariable</samp> can
+be accessed in the same manner as other template variables (for
+example, <samp class="codeph">#MessageSent#</samp>).</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9a__WSc3ff6d0ea77859461172e0811cbec220e9-7f9e"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9a__WSc3ff6d0ea77859461172e0811cbec220e9-7f9e"><!-- --></a><h4 class="sectiontitle">Parameters</h4>
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e204860"><p>Parameter</p>
+</th>
+<th valign="top" width="NaN%" id="d17e204863"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e204860 "><p><samp class="codeph">lpszName</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e204863 "><p>Name of variable</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e204860 "><p><samp class="codeph">lpszValue</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e204863 "><p>Value of variable</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e9a__WSc3ff6d0ea77859461172e0811cbec220e9-7f9d"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e9a__WSc3ff6d0ea77859461172e0811cbec220e9-7f9d"><!-- --></a><h4 class="sectiontitle">Example</h4><p>The
+following example sets the value of a variable named <samp class="codeph">'MessageSent'</samp> based
+on the success of an operation performed by the custom tag:</p>
+<pre>BOOL bMessageSent; 
+    ...attempt to send the message... 
+    if ( bMessageSent == TRUE ) 
+    { 
+        pRequest-&gt;SetVariable( "MessageSent", "Yes" ) ; 
+    } 
+    else 
+    { 
+        pRequest-&gt;SetVariable( "MessageSent", "No" ) ; 
+    }</pre>
+</div>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec22c24-5e99" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e99"><!-- --></a><h2 class="topictitle2">CCFXRequest::ThrowException</h2><div><div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e99__WSc3ff6d0ea77859461172e0811cbec220e9-7f9b"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e99__WSc3ff6d0ea77859461172e0811cbec220e9-7f9b"><!-- --></a><h4 class="sectiontitle">Syntax</h4><pre>void CCFXRequest::ThrowException(LPCSTR <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">lpszError</i>, LPCSTR <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">lpszDiagnostics</i>)</pre>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e99__WSc3ff6d0ea77859461172e0811cbec220e9-7f9a"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e99__WSc3ff6d0ea77859461172e0811cbec220e9-7f9a"><!-- --></a><h4 class="sectiontitle">Description</h4><p>Throws
+an exception and ends processing of a request. Call this function
+when you encounter an error that does not allow you to continue
+processing the request. This function is almost always combined
+with the <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-5e9c.html">CCFXRequest::ReThrowException</a></samp> to
+protect against resource leaks in extension code.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e99__WSc3ff6d0ea77859461172e0811cbec220e9-7f99"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e99__WSc3ff6d0ea77859461172e0811cbec220e9-7f99"><!-- --></a><h4 class="sectiontitle">Parameters</h4>
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e204928"><p>Parameter</p>
+</th>
+<th valign="top" width="NaN%" id="d17e204931"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e204928 "><p><samp class="codeph">lpszError</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e204931 "><p>Short identifier for error</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e204928 "><p><samp class="codeph">lpszDiagnostics</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e204931 "><p>Error diagnostic information</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e99__WSc3ff6d0ea77859461172e0811cbec220e9-7f98"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e99__WSc3ff6d0ea77859461172e0811cbec220e9-7f98"><!-- --></a><h4 class="sectiontitle">Example</h4><p>The
+following example throws an exception indicating that an unexpected
+error occurred while processing a request:</p>
+<pre>char buffError[512] ; 
+    wsprintf( buffError, 
+            "Unexpected Windows NT error number %ld " 
+            "occurred while processing request.", GetLastError() ) ; 
+     
+    pRequest-&gt;ThrowException( "Error occurred", buffError ) ;</pre>
+</div>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec22c24-5e98" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e98"><!-- --></a><h2 class="topictitle2">CCFXRequest::Write</h2><div><div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e98__WSc3ff6d0ea77859461172e0811cbec220e9-7f96"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e98__WSc3ff6d0ea77859461172e0811cbec220e9-7f96"><!-- --></a><h4 class="sectiontitle">Syntax</h4><pre>void CCFXRequest::Write(LPCSTR <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">lpszOutput</i>)</pre>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e98__WSc3ff6d0ea77859461172e0811cbec220e9-7f95"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e98__WSc3ff6d0ea77859461172e0811cbec220e9-7f95"><!-- --></a><h4 class="sectiontitle">Description</h4><p>Writes
+text output back to the user.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e98__WSc3ff6d0ea77859461172e0811cbec220e9-7f94"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e98__WSc3ff6d0ea77859461172e0811cbec220e9-7f94"><!-- --></a><h4 class="sectiontitle">Parameters</h4>
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e204986"><p>Parameter</p>
+</th>
+<th valign="top" width="NaN%" id="d17e204989"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e204986 "><p><samp class="codeph">lpszOutput</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e204989 "><p>Text to output</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e98__WSc3ff6d0ea77859461172e0811cbec220e9-7f93"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e98__WSc3ff6d0ea77859461172e0811cbec220e9-7f93"><!-- --></a><h4 class="sectiontitle">Example</h4><p>The
+following example creates a buffer to hold an output string, fills
+the buffer with data, and writes the output back to the user:</p>
+<pre>CHAR buffOutput[1024] ; 
+    wsprintf( buffOutput, "The destination is: %s", 
+            pRequest-&gt;GetAttribute("DESTINATION") ) ; 
+    pRequest-&gt;Write( buffOutput ) ;</pre>
+</div>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec22c24-5e97" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e97"><!-- --></a><h2 class="topictitle2">CCFXRequest::WriteDebug</h2><div><div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e97__WSc3ff6d0ea77859461172e0811cbec220e9-7f91"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e97__WSc3ff6d0ea77859461172e0811cbec220e9-7f91"><!-- --></a><h4 class="sectiontitle">Syntax</h4><pre>void CCFXRequest::WriteDebug(LPCSTR <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">lpszOutput</i>)</pre>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e97__WSc3ff6d0ea77859461172e0811cbec220e9-7f90"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e97__WSc3ff6d0ea77859461172e0811cbec220e9-7f90"><!-- --></a><h4 class="sectiontitle">Description</h4><p>Writes
+text output into the debug stream. The text is only displayed to
+the end user if the tag contains the <samp class="codeph">Debug</samp> attribute.
+(For more information, see <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-5ea1.html">CCFXRequest::Debug</a></samp>.)</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e97__WSc3ff6d0ea77859461172e0811cbec220e9-7f8f"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e97__WSc3ff6d0ea77859461172e0811cbec220e9-7f8f"><!-- --></a><h4 class="sectiontitle">Parameters</h4>
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e205043"><p>Parameter</p>
+</th>
+<th valign="top" width="NaN%" id="d17e205046"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e205043 "><p><samp class="codeph">lpszOutput</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e205046 "><p>Text to output</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-5e97__WSc3ff6d0ea77859461172e0811cbec220e9-7f8e"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-5e97__WSc3ff6d0ea77859461172e0811cbec220e9-7f8e"><!-- --></a><h4 class="sectiontitle">Example</h4><p>The
+following example checks whether the <samp class="codeph">Debug</samp> attribute
+is present; if so, it writes a brief debug message:</p>
+<pre>if ( pRequest-&gt;Debug() ) 
+    { 
+        pRequest-&gt;WriteDebug( "Top secret debug info" ) ; 
+    }</pre>
+</div>
+</div></div>
+
+
+<!-- BEGIN USER PREFERENCES -->
+          <div id="userprefs">
+          </div>
+<!-- END USER PREFERENCES -->
+
+          <div id="related">
+            
+            
+            <div class="separator"><a href="#top"><img src="images/BTT.jpg" /></a>&#160;</div>
+          </div>
+          <div id="footer">
+<!-- BEGIN IONCOMMENTS -->
+            <div id="ionComHere">
+            </div>
+<!-- END IONCOMMENTS -->
+
+
+            <p id="creativecommons"><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" id="creativecommons_text"><img id="creativecommons_img" src="images/CC.png" alt="This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License" /></a>&nbsp;Twitter™ and Facebook posts are not covered under the terms of Creative Commons.</p>
+          </div>
+</td>
+<td width="10px"></td>
+<td id="inner_rightcolumn">
+
+</td></tr></table>
+      </div>
+<!-- BEGIN BREADCRUMBS -->
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec22c24-5eac.html" title="CCFXQuery class"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-5e96.html" title="CCFXStringSet class"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>ColdFusion&#160;9&#160;CFML&#160;Reference</b></a> / <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7e5a.html"><b>ColdFusion C++ CFX Reference</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+<!-- END CONTENT WRAPPER -->
+
+</td>
+<td id="col3">
+    <div>
+        <img src="images/adobe-lq.png" />
+    </div>
+</td>
+</tr>
+</table>
+    </div>
+<!-- END PAGE CONTENT WRAPPER -->
+<script type="text/javascript">
+<!--[CDATA[
+scrollToNameAnchor();
+// ]]-->
+</script> 
+<!--
+    Description:
+    This file generates the link to product support in the top right corner
+-->
+
+<style>
+#menutop{
+    position:absolute;
+    top:4px;
+    right:24px;
+    width:auto;    
+    font-size:11px;
+    color:#fff;
+    text-align:right;
+}
+#menutop a{
+    color:#fff;
+}
+#menutop a:hover{
+        text-decoration:underline;
+}
+</style>  
+  
+  
+  
+  
+<div id="productmenu">
+<!--googleoff: index-->
+  <div id="menutop">
+
+
+<script language=javascript type='text/javascript'>
+    // darken menu text for products with light backgrounds
+    var path = document.location.href.toLowerCase();
+    if (path.indexOf("/acrobat/")           	> 0 ||
+        path.indexOf("/acrobat.com/")       	> 0 ||
+        path.indexOf("/acrobatConnectPro/") 	> 0 ||
+        path.indexOf("/connect/")           	> 0 ||
+        path.indexOf("/livecycledataserviceses/") > 0 ||
+        path.indexOf("/muse/")         	> 0 ||
+	path.indexOf("/presenter/")         	> 0 ||
+        path.indexOf("/scene7/")            	> 0 ||
+        path.indexOf("/flashmediaserver/")  	> 0 ||
+        path.indexOf("/wave/")              	> 0 )
+    {
+        document.write('<style>#menutop a{color:#505050}</style>');
+    }
+    if (typeof('terms_AHV_PRODUCT_SUPPORT') != "undefined" && ! use_robohelp_behavior ){      
+        if (path.indexOf("/muse/") > -1 ){
+            var supportlink = '<a href="http://muse.adobe.com/support.html">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }else{
+            var supportlink = '<a href="http://adobe.com/support">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }
+        document.write( supportlink );
+     }
+
+</script> 
+
+  </div>
+<!--googleon: index-->
+</div>
+
+
+
+<style>
+#online-privacy-policy{ 
+    margin:10px 40px; 
+    font-size:11px;
+}
+</style>
+
+<p id="online-privacy-policy">
+<script language="javascript">
+var pageLoc = "en_US";
+var metaElements = document.all ?
+document.all.tags('meta') :
+document.getElementsByTagName ?
+document.getElementsByTagName ('meta') : new Array();
+for (var m = 0; m < metaElements.length; m++) {
+	if (metaElements[m].name == "lang") {
+		pageLoc = metaElements[m].content;
+		break;
+	}
+}
+var ptn = /(..)-(..)/;
+if (ptn.test(pageLoc)) {
+	var languageCode = pageLoc.replace(ptn, "$1");
+	var countryCode = pageLoc.replace(ptn, "$2");
+	pageLoc = languageCode + "_" + countryCode.toUpperCase();
+}
+
+var policyLoc = "en_US";
+var policyText = "Online Privacy Policy";
+var policyPath = "";
+var policyArray=[
+"da_DK", "Online fortrolighedserklæring",
+"de_DE", "Online-Datenschutzrichtlinie",
+"es_ES", "Política de confidencialidad en línea",
+"fi_FI", "Yksityisyyttä koskeva Online-toimintaohjelma",
+"fr_FR", "Confidentialité et sécurité",
+"it_IT", "Informativa sulla privacy online",
+"ja_JP", "プライバシーポリシー",
+"ko_KR", "Adobe 온라인 개인정보 보호정책",
+"pt_BR", "Política de Confidencialidade On-line", 
+"zh_CN", "在线隐私政策",
+"zh_TW", "線上隱私政策"
+];
+var legalLoc = "en_US";
+var legalText = "Legal Notices";
+var legalPath = legalLoc;
+var legalArray=[
+"ar_AE", "إشعارات قانونية",
+"bg_BG", "Юридически бележки",
+"cs_CZ", "Právní upozornění",
+"da_DK", "Juridiske meddelelser",
+"de_DE", "Rechtliche Hinweise",
+"el_GR", "Σημειώσεις νομικού περιεχομένου",
+"es_ES", "Avisos legales",
+"et_EE", "Juriidilised teated",
+"fi_FI", "Lakisääteiset ilmoitukset",
+"fr_FR", "Mentions légales",
+"he_IL", "הצהרות משפטיות",
+"hr_HR", "Pravne napomene",
+"hu_HU", "Jogi közlemények",
+"it_IT", "Informazioni legali",
+"ja_JP", "法律上の注意",
+"ko_KR", "법적 고지 사항",
+"lt_LT", "Teisinės pastabos",
+"lv_LV", "Juridisks paziņojums",
+"nb_NO", "Juridiske merknader",
+"nl_NL", "Juridische kennisgevingen",
+"pl_PL", "Informacje prawne",
+"pt_BR", "Aspectos jurídicos",
+"ro_RO", "Prevederi legale",
+"ru_RU", "Юридическая информация",
+"sk_SK", "Právne upozornenie",
+"sl_SI", "Pravni pouk",
+"sv_SE", "Upphovsrätt",
+"tr_TR", "Yasal uyarılar",
+"uk_UA", "Юридична інформація",
+"zh_CN", "法律声明",
+"zh_TW", "法律注意事項"
+];
+
+ruPolicy = "http://www.adobe.com/ru/misc/privacy.html";
+trPolicy = "http://www.adobe.com/tr/misc/privacy.html";
+
+// Bug 2846992: LOC: RUS, TUR: The link to "Online Privacy Policy" should include language, currently it is not appearing.
+if (pageLoc == "ru_RU") {
+	policyPath = "ru";
+}
+else if (pageLoc == "tr_TR") {
+	policyPath = "tr";
+}
+for (var i = 0; i < policyArray.length; i+=2) {
+	if (pageLoc == policyArray[i]) {
+		policyLoc = pageLoc;
+		policyText = policyArray[i+1];
+		var ptn = /(..)_(..)/;
+		if (ptn.test(policyLoc)) {
+			var countryCode = policyLoc.replace(ptn, "$2");
+			policyPath = countryCode.toLowerCase();
+		}
+		break;
+	}
+}
+
+for (var i = 0; i < legalArray.length; i+=2) {
+	if (pageLoc == legalArray[i]) {
+		legalLoc = pageLoc;
+		legalText = legalArray[i+1];
+		legalPath = legalLoc;
+		break;
+	}
+}
+if(agt.indexOf("community help client") > -1 ){
+	document.write('<a href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+}else{
+	//Open the privacy policy in a new window
+	document.write('<a target="_blank" href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a target="_blank" href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+} 
+</script>
+</p>
+
+
+
+<!-- localfooter.ssi -->
+
+<script type="text/javascript">
+    var debug = (top.location.href.indexOf("debug=true") > -1);
+</script>
+
+<script language="javascript">
+document.write('<scr'+'ipt ' +
+               'src="/en_US/ssi/_pod.js" ' +
+               'language="javascript" ' +
+               'charset="UTF-8"> ' +
+               '</scr'+'ipt>');
+</script>
+
+
+<script type="text/javascript">
+//
+//  Ethnio survey code
+//
+/*          DocumentID      EthnioID */
+/*          -------------   -------- */
+var ethnio=["/en_US/flash/cs/using/WSb03e830bd6f770ee6664507612436d7dede-8000.html", "87462",
+            "/en_US/creativesuite/cs/using/WSe851854fd1e0856a-4b08a77612477f69f15-8000.html",  "10441",
+            "/en_US/dreamweaver/cs/using/WSEE4C0148-A6F4-4bf5-9DEF-CE06AB026214a.html",  "57412"
+ 
+    ];
+                        
+    for ( var i = 0; i < ethnio.length ; i = i+2 ){
+        if ( document.location.href.indexOf( ethnio[i] ) > -1 ){ 
+            var headID = document.getElementsByTagName("head")[0];         
+            var ethnioScript = document.createElement('script');
+            ethnioScript.type = 'text/javascript';
+            ethnioScript.src = 'http://ethn.io/remotes/' + ethnio[i+1];        
+            if ( debug ){
+                alert ("Using Ethnio script: " + ethnioScript.src );
+            }else{
+                headID.appendChild(ethnioScript);
+            }
+        }
+    }
+</script>
+
+
+
+<div style="display: none;">
+<!-- SiteCatalyst -->
+<script language="JavaScript" type="text/javascript"><!--
+var s_code=' ';
+var s_docHost = window.location.hostname.toLowerCase();
+var s_docURL = window.location.pathname.toLowerCase();
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+if (s_docHost.indexOf(".corp.adobe") != -1 || s_docHost.indexOf("stage.") != -1 || s_docHost.indexOf(".dev.adobe") != -1 || s_docHost.indexOf("staging.") != -1) scJsHost="";
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/omniture_s_code.js' type='text/javascript'%3E%3C/script%3E"));
+//--></script>
+<script type="text/javascript"><!--
+var s_accountName;
+s_server="www.adobe.com static content pages";
+if (!window.s_account) s_accountName="mxmacromedia";
+else s_accountName=window.s_account;
+
+if (window.s_docURL.indexOf("/designcenter/") != -1)
+  s_channel="Adobe Design Center";	
+else if ((window.s_docHost.indexOf("labs.adobe") != -1) ||
+(window.s_docHost.indexOf("labs-staging.") != -1))
+  s_channel="Labs";
+else if (window.s_docHost.indexOf("help.adobe.com") != -1) {
+  s_channel="Support Help.adobe.com";
+  if (window.s_docURL.indexOf("/en_us/") == -1) {
+    s_docURLArray=s_docURL.split('/');
+    s_pageName="http://help.adobe.com/"+s_docURLArray[1]+"/"+ s_docURLArray[2]+"/"+s_docURLArray[3];
+    s_prop23="http://help.adobe.com"+window.location.pathname;
+  }
+}
+else if (window.s_docHost.indexOf("kb2.adobe.com") != -1) {
+  s_channel="Support Knowledgebase";
+  s_prop23="http://kb2.adobe.com"+s_docURL+":";
+  if (typeof(omtrProductList) != 'undefined' && omtrProductList.length > 0)
+ {
+    s_prop23=s_prop23+omtrProductList;
+  }
+}
+else if (window.s_docHost.indexOf("resellers.adobe.com") != -1) {
+		var s_pageName=document.getElementsByTagName("title")[0].text;
+}
+
+if (!window.scMMInclude) {
+	var s_wd=window,s_tm=new Date;
+	if(s_code!=' '){
+		s_code=s_dc(s_accountName);
+		if(s_code)document.write(s_code)
+	} 
+} else {
+	s_wds(s_accountName);s_ca(s_accountName); 
+}	
+
+function sendAnalyticsEvent(str){var ns=s_accountName;if(str!=null)ns+=","+str;void(s_gs(ns));}
+function sendLinkEvent(accnt,lnkname,type){
+accnt=s_accountName;s_linkType=type;s_lnk=true;s_linkName=lnkname;void(s_gs(accnt));}
+//--></script>
+<noscript><img src="http://stats.adobe.com/b/ss/mxmacromedia/1/H.15-XELvs/0?pageName=http%3A//www.adobe.com%3A%20noscript&ch=http%3A//www.adobe.com%3A%20noscript&g=http%3A//www.adobe.com" height="1" width="1" border="0" alt="" /></noscript>
+<!-- End SiteCatalyst -->
+</div>
+
+<script language="JavaScript" type="text/javascript">//<![CDATA[
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/atm/s_code_www.js' type='text/javascript'%3E%3C/script%3E"));
+//]]></script>
+<script type="text/javascript">//<![CDATA[
+if(s_adobe){	
+	s_adobe.server="www.adobe.com Static Content pages";
+	/* Set pageName */
+	s_adobe.s_URL="adobe.com"+((location.pathname.charAt(0)=='/')?location.pathname:'/'+location.pathname);
+	if (s_adobe.s_URL.substring(s_adobe.s_URL.lastIndexOf('/')+1)=="") s_adobe.s_URL=s_adobe.s_URL+"index.html";
+	s_adobe.s_URLSplit=s_adobe.s_URL.split("/");
+	s_adobe.pageName=s_adobe.s_URLSplit.join(":");
+
+	/* Set prop4 to language-locale */
+	var s_meta=document.getElementsByTagName('meta'); 
+      for (i=0; i<s_meta.length; i++) { 
+        if (s_meta[i].getAttribute("http-equiv") == "Content-Language") { 
+          s_adobe.prop4=s_meta[i].getAttribute("content"); 
+	    s_adobe.prop4=s_adobe.prop4.replace(/\s+/g,'');
+        } 
+      } 
+	s_adobe.t()
+}
+//]]></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

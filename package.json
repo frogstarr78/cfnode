@@ -1,0 +1,33 @@
+{
+  "name": "coldfusion",
+  "version": "0.0.0",
+  "description": "ColdFusion Environment implemented in NodeJS",
+  "main": "cf.js",
+  "directories": ["lib", "doc", "man", "test"],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/frogstarr78/cfnode.git"
+  },
+  "keywords": [ "coldfusion", "cf" ],
+  "author": "Scott Noel-Hemming <frogstarr78@gmail.com>",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/frogstarr78/cfnode/issues"
+  },
+  "scripts": {
+  	"prepublish": "make cf.js",
+    "test": "make test",
+    "start": "node server.js"
+  },
+	"config": {
+		"host": "localhost",
+		"port": "8124"	
+	},
+	"private": true,
+	"dependencies": {
+		"date.js": "0.7.4"
+	},
+	"devDependencies": {
+		"pegjs": "0.7.0"	
+	}
+}

@@ -1,0 +1,975 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0022)http://help.adobe.com/ -->
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="lang" content="en-us" />
+    <meta name="area" content="livedocs" />
+    <title>Adobe&#160;ColdFusion&#160;9 * Creating XSLT skins</title>
+    <link rel="shortcut icon" href="images/ColdFusionLinkIndicator.png" />
+    <meta name="book" content="Developing&#160;ColdFusion 9 Applications" />
+    <meta name="product" content="ColdFusion" />
+    <meta name="keywords" content="" /><!--<PageMap><DataObject type="document"><Attribute name="product" value="ColdFusion"></Attribute><Attribute name="book" value="Developing&#160;ColdFusion 9 Applications"></Attribute><Attribute name="keywords" value=""></Attribute></DataObject></PageMap>-->
+    
+    <script type="text/javascript" language="Javascript" charset="UTF-8"><!--[CDATA[
+        var currentTreeNode = "WSc3ff6d0ea77859461172e0811cbec1069f-7ff4.html";
+    document.cookie = "topicId=" + "WSc3ff6d0ea77859461172e0811cbec1069f-7ff4.html";
+// ]]--></script>
+<script src="terms.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="help.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script>  <script src="utilities.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="event.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="treeview.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="toc.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script> <script src="swfobject.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>  <script src="booklist.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>
+<script type="text/javascript">
+<!--[CDATA[
+var topictype = "topic";
+var headId = document.getElementsByTagName("head")[0];         
+if (use_ie_6_behavior) {
+  var linkId = document.createElement("link");
+  linkId.href = "content-ie6.css";
+  linkId.rel = "stylesheet";
+  linkId.type = "text/css";
+  headId.appendChild(linkId);
+}
+function initRoboHelpDOM() {
+  if (use_chm_behavior) {
+    hideElement("search");
+  }
+  if (use_robohelp_behavior) {
+    hideElement("search");
+    hideElement("productmenu");
+    //hideElement("notyourversion");
+  }
+  if(!use_chc_behavior) {
+    //document.getElementById("notyourversion").style.display = "inline";;
+  }
+}
+var dirname = location.pathname.match( /.*\// );    
+function setSearchUserPref(){
+  if ( document.cookie.indexOf( "ah_searchpref" ) > -1 ) {
+    if ( document.cookie.indexOf( dirname ) > 0 ) {
+      document.search.gsa.checked = true ;
+    }else{
+      document.search.gsa.checked = false ;            
+    }
+  }
+}
+YAHOO.util.Event.onDOMReady(initRoboHelpDOM);
+YAHOO.util.Event.onDOMReady(setSearchUserPref);
+// ]]-->
+</script>
+
+<!-- ********************************** -->
+<!-- START: ForeSee survey code in: /ssi/globalheader.ssi -->
+
+<script type="text/javascript">
+<!-- 
+// Enable the survey for only English, German and Japanese
+var agt=navigator.userAgent.toLowerCase();
+if ( agt.indexOf("community help client") == -1 ){
+    if ( document.location.href.indexOf("/en_US/") != -1 ){
+        showSurvey();
+//    }else if (document.location.href.indexOf("/de_DE/") != -1){
+//         var locale="de";
+//         showSurvey();
+    }else if (document.location.href.indexOf("/ja_JP/") != -1 ){
+         var locale="ja";
+         showSurvey();
+    }	
+}
+
+function showSurvey(){
+	document.write('<script type="text/javascript" src="/js/foresee/foresee-trigger.js"><\/scr'+'ipt>');
+}
+
+// -->
+</script>
+
+<!-- END: ForeSee survey code -->
+<!-- ******************************** -->
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="tree.css" />
+    <link rel="stylesheet" type="text/css" href="content.css" />
+    <link rel="stylesheet" type="text/css" href="localeSpecific.css" />
+  </head>
+  <body id="content_body" onload="window.focus();">
+    <a name="top" shape="rect"><!--LeaveCommentHere--></a>
+    
+    <div id="mnemonic">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon" class="ColdFusion"><div class="banner"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html">Adobe&#160;ColdFusion&#160;9</a><span id="notyourversion">|&#160;
+                    <a rel="nofollow" href="http://www.adobe.com/support/documentation/en/coldfusion/">Not your version?</a></span></div></div><!--googleon: index-->
+    </div>
+    
+    <div id="searchbar">
+<table id="searchbartable">
+<tr>
+<td colspan="2">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon"><div id="pdf"><img src="images/PDF.gif" width="16" height="16" /><a title="View Help PDF" href="coldfusion_9_dev.pdf">View Help PDF ( 23MB)</a></div></div><!--googleon: index-->
+</td>
+</tr>
+</table>
+    </div>
+
+<!-- BEGIN SEARCH CONTENT -->
+<form id="search" name="search" action="search.html" target="_self">
+<script type="text/javascript">
+<!--[CDATA[
+if ( !use_chc_behavior ){
+    if (typeof(terms_AHV_SEARCH_CONSTRAINT) != "undefined" && 
+        terms_AHV_SEARCH_CONSTRAINT.length > 0 && 
+        document.location.href.indexOf(".adobe.com") > 0){
+        if ( typeof(terms_SEARCH_THIS_HELP_ONLY) != "undefined" && terms_SEARCH_THIS_HELP_ONLY == "ON" ) {
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                checked="checked" \
+                value="1" ><\/input>'); 
+                
+        // Leave the "Search this help system only" checkbox unckecked
+        }else{    
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                value="1" ><\/input>'); 
+        }
+        document.write('<span class="gsalabel">' + terms_AHV_SEARCH_CONSTRAINT + '<\/span><\/div>'); 
+    }
+    document.write('<input class="searchinput" \
+        name="q" \
+        id="q" \
+        type="text" \
+        maxlength="256" \
+        value="' + terms_AHV_SEARCH_BUTTON + '" \
+        onclick="clearSearch()"><\/input><input \
+        type="button" \
+        name="searchbutton" \
+        class="searchbutton" \
+        onclick="submit()"><\/input>'); 
+} 
+ 
+/* 
+ * Start Functions 
+ */
+function clearSearch(){
+    if (document.search.q.value == terms_AHV_SEARCH_BUTTON){document.search.q.value = ""}; 
+}
+
+// set search preferences
+function setAHSearchPref(){
+    if (document.search.gsa.checked == 1){
+        setAHSearchCookie( dirname );
+    }else{
+        setAHSearchCookie( "community" );
+    }
+}
+
+// Set search preferences cookie
+function setAHSearchCookie( p ){
+    // set cookie ah_searchpref with a value of the document path
+    var expire=new Date();
+    expire.setDate(expire.getDate()+365); // Cookie expires after 1 year (365 days) 
+    document.cookie="ah_searchpref=" +p+ "; expires=" +expire.toGMTString()+ ";";
+}
+
+// ]]-->
+</script> 
+ </form>
+<!-- END SEARCH CONTENT -->    
+
+
+
+<!-- BEGIN PAGE CONTENT WRAPPER -->
+    <div id="page_content_wrapper">
+<!-- BEGIN PAGE WRAPPER -->
+<table id="page_content_table">
+<tr>
+
+<td id="col2">
+<!-- BEGIN CONTENT WRAPPER -->
+<!-- BEGIN BREADCRUMBS -->
+
+      
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec1069f-7ff6.html" title="Control elements"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-7a01.html" title="Using Ajax User Interface Components and Features"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Developing&#160;ColdFusion 9 Applications</b></a> / <a href="WSc3ff6d0ea77859461172e0811cdd70508c-8000.html"><b>Requesting and Presenting Information</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7b0e.html"><b>Creating Skinnable XML Forms</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+      <div id="content_wrapper">
+<!-- BEGIN PAGE TITLE -->
+        <h1>Creating XSLT skins</h1>
+<!-- END PAGE TITLE -->
+<!-- BEGIN IONCOMMENTCOUNT -->
+        <div id="ionCount">
+        </div>
+<!-- END IONCOMMENTCOUNT -->
+<table id="inner_content_table" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>
+          <div style="border-top:#ccc solid 1px;"><p> </p>
+          </div>
+<p id="chcPromo" style="display:none;">
+<a id="chcLink" href="http://www.adobe.com/support/chc/">
+<img id="chcImage" src="http://www.adobe.com/support/chc/GetMoreHelpFeatures.png"/>
+</a>
+</p>
+<script type="text/javascript" language="javascript" charset="utf-8">
+<!--
+var cfgArray = [];
+//cfgArray["Acrobat_10.0_Professional.helpcfg"] = "acrobatpro";
+//cfgArray["Acrobat_10.0_Standard.helpcfg"] = "acrobatstd";
+cfgArray["Lightroom_3.0.helpcfg"] = "lightroom";
+cfgArray["PhotoshopElements_8.0_Win.helpcfg"] = "photoshopelements";
+cfgArray["PhotoshopElements_8.0_Mac.helpcfg"] = "photoshopelementsmac";
+cfgArray["PremiereElements_8.0_Win.helpcfg"] = "premiereelements";
+
+//cfgArray["AfterEffects_10.0.helpcfg"] = "aftereffects";
+//cfgArray["AIR.helpcfg"] = "air";
+//cfgArray["ColdFusionBuilder.helpcfg"] = "coldfusion";
+//cfgArray["Contribute_6.0.helpcfg"] = "contribute";
+//cfgArray["DeviceCentral_3.0.helpcfg"] = "devicecentral";
+//cfgArray["Dreamweaver_11.0.helpcfg"] = "dreamweaver";
+//cfgArray["EncoreDVD_5.0.helpcfg"] = "encore";
+//cfgArray["ExtensionManager_3.0.helpcfg"] = "extension";
+//cfgArray["Fireworks_11.0.helpcfg"] = "fireworks";
+//cfgArray["Flash_11.0.helpcfg"] = "flash";
+//cfgArray["Flex_4.0.helpcfg"] = "flashbuilder";
+//cfgArray["FlashCatalyst_1.0.helpcfg"] = "flashcatalyst";
+//cfgArray["Illustrator_15.0.helpcfg"] = "illustrator";
+//cfgArray["InCopy_7.0.helpcfg"] = "incopy";
+//cfgArray["InDesign_7.0.helpcfg"] = "indesign";
+//cfgArray["OnLocation_5.0.helpcfg"] = "onlocation";
+//cfgArray["Photoshop_12.0.helpcfg"] = "photoshop";
+//cfgArray["PremierePro_5.0.helpcfg"] = "premierepro";
+
+function getLangName() {
+    var lang = "en-us";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if (ptn.test(lang)) {
+        var languageCode = lang.replace(ptn, "$1");
+        var countryCode = lang.replace(ptn, "$2");
+        lang = languageCode + "_" + countryCode.toUpperCase();
+    }
+    return lang;
+}
+
+function getCountryName() {
+    var lang = "";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if ((ptn.test(lang)) && (lang != "en-us")) {
+        var countryCode = lang.replace(ptn, "$2");
+        return "/" + countryCode;
+    }
+    return "";
+}
+
+if ( (typeof(terms_HELPCFG) != 'undefined')  && (terms_HELPCFG.indexOf(".helpcfg") != -1) ) {
+    var stage   = (document.location.href.indexOf(".stage.") != -1) ? 'stage.' : '';
+    var baseUrl = 'http://www.' + stage + 'adobe.com';
+    var refpage = document.location.href.replace(/#.*$/, '');
+	
+	if ((!use_robohelp_behavior) && (terms_HELPCFG.length > 0) && (typeof(cfgArray[terms_HELPCFG]) != 'undefined') && (cfgArray[terms_HELPCFG].length > 0)) {
+		if (document.getElementById) { // DOM3 = IE5, NS6
+			var newHref = baseUrl + getCountryName() + "/support/chc/" + "?helpcfg=http://help." + stage + "adobe.com/HelpCfg/" + getLangName() + "/" + terms_HELPCFG + "&url=" + refpage + "&product=" + cfgArray[terms_HELPCFG];
+			var newSrc = baseUrl + getCountryName() + "/support/chc/GetMoreHelpFeatures.png";
+			document.getElementById("chcPromo").style.display = "block";
+			document.getElementById("chcLink").href = newHref;
+			document.getElementById("chcImage").src = newSrc;
+		}
+	}
+}
+
+//-->
+</script>
+
+
+
+          <div id="minitoc"><div class="t"><div class="b"><div><ul id="minitoc-links"><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec1069f-7fe0"><span class="topictitle1">XSLT skin file locations</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec1069f-7fd7"><span class="topictitle1">Attribute and value passthrough</span>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec1069f-7ffd"><span class="topictitle1">Extending ColdFusion XSLT skins</span>
+</a></p><ul><li><p><a href="#WSf01dbd23413dda0e31536a2e120145dbe77-7ff5"><span class="topictitle2">Extending basic.xsl cfformgroup and cfformitem support</span>
+</a></p></li><li><p><a href="#WSf01dbd23413dda0e31536a2e120145dbe77-7ff4"><span class="topictitle2">Add support for cfformgroup and cfformitem types to the basic.xsl</span>
+</a></p></li><li><p><a href="#WSf01dbd23413dda0e31536a2e120145dbe77-7ff3"><span class="topictitle2">Styling forms by extending the ColdFusion CSS files</span>
+</a></p></li></ul></li></ul></div></div></div></div><div><p>You can create your own XSLT skins
+to process the XML that ColdFusion generates. You must be familiar
+with XSLT and CSS programming. General information on writing XSLT
+transformations or CSS styles is not provided here. However, information
+about the following areas is provided:</p>
+<ul><li><p>How ColdFusion passes form attribute values to the XML
+file</p>
+</li>
+<li><p>How to extend XSLT skins that ColdFusion provides as templates</p>
+</li>
+<li><p>Basic techniques for extending the basic.xsl file to support
+additional <samp class="codeph">cfformgroup</samp> and <samp class="codeph">cfformitem</samp> tag <samp class="codeph">type</samp> attributes</p>
+</li>
+<li><p>How to extend the ColdFusion CSS files to enhance form appearance.</p>
+</li>
+</ul>
+</div>
+<div id="WSc3ff6d0ea77859461172e0811cbec1069f-7fe0" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec1069f-7fe0"><!-- --></a><h2 class="topictitle2">XSLT skin file locations</h2><div><p>If you specify an XSLT skin by name and omit the .xsl extension,
+ColdFusion looks for the file in the <samp class="codeph">cfform</samp> script
+source directory and its subdirectories. You can specify the script
+source directory in your <samp class="codeph">cfform</samp> tag <samp class="codeph">scriptsrc</samp> attribute, and
+you can set a default location on the Settings page in the ColdFusion
+Administrator. When you install ColdFusion, the default location
+is set to /CFIDE/scripts/ (relative to the web root).</p>
+<p>You can also use a relative or absolute file path, or a URL,
+to specify the XSLT skin location. ColdFusion uses the directory
+of the CFML page as the root of relative paths. The following formats
+are valid:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e77756"><p>Format</p>
+</th>
+<th valign="top" width="NaN%" id="d17e77759"><p>Location</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e77756 "><p>&lt;cfform format="xml" skin="basic"&gt;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e77759 "><p>Searches for XML/CSS in the default directory
+and its subdirectories.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e77756 "><p>&lt;cfform format="xml" skin="c:\foo\bar\basic.xsl"&gt;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e77759 "><p>Uses the absolute path.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e77756 "><p>&lt;cfform format="xml" skin="basic.xsl"&gt;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e77759 "><p>Searches in the current directory.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e77756 "><p>&lt;cfform format="xml" skin="..\basic.xsl:"&gt;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e77759 "><p>Searches the parent of the current directory.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e77756 "><p>&lt;cfform format="xml" skin="http://anywhereOnTheWeb/basic.xsl"&gt;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e77759 "><p>Uses the specified URL.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note"><span class="notetitle">Note:  </span>Hosting companies sometimes move the default
+skin location folder out of CFIDE. Doing this lets them secure the
+CFIDE while giving site developers access to the files that you
+need for <samp class="codeph">cfform</samp>.</div>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec1069f-7fd7" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec1069f-7fd7"><!-- --></a><h2 class="topictitle2">Attribute and value passthrough</h2><div><p>ColdFusion
+passes form tag attributes or attribute values that it does not
+specifically process directly to the XML, as follows:</p>
+<ul><li><p>It converts <samp class="codeph">cfformitem</samp> and <samp class="codeph">cfformgroup</samp><samp class="codeph">type</samp> attributes
+to <samp class="codeph">xf:group</samp> element <samp class="codeph">appearance</samp> attributes. </p>
+</li>
+<li><p>It passes the name and value of tag attributes that it does
+not recognize or process in <samp class="codeph">cf:attribute</samp> elements.</p>
+</li>
+</ul>
+<p>This passthrough feature lets you create custom versions of any
+of the following items for your XSLT to process:</p>
+<ul><li><p>The <samp class="codeph">cfformitem</samp> types, such as rules,
+spacers, or other display elements</p>
+</li>
+<li><p>The <samp class="codeph">cfgroup</samp> types, such as divided boxes
+or tabbed dialog boxes</p>
+</li>
+<li><p>The custom <samp class="codeph">cfinput</samp> types, such as a custom
+year chooser element</p>
+</li>
+<li><p>ColdFusion tag attributes, such as those used to control
+validation</p>
+</li>
+</ul>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec1069f-7ffd" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec1069f-7ffd"><!-- --></a><h2 class="topictitle2">Extending ColdFusion XSLT skins</h2><div><p>ColdFusion
+provides basic XSLT transforms that you can use as templates and extend
+for making your own skin. Each skin has a base XSL file, which include several
+utility XSL files. Utility filenames start with an underscore (_),
+and multiple base skins share the files. The following table describes
+the XSL files, which are located in the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">cf_webroot</i>\\x</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e77876"><p>File</p>
+</th>
+<th valign="top" width="NaN%" id="d17e77879"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e77876 "><p>default.xsl</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e77879 "><p>The default transform that ColdFusion uses
+if you do not specify a <samp class="codeph">skin</samp> attribute for an XML
+format form. Identical to the basic.xsl file.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e77876 "><p>basic.xsl</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e77879 "><p>A basic form format that arranges form elements
+using a table.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e77876 "><p>basiccss.xsl</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e77879 "><p>A basic form format that arranges form elements
+using HTML <samp class="codeph">div</samp> and <samp class="codeph">span</samp> tags.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e77876 "><p><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">colorname</i>.xsl</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e77879 "><p>A basic form format that arranges form elements
+using a table and applies a color scheme determined by the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">colorname</i> to
+the form. Based on the basic.xsl file.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e77876 "><p>_cfformvalidation.xsl</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e77879 "><p>Applies ColdFusion validation rules. Used
+by all skins.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e77876 "><p>_formelements.xsl</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e77879 "><p>Transformation rules for form elements except
+for those defined using <samp class="codeph">cfformgroup</samp> tags. Used
+by all skins</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e77876 "><p>_group_<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">type</i>.xsl</p>
+<p>_group_<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">type</i>_table.xsl</p>
+<p>_group_<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">type</i>_css.xsl</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e77879 "><p>Transformation rules for <samp class="codeph">cfformgroup</samp> tags.
+The tag <samp class="codeph"><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">type</i></samp> attribute is part of the filename.
+Files with <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">table</i> in the name are used by basic.xsl and its
+derivatives. Files with css in the name are used by basiccss.xsl.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>All skins support the same set of CFML tags and tag types, and
+do a relatively simple transformation from XML to HTML. For example,
+they do not support horizontal or vertical rules. </p>
+<p>The ColdFusion skin XSL files have several features that you
+can use when designing and developing your own transformation. They
+do the following:</p>
+<ul><li><p>Provide an overall structure and initial templates for
+implementing custom transformations.</p>
+</li>
+<li><p>Show how you can handle the various elements in the ColdFusion-generated XML.</p>
+</li>
+<li><p>Use a structure of included files that can form a template
+for your XSLT code.</p>
+</li>
+<li><p>The base XSL files include a separate file, _cfformvalidation.xsl,
+with complete code for generating the hidden fields required for
+ColdFusion onServer validation and the JavaScript for performing
+ColdFusion onSubmit and onBlur validation. You can include this
+file without modification to do ColdFusion validation in your XSLT
+template, or you can change it to add other forms of validation
+or to change the validation rules.</p>
+</li>
+<li><p>The base XSL files include files, that implement several
+form groups, laying out the child tags and applying a label to the
+group. These files can serve as templates for implementing additional
+form group types or you can expand them to provide more sophisticated
+horizontal and vertical form groups. </p>
+</li>
+<li><p>You can add custom <samp class="codeph">cfformgroup</samp> and <samp class="codeph">cfformitem</samp><samp class="codeph">type</samp> attributes
+by including additional XSL files.</p>
+</li>
+</ul>
+</div><div id="WSf01dbd23413dda0e31536a2e120145dbe77-7ff5" class="nochunk"><a name="WSf01dbd23413dda0e31536a2e120145dbe77-7ff5"><!-- --></a><h3 class="topictitle3">Extending basic.xsl cfformgroup and cfformitem support</h3><div><p>The following procedure
+describes the steps for extending the basic.xsl file to support
+additional <samp class="codeph">cfformgroup</samp> and <samp class="codeph">cfformitem</samp> types.
+You can use similar procedures to extend other xsl files.</p>
+</div></div><div id="WSf01dbd23413dda0e31536a2e120145dbe77-7ff4" class="nochunk"><a name="WSf01dbd23413dda0e31536a2e120145dbe77-7ff4"><!-- --></a><h3 class="topictitle3">Add support for cfformgroup and cfformitem types to the basic.xsl</h3><div><ol><li><p>Create an XSL file.</p>
+</li>
+<li><p>For each <samp class="codeph">type</samp> attribute that you want to
+support, create an <samp class="codeph">xsl:template</samp> element to do the
+formatting. The <samp class="codeph">match</samp> attribute of the element
+must have the following format:</p>
+<pre>match="xf:group[@appearance='type_attribute_name']"</pre>
+<p>For
+example, to add a panel <samp class="codeph">cfformgroup</samp> type, add an
+element with a start tag such as the following:</p>
+<pre>&lt;xsl:template match="xf:group[@appearance='panel']"&gt;</pre>
+</li>
+<li><p>Deploy your XSL file or files to the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">cf_webroot</i>\\x</p>
+</li>
+<li><p>Add an include statement to the basic.xsl file at the end
+of the Supported groups section; for example, if you create a my_group_panel.xsl
+file to handle a panel <samp class="codeph">cfformgroup</samp> type, your basic.xsl
+file would include the following lines:</p>
+<pre>&lt;!-- include groups that will be supported for this skin--&gt; 
+&lt;xsl:include href="_group_vertical_table.xsl" /&gt; 
+&lt;xsl:include href="_group_horizontal_table.xsl" /&gt; 
+&lt;xsl:include href="_group_fieldset.xsl"/&gt; 
+&lt;xsl:include href="my_group_panel.xsl" /&gt;    </pre>
+</li>
+</ol>
+</div></div><div id="WSf01dbd23413dda0e31536a2e120145dbe77-7ff3" class="nochunk"><a name="WSf01dbd23413dda0e31536a2e120145dbe77-7ff3"><!-- --></a><h3 class="topictitle3">Styling forms by extending the ColdFusion CSS files</h3><div><p>Each
+ColdFusion skinnable form XSL file uses a corresponding CSS style
+sheet to specify the form style and layout characteristics. The
+following CSS files are located in the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">cf_webroot</i>\CFIDE\scripts\css
+directory:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e78079"><p>File</p>
+</th>
+<th valign="top" width="NaN%" id="d17e78082"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e78079 "><p>basic_style.css</p>
+<p>default_style.css</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e78082 "><p>Provides a plain style for ColdFusion XSL
+files that use table-based formatting. These files are identical
+and are used by the basic.xsl and default.xsl transforms. ColdFusion
+uses the default_style.css if you do not specify a skin in your <samp class="codeph">cfform</samp> tag.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e78079 "><p>basic2_style.css</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e78082 "><p>The basic_style with limited positioning
+changes for use with XSL files that have div-based formatting. Used
+by the basiccss.xsl transform.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e78079 "><p>css_layout.css</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e78082 "><p>Style specifications for laying out forms
+that use div-based formatting. Used by the basiccss.xsl transform.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e78079 "><p><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">colorname</i>_style.css</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e78082 "><p>Used by the color-formatted ColdFusion skins.
+Defines the same classes as basic_style.css, with additional property
+specifications.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The ColdFusion XSL files and their corresponding CSS style sheets
+use classes extensively to format the form. The basic.xsl file,
+for example, has only one element style; all other styles are class-based.
+Although the CSS files contain specifications for all classes used
+in the XSL files, they do not always contain formatting information.
+The horizontal class definition in basic_style.css, which is used
+for horizontal form groups, for example, is empty.</p>
+<p>You can enhance the style of XML skinnable forms without changing
+the XSL transform by enhancing the style sheets that ColdFusion
+provides. </p>
+</div></div></div>
+
+
+<!-- BEGIN USER PREFERENCES -->
+          <div id="userprefs">
+          </div>
+<!-- END USER PREFERENCES -->
+
+          <div id="related">
+            
+            
+            <div class="separator"><a href="#top"><img src="images/BTT.jpg" /></a>&#160;</div>
+          </div>
+          <div id="footer">
+<!-- BEGIN IONCOMMENTS -->
+            <div id="ionComHere">
+            </div>
+<!-- END IONCOMMENTS -->
+
+
+            <p id="creativecommons"><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" id="creativecommons_text"><img id="creativecommons_img" src="images/CC.png" alt="This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License" /></a>&nbsp;Twitter™ and Facebook posts are not covered under the terms of Creative Commons.</p>
+          </div>
+</td>
+<td width="10px"></td>
+<td id="inner_rightcolumn">
+
+</td></tr></table>
+      </div>
+<!-- BEGIN BREADCRUMBS -->
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec1069f-7ff6.html" title="Control elements"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-7a01.html" title="Using Ajax User Interface Components and Features"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e-446b5201205757ce2b-8000.html"><b>Developing&#160;ColdFusion 9 Applications</b></a> / <a href="WSc3ff6d0ea77859461172e0811cdd70508c-8000.html"><b>Requesting and Presenting Information</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7b0e.html"><b>Creating Skinnable XML Forms</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+<!-- END CONTENT WRAPPER -->
+
+</td>
+<td id="col3">
+    <div>
+        <img src="images/adobe-lq.png" />
+    </div>
+</td>
+</tr>
+</table>
+    </div>
+<!-- END PAGE CONTENT WRAPPER -->
+<script type="text/javascript">
+<!--[CDATA[
+scrollToNameAnchor();
+// ]]-->
+</script> 
+<!--
+    Description:
+    This file generates the link to product support in the top right corner
+-->
+
+<style>
+#menutop{
+    position:absolute;
+    top:4px;
+    right:24px;
+    width:auto;    
+    font-size:11px;
+    color:#fff;
+    text-align:right;
+}
+#menutop a{
+    color:#fff;
+}
+#menutop a:hover{
+        text-decoration:underline;
+}
+</style>  
+  
+  
+  
+  
+<div id="productmenu">
+<!--googleoff: index-->
+  <div id="menutop">
+
+
+<script language=javascript type='text/javascript'>
+    // darken menu text for products with light backgrounds
+    var path = document.location.href.toLowerCase();
+    if (path.indexOf("/acrobat/")           	> 0 ||
+        path.indexOf("/acrobat.com/")       	> 0 ||
+        path.indexOf("/acrobatConnectPro/") 	> 0 ||
+        path.indexOf("/connect/")           	> 0 ||
+        path.indexOf("/livecycledataserviceses/") > 0 ||
+        path.indexOf("/muse/")         	> 0 ||
+	path.indexOf("/presenter/")         	> 0 ||
+        path.indexOf("/scene7/")            	> 0 ||
+        path.indexOf("/flashmediaserver/")  	> 0 ||
+        path.indexOf("/wave/")              	> 0 )
+    {
+        document.write('<style>#menutop a{color:#505050}</style>');
+    }
+    if (typeof('terms_AHV_PRODUCT_SUPPORT') != "undefined" && ! use_robohelp_behavior ){      
+        if (path.indexOf("/muse/") > -1 ){
+            var supportlink = '<a href="http://muse.adobe.com/support.html">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }else{
+            var supportlink = '<a href="http://adobe.com/support">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }
+        document.write( supportlink );
+     }
+
+</script> 
+
+  </div>
+<!--googleon: index-->
+</div>
+
+
+
+<style>
+#online-privacy-policy{ 
+    margin:10px 40px; 
+    font-size:11px;
+}
+</style>
+
+<p id="online-privacy-policy">
+<script language="javascript">
+var pageLoc = "en_US";
+var metaElements = document.all ?
+document.all.tags('meta') :
+document.getElementsByTagName ?
+document.getElementsByTagName ('meta') : new Array();
+for (var m = 0; m < metaElements.length; m++) {
+	if (metaElements[m].name == "lang") {
+		pageLoc = metaElements[m].content;
+		break;
+	}
+}
+var ptn = /(..)-(..)/;
+if (ptn.test(pageLoc)) {
+	var languageCode = pageLoc.replace(ptn, "$1");
+	var countryCode = pageLoc.replace(ptn, "$2");
+	pageLoc = languageCode + "_" + countryCode.toUpperCase();
+}
+
+var policyLoc = "en_US";
+var policyText = "Online Privacy Policy";
+var policyPath = "";
+var policyArray=[
+"da_DK", "Online fortrolighedserklæring",
+"de_DE", "Online-Datenschutzrichtlinie",
+"es_ES", "Política de confidencialidad en línea",
+"fi_FI", "Yksityisyyttä koskeva Online-toimintaohjelma",
+"fr_FR", "Confidentialité et sécurité",
+"it_IT", "Informativa sulla privacy online",
+"ja_JP", "プライバシーポリシー",
+"ko_KR", "Adobe 온라인 개인정보 보호정책",
+"pt_BR", "Política de Confidencialidade On-line", 
+"zh_CN", "在线隐私政策",
+"zh_TW", "線上隱私政策"
+];
+var legalLoc = "en_US";
+var legalText = "Legal Notices";
+var legalPath = legalLoc;
+var legalArray=[
+"ar_AE", "إشعارات قانونية",
+"bg_BG", "Юридически бележки",
+"cs_CZ", "Právní upozornění",
+"da_DK", "Juridiske meddelelser",
+"de_DE", "Rechtliche Hinweise",
+"el_GR", "Σημειώσεις νομικού περιεχομένου",
+"es_ES", "Avisos legales",
+"et_EE", "Juriidilised teated",
+"fi_FI", "Lakisääteiset ilmoitukset",
+"fr_FR", "Mentions légales",
+"he_IL", "הצהרות משפטיות",
+"hr_HR", "Pravne napomene",
+"hu_HU", "Jogi közlemények",
+"it_IT", "Informazioni legali",
+"ja_JP", "法律上の注意",
+"ko_KR", "법적 고지 사항",
+"lt_LT", "Teisinės pastabos",
+"lv_LV", "Juridisks paziņojums",
+"nb_NO", "Juridiske merknader",
+"nl_NL", "Juridische kennisgevingen",
+"pl_PL", "Informacje prawne",
+"pt_BR", "Aspectos jurídicos",
+"ro_RO", "Prevederi legale",
+"ru_RU", "Юридическая информация",
+"sk_SK", "Právne upozornenie",
+"sl_SI", "Pravni pouk",
+"sv_SE", "Upphovsrätt",
+"tr_TR", "Yasal uyarılar",
+"uk_UA", "Юридична інформація",
+"zh_CN", "法律声明",
+"zh_TW", "法律注意事項"
+];
+
+ruPolicy = "http://www.adobe.com/ru/misc/privacy.html";
+trPolicy = "http://www.adobe.com/tr/misc/privacy.html";
+
+// Bug 2846992: LOC: RUS, TUR: The link to "Online Privacy Policy" should include language, currently it is not appearing.
+if (pageLoc == "ru_RU") {
+	policyPath = "ru";
+}
+else if (pageLoc == "tr_TR") {
+	policyPath = "tr";
+}
+for (var i = 0; i < policyArray.length; i+=2) {
+	if (pageLoc == policyArray[i]) {
+		policyLoc = pageLoc;
+		policyText = policyArray[i+1];
+		var ptn = /(..)_(..)/;
+		if (ptn.test(policyLoc)) {
+			var countryCode = policyLoc.replace(ptn, "$2");
+			policyPath = countryCode.toLowerCase();
+		}
+		break;
+	}
+}
+
+for (var i = 0; i < legalArray.length; i+=2) {
+	if (pageLoc == legalArray[i]) {
+		legalLoc = pageLoc;
+		legalText = legalArray[i+1];
+		legalPath = legalLoc;
+		break;
+	}
+}
+if(agt.indexOf("community help client") > -1 ){
+	document.write('<a href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+}else{
+	//Open the privacy policy in a new window
+	document.write('<a target="_blank" href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a target="_blank" href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+} 
+</script>
+</p>
+
+
+
+<!-- localfooter.ssi -->
+
+<script type="text/javascript">
+    var debug = (top.location.href.indexOf("debug=true") > -1);
+</script>
+
+<script language="javascript">
+document.write('<scr'+'ipt ' +
+               'src="/en_US/ssi/_pod.js" ' +
+               'language="javascript" ' +
+               'charset="UTF-8"> ' +
+               '</scr'+'ipt>');
+</script>
+
+
+<script type="text/javascript">
+//
+//  Ethnio survey code
+//
+/*          DocumentID      EthnioID */
+/*          -------------   -------- */
+var ethnio=["/en_US/flash/cs/using/WSb03e830bd6f770ee6664507612436d7dede-8000.html", "87462",
+            "/en_US/creativesuite/cs/using/WSe851854fd1e0856a-4b08a77612477f69f15-8000.html",  "10441",
+            "/en_US/dreamweaver/cs/using/WSEE4C0148-A6F4-4bf5-9DEF-CE06AB026214a.html",  "57412"
+ 
+    ];
+                        
+    for ( var i = 0; i < ethnio.length ; i = i+2 ){
+        if ( document.location.href.indexOf( ethnio[i] ) > -1 ){ 
+            var headID = document.getElementsByTagName("head")[0];         
+            var ethnioScript = document.createElement('script');
+            ethnioScript.type = 'text/javascript';
+            ethnioScript.src = 'http://ethn.io/remotes/' + ethnio[i+1];        
+            if ( debug ){
+                alert ("Using Ethnio script: " + ethnioScript.src );
+            }else{
+                headID.appendChild(ethnioScript);
+            }
+        }
+    }
+</script>
+
+
+
+<div style="display: none;">
+<!-- SiteCatalyst -->
+<script language="JavaScript" type="text/javascript"><!--
+var s_code=' ';
+var s_docHost = window.location.hostname.toLowerCase();
+var s_docURL = window.location.pathname.toLowerCase();
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+if (s_docHost.indexOf(".corp.adobe") != -1 || s_docHost.indexOf("stage.") != -1 || s_docHost.indexOf(".dev.adobe") != -1 || s_docHost.indexOf("staging.") != -1) scJsHost="";
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/omniture_s_code.js' type='text/javascript'%3E%3C/script%3E"));
+//--></script>
+<script type="text/javascript"><!--
+var s_accountName;
+s_server="www.adobe.com static content pages";
+if (!window.s_account) s_accountName="mxmacromedia";
+else s_accountName=window.s_account;
+
+if (window.s_docURL.indexOf("/designcenter/") != -1)
+  s_channel="Adobe Design Center";	
+else if ((window.s_docHost.indexOf("labs.adobe") != -1) ||
+(window.s_docHost.indexOf("labs-staging.") != -1))
+  s_channel="Labs";
+else if (window.s_docHost.indexOf("help.adobe.com") != -1) {
+  s_channel="Support Help.adobe.com";
+  if (window.s_docURL.indexOf("/en_us/") == -1) {
+    s_docURLArray=s_docURL.split('/');
+    s_pageName="http://help.adobe.com/"+s_docURLArray[1]+"/"+ s_docURLArray[2]+"/"+s_docURLArray[3];
+    s_prop23="http://help.adobe.com"+window.location.pathname;
+  }
+}
+else if (window.s_docHost.indexOf("kb2.adobe.com") != -1) {
+  s_channel="Support Knowledgebase";
+  s_prop23="http://kb2.adobe.com"+s_docURL+":";
+  if (typeof(omtrProductList) != 'undefined' && omtrProductList.length > 0)
+ {
+    s_prop23=s_prop23+omtrProductList;
+  }
+}
+else if (window.s_docHost.indexOf("resellers.adobe.com") != -1) {
+		var s_pageName=document.getElementsByTagName("title")[0].text;
+}
+
+if (!window.scMMInclude) {
+	var s_wd=window,s_tm=new Date;
+	if(s_code!=' '){
+		s_code=s_dc(s_accountName);
+		if(s_code)document.write(s_code)
+	} 
+} else {
+	s_wds(s_accountName);s_ca(s_accountName); 
+}	
+
+function sendAnalyticsEvent(str){var ns=s_accountName;if(str!=null)ns+=","+str;void(s_gs(ns));}
+function sendLinkEvent(accnt,lnkname,type){
+accnt=s_accountName;s_linkType=type;s_lnk=true;s_linkName=lnkname;void(s_gs(accnt));}
+//--></script>
+<noscript><img src="http://stats.adobe.com/b/ss/mxmacromedia/1/H.15-XELvs/0?pageName=http%3A//www.adobe.com%3A%20noscript&ch=http%3A//www.adobe.com%3A%20noscript&g=http%3A//www.adobe.com" height="1" width="1" border="0" alt="" /></noscript>
+<!-- End SiteCatalyst -->
+</div>
+
+<script language="JavaScript" type="text/javascript">//<![CDATA[
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/atm/s_code_www.js' type='text/javascript'%3E%3C/script%3E"));
+//]]></script>
+<script type="text/javascript">//<![CDATA[
+if(s_adobe){	
+	s_adobe.server="www.adobe.com Static Content pages";
+	/* Set pageName */
+	s_adobe.s_URL="adobe.com"+((location.pathname.charAt(0)=='/')?location.pathname:'/'+location.pathname);
+	if (s_adobe.s_URL.substring(s_adobe.s_URL.lastIndexOf('/')+1)=="") s_adobe.s_URL=s_adobe.s_URL+"index.html";
+	s_adobe.s_URLSplit=s_adobe.s_URL.split("/");
+	s_adobe.pageName=s_adobe.s_URLSplit.join(":");
+
+	/* Set prop4 to language-locale */
+	var s_meta=document.getElementsByTagName('meta'); 
+      for (i=0; i<s_meta.length; i++) { 
+        if (s_meta[i].getAttribute("http-equiv") == "Content-Language") { 
+          s_adobe.prop4=s_meta[i].getAttribute("content"); 
+	    s_adobe.prop4=s_adobe.prop4.replace(/\s+/g,'');
+        } 
+      } 
+	s_adobe.t()
+}
+//]]></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

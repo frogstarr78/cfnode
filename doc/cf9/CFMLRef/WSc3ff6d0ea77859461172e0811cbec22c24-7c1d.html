@@ -1,0 +1,1845 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0022)http://help.adobe.com/ -->
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="lang" content="en-us" />
+    <meta name="area" content="livedocs" />
+    <title>Adobe&#160;ColdFusion&#160;9 * cfreport</title>
+    <link rel="shortcut icon" href="images/ColdFusionLinkIndicator.png" />
+    <meta name="book" content="ColdFusion&#160;9&#160;CFML&#160;Reference" />
+    <meta name="product" content="ColdFusion" />
+    <meta name="keywords" content="" /><!--<PageMap><DataObject type="document"><Attribute name="product" value="ColdFusion"></Attribute><Attribute name="book" value="ColdFusion&#160;9&#160;CFML&#160;Reference"></Attribute><Attribute name="keywords" value=""></Attribute></DataObject></PageMap>-->
+    
+    <script type="text/javascript" language="Javascript" charset="UTF-8"><!--[CDATA[
+        var currentTreeNode = "WSc3ff6d0ea77859461172e0811cbec22c24-7c1d.html";
+    document.cookie = "topicId=" + "WSc3ff6d0ea77859461172e0811cbec22c24-7c1d.html";
+// ]]--></script>
+<script src="terms.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="help.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script>  <script src="utilities.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="event.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="treeview.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="toc.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script> <script src="swfobject.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>  <script src="booklist.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>
+<script type="text/javascript">
+<!--[CDATA[
+var topictype = "topic";
+var headId = document.getElementsByTagName("head")[0];         
+if (use_ie_6_behavior) {
+  var linkId = document.createElement("link");
+  linkId.href = "content-ie6.css";
+  linkId.rel = "stylesheet";
+  linkId.type = "text/css";
+  headId.appendChild(linkId);
+}
+function initRoboHelpDOM() {
+  if (use_chm_behavior) {
+    hideElement("search");
+  }
+  if (use_robohelp_behavior) {
+    hideElement("search");
+    hideElement("productmenu");
+    //hideElement("notyourversion");
+  }
+  if(!use_chc_behavior) {
+    //document.getElementById("notyourversion").style.display = "inline";;
+  }
+}
+var dirname = location.pathname.match( /.*\// );    
+function setSearchUserPref(){
+  if ( document.cookie.indexOf( "ah_searchpref" ) > -1 ) {
+    if ( document.cookie.indexOf( dirname ) > 0 ) {
+      document.search.gsa.checked = true ;
+    }else{
+      document.search.gsa.checked = false ;            
+    }
+  }
+}
+YAHOO.util.Event.onDOMReady(initRoboHelpDOM);
+YAHOO.util.Event.onDOMReady(setSearchUserPref);
+// ]]-->
+</script>
+
+<!-- ********************************** -->
+<!-- START: ForeSee survey code in: /ssi/globalheader.ssi -->
+
+<script type="text/javascript">
+<!-- 
+// Enable the survey for only English, German and Japanese
+var agt=navigator.userAgent.toLowerCase();
+if ( agt.indexOf("community help client") == -1 ){
+    if ( document.location.href.indexOf("/en_US/") != -1 ){
+        showSurvey();
+//    }else if (document.location.href.indexOf("/de_DE/") != -1){
+//         var locale="de";
+//         showSurvey();
+    }else if (document.location.href.indexOf("/ja_JP/") != -1 ){
+         var locale="ja";
+         showSurvey();
+    }	
+}
+
+function showSurvey(){
+	document.write('<script type="text/javascript" src="/js/foresee/foresee-trigger.js"><\/scr'+'ipt>');
+}
+
+// -->
+</script>
+
+<!-- END: ForeSee survey code -->
+<!-- ******************************** -->
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="tree.css" />
+    <link rel="stylesheet" type="text/css" href="content.css" />
+    <link rel="stylesheet" type="text/css" href="localeSpecific.css" />
+  </head>
+  <body id="content_body" onload="window.focus();">
+    <a name="top" shape="rect"><!--LeaveCommentHere--></a>
+    
+    <div id="mnemonic">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon" class="ColdFusion"><div class="banner"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html">Adobe&#160;ColdFusion&#160;9</a><span id="notyourversion">|&#160;
+                    <a rel="nofollow" href="http://www.adobe.com/support/documentation/en/coldfusion/">Not your version?</a></span></div></div><!--googleon: index-->
+    </div>
+    
+    <div id="searchbar">
+<table id="searchbartable">
+<tr>
+<td colspan="2">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon"><div id="pdf"><img src="images/PDF.gif" width="16" height="16" /><a title="View Help PDF" href="coldfusion_9_cfmlref.pdf">View Help PDF ( 32MB)</a></div></div><!--googleon: index-->
+</td>
+</tr>
+</table>
+    </div>
+
+<!-- BEGIN SEARCH CONTENT -->
+<form id="search" name="search" action="search.html" target="_self">
+<script type="text/javascript">
+<!--[CDATA[
+if ( !use_chc_behavior ){
+    if (typeof(terms_AHV_SEARCH_CONSTRAINT) != "undefined" && 
+        terms_AHV_SEARCH_CONSTRAINT.length > 0 && 
+        document.location.href.indexOf(".adobe.com") > 0){
+        if ( typeof(terms_SEARCH_THIS_HELP_ONLY) != "undefined" && terms_SEARCH_THIS_HELP_ONLY == "ON" ) {
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                checked="checked" \
+                value="1" ><\/input>'); 
+                
+        // Leave the "Search this help system only" checkbox unckecked
+        }else{    
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                value="1" ><\/input>'); 
+        }
+        document.write('<span class="gsalabel">' + terms_AHV_SEARCH_CONSTRAINT + '<\/span><\/div>'); 
+    }
+    document.write('<input class="searchinput" \
+        name="q" \
+        id="q" \
+        type="text" \
+        maxlength="256" \
+        value="' + terms_AHV_SEARCH_BUTTON + '" \
+        onclick="clearSearch()"><\/input><input \
+        type="button" \
+        name="searchbutton" \
+        class="searchbutton" \
+        onclick="submit()"><\/input>'); 
+} 
+ 
+/* 
+ * Start Functions 
+ */
+function clearSearch(){
+    if (document.search.q.value == terms_AHV_SEARCH_BUTTON){document.search.q.value = ""}; 
+}
+
+// set search preferences
+function setAHSearchPref(){
+    if (document.search.gsa.checked == 1){
+        setAHSearchCookie( dirname );
+    }else{
+        setAHSearchCookie( "community" );
+    }
+}
+
+// Set search preferences cookie
+function setAHSearchCookie( p ){
+    // set cookie ah_searchpref with a value of the document path
+    var expire=new Date();
+    expire.setDate(expire.getDate()+365); // Cookie expires after 1 year (365 days) 
+    document.cookie="ah_searchpref=" +p+ "; expires=" +expire.toGMTString()+ ";";
+}
+
+// ]]-->
+</script> 
+ </form>
+<!-- END SEARCH CONTENT -->    
+
+
+
+<!-- BEGIN PAGE CONTENT WRAPPER -->
+    <div id="page_content_wrapper">
+<!-- BEGIN PAGE WRAPPER -->
+<table id="page_content_table">
+<tr>
+
+<td id="col2">
+<!-- BEGIN CONTENT WRAPPER -->
+<!-- BEGIN BREADCRUMBS -->
+
+      
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec22c24-7c6f.html" title="cfregistry"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-76cd.html" title="cfreportparam"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>ColdFusion&#160;9&#160;CFML&#160;Reference</b></a> / <a href="WSc3ff6d0ea77859461172e0811cbec17576-7ffe.html"><b>ColdFusion Tags</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec19ad1-7ffe.html"><b>Tags r-s</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+      <div id="content_wrapper">
+<!-- BEGIN PAGE TITLE -->
+        <h1>cfreport</h1>
+<!-- END PAGE TITLE -->
+<!-- BEGIN IONCOMMENTCOUNT -->
+        <div id="ionCount">
+        </div>
+<!-- END IONCOMMENTCOUNT -->
+<table id="inner_content_table" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>
+          <div style="border-top:#ccc solid 1px;"><p> </p>
+          </div>
+<p id="chcPromo" style="display:none;">
+<a id="chcLink" href="http://www.adobe.com/support/chc/">
+<img id="chcImage" src="http://www.adobe.com/support/chc/GetMoreHelpFeatures.png"/>
+</a>
+</p>
+<script type="text/javascript" language="javascript" charset="utf-8">
+<!--
+var cfgArray = [];
+//cfgArray["Acrobat_10.0_Professional.helpcfg"] = "acrobatpro";
+//cfgArray["Acrobat_10.0_Standard.helpcfg"] = "acrobatstd";
+cfgArray["Lightroom_3.0.helpcfg"] = "lightroom";
+cfgArray["PhotoshopElements_8.0_Win.helpcfg"] = "photoshopelements";
+cfgArray["PhotoshopElements_8.0_Mac.helpcfg"] = "photoshopelementsmac";
+cfgArray["PremiereElements_8.0_Win.helpcfg"] = "premiereelements";
+
+//cfgArray["AfterEffects_10.0.helpcfg"] = "aftereffects";
+//cfgArray["AIR.helpcfg"] = "air";
+//cfgArray["ColdFusionBuilder.helpcfg"] = "coldfusion";
+//cfgArray["Contribute_6.0.helpcfg"] = "contribute";
+//cfgArray["DeviceCentral_3.0.helpcfg"] = "devicecentral";
+//cfgArray["Dreamweaver_11.0.helpcfg"] = "dreamweaver";
+//cfgArray["EncoreDVD_5.0.helpcfg"] = "encore";
+//cfgArray["ExtensionManager_3.0.helpcfg"] = "extension";
+//cfgArray["Fireworks_11.0.helpcfg"] = "fireworks";
+//cfgArray["Flash_11.0.helpcfg"] = "flash";
+//cfgArray["Flex_4.0.helpcfg"] = "flashbuilder";
+//cfgArray["FlashCatalyst_1.0.helpcfg"] = "flashcatalyst";
+//cfgArray["Illustrator_15.0.helpcfg"] = "illustrator";
+//cfgArray["InCopy_7.0.helpcfg"] = "incopy";
+//cfgArray["InDesign_7.0.helpcfg"] = "indesign";
+//cfgArray["OnLocation_5.0.helpcfg"] = "onlocation";
+//cfgArray["Photoshop_12.0.helpcfg"] = "photoshop";
+//cfgArray["PremierePro_5.0.helpcfg"] = "premierepro";
+
+function getLangName() {
+    var lang = "en-us";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if (ptn.test(lang)) {
+        var languageCode = lang.replace(ptn, "$1");
+        var countryCode = lang.replace(ptn, "$2");
+        lang = languageCode + "_" + countryCode.toUpperCase();
+    }
+    return lang;
+}
+
+function getCountryName() {
+    var lang = "";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if ((ptn.test(lang)) && (lang != "en-us")) {
+        var countryCode = lang.replace(ptn, "$2");
+        return "/" + countryCode;
+    }
+    return "";
+}
+
+if ( (typeof(terms_HELPCFG) != 'undefined')  && (terms_HELPCFG.indexOf(".helpcfg") != -1) ) {
+    var stage   = (document.location.href.indexOf(".stage.") != -1) ? 'stage.' : '';
+    var baseUrl = 'http://www.' + stage + 'adobe.com';
+    var refpage = document.location.href.replace(/#.*$/, '');
+	
+	if ((!use_robohelp_behavior) && (terms_HELPCFG.length > 0) && (typeof(cfgArray[terms_HELPCFG]) != 'undefined') && (cfgArray[terms_HELPCFG].length > 0)) {
+		if (document.getElementById) { // DOM3 = IE5, NS6
+			var newHref = baseUrl + getCountryName() + "/support/chc/" + "?helpcfg=http://help." + stage + "adobe.com/HelpCfg/" + getLangName() + "/" + terms_HELPCFG + "&url=" + refpage + "&product=" + cfgArray[terms_HELPCFG];
+			var newSrc = baseUrl + getCountryName() + "/support/chc/GetMoreHelpFeatures.png";
+			document.getElementById("chcPromo").style.display = "block";
+			document.getElementById("chcLink").href = newHref;
+			document.getElementById("chcImage").src = newSrc;
+		}
+	}
+}
+
+//-->
+</script>
+
+
+
+          <div><div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d__WSc3ff6d0ea77859461172e0811cbec19ad1-7fdb"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d__WSc3ff6d0ea77859461172e0811cbec19ad1-7fdb"><!-- --></a><h4 class="sectiontitle">Description</h4><p>Used
+to do either of the following:</p>
+<ul><li><p>Execute a report created
+with the ColdFusion Report Builder, displaying it in PDF, Adobe® FlashPaper®, RTF,
+HTML, XML or Excel format. Optionally, you can save this report
+to a file.</p>
+</li>
+<li><p>Run a predefined Crystal Reports report. Applies only to
+Windows systems. </p>
+</li>
+</ul>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d__WSc3ff6d0ea77859461172e0811cbec19ad1-7fda"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d__WSc3ff6d0ea77859461172e0811cbec19ad1-7fda"><!-- --></a><h4 class="sectiontitle">Category</h4><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-776e.html">Data output tags</a></p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d__WSc3ff6d0ea77859461172e0811cbec19ad1-7fd9"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d__WSc3ff6d0ea77859461172e0811cbec19ad1-7fd9"><!-- --></a><h4 class="sectiontitle">Syntax</h4><pre>ColdFusion Report Builder syntax: 
+&lt;cfreport 
+    format = "PDF|FlashPaper|Excel|RTF|HTML|XML" 
+    template = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">absolute pathname or pathname relative to the report file</i>" 
+    encryption = "128-bit|40-bit|none" 
+    filename = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">output filename</i>" 
+    name = "<strong>ColdFusion</strong><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema"> variable</i>" 
+    ownerpassword = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">password</i>" 
+    overwrite = "no|yes" 
+    permissions = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">permission list</i>" 
+    query = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">query variable</i>" 
+    resourceTimespan = #CreateTimeSpan (<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">days</i>, <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">hours</i>, <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">minutes</i>, <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">seconds</i>)# 
+    style = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">CSS style definition or css file pathname</i>" 
+    userpassword = "password"&gt; 
+    &lt;cfreportparam ...&gt; 
+&lt;/cfreport&gt; 
+ 
+Crystal Reports syntax: 
+&lt;cfreport 
+    report = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">report path</i>" 
+    dataSource = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">data source name</i>"  
+    formula = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">formula</i>" 
+    orderBy = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">result order</i>" 
+    password = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">password</i>" 
+    timeout = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">number of seconds</i>"  
+    type = "standard|netscape|microsoft"  
+    username = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">username</i>"&gt; 
+&lt;/cfreport&gt;</pre>
+<div class="note"><span class="notetitle">Note:  </span>You can specify
+this tag's attributes in an <samp class="codeph">attributeCollection</samp> attribute
+whose value is a structure. Specify the structure name in the <samp class="codeph">attributeCollection</samp> attribute
+and use the tag’s attribute names as structure keys.</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d__WSc3ff6d0ea77859461172e0811cbec19ad1-7fd7"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d__WSc3ff6d0ea77859461172e0811cbec19ad1-7fd7"><!-- --></a><h4 class="sectiontitle">See also</h4><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d03.html">cfcollection</a></samp>, <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7c21.html">cfdocument</a></samp>, <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7758.html">cfdocumentitem</a></samp>, <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-791a.html">cfdocumentsection</a></samp>, <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d56.html">cfexecute</a></samp>, <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d04.html">cfindex</a></samp>, <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7f6e.html">cfobject</a></samp>, <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-76cd.html">cfreportparam</a></samp>, <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d02.html">cfsearch</a></samp>, <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7ca6.html">cfwddx</a></samp>; <a href="http://help.adobe.com/en_US/ColdFusion/9.0/Developing/WSc3ff6d0ea77859461172e0811cbec22c24-6fc2.html" target="_self">Creating
+Reports with Report Builder</a> in the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Developing ColdFusion Applications</i>; Report
+Builder online Help</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d__WSc3ff6d0ea77859461172e0811cbec19ad1-7fd6"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d__WSc3ff6d0ea77859461172e0811cbec19ad1-7fd6"><!-- --></a><h4 class="sectiontitle">History</h4><p>ColdFusion
+8: Added the <samp class="codeph">style</samp> and <samp class="codeph">resourceTimespan</samp> attributes.
+Added the <samp class="codeph">HTML</samp> and <samp class="codeph">XML</samp> values
+to the <samp class="codeph">format</samp> attribute.</p>
+<p>ColdFusion MX 7.0.1:
+Added the <samp class="codeph">RTF</samp> value to the <samp class="codeph">format</samp> attribute,
+to let you generate reports in RTF format.</p>
+<p>ColdFusion MX 7:
+Added support for the ColdFusion Report Builder.</p>
+<p>ColdFusion
+MX: Changed data source connection behavior: Crystal Reports now establishes
+an independent connection to the data source. The connection is
+not subject to any ColdFusion data source-specific restrictions.
+For example, the Crystal Reports server can access a data source,
+regardless of whether it is disabled in the ColdFusion Administrator.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d__WSc3ff6d0ea77859461172e0811cbec19ad1-7fd5"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d__WSc3ff6d0ea77859461172e0811cbec19ad1-7fd5"><!-- --></a><h4 class="sectiontitle">Attributes</h4>
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e86035"><p>Attribute</p>
+</th>
+<th valign="top" width="NaN%" id="d17e86038"><p>Applies to</p>
+</th>
+<th valign="top" width="NaN%" id="d17e86041"><p>Req/Opt</p>
+</th>
+<th valign="top" width="NaN%" id="d17e86044"><p>Default</p>
+</th>
+<th valign="top" width="NaN%" id="d17e86047"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e86035 "><p><samp class="codeph">datasource</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86038 "><p>Crystal Reports</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86041 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86044 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86047 "><p>Name of registered or native data source.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86035 "><p><samp class="codeph">encryption</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86038 "><p>Report Builder</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86041 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86044 "><p><samp class="codeph">none</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86047 "><p>(<samp class="codeph">format="PDF"</samp> only) Type
+of encryption for the report output. Valid values are:</p>
+<div class="para"><ul><li><p><samp class="codeph">128-bit</samp></p>
+</li>
+<li><p><samp class="codeph">40-bit</samp></p>
+</li>
+<li><p><samp class="codeph">none</samp></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86035 "><p><samp class="codeph">filename</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86038 "><p>Report Builder</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86041 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86044 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86047 "><p>Filename to contain the report. You cannot
+specify both the <samp class="codeph">name</samp> and <samp class="codeph">filename</samp> attributes.
+The filename extension must match the value of the <samp class="codeph">format</samp> attribute.</p>
+<p>If
+you write report output to an HTML file, ColdFusion automatically
+creates a directory relative to the output file in the format <samp class="codeph"><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">filename</i></samp>_files.
+Also, it generates PNG files for any charts in the report and copies
+of any image files imported into the report and stores them in this
+directory. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86035 "><p><samp class="codeph">format</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86038 "><p>Report Builder</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86041 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86044 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86047 "><p>Format of the report output:</p>
+<div class="para"><ul><li><p><samp class="codeph">PDF</samp></p>
+</li>
+<li><p><samp class="codeph">FlashPaper</samp></p>
+</li>
+<li><p><samp class="codeph">Excel</samp></p>
+</li>
+<li><p><samp class="codeph">RTF</samp></p>
+</li>
+<li><p><samp class="codeph">XML</samp></p>
+</li>
+<li><p><samp class="codeph">HTML</samp></p>
+</li>
+</ul>
+</div>
+<p>When you write
+report output directly to the browser in HTML format, ColdFusion
+generates a temporary directory and files for the images in the
+report. The location of the temporary directory that contains the
+image files is:</p>
+<p>C:\ColdFusion9\tmpCache\CFFileServlet\_cfreport\_report[<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">unique_identifier</i>]</p>
+<p>To
+determine when the images are removed from the browser, use the <samp class="codeph">resourceTimespan</samp> attribute.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86035 "><p><samp class="codeph">formula</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86038 "><p>Crystal Reports</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86041 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86044 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86047 "><p>One or more named formulas. Terminate each
+formula with a semicolon. Use the format:</p>
+<div class="para"><pre>formula = "formulaname1 = 'formula1';formulaname2 = 'formula2';"</pre>
+</div>
+<p>If
+you use a semicolon in a formula, escape it by typing it twice (;;).
+For example:</p>
+<div class="para"><pre>formula = "Name1 = 'Val_1a;;Val_1b';Name2 = 'Val2';"</pre>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86035 "><p><samp class="codeph">name</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86038 "><p>Report Builder</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86041 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86044 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86047 "><p>Name of the ColdFusion variable that contains
+the report output. You cannot specify both <samp class="codeph">name</samp> and <samp class="codeph">filename</samp>.
+This attribute is not valid when <samp class="codeph">format="HTML".</samp></p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86035 "><p><samp class="codeph">orderBy</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86038 "><p>Crystal Reports</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86041 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86044 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86047 "><p>Orders results according to your specifications.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86035 "><p><samp class="codeph">overwrite</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86038 "><p>Report Builder</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86041 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86044 "><p>no</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86047 "><p>Specifies whether to overwrite files that
+have the same name as that specified in the <samp class="codeph">filename</samp> attribute:</p>
+<div class="para"><ul><li><p><samp class="codeph">yes</samp></p>
+</li>
+<li><p><samp class="codeph">no </samp></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86035 "><p><samp class="codeph">ownerPassword</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86038 "><p>Report Builder</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86041 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86044 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86047 "><p>(<samp class="codeph">format="PDF"</samp> only) Owner
+password for the report,</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86035 "><p><samp class="codeph">password</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86038 "><p>Crystal Reports</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86041 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86044 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86047 "><p>Password that corresponds to username required
+for database access. Overrides default settings for data source
+in the ColdFusion Administrator.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86035 "><p><samp class="codeph">permissions</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86038 "><p>Report Builder</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86041 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86044 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86047 "><p>(<samp class="codeph">format="PDF"</samp> only) Specifies
+one or more of the following permissions:</p>
+<div class="para"><ul><li><p><samp class="codeph">AllowPrinting </samp></p>
+</li>
+<li><p><samp class="codeph">AllowModifyContents</samp></p>
+</li>
+<li><p><samp class="codeph">AllowCopy</samp></p>
+</li>
+<li><p><samp class="codeph">AllowModifyAnnotations</samp></p>
+</li>
+<li><p><samp class="codeph">AllowFillIn</samp></p>
+</li>
+<li><p><samp class="codeph">AllowScreenReaders</samp></p>
+</li>
+<li><p><samp class="codeph">AllowAssembly</samp></p>
+</li>
+<li><p><samp class="codeph">AllowDegradedPrinting</samp></p>
+</li>
+</ul>
+</div>
+<p>Separate
+multiple permissions with commas.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86035 "><p><samp class="codeph">query</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86038 "><p>Report</p>
+<p>Builder</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86041 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86044 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86047 "><p>Name of the query that contains input data
+for the report. This query overrides the query in the Report Builder
+report. The ColdFusion query must contain at least all of the columns
+included in the Report Builder query; however, the WHERE clause
+can differ. If you omit this parameter, Report Builder uses the
+data from the internal SQL statement or from <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-76cd.html">cfreportparam</a></samp> items.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86035 "><p><samp class="codeph">report</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86038 "><p>Crystal Reports</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86041 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86044 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86047 "><p>Report pathname. Store Crystal Reports files
+in the same directories as ColdFusion page files.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86035 "><p><samp class="codeph">resourceTimespan</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86038 "><p>Report Builder</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86041 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86044 "><p><samp class="codeph">5 minutes </samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86047 "><p>(<samp class="codeph">format="HTML"</samp> only) Life
+span of the resource directory. When you export a Report Builder
+report in HTML format, ColdFusion writes any images or other resource
+files in the report to a temporary resource directory. Use this
+attribute to determine when the resource directory is deleted. For
+the value, use the <samp class="codeph">CreateTimeSpan</samp> function and
+specify the time span in days, hours, minutes, and seconds, separated
+by commas; for example, to delete the resource directory after one
+hour, specify: <samp class="codeph">#CreateTimeSpan(0,1,0,0)#</samp></p>
+<p>If
+the value is set to 0, the resource directory persists until the
+next server restart.</p>
+<p>ColdFusion deletes the resource directory
+only when <samp class="codeph">format="HTML"</samp> and neither the name nor
+filename attribute is specified. The default setting is 5 minutes: <samp class="codeph">#CreateTimeSpan(0,0,5,0)#</samp></p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86035 "><p><samp class="codeph">style</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86038 "><p>Report</p>
+<p>Builder</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86041 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86044 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86047 "><p>Style in CSS format that overrides a style
+defined in the Report Builder report at run time. You can specify
+an absolute file path, a file path relative to the report, or a
+string in valid CSS format. For the styles to take effect, the style
+names must match Style Name attributes assigned to elements in the
+Report Builder report. You can generate a CSS file in Report Builder
+and export it or you can create a CSS file with a text editor. For
+a list of supported CSS styles, see the section <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Style properties</i>.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86035 "><p><samp class="codeph">template</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86038 "><p>Report Builder</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86041 "><p>Required</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86044 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86047 "><p>Specifies the pathname to the Report Builder
+(CFR) file, relative to the web root.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86035 "><p><samp class="codeph">timeout</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86038 "><p>Crystal Reports</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86041 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86044 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86047 "><p>Specifies the maximum time, in seconds,
+in which a connection must be made to a Crystal Reports file.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86035 "><p><samp class="codeph">type</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86038 "><p>Crystal Reports</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86041 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86044 "><p><samp class="codeph">standard</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86047 "><p>Type of report:</p>
+<div class="para"><ul><li><p><samp class="codeph">standard</samp> (not
+valid for Crystal Reports 8.0)</p>
+</li>
+<li><p><samp class="codeph">netscape</samp></p>
+</li>
+<li><p><samp class="codeph">microsoft</samp></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86035 "><p><samp class="codeph">userName</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86038 "><p>Crystal Reports</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86041 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86044 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86047 "><p>Username required for entry into a database
+from which the report is created. Overrides default settings for
+data source in ColdFusion Administrator.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86035 "><p><samp class="codeph">userPassword</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86038 "><p>Report Builder</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86041 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86044 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86047 "><p>(<samp class="codeph">format="PDF"</samp> only) User
+password.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d__WSc3ff6d0ea77859461172e0811cbec19ad1-7fd4"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d__WSc3ff6d0ea77859461172e0811cbec19ad1-7fd4"><!-- --></a><h4 class="sectiontitle">Usage</h4><p>Use this
+tag to generate a report using a report definition created in either ColdFusion
+Report Builder or in Crystal Reports. (For more information on using the
+ColdFusion Report Builder, display the online help by opening the
+Report Builder and pressing F1.)</p>
+<div class="note"><span class="notetitle">Note:  </span>The Excel
+report output format type provides limited support for the formatting
+options available in ColdFusion Reporting. Images and charts are
+not supported and numeric data containing formatting (commas, percents,
+currency, and so on) appear as plain text in Excel. The Excel output
+format supports simple reports only and Adobe recommends that you
+give careful design and layout consideration to reports designed
+for Excel output.</div>
+<p>This tag requires an end tag.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d__WSc3ff6d0ea77859461172e0811cbec22c24-6fbd"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d__WSc3ff6d0ea77859461172e0811cbec22c24-6fbd"><!-- --></a><h4 class="sectiontitle">Using Cascading Style Sheets</h4><p>You can override Cascading Style
+Sheets (CSS) in Report Builder reports at run time by using the <samp class="codeph">style</samp> attribute
+of the <samp class="codeph">cfreport</samp> tag in ColdFusion.</p>
+<p>You can
+create CSS files in one of two ways: by exporting styles with the
+Export Report Styles icon in Report Builder or by creating a CSS
+file in any text editor. For the CSS styles to take effect, however,
+you must use Report Builder to assign the style names to the elements
+in the report. (The exception is the default style: you can use
+the <samp class="codeph">style</samp> attribute to define the default style
+in ColdFusion and apply it to the report even if the default style
+is not defined in Report Builder.)</p>
+<p>After you assign the style
+names in Report Builder, you can update the style definitions in
+the CSS file at any time and apply them at run time by using the <samp class="codeph">cfreport</samp> and <samp class="codeph">cfreportparam</samp> tags.
+If your report contains subreports, the default style applies to
+the master report and to all of the subreports. If the master report
+uses CSS styles other than the default style, the CSS styles do
+not apply to the subreports unless you specify them explicitly.</p>
+<p>The
+following code shows how to apply three different style sheets to
+the main report and two subreports at run time:</p>
+<pre>&lt;cfreport template="myreport.cfr" style="mystyle.css" format="PDF"&gt; 
+    &lt;cfreportParam subreport="subreport1" style="subreport1-style.css"&gt; 
+    &lt;cfreportParam subreport="subreport2" style="subreport2-style.css"&gt; 
+&lt;/cfreport&gt;</pre>
+<p>The following code shows how to
+apply a CSS style as a value of the <samp class="codeph">style</samp> attribute:</p>
+<pre>&lt;cfreport template="myreport.cfr" style='mystyle { defaultStyle: true; font-family:"Comic Sans MS"; color: ##00FF00; }' format="FlashPaper"&gt; 
+&lt;/cfreport&gt;</pre>
+<p>The following code shows how to
+create a variable called <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">myStyle</i> and use it as a value of
+the <samp class="codeph">style</samp> attribute:</p>
+<pre>&lt;cfset mystyle='mystyle { defaultStyle: false; font-family: "Comic Sans MS"; }'&gt; 
+&lt;cfreport template="myreport.cfr" style="#mystyle#" format="HTML"&gt; 
+&lt;/cfreport&gt;</pre>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d__WSc3ff6d0ea77859461172e0811cbec19ad1-7fd2"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d__WSc3ff6d0ea77859461172e0811cbec19ad1-7fd2"><!-- --></a><h4 class="sectiontitle">Style attribute syntax</h4><p>The
+style file or string must be valid CSS syntax. For more information,
+see http://www.w3.org/Style/CSS/. The style must contain one or
+more rule sets. Each rule set consists of a simple selector, which
+is the Report Builder style name, followed by a declaration block,
+which consists of a series of declarations separated by semicolons.
+A declaration is a property:value pair.</p>
+<p>If a selector contains
+invalid syntax, ColdFusion ignores the selector and its declaration
+block. Selectors and properties not supported by this feature are
+ignored. Styles are case-insensitive, except parts not under the
+control of CSS (such as font names).</p>
+<p>The following example
+shows the CSS definition for the default style:</p>
+<pre>DefaultStyle 
+    { 
+        default-style: true; 
+        color: black; 
+        font-family: Arial, "Comic Sans MS"; 
+        font-size: 16; 
+        text-decoration: underline; 
+    }</pre>
+<p>The following example shows the CSS definition
+for a custom style called PurpleBoldItalicText:</p>
+<pre>PurpleBoldItalicText 
+    { 
+        color: purple; 
+        font: italic bold 20px 30px Arial; 
+    }</pre>
+<p>Identifiers for styles must be CSS2-compliant.
+For example, CSS1 allows '_' in identifiers, but CSS2 does not.</p>
+<p>In
+CSS2, identifiers, including element names, classes, and IDs in
+selectors, can contain only the characters A-Z, a-z, and 0-9. Also,
+they can include ISO 10646 characters 161 and higher and the hyphen
+character (-); however, identifiers cannot start with a hyphen or
+a digit. They can contain escaped characters and any ISO 10646 character
+as a numeric code. For example, you can write the identifier "B&amp;W?"
+as "B\&amp;W\?" or "B\26 W\3F".</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d__WSc3ff6d0ea77859461172e0811cbec22c24-6fe8"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d__WSc3ff6d0ea77859461172e0811cbec22c24-6fe8"><!-- --></a><h4 class="sectiontitle">Style properties</h4><p>The following table shows the style properties
+exported by Report Builder:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e86668"><p>Property name</p>
+</th>
+<th valign="top" width="NaN%" id="d17e86671"><p>Report Builder only</p>
+</th>
+<th valign="top" width="NaN%" id="d17e86674"><p>Valid values</p>
+</th>
+<th valign="top" width="NaN%" id="d17e86677"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e86668 "><p>background-color</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>No</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p>See the section <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Valid color values</i></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>Background color of the specified report
+element, if the element is not transparent. The default background
+color is white.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>border</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>No</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p><samp class="codeph">[border-width]</samp></p>
+<p><samp class="codeph">[border-style]</samp></p>
+<p><samp class="codeph">[border-color]</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>A shorthand property that specifies the <samp class="codeph">border-width</samp>, <samp class="codeph">border-style</samp>,
+and <samp class="codeph">border-color</samp> properties for all of the borders
+in an element.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>border-color</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>No</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p>See the section <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Valid color values</i></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>Border color for text, images, and charts.
+You can customize each side of the border. The default color is
+white.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>border-style</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>No</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p><samp class="codeph">solid</samp></p>
+<p><samp class="codeph">dashed</samp></p>
+<p><samp class="codeph">none</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>A shorthand property that specifies the <samp class="codeph">border-top-style</samp>, <samp class="codeph">border-right-style</samp>, <samp class="codeph">border-bottom-style</samp>, and <samp class="codeph">border-left-style</samp> (the
+comma-separated values must be in this order). If one or more values
+are not specified, the value for the opposite side is used. If only
+one value is listed, that value applies to all sides.</p>
+<p>The <samp class="codeph">none</samp> value
+overrides the <samp class="codeph">border-width</samp> value. Any other values,
+including <samp class="codeph">hidden</samp>, <samp class="codeph">dotted</samp>, <samp class="codeph">groove</samp>, <samp class="codeph">ridge</samp>, <samp class="codeph">inset</samp>, <samp class="codeph">outset</samp>,
+and <samp class="codeph">double</samp>, are displayed as solid.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>border-top-color</p>
+<p>border-left-color</p>
+<p>border-bottom-color</p>
+<p>border-right-color</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>No</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p>See the section <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Valid color values</i></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>Color of the element’s top, left, bottom,
+and right border. For more details see that section <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Border and margin styles</i>.</p>
+<p>If
+no <samp class="codeph">border-color</samp> property is specified, the value
+of the <samp class="codeph">color</samp> property is used instead.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>border-top-style</p>
+<p>border-left-style</p>
+<p>border-bottom-style</p>
+<p>border-right-style</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>No</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p><samp class="codeph">solid</samp></p>
+<p><samp class="codeph">dashed</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>Line style of the element’s top, left, bottom,
+and right border. For more details see the section <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Border and margin styles</i>.</p>
+<p>Any
+value other than <samp class="codeph">dashed</samp> displays as solid.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>border-top-width</p>
+<p>border-left-width</p>
+<p>border-bottom-width</p>
+<p>border-right-width</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>No</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p><samp class="codeph">thin</samp></p>
+<p><samp class="codeph">medium</samp></p>
+<p><samp class="codeph">thick</samp></p>
+<p><samp class="codeph">1px</samp></p>
+<p><samp class="codeph">2px</samp></p>
+<p><samp class="codeph">4px</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>Thickness of the top, left, bottom, and
+right border of an element. Negative values are not valid. For more
+details see the section <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Border and margin styles</i>:</p>
+<div class="para"><ul><li><p><samp class="codeph">thin = 1/2 pt</samp></p>
+</li>
+<li><p><samp class="codeph">medium = 2px</samp></p>
+</li>
+<li><p><samp class="codeph">thick = 4px</samp></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>border-width</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>No</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p><samp class="codeph">thin</samp></p>
+<p><samp class="codeph">medium</samp></p>
+<p><samp class="codeph">thick</samp></p>
+<p><samp class="codeph">1px</samp></p>
+<p><samp class="codeph">2px</samp></p>
+<p><samp class="codeph">4px</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>A shorthand property that specifies the <samp class="codeph">border-top-width,</samp><samp class="codeph">border-right-width</samp>,
+and <samp class="codeph">border-bottom-width</samp> properties with a single
+property and value notation (the comma-separated values must be
+in this order). If one or more values are not specified, the value
+for the opposite side is used. If only one value is listed, it applies
+to all sides:</p>
+<div class="para"><ul><li><p><samp class="codeph">thin = 1/2 pt</samp></p>
+</li>
+<li><p><samp class="codeph">medium = 2px</samp></p>
+</li>
+<li><p><samp class="codeph">thick = 4px</samp></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>clip</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>No</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p><samp class="codeph">auto</samp></p>
+<p><samp class="codeph">stretch</samp></p>
+<p><samp class="codeph">ratio</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>Specifies how images are resized:</p>
+<div class="para"><ul><li><p><samp class="codeph">auto</samp>: If the dimensions of the source image
+differ from the element in the report, this attribute crops the
+image to fit within the element boundaries. The image is not resized. Only
+the part of the image that fits in the boundaries is displayed.</p>
+</li>
+<li><p><samp class="codeph">stretch</samp>: If the dimensions of the source
+image differ from the element in the report, this attribute resizes
+the image so that it fits within the element boundaries. If the dimensions
+differ, the image is distorted.</p>
+</li>
+<li><p><samp class="codeph">ratio</samp>: If the dimensions of the source image
+differ from the element in the report, this attribute resizes the
+image to fit within the element boundaries but maintains the aspect ratio
+of the source so that the image is not distorted.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>color</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>No</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p>See the section <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Valid color values</i></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>Color of the text (in text elements) and
+the border (in graphic elements). The default color is black.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>corner-radius</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>Yes</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p><samp class="codeph">integer</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>Radius for arcs used to draw the corner
+of rectangles. The default is 0 (square corners). Values less than
+0 are interpreted as 0.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>default-style</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>Yes</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p><samp class="codeph">true</samp></p>
+<p><samp class="codeph">false</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>Default style for elements that do not or
+cannot have a style applied. A subreport inherits its parent’s default-style
+if it does not have one of its own.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>embed-pdf-font</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>Yes</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p><samp class="codeph">true</samp></p>
+<p><samp class="codeph">false</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>Specifies whether fonts are embedded in
+the PDF document. Embedded fonts insure that the fonts display properly
+even if the font is not installed on the system where the report
+is viewed.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>empty-cells</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>No</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p><samp class="codeph">show</samp></p>
+<p><samp class="codeph">hide</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>Shows or hides a null value for text expressions:</p>
+<div class="para"><ul><li><p><samp class="codeph">show</samp>: If the text expression returns a null
+value, the string "null" is displayed.</p>
+</li>
+<li><p><samp class="codeph">hide</samp>: If the text expression returns a null
+value, the null value is replaced with an empty string. This is
+the default.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>font</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>No</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p><samp class="codeph">[font-style]</samp></p>
+<p><samp class="codeph">[font-weight]</samp></p>
+<p><samp class="codeph">[font-size]</samp></p>
+<p><samp class="codeph">[line-height]</samp></p>
+<p><samp class="codeph">[font-family]</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>Font characteristic specifications. Use
+this as a shorthand to specifying multiple property values; for
+example:</p>
+<p><samp class="codeph">font: italic 20px Arial</samp>;</p>
+<p>Default
+values for this property match those used for the individual properties.
+Default values for the individual properties are applied to the
+values omitted from the font property.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>font-family</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>No</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p>Comma-separated list of font names.</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>Group of fonts to apply to the element.
+The first font found in the list is applied to the element. The
+default is:</p>
+<p><samp class="codeph">font-family: Arial, Helvetica, sansserif</samp>;</p>
+<p>If
+a font name contains spaces, enclose the name in quotation marks,
+for example:</p>
+<p><samp class="codeph">font-family: Courier, "Courier New", Arial;</samp></p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>font-size</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>No</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p><samp class="codeph">[</samp><samp class="codeph">length</samp><samp class="codeph">]</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>Font size measured in points or pixels.
+Negative values are not valid. The default value is 10 points. You
+can specify points or pixels. 1 pixel = 0.75. points. This property
+also is a component of the font property.</p>
+<p>Standard CSS supports
+other types of values not supported by Report Builder.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>font-style</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>No</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p><samp class="codeph">normal</samp></p>
+<p><samp class="codeph">italic</samp></p>
+<p><samp class="codeph">oblique</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>Font style. The <samp class="codeph">italic</samp> and <samp class="codeph">oblique</samp> values
+are similar. The default value is normal. Also, this property is
+a component of the <samp class="codeph">font</samp> property.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>font-weight</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>No</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p><samp class="codeph">normal</samp></p>
+<p><samp class="codeph">bold</samp></p>
+<p><samp class="codeph">bolder</samp></p>
+<p><samp class="codeph">lighter</samp></p>
+<p><samp class="codeph">100</samp></p>
+<p><samp class="codeph">200</samp></p>
+<p><samp class="codeph">300</samp></p>
+<p><samp class="codeph">400</samp></p>
+<p><samp class="codeph">500</samp></p>
+<p><samp class="codeph">600</samp></p>
+<p><samp class="codeph">700</samp></p>
+<p><samp class="codeph">800</samp></p>
+<p><samp class="codeph">900</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>Font weight. Report Builder does not support
+varying degrees of boldness or lightness; therefore, <samp class="codeph">normal</samp> and <samp class="codeph">lighter</samp> appear
+as <samp class="codeph">normal</samp>; all other values appear as <samp class="codeph">bold</samp>.
+The default is <samp class="codeph">normal</samp>. Also, this property is a
+component of the <samp class="codeph">font</samp> property.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>line-height</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>No</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p><samp class="codeph">normal</samp></p>
+<p><samp class="codeph">[number]</samp></p>
+<p><samp class="codeph">[length]</samp></p>
+<p><samp class="codeph">[percentage]</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>Amount of space between consecutive lines
+of text:</p>
+<div class="para"><ul><li><p><samp class="codeph">normal</samp>: Sets the line-height
+to single-spacing (default).</p>
+</li>
+<li><p><samp class="codeph">number</samp>: A multiplier that determines the
+line height as a factor of the element’s font size. To determine
+the line height from this number, multiply the current element font-size
+by the number. Negative values are not valid.</p>
+</li>
+<li><p><samp class="codeph">length</samp>: Sets the line height to an explicit
+length. You can specify points (for example, "20") or pixels (for
+example, "20px"). 1 pixel = 0.75 points. Negative values are not
+valid. Standard CSS allows other units of length not supported by Report
+Builder.</p>
+</li>
+<li><p><samp class="codeph">percentage</samp>: Defines the line-height as a
+percentage. The percent symbol is required (for example, 150%).
+Negative values are invalid.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>line-size</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>Yes</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p><samp class="codeph">none</samp></p>
+<p><samp class="codeph">thin</samp></p>
+<p><samp class="codeph">1px</samp></p>
+<p><samp class="codeph">2px</samp></p>
+<p><samp class="codeph">4px</samp></p>
+<p><samp class="codeph">dashed</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>Type of the border around a graphic element
+or the type and the thickness of line elements. By default, lines
+and rectangles have a 1-pixel border; <samp class="codeph">thin</samp> is 0.05
+pixels.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>margin</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>No</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p><samp class="codeph">[top-integer]</samp></p>
+<p><samp class="codeph">[right-integer]</samp></p>
+<p><samp class="codeph">[bottom-integer]</samp></p>
+<p><samp class="codeph">[left-integer]</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>Amount of blank space within the bounding
+box of an element. This is a shorthand property that specifies the <samp class="codeph">margin-top</samp>, <samp class="codeph">margin-right</samp>, <samp class="codeph">margin-bottom</samp>,
+and <samp class="codeph">margin-left </samp>properties with a single property
+and value notation (the values must be in this order separated by commas.)
+If one or more values are not specified, the value for the opposite
+side is used. If only one value is listed, it applies to all sides.
+For more details see the section <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Border and margin styles</i>.</p>
+<p>CSS
+margins are transparent, which reveals the background of the parent
+element. Negative values are valid; this allows for text overlays.</p>
+<p>Examples:</p>
+<p><samp class="codeph">margin: 10,20,30,40;</samp></p>
+<p><samp class="codeph">margin: 10;</samp></p>
+<p><samp class="codeph">margin: 10,20,30;</samp></p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>margin-top</p>
+<p>margin-left</p>
+<p>margin-bottom</p>
+<p>margin-right</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>No</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p><samp class="codeph">integer</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>See margin.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>parent-style</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>Yes</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p><samp class="codeph">styleName</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>Name of the parent report style from which
+this style inherits some or all of its properties. The style name
+must be defined in either the report or before this style definition
+in the CSS file or text.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>text-align</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>No</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p><samp class="codeph">left</samp></p>
+<p><samp class="codeph">center</samp></p>
+<p><samp class="codeph">right</samp></p>
+<p><samp class="codeph">justify</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>Alignment of text and images on the horizontal
+axis. The default value is <samp class="codeph">left</samp>.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>text-decoration</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>No</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p><samp class="codeph">underline</samp></p>
+<p><samp class="codeph">line-through</samp></p>
+<p><samp class="codeph">underline line-through</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>Text characteristics not defined with the <samp class="codeph">font-style</samp> and <samp class="codeph">font-weight</samp> properties.
+The color of the text-decoration is determined by the color property
+for the element. Unknown values are ignored.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>text-rotation</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>Yes</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p><samp class="codeph">none</samp></p>
+<p><samp class="codeph">left</samp></p>
+<p><samp class="codeph">right</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>Rotation of text elements. Use it to change
+the text direction by rotating it 90 degrees to the right or left.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>transparency-mode</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>Yes</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p><samp class="codeph">opaque</samp></p>
+<p><samp class="codeph">transparent</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>Transparency of elements. Graphic elements,
+such as rectangles and lines, are opaque by default, but images
+are transparent. Subreport elements, static text, and text fields are
+transparent by default.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>vertical-align</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>No</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p><samp class="codeph">top</samp></p>
+<p><samp class="codeph">middle</samp></p>
+<p><samp class="codeph">bottom</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>Alignment of text and images on the vertical
+axis. The default value is <samp class="codeph">top</samp>.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e86668 "><p>xhtml-formatted-text</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86671 "><p>Yes</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86674 "><p><samp class="codeph">true</samp></p>
+<p><samp class="codeph">false</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e86677 "><p>Specifies whether the text element contains
+XHTML-compatible instructions:</p>
+<div class="para"><ul><li><p><samp class="codeph">true</samp>:
+The text element contains xhtml-compatible instructions, for example,
+&lt;b&gt;My Text Label&lt;/b&gt;. In this example, the text within
+the tags displays in bold (<strong>My Text Label</strong>), and the tags (&lt;b&gt;
+&lt;/b&gt;) are not displayed.</p>
+</li>
+<li><p><samp class="codeph">false</samp>: The text element does not contain
+xhtml-compatible instructions; therefore, all the text within the
+text element is displayed. This is the default.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Styles or values that are not supported
+by Report Builder are ignored in the report, in which case, if a
+default-style is defined, Report Builder applies the default style
+to the element.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d__WSc3ff6d0ea77859461172e0811cbec22c24-6fe5"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d__WSc3ff6d0ea77859461172e0811cbec22c24-6fe5"><!-- --></a><h4 class="sectiontitle">Valid color values</h4><p>You
+can specify a color as #RRGGBB. This represents a color that uses
+a triplet of hexadecimal values concatenated together. The values
+represent the red, green, and blue components for a given color.
+The range of each component value is 00-FF in hexadecimal. Also,
+you can use one of the 140 X11 color names (see http://www.blooberry.com/indexdot/color/x11makerFrameNS.htm).
+The color name is case-insensitive. This set of names assigns names
+to specific RGB values. Also, a color name can also be specified
+as ##RGB, rgb(r,g,b), or rgb(r%,g%,b%). See CSS Color Units for
+syntax details (see http://www.blooberry.com/indexdot/css/syntax/units/color.htm).
+UI Name is not supported.</p>
+<p>The following example shows the
+different ways you can represent the color lime:</p>
+<pre>color:lime 
+color:#00FF00 
+color:#0F0  
+color:rgb(0,255,0) 
+color:rgb(0%,50%,0%)</pre>
+<p>If you specify a color in hexadecimal
+format as part of the <samp class="codeph">style</samp> attribute for the <samp class="codeph">cfreport</samp> tag,
+use the format <samp class="codeph">##00FF00</samp>. For example:</p>
+<pre>&lt;cfreport template="myreport.cfr" style='mystyle { defaultStyle: true; 
+    font-family:"Comic Sans MS"; color: ##00FF00; }' format="HTML"/&gt;</pre>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d__WSc3ff6d0ea77859461172e0811cbec22c24-6fe2"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d__WSc3ff6d0ea77859461172e0811cbec22c24-6fe2"><!-- --></a><h4 class="sectiontitle">Border and margin styles</h4><p>Use the <samp class="codeph">border-width</samp>, <samp class="codeph">border-style</samp>, <samp class="codeph">border-color,</samp> and <samp class="codeph">margin</samp> properties
+when all four sides of the element have the same value. You can specify
+from one to four parameters for these properties:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e87627"><p>Number of parameters</p>
+</th>
+<th valign="top" width="NaN%" id="d17e87630"><p>Example</p>
+</th>
+<th valign="top" width="NaN%" id="d17e87633"><p>Result</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e87627 "><p>1</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e87630 "><p>border-width: thick</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e87633 "><p>Parameter applied to all four sides of the
+element’s border.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e87627 "><p>2</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e87630 "><p>border-width: thick, thin</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e87633 "><p>First parameter (<samp class="codeph">thick</samp>)
+applied to the top and bottom sides; second parameter (<samp class="codeph">thin</samp>) applied
+to the left and right sides.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e87627 "><p>3</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e87630 "><p>border-width: thick, thin, medium</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e87633 "><p>First parameter (<samp class="codeph">thick</samp>)
+applied to the top; second parameter (<samp class="codeph">thin</samp>) applied
+to the left and right sides; third parameter (<samp class="codeph">medium</samp>)
+applied to the bottom.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e87627 "><p>4</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e87630 "><p>border-width: thick, thin, medium, thick</p>
+</td>
+<td valign="top" width="NaN%" headers="d17e87633 "><p>First parameter (<samp class="codeph">thick</samp>)
+applied to the top; second parameter (<samp class="codeph">thin</samp>) applied
+to the right side; third parameter (<samp class="codeph">medium</samp>) applied
+to the bottom; fourth parameter (<samp class="codeph">thick</samp>) applied
+to the left side.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>You can use the properties for each side
+of a border to override the style specified by the <samp class="codeph">border-width</samp>, <samp class="codeph">border-style</samp>, <samp class="codeph">border-color</samp>,
+and <samp class="codeph">margin</samp> properties.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d__WSc3ff6d0ea77859461172e0811cbec19ad1-7fce"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d__WSc3ff6d0ea77859461172e0811cbec19ad1-7fce"><!-- --></a><h4 class="sectiontitle">Example</h4><p>Example
+1: This example shows the use of cfreport for the ColdFusion Report Builder.</p>
+<pre>&lt;cfquery name="northwindemployees" datasource="localnorthwind"&gt; 
+    SELECT EmployeeID, LastName, FirstName, Title, City, Region, Country 
+    FROM Employees 
+    ORDER BY Country, City 
+&lt;/cfquery&gt; 
+ 
+&lt;CFREPORT format="PDF" template="FifthReport.cfr"  
+    query="#northwindemployees#"/&gt; 
+</pre>
+<p>Example 2: This view-only example shows the use
+of cfreport for Crystal Reports.</p>
+<pre>&lt;h3&gt;cfreport Tag&lt;h3&gt; 
+&lt;p&gt;cfreport lets reports from the Crystal Reports Professional report writer display through a ColdFusion interface. To run, the tag requires the name of the report. cfreport can also pass information to the report file displayed, to change the output conditions.&lt;/p&gt; 
+&lt;p&gt;This example would run a report called "monthlysales.rpt " and pass it an 
+    optional filter condition to show only the information for a subset  
+    of the report.&lt;/p&gt; 
+ 
+<strong>&lt;cfreport report = '/reports/monthlysales.rpt'&gt;</strong> 
+    <strong>{Departments.Department} = 'International'</strong> 
+<strong>&lt;/cfreport&gt;</strong> 
+ 
+&lt;p&gt;Substitute your report files and filters for this code. cfreport can put Crystal Reports into web pages.&lt;/p&gt;</pre>
+</div>
+</div>
+
+
+<!-- BEGIN USER PREFERENCES -->
+          <div id="userprefs">
+          </div>
+<!-- END USER PREFERENCES -->
+
+          <div id="related">
+            
+            
+            <div class="separator">&#160;</div>
+          </div>
+          <div id="footer">
+<!-- BEGIN IONCOMMENTS -->
+            <div id="ionComHere">
+            </div>
+<!-- END IONCOMMENTS -->
+
+
+            <p id="creativecommons"><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" id="creativecommons_text"><img id="creativecommons_img" src="images/CC.png" alt="This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License" /></a>&nbsp;Twitter™ and Facebook posts are not covered under the terms of Creative Commons.</p>
+          </div>
+</td>
+<td width="10px"></td>
+<td id="inner_rightcolumn">
+
+</td></tr></table>
+      </div>
+<!-- BEGIN BREADCRUMBS -->
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec22c24-7c6f.html" title="cfregistry"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec22c24-76cd.html" title="cfreportparam"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>ColdFusion&#160;9&#160;CFML&#160;Reference</b></a> / <a href="WSc3ff6d0ea77859461172e0811cbec17576-7ffe.html"><b>ColdFusion Tags</b></a> 
+      / <a href="WSc3ff6d0ea77859461172e0811cbec19ad1-7ffe.html"><b>Tags r-s</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+<!-- END CONTENT WRAPPER -->
+
+</td>
+<td id="col3">
+    <div>
+        <img src="images/adobe-lq.png" />
+    </div>
+</td>
+</tr>
+</table>
+    </div>
+<!-- END PAGE CONTENT WRAPPER -->
+<script type="text/javascript">
+<!--[CDATA[
+scrollToNameAnchor();
+// ]]-->
+</script> 
+<!--
+    Description:
+    This file generates the link to product support in the top right corner
+-->
+
+<style>
+#menutop{
+    position:absolute;
+    top:4px;
+    right:24px;
+    width:auto;    
+    font-size:11px;
+    color:#fff;
+    text-align:right;
+}
+#menutop a{
+    color:#fff;
+}
+#menutop a:hover{
+        text-decoration:underline;
+}
+</style>  
+  
+  
+  
+  
+<div id="productmenu">
+<!--googleoff: index-->
+  <div id="menutop">
+
+
+<script language=javascript type='text/javascript'>
+    // darken menu text for products with light backgrounds
+    var path = document.location.href.toLowerCase();
+    if (path.indexOf("/acrobat/")           	> 0 ||
+        path.indexOf("/acrobat.com/")       	> 0 ||
+        path.indexOf("/acrobatConnectPro/") 	> 0 ||
+        path.indexOf("/connect/")           	> 0 ||
+        path.indexOf("/livecycledataserviceses/") > 0 ||
+        path.indexOf("/muse/")         	> 0 ||
+	path.indexOf("/presenter/")         	> 0 ||
+        path.indexOf("/scene7/")            	> 0 ||
+        path.indexOf("/flashmediaserver/")  	> 0 ||
+        path.indexOf("/wave/")              	> 0 )
+    {
+        document.write('<style>#menutop a{color:#505050}</style>');
+    }
+    if (typeof('terms_AHV_PRODUCT_SUPPORT') != "undefined" && ! use_robohelp_behavior ){      
+        if (path.indexOf("/muse/") > -1 ){
+            var supportlink = '<a href="http://muse.adobe.com/support.html">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }else{
+            var supportlink = '<a href="http://adobe.com/support">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }
+        document.write( supportlink );
+     }
+
+</script> 
+
+  </div>
+<!--googleon: index-->
+</div>
+
+
+
+<style>
+#online-privacy-policy{ 
+    margin:10px 40px; 
+    font-size:11px;
+}
+</style>
+
+<p id="online-privacy-policy">
+<script language="javascript">
+var pageLoc = "en_US";
+var metaElements = document.all ?
+document.all.tags('meta') :
+document.getElementsByTagName ?
+document.getElementsByTagName ('meta') : new Array();
+for (var m = 0; m < metaElements.length; m++) {
+	if (metaElements[m].name == "lang") {
+		pageLoc = metaElements[m].content;
+		break;
+	}
+}
+var ptn = /(..)-(..)/;
+if (ptn.test(pageLoc)) {
+	var languageCode = pageLoc.replace(ptn, "$1");
+	var countryCode = pageLoc.replace(ptn, "$2");
+	pageLoc = languageCode + "_" + countryCode.toUpperCase();
+}
+
+var policyLoc = "en_US";
+var policyText = "Online Privacy Policy";
+var policyPath = "";
+var policyArray=[
+"da_DK", "Online fortrolighedserklæring",
+"de_DE", "Online-Datenschutzrichtlinie",
+"es_ES", "Política de confidencialidad en línea",
+"fi_FI", "Yksityisyyttä koskeva Online-toimintaohjelma",
+"fr_FR", "Confidentialité et sécurité",
+"it_IT", "Informativa sulla privacy online",
+"ja_JP", "プライバシーポリシー",
+"ko_KR", "Adobe 온라인 개인정보 보호정책",
+"pt_BR", "Política de Confidencialidade On-line", 
+"zh_CN", "在线隐私政策",
+"zh_TW", "線上隱私政策"
+];
+var legalLoc = "en_US";
+var legalText = "Legal Notices";
+var legalPath = legalLoc;
+var legalArray=[
+"ar_AE", "إشعارات قانونية",
+"bg_BG", "Юридически бележки",
+"cs_CZ", "Právní upozornění",
+"da_DK", "Juridiske meddelelser",
+"de_DE", "Rechtliche Hinweise",
+"el_GR", "Σημειώσεις νομικού περιεχομένου",
+"es_ES", "Avisos legales",
+"et_EE", "Juriidilised teated",
+"fi_FI", "Lakisääteiset ilmoitukset",
+"fr_FR", "Mentions légales",
+"he_IL", "הצהרות משפטיות",
+"hr_HR", "Pravne napomene",
+"hu_HU", "Jogi közlemények",
+"it_IT", "Informazioni legali",
+"ja_JP", "法律上の注意",
+"ko_KR", "법적 고지 사항",
+"lt_LT", "Teisinės pastabos",
+"lv_LV", "Juridisks paziņojums",
+"nb_NO", "Juridiske merknader",
+"nl_NL", "Juridische kennisgevingen",
+"pl_PL", "Informacje prawne",
+"pt_BR", "Aspectos jurídicos",
+"ro_RO", "Prevederi legale",
+"ru_RU", "Юридическая информация",
+"sk_SK", "Právne upozornenie",
+"sl_SI", "Pravni pouk",
+"sv_SE", "Upphovsrätt",
+"tr_TR", "Yasal uyarılar",
+"uk_UA", "Юридична інформація",
+"zh_CN", "法律声明",
+"zh_TW", "法律注意事項"
+];
+
+ruPolicy = "http://www.adobe.com/ru/misc/privacy.html";
+trPolicy = "http://www.adobe.com/tr/misc/privacy.html";
+
+// Bug 2846992: LOC: RUS, TUR: The link to "Online Privacy Policy" should include language, currently it is not appearing.
+if (pageLoc == "ru_RU") {
+	policyPath = "ru";
+}
+else if (pageLoc == "tr_TR") {
+	policyPath = "tr";
+}
+for (var i = 0; i < policyArray.length; i+=2) {
+	if (pageLoc == policyArray[i]) {
+		policyLoc = pageLoc;
+		policyText = policyArray[i+1];
+		var ptn = /(..)_(..)/;
+		if (ptn.test(policyLoc)) {
+			var countryCode = policyLoc.replace(ptn, "$2");
+			policyPath = countryCode.toLowerCase();
+		}
+		break;
+	}
+}
+
+for (var i = 0; i < legalArray.length; i+=2) {
+	if (pageLoc == legalArray[i]) {
+		legalLoc = pageLoc;
+		legalText = legalArray[i+1];
+		legalPath = legalLoc;
+		break;
+	}
+}
+if(agt.indexOf("community help client") > -1 ){
+	document.write('<a href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+}else{
+	//Open the privacy policy in a new window
+	document.write('<a target="_blank" href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a target="_blank" href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+} 
+</script>
+</p>
+
+
+
+<!-- localfooter.ssi -->
+
+<script type="text/javascript">
+    var debug = (top.location.href.indexOf("debug=true") > -1);
+</script>
+
+<script language="javascript">
+document.write('<scr'+'ipt ' +
+               'src="/en_US/ssi/_pod.js" ' +
+               'language="javascript" ' +
+               'charset="UTF-8"> ' +
+               '</scr'+'ipt>');
+</script>
+
+
+<script type="text/javascript">
+//
+//  Ethnio survey code
+//
+/*          DocumentID      EthnioID */
+/*          -------------   -------- */
+var ethnio=["/en_US/flash/cs/using/WSb03e830bd6f770ee6664507612436d7dede-8000.html", "87462",
+            "/en_US/creativesuite/cs/using/WSe851854fd1e0856a-4b08a77612477f69f15-8000.html",  "10441",
+            "/en_US/dreamweaver/cs/using/WSEE4C0148-A6F4-4bf5-9DEF-CE06AB026214a.html",  "57412"
+ 
+    ];
+                        
+    for ( var i = 0; i < ethnio.length ; i = i+2 ){
+        if ( document.location.href.indexOf( ethnio[i] ) > -1 ){ 
+            var headID = document.getElementsByTagName("head")[0];         
+            var ethnioScript = document.createElement('script');
+            ethnioScript.type = 'text/javascript';
+            ethnioScript.src = 'http://ethn.io/remotes/' + ethnio[i+1];        
+            if ( debug ){
+                alert ("Using Ethnio script: " + ethnioScript.src );
+            }else{
+                headID.appendChild(ethnioScript);
+            }
+        }
+    }
+</script>
+
+
+
+<div style="display: none;">
+<!-- SiteCatalyst -->
+<script language="JavaScript" type="text/javascript"><!--
+var s_code=' ';
+var s_docHost = window.location.hostname.toLowerCase();
+var s_docURL = window.location.pathname.toLowerCase();
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+if (s_docHost.indexOf(".corp.adobe") != -1 || s_docHost.indexOf("stage.") != -1 || s_docHost.indexOf(".dev.adobe") != -1 || s_docHost.indexOf("staging.") != -1) scJsHost="";
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/omniture_s_code.js' type='text/javascript'%3E%3C/script%3E"));
+//--></script>
+<script type="text/javascript"><!--
+var s_accountName;
+s_server="www.adobe.com static content pages";
+if (!window.s_account) s_accountName="mxmacromedia";
+else s_accountName=window.s_account;
+
+if (window.s_docURL.indexOf("/designcenter/") != -1)
+  s_channel="Adobe Design Center";	
+else if ((window.s_docHost.indexOf("labs.adobe") != -1) ||
+(window.s_docHost.indexOf("labs-staging.") != -1))
+  s_channel="Labs";
+else if (window.s_docHost.indexOf("help.adobe.com") != -1) {
+  s_channel="Support Help.adobe.com";
+  if (window.s_docURL.indexOf("/en_us/") == -1) {
+    s_docURLArray=s_docURL.split('/');
+    s_pageName="http://help.adobe.com/"+s_docURLArray[1]+"/"+ s_docURLArray[2]+"/"+s_docURLArray[3];
+    s_prop23="http://help.adobe.com"+window.location.pathname;
+  }
+}
+else if (window.s_docHost.indexOf("kb2.adobe.com") != -1) {
+  s_channel="Support Knowledgebase";
+  s_prop23="http://kb2.adobe.com"+s_docURL+":";
+  if (typeof(omtrProductList) != 'undefined' && omtrProductList.length > 0)
+ {
+    s_prop23=s_prop23+omtrProductList;
+  }
+}
+else if (window.s_docHost.indexOf("resellers.adobe.com") != -1) {
+		var s_pageName=document.getElementsByTagName("title")[0].text;
+}
+
+if (!window.scMMInclude) {
+	var s_wd=window,s_tm=new Date;
+	if(s_code!=' '){
+		s_code=s_dc(s_accountName);
+		if(s_code)document.write(s_code)
+	} 
+} else {
+	s_wds(s_accountName);s_ca(s_accountName); 
+}	
+
+function sendAnalyticsEvent(str){var ns=s_accountName;if(str!=null)ns+=","+str;void(s_gs(ns));}
+function sendLinkEvent(accnt,lnkname,type){
+accnt=s_accountName;s_linkType=type;s_lnk=true;s_linkName=lnkname;void(s_gs(accnt));}
+//--></script>
+<noscript><img src="http://stats.adobe.com/b/ss/mxmacromedia/1/H.15-XELvs/0?pageName=http%3A//www.adobe.com%3A%20noscript&ch=http%3A//www.adobe.com%3A%20noscript&g=http%3A//www.adobe.com" height="1" width="1" border="0" alt="" /></noscript>
+<!-- End SiteCatalyst -->
+</div>
+
+<script language="JavaScript" type="text/javascript">//<![CDATA[
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/atm/s_code_www.js' type='text/javascript'%3E%3C/script%3E"));
+//]]></script>
+<script type="text/javascript">//<![CDATA[
+if(s_adobe){	
+	s_adobe.server="www.adobe.com Static Content pages";
+	/* Set pageName */
+	s_adobe.s_URL="adobe.com"+((location.pathname.charAt(0)=='/')?location.pathname:'/'+location.pathname);
+	if (s_adobe.s_URL.substring(s_adobe.s_URL.lastIndexOf('/')+1)=="") s_adobe.s_URL=s_adobe.s_URL+"index.html";
+	s_adobe.s_URLSplit=s_adobe.s_URL.split("/");
+	s_adobe.pageName=s_adobe.s_URLSplit.join(":");
+
+	/* Set prop4 to language-locale */
+	var s_meta=document.getElementsByTagName('meta'); 
+      for (i=0; i<s_meta.length; i++) { 
+        if (s_meta[i].getAttribute("http-equiv") == "Content-Language") { 
+          s_adobe.prop4=s_meta[i].getAttribute("content"); 
+	    s_adobe.prop4=s_adobe.prop4.replace(/\s+/g,'');
+        } 
+      } 
+	s_adobe.t()
+}
+//]]></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>
