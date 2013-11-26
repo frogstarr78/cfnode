@@ -1,0 +1,103 @@
+start = tags / any
+
+tags = open_tags / closing_tags
+
+open_tags = cfset / cfqueryparam / cfdump
+
+cfset = lt c f s e t ws* "var" attrib_eql quoted_value whack? gt
+cfdump = lt c f d u m p ws* "var" attrib_eql quoted_value whack? gt
+cfqueryparam = lt c f q u e r y p a r a m ws* cfqpattrib whack? gt
+cfqpattrib = 
+	c f s q l t y p e attrib_eql query_types ws+ 
+	/ a r r a y attrib_eql boolean_value ws+ 
+	/ v a l u e attrib_eql quoted_value ws+
+
+query_types = "CF_SQL_VARCHAR" / "CF_SQL_INT"
+
+closing_tags = cfapplication
+	/ cfoutput
+	/ cfloop 
+	/ cfquery
+	/ cfif
+
+cfapplication = cfapplication_open (!cfapplication_close any)* cfapplication_close
+cfapplication_open = lt c f a p p l i c a t i o n ws* cfappAttribs ws* gt 
+cfappAttribs = "name" attrib_eql qval 
+	/ "output" attrib_eql boolean_value
+cfapplication_close = lt whack c f a p p l i c a t i o n gt 
+
+cfoutput = cfoutput_open (!cfoutput_close any)* cfoutput_close
+cfoutput_open = lt c f o u t p u t gt 
+cfoutput_close = lt whack c f o u t p u t gt 
+
+cfloop = cfloop_open (!cfloop_close any)* cfloop_close
+cfloop_open = lt c f l o o p gt 
+cfloop_close = lt whack c f l o o p gt 
+
+cfquery = cfquery_open (!cfquery_close any)* cfquery_close
+cfquery_open = lt c f q u e r y gt 
+cfquery_close = lt whack c f q u e r y gt 
+
+// conditionals
+cfif = cfif_open (!(cfif_close / cfelse / cfelseif) any)* cfif_close
+cfelse = lt c f e l s e gt
+cfelse = lt c f e l s e i f ws+ conditional_statement ws* gt
+cfif_open = lt c f i f ws+ conditional_statement ws* gt 
+cfif_close = lt whack c f i f gt 
+
+cfswitch = cfswitch_open (!cfswitch_close any)* cfswitch_close
+cfswitch_open = lt c f s w i t c h ws+ any+ ws* gt 
+cfswitch_close = lt whack c f s w i t c h gt 
+
+cfcase = cfcase_open (!cfcase_close any)* cfcase_close
+cfcase_open = lt c f c a s e ws+ any+ ws* gt 
+cfcase_close = lt whack c f c a s e gt 
+// end conditionals
+
+conditional_statement = any+
+ops = e q / n e q / l t /  l e / g t / g e / i s / n o t
+
+cfval = pound (!pound any)+ pound
+boolean_value = '"' (!'"' yes_no)* '"' 
+	/ "'" (!"'" yes_no)* "'" 
+
+yes_no = y e s / n o
+quoted_value = '"' (!'"' any)* '"' 
+	/ "'" (!"'" any)* "'" 
+
+attrib_eql = ws* eq ws*
+
+pound = '#'
+lt = '<'
+gt = '>'
+whack = '/'
+
+ws = ' ' / '\t'
+any = .*
+
+a = [aA]
+b = [bB]
+c = [cC]
+d = [dD]
+e = [eE]
+f = [fF]
+g = [gG]
+h = [hH]
+i = [iI]
+j = [jJ]
+k = [kK]
+l = [lL]
+m = [mM]
+n = [nN]
+o = [oO]
+p = [pP]
+q = [qQ]
+r = [rR]
+s = [sS]
+t = [tT]
+u = [uU]
+v = [vV]
+w = [wW]
+x = [xX]
+y = [yY]
+z = [zZ]
