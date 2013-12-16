@@ -1,5 +1,7 @@
 var is = require('assert'),
-	cf = require(__dirname + '/../cf');
+	PEG = require('pegjs'),
+	cf = require(__dirname + '/../cf'),
+	testlib = require('./testlib');
 
 var r;
 is.throws(function () {
@@ -26,4 +28,4 @@ is.equal(r.tag, 'import');
 is.equal(r.attributes.prefix, '');
 is.equal(r.attributes.taglib, '/path/to/taglib.cfc');
 
-console.log("Success!");
+testlib.die("Success!", 0);

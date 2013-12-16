@@ -1,8 +1,7 @@
 var is = require('assert'),
-	x = process.exit,
-	d = console.dir,
-	dd = function () { d('Failed!'); x(); },
-	cf = require(__dirname + '/../cf');
+	PEG = require('pegjs'),
+	cf = require(__dirname + '/../cf'),
+	testlib = require('./testlib');
 
 var r;
 
@@ -116,4 +115,4 @@ is(r.attributes.session_timeout instanceof Date);
 is.equal(r.attributes.client_cookies, false);
 is.equal(r.attributes.domain_cookies, false);
 
-console.log("Success!");
+testlib.die("Success!", 0);

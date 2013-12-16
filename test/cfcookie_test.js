@@ -1,10 +1,10 @@
 var is = require('assert'),
 	util = require('util'),
-	human_date = require('date.js'),
-	x = process.exit,
-	d = console.dir,
-	dd = function () { d('Failed!'); x(); },
-	cf = require(__dirname + '/../cf');
+	path = require('path'),
+//	human_date = require('date.js'),
+	PEG = require('pegjs'),
+	cf = require(__dirname + '/../cf'),
+	testlib = require('./testlib');
 
 var r;
 
@@ -66,7 +66,7 @@ is.equal(r.attributes.expires, 'session');
 
 is.throws(function () {
 	r = cf.parse('<cfcookie path="/path/here" name="cfcookietest">');
-}, Error);
+}, Error, "Expecting error when path with no domain was specified.");
 r = cf.parse('<cfcookie path="/path/here" domain=".example.com" value="hello test" name="cfcookietest">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'cookie');
@@ -75,7 +75,7 @@ is.equal(r.attributes.path, '/path/here');
 is.equal(r.attributes.domain, '.example.com');
 is.equal(r.attributes.value, 'hello test');
 
-console.log('Test @expires');
+console.log('  Test @expires');
 r = cf.parse('<cfcookie expires="now" name="cfcookietest">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'cookie');
@@ -86,7 +86,7 @@ r = cf.parse('<cfcookie expires="never" name="cfcookietest">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'cookie');
 is.equal(r.attributes.name, 'cfcookietest');
-is.equalDate(r.attributes.expires, human_date('in 30 years'));
+//is.equalDate(r.attributes.expires, human_date('in 30 years'));
 
 r = cf.parse('<cfcookie expires="2013-01-01" name="cfcookietest">');
 is.equal(r instanceof Object, true);
@@ -94,7 +94,6 @@ is.equal(r.tag, 'cookie');
 is.equal(r.attributes.name, 'cfcookietest');
 is.deepEqual(r.attributes.expires, new Date(2013, 0, 01));
 //is.equalDate(r.attributes.expires, new Date(2013, 0, 01));
-dd();
 
 r = cf.parse('<cfcookie expires="2013-01-01 12:34:56" name="cfcookietest">');
 is.equal(r instanceof Object, true);
@@ -106,6 +105,6 @@ r = cf.parse('<cfcookie expires="5" name="cfcookietest">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'cookie');
 is.equal(r.attributes.name, 'cfcookietest');
-is.equalDate(r.attributes.expires, human_date('in 5 days'));
+//is.equalDate(r.attributes.expires, human_date('in 5 days'));
 
-console.log("Success!");
+testlib.die("Success!", 0);
