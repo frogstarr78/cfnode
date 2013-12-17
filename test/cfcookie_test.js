@@ -75,7 +75,6 @@ is.equal(r.attributes.path, '/path/here');
 is.equal(r.attributes.domain, '.example.com');
 is.equal(r.attributes.value, 'hello test');
 
-console.log('  Test @expires');
 r = cf.parse('<cfcookie expires="now" name="cfcookietest">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'cookie');

@@ -39,6 +39,15 @@ is.equal(r.attributes.file, 'log');
 is.equal(r.attributes.log,  'application');
 is.equal(r.attributes.type, 'fatal');
 
+r = cf.parse('<CFLOG TEXT="cflog test" APPLICATION="true" FILE="log" TYPE="fatal" LOG="scheduler">');
+is.equal(r instanceof Object, true);
+is.equal(r.tag, 'log');
+is.equal(r.attributes.text, 'cflog test');
+is.equal(r.attributes.application, true);
+is.equal(r.attributes.file, 'log');
+is.equal(r.attributes.log,  'application');
+is.equal(r.attributes.type, 'fatal');
+
 r = cf.parse('<cflog text="cflog test" application="true" type="fatal" log="scheduler">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'log');

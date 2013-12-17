@@ -15,12 +15,12 @@ is.throws(function () {
 r = cf.parse('<cfdump var="#cfnode_test#">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'dump');
-is.equal(r.attributes.variable, 'cfnode_test');
+is.equal(r.attributes.var, 'cfnode_test');
 
 r = cf.parse('<cfdump output="console" var="#something#">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'dump');
-is.equal(r.attributes.variable, 'something');
+is.equal(r.attributes.var, 'something');
 is.equal(r.attributes.output, 'console');
 
 r = cf.parse('<cfdump label="somethingelse" hide="password" show="username,email" var="#query#" expand="true">');
@@ -29,7 +29,7 @@ is.equal(r.tag, 'dump');
 is.equal(r.attributes.label, 'somethingelse');
 is.equal(r.attributes.hide, 'password');
 is.deepEqual(r.attributes.show, ['username', 'email']);
-is.equal(r.attributes.variable, 'query');
+is.equal(r.attributes.var, 'query');
 is.equal(r.attributes.expand, true);
 
 r = cf.parse('<cfdump' +
@@ -59,6 +59,6 @@ is.equal(r.attributes.output, "browser");
 is.deepEqual(r.attributes.show, ['name', 'address', 'email', 'username']);
 is.equal(r.attributes.showUDFs, true);
 is.equal(r.attributes.top, 10);
-is.equal(r.attributes.variable, "var");
+is.equal(r.attributes.var, "var");
 
 testlib.die("Success!", 0);

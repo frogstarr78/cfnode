@@ -115,4 +115,37 @@ is(r.attributes.session_timeout instanceof Date);
 is.equal(r.attributes.client_cookies, false);
 is.equal(r.attributes.domain_cookies, false);
 
+r = cf.parse("<CFAPPLICATION\n" +
+"APPLICATIONTIMEOUT=\"\"\n" + 
+"DATASOURCE=\"abc\"\n" + 
+"CLIENTMANAGEMENT=\"yes\"\n" +
+"SECUREJSON=\"no\"\n" +
+"NAME=\"cfapplication-test\"\n" +
+"SERVERSIDEFORMVALIDATION=\"no\"\n" +
+"LOGINSTORAGE=\"cookie\"\n" +
+"GOOGLEMAPKEY=\"any\"\n" +
+"CLIENTSTORAGE=\"Cookie\"\n" +
+"SCRIPTPROTECT=\"all\"\n" +
+"SETCLIENTCOOKIES=\"no\"\n" +
+"SECUREJSONPREFIX=\"#\"\n" +
+"SESSIONMANAGEMENT=\"yes\"\n" +
+"SESSIONTIMEOUT=\"\"\n" +
+">");
+is(r instanceof Object);
+is.equal(r.tag, 'application');
+is.equal(r.attributes.name, 'cfapplication-test');
+is.equal(r.attributes.datasource, 'abc');
+is(r.attributes.timeout instanceof Date);
+is.equal(r.attributes.client_variables, true);
+is.equal(r.attributes.login_storage, 'cookie');
+is.equal(r.attributes.google_map_key, 'any');
+is.equal(r.attributes.script_protection, 'all');
+is.equal(r.attributes.server_side_form_validation, false);
+is.equal(r.attributes.secure_json, false);
+is.equal(r.attributes.secure_json_prefix, "#");
+is.equal(r.attributes.session_management, true);
+is(r.attributes.session_timeout instanceof Date);
+is.equal(r.attributes.client_cookies, false);
+is.equal(r.attributes.domain_cookies, false);
+
 testlib.die("Success!", 0);

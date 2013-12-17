@@ -31,4 +31,12 @@ is.equal(r.attributes.template, '/path/to/error2.cfm');
 is.equal(r.attributes.mail_to, 'none@example.com');
 is.equal(r.attributes.exception, 'lock');
 
+r = cf.parse('<CFERROR TEMPLATE="/path/to/error2.cfm" TYPE="request" MAILTO="none@example.com" EXCEPTION="lock">');
+is.equal(r instanceof Object, true);
+is.equal(r.tag, 'error');
+is.equal(r.attributes.type, 'request');
+is.equal(r.attributes.template, '/path/to/error2.cfm');
+is.equal(r.attributes.mail_to, 'none@example.com');
+is.equal(r.attributes.exception, 'lock');
+
 testlib.die("Success!", 0);
