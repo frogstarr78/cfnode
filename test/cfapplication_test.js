@@ -30,6 +30,18 @@ is.equal(r.attributes.name, 'cfapplicationtest');
 is.equal(r.attributes.datasource, 'abc');
 is(r.attributes.timeout instanceof Date);
 
+r = cf.parse('<cfapplication name="cfapplication_test" setclientcookies="no">');
+is.equal(r instanceof Object, true);
+is.equal(r.tag, 'application');
+is.equal(r.attributes.name, 'cfapplication_test');
+is.equal(r.attributes.client_variables, false);
+is.equal(r.attributes.client_storage, 'registry');
+is.equal(r.attributes.login_storage, 'cookie');
+is.equal(r.attributes.server_side_form_validation, true);
+is.equal(r.attributes.session_management, false);
+is.equal(r.attributes.client_cookies, false);
+is.equal(r.attributes.domain_cookies, false);
+
 r = cf.parse('<cfapplication name="cfapplication_test" applicationTimeout="" datasource="abc">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'application');
@@ -61,8 +73,8 @@ r = cf.parse("<cfapplication\n" +
 "sessionManagement=\"yes\"\n" +
 "sessionTimeout=\"\"\n" +
 "secureJSON=\"yes\"\n" +
-"secureJSONPrefix=\"//\"\n" +
 "setClientCookies=\"no\"\n" +
+"secureJSONPrefix=\"//\"\n" +
 "setDomainCookies=\"yes\"\n" +
 ">");
 is(r instanceof Object);

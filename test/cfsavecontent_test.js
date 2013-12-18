@@ -11,7 +11,8 @@ var r;
 is.throws(function () {
 	r = cf.parse('<cfsavecontent></cfsavecontent>');
 }, Error);
-r = cf.parse("<cfsavecontent variable=\"savecontent\"></cfsavecontent>");
+
+r = cf.parse('<cfsavecontent variable="savecontent"></cfsavecontent>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'savecontent');
 is.equal(r.attributes.variable, 'savecontent');

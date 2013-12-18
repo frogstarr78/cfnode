@@ -21,7 +21,7 @@ is.equal(r.attributes.application, true);
 is.equal(r.attributes.log,         'application');
 is.equal(r.attributes.type,        'information');
 
-r = cf.parse('<CFLOG TEXT="cflog test" FILE="where">');
+r = cf.parse('<cflog text="cflog test" file="where">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'log');
 is.equal(r.attributes.text, 'cflog test');
