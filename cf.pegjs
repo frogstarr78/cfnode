@@ -2,6 +2,7 @@
 
 	var util = require('util'),
 		plib = require('./lib/parselib'),
+		cftag = require('./lib/cftag'),
 //		human_date = require('date.js'),
 		inspect = console.dir;
 }
@@ -39,52 +40,25 @@ ApplicationFrameworkTags
 // Tag Definitions
 tag_cfapplication
 	= gt t:str_cfapplication attr:( attr_cfapp_optional* attr_cfapp_required attr_cfapp_optional* ) ws* lt anychar* {
-		var me = {
-			tag: plib.tag_name(t),
-			attributes: { }
-		};
-
-		plib.apply_attributes(me, attr);
-		plib.set_default_attributes(me);
-		return me;
+		return new cftag(t, attr, '');
 	}
 
 tag_cfassociate
 	= gt t:"cfassociate" attr:( attr_cfassoc_required attr_cfassoc_optional* / attr_cfassoc_optional* attr_cfassoc_required ) lt {
-		var me = { 
-			tag: plib.tag_name(t),
-			attributes: { }
-		};
-
-		plib.apply_attributes(me, attr);
-		plib.set_default_attributes(me);
-		return me;
+		return new cftag(t, attr, '');
 	}
+
 tag_cferror
 	= gt t:str_cferror attr:(
 			attr_cferr_optional* attr_cferr_required_template attr_cferr_optional* attr_cferr_required_type attr_cferr_optional*
 			/ attr_cferr_optional* attr_cferr_required_type attr_cferr_optional* attr_cferr_required_template attr_cferr_optional*
 		) lt {
-		var me = { 
-			tag: plib.tag_name(t),
-			attributes: { }
-		};
-		
-		plib.apply_attributes(me, attr);
-		plib.set_default_attributes(me);
-		return me;
+		return new cftag(t, attr, '');
 	}
 
 tag_cfimport
 	= gt t:"cfimport" attr:attr_cfimport_required lt {
-		var me = { 
-			tag: plib.tag_name(t),
-			attributes: { }
-		};
-
-		plib.apply_attributes(me, attr);
-		plib.set_default_attributes(me);
-		return me;
+		return new cftag(t, attr, '');
 	}
 
 //CommunicationsTag
@@ -108,7 +82,7 @@ DatabaseManipulationTag
 //	/ tag_cfprocparam
 //	/ tag_cfprocresult
 //	/ tag_cfquery
-//	/ tag_cfqueryparam
+	/ tag_cfqueryparam
 //	/ tag_cfstoredproc
 	/ tag_cftransaction
 //	/ tag_cfupdate
@@ -118,13 +92,7 @@ tag_cfdbinfo
 			attr_cfdbinfo_optional* attr_cfdbinfo_required_name attr_cfdbinfo_optional* attr_cfdbinfo_required_type attr_cfdbinfo_optional*
 			/ attr_cfdbinfo_optional* attr_cfdbinfo_required_type attr_cfdbinfo_optional* attr_cfdbinfo_required_name attr_cfdbinfo_optional*
 	) lt {
-		var me = { 
-			tag: plib.tag_name(t),
-			attributes: { }
-		};
-
-		plib.apply_attributes(me, attr);
-		plib.set_default_attributes(me);
+		var me = new cftag(t, attr, '');
 		types_requiring_table_value = ['columns', 'foreignkeys', 'index'];
 		if ( ( me.attributes.type && types_requiring_table_value.indexOf(me.attributes.type) > -1 ) && ( ! me.attributes.table || me.attributes.table === "" ) ) {
 			throw new Error(util.format("Missing table value, required with type attribute specified as one of %a.", types_requiring_table_value));		
@@ -132,19 +100,19 @@ tag_cfdbinfo
 		return me;
 	}
 
+
+tag_cfqueryparam
+	= gt t:str_cfqueryparam attr:(
+		attr_cfqueryparam_optional* attr_cfqueryparam_required attr_cfqueryparam_optional* 
+	) lt {
+		return new cftag(t, attr, '');
+	}
+
 tag_cftransaction
 	= gt t:str_cftransaction attr:attr_cftransaction_optional* lt
 	content:(!(gt wack str_cftransaction lt) anychar)*
 	gt wack str_cftransaction lt {
-		var me = { 
-			tag: plib.tag_name(t),
-			attributes: { },
-			content: plib.flatten(content)
-		};
-
-		plib.apply_attributes(me, [attr]);
-		plib.set_default_attributes(me);
-		return me;
+		return new cftag(t, attr, plib.flatten(content));
 	}
 
 DataOutputTag
@@ -172,50 +140,23 @@ DataOutputTag
 
 tag_cfflush
 	= gt t:str_cfflush attr:attr_cfflush_optional* lt {
-		var me = { 
-			tag: plib.tag_name(t),
-			attributes: { }
-		};
-
-		plib.apply_attributes(me, attr);
-		plib.set_default_attributes(me);
-		return me;
+		return new cftag(t,  attr, '');
 	}
 
 tag_cflog
 	= gt t:str_cflog attr:(
-	attr_cflog_optional* attr_cflog_required attr_cflog_optional*
+		attr_cflog_optional*
+		attr_cflog_required
+		attr_cflog_optional*
 	) lt {
-		var me = { 
-			tag: plib.tag_name(t),
-			attributes: { }
-		};
-
-		plib.apply_attributes(me, attr);
-		plib.set_default_attributes(me);
-		if ( me.attributes.file && me.attributes.file !== "" ) {
-			plib.tag_defaults['log'].forEach(function (def) {
-				if ( def.name == 'log' ) {
-					me.attributes[def.name] = def.value;
-				}
-			});
-		}
-		return me;
+		return new cftag(t, attr, '');
 	}
 
 tag_cfoutput
 	= gt t:"cfoutput" attr:attr_cfoutput_optional* lt
 	content:(!(gt wack "cfoutput" lt) anychar)*
 	gt wack "cfoutput" lt {
-		var me = { 
-			tag: plib.tag_name(t),
-			attributes: { },
-			content: plib.flatten(content)
-		};
-
-		plib.apply_attributes(me, [attr]);
-		plib.set_default_attributes(me);
-		return me;
+		return new cftag(t, attr, plib.flatten(content));
 	}
 
 DebuggingTag
@@ -224,33 +165,17 @@ DebuggingTag
 	/ tag_cftrace
 
 tag_cftimer
-	= gt t:str_cftimer attr:( attr_cftimer_optional* ) lt
+	= gt t:str_cftimer attr:attr_cftimer_optional* lt
 	content:(!(gt wack str_cftimer lt) anychar)*
 	gt wack str_cftimer lt {
-		var me = { 
-			tag: plib.tag_name(t),
-			attributes: { },
-			content: plib.flatten(content)
-		};
-
-		plib.apply_attributes(me, [attr]);
-		plib.set_default_attributes(me);
-		return me;
+		return new cftag(t, attr, plib.flatten(content));
 	}
 
 tag_cftrace
-	= gt t:str_cftrace attr:( attr_cftrace_optional* ) lt
+	= gt t:str_cftrace attr:attr_cftrace_optional* lt
 	content:(!(gt wack str_cftrace lt) anychar)*
 	gt wack str_cftrace lt {
-		var me = { 
-			tag: plib.tag_name(t),
-			attributes: { },
-			content: plib.flatten(content)
-		};
-
-		plib.apply_attributes(me, [attr]);
-		plib.set_default_attributes(me);
-		return me;
+		return new cftag(t, attr, plib.flatten(content));
 	}
 
 //DisplayManagementTag
@@ -395,27 +320,14 @@ tag_cfdump
 	= gt t:"cfdump" attr:(
 		attr_cfdump_optional* attr_cfdump_required attr_cfdump_optional*
 	) lt {
-		var me = { 
-			tag: plib.tag_name(t),
-			attributes: { }
-		};
-
-		plib.apply_attributes(me, attr);
-		plib.set_default_attributes(me);
-		return me;
+		return new cftag(t, attr, '');
 	}
 
 tag_cfcookie
 	= gt t:"cfcookie" attr:(
 		attr_cfcookie_optional* attr_cfcookie_required attr_cfcookie_optional*
 	) lt {
-		var me = { 
-			tag: plib.tag_name(t),
-			attributes: { }
-		};
-
-		plib.apply_attributes(me, attr);
-		plib.set_default_attributes(me);
+		var me = new cftag(t, attr, '');
 		if ( ( me.attributes.path && me.attributes.path !== "" ) && ( ! me.attributes.domain || me.attributes.domain === "" ) ) {
 			throw new Error("Missing domain value, required with path attribute.");		
 		}
@@ -426,41 +338,19 @@ tag_cfparam
 	= gt t:"cfparam" attr:(
 		attr_cfparam_optional* attr_cfparam_required attr_cfparam_optional*
 	) lt {
-		var me = { 
-			tag: plib.tag_name(t),
-			attributes: { }
-		};
-
-		plib.apply_attributes(me, attr);
-		plib.set_default_attributes(me);
-		return me;
+		return new cftag(t, attr, '');
 	}
 
 tag_cfsetting
-	= gt t:"cfsetting" attr:( attr_cfsetting_optional*) lt {
-		var me = { 
-			tag: plib.tag_name(t),
-			attributes: { }
-		};
-
-		plib.apply_attributes(me, attr);
-		plib.set_default_attributes(me);
-		return me;
+	= gt t:"cfsetting" attr:attr_cfsetting_optional* lt {
+		return new cftag(t, attr, '');
 	}
 
 tag_cfsavecontent
 	= gt t:"cfsavecontent" attr:attr_cfsavecontent_required lt
 	content:(!(gt wack "cfsavecontent" lt) anychar)*
 	gt wack "cfsavecontent" lt {
-		var me = { 
-			tag: plib.tag_name(t),
-			attributes: { },
-			content: plib.flatten(content)
-		};
-
-		plib.apply_attributes(me, [attr]);
-		plib.set_default_attributes(me);
-		return me;
+		return new cftag(t, [attr], plib.flatten(content));
 	}
 
 //OtherTag
@@ -478,14 +368,14 @@ attr_cfapp_optional
 	/ ws+ n:str_applicationtimeout       eql v:func_create_time_span      { return { name: 'timeout',                     value: plib.mkDate(v)     }; }
 	/ ws+ n:str_clientmanagement         eql v:value_boolean              { return { name: 'client_variables',            value: v                  }; }
 	/ ws+ n:str_clientstorage            eql v:value_cfapp_client_storage { return { name: 'client_storage',              value: v                  }; }
+	/ ws+ n:str_setclientcookies         eql v:value_boolean              { return { name: 'client_cookies',              value: v                  }; }
+	/ ws+ n:str_setdomaincookies         eql v:value_boolean              { return { name: 'domain_cookies',              value: v                  }; }
 	/ ws+ n:str_loginstorage             eql v:value_cfapp_login_storage  { return { name: 'login_storage',               value: v                  }; }
 	/ ws+ n:str_googlemapkey             eql v:value_any                  { return { name: 'google_map_key',              value: v                  }; }
 	/ ws+ n:str_scriptprotect            eql v:value_cfapp_script_protect { return { name: 'script_protection',           value: v                  }; }
 	/ ws+ n:str_serversideformvalidation eql v:value_boolean              { return { name: 'server_side_form_validation', value: v                  }; }
 	/ ws+ n:str_sessionmanagement        eql v:value_boolean              { return { name: 'session_management',          value: v                  }; }
 	/ ws+ n:str_sessiontimeout           eql v:func_create_time_span      { return { name: 'session_timeout',             value: plib.mkDate(v)     }; }
-	/ ws+ n:str_setclientcookies         eql v:value_boolean              { return { name: 'client_cookies',              value: v                  }; }
-	/ ws+ n:str_setdomaincookies         eql v:value_boolean              { return { name: 'domain_cookies',              value: v                  }; }
 	/ ws+ n:str_securejson               eql v:value_boolean              { return { name: 'secure_json',                 value: v                  }; }
 	/ ws+ n:str_securejsonprefix         eql v:value_any                  { return { name: 'secure_json_prefix',          value: v == "" ? "//" : v }; }
 
@@ -574,9 +464,9 @@ attr_cflog_required
 
 attr_cflog_optional
 	= ws+ n:str_application eql v:value_boolean    { return { name: n, value: v }; }
-	/ ws+ n:str_file          eql v:value_any        { return { name: n, value: v }; }
-	/ ws+ n:str_log           eql v:value_cflog_log  { return { name: n, value: v }; }
-	/ ws+ n:str_type          eql v:value_cflog_type { return { name: n, value: v }; }
+	/ ws+ n:str_file        eql v:value_any        { return { name: n, value: v }; }
+	/ ws+ n:str_log         eql v:value_cflog_log  { return { name: n, value: v }; }
+	/ ws+ n:str_type        eql v:value_cflog_type { return { name: n, value: v }; }
 
 value_cflog_log
 	= quote_char v:str_application quote_char { return v.toLowerCase(); }
@@ -646,7 +536,7 @@ attr_cfdbinfo_optional
 //attr_cftransaction_required
 attr_cftransaction_optional
 	= ws+ n:str_action    eql v:value_cftransaction_action    { return { name: n, value: v }; }
-	/ ws+ n:str_isolation  eql v:value_cftransaction_isolation { return { name: n, value: v }; }
+	/ ws+ n:str_isolation eql v:value_cftransaction_isolation { return { name: n, value: v }; }
 	/ ws+ n:str_savepoint eql v:value_any                     { return { name: n, value: v }; }
 	/ ws+ n:str_nested    eql v:value_boolean                 { return { name: n, value: v }; }
 
@@ -662,6 +552,40 @@ value_cftransaction_isolation
 	/ quote_char v:"repeatable_read" quote_char { return v; }
 	/ quote_char v:"serializable"    quote_char { return v; }
 	
+attr_cfqueryparam_required
+	= ws+ n:str_value eql v:value_cfval { return { name: n, value: v }; }
+attr_cfqueryparam_optional
+	= ws+ n:str_cfsql_type eql v:value_cfqueryparam_type { return { name: 'cf_sql_type', value: v }; }
+	/ ws+ n:str_list       eql v:value_boolean           { return { name: n, value: v }; }
+	/ ws+ n:str_maxlength  eql v:value_integer           { return { name: 'max_length', value: v }; }
+	/ ws+ n:str_null       eql v:value_boolean           { return { name: n, value: v }; }
+	/ ws+ n:str_scale      eql v:value_integer           { return { name: n, value: v }; }
+	/ ws+ n:str_separator  eql v:value_any               { return { name: n, value: v }; }
+
+value_cfqueryparam_type
+	= quote_char v:"CF_SQL_CHAR"        quote_char { return v; }
+	/ quote_char v:"CF_SQL_BIGINT"      quote_char { return v; }
+    / quote_char v:"CF_SQL_BIT"         quote_char { return v; }
+    / quote_char v:"CF_SQL_CHAR"        quote_char { return v; }
+    / quote_char v:"CF_SQL_BLOB"        quote_char { return v; }
+    / quote_char v:"CF_SQL_CLOB"        quote_char { return v; }
+    / quote_char v:"CF_SQL_DATE"        quote_char { return v; }
+    / quote_char v:"CF_SQL_DECIMAL"     quote_char { return v; }
+    / quote_char v:"CF_SQL_DOUBLE"      quote_char { return v; }
+    / quote_char v:"CF_SQL_FLOAT"       quote_char { return v; }
+    / quote_char v:"CF_SQL_IDSTAMP"     quote_char { return v; }
+    / quote_char v:"CF_SQL_INTEGER"     quote_char { return v; }
+    / quote_char v:"CF_SQL_LONGVARCHAR" quote_char { return v; }
+    / quote_char v:"CF_SQL_MONEY"       quote_char { return v; }
+    / quote_char v:"CF_SQL_MONEY4"      quote_char { return v; }
+    / quote_char v:"CF_SQL_NUMERIC"     quote_char { return v; }
+    / quote_char v:"CF_SQL_REAL"        quote_char { return v; }
+    / quote_char v:"CF_SQL_REFCURSOR"   quote_char { return v; }
+    / quote_char v:"CF_SQL_SMALLINT"    quote_char { return v; }
+    / quote_char v:"CF_SQL_TIME"        quote_char { return v; }
+    / quote_char v:"CF_SQL_TIMESTAMP"   quote_char { return v; }
+    / quote_char v:"CF_SQL_TINYINT"     quote_char { return v; }
+    / quote_char v:"CF_SQL_VARCHAR"     quote_char { return v; }
 // Value Definitions
 
 value_regex
@@ -750,9 +674,11 @@ str_cfdbinfo                 = v:(c f d b i n f o)                              
 str_cferror                  = v:(c f e r r o r)                                     { return plib.flatten(v); }
 str_cfflush                  = v:(c f f l u s h)                                     { return plib.flatten(v); }
 str_cflog                    = v:(c f l o g)                                         { return plib.flatten(v).toLowerCase(); }
+str_cfqueryparam             = v:(c f q u e r y p a r a m)                           { return plib.flatten(v).toLowerCase(); }
 str_cftimer                  = v:(c f t i m e r)                                     { return plib.flatten(v).toLowerCase(); }
 str_cftrace                  = v:(c f t r a c e)                                     { return plib.flatten(v).toLowerCase(); }
 str_cftransaction            = v:(c f t r a n s a c t i o n)                         { return plib.flatten(v).toLowerCase(); }
+str_cfsql_type               = v:(c f s q l t y p e)                                 { return plib.flatten(v).toLowerCase(); }
 str_clientmanagement         = v:(c l i e n t m a n a g e m e n t)                   { return plib.flatten(v).toLowerCase(); }
 str_clientstorage            = v:(c l i e n t s t o r a g e)                         { return plib.flatten(v).toLowerCase(); }
 str_cookie                   = v:(c o o k i e)                                       { return plib.flatten(v); }
@@ -779,9 +705,11 @@ str_list                     = v:(l i s t)                                      
 str_log                      = v:(l o g)                                             { return plib.flatten(v).toLowerCase(); }
 str_loginstorage             = v:(l o g i n s t o r a g e)                           { return plib.flatten(v).toLowerCase(); }
 str_mail_to                  = v:(m a i l '_'? t o)                                  { return plib.flatten(v).toLowerCase(); }
+str_maxlength                = v:(m a x l e n g t h)                                 { return plib.flatten(v).toLowerCase(); }
 str_name                     = v:(n a m e)                                           { return plib.flatten(v).toLowerCase(); }
 str_nested                   = v:(n e s t e d)                                       { return plib.flatten(v).toLowerCase(); }
 str_none                     = v:(n o n e)                                           { return plib.flatten(v); }
+str_null                     = v:(n u l l)                                           { return plib.flatten(v); }
 str_numeric                  = v:(n u m e r i c)                                     { return plib.flatten(v); }
 str_password                 = v:(p a s s w o r d)                                   { return plib.flatten(v).toLowerCase(); }
 str_pattern                  = v:(p a t t e r n)                                     { return plib.flatten(v).toLowerCase(); }
@@ -791,10 +719,12 @@ str_regex                    = v:(r e g e x)                                    
 str_registry                 = v:(r e g i s t r y)                                   { return plib.flatten(v); }
 str_regular_expression       = v:(r e g u l a r '_'? e x p r e s s i o n)            { return plib.flatten(v); }
 str_savepoint                = v:(s a v e p o i n t)                                 { return plib.flatten(v).toLowerCase(); }
+str_scale                    = v:(s c a l e)                                         { return plib.flatten(v).toLowerCase(); }
 str_scriptprotect            = v:(s c r i p t p r o t e c t)                         { return plib.flatten(v).toLowerCase(); }
 str_securejson               = v:(s e c u r e j s o n)                               { return plib.flatten(v).toLowerCase(); }
 str_securejsonprefix         = v:(s e c u r e j s o n p r e f i x)                   { return plib.flatten(v).toLowerCase(); }
 str_serversideformvalidation = v:(s e r v e r s i d e f o r m v a l i d a t i o n)   { return plib.flatten(v).toLowerCase(); }
+str_separator                = v:(s e p a r a t o r)                                 { return plib.flatten(v).toLowerCase(); }
 str_session                  = v:(s e s s i o n)                                     { return plib.flatten(v); }
 str_sessionmanagement        = v:(s e s s i o n m a n a g e m e n t)                 { return plib.flatten(v).toLowerCase(); }
 str_sessiontimeout           = v:(s e s s i o n t i m e o u t)                       { return plib.flatten(v).toLowerCase(); }
@@ -813,6 +743,7 @@ str_type                     = v:(t y p e)                                      
 str_url                      = v:(u r l)                                             { return plib.flatten(v); }
 str_username                 = v:(u s e r n a m e)                                   { return plib.flatten(v).toLowerCase(); }
 str_uuid                     = v:(u u i d)                                           { return plib.flatten(v); }
+str_value                    = v:(v a l u e)                                         { return plib.flatten(v).toLowerCase(); }
 str_var                      = v:(v a r)                                             { return plib.flatten(v).toLowerCase(); }
 str_variable                 = v:(v a r i a b l e)                                   { return plib.flatten(v); }
 str_variable_name            = v:(v a r i a b l e '_'? n a m e)                      { return plib.flatten(v); }
@@ -856,11 +787,16 @@ domain = v:( ( dom_part+ period )+ dom_part+ ) { return plib.flatten(v); }
 dom_part = ( lcchars / '_' lcchars )+ ( '-' lcchars / lcchars )*
 
 // Generic Generic Value Defs
-value_any_non_whitespace = quote_char v:( ( chars+ [\-_] )* chars )* quote_char { return plib.flatten(v); }
-value_any = quote_char v:(!quote_char anychar)+ quote_char { return plib.flatten(v); }
-str_any_non_quote = v:(!quote_char anychar)+ { return plib.flatten(v); }
-value_empty_quote = quote_char quote_char { return ""; }
-value_integer = quote_char v:integer+ quote_char { return parseInt(plib.flatten(v)); }
+value_any_non_whitespace 
+	= quote_char v:( ( chars+ [\-_] )* chars )* quote_char { return plib.flatten(v); }
+value_any 
+	= quote_char v:(!quote_char anychar)+ quote_char { return plib.flatten(v); }
+str_any_non_quote 
+	= v:(!quote_char anychar)+ { return plib.flatten(v); }
+value_empty_quote 
+	= quote_char quote_char { return ""; }
+value_integer 
+	= quote_char v:integer+ quote_char { return parseInt(plib.flatten(v)); }
 
 ops = e q / n e q / l t /  l e / g t / g e / i s / n o t
 
