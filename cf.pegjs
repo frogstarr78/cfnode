@@ -39,8 +39,8 @@ ApplicationFrameworkTags
 
 // Tag Definitions
 tag_cfapplication
-	= gt t:str_cfapplication attr:( attr_cfapp_optional* attr_cfapp_required attr_cfapp_optional* ) ws* lt anychar* {
-		return new cftag(t, attr, '');
+	= gt t:str_cfapplication attr:( attr_cfapplication_optional* attr_cfapplication_required attr_cfapplication_optional* ) ws* lt anychar* {
+		return new cftag(t, attr.flatten(), '');
 	}
 
 tag_cfassociate
@@ -149,7 +149,7 @@ tag_cflog
 		attr_cflog_required
 		attr_cflog_optional*
 	) lt {
-		return new cftag(t, attr, '');
+		return new cftag(t, attr.flatten(), '');
 	}
 
 tag_cfoutput
@@ -362,31 +362,31 @@ tag_cfsavecontent
 attr_name_required
     = ws+ n:str_name eql v:value_any_non_whitespace { return { name: n, value: v }; }
 
-attr_cfapp_required = attr_name_required
-attr_cfapp_optional
-	= ws+ n:str_datasource               eql v:value_any                  { return { name: n,                             value: v                  }; }
-	/ ws+ n:str_applicationtimeout       eql v:func_create_time_span      { return { name: 'timeout',                     value: plib.mkDate(v)     }; }
-	/ ws+ n:str_clientmanagement         eql v:value_boolean              { return { name: 'client_variables',            value: v                  }; }
-	/ ws+ n:str_clientstorage            eql v:value_cfapp_client_storage { return { name: 'client_storage',              value: v                  }; }
-	/ ws+ n:str_setclientcookies         eql v:value_boolean              { return { name: 'client_cookies',              value: v                  }; }
-	/ ws+ n:str_setdomaincookies         eql v:value_boolean              { return { name: 'domain_cookies',              value: v                  }; }
-	/ ws+ n:str_loginstorage             eql v:value_cfapp_login_storage  { return { name: 'login_storage',               value: v                  }; }
-	/ ws+ n:str_googlemapkey             eql v:value_any                  { return { name: 'google_map_key',              value: v                  }; }
-	/ ws+ n:str_scriptprotect            eql v:value_cfapp_script_protect { return { name: 'script_protection',           value: v                  }; }
-	/ ws+ n:str_serversideformvalidation eql v:value_boolean              { return { name: 'server_side_form_validation', value: v                  }; }
-	/ ws+ n:str_sessionmanagement        eql v:value_boolean              { return { name: 'session_management',          value: v                  }; }
-	/ ws+ n:str_sessiontimeout           eql v:func_create_time_span      { return { name: 'session_timeout',             value: plib.mkDate(v)     }; }
-	/ ws+ n:str_securejson               eql v:value_boolean              { return { name: 'secure_json',                 value: v                  }; }
-	/ ws+ n:str_securejsonprefix         eql v:value_any                  { return { name: 'secure_json_prefix',          value: v == "" ? "//" : v }; }
+attr_cfapplication_required = attr_name_required
+attr_cfapplication_optional
+	= ws+ n:str_datasource               eql v:value_any                          { return { name: n,                             value: v                  }; }
+	/ ws+ n:str_applicationtimeout       eql v:func_create_time_span              { return { name: 'timeout',                     value: plib.mkDate(v)     }; }
+	/ ws+ n:str_clientmanagement         eql v:value_boolean                      { return { name: 'client_variables',            value: v                  }; }
+	/ ws+ n:str_clientstorage            eql v:value_cfapplication_client_storage { return { name: 'client_storage',              value: v                  }; }
+	/ ws+ n:str_setclientcookies         eql v:value_boolean                      { return { name: 'client_cookies',              value: v                  }; }
+	/ ws+ n:str_setdomaincookies         eql v:value_boolean                      { return { name: 'domain_cookies',              value: v                  }; }
+	/ ws+ n:str_loginstorage             eql v:value_cfapplication_login_storage  { return { name: 'login_storage',               value: v                  }; }
+	/ ws+ n:str_googlemapkey             eql v:value_any                          { return { name: 'google_map_key',              value: v                  }; }
+	/ ws+ n:str_scriptprotect            eql v:value_cfapplication_script_protect { return { name: 'script_protection',           value: v                  }; }
+	/ ws+ n:str_serversideformvalidation eql v:value_boolean                      { return { name: 'server_side_form_validation', value: v                  }; }
+	/ ws+ n:str_sessionmanagement        eql v:value_boolean                      { return { name: 'session_management',          value: v                  }; }
+	/ ws+ n:str_sessiontimeout           eql v:func_create_time_span              { return { name: 'session_timeout',             value: plib.mkDate(v)     }; }
+	/ ws+ n:str_securejson               eql v:value_boolean                      { return { name: 'secure_json',                 value: v                  }; }
+	/ ws+ n:str_securejsonprefix         eql v:value_any                          { return { name: 'secure_json_prefix',          value: v == "" ? "//" : v }; }
 
-value_cfapp_login_storage
+value_cfapplication_login_storage
 	=  quote_char  v:str_cookie   quote_char  {  return  v.toLowerCase();  }
 	/  quote_char  v:str_session  quote_char  {  return  v.toLowerCase();  }
-value_cfapp_script_protect 
+value_cfapplication_script_protect 
 	=  quote_char  v:str_none  quote_char  {  return  v.toLowerCase();  }
 	/  quote_char  v:str_all   quote_char  {  return  v.toLowerCase();  }
 	/  quote_char  v:str_list  quote_char  {  return  v.toLowerCase();  }
-value_cfapp_client_storage 
+value_cfapplication_client_storage 
 	=  value_any
 	/  quote_char  v:str_registry  quote_char  {  return  v.toLowerCase();  }
 	/  quote_char  v:str_cookie    quote_char  {  return  v.toLowerCase();  }
