@@ -1,7 +1,7 @@
 var is = require('assert'),
 	util = require('util'),
 	path = require('path'),
-//	human_date = require('date.js'),
+	human_date = require('date.js'),
 	PEG = require('pegjs'),
 	cf = require(__dirname + '/../cf'),
 	testlib = require('./testlib');
@@ -85,14 +85,14 @@ r = cf.parse('<cfcookie expires="never" name="cfcookietest">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'cookie');
 is.equal(r.attributes.name, 'cfcookietest');
-//is.equalDate(r.attributes.expires, human_date('in 30 years'));
+is.equalDate(r.attributes.expires, human_date('in 30 years'));
 
 r = cf.parse('<cfcookie expires="2013-01-01" name="cfcookietest">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'cookie');
 is.equal(r.attributes.name, 'cfcookietest');
 is.deepEqual(r.attributes.expires, new Date(2013, 0, 01));
-//is.equalDate(r.attributes.expires, new Date(2013, 0, 01));
+is.equalDate(r.attributes.expires, new Date(2013, 0, 01));
 
 r = cf.parse('<cfcookie expires="2013-01-01 12:34:56" name="cfcookietest">');
 is.equal(r instanceof Object, true);
@@ -104,6 +104,12 @@ r = cf.parse('<cfcookie expires="5" name="cfcookietest">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'cookie');
 is.equal(r.attributes.name, 'cfcookietest');
-//is.equalDate(r.attributes.expires, human_date('in 5 days'));
+is.equalDate(r.attributes.expires, human_date('in 5 days'));
+
+r = cf.parse('<cfcookie expires="5" name="cfcookietest">');
+is.equal(r instanceof Object, true);
+is.equal(r.tag, 'cookie');
+is.equal(r.attributes.name, 'cfcookietest');
+is.equalDate(r.attributes.expires, human_date('in 5 days'));
 
 testlib.die("Success!", 0);

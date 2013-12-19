@@ -39,4 +39,12 @@ is.equal(r.attributes.default, 'a@b.com');
 is.deepEqual(r.attributes.pattern, new RegExp("[^@]+@([^\.]+.)+.+"));
 is.equal(r.attributes.type, 'regex');
 
+r = cf.parse('<CFPARAM DEFAULT="a@b.com" PATTERN="[^@]+@([^\.]+.)+.+" TYPE="regex" NAME="cfparamtest">');
+is.equal(r instanceof Object, true);
+is.equal(r.tag, 'param');
+is.equal(r.attributes.name, 'cfparamtest');
+is.equal(r.attributes.default, 'a@b.com');
+is.deepEqual(r.attributes.pattern, new RegExp("[^@]+@([^\.]+.)+.+"));
+is.equal(r.attributes.type, 'regex');
+
 testlib.die("Success!", 0);
