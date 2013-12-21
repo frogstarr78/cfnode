@@ -28,4 +28,10 @@ is.equal(r.tag, 'import');
 is.equal(r.attributes.prefix, '');
 is.equal(r.attributes.taglib, '/path/to/taglib.cfc');
 
+r = cf.parse('<CFIMPORT PREFIX="" TAGLIB="/path/to/taglib.cfc">');
+is.equal(r instanceof Object, true);
+is.equal(r.tag, 'import');
+is.equal(r.attributes.prefix, '');
+is.equal(r.attributes.taglib, '/path/to/taglib.cfc');
+
 testlib.die("Success!", 0);
