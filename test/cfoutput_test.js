@@ -46,16 +46,4 @@ is.equal(r.attributes.group, 'id');
 is.equal(r.attributes.group_case_sensitive, false);
 is.equal(r.content, "\nThis is the content that is saved #NOW()#\n");
 
-r = cf.parse('<CFOUTPUT QUERY="output" STARTROW="2" MAXROWS="10" GROUP="id" GROUPCASESENSITIVE="no">' +
-"\nThis is the content that is saved #NOW()#" +
-"\n</cfoutput>");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'output');
-is.equal(r.attributes.query, 'output');
-is.equal(r.attributes.start_row, 2);
-is.equal(r.attributes.max_rows, 10);
-is.equal(r.attributes.group, 'id');
-is.equal(r.attributes.group_case_sensitive, false);
-is.equal(r.content, "\nThis is the content that is saved #NOW()#\n");
-
 testlib.die("Success!", 0);

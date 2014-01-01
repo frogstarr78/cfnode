@@ -1,12 +1,11 @@
 .PHONY: test
 test: cf.js
-	@for test in test/*_test.js; do echo $$test; node $$test; done
+	for test in test/*_test.js; do echo $$test; node $$test; done
 
 t: test
 
 cf.js: cf.pegjs
-	@rm $@
-	@pegjs --track-line-and-column $?
+	pegjs $?
 
 sync:
 	rsync -vr --delete . eclipta:git/cfnode

@@ -30,10 +30,4 @@ is.equal(r.tag, 'associate');
 is.equal(r.attributes.base_tag, 'cfnode_test');
 is.equal(r.attributes.data_collection, 'somethingelse');
 
-r = cf.parse('<CFASSOCIATE DATACOLLECTION="somethingelse" BASETAG="cfnode_test">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'associate');
-is.equal(r.attributes.base_tag, 'cfnode_test');
-is.equal(r.attributes.data_collection, 'somethingelse');
-
 testlib.die("Success!", 0);

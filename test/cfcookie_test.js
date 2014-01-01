@@ -8,26 +8,53 @@ var is = require('assert'),
 
 var r;
 
+function _equalDateLike(received, expected, comparisons) {
+
+	if ( received instanceof Date && expected instanceof Date ) {
+		comparisons.forEach(function (func) {
+			rec = received[func]();
+			exp = expected[func]();
+			if ( rec != exp ) { return false; }
+		});
+		return true;
+	} else if ( Number.isNaN(received) || Number.isNaN(expected) ) {
+		return false;
+	} else if ( typeof received === 'number' ) {
+		return _equalDateLike( new Date(received), expected, comparisons );
+	} else if ( typeof expected === 'number' ) {
+		return _equalDateLike( received, new Date(expected), comparisons );
+	} else {
+		return false;
+	}
+}
+is.equalDate = function (received, expected, message) {
+	var comparisons = ['getFullYear', 'getMonth', 'getDate', 'getDay'];
+	if ( !_equalDateLike(received, expected, comparisons) ) {
+		is.fail(rec, exp, message, 'equalDate', is.equalDate);
+	}
+}
+
+is.equalTime = function (received, expected, message) {
+	var comparisons = ['getHours', 'getMinutes', 'getSeconds'];
+	if ( !_equalDateLike(received, expected, comparisons) ) {
+		is.fail(rec, exp, message, func, is.equalDate);
+	}
+}
+
 is.throws(function () {
 	r = cf.parse('<cfcookie>');
 }, Error);
-
-is.throws(function () {
-	r = cf.parse('<cfcookie path="/path/here" name="cfcookietest">');
-}, Error, "Expecting error when path with no domain was specified.");
 
 r = cf.parse('<cfcookie name="cfcookietest">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'cookie');
 is.equal(r.attributes.name, 'cfcookietest');
-is.equal(r.attributes.expires.toLocaleString(), new Date().toLocaleString());
 
 r = cf.parse('<cfcookie name="cfcookietest" domain=".example.com">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'cookie');
 is.equal(r.attributes.name, 'cfcookietest');
 is.equal(r.attributes.domain, '.example.com');
-is.equal(r.attributes.expires.toLocaleString(), new Date().toLocaleString());
 
 r = cf.parse('<cfcookie domain=".example.com" name="cfcookietest" secure="no">');
 is.equal(r instanceof Object, true);
@@ -35,8 +62,11 @@ is.equal(r.tag, 'cookie');
 is.equal(r.attributes.name, 'cfcookietest');
 is.equal(r.attributes.domain, '.example.com');
 is.equal(r.attributes.secure, false);
-is.equal(r.attributes.expires.toLocaleString(), new Date().toLocaleString());
+is.equal(r.attributes.expires, 'session');
 
+is.throws(function () {
+	r = cf.parse('<cfcookie path="/path/here" name="cfcookietest">');
+}, Error, "Expecting error when path with no domain was specified.");
 r = cf.parse('<cfcookie path="/path/here" domain=".example.com" value="hello test" name="cfcookietest">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'cookie');
@@ -44,62 +74,36 @@ is.equal(r.attributes.name, 'cfcookietest');
 is.equal(r.attributes.path, '/path/here');
 is.equal(r.attributes.domain, '.example.com');
 is.equal(r.attributes.value, 'hello test');
-is.equal(r.attributes.expires.toLocaleString(), new Date().toLocaleString());
 
 r = cf.parse('<cfcookie expires="now" name="cfcookietest">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'cookie');
 is.equal(r.attributes.name, 'cfcookietest');
-is.equal(r.attributes.expires.toLocaleString(), new Date().toLocaleString());
+is.equalDate(r.attributes.expires, new Date());
 
 r = cf.parse('<cfcookie expires="never" name="cfcookietest">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'cookie');
 is.equal(r.attributes.name, 'cfcookietest');
-is.equal(r.attributes.expires.toLocaleString(), human_date('in 30 years').toLocaleString());
+is.equalDate(r.attributes.expires, human_date('in 30 years'));
 
 r = cf.parse('<cfcookie expires="2013-01-01" name="cfcookietest">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'cookie');
 is.equal(r.attributes.name, 'cfcookietest');
-is.equal(r.attributes.expires.toLocaleString(), new Date(2013, 0, 01).toLocaleString());
+is.deepEqual(r.attributes.expires, new Date(2013, 0, 01));
+//is.equalDate(r.attributes.expires, new Date(2013, 0, 01));
 
-r = cf.parse('<cfcookie expires="2013-01-01 12:34:56.1110" name="cfcookietest">');
+r = cf.parse('<cfcookie expires="2013-01-01 12:34:56" name="cfcookietest">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'cookie');
 is.equal(r.attributes.name, 'cfcookietest');
-is.equal(r.attributes.expires.toLocaleString(), new Date("Tuesday, January 01, 2013 12:34:56").toLocaleString());
+is.equalTime(r.attributes.expires, new Date(2013, 01, 01, 12, 34, 56));
 
 r = cf.parse('<cfcookie expires="5" name="cfcookietest">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'cookie');
 is.equal(r.attributes.name, 'cfcookietest');
-//is.equal(r.attributes.expires.toLocaleString(), Date().toLocaleString());
-
-r = cf.parse('<cfcookie expires="5" name="cfcookietest">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'cookie');
-is.equal(r.attributes.name, 'cfcookietest');
-//is.equal(r.attributes.expires.toLocaleString(), new Date().toLocaleString());
-
-r = cf.parse('<CFCOOKIE'+
-	' DOMAIN=".example.com"' +
-	' NAME="cfcookietest"' +
-	' EXPIRES="never"' +
-	' HTTPONLY="false"' +
-	' PATH="/path"' +
-	' SECURE="no"' +
-	' VALUE="cfcookietest"' +
-'>');
-
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'cookie');
-is.equal(r.attributes.name, 'cfcookietest');
-is.equal(r.attributes.domain, ".example.com");
-is.equal(r.attributes.http_only, false);
-is.equal(r.attributes.path, "/path");
-is.equal(r.attributes.secure, false);
-is.equal(r.attributes.value, "cfcookietest");
-is.equal(r.attributes.expires.toLocaleString(), human_date('in 30 years').toLocaleString());
+is.equalDate(r.attributes.expires, human_date('in 5 days'));
 
 testlib.die("Success!", 0);

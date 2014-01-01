@@ -57,13 +57,4 @@ is.equal(r.attributes.file, undefined);
 is.equal(r.attributes.log,  'scheduler');
 is.equal(r.attributes.type, 'fatal');
 
-r = cf.parse('<CFLOG TEXT="cflog test" APPLICATION="true" TYPE="fatal" LOG="scheduler">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'log');
-is.equal(r.attributes.text, 'cflog test');
-is.equal(r.attributes.application, true);
-is.equal(r.attributes.file, undefined);
-is.equal(r.attributes.log,  'scheduler');
-is.equal(r.attributes.type, 'fatal');
-
 testlib.die("Success!", 0);
