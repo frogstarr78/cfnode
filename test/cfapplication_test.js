@@ -9,17 +9,17 @@ is.throws(function () {
 	r = cf.parse('<cfapplication>');
 }, Error);
 
-r = cf.parse('<cfapplication name="cfapplication_test">');
+r = cf.parse('<cfapplication name="cfapplication_test1">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'application');
-is.equal(r.attributes.name, 'cfapplication_test');
+is.equal(r.attributes.name, 'cfapplication_test1');
 is.equal(r.attributes.datasource, undefined);
 is.equal(r.attributes.timeout, undefined);
 
-r = cf.parse('<cfapplication name="cfapplication-test" datasource="abc">');
+r = cf.parse('<cfapplication name="cfapplication-test2" datasource="abc">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'application');
-is.equal(r.attributes.name, 'cfapplication-test');
+is.equal(r.attributes.name, 'cfapplication-test2');
 is.equal(r.attributes.datasource, 'abc');
 is.equal(r.attributes.timeout, undefined);
 

@@ -4,7 +4,7 @@ function inspect(o) {
 exports.inspect = inspect;
 
 function die(content, exitStatus) { 
-	inspect(content||'Failed!');
+	inspect(content||'Aborted!');
 	process.exit(exitStatus||1);
 }
 
