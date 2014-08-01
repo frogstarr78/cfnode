@@ -7,7 +7,7 @@
 }
 
 start 
-	= ApplicationFrameworkTags
+	= ApplicationFrameworkTag
 //	/ CommunicationsTag
 	/ DatabaseManipulationTag
 	/ DataOutputTag
@@ -19,13 +19,13 @@ start
 //	/ FlowControlTag
 //	/ FormTag
 //	/ InternetProtocolTag
-//	/ PageProcessingTag
+	/ PageProcessingTag
 //	/ SecurityTag
 	/ VariableManipulationTags
-//	/ OtherTag
+	/ OtherTag
 	/ anychar
 
-ApplicationFrameworkTags 
+ApplicationFrameworkTag
 	= tag_cfapplication
 	/ tag_cfassociate
 	/ tag_cferror
@@ -34,32 +34,6 @@ ApplicationFrameworkTags
 //	/ tag_cflock
 //	/ tag_cfscript
 //	/ tag_cfthread
-
-
-// Tag Definitions
-tag_cfapplication
-	= gt t:str_cfapplication attr:( attr_cfapplication_optional* attr_cfapplication_required attr_cfapplication_optional* ) ws* lt {
-//		console.dir({attr: attr, flattattr: plib.flatten(attr)});
-		return new cftag(t, plib.flatten(attr), '');
-	}
-
-tag_cfassociate
-	= gt t:str_cfassociate attr:( attr_cfassoc_required attr_cfassoc_optional* / attr_cfassoc_optional* attr_cfassoc_required ) lt {
-		return new cftag(t, plib.flatten(attr), '');
-	}
-
-tag_cferror
-	= gt t:str_cferror attr:(
-			attr_cferr_optional* attr_cferr_required_template attr_cferr_optional* attr_cferr_required_type attr_cferr_optional*
-			/ attr_cferr_optional* attr_cferr_required_type attr_cferr_optional* attr_cferr_required_template attr_cferr_optional*
-		) lt {
-		return new cftag(t, plib.flatten(attr), '');
-	}
-
-tag_cfimport
-	= gt t:str_cfimport attr:attr_cfimport_required lt {
-		return new cftag(t, attr, '');
-	}
 
 //CommunicationsTag
 //	= tag_cfexchangecalendar
@@ -87,61 +61,6 @@ DatabaseManipulationTag
 	/ tag_cftransaction
 	/ tag_cfupdate
 
-tag_cfdbinfo
-	= gt t:str_cfdbinfo attr:( 
-			attr_cfdbinfo_optional* attr_cfdbinfo_required_name attr_cfdbinfo_optional* attr_cfdbinfo_required_type attr_cfdbinfo_optional*
-			/ attr_cfdbinfo_optional* attr_cfdbinfo_required_type attr_cfdbinfo_optional* attr_cfdbinfo_required_name attr_cfdbinfo_optional*
-	) lt {
-		var me = new cftag(t, plib.flatten(attr), '');
-		types_requiring_table_value = ['columns', 'foreignkeys', 'index'];
-		if ( ( me.attributes.type && types_requiring_table_value.indexOf(me.attributes.type) > -1 ) && ( ! me.attributes.table || me.attributes.table === "" ) ) {
-			throw new Error(util.format("Missing table value, required with type attribute specified as one of %a.", types_requiring_table_value));		
-		}
-		return me;
-	}
-
-tag_cfinsert
-	= gt t:str_cfinsert attr:(
-		attr_cfinsert_optional* attr_cfinsert_required_datasource attr_cfinsert_optional* attr_cfinsert_required_table_name attr_cfinsert_optional*
-		/ attr_cfinsert_optional* attr_cfinsert_required_table_name attr_cfinsert_optional* attr_cfinsert_required_datasource attr_cfinsert_optional*
-	) ws* wack? lt {
-		return new cftag(t, plib.flatten(attr), '');
-	}
-
-tag_cfobjectcache
-	= gt t:str_cfobjectcache attr:attr_cfobjectcache_required lt {
-		return new cftag(t, attr, '');
-	}
-
-tag_cfquery
-	= gt t:str_cfquery attr:(attr_cfquery_optional* attr_cfquery_required attr_cfquery_optional* ) lt
-	content:(!(gt wack str_cfquery lt) anychar)*
-	gt wack str_cfquery lt {
-		return new cftag(t, plib.flatten(attr), plib.stringify(content));
-	}
-
-tag_cfqueryparam
-	= gt t:str_cfqueryparam attr:(
-		attr_cfqueryparam_optional* attr_cfqueryparam_required attr_cfqueryparam_optional* 
-	) lt {
-		return new cftag(t, plib.flatten(attr), '');
-	}
-
-tag_cftransaction
-	= gt t:str_cftransaction attr:attr_cftransaction_optional* lt
-	content:(!(gt wack str_cftransaction lt) anychar)*
-	gt wack str_cftransaction lt {
-		return new cftag(t, attr, plib.stringify(content));
-	}
-
-tag_cfupdate
-	= gt t:str_cfupdate attr:(
-		attr_cfupdate_optional* attr_cfupdate_required_datasource attr_cfupdate_optional* attr_cfupdate_required_table_name attr_cfupdate_optional*
-		/ attr_cfupdate_optional* attr_cfupdate_required_table_name attr_cfupdate_optional* attr_cfupdate_required_datasource attr_cfupdate_optional*
-	) ws* wack? lt {
-		return new cftag(t, plib.flatten(attr), '');
-	}
-
 DataOutputTag
 //	= tag_cfchart
 //	/ tag_cfchartdata
@@ -165,45 +84,10 @@ DataOutputTag
 //	/ tag_cfsilent
 //	/ tag_cftable
 
-tag_cfflush
-	= gt t:str_cfflush attr:attr_cfflush_optional* lt {
-		return new cftag(t,  attr, '');
-	}
-
-tag_cflog
-	= gt t:str_cflog attr:(
-		attr_cflog_optional*
-		attr_cflog_required
-		attr_cflog_optional*
-	) lt {
-		return new cftag(t, plib.flatten(attr), '');
-	}
-
-tag_cfoutput
-	= gt t:str_cfoutput attr:attr_cfoutput_optional* lt
-	content:(!(gt wack str_cfoutput lt) anychar)*
-	gt wack str_cfoutput lt {
-		return new cftag(t, attr, plib.stringify(content));
-	}
-
 DebuggingTag
 	= tag_cfdump
 	/ tag_cftimer
 	/ tag_cftrace
-
-tag_cftimer
-	= gt t:str_cftimer attr:attr_cftimer_optional* lt
-	content:(!(gt wack str_cftimer lt) anychar)*
-	gt wack str_cftimer lt {
-		return new cftag(t, attr, plib.stringify(content));
-	}
-
-tag_cftrace
-	= gt t:str_cftrace attr:attr_cftrace_optional* lt
-	content:(!(gt wack str_cftrace lt) anychar)*
-	gt wack str_cftrace lt {
-		return new cftag(t, attr, plib.stringify(content));
-	}
 
 //DisplayManagementTag
 //	= tag_cfdiv
@@ -227,37 +111,6 @@ ExceptionHandlingTag
 	/ tag_cfrethrow
 	/ tag_cfthrow
 	/ tag_cftry
-
-tag_cfcatch
-	= gt t:str_cfcatch attr:attr_cfcatch_optional* lt 
-	content:(!(gt wack str_cfcatch lt) anychar)*
-	gt wack str_cfcatch lt {
-		return new cftag(t, attr, plib.stringify(content));
-	}
-
-tag_cffinally
-	= gt t:str_cffinally lt 
-	content:(!(gt wack str_cffinally lt) anychar)*
-	gt wack str_cffinally lt {
-		return new cftag(t, [], plib.stringify(content));
-	}
-
-tag_cfrethrow
-	= gt t:str_cfrethrow lt {
-		return new cftag(t, [], '');
-	}
-
-tag_cfthrow
-	= gt t:str_cfthrow lt {
-		return new cftag(t, [], '');
-	}
-
-tag_cftry
-	= gt t:str_cftry lt
-	content:(!(gt wack str_cftry lt) anychar)*
-	gt wack str_cftry lt {
-		return new cftag(t, [], plib.stringify(content));
-	}
 
 //ExtensibilityTag
 //	= tag_cfchart
@@ -348,15 +201,15 @@ tag_cftry
 //	/ tag_cfpop
 //	/ tag_cfsprydataset
 
-//PageProcessingTag
+PageProcessingTag
 //	= tag_cfcache
 //	/ tag_cfcontent
-//	/ tag_cfflush
+	= tag_cfflush
 //	/ tag_cfheader
 //	/ tag_cfhtmlhead
 //	/ tag_cfinclude
 //	/ tag_cfprocessingdirective
-//	/ tag_cfsetting
+	/ tag_cfsetting
 //	/ tag_cfsilent
 
 //SecurityTag
@@ -373,6 +226,174 @@ VariableManipulationTags
 	/ tag_cfsavecontent
 //	/ tag_cfschedule
 	/ tag_cfsetting
+
+OtherTag
+//	= tag_cfimage
+	= tag_cflog
+//	/ tag_cfregistry
+
+// Tag Definitions
+
+//ApplicationFrameworkTag Tags
+tag_cfapplication
+	= gt t:str_cfapplication attr:( attr_cfapplication_optional* attr_cfapplication_required attr_cfapplication_optional* ) ws* lt {
+//		console.dir({attr: attr, flattattr: plib.flatten(attr)});
+		return new cftag(t, plib.flatten(attr), '');
+	}
+
+tag_cfassociate
+	= gt t:str_cfassociate attr:( attr_cfassoc_required attr_cfassoc_optional* / attr_cfassoc_optional* attr_cfassoc_required ) lt {
+		return new cftag(t, plib.flatten(attr), '');
+	}
+
+tag_cferror
+	= gt t:str_cferror attr:(
+			attr_cferr_optional* attr_cferr_required_template attr_cferr_optional* attr_cferr_required_type attr_cferr_optional*
+			/ attr_cferr_optional* attr_cferr_required_type attr_cferr_optional* attr_cferr_required_template attr_cferr_optional*
+		) lt {
+		return new cftag(t, plib.flatten(attr), '');
+	}
+
+tag_cfimport
+	= gt t:str_cfimport attr:attr_cfimport_required lt {
+		return new cftag(t, attr, '');
+	}
+
+//CommunicationsTag Tags
+//DatabaseManipulationTag Tags
+tag_cfdbinfo
+	= gt t:str_cfdbinfo attr:( 
+			attr_cfdbinfo_optional* attr_cfdbinfo_required_name attr_cfdbinfo_optional* attr_cfdbinfo_required_type attr_cfdbinfo_optional*
+			/ attr_cfdbinfo_optional* attr_cfdbinfo_required_type attr_cfdbinfo_optional* attr_cfdbinfo_required_name attr_cfdbinfo_optional*
+	) lt {
+		var me = new cftag(t, plib.flatten(attr), '');
+		types_requiring_table_value = ['columns', 'foreignkeys', 'index'];
+		if ( ( me.attributes.type && types_requiring_table_value.indexOf(me.attributes.type) > -1 ) && ( ! me.attributes.table || me.attributes.table === "" ) ) {
+			throw new Error(util.format("Missing table value, required with type attribute specified as one of %a.", types_requiring_table_value));		
+		}
+		return me;
+	}
+
+tag_cfinsert
+	= gt t:str_cfinsert attr:(
+		attr_cfinsert_optional* attr_cfinsert_required_datasource attr_cfinsert_optional* attr_cfinsert_required_table_name attr_cfinsert_optional*
+		/ attr_cfinsert_optional* attr_cfinsert_required_table_name attr_cfinsert_optional* attr_cfinsert_required_datasource attr_cfinsert_optional*
+	) ws* wack? lt {
+		return new cftag(t, plib.flatten(attr), '');
+	}
+
+tag_cfobjectcache
+	= gt t:str_cfobjectcache attr:attr_cfobjectcache_required lt {
+		return new cftag(t, attr, '');
+	}
+
+tag_cfquery
+	= gt t:str_cfquery attr:(attr_cfquery_optional* attr_cfquery_required attr_cfquery_optional* ) lt
+	content:(!(gt wack str_cfquery lt) anychar)*
+	gt wack str_cfquery lt {
+		return new cftag(t, plib.flatten(attr), plib.stringify(content));
+	}
+
+tag_cfqueryparam
+	= gt t:str_cfqueryparam attr:(
+		attr_cfqueryparam_optional* attr_cfqueryparam_required attr_cfqueryparam_optional* 
+	) lt {
+		return new cftag(t, plib.flatten(attr), '');
+	}
+
+tag_cftransaction
+	= gt t:str_cftransaction attr:attr_cftransaction_optional* lt
+	content:(!(gt wack str_cftransaction lt) anychar)*
+	gt wack str_cftransaction lt {
+		return new cftag(t, attr, plib.stringify(content));
+	}
+
+tag_cfupdate
+	= gt t:str_cfupdate attr:(
+		attr_cfupdate_optional* attr_cfupdate_required_datasource attr_cfupdate_optional* attr_cfupdate_required_table_name attr_cfupdate_optional*
+		/ attr_cfupdate_optional* attr_cfupdate_required_table_name attr_cfupdate_optional* attr_cfupdate_required_datasource attr_cfupdate_optional*
+	) ws* wack? lt {
+		return new cftag(t, plib.flatten(attr), '');
+	}
+
+//DataOutputTag Tags
+tag_cfflush
+	= gt t:str_cfflush attr:attr_cfflush_optional* lt {
+		return new cftag(t,  attr, '');
+	}
+
+tag_cflog
+	= gt t:str_cflog attr:(
+		attr_cflog_optional*
+		attr_cflog_required
+		attr_cflog_optional*
+	) lt {
+		return new cftag(t, plib.flatten(attr), '');
+	}
+
+tag_cfoutput
+	= gt t:str_cfoutput attr:attr_cfoutput_optional* lt
+	content:(!(gt wack str_cfoutput lt) anychar)*
+	gt wack str_cfoutput lt {
+		return new cftag(t, attr, plib.stringify(content));
+	}
+
+//DebuggingTag Tags
+tag_cftimer
+	= gt t:str_cftimer attr:attr_cftimer_optional* lt
+	content:(!(gt wack str_cftimer lt) anychar)*
+	gt wack str_cftimer lt {
+		return new cftag(t, attr, plib.stringify(content));
+	}
+
+tag_cftrace
+	= gt t:str_cftrace attr:attr_cftrace_optional* lt
+	content:(!(gt wack str_cftrace lt) anychar)*
+	gt wack str_cftrace lt {
+		return new cftag(t, attr, plib.stringify(content));
+	}
+
+//DisplayManagementTag Tags
+//ExceptionHandlingTag Tags
+tag_cfcatch
+	= gt t:str_cfcatch attr:attr_cfcatch_optional* lt 
+	content:(!(gt wack str_cfcatch lt) anychar)*
+	gt wack str_cfcatch lt {
+		return new cftag(t, attr, plib.stringify(content));
+	}
+
+tag_cffinally
+	= gt t:str_cffinally lt 
+	content:(!(gt wack str_cffinally lt) anychar)*
+	gt wack str_cffinally lt {
+		return new cftag(t, [], plib.stringify(content));
+	}
+
+tag_cfrethrow
+	= gt t:str_cfrethrow lt {
+		return new cftag(t, [], '');
+	}
+
+tag_cfthrow
+	= gt t:str_cfthrow lt {
+		return new cftag(t, [], '');
+	}
+
+tag_cftry
+	= gt t:str_cftry lt
+	content:(!(gt wack str_cftry lt) anychar)*
+	gt wack str_cftry lt {
+		return new cftag(t, [], plib.stringify(content));
+	}
+
+//ExtensibilityTag Tags
+//FileManagementTag Tags
+//FlowControlTag Tags
+//FormTag Tags
+//InternetProtocolTag Tags
+//PageProcessingTag Tags
+//SecurityTag Tags
+//VariableManipulationTags Tags
 
 tag_cfdump
 	= gt t:str_cfdump attr:(
@@ -411,10 +432,7 @@ tag_cfsavecontent
 		return new cftag(t, [attr], plib.stringify(content));
 	}
 
-//OtherTag
-//	= tag_cfimage
-//	/ tag_cflog
-//	/ tag_cfregistry
+//OtherTag Tags
 
 // Tag Specific Value Defs
 attr_name_required = ws+ n:str_name       eql v:value_any_non_whitespace { return { name: n, value: v }; }
