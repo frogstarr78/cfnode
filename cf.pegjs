@@ -223,10 +223,27 @@ tag_cftrace
 ExceptionHandlingTag
 //	= tag_cfcatch
 //	/ tag_cferror
-//	/ tag_cffinally
-//	/ tag_cfrethrow
-//	/ tag_cfthrow
-	= tag_cftry
+	= tag_cffinally
+	/ tag_cfrethrow
+	/ tag_cfthrow
+	/ tag_cftry
+
+tag_cffinally
+	= gt t:str_cffinally lt 
+	content:(!(gt wack str_cffinally lt) anychar)*
+	gt wack str_cffinally lt {
+		return new cftag(t, [], plib.stringify(content));
+	}
+
+tag_cfrethrow
+	= gt t:str_cfrethrow lt {
+		return new cftag(t, [], '');
+	}
+
+tag_cfthrow
+	= gt t:str_cfthrow lt {
+		return new cftag(t, [], '');
+	}
 
 tag_cftry
 	= gt t:str_cftry lt
@@ -745,6 +762,7 @@ str_cfcookie                 = v:(c f c o o k i e)                              
 str_cfdbinfo                 = v:(c f d b i n f o)                                   { return plib.stringify(v, 'lower'); }
 str_cfdump                   = v:(c f d u m p)                                       { return plib.stringify(v, 'lower'); }
 str_cferror                  = v:(c f e r r o r)                                     { return plib.stringify(v, 'lower'); }
+str_cffinally                = v:(c f f i n a l l y)                                 { return plib.stringify(v, 'lower'); }
 str_cfflush                  = v:(c f f l u s h)                                     { return plib.stringify(v, 'lower'); }
 str_cfinsert                 = v:(c f i n s e r t)                                   { return plib.stringify(v, 'lower'); }
 str_cfimport                 = v:(c f i m p o r t)                                   { return plib.stringify(v, 'lower'); }
@@ -754,12 +772,14 @@ str_cfobjectcache            = v:(c f o b j e c t c a c h e)                    
 str_cfparam                  = v:(c f p a r a m)                                     { return plib.stringify(v, 'lower'); }
 str_cfquery                  = v:(c f q u e r y)                                     { return plib.stringify(v, 'lower'); }
 str_cfqueryparam             = v:(c f q u e r y p a r a m)                           { return plib.stringify(v, 'lower'); }
+str_cfrethrow                = v:(c f r e t h r o w)                                 { return plib.stringify(v, 'lower'); }
 str_cfsavecontent            = v:(c f s a v e c o n t e n t)                         { return plib.stringify(v, 'lower'); }
 str_cfsetting                = v:(c f s e t t i n g)                                 { return plib.stringify(v, 'lower'); }
 str_cfsql_type               = v:(c f s q l t y p e)                                 { return plib.stringify(v, 'lower'); }
 str_cftimer                  = v:(c f t i m e r)                                     { return plib.stringify(v, 'lower'); }
 str_cftrace                  = v:(c f t r a c e)                                     { return plib.stringify(v, 'lower'); }
 str_cftransaction            = v:(c f t r a n s a c t i o n)                         { return plib.stringify(v, 'lower'); }
+str_cfthrow                  = v:(c f t h r o w)                                     { return plib.stringify(v, 'lower'); }
 str_cftry                    = v:(c f t r y)                                         { return plib.stringify(v, 'lower'); }
 str_cfupdate                 = v:(c f u p d a t e)                                   { return plib.stringify(v, 'lower'); }
 
