@@ -85,7 +85,7 @@ DatabaseManipulationTag
 	/ tag_cfqueryparam
 //	/ tag_cfstoredproc
 	/ tag_cftransaction
-//	/ tag_cfupdate
+	/ tag_cfupdate
 
 tag_cfdbinfo
 	= gt t:str_cfdbinfo attr:( 
@@ -127,6 +127,14 @@ tag_cftransaction
 	content:(!(gt wack str_cftransaction lt) anychar)*
 	gt wack str_cftransaction lt {
 		return new cftag(t, attr, plib.stringify(content));
+	}
+
+tag_cfupdate
+	= gt t:str_cfupdate attr:(
+		attr_cfupdate_optional* attr_cfupdate_required_datasource attr_cfupdate_optional* attr_cfupdate_required_table_name attr_cfupdate_optional*
+		/ attr_cfupdate_optional* attr_cfupdate_required_table_name attr_cfupdate_optional* attr_cfupdate_required_datasource attr_cfupdate_optional*
+	) ws* wack? lt {
+		return new cftag(t, plib.flatten(attr), '');
 	}
 
 DataOutputTag
@@ -490,8 +498,7 @@ attr_cfflush_optional
 	= ws+ n:str_interval eql v:value_integer { return { name: n, value: v }; }
 
 attr_cfinsert_required_datasource = attr_datasource
-attr_cfinsert_required_table_name
-	= ws+ n:str_table_name eql v:value_any { return { name: 'table_name', value: v }; }
+attr_cfinsert_required_table_name = ws+ n:str_table_name eql v:value_any { return { name: 'table_name', value: v }; }
 
 attr_cfinsert_optional
 	= ws+ n:str_form_fields     eql v:value_list { return { name: 'form_fields', value: v }; }
@@ -570,6 +577,16 @@ value_cftransaction_isolation
 	/ quote_char v:"repeatable_read" quote_char { return v; }
 	/ quote_char v:"serializable"    quote_char { return v; }
 	
+attr_cfupdate_required_datasource = attr_datasource
+attr_cfupdate_required_table_name = ws+ n:str_table_name eql v:value_any { return { name: 'table_name', value: v }; }
+
+attr_cfupdate_optional
+	= ws+ n:str_form_fields     eql v:value_list { return { name: 'form_fields', value: v }; }
+	/ attr_password
+	/ ws+ n:str_table_owner     eql v:value_any  { return { name: 'table_owner', value: v }; }
+	/ ws+ n:str_table_qualifier eql v:value_any  { return { name: 'table_qualifier', value: v }; }
+	/ attr_username
+
 attr_cfquery_required = attr_name_required
 attr_cfquery_optional
 	= ws+ n:str_blockfactor   eql v:value_integer               { return { name: 'block_factor',  value: v }; }
@@ -723,10 +740,11 @@ str_cfquery                  = v:(c f q u e r y)                                
 str_cfqueryparam             = v:(c f q u e r y p a r a m)                           { return plib.stringify(v, 'lower'); }
 str_cfsavecontent            = v:(c f s a v e c o n t e n t)                         { return plib.stringify(v, 'lower'); }
 str_cfsetting                = v:(c f s e t t i n g)                                 { return plib.stringify(v, 'lower'); }
+str_cfsql_type               = v:(c f s q l t y p e)                                 { return plib.stringify(v, 'lower'); }
 str_cftimer                  = v:(c f t i m e r)                                     { return plib.stringify(v, 'lower'); }
 str_cftrace                  = v:(c f t r a c e)                                     { return plib.stringify(v, 'lower'); }
 str_cftransaction            = v:(c f t r a n s a c t i o n)                         { return plib.stringify(v, 'lower'); }
-str_cfsql_type               = v:(c f s q l t y p e)                                 { return plib.stringify(v, 'lower'); }
+str_cfupdate                 = v:(c f u p d a t e)                                   { return plib.stringify(v, 'lower'); }
 
 str_clientmanagement         = v:(c l i e n t m a n a g e m e n t)                   { return plib.stringify(v, 'lower'); }
 str_clientstorage            = v:(c l i e n t s t o r a g e)                         { return plib.stringify(v, 'lower'); }
