@@ -1,5 +1,4 @@
 var is = require('assert'),
-	PEG = require('pegjs'),
 	cf = require(__dirname + '/../cf'),
 	testlib = require('./testlib');
 
@@ -25,6 +24,12 @@ is.equal(r.attributes.base_tag, 'cfnode_test');
 is.equal(r.attributes.data_collection, 'something');
 
 r = cf.parse('<cfassociate dataCollection="somethingelse" baseTag="cfnode_test">');
+is.equal(r instanceof Object, true);
+is.equal(r.tag, 'associate');
+is.equal(r.attributes.base_tag, 'cfnode_test');
+is.equal(r.attributes.data_collection, 'somethingelse');
+
+r = cf.parse('<CFASSOCIATE DATACOLLECTION="somethingelse" BASETAG="cfnode_test">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'associate');
 is.equal(r.attributes.base_tag, 'cfnode_test');

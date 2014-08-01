@@ -30,7 +30,7 @@ function _equalDateLike(received, expected, comparisons) {
 is.equalDate = function (received, expected, message) {
 	var comparisons = ['getFullYear', 'getMonth', 'getDate', 'getDay'];
 	if ( !_equalDateLike(received, expected, comparisons) ) {
-		is.fail(rec, exp, message, 'equalDate', is.equalDate);
+		is.fail(received, expected, message, 'equalDate', is.equalDate);
 	}
 }
 
@@ -105,5 +105,27 @@ is.equal(r instanceof Object, true);
 is.equal(r.tag, 'cookie');
 is.equal(r.attributes.name, 'cfcookietest');
 is.equalDate(r.attributes.expires, human_date('in 5 days'));
+
+r = cf.parse('<cfcookie name="cfcookietest" domain=".example.com" expires="now" httponly="yes" path="/" secure="no" value="abc">');
+is.equal(r instanceof Object, true);
+is.equal(r.tag, 'cookie');
+is.equal(r.attributes.name, 'cfcookietest');
+is.equal(r.attributes.domain, '.example.com');
+is.equalDate(r.attributes.expires, new Date());
+is.equal(r.attributes.http_only, true);
+is.equal(r.attributes.path, '/');
+is.equal(r.attributes.secure, false);
+is.equal(r.attributes.value, 'abc');
+
+r = cf.parse('<CFCOOKIE NAME="cfcookietest2" DOMAIN=".example.com" EXPIRES="now" HTTPONLY="yes" PATH="/" SECURE="no" VALUE="abc">');
+is.equal(r instanceof Object, true);
+is.equal(r.tag, 'cookie');
+is.equal(r.attributes.name, 'cfcookietest2');
+is.equal(r.attributes.domain, '.example.com');
+is.equalDate(r.attributes.expires, new Date());
+is.equal(r.attributes.http_only, true);
+is.equal(r.attributes.path, '/');
+is.equal(r.attributes.secure, false);
+is.equal(r.attributes.value, 'abc');
 
 testlib.die("Success!", 0);

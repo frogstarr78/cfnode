@@ -25,6 +25,15 @@ is.equal(r.tag, 'savecontent');
 is.equal(r.attributes.variable, "savecontent");
 is.equal(r.content, "\n");
 
+r = cf.parse('<CFSAVECONTENT' +
+		' VARIABLE="savecontent">' +
+"\nThis is the content that is saved #NOW()#" +
+"\n</CFSAVECONTENT>");
+is.equal(r instanceof Object, true);
+is.equal(r.tag, 'savecontent');
+is.equal(r.attributes.variable, 'savecontent');
+is.equal(r.content, "\nThis is the content that is saved #NOW()#\n");
+
 r = cf.parse('<cfsavecontent variable="savecontent">' +
 "\nThis is the content that is saved #NOW()#" +
 "\n</cfsavecontent>");

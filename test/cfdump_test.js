@@ -57,7 +57,36 @@ is.equal(r.attributes.label, "lbl");
 is.equal(r.attributes.metainfo, false);
 is.equal(r.attributes.output, "browser");
 is.deepEqual(r.attributes.show, ['name', 'address', 'email', 'username']);
-is.equal(r.attributes.showUDFs, true);
+is.equal(r.attributes.show_udfs, true);
+is.equal(r.attributes.top, 10);
+is.equal(r.attributes.var, "var");
+
+r = cf.parse('<cfdump' +
+		' ABORT="true"' +
+		' KEYS="4"' +
+		' METAINFO="no"' +
+		' TOP="10"' +
+		' VAR="#var#"' +
+	    ' EXPAND="1"' +
+	    ' FORMAT="text"' +
+	    ' HIDE="password"' +
+	    ' LABEL="lbl"' +
+	    ' OUTPUT="browser"' +
+	    ' SHOW="name,address,email,username"' +
+	    ' SHOWUDFS="yes"' +
+'>');
+is.equal(r instanceof Object, true);
+is.equal(r.tag, 'dump');
+is.equal(r.attributes.abort, true);
+is.equal(r.attributes.expand, true);
+is.equal(r.attributes.format, "text");
+is.equal(r.attributes.hide, "password");
+is.equal(r.attributes.keys, 4);
+is.equal(r.attributes.label, "lbl");
+is.equal(r.attributes.metainfo, false);
+is.equal(r.attributes.output, "browser");
+is.deepEqual(r.attributes.show, ['name', 'address', 'email', 'username']);
+is.equal(r.attributes.show_udfs, true);
 is.equal(r.attributes.top, 10);
 is.equal(r.attributes.var, "var");
 
