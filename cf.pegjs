@@ -221,12 +221,19 @@ tag_cftrace
 //	/ tag_cfwindow
 
 ExceptionHandlingTag
-//	= tag_cfcatch
-//	/ tag_cferror
-	= tag_cffinally
+	= tag_cfcatch
+	/ tag_cferror
+	/ tag_cffinally
 	/ tag_cfrethrow
 	/ tag_cfthrow
 	/ tag_cftry
+
+tag_cfcatch
+	= gt t:str_cfcatch attr:attr_cfcatch_optional* lt 
+	content:(!(gt wack str_cfcatch lt) anychar)*
+	gt wack str_cfcatch lt {
+		return new cftag(t, attr, plib.stringify(content));
+	}
 
 tag_cffinally
 	= gt t:str_cffinally lt 
@@ -461,8 +468,10 @@ attr_cfimport_required
 
 attr_cfimport_required_taglib = ws+ n:str_taglib eql v:value_file_path { return { name: n, value: v }; }
 attr_cfimport_required_prefix = ws+ n:str_prefix eql v:(value_any_non_whitespace / value_empty_quote ) { return { name: n, value: v }; }
-
 //attr_cfimport_optional
+
+//attr_cfcatch_required
+attr_cfcatch_optional = ws+ n:str_type eql v:value_cferr_exception { return { name: n, value: v }; }
 
 attr_cfcookie_required = attr_name_required
 attr_cfcookie_optional
@@ -758,6 +767,7 @@ str_category                 = v:(c a t e g o r y)                              
 
 str_cfapplication            = v:(c f a p p l i c a t i o n)                         { return plib.stringify(v, 'lower'); }
 str_cfassociate              = v:(c f a s s o c i a t e)                             { return plib.stringify(v, 'lower'); }
+str_cfcatch                  = v:(c f c a t c h)                                     { return plib.stringify(v, 'lower'); }
 str_cfcookie                 = v:(c f c o o k i e)                                   { return plib.stringify(v, 'lower'); }
 str_cfdbinfo                 = v:(c f d b i n f o)                                   { return plib.stringify(v, 'lower'); }
 str_cfdump                   = v:(c f d u m p)                                       { return plib.stringify(v, 'lower'); }
