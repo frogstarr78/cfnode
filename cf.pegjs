@@ -81,7 +81,7 @@ DataOutputTag
 	/ tag_cfprocessingdirective
 //	/ tag_cfreport
 //	/ tag_cfreportparam
-//	/ tag_cfsilent
+	/ tag_cfsilent
 //	/ tag_cftable
 
 DebuggingTag
@@ -210,7 +210,7 @@ PageProcessingTag
 	/ tag_cfinclude
 	/ tag_cfprocessingdirective
 	/ tag_cfsetting
-//	/ tag_cfsilent
+	/ tag_cfsilent
 
 //SecurityTag
 //	= tag_cflogin
@@ -443,6 +443,13 @@ tag_cfprocessingdirective
 tag_cfsetting
 	= gt t:str_cfsetting attr:attr_cfsetting_optional* lt {
 		return new cftag(t, attr, '');
+	}
+
+tag_cfsilent
+	= gt t:str_cfsilent lt
+	content:(!(gt wack str_cfsilent lt) anychar)*
+	gt wack str_cfsilent lt {
+		return new cftag(t, [], plib.stringify(content));
 	}
 
 tag_cfsavecontent
@@ -837,6 +844,7 @@ str_cfqueryparam             = v:(c f q u e r y p a r a m)                      
 str_cfrethrow                = v:(c f r e t h r o w)                                 { return plib.stringify(v, 'lower'); }
 str_cfsavecontent            = v:(c f s a v e c o n t e n t)                         { return plib.stringify(v, 'lower'); }
 str_cfsetting                = v:(c f s e t t i n g)                                 { return plib.stringify(v, 'lower'); }
+str_cfsilent                 = v:(c f s i l e n t)                                   { return plib.stringify(v, 'lower'); }
 str_cfsql_type               = v:(c f s q l t y p e)                                 { return plib.stringify(v, 'lower'); }
 str_cftimer                  = v:(c f t i m e r)                                     { return plib.stringify(v, 'lower'); }
 str_cftrace                  = v:(c f t r a c e)                                     { return plib.stringify(v, 'lower'); }
