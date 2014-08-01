@@ -155,7 +155,7 @@ ExceptionHandlingTag
 //	/ tag_cfexecute
 //	/ tag_cfexit
 //	/ tag_cfif
-//	/ tag_cfinclude
+	/ tag_cfinclude
 //	/ tag_cflocation
 //	/ tag_cfloop
 //	/ tag_cfrethrow
@@ -207,7 +207,7 @@ PageProcessingTag
 	= tag_cfflush
 //	/ tag_cfheader
 //	/ tag_cfhtmlhead
-//	/ tag_cfinclude
+	/ tag_cfinclude
 	/ tag_cfprocessingdirective
 	/ tag_cfsetting
 //	/ tag_cfsilent
@@ -420,6 +420,11 @@ tag_cfparam
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
+tag_cfinclude
+	= gt t:str_cfinclude attr:attr_cfinclude_required ws* wack? lt {
+		return new cftag(t, [attr], '');
+	}
+
 tag_cfprocessingdirective
 	= gt t:str_cfprocessingdirective attr:attr_cfprocessingdirective_optional* lt
 		content:(!(gt wack str_cfprocessingdirective lt) anychar)*
@@ -497,6 +502,9 @@ attr_cfimport_required
 attr_cfimport_required_taglib = ws+ n:str_taglib eql v:value_file_path { return { name: n, value: v }; }
 attr_cfimport_required_prefix = ws+ n:str_prefix eql v:(value_any_non_whitespace / value_empty_quote ) { return { name: n, value: v }; }
 //attr_cfimport_optional
+
+attr_cfinclude_required = ws+ n:str_template eql v:value_file_path { return { name: n, value: v }; }
+//attr_cfinclude_optional
 
 //attr_cfcatch_required
 attr_cfcatch_optional = ws+ n:str_type eql v:value_cferr_exception { return { name: n, value: v }; }
@@ -809,6 +817,7 @@ str_cffinally                = v:(c f f i n a l l y)                            
 str_cfflush                  = v:(c f f l u s h)                                     { return plib.stringify(v, 'lower'); }
 str_cfinsert                 = v:(c f i n s e r t)                                   { return plib.stringify(v, 'lower'); }
 str_cfimport                 = v:(c f i m p o r t)                                   { return plib.stringify(v, 'lower'); }
+str_cfinclude                = v:(c f i n c l u d e)                                 { return plib.stringify(v, 'lower'); }
 str_cflog                    = v:(c f l o g)                                         { return plib.stringify(v, 'lower'); }
 str_cfoutput                 = v:(c f o u t p u t)                                   { return plib.stringify(v, 'lower'); }
 str_cfobjectcache            = v:(c f o b j e c t c a c h e)                         { return plib.stringify(v, 'lower'); }
