@@ -13,7 +13,7 @@ start
 	/ DataOutputTag
 	/ DebuggingTag
 //	/ DisplayManagementTag
-//	/ ExceptionHandlingTag
+	/ ExceptionHandlingTag
 //	/ ExtensibilityTag
 //	/ FileManagementTag
 //	/ FlowControlTag
@@ -220,13 +220,20 @@ tag_cftrace
 //	/ tag_cftooltip
 //	/ tag_cfwindow
 
-//ExceptionHandlingTag
+ExceptionHandlingTag
 //	= tag_cfcatch
 //	/ tag_cferror
 //	/ tag_cffinally
 //	/ tag_cfrethrow
 //	/ tag_cfthrow
-//	/ tag_cftry
+	= tag_cftry
+
+tag_cftry
+	= gt t:str_cftry lt
+	content:(!(gt wack str_cftry lt) anychar)*
+	gt wack str_cftry lt {
+		return new cftag(t, [], plib.stringify(content));
+	}
 
 //ExtensibilityTag
 //	= tag_cfchart
@@ -753,6 +760,7 @@ str_cfsql_type               = v:(c f s q l t y p e)                            
 str_cftimer                  = v:(c f t i m e r)                                     { return plib.stringify(v, 'lower'); }
 str_cftrace                  = v:(c f t r a c e)                                     { return plib.stringify(v, 'lower'); }
 str_cftransaction            = v:(c f t r a n s a c t i o n)                         { return plib.stringify(v, 'lower'); }
+str_cftry                    = v:(c f t r y)                                         { return plib.stringify(v, 'lower'); }
 str_cfupdate                 = v:(c f u p d a t e)                                   { return plib.stringify(v, 'lower'); }
 
 str_clientmanagement         = v:(c l i e n t m a n a g e m e n t)                   { return plib.stringify(v, 'lower'); }
