@@ -206,7 +206,7 @@ PageProcessingTag
 //	/ tag_cfcontent
 	= tag_cfflush
 //	/ tag_cfheader
-//	/ tag_cfhtmlhead
+	/ tag_cfhtmlhead
 	/ tag_cfinclude
 	/ tag_cfprocessingdirective
 	/ tag_cfsetting
@@ -420,6 +420,11 @@ tag_cfparam
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
+tag_cfhtmlhead
+	= gt t:str_cfhtmlhead attr:attr_cfhtmlhead_required ws* wack? lt {
+		return new cftag(t, [attr], '');
+	}
+
 tag_cfinclude
 	= gt t:str_cfinclude attr:attr_cfinclude_required ws* wack? lt {
 		return new cftag(t, [attr], '');
@@ -454,7 +459,8 @@ attr_name_required = ws+ n:str_name       eql v:value_any_non_whitespace { retur
 attr_password      = ws+ n:str_password   eql v:value_any                { return { name: n, value: v }; }
 attr_username      = ws+ n:str_username   eql v:value_any_non_whitespace { return { name: n, value: v }; }
 attr_datasource    = ws+ n:str_datasource eql v:value_any_non_whitespace { return { name: n, value: v }; }
-attr_var           = ws+ n:str_var eql v:value_cfval { return { name: n, value: v }; }
+attr_var           = ws+ n:str_var        eql v:value_cfval              { return { name: n, value: v }; }
+attr_text          = ws+ n:str_text       eql v:value_any                { return { name: n, value: v }; }
 
 attr_cfapplication_required = attr_name_required
 attr_cfapplication_optional
@@ -502,6 +508,9 @@ attr_cfimport_required
 attr_cfimport_required_taglib = ws+ n:str_taglib eql v:value_file_path { return { name: n, value: v }; }
 attr_cfimport_required_prefix = ws+ n:str_prefix eql v:(value_any_non_whitespace / value_empty_quote ) { return { name: n, value: v }; }
 //attr_cfimport_optional
+
+attr_cfhtmlhead_required = attr_text
+//attr_cfhtmlhead_optional
 
 attr_cfinclude_required = ws+ n:str_template eql v:value_file_path { return { name: n, value: v }; }
 //attr_cfinclude_optional
@@ -554,8 +563,7 @@ attr_cfsetting_optional
 attr_cfsavecontent_required = ws+ n:str_variable eql v:value_any_non_whitespace { return { name: n, value: v }; }
 //attr_cfsavecontent_optional
 
-attr_cflog_required
-	= ws+ n:str_text eql v:value_any { return { name: n, value: v}; }
+attr_cflog_required = attr_text
 
 attr_cflog_optional
 	= ws+ n:str_application eql v:value_boolean    { return { name: n, value: v }; }
@@ -612,7 +620,7 @@ attr_cftrace_optional
 	= ws+ n:str_abort    eql v:value_boolean      { return { name: n, value: v }; }
 	/ ws+ n:str_category eql v:value_any          { return { name: n, value: v }; }
 	/ ws+ n:str_inline   eql v:value_boolean      { return { name: n, value: v }; }
-	/ ws+ n:str_text     eql v:value_any          { return { name: n, value: v }; }
+	/ attr_text
 	/ ws+ n:str_var      eql v:value_any          { return { name: n, value: v }; }
 	/ ws+ n:str_type     eql v:value_cftrace_type { return { name: n, value: v }; }
 
@@ -817,6 +825,7 @@ str_cffinally                = v:(c f f i n a l l y)                            
 str_cfflush                  = v:(c f f l u s h)                                     { return plib.stringify(v, 'lower'); }
 str_cfinsert                 = v:(c f i n s e r t)                                   { return plib.stringify(v, 'lower'); }
 str_cfimport                 = v:(c f i m p o r t)                                   { return plib.stringify(v, 'lower'); }
+str_cfhtmlhead               = v:(c f h t m l h e a d)                               { return plib.stringify(v, 'lower'); }
 str_cfinclude                = v:(c f i n c l u d e)                                 { return plib.stringify(v, 'lower'); }
 str_cflog                    = v:(c f l o g)                                         { return plib.stringify(v, 'lower'); }
 str_cfoutput                 = v:(c f o u t p u t)                                   { return plib.stringify(v, 'lower'); }
