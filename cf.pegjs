@@ -78,7 +78,7 @@ tag_cfimport
 DatabaseManipulationTag
 	= tag_cfdbinfo
 	/ tag_cfinsert
-//	/ tag_cfobjectcache
+	/ tag_cfobjectcache
 //	/ tag_cfprocparam
 //	/ tag_cfprocresult
 	/ tag_cfquery
@@ -106,6 +106,11 @@ tag_cfinsert
 		/ attr_cfinsert_optional* attr_cfinsert_required_table_name attr_cfinsert_optional* attr_cfinsert_required_datasource attr_cfinsert_optional*
 	) ws* wack? lt {
 		return new cftag(t, plib.flatten(attr), '');
+	}
+
+tag_cfobjectcache
+	= gt t:str_cfobjectcache attr:attr_cfobjectcache_required lt {
+		return new cftag(t, attr, '');
 	}
 
 tag_cfquery
@@ -497,6 +502,9 @@ value_cflog_type
 attr_cfflush_optional
 	= ws+ n:str_interval eql v:value_integer { return { name: n, value: v }; }
 
+attr_cfobjectcache_required = ws+ n:str_action eql quote_char v:"clear" quote_char { return { name: n, value: v }; }
+//attr_cfobjectcache_optional
+
 attr_cfinsert_required_datasource = attr_datasource
 attr_cfinsert_required_table_name = ws+ n:str_table_name eql v:value_any { return { name: 'table_name', value: v }; }
 
@@ -735,6 +743,7 @@ str_cfinsert                 = v:(c f i n s e r t)                              
 str_cfimport                 = v:(c f i m p o r t)                                   { return plib.stringify(v, 'lower'); }
 str_cflog                    = v:(c f l o g)                                         { return plib.stringify(v, 'lower'); }
 str_cfoutput                 = v:(c f o u t p u t)                                   { return plib.stringify(v, 'lower'); }
+str_cfobjectcache            = v:(c f o b j e c t c a c h e)                         { return plib.stringify(v, 'lower'); }
 str_cfparam                  = v:(c f p a r a m)                                     { return plib.stringify(v, 'lower'); }
 str_cfquery                  = v:(c f q u e r y)                                     { return plib.stringify(v, 'lower'); }
 str_cfqueryparam             = v:(c f q u e r y p a r a m)                           { return plib.stringify(v, 'lower'); }
