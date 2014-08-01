@@ -78,7 +78,7 @@ DataOutputTag
 //	/ tag_cfpresentationslide
 //	/ tag_cfpresenter
 //	/ tag_cfprint
-//	/ tag_cfprocessingdirective
+	/ tag_cfprocessingdirective
 //	/ tag_cfreport
 //	/ tag_cfreportparam
 //	/ tag_cfsilent
@@ -208,7 +208,7 @@ PageProcessingTag
 //	/ tag_cfheader
 //	/ tag_cfhtmlhead
 //	/ tag_cfinclude
-//	/ tag_cfprocessingdirective
+	/ tag_cfprocessingdirective
 	/ tag_cfsetting
 //	/ tag_cfsilent
 
@@ -420,6 +420,16 @@ tag_cfparam
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
+tag_cfprocessingdirective
+	= gt t:str_cfprocessingdirective attr:attr_cfprocessingdirective_optional* lt
+		content:(!(gt wack str_cfprocessingdirective lt) anychar)*
+		gt wack str_cfprocessingdirective lt {
+		return new cftag(t, attr, '');
+	}
+	/ gt t:str_cfprocessingdirective attr:attr_cfprocessingdirective_optional* ws* wack? lt {
+		return new cftag(t, attr, '');
+	}
+
 tag_cfsetting
 	= gt t:str_cfsetting attr:attr_cfsetting_optional* lt {
 		return new cftag(t, attr, '');
@@ -521,6 +531,11 @@ attr_cfparam_optional
 	/ ws+ n:str_min     eql v:value_integer      { return { name: n, value: v }; }
 	/ ws+ n:str_pattern eql v:value_regex        { return { name: n, value: v }; }
 	/ ws+ n:str_type    eql v:value_cfparam_type { return { name: n, value: v }; }
+
+//attr_cfprocessingdirective_required
+attr_cfprocessingdirective_optional
+	= ws+ n:str_page_encoding       eql v:value_encoding { return { name: 'page_encoding',       value: v }; }
+	/ ws+ n:str_suppress_whitespace eql v:value_boolean  { return { name: 'suppress_whitespace', value: v }; }
 
 //attr_cfsetting_required
 attr_cfsetting_optional
@@ -797,6 +812,7 @@ str_cfimport                 = v:(c f i m p o r t)                              
 str_cflog                    = v:(c f l o g)                                         { return plib.stringify(v, 'lower'); }
 str_cfoutput                 = v:(c f o u t p u t)                                   { return plib.stringify(v, 'lower'); }
 str_cfobjectcache            = v:(c f o b j e c t c a c h e)                         { return plib.stringify(v, 'lower'); }
+str_cfprocessingdirective    = v:(c f p r o c e s s i n g d i r e c t i v e)         { return plib.stringify(v, 'lower'); }
 str_cfparam                  = v:(c f p a r a m)                                     { return plib.stringify(v, 'lower'); }
 str_cfquery                  = v:(c f q u e r y)                                     { return plib.stringify(v, 'lower'); }
 str_cfqueryparam             = v:(c f q u e r y p a r a m)                           { return plib.stringify(v, 'lower'); }
@@ -864,6 +880,7 @@ str_null                     = v:(n u l l)                                      
 str_numeric                  = v:(n u m e r i c)                                     { return plib.stringify(v); }
 str_ormoptions               = v:(o r m o p t i o n s)                               { return plib.stringify(v, 'lower'); }
 str_output                   = v:(o u t p u t)                                       { return plib.stringify(v, 'lower'); }
+str_page_encoding            = v:(p a g e ub? e n c o d i n g)                       { return plib.stringify(v, 'lower'); }
 str_password                 = v:(p a s s w o r d)                                   { return plib.stringify(v, 'lower'); }
 str_path                     = v:(p a t h)                                           { return plib.stringify(v, 'lower'); }
 str_pattern                  = v:(p a t t e r n)                                     { return plib.stringify(v, 'lower'); }
@@ -897,6 +914,7 @@ str_ssn                      = v:(s s n)                                        
 str_startrow                 = v:(s t a r t r o w)                                   { return plib.stringify(v, 'under'); }
 str_string                   = v:(s t r i n g)                                       { return plib.stringify(v); }
 str_struct                   = v:(s t r u c t)                                       { return plib.stringify(v); }
+str_suppress_whitespace      = v:(s u p p r e s s ub? w h i t e s p a c e)           { return plib.stringify(v, 'lower'); }
 str_table                    = v:(t a b l e)                                         { return plib.stringify(v, 'lower'); }
 str_table_name               = v:(t a b l e n a m e)                                 { return plib.stringify(v, 'lower'); }
 str_table_owner              = v:(t a b l e o w n e r)                               { return plib.stringify(v, 'under'); }
@@ -954,6 +972,8 @@ dom_part = ( lcchars / ub lcchars )+ ( '-' lcchars / lcchars )*
 
 // Generic Generic Value Defs
 value_any_non_whitespace = quote_char v:( ( chars+ [\-_] )* chars )* quote_char { return plib.stringify(v); }
+// @TODO: Fix value_encoding from: http://www.iana.org/assignments/character-sets/character-sets.xhtml
+value_encoding = value_any_non_whitespace
 
 // @TODO: allow escaped quotes inside quoted strings
 value_any 
