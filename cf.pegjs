@@ -66,11 +66,11 @@ DataOutputTag
 //	/ tag_cfchartdata
 //	/ tag_cfchartseries
 //	/ tag_cfcol
-//	/ tag_cfcontent
+	= tag_cfcontent
 //	/ tag_cfdocument
 //	/ tag_cfdocumentitem
 //	/ tag_cfdocumentsection
-	= tag_cfflush
+	/ tag_cfflush
 //	/ tag_cfheader
 	/ tag_cflog
 	/ tag_cfoutput
@@ -203,8 +203,8 @@ ExceptionHandlingTag
 
 PageProcessingTag
 //	= tag_cfcache
-//	/ tag_cfcontent
-	= tag_cfflush
+	= tag_cfcontent
+	/ tag_cfflush
 //	/ tag_cfheader
 	/ tag_cfhtmlhead
 	/ tag_cfinclude
@@ -420,6 +420,11 @@ tag_cfparam
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
+tag_cfcontent
+	= gt t:str_cfcontent attr:attr_cfcontent_optional* ws* wack? lt {
+		return new cftag(t,  attr, '');
+	}
+
 tag_cfhtmlhead
 	= gt t:str_cfhtmlhead attr:attr_cfhtmlhead_required ws* wack? lt {
 		return new cftag(t, [attr], '');
@@ -434,7 +439,7 @@ tag_cfprocessingdirective
 	= gt t:str_cfprocessingdirective attr:attr_cfprocessingdirective_optional* lt
 		content:(!(gt wack str_cfprocessingdirective lt) anychar)*
 		gt wack str_cfprocessingdirective lt {
-		return new cftag(t, attr, '');
+		return new cftag(t, attr, plib.stringify(content));
 	}
 	/ gt t:str_cfprocessingdirective attr:attr_cfprocessingdirective_optional* ws* wack? lt {
 		return new cftag(t, attr, '');
@@ -515,6 +520,14 @@ attr_cfimport_required
 attr_cfimport_required_taglib = ws+ n:str_taglib eql v:value_file_path { return { name: n, value: v }; }
 attr_cfimport_required_prefix = ws+ n:str_prefix eql v:(value_any_non_whitespace / value_empty_quote ) { return { name: n, value: v }; }
 //attr_cfimport_optional
+
+//attr_cfcontent_required
+attr_cfcontent_optional
+	= ws+ n:str_delete_file eql v:value_boolean            { return { name: 'delete_file', value: v }; }
+	/ ws+ n:str_file        eql v:value_file_path		   { return { name: n, value: v }; }
+	/ ws+ n:str_reset       eql v:value_boolean            { return { name: n, value: v }; }
+	/ ws+ n:str_type        eql v:value_encoding           { return { name: n, value: v }; }
+	/ ws+ n:str_variable    eql v:value_any_non_whitespace { return { name: n, value: v }; }
 
 attr_cfhtmlhead_required = attr_text
 //attr_cfhtmlhead_optional
@@ -784,7 +797,7 @@ value_cfcookie_expires
 value_cfdump_output
 	= quote_char v:"browser" quote_char { return v; }
 	/ quote_char v:"console" quote_char { return v; }
-	/ quote_char v:str_file    quote_char { return v; }
+	/ quote_char v:str_file  quote_char { return v; }
 value_cfdump_format
 	= quote_char v:str_text quote_char { return v; }
 	/ quote_char v:str_html quote_char { return v; }
@@ -824,6 +837,7 @@ str_category                 = v:(c a t e g o r y)                              
 str_cfapplication            = v:(c f a p p l i c a t i o n)                         { return plib.stringify(v, 'lower'); }
 str_cfassociate              = v:(c f a s s o c i a t e)                             { return plib.stringify(v, 'lower'); }
 str_cfcatch                  = v:(c f c a t c h)                                     { return plib.stringify(v, 'lower'); }
+str_cfcontent                = v:(c f c o n t e n t)                                 { return plib.stringify(v, 'lower'); }
 str_cfcookie                 = v:(c f c o o k i e)                                   { return plib.stringify(v, 'lower'); }
 str_cfdbinfo                 = v:(c f d b i n f o)                                   { return plib.stringify(v, 'lower'); }
 str_cfdump                   = v:(c f d u m p)                                       { return plib.stringify(v, 'lower'); }
@@ -863,6 +877,7 @@ str_datasource               = v:(d a t a s o u r c e)                          
 str_date                     = v:(d a t e)                                           { return plib.stringify(v); }
 str_debug                    = v:(d e b u g)                                         { return plib.stringify(v, 'lower'); }
 str_default                  = v:(d e f a u l t)                                     { return plib.stringify(v, 'lower'); }
+str_delete_file              = v:(d e l e t e ub? f i l e)                           { return plib.stringify(v, 'lower'); }
 str_dbname                   = v:(d b n a m e)                                       { return plib.stringify(v, 'lower'); }
 str_dbtype                   = v:(d b t y p e)                                       { return plib.stringify(v, 'lower'); }
 str_domain                   = v:(d o m a i n)                                       { return plib.stringify(v, 'lower'); }
@@ -913,6 +928,7 @@ str_pattern                  = v:(p a t t e r n)                                
 str_prefix                   = v:(p r e f i x)                                       { return plib.stringify(v, 'lower'); }
 str_query                    = v:(q u e r y)                                         { return plib.stringify(v); }
 str_range                    = v:(r a n g e s)                                       { return plib.stringify(v); }
+str_reset                    = v:(r e s e t)                                         { return plib.stringify(v, 'lower'); }
 str_result                   = v:(r e s u l t)                                       { return plib.stringify(v, 'lower'); }
 str_regex                    = v:(r e g e x)                                         { return plib.stringify(v); }
 str_registry                 = v:(r e g i s t r y)                                   { return plib.stringify(v); }
