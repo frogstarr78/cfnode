@@ -6,11 +6,11 @@ var is = require('assert'),
 var r;
 is.throws(function () {
 	r = cf.parse('<cfdump>');
-}, Error);
+}, Error, 'Missing required var attribute');
 
 is.throws(function () {
 	r = cf.parse('<cfdump showUDFs="true">');
-}, Error);
+}, Error, 'Missing required var attribute');
 
 r = cf.parse('<cfdump var="#cfnode_test#">');
 is.equal(r instanceof Object, true);
