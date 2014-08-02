@@ -29,7 +29,7 @@ is.equal(r.tag, 'htmlhead');
 is.equal(r.attributes.text, 'cfhtmlhead test');
 
 //@TODO Fix this test
-testlib.die("Fix Me!".red, 1);
+testlib.die("Fix Me!".yellow, 1);
 //r = cf.parse('<cfhtmlhead text="<link href='"'/blog/custom/img/favicon.ico\' rel=\'shortcut icon\' type=\'image/x-icon\'>#chr(13)##chr(10)#" />');
 
 testlib.die("Success!", 0);
