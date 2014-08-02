@@ -16,8 +16,11 @@ start
 	/ tag_cfcontinue
 	/ tag_cfcookie
 	/ tag_cfdbinfo
+	/ tag_cfdefaultcase
 	/ tag_cfdump
+	/ tag_cfelse
 	/ tag_cferror
+	/ tag_cfexit
 	/ tag_cffinally
 	/ tag_cfflush
 	/ tag_cfhtmlhead
@@ -58,13 +61,11 @@ start
 //	/ tag_cfcol
 //	/ tag_cfcollection
 //	/ tag_cfcomponent
-//	/ tag_cfdefaultcase
 //	/ tag_cfdirectory
 //	/ tag_cfdiv
 //	/ tag_cfdocument
 //	/ tag_cfdocumentitem
 //	/ tag_cfdocumentsection
-//	/ tag_cfelse
 //	/ tag_cfelseif
 //	/ tag_cfexchangecalendar
 //	/ tag_cfexchangeconnection
@@ -73,7 +74,6 @@ start
 //	/ tag_cfexchangemail
 //	/ tag_cfexchangetask
 //	/ tag_cfexecute
-//	/ tag_cfexit
 //	/ tag_cffeed
 //	/ tag_cffile
 //	/ tag_cffileupload
@@ -131,7 +131,6 @@ start
 //	/ tag_cfregistry
 //	/ tag_cfreport
 //	/ tag_cfreportparam
-//	/ tag_cfrethrow
 //	/ tag_cfreturn
 //	/ tag_cfschedule
 //	/ tag_cfscript
@@ -146,11 +145,9 @@ start
 //	/ tag_cftable
 //	/ tag_cftextarea
 //	/ tag_cfthread
-//	/ tag_cfthrow
 //	/ tag_cftooltip
 //	/ tag_cftree
 //	/ tag_cftreeitem
-//	/ tag_cftry
 //	/ tag_cfwddx
 //	/ tag_cfwindow
 //	/ tag_cfxml
@@ -223,11 +220,21 @@ tag_cfdbinfo
 		return me;
 	}
 
+tag_cfdefaultcase
+	= gt t:str_cfdefaultcase lt {
+		return new cftag(t, [], '');
+	}
+
 tag_cfdump
 	= gt t:str_cfdump attr:(
 		attr_cfdump_optional* attr_cfdump_required attr_cfdump_optional*
 	) ws* wack? lt {
 		return new cftag(t, plib.flatten(attr), '');
+	}
+
+tag_cfelse
+	= gt t:str_cfelse lt {
+		return new cftag(t, [], '');
 	}
 
 tag_cferror
@@ -238,6 +245,11 @@ tag_cferror
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
+tag_cfexit
+	= gt t:str_cfexit attr:attr_cfexit_optional* ws* wack? lt {
+		return new cftag(t, attr, '');
+	}
+
 tag_cffinally
 	= gt t:str_cffinally lt 
 	content:(!(gt wack str_cffinally lt) anychar)*
@@ -246,16 +258,14 @@ tag_cffinally
 	}
 
 tag_cfflush
-	= gt t:str_cfflush attr:attr_cfflush_optional* lt {
+	= gt t:str_cfflush attr:attr_cfflush_optional* ws* wack? lt {
 		return new cftag(t,  attr, '');
 	}
 
 tag_cflog
 	= gt t:str_cflog attr:(
-		attr_cflog_optional*
-		attr_cflog_required
-		attr_cflog_optional*
-	) lt {
+			attr_cflog_optional* attr_cflog_required attr_cflog_optional*
+		) lt {
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
@@ -300,7 +310,7 @@ tag_cflogout
 	}
 
 tag_cfobjectcache
-	= gt t:str_cfobjectcache attr:attr_cfobjectcache_required lt {
+	= gt t:str_cfobjectcache attr:attr_cfobjectcache_required ws* wack? lt {
 		return new cftag(t, attr, '');
 	}
 
@@ -313,8 +323,8 @@ tag_cfoutput
 
 tag_cfparam
 	= gt t:str_cfparam attr:(
-		attr_cfparam_optional* attr_cfparam_required attr_cfparam_optional*
-	) lt {
+			attr_cfparam_optional* attr_cfparam_required attr_cfparam_optional*
+		) ws* wack? lt {
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
@@ -338,12 +348,12 @@ tag_cfquery
 tag_cfqueryparam
 	= gt t:str_cfqueryparam attr:(
 		attr_cfqueryparam_optional* attr_cfqueryparam_required attr_cfqueryparam_optional* 
-	) lt {
+	) ws* wack? lt {
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
 tag_cfrethrow
-	= gt t:str_cfrethrow lt {
+	= gt t:str_cfrethrow ws* wack? lt {
 		return new cftag(t, [], '');
 	}
 
@@ -355,7 +365,7 @@ tag_cfsavecontent
 	}
 
 tag_cfsetting
-	= gt t:str_cfsetting attr:attr_cfsetting_optional* lt {
+	= gt t:str_cfsetting attr:attr_cfsetting_optional* ws* wack? lt {
 		return new cftag(t, attr, '');
 	}
 
@@ -367,7 +377,7 @@ tag_cfsilent
 	}
 
 tag_cfthrow
-	= gt t:str_cfthrow lt {
+	= gt t:str_cfthrow ws* wack? lt {
 		return new cftag(t, [], '');
 	}
 
@@ -566,6 +576,16 @@ attr_cfloginuser_required
 
 //attr_cfloginuser_optional
 
+//attr_cfexit_required
+attr_cfexit_optional
+	= ws+ n:str_method eql v:value_exit_method { return { name: n, value: v }; }
+
+value_exit_method
+	= quote_char v:"exitTag"      quote_char { return v; }
+	/ quote_char v:"exitTemplate" quote_char { return v; }
+	/ quote_char v:"loop"         quote_char { return v; }
+
+//attr_cfflush_required
 attr_cfflush_optional
 	= ws+ n:str_interval eql v:value_integer { return { name: n, value: v }; }
 
@@ -809,8 +829,11 @@ str_cfcontent                   = v:(c f c o n t e n t)                         
 str_cfcontinue                  = v:(c f c o n t i n u e)                                          { return plib.stringify(v, 'lower'); }
 str_cfcookie                    = v:(c f c o o k i e)                                              { return plib.stringify(v, 'lower'); }
 str_cfdbinfo                    = v:(c f d b i n f o)                                              { return plib.stringify(v, 'lower'); }
+str_cfdefaultcase               = v:(c f d e f a u l t c a s e)                                    { return plib.stringify(v, 'lower'); }
 str_cfdump                      = v:(c f d u m p)                                                  { return plib.stringify(v, 'lower'); }
+str_cfelse                      = v:(c f e l s e)                                                  { return plib.stringify(v, 'lower'); }
 str_cferror                     = v:(c f e r r o r)                                                { return plib.stringify(v, 'lower'); }
+str_cfexit                      = v:(c f e x i t)                                                  { return plib.stringify(v, 'lower'); }
 str_cffinally                   = v:(c f f i n a l l y)                                            { return plib.stringify(v, 'lower'); }
 str_cfflush                     = v:(c f f l u s h)                                                { return plib.stringify(v, 'lower'); }
 str_cfinsert                    = v:(c f i n s e r t)                                              { return plib.stringify(v, 'lower'); }
@@ -887,6 +910,7 @@ str_max_length                  = v:(m a x __ l e n g t h)                      
 str_max_rows                    = v:(m a x __ r o w s)                                             { return plib.stringify(v, 'lower'); }
 str_max                         = v:(m a x)                                                        { return plib.stringify(v, 'lower'); }
 str_meta_info                   = v:(m e t a __ i n f o)                                           { return plib.stringify(v, 'lower'); }
+str_method                      = v:(m e t h o d)                                                  { return plib.stringify(v, 'lower'); }
 str_min                         = v:(m i n)                                                        { return plib.stringify(v, 'lower'); }
 str_name                        = v:(n a m e)                                                      { return plib.stringify(v, 'lower'); }
 str_nested                      = v:(n e s t e d)                                                  { return plib.stringify(v, 'lower'); }
