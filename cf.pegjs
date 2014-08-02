@@ -215,7 +215,7 @@ PageProcessingTag
 SecurityTag
 	= tag_cflogin
 	/ tag_cfloginuser
-//	/ tag_cflogout
+	/ tag_cflogout
 //	/ tag_cfNTauthenticate
 
 VariableManipulationTags
@@ -404,6 +404,11 @@ tag_cflogin
 tag_cfloginuser
 	= gt t:str_cfloginuser attr:attr_cfloginuser_required+ ws* wack? lt {
 		return new cftag(t, plib.flatten(attr), '');
+	}
+
+tag_cflogout
+	= gt t:str_cflogout ws* wack? lt {
+		return new cftag(t, [], '');
 	}
 
 //VariableManipulationTags Tags
@@ -883,6 +888,7 @@ str_cfinclude                   = v:(c f i n c l u d e)                         
 str_cflog                       = v:(c f l o g)                                                    { return plib.stringify(v, 'lower'); }
 str_cflogin                     = v:(c f l o g i n)                                                { return plib.stringify(v, 'lower'); }
 str_cfloginuser                 = v:(c f l o g i n u s e r)                                        { return plib.stringify(v, 'lower'); }
+str_cflogout                    = v:(c f l o g o u t)                                              { return plib.stringify(v, 'lower'); }
 str_cfoutput                    = v:(c f o u t p u t)                                              { return plib.stringify(v, 'lower'); }
 str_cfobjectcache               = v:(c f o b j e c t c a c h e)                                    { return plib.stringify(v, 'lower'); }
 str_cfprocessingdirective       = v:(c f p r o c e s s i n g d i r e c t i v e)                    { return plib.stringify(v, 'lower'); }
