@@ -1,6 +1,6 @@
 .PHONY: test
-test: cf.js
-	for test in test/*_test.js; do echo $$test; node $$test; done
+test: cf.js test/*_test.js
+	$(foreach test,$(wildcard test/*_test.js),echo $(test) && node $(test);)
 
 t: test
 
