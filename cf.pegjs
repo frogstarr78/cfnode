@@ -8,6 +8,7 @@
 
 start 
 	= tag_cfabort
+	/ tag_cfajaximport
 	/ tag_cfapplication
 	/ tag_cfassociate
 	/ tag_cfbreak
@@ -27,7 +28,8 @@ start
 	/ tag_cfimport
 	/ tag_cfinclude
 	/ tag_cfinsert
-	/ tag_cflog
+	/ tag_cflocation
+	/ tag_cflock
 	/ tag_cflog
 	/ tag_cflogin
 	/ tag_cfloginuser
@@ -40,8 +42,10 @@ start
 	/ tag_cfqueryparam
 	/ tag_cfrethrow
 	/ tag_cfsavecontent
+	/ tag_cfscript
 	/ tag_cfsetting
 	/ tag_cfsilent
+	/ tag_cfswitch
 	/ tag_cfthrow
 	/ tag_cftimer
 	/ tag_cftrace
@@ -49,7 +53,6 @@ start
 	/ tag_cftry
 	/ tag_cfupdate
 //	/ tag_cfNTauthenticate
-//	/ tag_cfajaximport
 //	/ tag_cfajaxproxy
 //	/ tag_cfapplet
 //	/ tag_cfcache
@@ -100,8 +103,6 @@ start
 //	/ tag_cflayout
 //	/ tag_cflayoutarea
 //	/ tag_cfldap
-//	/ tag_cflocation
-//	/ tag_cflock
 //	/ tag_cfloop
 //	/ tag_cfmail
 //	/ tag_cfmailparam
@@ -133,7 +134,6 @@ start
 //	/ tag_cfreportparam
 //	/ tag_cfreturn
 //	/ tag_cfschedule
-//	/ tag_cfscript
 //	/ tag_cfsearch
 //	/ tag_cfselect
 //	/ tag_cfsharepoint
@@ -141,7 +141,6 @@ start
 //	/ tag_cfspreadsheet
 //	/ tag_cfsprydataset
 //	/ tag_cfstoredproc
-//	/ tag_cfswitch
 //	/ tag_cftable
 //	/ tag_cftextarea
 //	/ tag_cfthread
@@ -159,6 +158,11 @@ start
 
 tag_cfabort
 	= gt t:str_cfabort attr:attr_cfabort_optional* ws* wack? lt {
+		return new cftag(t, plib.flatten(attr), '');
+	}
+
+tag_cfajaximport
+	= gt t:str_cfajaximport attr:attr_cfajaximport_optional* ws* wack? lt {
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
@@ -199,7 +203,7 @@ tag_cfcontinue
 tag_cfcookie
 	= gt t:str_cfcookie attr:(
 		attr_cfcookie_optional* attr_cfcookie_required attr_cfcookie_optional*
-	) lt {
+	) ws* wack? lt {
 		var me = new cftag(t, plib.flatten(attr), '');
 		if ( ( me.attributes.path && me.attributes.path !== "" ) && ( ! me.attributes.domain || me.attributes.domain === "" ) ) {
 			throw new Error("Missing domain value, required with path attribute.");		
@@ -211,7 +215,7 @@ tag_cfdbinfo
 	= gt t:str_cfdbinfo attr:( 
 			attr_cfdbinfo_optional* attr_cfdbinfo_required_name attr_cfdbinfo_optional* attr_cfdbinfo_required_type attr_cfdbinfo_optional*
 			/ attr_cfdbinfo_optional* attr_cfdbinfo_required_type attr_cfdbinfo_optional* attr_cfdbinfo_required_name attr_cfdbinfo_optional*
-	) lt {
+	) ws* wack? lt {
 		var me = new cftag(t, plib.flatten(attr), '');
 		types_requiring_table_value = ['columns', 'foreignkeys', 'index'];
 		if ( ( me.attributes.type && types_requiring_table_value.indexOf(me.attributes.type) > -1 ) && ( ! me.attributes.table || me.attributes.table === "" ) ) {
@@ -221,7 +225,7 @@ tag_cfdbinfo
 	}
 
 tag_cfdefaultcase
-	= gt t:str_cfdefaultcase lt {
+	= gt t:str_cfdefaultcase ws* wack? lt {
 		return new cftag(t, [], '');
 	}
 
@@ -233,7 +237,7 @@ tag_cfdump
 	}
 
 tag_cfelse
-	= gt t:str_cfelse lt {
+	= gt t:str_cfelse ws* wack? lt {
 		return new cftag(t, [], '');
 	}
 
@@ -262,10 +266,17 @@ tag_cfflush
 		return new cftag(t,  attr, '');
 	}
 
+tag_cflocation
+	= gt t:str_cflocation attr:(
+			attr_cflocation_optional* attr_cflocation_required attr_cflocation_optional*
+		) ws* wack? lt {
+		return new cftag(t, plib.flatten(attr), '');
+	}
+
 tag_cflog
 	= gt t:str_cflog attr:(
 			attr_cflog_optional* attr_cflog_required attr_cflog_optional*
-		) lt {
+		) ws* wack? lt {
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
@@ -290,6 +301,13 @@ tag_cfinsert
 		/ attr_cfinsert_optional* attr_cfinsert_required_table_name attr_cfinsert_optional* attr_cfinsert_required_datasource attr_cfinsert_optional*
 	) ws* wack? lt {
 		return new cftag(t, plib.flatten(attr), '');
+	}
+
+tag_cflock
+	= gt t:str_cflock attr:(attr_cflock_optional* attr_cflock_required attr_cflock_optional* ) lt
+	content:(!(gt wack str_cflock lt) anychar)*
+	gt wack str_cflock lt {
+		return new cftag(t, plib.flatten(attr), plib.stringify(content));
 	}
 
 tag_cflogin
@@ -364,6 +382,13 @@ tag_cfsavecontent
 		return new cftag(t, [attr], plib.stringify(content));
 	}
 
+tag_cfscript
+	= gt t:str_cfscript lt
+	content:(!(gt wack str_cfscript lt) anychar)*
+	gt wack str_cfscript lt {
+		return new cftag(t, [], plib.stringify(content));
+	}
+
 tag_cfsetting
 	= gt t:str_cfsetting attr:attr_cfsetting_optional* ws* wack? lt {
 		return new cftag(t, attr, '');
@@ -376,6 +401,12 @@ tag_cfsilent
 		return new cftag(t, [], plib.stringify(content));
 	}
 
+tag_cfswitch
+	= gt t:str_cfswitch attr:attr_cfswitch_required lt
+	content:(!(gt wack str_cfswitch lt) anychar)*
+	gt wack str_cfswitch lt {
+		return new cftag(t, [attr], '');
+	}
 tag_cfthrow
 	= gt t:str_cfthrow ws* wack? lt {
 		return new cftag(t, [], '');
@@ -430,6 +461,17 @@ attr_var        = ws+ n:str_var        eql v:value_cfval              { return {
 //attr_cfabort_required
 attr_cfabort_optional
 	= ws+ n:str_show_error eql v:value_any { return { name: 'show_error', value: v }; }
+
+//attr_cfajaximport_required
+attr_cfajaximport_optional
+	= ws+ n:str_css_src    eql v:value_file_path                        { return { name: 'css_src',    value: v }; }
+	/ ws+ n:str_params     eql v:value_cfajaximport_params_googlemapkey { return { name: n,            value: plib.stringify(v) }; }
+	/ ws+ n:str_script_src eql v:value_file_path                        { return { name: 'script_src', value: v }; }
+	/ ws+ n:str_tags       eql v:value_list                             { return { name: n,            value: v }; }
+
+value_cfajaximport_params_googlemapkey
+	= quote_char v:(pound '{googlemapkey="' (!quote_char anychar)+ '"}' pound) quote_char { return plib.stringify(v); }
+
 
 attr_cfapplication_required = attr_name
 attr_cfapplication_optional
@@ -531,17 +573,39 @@ attr_cfprocessingdirective_optional
 	= ws+ n:str_page_encoding       eql v:value_encoding { return { name: 'page_encoding',       value: v }; }
 	/ ws+ n:str_suppress_whitespace eql v:value_boolean  { return { name: 'suppress_whitespace', value: v }; }
 
+attr_cfsavecontent_required = ws+ n:str_variable eql v:value_any_non_whitespace { return { name: n, value: v }; }
+//attr_cfsavecontent_optional
+
 //attr_cfsetting_required
 attr_cfsetting_optional
 	= ws+ n:str_enable_cfouput_only eql v:value_boolean { return { name: 'enable_cfoutput_only', value: v }; }
 	/ ws+ n:str_request_timeout     eql v:value_integer { return { name: 'request_timeout',      value: v }; }
 	/ ws+ n:str_show_debug_output   eql v:value_boolean { return { name: 'show_debug_output',    value: v }; }
 
-attr_cfsavecontent_required = ws+ n:str_variable eql v:value_any_non_whitespace { return { name: n, value: v }; }
-//attr_cfsavecontent_optional
+attr_cfswitch_required = ws+ n:str_expression eql v:value_any { return { name: n, value: v }; }
+//attr_cfswitch_optional
+
+attr_cflocation_required = ws+ n:str_url eql v:value_url { return { name: n, value: v }; }
+value_url = quote_char v:(!quote_char anychar)+ quote_char { return plib.stringify(v, 'uri'); }
+
+attr_cflocation_optional
+	= ws+ n:str_add_token   eql v:value_boolean                      { return { name: 'add_token',   value: v }; }
+	/ ws+ n:str_status_code eql quote_char v:("30" [0-7]) quote_char { return { name: 'status_code', value: plib.stringify(v, 'int') }; }
+
+attr_cflock_required = ws+ n:str_timeout eql v:value_integer { return { name: n, value: v }; }
+attr_cflock_optional
+	= attr_name
+	/ ws+ n:str_scope            eql v:value_cflock_scope         { return { name: 'cookie_domain',     value: v }; }
+	/ ws+ n:str_throw_on_timeout eql v:value_boolean           { return { name: 'idle_timeout',      value: v }; }
+	/ ws+ n:str_type             eql quote_char v:('readOnly' / 'exclusive') quote_char { return { name: n, value: v }; }
+
+value_cflock_scope
+	= quote_char v:str_application quote_char { return plib.stringify(v, 'lower'); }
+	/ quote_char v:str_request     quote_char { return plib.stringify(v, 'lower'); }
+	/ quote_char v:str_server      quote_char { return plib.stringify(v, 'lower'); }
+	/ quote_char v:str_session     quote_char { return plib.stringify(v, 'lower'); }
 
 attr_cflog_required = attr_text
-
 attr_cflog_optional
 	= ws+ n:str_application eql v:value_boolean    { return { name: n, value: v }; }
 	/ ws+ n:str_file        eql v:value_any        { return { name: n, value: v }; }
@@ -794,11 +858,11 @@ value_cferr_type
 value_cferr_exception
 	= quote_char n:str_application  quote_char { return n.toLowerCase(); }
 	/ quote_char n:"database"       quote_char { return n.toLowerCase(); }
-	/ quote_char n:"template"       quote_char { return n.toLowerCase(); }
+	/ quote_char n:str_template     quote_char { return n.toLowerCase(); }
 	/ quote_char n:"security"       quote_char { return n.toLowerCase(); }
 	/ quote_char n:"object"         quote_char { return n.toLowerCase(); }
 	/ quote_char n:"missingInclude" quote_char { return n.toLowerCase(); }
-	/ quote_char n:"expression"     quote_char { return n.toLowerCase(); }
+	/ quote_char n:str_expression   quote_char { return n.toLowerCase(); }
 	/ quote_char n:"lock"           quote_char { return n.toLowerCase(); }
 	/ quote_char n:"custom_type"    quote_char { return n.toLowerCase(); }
 	/ quote_char n:str_any          quote_char { return n.toLowerCase(); }
@@ -808,6 +872,7 @@ str_abort                       = v:(a b o r t)                                 
 str_action                      = v:(a c t i o n)                                                  { return plib.stringify(v, 'lower'); }
 str_all                         = v:(a l l)                                                        { return plib.stringify(v); }
 str_any                         = v:(a n y)                                                        { return plib.stringify(v); }
+str_add_token                   = v:(a d d __ t o k e n)                                           { return plib.stringify(v); }
 str_application                 = v:(a p p l i c a t i o n)                                        { return plib.stringify(v); }
 str_application_token           = v:(a p p l i c a t i o n __ t o k e n)                           { return plib.stringify(v, 'lower'); }
 str_application_timeout         = v:(a p p l i c a t i o n __ t i m e o u t)                       { return plib.stringify(v, 'lower'); }
@@ -821,6 +886,7 @@ str_cached_within               = v:(c a c h e d __ w i t h i n)                
 str_category                    = v:(c a t e g o r y)                                              { return plib.stringify(v, 'lower'); }
 
 str_cfabort                     = v:(c f a b o r t)                                                { return plib.stringify(v, 'lower'); }
+str_cfajaximport                = v:(c f a j a x i m p o r t)                                      { return plib.stringify(v, 'lower'); }
 str_cfapplication               = v:(c f a p p l i c a t i o n)                                    { return plib.stringify(v, 'lower'); }
 str_cfassociate                 = v:(c f a s s o c i a t e)                                        { return plib.stringify(v, 'lower'); }
 str_cfbreak                     = v:(c f b r e a k)                                                { return plib.stringify(v, 'lower'); }
@@ -840,6 +906,8 @@ str_cfinsert                    = v:(c f i n s e r t)                           
 str_cfimport                    = v:(c f i m p o r t)                                              { return plib.stringify(v, 'lower'); }
 str_cfhtmlhead                  = v:(c f h t m l h e a d)                                          { return plib.stringify(v, 'lower'); }
 str_cfinclude                   = v:(c f i n c l u d e)                                            { return plib.stringify(v, 'lower'); }
+str_cflocation                  = v:(c f l o c a t i o n)                                          { return plib.stringify(v, 'lower'); }
+str_cflock                      = v:(c f l o c k)                                                  { return plib.stringify(v, 'lower'); }
 str_cflog                       = v:(c f l o g)                                                    { return plib.stringify(v, 'lower'); }
 str_cflogin                     = v:(c f l o g i n)                                                { return plib.stringify(v, 'lower'); }
 str_cfloginuser                 = v:(c f l o g i n u s e r)                                        { return plib.stringify(v, 'lower'); }
@@ -852,9 +920,11 @@ str_cfquery                     = v:(c f q u e r y)                             
 str_cfqueryparam                = v:(c f q u e r y p a r a m)                                      { return plib.stringify(v, 'lower'); }
 str_cfrethrow                   = v:(c f r e t h r o w)                                            { return plib.stringify(v, 'lower'); }
 str_cfsavecontent               = v:(c f s a v e c o n t e n t)                                    { return plib.stringify(v, 'lower'); }
+str_cfscript                    = v:(c f s c r i p t)                                              { return plib.stringify(v, 'lower'); }
 str_cfsetting                   = v:(c f s e t t i n g)                                            { return plib.stringify(v, 'lower'); }
 str_cfsilent                    = v:(c f s i l e n t)                                              { return plib.stringify(v, 'lower'); }
 str_cfsql_type                  = v:(c f s q l __ t y p e)                                         { return plib.stringify(v, 'lower'); }
+str_cfswitch                    = v:(c f s w i t c h)                                              { return plib.stringify(v, 'lower'); }
 str_cftimer                     = v:(c f t i m e r)                                                { return plib.stringify(v, 'lower'); }
 str_cftrace                     = v:(c f t r a c e)                                                { return plib.stringify(v, 'lower'); }
 str_cftransaction               = v:(c f t r a n s a c t i o n)                                    { return plib.stringify(v, 'lower'); }
@@ -868,6 +938,7 @@ str_cookie                      = v:(c o o k i e)                               
 str_cookie_domain               = v:(c o o k i e __ d o m a i n)                                   { return plib.stringify(v); }
 str_country_code                = v:(c o u n t r y __ c o d e)                                     { return plib.stringify(v); }
 str_credit_card                 = v:(c r e d i t __ c a r d)                                       { return plib.stringify(v); }
+str_css_src                     = v:(c s s __ s r c)                                               { return plib.stringify(v); }
 str_data_collection             = v:(d a t a __ c o l l e c t i o n)                               { return plib.stringify(v, 'lower'); }
 str_datasource                  = v:(d a t a s o u r c e)                                          { return plib.stringify(v, 'lower'); }
 str_date                        = v:(d a t e)                                                      { return plib.stringify(v); }
@@ -880,6 +951,7 @@ str_domain                      = v:(d o m a i n)                               
 str_email                       = v:(e m a i l)                                                    { return plib.stringify(v); }
 str_enable_cfouput_only         = v:(e n a b l e __ c f o u t p u t __ o n l y)                    { return plib.stringify(v, 'lower'); }
 str_exception                   = v:(e x c e p t i o n)                                            { return plib.stringify(v, 'lower'); }
+str_expression                  = v:(e x p r e s s i o n)                                          { return plib.stringify(v, 'lower'); }
 str_expand                      = v:(e x p a n d)                                                  { return plib.stringify(v, 'lower'); }
 str_expires                     = v:(e x p i r e s)                                                { return plib.stringify(v, 'lower'); }
 str_file                        = v:(f i l e)                                                      { return plib.stringify(v, 'lower'); }
@@ -920,6 +992,7 @@ str_numeric                     = v:(n u m e r i c)                             
 str_orm_options                 = v:(o r m __ o p t i o n s)                                       { return plib.stringify(v, 'lower'); }
 str_output                      = v:(o u t p u t)                                                  { return plib.stringify(v, 'lower'); }
 str_page_encoding               = v:(p a g e __ e n c o d i n g)                                   { return plib.stringify(v, 'lower'); }
+str_params                      = v:(p a r a m s)                                                  { return plib.stringify(v, 'lower'); }
 str_password                    = v:(p a s s w o r d)                                              { return plib.stringify(v, 'lower'); }
 str_path                        = v:(p a t h)                                                      { return plib.stringify(v, 'lower'); }
 str_pattern                     = v:(p a t t e r n)                                                { return plib.stringify(v, 'lower'); }
@@ -931,15 +1004,19 @@ str_result                      = v:(r e s u l t)                               
 str_regex                       = v:(r e g e x)                                                    { return plib.stringify(v); }
 str_registry                    = v:(r e g i s t r y)                                              { return plib.stringify(v); }
 str_regular_expression          = v:(r e g u l a r __ e x p r e s s i o n)                         { return plib.stringify(v); }
+str_request                     = v:(r e q u e s t)                                                { return plib.stringify(v, 'lower'); }
 str_request_timeout             = v:(r e q u e s t __ t i m e o u t)                               { return plib.stringify(v, 'lower'); }
 str_roles                       = v:(r o l e s)                                                    { return plib.stringify(v, 'lower'); }
 str_savepoint                   = v:(s a v e p o i n t)                                            { return plib.stringify(v, 'lower'); }
 str_scale                       = v:(s c a l e)                                                    { return plib.stringify(v, 'lower'); }
+str_scope                       = v:(s c o p e)                                                    { return plib.stringify(v, 'lower'); }
 str_scheduler                   = v:(s c h e d u l e r)                                            { return plib.stringify(v, 'lower'); }
 str_script_protect              = v:(s c r i p t __ p r o t e c t)                                 { return plib.stringify(v, 'lower'); }
+str_script_src                  = v:(s c r i p t __ s r c)                                         { return plib.stringify(v); }
 str_secure_json                 = v:(s e c u r e __ j s o n)                                       { return plib.stringify(v, 'lower'); }
 str_secure_jsonprefix           = v:(s e c u r e __ j s o n p r e f i x)                           { return plib.stringify(v, 'lower'); }
 str_secure                      = v:(s e c u r e)                                                  { return plib.stringify(v, 'lower'); }
+str_server                      = v:(s e r v e r)                                                  { return plib.stringify(v, 'lower'); }
 str_server_side_form_validation = v:(s e r v e r __ s i d e __ f o r m __ v a l i d a t i o n)     { return plib.stringify(v, 'lower'); }
 str_separator                   = v:(s e p a r a t o r)                                            { return plib.stringify(v, 'lower'); }
 str_session                     = v:(s e s s i o n)                                                { return plib.stringify(v); }
@@ -954,6 +1031,7 @@ str_show                        = v:(s h o w)                                   
 str_social_security_number      = v:(s o c i a l __ s e c u r i t y __ n u m b e r)                { return plib.stringify(v); }
 str_ssn                         = v:(s s n)                                                        { return plib.stringify(v); }
 str_startrow                    = v:(s t a r t r o w)                                              { return plib.stringify(v, 'under'); }
+str_status_code                 = v:(s t a t u s __ c o d e)                                       { return plib.stringify(v, 'under'); }
 str_string                      = v:(s t r i n g)                                                  { return plib.stringify(v); }
 str_struct                      = v:(s t r u c t)                                                  { return plib.stringify(v); }
 str_suppress_whitespace         = v:(s u p p r e s s __ w h i t e s p a c e)                       { return plib.stringify(v, 'lower'); }
@@ -961,15 +1039,17 @@ str_table                       = v:(t a b l e)                                 
 str_table_name                  = v:(t a b l e __ n a m e)                                         { return plib.stringify(v, 'lower'); }
 str_table_owner                 = v:(t a b l e __ o w n e r)                                       { return plib.stringify(v, 'under'); }
 str_table_qualifier             = v:(t a b l e __ q u a l i f i e r)                               { return plib.stringify(v, 'under'); }
+str_tags                        = v:(t a g s)                                                      { return plib.stringify(v, 'lower'); }
 str_tag_lib                     = v:(t a g __ l i b)                                               { return plib.stringify(v, 'lower'); }
 str_telephone                   = v:(t e l e p h o n e)                                            { return plib.stringify(v); }
 str_template                    = v:(t e m p l a t e)                                              { return plib.stringify(v, 'lower'); }
 str_text                        = v:(t e x t)                                                      { return plib.stringify(v, 'lower'); }
+str_throw_on_timeout            = v:(t h r o w __ o n __ t i m e o u t)                            { return plib.stringify(v, 'lower'); }
 str_time                        = v:(t i m e)                                                      { return plib.stringify(v); }
 str_timeout                     = v:(t i m e o u t)                                                { return plib.stringify(v, 'lower'); }
 str_top                         = v:(t o p)                                                        { return plib.stringify(v, 'lower'); }
 str_type                        = v:(t y p e)                                                      { return plib.stringify(v, 'lower'); }
-str_url                         = v:(u r l)                                                        { return plib.stringify(v); }
+str_url                         = v:(u r l)                                                        { return plib.stringify(v, 'lower'); }
 str_username                    = v:(u s e r n a m e)                                              { return plib.stringify(v, 'lower'); }
 str_uuid                        = v:(u u i d)                                                      { return plib.stringify(v); }
 str_value                       = v:(v a l u e)                                                    { return plib.stringify(v, 'lower'); }
@@ -1018,8 +1098,7 @@ value_any_non_whitespace = quote_char v:( ( chars+ [\-_] )* chars )* quote_char 
 value_encoding = value_any_non_whitespace
 
 // @TODO: allow escaped quotes inside quoted strings
-value_any 
-	= quote_char v:(!quote_char anychar)+ quote_char { return plib.stringify(v); }
+value_any = quote_char v:(!quote_char anychar)+ quote_char { return plib.stringify(v); }
 //value_any 
 //	= quote_char v:( ( '\\' quote_char ) /  anychar )+ quote_char { return plib.stringify(v); }
 str_any_non_quote 
