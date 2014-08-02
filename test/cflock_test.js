@@ -20,26 +20,29 @@ r = cf.parse('<cflock timeout="1"></cflock>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'lock');
 is.equal(r.attributes.timeout, 1);
+is.equal(r.attributes.name, undefined);
 is.equal(r.attributes.throw_on_timeout, true);
 is.equal(r.attributes.type, 'exclusive');
 
-r = cf.parse('<cflock applicationToken="CFAUTHORIZATION_cflock" cookie_domain=".example.com" idle_timeout="180">' +
+r = cf.parse('<cflock name="cflock" timeout="5" throw_on_timeout="no" type="readOnly">' +
 "\n</cflock>");
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'lock');
 is.equal(r.content, "\n");
-is.equal(r.attributes.application_token, 'CFAUTHORIZATION_cflock');
-is.equal(r.attributes.idle_timeout, 180);
-is.equal(r.attributes.cookie_domain, '.example.com');
+is.equal(r.attributes.timeout, 5);
+is.equal(r.attributes.name, 'cflock');
+is.equal(r.attributes.throw_on_timeout, false);
+is.equal(r.attributes.type, 'readOnly');
 
-r = cf.parse('<CFLOGIN APPLICATIONTOKEN="CFAUTHORIZATION_cflock" cookie_domain=".example.com" idle_timeout="180">' + 
+r = cf.parse('<CFLOCK NAME="cflock2" TIMEOUT="6" THROW_ON_TIMEOUT="NO" TYPE="readOnly">' +
 "\nSome stuff here" + 
-"\n</CFLOGIN>");
+"\n</CFLOCK>");
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'lock');
 is.equal(r.content, "\nSome stuff here\n");
-is.equal(r.attributes.application_token, 'CFAUTHORIZATION_cflock');
-is.equal(r.attributes.idle_timeout, 180);
-is.equal(r.attributes.cookie_domain, '.example.com');
+is.equal(r.attributes.timeout, 6);
+is.equal(r.attributes.name, 'cflock2');
+is.equal(r.attributes.throw_on_timeout, false);
+is.equal(r.attributes.type, 'readOnly');
 
 testlib.die("Success!", 0);

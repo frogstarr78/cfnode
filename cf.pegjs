@@ -595,9 +595,9 @@ attr_cflocation_optional
 attr_cflock_required = ws+ n:str_timeout eql v:value_integer { return { name: n, value: v }; }
 attr_cflock_optional
 	= attr_name
-	/ ws+ n:str_scope            eql v:value_cflock_scope         { return { name: 'cookie_domain',     value: v }; }
-	/ ws+ n:str_throw_on_timeout eql v:value_boolean           { return { name: 'idle_timeout',      value: v }; }
-	/ ws+ n:str_type             eql quote_char v:('readOnly' / 'exclusive') quote_char { return { name: n, value: v }; }
+	/ ws+ n:str_scope            eql v:value_cflock_scope                               { return { name: n,                  value: v }; }
+	/ ws+ n:str_throw_on_timeout eql v:value_boolean                                    { return { name: 'throw_on_timeout', value: v }; }
+	/ ws+ n:str_type             eql quote_char v:('readOnly' / 'exclusive') quote_char { return { name: n,                  value: v }; }
 
 value_cflock_scope
 	= quote_char v:str_application quote_char { return plib.stringify(v, 'lower'); }
