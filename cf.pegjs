@@ -7,237 +7,168 @@
 }
 
 start 
-	= ApplicationFrameworkTag
-//	/ CommunicationsTag
-	/ DatabaseManipulationTag
-	/ DataOutputTag
-	/ DebuggingTag
-//	/ DisplayManagementTag
-	/ ExceptionHandlingTag
-//	/ ExtensibilityTag
-//	/ FileManagementTag
-//	/ FlowControlTag
-//	/ FormTag
-//	/ InternetProtocolTag
-	/ PageProcessingTag
-	/ SecurityTag
-	/ VariableManipulationTags
-	/ OtherTag
-	/ anychar
-
-ApplicationFrameworkTag
-	= tag_cfapplication
+	= tag_cfabort
+	/ tag_cfapplication
 	/ tag_cfassociate
+	/ tag_cfbreak
+	/ tag_cfcatch
+	/ tag_cfcontent
+	/ tag_cfcontinue
+	/ tag_cfcookie
+	/ tag_cfdbinfo
+	/ tag_cfdump
 	/ tag_cferror
+	/ tag_cffinally
+	/ tag_cfflush
+	/ tag_cfhtmlhead
 	/ tag_cfimport
-//	/ tag_cfinterface
-//	/ tag_cflock
-//	/ tag_cfscript
-//	/ tag_cfthread
-
-//CommunicationsTag
-//	= tag_cfexchangecalendar
+	/ tag_cfinclude
+	/ tag_cfinsert
+	/ tag_cflog
+	/ tag_cflog
+	/ tag_cflogin
+	/ tag_cfloginuser
+	/ tag_cflogout
+	/ tag_cfobjectcache
+	/ tag_cfoutput
+	/ tag_cfparam
+	/ tag_cfprocessingdirective
+	/ tag_cfquery
+	/ tag_cfqueryparam
+	/ tag_cfrethrow
+	/ tag_cfsavecontent
+	/ tag_cfsetting
+	/ tag_cfsilent
+	/ tag_cfthrow
+	/ tag_cftimer
+	/ tag_cftrace
+	/ tag_cftransaction
+	/ tag_cftry
+	/ tag_cfupdate
+//	/ tag_cfNTauthenticate
+//	/ tag_cfajaximport
+//	/ tag_cfajaxproxy
+//	/ tag_cfapplet
+//	/ tag_cfcache
+//	/ tag_cfcalendar
+//	/ tag_cfcase
+//	/ tag_cfchart
+//	/ tag_cfchartdata
+//	/ tag_cfchartseries
+//	/ tag_cfcol
+//	/ tag_cfcollection
+//	/ tag_cfcomponent
+//	/ tag_cfdefaultcase
+//	/ tag_cfdirectory
+//	/ tag_cfdiv
+//	/ tag_cfdocument
+//	/ tag_cfdocumentitem
+//	/ tag_cfdocumentsection
+//	/ tag_cfelse
+//	/ tag_cfelseif
+//	/ tag_cfexchangecalendar
 //	/ tag_cfexchangeconnection
 //	/ tag_cfexchangecontact
 //	/ tag_cfexchangefilter
 //	/ tag_cfexchangemail
 //	/ tag_cfexchangetask
+//	/ tag_cfexecute
+//	/ tag_cfexit
 //	/ tag_cffeed
+//	/ tag_cffile
+//	/ tag_cffileupload
+//	/ tag_cfform
+//	/ tag_cfformgroup
+//	/ tag_cfformitem
+//	/ tag_cfftp
+//	/ tag_cffunction
+//	/ tag_cfgrid
+//	/ tag_cfgridcolumn
+//	/ tag_cfgridrow
+//	/ tag_cfgridupdate
+//	/ tag_cfheader
+//	/ tag_cfhttp
+//	/ tag_cfhttpparam
+//	/ tag_cfif
+//	/ tag_cfimage
+//	/ tag_cfimap
+//	/ tag_cfindex
+//	/ tag_cfinput
+//	/ tag_cfinterface
+//	/ tag_cfinvoke
+//	/ tag_cfinvokeargument
+//	/ tag_cflayout
+//	/ tag_cflayoutarea
+//	/ tag_cfldap
+//	/ tag_cflocation
+//	/ tag_cflock
+//	/ tag_cfloop
 //	/ tag_cfmail
 //	/ tag_cfmailparam
 //	/ tag_cfmailpart
-//	/ tag_cfpop
-//	/ tag_cfimap
-
-DatabaseManipulationTag
-	= tag_cfdbinfo
-	/ tag_cfinsert
-	/ tag_cfobjectcache
-//	/ tag_cfprocparam
-//	/ tag_cfprocresult
-	/ tag_cfquery
-	/ tag_cfqueryparam
-//	/ tag_cfstoredproc
-	/ tag_cftransaction
-	/ tag_cfupdate
-
-DataOutputTag
-//	= tag_cfchart
-//	/ tag_cfchartdata
-//	/ tag_cfchartseries
-//	/ tag_cfcol
-	= tag_cfcontent
-//	/ tag_cfdocument
-//	/ tag_cfdocumentitem
-//	/ tag_cfdocumentsection
-	/ tag_cfflush
-//	/ tag_cfheader
-	/ tag_cflog
-	/ tag_cfoutput
-//	/ tag_cfpresentation
-//	/ tag_cfpresentationslide
-//	/ tag_cfpresenter
-//	/ tag_cfprint
-	/ tag_cfprocessingdirective
-//	/ tag_cfreport
-//	/ tag_cfreportparam
-	/ tag_cfsilent
-//	/ tag_cftable
-
-DebuggingTag
-	= tag_cfdump
-	/ tag_cftimer
-	/ tag_cftrace
-
-//DisplayManagementTag
-//	= tag_cfdiv
-//	/ tag_cflayout
-//	/ tag_cflayoutarea
 //	/ tag_cfmap
 //	/ tag_cfmapitem
 //	/ tag_cfmediaplayer
 //	/ tag_cfmenu
 //	/ tag_cfmenuitem
 //	/ tag_cfmessagebox
-//	/ tag_cfpod
-//	/ tag_cfprogressbar
-//	/ tag_cftooltip
-//	/ tag_cfwindow
-
-ExceptionHandlingTag
-	= tag_cfcatch
-	/ tag_cferror
-	/ tag_cffinally
-	/ tag_cfrethrow
-	/ tag_cfthrow
-	/ tag_cftry
-
-//ExtensibilityTag
-//	= tag_cfchart
-//	/ tag_cfchartdata
-//	/ tag_cfchartseries
-//	/ tag_cfcollection
-//	/ tag_cfcomponent
-//	/ tag_cfexecute
-//	/ tag_cfftp
-//	/ tag_cffunction
-//	/ tag_cfindex
-//	/ tag_cfinterface
-//	/ tag_cfinvoke
-//	/ tag_cfinvokeargument
 //	/ tag_cfobject
-//	/ tag_cfproperty
-//	/ tag_cfreport
-//	/ tag_cfreportparam
-//	/ tag_cfreturn
-//	/ tag_cfsearch
-//	/ tag_cfsharepoint
-//	/ tag_cfspreadsheet
-//	/ tag_cfwddx
-//	/ tag_cfxml
-
-//FileManagementTag
-//	= tag_cfdirectory
-//	/ tag_cffile
-//	/ tag_cffileupload
-//	/ tag_cfftp
-//	/ tag_cfzip
-//	/ tag_cfzipparam
-
-//FlowControlTag
-//	= tag_cfabort
-//	/ tag_cfbreak
-//	/ tag_cfcase
-//	/ tag_cfcontinue
-//	/ tag_cfdefaultcase
-//	/ tag_cfelse
-//	/ tag_cfelseif
-//	/ tag_cfexecute
-//	/ tag_cfexit
-//	/ tag_cfif
-	/ tag_cfinclude
-//	/ tag_cflocation
-//	/ tag_cfloop
-//	/ tag_cfrethrow
-//	/ tag_cfswitch
-//	/ tag_cfthrow
-//	/ tag_cftry
-
-//FormTag
-//	= tag_cfapplet
-//	/ tag_cfcalendar
-//	/ tag_cffileupload
-//	/ tag_cfform
-//	/ tag_cfformgroup
-//	/ tag_cfformitem
-//	/ tag_cfgrid
-//	/ tag_cfgridcolumn
-//	/ tag_cfgridrow
-//	/ tag_cfgridupdate
-//	/ tag_cfinput
 //	/ tag_cfpdf
 //	/ tag_cfpdfform
 //	/ tag_cfpdfformparam
 //	/ tag_cfpdfparam
 //	/ tag_cfpdfsubform
+//	/ tag_cfpod
+//	/ tag_cfpop
+//	/ tag_cfpresentation
+//	/ tag_cfpresentationslide
+//	/ tag_cfpresenter
+//	/ tag_cfprint
+//	/ tag_cfprocparam
+//	/ tag_cfprocresult
+//	/ tag_cfprogressbar
+//	/ tag_cfproperty
+//	/ tag_cfregistry
+//	/ tag_cfreport
+//	/ tag_cfreportparam
+//	/ tag_cfrethrow
+//	/ tag_cfreturn
+//	/ tag_cfschedule
+//	/ tag_cfscript
+//	/ tag_cfsearch
 //	/ tag_cfselect
+//	/ tag_cfsharepoint
 //	/ tag_cfslider
+//	/ tag_cfspreadsheet
+//	/ tag_cfsprydataset
+//	/ tag_cfstoredproc
+//	/ tag_cfswitch
+//	/ tag_cftable
 //	/ tag_cftextarea
+//	/ tag_cfthread
+//	/ tag_cfthrow
+//	/ tag_cftooltip
 //	/ tag_cftree
 //	/ tag_cftreeitem
-
-//InternetProtocolTag
-//	= tag_cfajaximport
-//	/ tag_cfajaxproxy
-//	/ tag_cfftp
-//	/ tag_cffeed
-//	/ tag_cfimap
-//	/ tag_cfhttp
-//	/ tag_cfhttpparam
-//	/ tag_cfldap
-//	/ tag_cfmail
-//	/ tag_cfmailparam
-//	/ tag_cfmailpart
-//	/ tag_cfpop
-//	/ tag_cfsprydataset
-
-PageProcessingTag
-//	= tag_cfcache
-	= tag_cfcontent
-	/ tag_cfflush
-//	/ tag_cfheader
-	/ tag_cfhtmlhead
-	/ tag_cfinclude
-	/ tag_cfprocessingdirective
-	/ tag_cfsetting
-	/ tag_cfsilent
-
-SecurityTag
-	= tag_cflogin
-	/ tag_cfloginuser
-	/ tag_cflogout
-//	/ tag_cfNTauthenticate
-
-VariableManipulationTags
-	= tag_cfdump
-	/ tag_cfcookie
-	/ tag_cfparam
-//	/ tag_cfregistry
-	/ tag_cfsavecontent
-//	/ tag_cfschedule
-	/ tag_cfsetting
-
-OtherTag
-//	= tag_cfimage
-	= tag_cflog
-//	/ tag_cfregistry
+//	/ tag_cftry
+//	/ tag_cfwddx
+//	/ tag_cfwindow
+//	/ tag_cfxml
+//	/ tag_cfzip
+//	/ tag_cfzipparam
+	/ anychar
 
 // Tag Definitions
 
-//ApplicationFrameworkTag Tags
+tag_cfabort
+	= gt t:str_cfabort attr:attr_cfabort_optional* ws* wack? lt {
+		return new cftag(t, plib.flatten(attr), '');
+	}
+
 tag_cfapplication
-	= gt t:str_cfapplication attr:( attr_cfapplication_optional* attr_cfapplication_required attr_cfapplication_optional* ) ws* lt {
-//		console.dir({attr: attr, flattattr: plib.flatten(attr)});
+	= gt t:str_cfapplication attr:(
+			attr_cfapplication_optional* attr_cfapplication_required attr_cfapplication_optional*
+		) ws* wack? lt {
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
@@ -246,21 +177,39 @@ tag_cfassociate
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
-tag_cferror
-	= gt t:str_cferror attr:(
-			attr_cferr_optional* attr_cferr_required_template attr_cferr_optional* attr_cferr_required_type attr_cferr_optional*
-			/ attr_cferr_optional* attr_cferr_required_type attr_cferr_optional* attr_cferr_required_template attr_cferr_optional*
-		) lt {
-		return new cftag(t, plib.flatten(attr), '');
+tag_cfbreak
+	= gt t:str_cfbreak lt {
+		return new cftag(t, [], '');
 	}
 
-tag_cfimport
-	= gt t:str_cfimport attr:attr_cfimport_required lt {
-		return new cftag(t, attr, '');
+tag_cfcatch
+	= gt t:str_cfcatch attr:attr_cfcatch_optional* lt 
+	content:(!(gt wack str_cfcatch lt) anychar)*
+	gt wack str_cfcatch lt {
+		return new cftag(t, attr, plib.stringify(content));
 	}
 
-//CommunicationsTag Tags
-//DatabaseManipulationTag Tags
+tag_cfcontent
+	= gt t:str_cfcontent attr:attr_cfcontent_optional* ws* wack? lt {
+		return new cftag(t,  attr, '');
+	}
+
+tag_cfcontinue
+	= gt t:str_cfcontinue ws* wack? lt {
+		return new cftag(t,  [], '');
+	}
+
+tag_cfcookie
+	= gt t:str_cfcookie attr:(
+		attr_cfcookie_optional* attr_cfcookie_required attr_cfcookie_optional*
+	) lt {
+		var me = new cftag(t, plib.flatten(attr), '');
+		if ( ( me.attributes.path && me.attributes.path !== "" ) && ( ! me.attributes.domain || me.attributes.domain === "" ) ) {
+			throw new Error("Missing domain value, required with path attribute.");		
+		}
+		return me;
+	}
+
 tag_cfdbinfo
 	= gt t:str_cfdbinfo attr:( 
 			attr_cfdbinfo_optional* attr_cfdbinfo_required_name attr_cfdbinfo_optional* attr_cfdbinfo_required_type attr_cfdbinfo_optional*
@@ -274,49 +223,28 @@ tag_cfdbinfo
 		return me;
 	}
 
-tag_cfinsert
-	= gt t:str_cfinsert attr:(
-		attr_cfinsert_optional* attr_cfinsert_required_datasource attr_cfinsert_optional* attr_cfinsert_required_table_name attr_cfinsert_optional*
-		/ attr_cfinsert_optional* attr_cfinsert_required_table_name attr_cfinsert_optional* attr_cfinsert_required_datasource attr_cfinsert_optional*
+tag_cfdump
+	= gt t:str_cfdump attr:(
+		attr_cfdump_optional* attr_cfdump_required attr_cfdump_optional*
 	) ws* wack? lt {
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
-tag_cfobjectcache
-	= gt t:str_cfobjectcache attr:attr_cfobjectcache_required lt {
-		return new cftag(t, attr, '');
-	}
-
-tag_cfquery
-	= gt t:str_cfquery attr:(attr_cfquery_optional* attr_cfquery_required attr_cfquery_optional* ) lt
-	content:(!(gt wack str_cfquery lt) anychar)*
-	gt wack str_cfquery lt {
-		return new cftag(t, plib.flatten(attr), plib.stringify(content));
-	}
-
-tag_cfqueryparam
-	= gt t:str_cfqueryparam attr:(
-		attr_cfqueryparam_optional* attr_cfqueryparam_required attr_cfqueryparam_optional* 
-	) lt {
+tag_cferror
+	= gt t:str_cferror attr:(
+			attr_cferr_optional* attr_cferr_required_template attr_cferr_optional* attr_cferr_required_type attr_cferr_optional*
+			/ attr_cferr_optional* attr_cferr_required_type attr_cferr_optional* attr_cferr_required_template attr_cferr_optional*
+		) lt {
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
-tag_cftransaction
-	= gt t:str_cftransaction attr:attr_cftransaction_optional* lt
-	content:(!(gt wack str_cftransaction lt) anychar)*
-	gt wack str_cftransaction lt {
-		return new cftag(t, attr, plib.stringify(content));
+tag_cffinally
+	= gt t:str_cffinally lt 
+	content:(!(gt wack str_cffinally lt) anychar)*
+	gt wack str_cffinally lt {
+		return new cftag(t, [], plib.stringify(content));
 	}
 
-tag_cfupdate
-	= gt t:str_cfupdate attr:(
-		attr_cfupdate_optional* attr_cfupdate_required_datasource attr_cfupdate_optional* attr_cfupdate_required_table_name attr_cfupdate_optional*
-		/ attr_cfupdate_optional* attr_cfupdate_required_table_name attr_cfupdate_optional* attr_cfupdate_required_datasource attr_cfupdate_optional*
-	) ws* wack? lt {
-		return new cftag(t, plib.flatten(attr), '');
-	}
-
-//DataOutputTag Tags
 tag_cfflush
 	= gt t:str_cfflush attr:attr_cfflush_optional* lt {
 		return new cftag(t,  attr, '');
@@ -331,68 +259,28 @@ tag_cflog
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
-tag_cfoutput
-	= gt t:str_cfoutput attr:attr_cfoutput_optional* lt
-	content:(!(gt wack str_cfoutput lt) anychar)*
-	gt wack str_cfoutput lt {
-		return new cftag(t, attr, plib.stringify(content));
+tag_cfhtmlhead
+	= gt t:str_cfhtmlhead attr:attr_cfhtmlhead_required ws* wack? lt {
+		return new cftag(t, [attr], '');
 	}
 
-//DebuggingTag Tags
-tag_cftimer
-	= gt t:str_cftimer attr:attr_cftimer_optional* lt
-	content:(!(gt wack str_cftimer lt) anychar)*
-	gt wack str_cftimer lt {
-		return new cftag(t, attr, plib.stringify(content));
+tag_cfimport
+	= gt t:str_cfimport attr:attr_cfimport_required lt {
+		return new cftag(t, attr, '');
 	}
 
-tag_cftrace
-	= gt t:str_cftrace attr:attr_cftrace_optional* lt
-	content:(!(gt wack str_cftrace lt) anychar)*
-	gt wack str_cftrace lt {
-		return new cftag(t, attr, plib.stringify(content));
+tag_cfinclude
+	= gt t:str_cfinclude attr:attr_cfinclude_required ws* wack? lt {
+		return new cftag(t, [attr], '');
 	}
 
-//DisplayManagementTag Tags
-//ExceptionHandlingTag Tags
-tag_cfcatch
-	= gt t:str_cfcatch attr:attr_cfcatch_optional* lt 
-	content:(!(gt wack str_cfcatch lt) anychar)*
-	gt wack str_cfcatch lt {
-		return new cftag(t, attr, plib.stringify(content));
+tag_cfinsert
+	= gt t:str_cfinsert attr:(
+		attr_cfinsert_optional* attr_cfinsert_required_datasource attr_cfinsert_optional* attr_cfinsert_required_table_name attr_cfinsert_optional*
+		/ attr_cfinsert_optional* attr_cfinsert_required_table_name attr_cfinsert_optional* attr_cfinsert_required_datasource attr_cfinsert_optional*
+	) ws* wack? lt {
+		return new cftag(t, plib.flatten(attr), '');
 	}
-
-tag_cffinally
-	= gt t:str_cffinally lt 
-	content:(!(gt wack str_cffinally lt) anychar)*
-	gt wack str_cffinally lt {
-		return new cftag(t, [], plib.stringify(content));
-	}
-
-tag_cfrethrow
-	= gt t:str_cfrethrow lt {
-		return new cftag(t, [], '');
-	}
-
-tag_cfthrow
-	= gt t:str_cfthrow lt {
-		return new cftag(t, [], '');
-	}
-
-tag_cftry
-	= gt t:str_cftry lt
-	content:(!(gt wack str_cftry lt) anychar)*
-	gt wack str_cftry lt {
-		return new cftag(t, [], plib.stringify(content));
-	}
-
-//ExtensibilityTag Tags
-//FileManagementTag Tags
-//FlowControlTag Tags
-//FormTag Tags
-//InternetProtocolTag Tags
-//PageProcessingTag Tags
-//SecurityTag Tags
 
 tag_cflogin
 	= gt t:str_cflogin attr:attr_cflogin_optional* lt
@@ -411,24 +299,16 @@ tag_cflogout
 		return new cftag(t, [], '');
 	}
 
-//VariableManipulationTags Tags
-
-tag_cfdump
-	= gt t:str_cfdump attr:(
-		attr_cfdump_optional* attr_cfdump_required attr_cfdump_optional*
-	) ws* wack? lt {
-		return new cftag(t, plib.flatten(attr), '');
+tag_cfobjectcache
+	= gt t:str_cfobjectcache attr:attr_cfobjectcache_required lt {
+		return new cftag(t, attr, '');
 	}
 
-tag_cfcookie
-	= gt t:str_cfcookie attr:(
-		attr_cfcookie_optional* attr_cfcookie_required attr_cfcookie_optional*
-	) lt {
-		var me = new cftag(t, plib.flatten(attr), '');
-		if ( ( me.attributes.path && me.attributes.path !== "" ) && ( ! me.attributes.domain || me.attributes.domain === "" ) ) {
-			throw new Error("Missing domain value, required with path attribute.");		
-		}
-		return me;
+tag_cfoutput
+	= gt t:str_cfoutput attr:attr_cfoutput_optional* lt
+	content:(!(gt wack str_cfoutput lt) anychar)*
+	gt wack str_cfoutput lt {
+		return new cftag(t, attr, plib.stringify(content));
 	}
 
 tag_cfparam
@@ -436,21 +316,6 @@ tag_cfparam
 		attr_cfparam_optional* attr_cfparam_required attr_cfparam_optional*
 	) lt {
 		return new cftag(t, plib.flatten(attr), '');
-	}
-
-tag_cfcontent
-	= gt t:str_cfcontent attr:attr_cfcontent_optional* ws* wack? lt {
-		return new cftag(t,  attr, '');
-	}
-
-tag_cfhtmlhead
-	= gt t:str_cfhtmlhead attr:attr_cfhtmlhead_required ws* wack? lt {
-		return new cftag(t, [attr], '');
-	}
-
-tag_cfinclude
-	= gt t:str_cfinclude attr:attr_cfinclude_required ws* wack? lt {
-		return new cftag(t, [attr], '');
 	}
 
 tag_cfprocessingdirective
@@ -461,6 +326,32 @@ tag_cfprocessingdirective
 	}
 	/ gt t:str_cfprocessingdirective attr:attr_cfprocessingdirective_optional* ws* wack? lt {
 		return new cftag(t, attr, '');
+	}
+
+tag_cfquery
+	= gt t:str_cfquery attr:(attr_cfquery_optional* attr_cfquery_required attr_cfquery_optional* ) lt
+	content:(!(gt wack str_cfquery lt) anychar)*
+	gt wack str_cfquery lt {
+		return new cftag(t, plib.flatten(attr), plib.stringify(content));
+	}
+
+tag_cfqueryparam
+	= gt t:str_cfqueryparam attr:(
+		attr_cfqueryparam_optional* attr_cfqueryparam_required attr_cfqueryparam_optional* 
+	) lt {
+		return new cftag(t, plib.flatten(attr), '');
+	}
+
+tag_cfrethrow
+	= gt t:str_cfrethrow lt {
+		return new cftag(t, [], '');
+	}
+
+tag_cfsavecontent
+	= gt t:str_cfsavecontent attr:attr_cfsavecontent_required lt
+	content:(!(gt wack str_cfsavecontent lt) anychar)*
+	gt wack str_cfsavecontent lt {
+		return new cftag(t, [attr], plib.stringify(content));
 	}
 
 tag_cfsetting
@@ -475,39 +366,77 @@ tag_cfsilent
 		return new cftag(t, [], plib.stringify(content));
 	}
 
-tag_cfsavecontent
-	= gt t:str_cfsavecontent attr:attr_cfsavecontent_required lt
-	content:(!(gt wack str_cfsavecontent lt) anychar)*
-	gt wack str_cfsavecontent lt {
-		return new cftag(t, [attr], plib.stringify(content));
+tag_cfthrow
+	= gt t:str_cfthrow lt {
+		return new cftag(t, [], '');
 	}
 
-//OtherTag Tags
+tag_cftimer
+	= gt t:str_cftimer attr:attr_cftimer_optional* lt
+	content:(!(gt wack str_cftimer lt) anychar)*
+	gt wack str_cftimer lt {
+		return new cftag(t, attr, plib.stringify(content));
+	}
+
+tag_cftrace
+	= gt t:str_cftrace attr:attr_cftrace_optional* lt
+	content:(!(gt wack str_cftrace lt) anychar)*
+	gt wack str_cftrace lt {
+		return new cftag(t, attr, plib.stringify(content));
+	}
+
+tag_cftransaction
+	= gt t:str_cftransaction attr:attr_cftransaction_optional* lt
+	content:(!(gt wack str_cftransaction lt) anychar)*
+	gt wack str_cftransaction lt {
+		return new cftag(t, attr, plib.stringify(content));
+	}
+
+tag_cftry
+	= gt t:str_cftry lt
+	content:(!(gt wack str_cftry lt) anychar)*
+	gt wack str_cftry lt {
+		return new cftag(t, [], plib.stringify(content));
+	}
+
+tag_cfupdate
+	= gt t:str_cfupdate attr:(
+		attr_cfupdate_optional* attr_cfupdate_required_datasource attr_cfupdate_optional* attr_cfupdate_required_table_name attr_cfupdate_optional*
+		/ attr_cfupdate_optional* attr_cfupdate_required_table_name attr_cfupdate_optional* attr_cfupdate_required_datasource attr_cfupdate_optional*
+	) ws* wack? lt {
+		return new cftag(t, plib.flatten(attr), '');
+	}
+
+//End Tags
 
 // Tag Specific Value Defs
+attr_datasource = ws+ n:str_datasource eql v:value_any_non_whitespace { return { name: n, value: v }; }
 attr_name       = ws+ n:str_name       eql v:value_any_non_whitespace { return { name: n, value: v }; }
 attr_password   = ws+ n:str_password   eql v:value_any                { return { name: n, value: v }; }
-attr_username   = ws+ n:str_username   eql v:value_any_non_whitespace { return { name: n, value: v }; }
-attr_datasource = ws+ n:str_datasource eql v:value_any_non_whitespace { return { name: n, value: v }; }
-attr_var        = ws+ n:str_var        eql v:value_cfval              { return { name: n, value: v }; }
 attr_text       = ws+ n:str_text       eql v:value_any                { return { name: n, value: v }; }
+attr_username   = ws+ n:str_username   eql v:value_any_non_whitespace { return { name: n, value: v }; }
+attr_var        = ws+ n:str_var        eql v:value_cfval              { return { name: n, value: v }; }
+
+//attr_cfabort_required
+attr_cfabort_optional
+	= ws+ n:str_show_error eql v:value_any { return { name: 'show_error', value: v }; }
 
 attr_cfapplication_required = attr_name
 attr_cfapplication_optional
 	= attr_datasource
-	/  ws+  n:str_application_timeout         eql v:func_create_time_span      { return { name: 'timeout',                     value: plib.mkDate(v)     }; }
-	/  ws+  n:str_client_management           eql v:value_boolean              { return { name: 'client_variables',            value: v                  }; }
-	/  ws+  n:str_client_storage              eql v:value_cfapp_client_storage { return { name: 'client_storage',              value: v                  }; }
-	/  ws+  n:str_set_client_cookies          eql v:value_boolean              { return { name: 'client_cookies',              value: v                  }; }
-	/  ws+  n:str_set_domain_cookies          eql v:value_boolean              { return { name: 'domain_cookies',              value: v                  }; }
-	/  ws+  n:str_login_storage               eql v:value_cfapp_login_storage  { return { name: 'login_storage',               value: v                  }; }
-	/  ws+  n:str_google_map_key              eql v:value_any                  { return { name: 'google_map_key',              value: v                  }; }
-	/  ws+  n:str_script_protect              eql v:value_cfapp_script_protect { return { name: 'script_protection',           value: v                  }; }
-	/  ws+  n:str_server_side_form_validation eql v:value_boolean              { return { name: 'server_side_form_validation', value: v                  }; }
-	/  ws+  n:str_session_management          eql v:value_boolean              { return { name: 'session_management',          value: v                  }; }
-	/  ws+  n:str_session_timeout             eql v:func_create_time_span      { return { name: 'session_timeout',             value: plib.mkDate(v)     }; }
-	/  ws+  n:str_secure_json                 eql v:value_boolean              { return { name: 'secure_json',                 value: v                  }; }
-	/  ws+  n:str_secure_jsonprefix           eql v:value_any                  { return { name: 'secure_json_prefix',          value: v == "" ? "//" : v }; }
+	/ ws+ n:str_application_timeout         eql v:func_create_time_span      { return { name: 'timeout',                     value: plib.mkDate(v)     }; }
+	/ ws+ n:str_client_management           eql v:value_boolean              { return { name: 'client_variables',            value: v                  }; }
+	/ ws+ n:str_client_storage              eql v:value_cfapp_client_storage { return { name: 'client_storage',              value: v                  }; }
+	/ ws+ n:str_set_client_cookies          eql v:value_boolean              { return { name: 'client_cookies',              value: v                  }; }
+	/ ws+ n:str_set_domain_cookies          eql v:value_boolean              { return { name: 'domain_cookies',              value: v                  }; }
+	/ ws+ n:str_login_storage               eql v:value_cfapp_login_storage  { return { name: 'login_storage',               value: v                  }; }
+	/ ws+ n:str_google_map_key              eql v:value_any                  { return { name: 'google_map_key',              value: v                  }; }
+	/ ws+ n:str_script_protect              eql v:value_cfapp_script_protect { return { name: 'script_protection',           value: v                  }; }
+	/ ws+ n:str_server_side_form_validation eql v:value_boolean              { return { name: 'server_side_form_validation', value: v                  }; }
+	/ ws+ n:str_session_management          eql v:value_boolean              { return { name: 'session_management',          value: v                  }; }
+	/ ws+ n:str_session_timeout             eql v:func_create_time_span      { return { name: 'session_timeout',             value: plib.mkDate(v)     }; }
+	/ ws+ n:str_secure_json                 eql v:value_boolean              { return { name: 'secure_json',                 value: v                  }; }
+	/ ws+ n:str_secure_jsonprefix           eql v:value_any                  { return { name: 'secure_json_prefix',          value: v == "" ? "//" : v }; }
 
 value_cfapp_login_storage
 	=  quote_char  v:str_cookie   quote_char  {  return  v.toLowerCase();  }
@@ -871,10 +800,13 @@ str_cached_after                = v:(c a c h e d __ a f t e r)                  
 str_cached_within               = v:(c a c h e d __ w i t h i n)                                   { return plib.stringify(v, 'lower'); }
 str_category                    = v:(c a t e g o r y)                                              { return plib.stringify(v, 'lower'); }
 
+str_cfabort                     = v:(c f a b o r t)                                                { return plib.stringify(v, 'lower'); }
 str_cfapplication               = v:(c f a p p l i c a t i o n)                                    { return plib.stringify(v, 'lower'); }
 str_cfassociate                 = v:(c f a s s o c i a t e)                                        { return plib.stringify(v, 'lower'); }
+str_cfbreak                     = v:(c f b r e a k)                                                { return plib.stringify(v, 'lower'); }
 str_cfcatch                     = v:(c f c a t c h)                                                { return plib.stringify(v, 'lower'); }
 str_cfcontent                   = v:(c f c o n t e n t)                                            { return plib.stringify(v, 'lower'); }
+str_cfcontinue                  = v:(c f c o n t i n u e)                                          { return plib.stringify(v, 'lower'); }
 str_cfcookie                    = v:(c f c o o k i e)                                              { return plib.stringify(v, 'lower'); }
 str_cfdbinfo                    = v:(c f d b i n f o)                                              { return plib.stringify(v, 'lower'); }
 str_cfdump                      = v:(c f d u m p)                                                  { return plib.stringify(v, 'lower'); }
@@ -993,6 +925,7 @@ str_set_client_cookies          = v:(s e t __ c l i e n t __ c o o k i e s)     
 str_set_domain_cookies          = v:(s e t __ d o m a i n __ c o o k i e s)                        { return plib.stringify(v, 'lower'); }
 str_show_debug_output           = v:(s h o w __ d e b u g __ o u t p u t)                          { return plib.stringify(v, 'lower'); }
 str_show_udfs                   = v:(s h o w __ u d f s)                                           { return plib.stringify(v, 'lower'); }
+str_show_error                  = v:(s h o w __ e r r o r)                                         { return plib.stringify(v, 'lower'); }
 str_show                        = v:(s h o w)                                                      { return plib.stringify(v, 'lower'); }
 str_social_security_number      = v:(s o c i a l __ s e c u r i t y __ n u m b e r)                { return plib.stringify(v); }
 str_ssn                         = v:(s s n)                                                        { return plib.stringify(v); }
