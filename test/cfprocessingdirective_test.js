@@ -25,38 +25,35 @@ is.equal(r.content, '');
 
 r = cf.parse('<cfprocessingdirective pageEncoding="utf-8">' +
 "\n</cfprocessingdirective>");
-testlib.die();
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'processingdirective');
 is.equal(r.attributes.page_encoding, "utf-8");
-is.equal(r.attributes.supporess_whitespace, false);
+is.equal(r.attributes.suppress_whitespace, false);
 is.equal(r.content, "\n");
 
-r = cf.parse('<cfprocessingdirective pageEncoding="us-ascii" supporessWhitespace="yes">' +
+r = cf.parse('<cfprocessingdirective pageEncoding="us-ascii" suppressWhitespace="yes">' +
 "\nThis is the content that is saved #NOW()#" +
 "\n</cfprocessingdirective>");
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'processingdirective');
 is.equal(r.attributes.page_encoding, "us-ascii");
-is.equal(r.attributes.supporess_whitespace, true);
+is.equal(r.attributes.suppress_whitespace, true);
 is.equal(r.content, "\nThis is the content that is saved #NOW()#\n");
 
-r = cf.parse('<CFPROCESSINGDIRECTIVE PAGEENCODING="us-ascii" SUPPORESSWHITESPACE="yes">' +
+r = cf.parse('<CFPROCESSINGDIRECTIVE PAGEENCODING="us-ascii" SUPPRESSWHITESPACE="yes">' +
 "\nThis is the content that is saved #NOW()#" +
 "\n</CFPROCESSINGDIRECTIVE>");
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'processingdirective');
-is.equal(r.attributes.query, 'processingdirective');
 is.equal(r.attributes.page_encoding, "us-ascii");
-is.equal(r.attributes.supporess_whitespace, true);
+is.equal(r.attributes.suppress_whitespace, true);
 is.equal(r.content, "\nThis is the content that is saved #NOW()#\n");
 
 r = cf.parse('<CFPROCESSINGDIRECTIVE PAGEENCODING="us-ascii" />');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'processingdirective');
-is.equal(r.attributes.query, 'processingdirective');
 is.equal(r.attributes.page_encoding, "us-ascii");
-is.equal(r.attributes.supporess_whitespace, false);
-is.equal(r.content, "\nThis is the content that is saved #NOW()#\n");
+is.equal(r.attributes.suppress_whitespace, false);
+is.equal(r.content, "");
 
 testlib.die("Success!", 0);
