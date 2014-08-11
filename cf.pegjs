@@ -20,11 +20,13 @@ start
 	/ tag_cfdefaultcase
 	/ tag_cfdump
 	/ tag_cfelse
+	/ tag_cfelseif
 	/ tag_cferror
 	/ tag_cfexit
 	/ tag_cffinally
 	/ tag_cfflush
 	/ tag_cfhtmlhead
+	/ tag_cfif
 	/ tag_cfimport
 	/ tag_cfinclude
 	/ tag_cfinsert
@@ -41,6 +43,7 @@ start
 	/ tag_cfquery
 	/ tag_cfqueryparam
 	/ tag_cfrethrow
+	/ tag_cfreturn
 	/ tag_cfsavecontent
 	/ tag_cfscript
 	/ tag_cfsetting
@@ -69,7 +72,6 @@ start
 //	/ tag_cfdocument
 //	/ tag_cfdocumentitem
 //	/ tag_cfdocumentsection
-//	/ tag_cfelseif
 //	/ tag_cfexchangecalendar
 //	/ tag_cfexchangeconnection
 //	/ tag_cfexchangecontact
@@ -92,7 +94,6 @@ start
 //	/ tag_cfheader
 //	/ tag_cfhttp
 //	/ tag_cfhttpparam
-//	/ tag_cfif
 //	/ tag_cfimage
 //	/ tag_cfimap
 //	/ tag_cfindex
@@ -132,7 +133,6 @@ start
 //	/ tag_cfregistry
 //	/ tag_cfreport
 //	/ tag_cfreportparam
-//	/ tag_cfreturn
 //	/ tag_cfschedule
 //	/ tag_cfsearch
 //	/ tag_cfselect
@@ -157,53 +157,53 @@ start
 // Tag Definitions
 
 tag_cfabort
-	= gt t:str_cfabort attr:attr_cfabort_optional* ws* wack? lt {
+	= lt t:str_cfabort attr:attr_cfabort_optional* ws* wack? gt {
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
 tag_cfajaximport
-	= gt t:str_cfajaximport attr:attr_cfajaximport_optional* ws* wack? lt {
+	= lt t:str_cfajaximport attr:attr_cfajaximport_optional* ws* wack? gt {
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
 tag_cfapplication
-	= gt t:str_cfapplication attr:(
+	= lt t:str_cfapplication attr:(
 			attr_cfapplication_optional* attr_cfapplication_required attr_cfapplication_optional*
-		) ws* wack? lt {
+		) ws* wack? gt {
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
 tag_cfassociate
-	= gt t:str_cfassociate attr:( attr_cfassoc_required attr_cfassoc_optional* / attr_cfassoc_optional* attr_cfassoc_required ) lt {
+	= lt t:str_cfassociate attr:( attr_cfassoc_required attr_cfassoc_optional* / attr_cfassoc_optional* attr_cfassoc_required ) gt {
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
 tag_cfbreak
-	= gt t:str_cfbreak lt {
+	= lt t:str_cfbreak gt {
 		return new cftag(t, [], '');
 	}
 
 tag_cfcatch
-	= gt t:str_cfcatch attr:attr_cfcatch_optional* lt 
-	content:(!(gt wack str_cfcatch lt) anychar)*
-	gt wack str_cfcatch lt {
+	= lt t:str_cfcatch attr:attr_cfcatch_optional* gt 
+	content:(!(lt wack str_cfcatch gt) anychar)*
+	lt wack str_cfcatch gt {
 		return new cftag(t, attr, plib.stringify(content));
 	}
 
 tag_cfcontent
-	= gt t:str_cfcontent attr:attr_cfcontent_optional* ws* wack? lt {
+	= lt t:str_cfcontent attr:attr_cfcontent_optional* ws* wack? gt {
 		return new cftag(t,  attr, '');
 	}
 
 tag_cfcontinue
-	= gt t:str_cfcontinue ws* wack? lt {
+	= lt t:str_cfcontinue ws* wack? gt {
 		return new cftag(t,  [], '');
 	}
 
 tag_cfcookie
-	= gt t:str_cfcookie attr:(
+	= lt t:str_cfcookie attr:(
 		attr_cfcookie_optional* attr_cfcookie_required attr_cfcookie_optional*
-	) ws* wack? lt {
+	) ws* wack? gt {
 		var me = new cftag(t, plib.flatten(attr), '');
 		if ( ( me.attributes.path && me.attributes.path !== "" ) && ( ! me.attributes.domain || me.attributes.domain === "" ) ) {
 			throw new Error("Missing domain value, required with path attribute.");		
@@ -212,10 +212,10 @@ tag_cfcookie
 	}
 
 tag_cfdbinfo
-	= gt t:str_cfdbinfo attr:( 
+	= lt t:str_cfdbinfo attr:( 
 			attr_cfdbinfo_optional* attr_cfdbinfo_required_name attr_cfdbinfo_optional* attr_cfdbinfo_required_type attr_cfdbinfo_optional*
 			/ attr_cfdbinfo_optional* attr_cfdbinfo_required_type attr_cfdbinfo_optional* attr_cfdbinfo_required_name attr_cfdbinfo_optional*
-	) ws* wack? lt {
+	) ws* wack? gt {
 		var me = new cftag(t, plib.flatten(attr), '');
 		types_requiring_table_value = ['columns', 'foreignkeys', 'index'];
 		if ( ( me.attributes.type && types_requiring_table_value.indexOf(me.attributes.type) > -1 ) && ( ! me.attributes.table || me.attributes.table === "" ) ) {
@@ -225,226 +225,272 @@ tag_cfdbinfo
 	}
 
 tag_cfdefaultcase
-	= gt t:str_cfdefaultcase ws* wack? lt {
+	= lt t:str_cfdefaultcase ws* wack? gt {
 		return new cftag(t, [], '');
 	}
 
 tag_cfdump
-	= gt t:str_cfdump attr:(
+	= lt t:str_cfdump attr:(
 		attr_cfdump_optional* attr_cfdump_required attr_cfdump_optional*
-	) ws* wack? lt {
+	) ws* wack? gt {
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
 tag_cfelse
-	= gt t:str_cfelse ws* wack? lt {
-		return new cftag(t, [], '');
+	= lt t:str_cfelse ws* wack? gt
+	content:(!( tag_cfif_close ) anychar)*
+	tag_cfif_close {
+		return new cftag(t, [], plib.stringify(content));
+	}
+
+tag_cfelseif
+	= lt t:str_cfelseif v:(!gt anychar)+ gt
+	content:(!( tag_cfelseif / tag_cfelse / tag_cfif_close ) anychar)*
+	(tag_cfelseif / tag_cfelse / tag_cfif_close ) {
+		var me = new cftag(t, [], plib.stringify(content)),
+		    val = plib.stringify(v, 'trim');
+		if ( val === '' ) {
+			throw new Error("Missing required expression.");		
+		} else {
+			me.expression = val
+		}
+
+		return me;
 	}
 
 tag_cferror
-	= gt t:str_cferror attr:(
+	= lt t:str_cferror attr:(
 			attr_cferr_optional* attr_cferr_required_template attr_cferr_optional* attr_cferr_required_type attr_cferr_optional*
 			/ attr_cferr_optional* attr_cferr_required_type attr_cferr_optional* attr_cferr_required_template attr_cferr_optional*
-		) lt {
+		) gt {
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
 tag_cfexit
-	= gt t:str_cfexit attr:attr_cfexit_optional* ws* wack? lt {
+	= lt t:str_cfexit attr:attr_cfexit_optional* ws* wack? gt {
 		return new cftag(t, attr, '');
 	}
 
 tag_cffinally
-	= gt t:str_cffinally lt 
-	content:(!(gt wack str_cffinally lt) anychar)*
-	gt wack str_cffinally lt {
+	= lt t:str_cffinally gt 
+	content:(!(lt wack str_cffinally gt) anychar)*
+	lt wack str_cffinally gt {
 		return new cftag(t, [], plib.stringify(content));
 	}
 
 tag_cfflush
-	= gt t:str_cfflush attr:attr_cfflush_optional* ws* wack? lt {
+	= lt t:str_cfflush attr:attr_cfflush_optional* ws* wack? gt {
 		return new cftag(t,  attr, '');
 	}
 
 tag_cflocation
-	= gt t:str_cflocation attr:(
+	= lt t:str_cflocation attr:(
 			attr_cflocation_optional* attr_cflocation_required attr_cflocation_optional*
-		) ws* wack? lt {
+		) ws* wack? gt {
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
 tag_cflog
-	= gt t:str_cflog attr:(
+	= lt t:str_cflog attr:(
 			attr_cflog_optional* attr_cflog_required attr_cflog_optional*
-		) ws* wack? lt {
+		) ws* wack? gt {
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
 tag_cfhtmlhead
-	= gt t:str_cfhtmlhead attr:attr_cfhtmlhead_required ws* wack? lt {
+	= lt t:str_cfhtmlhead attr:attr_cfhtmlhead_required ws* wack? gt {
 		return new cftag(t, [attr], '');
 	}
 
+tag_cfif_close = lt wack str_cfif gt
+tag_cfif
+	= lt t:str_cfif v:(!gt anychar)+ gt 
+	content:(!( tag_cfif_close / tag_cfelseif / tag_cfelse ) anychar)*
+	( tag_cfif_close / tag_cfelseif / tag_cfelse ) {
+		var me = new cftag(t, [], plib.stringify(content)),
+		    val = plib.stringify(v, 'trim');
+		if ( val === '' ) {
+			throw new Error("Missing required expression.");		
+		} else {
+			me.expression = val
+		}
+
+		return me;
+	}
+
 tag_cfimport
-	= gt t:str_cfimport attr:attr_cfimport_required lt {
+	= lt t:str_cfimport attr:attr_cfimport_required gt {
 		return new cftag(t, attr, '');
 	}
 
 tag_cfinclude
-	= gt t:str_cfinclude attr:attr_cfinclude_required ws* wack? lt {
+	= lt t:str_cfinclude attr:attr_cfinclude_required ws* wack? gt {
 		return new cftag(t, [attr], '');
 	}
 
 tag_cfinsert
-	= gt t:str_cfinsert attr:(
+	= lt t:str_cfinsert attr:(
 		attr_cfinsert_optional* attr_cfinsert_required_datasource attr_cfinsert_optional* attr_cfinsert_required_table_name attr_cfinsert_optional*
 		/ attr_cfinsert_optional* attr_cfinsert_required_table_name attr_cfinsert_optional* attr_cfinsert_required_datasource attr_cfinsert_optional*
-	) ws* wack? lt {
+	) ws* wack? gt {
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
 tag_cflock
-	= gt t:str_cflock attr:(attr_cflock_optional* attr_cflock_required attr_cflock_optional* ) lt
-	content:(!(gt wack str_cflock lt) anychar)*
-	gt wack str_cflock lt {
+	= lt t:str_cflock attr:(attr_cflock_optional* attr_cflock_required attr_cflock_optional* ) gt
+	content:(!(lt wack str_cflock gt) anychar)*
+	lt wack str_cflock gt {
 		return new cftag(t, plib.flatten(attr), plib.stringify(content));
 	}
 
 tag_cflogin
-	= gt t:str_cflogin attr:attr_cflogin_optional* lt
-	content:(!(gt wack str_cflogin lt) anychar)*
-	gt wack str_cflogin lt {
+	= lt t:str_cflogin attr:attr_cflogin_optional* gt
+	content:(!(lt wack str_cflogin gt) anychar)*
+	lt wack str_cflogin gt {
 		return new cftag(t, attr, plib.stringify(content));
 	}
 
 tag_cfloginuser
-	= gt t:str_cfloginuser attr:attr_cfloginuser_required+ ws* wack? lt {
+	= lt t:str_cfloginuser attr:attr_cfloginuser_required+ ws* wack? gt {
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
 tag_cflogout
-	= gt t:str_cflogout ws* wack? lt {
+	= lt t:str_cflogout ws* wack? gt {
 		return new cftag(t, [], '');
 	}
 
 tag_cfobjectcache
-	= gt t:str_cfobjectcache attr:attr_cfobjectcache_required ws* wack? lt {
+	= lt t:str_cfobjectcache attr:attr_cfobjectcache_required ws* wack? gt {
 		return new cftag(t, attr, '');
 	}
 
 tag_cfoutput
-	= gt t:str_cfoutput attr:attr_cfoutput_optional* lt
-	content:(!(gt wack str_cfoutput lt) anychar)*
-	gt wack str_cfoutput lt {
+	= lt t:str_cfoutput attr:attr_cfoutput_optional* gt
+	content:(!(lt wack str_cfoutput gt) anychar)*
+	lt wack str_cfoutput gt {
 		return new cftag(t, attr, plib.stringify(content));
 	}
 
 tag_cfparam
-	= gt t:str_cfparam attr:(
+	= lt t:str_cfparam attr:(
 			attr_cfparam_optional* attr_cfparam_required attr_cfparam_optional*
-		) ws* wack? lt {
+		) ws* wack? gt {
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
 tag_cfprocessingdirective
-	= gt t:str_cfprocessingdirective attr:attr_cfprocessingdirective_optional* lt
-		content:(!(gt wack str_cfprocessingdirective lt) anychar)*
-		gt wack str_cfprocessingdirective lt {
+	= lt t:str_cfprocessingdirective attr:attr_cfprocessingdirective_optional* gt
+		content:(!(lt wack str_cfprocessingdirective gt) anychar)*
+		lt wack str_cfprocessingdirective gt {
 		return new cftag(t, attr, plib.stringify(content));
 	}
-	/ gt t:str_cfprocessingdirective attr:attr_cfprocessingdirective_optional* ws* wack? lt {
+	/ lt t:str_cfprocessingdirective attr:attr_cfprocessingdirective_optional* ws* wack? gt {
 		return new cftag(t, attr, '');
 	}
 
 tag_cfquery
-	= gt t:str_cfquery attr:(attr_cfquery_optional* attr_cfquery_required attr_cfquery_optional* ) lt
-	content:(!(gt wack str_cfquery lt) anychar)*
-	gt wack str_cfquery lt {
+	= lt t:str_cfquery attr:(attr_cfquery_optional* attr_cfquery_required attr_cfquery_optional* ) gt
+	content:(!(lt wack str_cfquery gt) anychar)*
+	lt wack str_cfquery gt {
 		return new cftag(t, plib.flatten(attr), plib.stringify(content));
 	}
 
 tag_cfqueryparam
-	= gt t:str_cfqueryparam attr:(
+	= lt t:str_cfqueryparam attr:(
 		attr_cfqueryparam_optional* attr_cfqueryparam_required attr_cfqueryparam_optional* 
-	) ws* wack? lt {
+	) ws* wack? gt {
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
 tag_cfrethrow
-	= gt t:str_cfrethrow ws* wack? lt {
+	= lt t:str_cfrethrow ws* wack? gt {
 		return new cftag(t, [], '');
 	}
 
+tag_cfreturn
+	= lt t:str_cfreturn v:(!gt anychar)+ gt {
+		var me = new cftag(t, [], ''),
+		    val = plib.stringify(v, 'trim');
+		if ( val === '' ) {
+			throw new Error("Missing required expression.");		
+		} else {
+			me.expression = val
+		}
+
+		return me;
+	}
+
 tag_cfsavecontent
-	= gt t:str_cfsavecontent attr:attr_cfsavecontent_required lt
-	content:(!(gt wack str_cfsavecontent lt) anychar)*
-	gt wack str_cfsavecontent lt {
+	= lt t:str_cfsavecontent attr:attr_cfsavecontent_required gt
+	content:(!(lt wack str_cfsavecontent gt) anychar)*
+	lt wack str_cfsavecontent gt {
 		return new cftag(t, [attr], plib.stringify(content));
 	}
 
 tag_cfscript
-	= gt t:str_cfscript lt
-	content:(!(gt wack str_cfscript lt) anychar)*
-	gt wack str_cfscript lt {
+	= lt t:str_cfscript gt
+	content:(!(lt wack str_cfscript gt) anychar)*
+	lt wack str_cfscript gt {
 		return new cftag(t, [], plib.stringify(content));
 	}
 
 tag_cfsetting
-	= gt t:str_cfsetting attr:attr_cfsetting_optional* ws* wack? lt {
+	= lt t:str_cfsetting attr:attr_cfsetting_optional* ws* wack? gt {
 		return new cftag(t, attr, '');
 	}
 
 tag_cfsilent
-	= gt t:str_cfsilent lt
-	content:(!(gt wack str_cfsilent lt) anychar)*
-	gt wack str_cfsilent lt {
+	= lt t:str_cfsilent gt
+	content:(!(lt wack str_cfsilent gt) anychar)*
+	lt wack str_cfsilent gt {
 		return new cftag(t, [], plib.stringify(content));
 	}
 
 tag_cfswitch
-	= gt t:str_cfswitch attr:attr_cfswitch_required lt
-	content:(!(gt wack str_cfswitch lt) anychar)*
-	gt wack str_cfswitch lt {
+	= lt t:str_cfswitch attr:attr_cfswitch_required gt
+	content:(!(lt wack str_cfswitch gt) anychar)*
+	lt wack str_cfswitch gt {
 		return new cftag(t, [attr], '');
 	}
 tag_cfthrow
-	= gt t:str_cfthrow ws* wack? lt {
+	= lt t:str_cfthrow ws* wack? gt {
 		return new cftag(t, [], '');
 	}
 
 tag_cftimer
-	= gt t:str_cftimer attr:attr_cftimer_optional* lt
-	content:(!(gt wack str_cftimer lt) anychar)*
-	gt wack str_cftimer lt {
+	= lt t:str_cftimer attr:attr_cftimer_optional* gt
+	content:(!(lt wack str_cftimer gt) anychar)*
+	lt wack str_cftimer gt {
 		return new cftag(t, attr, plib.stringify(content));
 	}
 
 tag_cftrace
-	= gt t:str_cftrace attr:attr_cftrace_optional* lt
-	content:(!(gt wack str_cftrace lt) anychar)*
-	gt wack str_cftrace lt {
+	= lt t:str_cftrace attr:attr_cftrace_optional* gt
+	content:(!(lt wack str_cftrace gt) anychar)*
+	lt wack str_cftrace gt {
 		return new cftag(t, attr, plib.stringify(content));
 	}
 
 tag_cftransaction
-	= gt t:str_cftransaction attr:attr_cftransaction_optional* lt
-	content:(!(gt wack str_cftransaction lt) anychar)*
-	gt wack str_cftransaction lt {
+	= lt t:str_cftransaction attr:attr_cftransaction_optional* gt
+	content:(!(lt wack str_cftransaction gt) anychar)*
+	lt wack str_cftransaction gt {
 		return new cftag(t, attr, plib.stringify(content));
 	}
 
 tag_cftry
-	= gt t:str_cftry lt
-	content:(!(gt wack str_cftry lt) anychar)*
-	gt wack str_cftry lt {
+	= lt t:str_cftry gt
+	content:(!(lt wack str_cftry gt) anychar)*
+	lt wack str_cftry gt {
 		return new cftag(t, [], plib.stringify(content));
 	}
 
 tag_cfupdate
-	= gt t:str_cfupdate attr:(
+	= lt t:str_cfupdate attr:(
 		attr_cfupdate_optional* attr_cfupdate_required_datasource attr_cfupdate_optional* attr_cfupdate_required_table_name attr_cfupdate_optional*
 		/ attr_cfupdate_optional* attr_cfupdate_required_table_name attr_cfupdate_optional* attr_cfupdate_required_datasource attr_cfupdate_optional*
-	) ws* wack? lt {
+	) ws* wack? gt {
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
@@ -898,10 +944,12 @@ str_cfdbinfo                    = v:(c f d b i n f o)                           
 str_cfdefaultcase               = v:(c f d e f a u l t c a s e)                                    { return plib.stringify(v, 'lower'); }
 str_cfdump                      = v:(c f d u m p)                                                  { return plib.stringify(v, 'lower'); }
 str_cfelse                      = v:(c f e l s e)                                                  { return plib.stringify(v, 'lower'); }
+str_cfelseif                    = v:(c f e l s e i f)                                              { return plib.stringify(v, 'lower'); }
 str_cferror                     = v:(c f e r r o r)                                                { return plib.stringify(v, 'lower'); }
 str_cfexit                      = v:(c f e x i t)                                                  { return plib.stringify(v, 'lower'); }
 str_cffinally                   = v:(c f f i n a l l y)                                            { return plib.stringify(v, 'lower'); }
 str_cfflush                     = v:(c f f l u s h)                                                { return plib.stringify(v, 'lower'); }
+str_cfif                        = v:(c f i f)                                                      { return plib.stringify(v, 'lower'); }
 str_cfinsert                    = v:(c f i n s e r t)                                              { return plib.stringify(v, 'lower'); }
 str_cfimport                    = v:(c f i m p o r t)                                              { return plib.stringify(v, 'lower'); }
 str_cfhtmlhead                  = v:(c f h t m l h e a d)                                          { return plib.stringify(v, 'lower'); }
@@ -919,6 +967,7 @@ str_cfparam                     = v:(c f p a r a m)                             
 str_cfquery                     = v:(c f q u e r y)                                                { return plib.stringify(v, 'lower'); }
 str_cfqueryparam                = v:(c f q u e r y p a r a m)                                      { return plib.stringify(v, 'lower'); }
 str_cfrethrow                   = v:(c f r e t h r o w)                                            { return plib.stringify(v, 'lower'); }
+str_cfreturn                    = v:(c f r e t u r n)                                              { return plib.stringify(v, 'lower'); }
 str_cfsavecontent               = v:(c f s a v e c o n t e n t)                                    { return plib.stringify(v, 'lower'); }
 str_cfscript                    = v:(c f s c r i p t)                                              { return plib.stringify(v, 'lower'); }
 str_cfsetting                   = v:(c f s e t t i n g)                                            { return plib.stringify(v, 'lower'); }
@@ -1133,8 +1182,8 @@ __ = ub?
 at = '@'
 pound = '#'
 ws = space / "\t" / "\n"
-gt = '<'
-lt = '>'
+lt = '<'
+gt = '>'
 wack = '/'
 eql = '='
 period = '.'
