@@ -25,7 +25,7 @@ is.throws(function () {
 }, Error, "Missing required datasource attribute");
 
 is.throws(function () {
-	r = cf.parse('<cfupdate tableName="cfupdate_table">');
+	r = cf.parse('<cfupdate tableName="">');
 }, Error, "Empty tablename attribute");
 
 r = cf.parse('<cfupdate dataSource="cfupdate_dsn2" tableName="cfupdate_table2">');
