@@ -5,11 +5,11 @@ var is = require('assert'),
 
 var r;
 is.throws(function () {
-	r = cf.parse('<cfcfqueryparam>');
+	r = cf.parse('<cfqueryparam>');
 }, Error, "Missing required value attribute");
 
 is.throws(function () {
-	r = cf.parse('<cfcfqueryparam value="cfqueryparam_test">');
+	r = cf.parse('<cfqueryparam value="cfqueryparam_test">');
 }, Error, "Required value attribute isn't correct format");
 
 r = cf.parse('<cfqueryparam value="#cfqueryparam_test#">');
