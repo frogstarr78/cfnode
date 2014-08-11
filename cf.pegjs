@@ -40,6 +40,7 @@ start
 	/ tag_cfoutput
 	/ tag_cfparam
 	/ tag_cfprocessingdirective
+	/ tag_cfprocresult
 	/ tag_cfquery
 	/ tag_cfqueryparam
 	/ tag_cfrethrow
@@ -127,7 +128,6 @@ start
 //	/ tag_cfpresenter
 //	/ tag_cfprint
 //	/ tag_cfprocparam
-//	/ tag_cfprocresult
 //	/ tag_cfprogressbar
 //	/ tag_cfproperty
 //	/ tag_cfregistry
@@ -389,6 +389,11 @@ tag_cfprocessingdirective
 		return new cftag(t, attr, '');
 	}
 
+tag_cfprocresult
+	= lt t:str_cfprocresult attr:(attr_cfprocresult_optional* attr_cfprocresult_required attr_cfprocresult_optional* ) ws* wack? gt {
+		return new cftag(t, plib.flatten(attr), '');
+	}
+
 tag_cfquery
 	= lt t:str_cfquery attr:(attr_cfquery_optional* attr_cfquery_required attr_cfquery_optional* ) gt
 	content:(!(lt wack str_cfquery gt) anychar)*
@@ -613,6 +618,11 @@ attr_cfparam_optional
 	/ ws+ n:str_min     eql v:value_integer      { return { name: n, value: v }; }
 	/ ws+ n:str_pattern eql v:value_regex        { return { name: n, value: v }; }
 	/ ws+ n:str_type    eql v:value_cfparam_type { return { name: n, value: v }; }
+
+attr_cfprocresult_required = attr_name
+attr_cfprocresult_optional
+	= ws+ n:str_max_rows   eql v:value_integer { return { name: 'max_rows',   value: v }; }
+	/ ws+ n:str_result_set eql v:value_integer { return { name: 'result_set', value: v }; }
 
 //attr_cfprocessingdirective_required
 attr_cfprocessingdirective_optional
@@ -963,6 +973,7 @@ str_cflogout                    = v:(c f l o g o u t)                           
 str_cfoutput                    = v:(c f o u t p u t)                                              { return plib.stringify(v, 'lower'); }
 str_cfobjectcache               = v:(c f o b j e c t c a c h e)                                    { return plib.stringify(v, 'lower'); }
 str_cfprocessingdirective       = v:(c f p r o c e s s i n g d i r e c t i v e)                    { return plib.stringify(v, 'lower'); }
+str_cfprocresult                = v:(c f p r o c r e s u l t)                                      { return plib.stringify(v, 'lower'); }
 str_cfparam                     = v:(c f p a r a m)                                                { return plib.stringify(v, 'lower'); }
 str_cfquery                     = v:(c f q u e r y)                                                { return plib.stringify(v, 'lower'); }
 str_cfqueryparam                = v:(c f q u e r y p a r a m)                                      { return plib.stringify(v, 'lower'); }
@@ -1050,6 +1061,7 @@ str_query                       = v:(q u e r y)                                 
 str_range                       = v:(r a n g e s)                                                  { return plib.stringify(v); }
 str_reset                       = v:(r e s e t)                                                    { return plib.stringify(v, 'lower'); }
 str_result                      = v:(r e s u l t)                                                  { return plib.stringify(v, 'lower'); }
+str_result_set                  = v:(r e s u l t __ s e t)                                         { return plib.stringify(v, 'lower'); }
 str_regex                       = v:(r e g e x)                                                    { return plib.stringify(v); }
 str_registry                    = v:(r e g i s t r y)                                              { return plib.stringify(v); }
 str_regular_expression          = v:(r e g u l a r __ e x p r e s s i o n)                         { return plib.stringify(v); }
