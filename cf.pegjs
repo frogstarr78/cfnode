@@ -40,6 +40,7 @@ start
 	/ tag_cfoutput
 	/ tag_cfparam
 	/ tag_cfprocessingdirective
+	/ tag_cfprocparam
 	/ tag_cfprocresult
 	/ tag_cfquery
 	/ tag_cfqueryparam
@@ -128,7 +129,6 @@ start
 //	/ tag_cfpresentationslide
 //	/ tag_cfpresenter
 //	/ tag_cfprint
-//	/ tag_cfprocparam
 //	/ tag_cfprogressbar
 //	/ tag_cfproperty
 //	/ tag_cfregistry
@@ -389,6 +389,17 @@ tag_cfprocessingdirective
 		return new cftag(t, attr, '');
 	}
 
+tag_cfprocparam
+	= lt t:str_cfprocparam attr:(attr_cfprocparam_optional* attr_cfprocparam_required attr_cfprocparam_optional* ) ws* wack? gt {
+		var me = new cftag(t, plib.flatten(attr), '');
+		if ( me.attributes.type == "in" && ( typeof me.attributes.value === 'undefined' || me.attributes.value == "" ) ) {
+			throw new Error("Missing required value attribute.");
+		} else if ( ['inout', 'out'].indexOf(me.attributes.type) > -1 && ( typeof me.attributes.variable === 'undefined' || me.attributes.variable == "" ) ) {
+			throw new Error("Missing required variable attribute.");
+		}
+		return me; 
+	}
+
 tag_cfprocresult
 	= lt t:str_cfprocresult attr:(attr_cfprocresult_optional* attr_cfprocresult_required attr_cfprocresult_optional* ) ws* wack? gt {
 		return new cftag(t, plib.flatten(attr), '');
@@ -516,6 +527,8 @@ attr_password   = ws+ n:str_password   eql v:value_any                { return {
 attr_text       = ws+ n:str_text       eql v:value_any                { return { name: n, value: v }; }
 attr_username   = ws+ n:str_username   eql v:value_any_non_whitespace { return { name: n, value: v }; }
 attr_var        = ws+ n:str_var        eql v:value_cfval              { return { name: n, value: v }; }
+attr_variable   = ws+ n:str_variable   eql v:value_any_non_whitespace { return { name: n, value: v }; }
+attr_value      = ws+ n:str_value      eql v:value_cfval              { return { name: n, value: v }; }
 
 //attr_cfabort_required
 attr_cfabort_optional
@@ -585,7 +598,7 @@ attr_cfcontent_optional
 	/ ws+ n:str_file        eql v:value_file_path		   { return { name: n, value: v }; }
 	/ ws+ n:str_reset       eql v:value_boolean            { return { name: n, value: v }; }
 	/ ws+ n:str_type        eql v:value_encoding           { return { name: n, value: v }; }
-	/ ws+ n:str_variable    eql v:value_any_non_whitespace { return { name: n, value: v }; }
+	/ attr_variable
 
 attr_cfhtmlhead_required = attr_text
 //attr_cfhtmlhead_optional
@@ -605,7 +618,7 @@ attr_cfcookie_optional
 	/ ws+ n:str_secure    eql v:value_boolean          { return { name: n,           value: v }; }
 	/ ws+ n:str_value     eql v:value_any              { return { name: n,           value: v }; }
 
-attr_cfdump_required = ws+ n:str_var eql v:value_cfval { return { name: n, value: v }; }
+attr_cfdump_required = attr_var
 attr_cfdump_optional
 	= ws+ n:str_abort      eql v:value_boolean                             { return { name: n, value: v }; }
 	/ ws+ n:str_expand     eql v:value_boolean                             { return { name: n, value: v }; }
@@ -626,6 +639,17 @@ attr_cfparam_optional
 	/ ws+ n:str_min     eql v:value_integer      { return { name: n, value: v }; }
 	/ ws+ n:str_pattern eql v:value_regex        { return { name: n, value: v }; }
 	/ ws+ n:str_type    eql v:value_cfparam_type { return { name: n, value: v }; }
+	/ attr_value
+
+attr_cfprocparam_required = ws+ n:str_cfsql_type eql v:value_sql_type { return { name: 'cf_sql_type', value: v }; }
+attr_cfprocparam_optional
+	= ws+ n:str_max_length eql v:value_integer            { return { name: 'max_length', value: v }; }
+	/ ws+ n:str_null       eql v:value_boolean            { return { name: n, value: v }; }
+	/ ws+ n:str_scale      eql v:value_integer            { return { name: n, value: v }; }
+	/ ws+ n:str_type       eql v:value_cfprocparam_type   { return { name: n, value: v }; }
+	/ attr_variable
+	/ ws+ n:str_value      eql v:value_any_non_whitespace { return { name: n, value: v }; }
+value_cfprocparam_type = quote_char v:( i n o u t / o u t / i n ) quote_char { return plib.stringify(v, 'lower'); }
 
 attr_cfprocresult_required = attr_name
 attr_cfprocresult_optional
@@ -637,7 +661,7 @@ attr_cfprocessingdirective_optional
 	= ws+ n:str_page_encoding       eql v:value_encoding { return { name: 'page_encoding',       value: v }; }
 	/ ws+ n:str_suppress_whitespace eql v:value_boolean  { return { name: 'suppress_whitespace', value: v }; }
 
-attr_cfsavecontent_required = ws+ n:str_variable eql v:value_any_non_whitespace { return { name: n, value: v }; }
+attr_cfsavecontent_required = attr_variable
 //attr_cfsavecontent_optional
 
 //attr_cfsetting_required
@@ -835,17 +859,16 @@ attr_cfquery_optional
 	/ ws+ n:str_timeout       eql v:value_integer               { return { name: n,               value: v }; }
 	/ attr_username
 
-attr_cfqueryparam_required
-	= ws+ n:str_value eql v:value_cfval { return { name: n, value: v }; }
+attr_cfqueryparam_required = attr_value
 attr_cfqueryparam_optional
-	= ws+ n:str_cfsql_type eql v:value_cfqueryparam_type { return { name: 'cf_sql_type', value: v }; }
-	/ ws+ n:str_list       eql v:value_boolean           { return { name: n, value: v }; }
-	/ ws+ n:str_max_length eql v:value_integer           { return { name: 'max_length', value: v }; }
-	/ ws+ n:str_null       eql v:value_boolean           { return { name: n, value: v }; }
-	/ ws+ n:str_scale      eql v:value_integer           { return { name: n, value: v }; }
-	/ ws+ n:str_separator  eql v:value_any               { return { name: n, value: v }; }
+	= ws+ n:str_cfsql_type eql v:value_sql_type { return { name: 'cf_sql_type', value: v }; }
+	/ ws+ n:str_list       eql v:value_boolean  { return { name: n, value: v }; }
+	/ ws+ n:str_max_length eql v:value_integer  { return { name: 'max_length', value: v }; }
+	/ ws+ n:str_null       eql v:value_boolean  { return { name: n, value: v }; }
+	/ ws+ n:str_scale      eql v:value_integer  { return { name: n, value: v }; }
+	/ ws+ n:str_separator  eql v:value_any      { return { name: n, value: v }; }
 
-value_cfqueryparam_type
+value_sql_type
 	= quote_char v:"CF_SQL_CHAR"        quote_char { return v; }
 	/ quote_char v:"CF_SQL_BIGINT"      quote_char { return v; }
     / quote_char v:"CF_SQL_BIT"         quote_char { return v; }
@@ -991,6 +1014,7 @@ str_cflogout                    = v:(c f l o g o u t)                           
 str_cfoutput                    = v:(c f o u t p u t)                                              { return plib.stringify(v, 'lower'); }
 str_cfobjectcache               = v:(c f o b j e c t c a c h e)                                    { return plib.stringify(v, 'lower'); }
 str_cfprocessingdirective       = v:(c f p r o c e s s i n g d i r e c t i v e)                    { return plib.stringify(v, 'lower'); }
+str_cfprocparam                 = v:(c f p r o c p a r a m)                                        { return plib.stringify(v, 'lower'); }
 str_cfprocresult                = v:(c f p r o c r e s u l t)                                      { return plib.stringify(v, 'lower'); }
 str_cfparam                     = v:(c f p a r a m)                                                { return plib.stringify(v, 'lower'); }
 str_cfquery                     = v:(c f q u e r y)                                                { return plib.stringify(v, 'lower'); }
