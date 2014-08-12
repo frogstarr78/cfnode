@@ -25,6 +25,7 @@ start
 	/ tag_cfexit
 	/ tag_cffinally
 	/ tag_cfflush
+	/ tag_cfheader
 	/ tag_cfhtmlhead
 	/ tag_cfif
 	/ tag_cfimport
@@ -94,7 +95,6 @@ start
 //	/ tag_cfgridcolumn
 //	/ tag_cfgridrow
 //	/ tag_cfgridupdate
-//	/ tag_cfheader
 //	/ tag_cfhttp
 //	/ tag_cfhttpparam
 //	/ tag_cfimage
@@ -230,9 +230,7 @@ tag_cfdefaultcase
 	}
 
 tag_cfdump
-	= lt t:str_cfdump attr:(
-		attr_cfdump_optional* attr_cfdump_required attr_cfdump_optional*
-	) ws* wack? gt {
+	= lt t:str_cfdump attr:( attr_cfdump_optional* attr_cfdump_required attr_cfdump_optional* ) ws* wack? gt {
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
@@ -280,21 +278,27 @@ tag_cffinally
 
 tag_cfflush
 	= lt t:str_cfflush attr:attr_cfflush_optional* ws* wack? gt {
-		return new cftag(t,  attr, '');
+		return new cftag(t,  plib.flatten(attr), '');
 	}
 
+
 tag_cflocation
-	= lt t:str_cflocation attr:(
-			attr_cflocation_optional* attr_cflocation_required attr_cflocation_optional*
-		) ws* wack? gt {
+	= lt t:str_cflocation attr:( attr_cflocation_optional* attr_cflocation_required attr_cflocation_optional* ) ws* wack? gt {
 		return new cftag(t, plib.flatten(attr), '');
 	}
 
 tag_cflog
-	= lt t:str_cflog attr:(
-			attr_cflog_optional* attr_cflog_required attr_cflog_optional*
-		) ws* wack? gt {
+	= lt t:str_cflog attr:( attr_cflog_optional* attr_cflog_required attr_cflog_optional* ) ws* wack? gt {
 		return new cftag(t, plib.flatten(attr), '');
+	}
+
+tag_cfheader
+	= lt t:str_cfheader attr:attr_cfheader_optional* ws* wack? gt {
+		var me = new cftag(t, plib.flatten(attr), '');	
+		if ( ( typeof me.attributes.name === 'undefined' || me.attributes.name == '' ) && ( typeof me.attributes.status_code === 'undefined' || me.attributes.status_code == '' ) ) {
+			throw new Error("Missing required name or statusCode attribute.");
+		}
+		return me;
 	}
 
 tag_cfhtmlhead
@@ -599,6 +603,28 @@ attr_cfcontent_optional
 	/ ws+ n:str_reset       eql v:value_boolean            { return { name: n, value: v }; }
 	/ ws+ n:str_type        eql v:value_encoding           { return { name: n, value: v }; }
 	/ attr_variable
+
+//attr_cfheader_required
+attr_cfheader_optional 
+	= ws+ n:str_charset     eql v:value_charset                      { return { name: n, value: v }; }
+	/ attr_name
+	/ ws+ n:str_status_code eql quote_char v:("30" [0-7]) quote_char { return { name: 'status_code', value: plib.stringify(v, 'int') }; }
+	/ ws+ n:str_status_text eql v:value_any                          { return { name: 'status_text', value: plib.stringify(v) }; }
+	/ attr_value
+
+value_charset = value_any_non_whitespace
+//value_charset = quote_char &{ 
+//	var fs = require('fs'),
+//	    charset_contents = fs.readFileSync('./character-sets-1.csv');
+//
+//	console.dir(this);
+////	charset_lines = charset_contents.split(/\r/);
+////	for( var i=0; i < charset_lines.length; i++ ) {
+////			
+////	}
+//	return true;
+////	return false;
+//} v:value_any_non_whitespace quote_char { return plib.stringify(v, 'lower'); }
 
 attr_cfhtmlhead_required = attr_text
 //attr_cfhtmlhead_optional
@@ -1003,6 +1029,7 @@ str_cfflush                     = v:(c f f l u s h)                             
 str_cfif                        = v:(c f i f)                                                      { return plib.stringify(v, 'lower'); }
 str_cfinsert                    = v:(c f i n s e r t)                                              { return plib.stringify(v, 'lower'); }
 str_cfimport                    = v:(c f i m p o r t)                                              { return plib.stringify(v, 'lower'); }
+str_cfheader                    = v:(c f h e a d e r)                                              { return plib.stringify(v, 'lower'); }
 str_cfhtmlhead                  = v:(c f h t m l h e a d)                                          { return plib.stringify(v, 'lower'); }
 str_cfinclude                   = v:(c f i n c l u d e)                                            { return plib.stringify(v, 'lower'); }
 str_cflocation                  = v:(c f l o c a t i o n)                                          { return plib.stringify(v, 'lower'); }
@@ -1035,6 +1062,7 @@ str_cfthrow                     = v:(c f t h r o w)                             
 str_cftry                       = v:(c f t r y)                                                    { return plib.stringify(v, 'lower'); }
 str_cfupdate                    = v:(c f u p d a t e)                                              { return plib.stringify(v, 'lower'); }
 
+str_charset                     = v:(c h a r s e t)                                                { return plib.stringify(v, 'lower'); }
 str_client_management           = v:(c l i e n t __ m a n a g e m e n t)                           { return plib.stringify(v, 'lower'); }
 str_client_storage              = v:(c l i e n t __ s t o r a g e)                                 { return plib.stringify(v, 'lower'); }
 str_cookie                      = v:(c o o k i e)                                                  { return plib.stringify(v); }
@@ -1138,6 +1166,7 @@ str_social_security_number      = v:(s o c i a l __ s e c u r i t y __ n u m b e
 str_ssn                         = v:(s s n)                                                        { return plib.stringify(v); }
 str_startrow                    = v:(s t a r t r o w)                                              { return plib.stringify(v, 'under'); }
 str_status_code                 = v:(s t a t u s __ c o d e)                                       { return plib.stringify(v, 'under'); }
+str_status_text                 = v:(s t a t u s __ t e x t)                                       { return plib.stringify(v, 'under'); }
 str_string                      = v:(s t r i n g)                                                  { return plib.stringify(v); }
 str_struct                      = v:(s t r u c t)                                                  { return plib.stringify(v); }
 str_suppress_whitespace         = v:(s u p p r e s s __ w h i t e s p a c e)                       { return plib.stringify(v, 'lower'); }
