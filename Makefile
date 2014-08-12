@@ -5,7 +5,7 @@ test: cf.js test/*_test.js
 t: test
 
 cf.js: cf.pegjs
-	pegjs $?
+	pegjs --track-line-and-column $? $@
 
 sync:
 	rsync -vr --delete . eclipta:git/cfnode
