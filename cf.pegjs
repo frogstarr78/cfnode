@@ -12,6 +12,7 @@ start
 	/ tag_cfapplication
 	/ tag_cfassociate
 	/ tag_cfbreak
+	/ tag_cfcase
 	/ tag_cfcatch
 	/ tag_cfcontent
 	/ tag_cfcontinue
@@ -64,7 +65,6 @@ start
 //	/ tag_cfapplet
 //	/ tag_cfcache
 //	/ tag_cfcalendar
-//	/ tag_cfcase
 //	/ tag_cfchart
 //	/ tag_cfchartdata
 //	/ tag_cfchartseries
@@ -181,6 +181,11 @@ tag_cfassociate
 tag_cfbreak
 	= lt t:str_cfbreak gt {
 		return new cftag(t, [], '');
+	}
+
+tag_cfcase
+	= lt t:str_cfcase attr:( attr_cfcase_optional? attr_cfcase_required attr_cfcase_optional? ) ws* wack? gt {
+		return new cftag(t, plib.flatten(attr), '');
 	}
 
 tag_cfcatch
@@ -632,6 +637,9 @@ attr_cfhtmlhead_required = attr_text
 attr_cfinclude_required = ws+ n:str_template eql v:value_file_path { return { name: n, value: v }; }
 //attr_cfinclude_optional
 
+attr_cfcase_required = ws+ n:str_value     eql v:value_any { return { name: n, value: v }; }
+attr_cfcase_optional = ws+ n:str_delimiter eql v:value_any { return { name: n, value: v }; }
+
 //attr_cfcatch_required
 attr_cfcatch_optional = ws+ n:str_type eql v:value_cferr_exception { return { name: n, value: v }; }
 
@@ -1013,6 +1021,7 @@ str_cfajaximport                = v:(c f a j a x i m p o r t)                   
 str_cfapplication               = v:(c f a p p l i c a t i o n)                                    { return plib.stringify(v, 'lower'); }
 str_cfassociate                 = v:(c f a s s o c i a t e)                                        { return plib.stringify(v, 'lower'); }
 str_cfbreak                     = v:(c f b r e a k)                                                { return plib.stringify(v, 'lower'); }
+str_cfcase                      = v:(c f c a s e)                                                  { return plib.stringify(v, 'lower'); }
 str_cfcatch                     = v:(c f c a t c h)                                                { return plib.stringify(v, 'lower'); }
 str_cfcontent                   = v:(c f c o n t e n t)                                            { return plib.stringify(v, 'lower'); }
 str_cfcontinue                  = v:(c f c o n t i n u e)                                          { return plib.stringify(v, 'lower'); }
@@ -1075,6 +1084,7 @@ str_datasource                  = v:(d a t a s o u r c e)                       
 str_date                        = v:(d a t e)                                                      { return plib.stringify(v); }
 str_debug                       = v:(d e b u g)                                                    { return plib.stringify(v, 'lower'); }
 str_default                     = v:(d e f a u l t)                                                { return plib.stringify(v, 'lower'); }
+str_delimiter                   = v:(d e l i m i t e r)                                            { return plib.stringify(v, 'lower'); }
 str_delete_file                 = v:(d e l e t e __ f i l e)                                       { return plib.stringify(v, 'lower'); }
 str_dbname                      = v:(d b n a m e)                                                  { return plib.stringify(v, 'lower'); }
 str_dbtype                      = v:(d b t y p e)                                                  { return plib.stringify(v, 'lower'); }
