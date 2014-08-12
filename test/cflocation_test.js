@@ -20,6 +20,13 @@ is.equal(r.attributes.url, '/cflocation');
 is.equal(r.attributes.add_token, false);
 is.equal(r.attributes.status_code, 301);
 
+r = cf.parse('<cflocation url="http://www.google.com?q=here" />');
+is.equal(r instanceof Object, true);
+is.equal(r.tag, 'location');
+is.equal(r.attributes.url, 'http://www.google.com/?q=here');
+is.equal(r.attributes.add_token, false);
+is.equal(r.attributes.status_code, 301);
+
 r = cf.parse('<cflocation url="/cflocation test" addToken="yes" statusCode="302">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'location');
