@@ -7,7 +7,7 @@ var r;
 
 is.throws(function () {
 	r = cf.parse('<cfapplication>');
-}, Error);
+}, Error, "Missing required name attribute.");
 
 r = cf.parse('<cfapplication name="cfapplication_test1">');
 is.equal(r instanceof Object, true);
