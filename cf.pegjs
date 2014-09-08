@@ -39,6 +39,7 @@ start
 	/ tag_cfimport
 	/ tag_cfinclude
 	/ tag_cfinsert
+    / tag_cfinterface
 	/ tag_cflocation
 	/ tag_cflock
 	/ tag_cflog
@@ -61,98 +62,97 @@ start
 	/ tag_cfscript
 	/ tag_cfsetting
 	/ tag_cfsilent
-	/ tag_cfswitch
 	/ tag_cfstoredproc
+	/ tag_cfswitch
 	/ tag_cfthrow
 	/ tag_cftimer
 	/ tag_cftrace
 	/ tag_cftransaction
 	/ tag_cftry
 	/ tag_cfupdate
-//	/ tag_cfNTauthenticate // m$ login
-//	/ tag_cfapplet
-//	/ tag_cfcalendar
-//	/ tag_cfchart
-//	/ tag_cfchartdata
-//	/ tag_cfchartseries
-//	/ tag_cfcol
-//	/ tag_cfcollection
-//	/ tag_cfdiv
-//	/ tag_cfdocument // pdf
-//	/ tag_cfdocumentitem // pdf
-//	/ tag_cfdocumentsection // pdf
-//	/ tag_cfexchangecalendar // m$ xchange
-//	/ tag_cfexchangeconnection // m$ xchange
-//	/ tag_cfexchangecontact // m$ xchange
-//	/ tag_cfexchangefilter // m$ xchange
-//	/ tag_cfexchangemail // m$ xchange
-//	/ tag_cfexchangetask // m$ xchange
-//	/ tag_cffeed
-//	/ tag_cffile
-//	/ tag_cffileupload
-//	/ tag_cfform
-//	/ tag_cfformgroup
-//	/ tag_cfformitem
-//	/ tag_cfftp
-//	/ tag_cfgrid
-//	/ tag_cfgridcolumn
-//	/ tag_cfgridrow
-//	/ tag_cfgridupdate
-//	/ tag_cfhttp
-//	/ tag_cfhttpparam
-//	/ tag_cfimage
-//	/ tag_cfimap
-//	/ tag_cfindex
-//	/ tag_cfinput
-//	/ tag_cfinterface
-//	/ tag_cfinvoke
-//	/ tag_cfinvokeargument
-//	/ tag_cflayout
-//	/ tag_cflayoutarea
-//	/ tag_cfldap
-//	/ tag_cfmail
-//	/ tag_cfmailparam
-//	/ tag_cfmailpart
-//	/ tag_cfmap
-//	/ tag_cfmapitem
-//	/ tag_cfmediaplayer
-//	/ tag_cfmenu
-//	/ tag_cfmenuitem
-//	/ tag_cfmessagebox
-//	/ tag_cfobject
-//	/ tag_cfpdf // pdf
-//	/ tag_cfpdfform // pdf
-//	/ tag_cfpdfformparam // pdf
-//	/ tag_cfpdfparam // pdf
-//	/ tag_cfpdfsubform // pdf
-//	/ tag_cfpod
-//	/ tag_cfpop
-//	/ tag_cfpresentation
-//	/ tag_cfpresentationslide
-//	/ tag_cfpresenter
-//	/ tag_cfprint // pdf
-//	/ tag_cfprogressbar
-//	/ tag_cfregistry
-//	/ tag_cfreport
-//	/ tag_cfreportparam
-//	/ tag_cfschedule
-//	/ tag_cfsearch
-//	/ tag_cfselect
-//	/ tag_cfsharepoint
-//	/ tag_cfslider
-//	/ tag_cfspreadsheet
-//	/ tag_cfsprydataset
-//	/ tag_cftable
-//	/ tag_cftextarea
-//	/ tag_cfthread
-//	/ tag_cftooltip
-//	/ tag_cftree
-//	/ tag_cftreeitem
-//	/ tag_cfwddx
-//	/ tag_cfwindow
-//	/ tag_cfxml
-//	/ tag_cfzip
-//	/ tag_cfzipparam
+//  / tag_cfNTauthenticate     // m$   integration
+//  / tag_cfapplet             // html wrapper
+//  / tag_cfcalendar           // html wrapper
+//  / tag_cfchart
+//  / tag_cfchartdata
+//  / tag_cfchartseries
+//  / tag_cfcol                // html wrapper
+//  / tag_cfcollection
+//  / tag_cfdiv                // html wrapper
+//  / tag_cfdocument           // pdf
+//  / tag_cfdocumentitem       // pdf
+//  / tag_cfdocumentsection    // pdf
+//  / tag_cfexchangecalendar   // m$   integration
+//  / tag_cfexchangeconnection // m$   integration
+//  / tag_cfexchangecontact    // m$   integration
+//  / tag_cfexchangefilter     // m$   integration
+//  / tag_cfexchangemail       // m$   integration
+//  / tag_cfexchangetask       // m$   integration
+//  / tag_cffeed
+//  / tag_cffile
+//  / tag_cffileupload
+//  / tag_cfform               // html wrapper
+//  / tag_cfformgroup          // html wrapper
+//  / tag_cfformitem           // html wrapper
+//  / tag_cfftp
+//  / tag_cfgrid               // html wrapper
+//  / tag_cfgridcolumn         // html wrapper
+//  / tag_cfgridrow            // html wrapper
+//  / tag_cfgridupdate         // html wrapper
+//  / tag_cfhttp
+//  / tag_cfhttpparam
+//  / tag_cfimage              // html wrapper
+//  / tag_cfimap
+//  / tag_cfindex
+//  / tag_cfinput              // html wrapper
+//  / tag_cfinvoke
+//  / tag_cfinvokeargument
+//  / tag_cflayout
+//  / tag_cflayoutarea
+//  / tag_cfldap
+//  / tag_cfmail
+//  / tag_cfmailparam
+//  / tag_cfmailpart
+//  / tag_cfmap
+//  / tag_cfmapitem
+//  / tag_cfmediaplayer
+//  / tag_cfmenu
+//  / tag_cfmenuitem
+//  / tag_cfmessagebox
+//  / tag_cfobject
+//  / tag_cfpdf                // pdf
+//  / tag_cfpdfform            // pdf
+//  / tag_cfpdfformparam       // pdf
+//  / tag_cfpdfparam           // pdf
+//  / tag_cfpdfsubform         // pdf
+//  / tag_cfpod
+//  / tag_cfpop
+//  / tag_cfpresentation
+//  / tag_cfpresentationslide
+//  / tag_cfpresenter
+//  / tag_cfprint              // pdf
+//  / tag_cfprogressbar
+//  / tag_cfregistry           // m$   integration
+//  / tag_cfreport
+//  / tag_cfreportparam
+//  / tag_cfschedule
+//  / tag_cfsearch
+//  / tag_cfselect             // html wrapper
+//  / tag_cfsharepoint         // m$   integration
+//  / tag_cfslider
+//  / tag_cfspreadsheet
+//  / tag_cfsprydataset
+//  / tag_cftable              // html wrapper
+//  / tag_cftextarea           // html wrapper
+//  / tag_cfthread
+//  / tag_cftooltip
+//  / tag_cftree
+//  / tag_cftreeitem
+//  / tag_cfwddx
+//  / tag_cfwindow
+//  / tag_cfxml
+//  / tag_cfzip
+//  / tag_cfzipparam
 	/ anychar
 
 // Tag Definitions
@@ -422,6 +422,13 @@ tag_cfinsert
 		/ attr_cfinsert_optional* attr_cfinsert_required_table_name attr_cfinsert_optional* attr_cfinsert_required_datasource attr_cfinsert_optional*
 	) ws* wack? gt {
 		return new cftag(t, plib.flatten(attr));
+	}
+
+tag_cfinterface
+	= lt t:str_cfinterface attr:attr_cfinterface_optional* ws* gt
+	content:(!(lt wack str_cfinterface gt) anychar)*
+	lt wack str_cfinterface gt {
+		return new cftag(t, plib.flatten(attr), plib.stringify(content));
 	}
 
 tag_cflock
@@ -811,6 +818,7 @@ attr_expire_url                  = ws+ n:str_expire_url                  eql v:v
 attr_expires                     = ws+ n:str_expires                     eql v:value_cfcookie_expires                                  { return { name: n,                             value: v                            }; }
 attr_expression                  = ws+ n:str_expression                  eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_extends                     = ws+ n:str_extends                     eql v:( str_component / value_any )                           { return { name: n,                             value: v                            }; }
+attr_extends_list                = ws+ n:str_extends                     eql v:( value_list / value_any )                              { return { name: n,                             value: v                            }; }
 attr_fetch                       = ws+ n:str_fetch                       eql quote_char v:( str_select / str_join ) quote_char         { return { name: n,                             value: v                            }; }
 //attr_fetch_batch_size            = ws+ n:str_fetch_batch_size            eql v:value_any                                               { return { name: n,                             value: v                            }; }
 //attr_field_type                  = ws+ n:str_field_type                  eql v:value_any                                               { return { name: n,                             value: v                            }; }
@@ -1316,6 +1324,9 @@ attr_cfinsert_required_datasource = attr_datasource
 attr_cfinsert_required_table_name = attr_table_name
 attr_cfinsert_optional = attr_form_fields / attr_password / attr_table_owner / attr_table_qualifier / attr_username
 
+//attr_cfinterface_required
+attr_cfinterface_optional = attr_display_name / attr_extends_list / attr_hint
+
 //attr_cfoutput_required
 attr_cfoutput_optional = attr_group_case_sensitive / attr_group / attr_max_rows / attr_query / attr_start_row
 
@@ -1478,6 +1489,7 @@ str_cfif                        = v:(c f i f)                                   
 str_cfimport                    = v:(c f i m p o r t)                                              { return plib.stringify(v, 'lower'); }
 str_cfinclude                   = v:(c f i n c l u d e)                                            { return plib.stringify(v, 'lower'); }
 str_cfinsert                    = v:(c f i n s e r t)                                              { return plib.stringify(v, 'lower'); }
+str_cfinterface                 = v:(c f i n t e r f a c e)                                        { return plib.stringify(v, 'lower'); }
 str_cflocation                  = v:(c f l o c a t i o n)                                          { return plib.stringify(v, 'lower'); }
 str_cflock                      = v:(c f l o c k)                                                  { return plib.stringify(v, 'lower'); }
 str_cflog                       = v:(c f l o g)                                                    { return plib.stringify(v, 'lower'); }
