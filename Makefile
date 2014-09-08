@@ -1,8 +1,11 @@
 .PHONY: test
 test: cf.js test/*_test.js
-	$(foreach test,$(wildcard test/*_test.js),echo $(test) && node $(test);)
+	$(foreach test,$(wildcard test/*_test.js),node $(test) | tr "\n" ' '; basename $(test);)
 
 t: test
+
+clean: cf.js
+	rm cf.js
 
 cf.js: cf.pegjs
 	pegjs --track-line-and-column $? $@
