@@ -1,6 +1,12 @@
 .PHONY: test
 test: cf.js test/*_test.js
-	$(foreach test,$(wildcard test/*_test.js),node $(test) | tr "\n" ' '; basename $(test);)
+	ls test/*_test.js | while read t1; read t2; read t3; read t4; read t5; do \
+		./bin/ntest $$t1 & \
+		./bin/ntest $$t2 & \
+		./bin/ntest $$t3 & \
+		./bin/ntest $$t4 & \
+		./bin/ntest $$t5 & \
+	done
 
 t: test
 

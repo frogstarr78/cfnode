@@ -1,0 +1,6 @@
+#!/bin/bash
+
+r=$(node $1 | tr "\n" ' ')
+n=$(basename $1)
+
+echo -e "$r $n"
