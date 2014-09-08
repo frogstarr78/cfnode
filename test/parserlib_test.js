@@ -58,6 +58,8 @@ is.equal(plib.stringify(['a', '_', ['b'], 'c', '_', 'd', 'e', [['_', 'ghi'], '_'
 is.equal(plib.stringify(['a', '', ['b'], 'c', '_', 'd', 'e', [['_', 'ghi'], '_' ]], 'trim', 'camel'), 'AbcDeGhi');
 is.equal(plib.stringify(['a', ['', ' '], ['b'], 'c', '_', 'd', 'e', [['_', 'ghi'], ' ' ]], 'trim', 'camel'), 'A bcDeGhi');
 is.equal(plib.stringify(['h', ['t', 't'], ['p'], ':', '/', '/', 'a', [['.', 'com'], '/', '?' ], 'q=y'], 'uri'), 'http://a.com/?q=y');
+is.deepEqual(plib.stringify(['a="b",', 'c="d"'], 'object'), {a: 'b', c: 'd'});
+is.deepEqual(plib.stringify(['a="b"', 'c="d"'], 'object'), {a: 'bc'});
 
 //Array helper function
 is.deepEqual(plib.flatten(['abc']), ['abc']);
@@ -66,6 +68,8 @@ is.deepEqual(plib.flatten([['abc', ['def'], 'ghi']]), ['abc', 'def', 'ghi']);
 is.deepEqual(plib.flatten([['abc', ['def'], 'ghi', ['jkl']]]), ['abc', 'def', 'ghi', 'jkl']);
 is.deepEqual(plib.flatten([['abc', [['d'], ['e'], ['f']], 'ghi']]), ['abc', 'd', 'e', 'f', 'ghi']);
 is.deepEqual(plib.flatten([['abc', ['def'], 'ghi', ['jkl'], ['abc', [['d'], ['e'], ['f']], 'ghi']]]), ['abc', 'def', 'ghi', 'jkl', 'abc', 'd', 'e', 'f', 'ghi']);
+
+is.deepEqual(plib.objectify('a="b", c="d"'), {a: 'b', c: 'd'});
 
 //Date helper function 
 is(plib.mkDate('NOW') instanceof Date);
