@@ -4,7 +4,7 @@ var is = require('assert'),
 //	human_date = require('date.js'),
 	PEG = require('pegjs'),
 	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+	test = require('./testlib');
 
 var r;
 
@@ -41,4 +41,4 @@ is.equal(r.attributes.url, '/cflocation_test?q=a');
 is.equal(r.attributes.add_token, true);
 is.equal(r.attributes.status_code, 303);
 
-testlib.die("Success!", 0);
+test.ok();

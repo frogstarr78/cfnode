@@ -1,7 +1,7 @@
 var is = require('assert'),
 	PEG = require('pegjs'),
 	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+	test = require('./testlib');
 
 var r;
 is.throws(function () {
@@ -74,4 +74,4 @@ is(r.attributes.cached_after instanceof Date )
 is(r.attributes.cached_within instanceof Date )
 is.equal(r.attributes.return_code, false);
 
-testlib.die("Success!", 0);
+test.ok();

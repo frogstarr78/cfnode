@@ -4,7 +4,7 @@ var is = require('assert'),
 	human_date = require('date.js'),
 	PEG = require('pegjs'),
 	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+	test = require('./testlib');
 
 var r;
 
@@ -128,4 +128,4 @@ is.equal(r.attributes.path, '/');
 is.equal(r.attributes.secure, false);
 is.equal(r.attributes.value, 'abc');
 
-testlib.die("Success!", 0);
+test.ok();

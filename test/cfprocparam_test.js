@@ -1,7 +1,7 @@
 var is = require('assert'),
 	PEG= require('pegjs'),
 	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+	test = require('./testlib');
 
 var r;
 is.throws(function () {
@@ -52,4 +52,4 @@ is.equal(r.attributes.cf_sql_type, 'CF_SQL_VARCHAR');
 is.equal(r.attributes.type, 'inout');
 is.equal(r.attributes.max_length, 21);
 
-testlib.die("Success!", 0);
+test.ok();

@@ -2,7 +2,7 @@ var is = require('assert'),
 	PEG = require('pegjs'),
 	cf = require(__dirname + '/../cf'),
 	ins = console.dir,
-	testlib = require('./testlib');
+	test = require('./testlib');
 
 var r;
 is.throws(function () {
@@ -84,4 +84,4 @@ is.equal(r.attributes.name, 'who10');
 is.equal(r.attributes.password, 'pass10');
 is.deepEqual(r.attributes.roles, ['a3', 'b3']);
 
-testlib.die("Success!", 0);
+test.ok();

@@ -4,7 +4,7 @@ var is = require('assert'),
 //	human_date = require('date.js'),
 	PEG = require('pegjs'),
 	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+	test = require('./testlib');
 
 var r;
 
@@ -42,4 +42,4 @@ is.equal(r.tag, 'savecontent');
 is.equal(r.attributes.variable, 'savecontent');
 is.equal(r.content, "\nThis is the content that is saved #NOW()#\n");
 
-testlib.die("Success!", 0);
+test.ok();

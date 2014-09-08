@@ -4,7 +4,7 @@ var is = require('assert'),
 //	human_date = require('date.js'),
 	PEG = require('pegjs'),
 	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+	test = require('./testlib');
 
 var r;
 
@@ -29,7 +29,7 @@ is.equal(r.tag, 'htmlhead');
 is.equal(r.attributes.text, 'cfhtmlhead test');
 
 //@TODO Fix this test
-testlib.die("Fix Me!".yellow, 1);
+test.neut();
 //r = cf.parse('<cfhtmlhead text="<link href='"'/blog/custom/img/favicon.ico\' rel=\'shortcut icon\' type=\'image/x-icon\'>#chr(13)##chr(10)#" />');
 
-testlib.die("Success!", 0);
+//test.ok();

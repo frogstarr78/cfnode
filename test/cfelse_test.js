@@ -4,7 +4,7 @@ var is = require('assert'),
 //	human_date = require('date.js'),
 	PEG = require('pegjs'),
 	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+	test = require('./testlib');
 
 var r;
 
@@ -36,4 +36,4 @@ is.equal(r instanceof Object, true);
 is.equal(r.tag, 'else');
 is.equal(r.content, "\nOtherwise we do this.\nStrang looking test.");
 
-testlib.die("Success!", 0);
+test.ok();

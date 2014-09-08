@@ -4,7 +4,7 @@ var is = require('assert'),
 	human_date = require('date.js'),
 	PEG = require('pegjs'),
 	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+	test = require('./testlib');
 
 var r;
 
@@ -70,4 +70,4 @@ is.equal(r.attributes.application_token, 'CFAUTHORIZATION_cflogin');
 is.equal(r.attributes.idle_timeout, 180);
 is.equal(r.attributes.cookie_domain, '.example.com');
 
-testlib.die("Success!", 0);
+test.ok();

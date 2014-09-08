@@ -4,7 +4,7 @@ var is = require('assert'),
 //	human_date = require('date.js'),
 	PEG = require('pegjs'),
 	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+	test = require('./testlib');
 
 var r;
 
@@ -33,4 +33,4 @@ is.equal(r instanceof Object, true);
 is.equal(r.tag, 'exit');
 is.equal(r.attributes.method, 'exitTemplate');
 
-testlib.die("Success!", 0);
+test.ok();

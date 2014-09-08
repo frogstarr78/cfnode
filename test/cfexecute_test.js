@@ -1,7 +1,7 @@
 var is = require('assert'),
 	PEG= require('pegjs'),
 	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+	test = require('./testlib');
 
 var r;
 
@@ -53,4 +53,4 @@ is.equal(r.attributes.output_file, '/tmp/outfile');
 is.equal(r.attributes.timeout, 11);
 is.equal(r.attributes.variable, 'execute_out');
 
-testlib.die("Success!", 0);
+test.ok();

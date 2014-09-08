@@ -1,7 +1,7 @@
 var is = require('assert'),
 	PEG= require('pegjs'),
 	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+	test = require('./testlib');
 
 var r;
 r = cf.parse('<cfcatch></cfcatch>');
@@ -29,4 +29,4 @@ is.equal(r.tag, 'catch');
 is.equal(r.attributes.type, 'database');
 is.equal(r.content, "\nsomething more done\n");
 
-testlib.die("Success!", 0);
+test.ok();

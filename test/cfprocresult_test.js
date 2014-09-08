@@ -1,7 +1,7 @@
 var is = require('assert'),
 	PEG = require('pegjs'),
 	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+	test = require('./testlib');
 
 var r;
 is.throws(function () {
@@ -29,4 +29,4 @@ is.equal(r.attributes.name, 'procresult3');
 is.equal(r.attributes.max_rows, 10);
 is.equal(r.attributes.result_set, 11);
 
-testlib.die("Success!", 0);
+test.ok();

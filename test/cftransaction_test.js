@@ -4,7 +4,7 @@ var is = require('assert'),
 //	human_date = require('date.js'),
 	PEG = require('pegjs'),
 	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+	test = require('./testlib');
 
 var r;
 
@@ -47,4 +47,4 @@ is.equal(r.attributes.nested, false);
 is.equal(r.attributes.savepoint, 'transaction_savepoint');
 is.equal(r.attributes.isolation, 'serializable');
 
-testlib.die("Success!", 0);
+test.ok();

@@ -4,7 +4,7 @@ var is = require('assert'),
 	human_date = require('date.js'),
 	PEG = require('pegjs'),
 	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+	test = require('./testlib');
 
 var r;
 
@@ -45,4 +45,4 @@ is.equal(r.attributes.name, 'cflock2');
 is.equal(r.attributes.throw_on_timeout, false);
 is.equal(r.attributes.type, 'readOnly');
 
-testlib.die("Success!", 0);
+test.ok();

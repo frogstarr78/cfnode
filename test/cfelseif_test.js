@@ -4,7 +4,7 @@ var is = require('assert'),
 //	human_date = require('date.js'),
 	PEG = require('pegjs'),
 	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+	test = require('./testlib');
 
 var r;
 
@@ -56,4 +56,4 @@ is.equal(r.expression, 'TRIM(username) EQ ""');
 is.equal(r.content, "username is an empty string");
 is.deepEqual(r.attributes, {});
 
-testlib.die("Success!", 0);
+test.ok();

@@ -4,7 +4,7 @@ var is = require('assert'),
 //	human_date = require('date.js'),
 	PEG = require('pegjs'),
 	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+	test = require('./testlib');
 
 var r;
 
@@ -66,4 +66,4 @@ is.equal(r.expression, '1 NE 0');
 is.equal(r.content, "\nThen do something");
 is.deepEqual(r.attributes, {});
 
-testlib.die("Success!", 0);
+test.ok();

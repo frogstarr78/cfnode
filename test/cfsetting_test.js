@@ -4,7 +4,7 @@ var is = require('assert'),
 //	human_date = require('date.js'),
 	PEG = require('pegjs'),
 	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+	test = require('./testlib');
 
 var r;
 
@@ -44,4 +44,4 @@ is.equal(r.attributes.request_timeout, 1);
 is(r.attributes.show_debug_output);
 is(!r.attributes.enable_cfoutput_only);
 
-testlib.die("Success!", 0);
+test.ok();

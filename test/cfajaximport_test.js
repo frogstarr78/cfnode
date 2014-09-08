@@ -1,7 +1,7 @@
 var is = require('assert'),
 	PEG= require('pegjs'),
 	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+	test = require('./testlib');
 
 var r;
 r = cf.parse('<cfajaximport />');
@@ -32,4 +32,4 @@ is.equal(r.attributes.script_src, '/javascript/');
 is.deepEqual(r.attributes.tags, ['CFFORM', 'CFDIV']);
 is.equal(r.attributes.params, '#{googlemapkey="thekey"}#');
 
-testlib.die("Success!", 0);
+test.ok();

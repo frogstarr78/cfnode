@@ -4,7 +4,7 @@ var is = require('assert'),
 //	human_date = require('date.js'),
 	PEG = require('pegjs'),
 	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+	test = require('./testlib');
 
 var r;
 
@@ -26,14 +26,14 @@ is.equal(r.attributes.inline, false);
 is.equal(r.attributes.type, 'information');
 is.equal(r.attributes.var, 'FORM.username');
 
-r = cf.parse('<cftrace var="FORM.username" inline="1" abort="yes" category="trace category" type="warning" text="trace text">' +
+r = cf.parse('<cftrace var="FORM.username" inline="0" abort="yes" category="trace category" type="warning" text="trace text">' +
 "\nThis is the content that is saved #NOW()#" +
 "\n</cftrace>");
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'trace');
 is.equal(r.content, "\nThis is the content that is saved #NOW()#\n");
 is.equal(r.attributes.abort, true);
-is.equal(r.attributes.inline, true);
+is.equal(r.attributes.inline, false);
 is.equal(r.attributes.type, 'warning');
 is.equal(r.attributes.var, 'FORM.username');
 is.equal(r.attributes.category, 'trace category');
@@ -59,4 +59,4 @@ is.equal(r.attributes.var, 'FORM.username');
 is.equal(r.attributes.category, 'trace category');
 is.equal(r.attributes.text, 'trace text');
 
-testlib.die("Success!", 0);
+test.ok();

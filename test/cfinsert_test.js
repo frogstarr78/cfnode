@@ -1,7 +1,7 @@
 var is = require('assert'),
 	PEG = require('pegjs'),
 	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+	test = require('./testlib');
 
 var r;
 is.throws(function () {
@@ -56,4 +56,4 @@ is.equal(r.attributes.table_owner, "noone_else");
 is.equal(r.attributes.table_qualifier, "pg_catalog3");
 is.equal(r.attributes.username, 'me3');
 
-testlib.die("Success!", 0);
+test.ok();

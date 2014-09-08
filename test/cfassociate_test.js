@@ -1,6 +1,6 @@
 var is = require('assert'),
 	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+	test = require('./testlib');
 
 var r;
 is.throws(function () {
@@ -35,4 +35,4 @@ is.equal(r.tag, 'associate');
 is.equal(r.attributes.base_tag, 'cfnode_test');
 is.equal(r.attributes.data_collection, 'somethingelse');
 
-testlib.die("Success!", 0);
+test.ok();

@@ -1,7 +1,7 @@
 var is = require('assert'),
 	PEG= require('pegjs'),
 	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+	test = require('./testlib');
 
 var r;
 
@@ -75,7 +75,7 @@ is.equal(r.attributes.bind, 'ajaxproxy_bind2');
 is.equal(r.attributes.on_error, 'showError2');
 is.equal(r.attributes.on_success, 'successFunc2');
 
-testlib.die('Fix me!'.yellow);
+test.neut();
 //@TODO Fix this code. It should work.
-r = cf.parse("<cfajaxproxy bind='ajaxproxy_bind' onError='showError' onSuccess='function (rval) { console.log(rval); }` />");
-testlib.die("Success!", 0);
+//r = cf.parse("<cfajaxproxy bind='ajaxproxy_bind' onError='showError' onSuccess='function (rval) { console.log(rval); }` />");
+//test.ok();

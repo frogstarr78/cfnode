@@ -5,7 +5,7 @@ var is = require('assert'),
 	PEG = require('pegjs'),
 	cf = require(__dirname + '/../cf'),
 	plib = require(__dirname + '/../lib/parselib'),
-	testlib = require('./testlib');
+	test = require('./testlib');
 
 // Default object prototype additions
 is({key: 'value'}.has_key('key'));
@@ -87,4 +87,4 @@ is.equal(plib.is_empty("\b"), false);
 is.equal(plib.is_empty(' '), false);
 is.equal(plib.is_empty(['a']), false);
 
-testlib.die("Success!", 0);
+test.ok();

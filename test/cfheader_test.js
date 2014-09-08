@@ -1,7 +1,7 @@
 var is = require('assert'),
 	PEG= require('pegjs'),
 	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+	test = require('./testlib');
 
 var r;
 is.throws(function () {
@@ -17,7 +17,7 @@ is.equal(r instanceof Object, true);
 is.equal(r.tag, 'header');
 is.equal(r.attributes.charset, 'UTF-8');
 is.equal(r.attributes.name, 'cfheader_test');
-is.equal(r.attributes.value, 'value');
+is.equal(r.attributes.value, '#value#');
 
 r = cf.parse('<cfheader statusCode="301" statusText="Temporary Redirect" />');
 is.equal(r instanceof Object, true);
@@ -30,9 +30,9 @@ r = cf.parse('<CFHEADER NAME="cfheader_test2" VALUE="#value#" CHARSET="us-ascii"
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'header');
 is.equal(r.attributes.name, 'cfheader_test2');
-is.equal(r.attributes.value, 'value');
+is.equal(r.attributes.value, '#value#');
 is.equal(r.attributes.charset, 'us-ascii');
 is.equal(r.attributes.status_code, '303');
 is.equal(r.attributes.status_text, 'A redirect');
 
-testlib.die("Success!", 0);
+test.ok();

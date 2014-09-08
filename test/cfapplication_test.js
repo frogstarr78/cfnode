@@ -1,7 +1,7 @@
 var is = require('assert'),
 	PEG = require('pegjs'),
 	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+	test = require('./testlib');
 
 var r;
 
@@ -160,4 +160,4 @@ is(r.attributes.session_timeout instanceof Date);
 is.equal(r.attributes.client_cookies, false);
 is.equal(r.attributes.domain_cookies, false);
 
-testlib.die("Success!", 0);
+test.ok();
