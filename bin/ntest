@@ -1,6 +1,17 @@
 #!/bin/bash
 
-r=$(node $1 | tr "\n" ' ')
-n=$(basename $1)
-
-echo -e "$r $n"
+if [[ $# > 5 ]]; then
+	ls "$@" | while read t1; read t2; read t3; read t4; read t5; do
+		$0 $t1 &
+		$0 $t2 &
+		$0 $t3 &
+		$0 $t4 &
+		$0 $t5 &
+	done
+else
+	ls "$@" | while read t1; do
+		r=$(node $t1 | tr "\n" ' ')
+		n=$(basename $t1)
+		echo "$r $n"
+	done
+fi
