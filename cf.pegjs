@@ -30,6 +30,7 @@ start
 	/ tag_cferror
 	/ tag_cfexecute
 	/ tag_cfexit
+	/ tag_cffile
 	/ tag_cffinally
 	/ tag_cfflush
 	/ tag_cffunction
@@ -39,7 +40,7 @@ start
 	/ tag_cfimport
 	/ tag_cfinclude
 	/ tag_cfinsert
-    / tag_cfinterface
+	/ tag_cfinterface
 	/ tag_cflocation
 	/ tag_cflock
 	/ tag_cflog
@@ -70,89 +71,88 @@ start
 	/ tag_cftransaction
 	/ tag_cftry
 	/ tag_cfupdate
-//  / tag_cfNTauthenticate     // m$   integration
-//  / tag_cfapplet             // html wrapper
-//  / tag_cfcalendar           // html wrapper
 //  / tag_cfchart
 //  / tag_cfchartdata
 //  / tag_cfchartseries
-//  / tag_cfcol                // html wrapper
-//  / tag_cfcollection
-//  / tag_cfdiv                // html wrapper
-//  / tag_cfdocument           // pdf
-//  / tag_cfdocumentitem       // pdf
-//  / tag_cfdocumentsection    // pdf
-//  / tag_cfexchangecalendar   // m$   integration
-//  / tag_cfexchangeconnection // m$   integration
-//  / tag_cfexchangecontact    // m$   integration
-//  / tag_cfexchangefilter     // m$   integration
-//  / tag_cfexchangemail       // m$   integration
-//  / tag_cfexchangetask       // m$   integration
 //  / tag_cffeed
-//  / tag_cffile
-//  / tag_cffileupload
-//  / tag_cfform               // html wrapper
-//  / tag_cfformgroup          // html wrapper
-//  / tag_cfformitem           // html wrapper
 //  / tag_cfftp
-//  / tag_cfgrid               // html wrapper
-//  / tag_cfgridcolumn         // html wrapper
-//  / tag_cfgridrow            // html wrapper
-//  / tag_cfgridupdate         // html wrapper
 //  / tag_cfhttp
 //  / tag_cfhttpparam
-//  / tag_cfimage              // html wrapper
 //  / tag_cfimap
-//  / tag_cfindex
-//  / tag_cfinput              // html wrapper
 //  / tag_cfinvoke
 //  / tag_cfinvokeargument
-//  / tag_cflayout
-//  / tag_cflayoutarea
 //  / tag_cfldap
 //  / tag_cfmail
 //  / tag_cfmailparam
 //  / tag_cfmailpart
-//  / tag_cfmap
-//  / tag_cfmapitem
-//  / tag_cfmediaplayer
-//  / tag_cfmenu
-//  / tag_cfmenuitem
-//  / tag_cfmessagebox
 //  / tag_cfobject
+//  / tag_cfpop
+//  / tag_cfpresentation
+//  / tag_cfpresentationslide
+//  / tag_cfpresenter
+//  / tag_cfschedule
+//  / tag_cfspreadsheet
+//  / tag_cfsprydataset
+//  / tag_cfthread
+//  / tag_cfwddx
+//  / tag_cfxml
+//  / tag_cfzip
+//  / tag_cfzipparam
+//  / tag_cfapplet             // html        wrapper
+//  / tag_cfcalendar           // html        wrapper
+//  / tag_cfcol                // html        wrapper
+//  / tag_cfdiv                // html        wrapper
+//  / tag_cffileupload         // html        wrapper
+//  / tag_cfform               // html        wrapper
+//  / tag_cfformgroup          // html        wrapper
+//  / tag_cfformitem           // html        wrapper
+//  / tag_cfgrid               // html        wrapper
+//  / tag_cfgridcolumn         // html        wrapper
+//  / tag_cfgridrow            // html        wrapper
+//  / tag_cfgridupdate         // html        wrapper
+//  / tag_cfimage              // html        wrapper
+//  / tag_cfinput              // html        wrapper
+//  / tag_cflayout             // html        wrapper
+//  / tag_cflayoutarea         // html        wrapper
+//  / tag_cfmap                // html        wrapper
+//  / tag_cfmapitem            // html        wrapper
+//  / tag_cfmediaplayer        // html        wrapper
+//  / tag_cfmenu               // html        wrapper
+//  / tag_cfmenuitem           // html        wrapper
+//  / tag_cfmessagebox         // html        wrapper
+//  / tag_cfpod                // html        wrapper
+//  / tag_cfprogressbar        // html        wrapper
+//  / tag_cfselect             // html        wrapper
+//  / tag_cfslider             // html        wrapper
+//  / tag_cftable              // html        wrapper
+//  / tag_cftextarea           // html        wrapper
+//  / tag_cftooltip            // html        wrapper
+//  / tag_cftree               // html        wrapper
+//  / tag_cftreeitem           // html        wrapper
+//  / tag_cfwindow             // html        wrapper
+//  / tag_cfNTauthenticate     // m$          integration
+//  / tag_cfexchangecalendar   // m$          integration
+//  / tag_cfexchangeconnection // m$          integration
+//  / tag_cfexchangecontact    // m$          integration
+//  / tag_cfexchangefilter     // m$          integration
+//  / tag_cfexchangemail       // m$          integration
+//  / tag_cfexchangetask       // m$          integration
+//  / tag_cfregistry           // m$          integration
+//  / tag_cfsharepoint         // m$          integration
+//  / tag_cfdocument           // pdf
+//  / tag_cfdocumentitem       // pdf
+//  / tag_cfdocumentsection    // pdf
 //  / tag_cfpdf                // pdf
 //  / tag_cfpdfform            // pdf
 //  / tag_cfpdfformparam       // pdf
 //  / tag_cfpdfparam           // pdf
 //  / tag_cfpdfsubform         // pdf
-//  / tag_cfpod
-//  / tag_cfpop
-//  / tag_cfpresentation
-//  / tag_cfpresentationslide
-//  / tag_cfpresenter
 //  / tag_cfprint              // pdf
-//  / tag_cfprogressbar
-//  / tag_cfregistry           // m$   integration
-//  / tag_cfreport
-//  / tag_cfreportparam
-//  / tag_cfschedule
-//  / tag_cfsearch
-//  / tag_cfselect             // html wrapper
-//  / tag_cfsharepoint         // m$   integration
-//  / tag_cfslider
-//  / tag_cfspreadsheet
-//  / tag_cfsprydataset
-//  / tag_cftable              // html wrapper
-//  / tag_cftextarea           // html wrapper
-//  / tag_cfthread
-//  / tag_cftooltip
-//  / tag_cftree
-//  / tag_cftreeitem
-//  / tag_cfwddx
-//  / tag_cfwindow
-//  / tag_cfxml
-//  / tag_cfzip
-//  / tag_cfzipparam
+//  / tag_cfcollection         // verity/solr integration
+//  / tag_cfindex              // verity/solr integration
+//  / tag_cfreport             // verity/solr integration
+//  / tag_cfreportparam        // verity/solr integration
+//  / tag_cfsearch             // verity/solr integration
 	/ anychar
 
 // Tag Definitions
@@ -345,6 +345,134 @@ tag_cfexecute
 tag_cfexit
 	= lt t:str_cfexit attr:attr_cfexit_optional* ws* wack? gt {
 		return new cftag(t, attr);
+	}
+
+tag_cffile
+	= tag_cffile_append
+	/ tag_cffile_copy
+	/ tag_cffile_delete
+	/ tag_cffile_move
+	/ tag_cffile_read
+	/ tag_cffile_read_binary
+	/ tag_cffile_rename
+	/ tag_cffile_upload
+	/ tag_cffile_upload_all
+	/ tag_cffile_write
+
+tag_cffile_append
+	= lt t:str_cffile attr:(
+		  attr_cffile_append_optional* attr_file_append_action attr_cffile_append_optional* attr_file_path          attr_cffile_append_optional* attr_output_file        attr_cffile_append_optional*
+		/ attr_cffile_append_optional* attr_file_append_action attr_cffile_append_optional* attr_output_file        attr_cffile_append_optional* attr_file_path          attr_cffile_append_optional*
+		/ attr_cffile_append_optional* attr_file_path          attr_cffile_append_optional* attr_file_append_action attr_cffile_append_optional* attr_output_file        attr_cffile_append_optional*
+		/ attr_cffile_append_optional* attr_file_path          attr_cffile_append_optional* attr_output_file        attr_cffile_append_optional* attr_file_append_action attr_cffile_append_optional*
+		/ attr_cffile_append_optional* attr_output_file        attr_cffile_append_optional* attr_file_append_action attr_cffile_append_optional* attr_file_path          attr_cffile_append_optional*
+		/ attr_cffile_append_optional* attr_output_file        attr_cffile_append_optional* attr_file_path          attr_cffile_append_optional* attr_file_append_action attr_cffile_append_optional*
+	) ws* wack? gt {
+		return new cftag(t, plib.flatten(attr));
+	}
+
+tag_cffile_copy
+	= lt t:str_cffile attr:(
+		  attr_cffile_copy_optional* attr_file_copy_action attr_cffile_copy_optional* attr_file_source      attr_cffile_copy_optional* attr_destination      attr_cffile_copy_optional*
+		/ attr_cffile_copy_optional* attr_file_copy_action attr_cffile_copy_optional* attr_destination      attr_cffile_copy_optional* attr_file_source      attr_cffile_copy_optional*
+		/ attr_cffile_copy_optional* attr_file_source      attr_cffile_copy_optional* attr_file_copy_action attr_cffile_copy_optional* attr_destination      attr_cffile_copy_optional*
+		/ attr_cffile_copy_optional* attr_file_source      attr_cffile_copy_optional* attr_destination      attr_cffile_copy_optional* attr_file_copy_action attr_cffile_copy_optional*
+		/ attr_cffile_copy_optional* attr_destination      attr_cffile_copy_optional* attr_file_copy_action attr_cffile_copy_optional* attr_file_source      attr_cffile_copy_optional*
+		/ attr_cffile_copy_optional* attr_destination      attr_cffile_copy_optional* attr_file_source      attr_cffile_copy_optional* attr_file_copy_action attr_cffile_copy_optional*
+	) ws* wack? gt {
+		return new cftag(t, plib.flatten(attr));
+	}
+
+tag_cffile_delete
+	= lt t:str_cffile attr:attr_cffile_delete_required* ws* wack? gt {
+		return new cftag(t, plib.flatten(attr));
+	}
+
+tag_cffile_move
+	= lt t:str_cffile attr:(
+		  attr_cffile_move_optional* attr_file_move_action attr_cffile_move_optional* attr_file_source      attr_cffile_move_optional* attr_destination      attr_cffile_move_optional*
+		/ attr_cffile_move_optional* attr_file_move_action attr_cffile_move_optional* attr_destination      attr_cffile_move_optional* attr_file_source      attr_cffile_move_optional*
+		/ attr_cffile_move_optional* attr_file_source      attr_cffile_move_optional* attr_file_move_action attr_cffile_move_optional* attr_destination      attr_cffile_move_optional*
+		/ attr_cffile_move_optional* attr_file_source      attr_cffile_move_optional* attr_destination      attr_cffile_move_optional* attr_file_move_action attr_cffile_move_optional*
+		/ attr_cffile_move_optional* attr_destination      attr_cffile_move_optional* attr_file_move_action attr_cffile_move_optional* attr_file_source      attr_cffile_move_optional*
+		/ attr_cffile_move_optional* attr_destination      attr_cffile_move_optional* attr_file_source      attr_cffile_move_optional* attr_file_move_action attr_cffile_move_optional*
+	) ws* wack? gt {
+		return new cftag(t, plib.flatten(attr));
+	}
+
+tag_cffile_read
+	= lt t:str_cffile attr:(
+		  attr_file_read_action      attr_file_path            attr_variable         attr_charset?
+		/ attr_file_read_action      attr_file_path            attr_charset?         attr_variable
+		/ attr_file_read_action      attr_variable             attr_file_path        attr_charset?
+		/ attr_file_read_action      attr_variable             attr_charset?         attr_file_path
+		/ attr_file_read_action      attr_charset?             attr_file_path        attr_variable
+		/ attr_file_read_action      attr_charset?             attr_variable         attr_file_path
+
+		/ attr_variable              attr_file_read_action     attr_charset?         attr_file_path
+		/ attr_variable              attr_file_read_action     attr_file_path        attr_charset?
+		/ attr_variable              attr_file_path            attr_charset?         attr_file_read_action
+		/ attr_variable              attr_file_path            attr_file_read_action attr_charset?
+		/ attr_variable              attr_charset?             attr_file_read_action attr_file_path
+		/ attr_variable              attr_charset?             attr_file_path        attr_file_read_action
+
+		/ attr_file_path             attr_file_read_action     attr_charset?         attr_variable
+		/ attr_file_path             attr_file_read_action     attr_variable         attr_charset?
+		/ attr_file_path             attr_variable             attr_file_read_action attr_charset?
+		/ attr_file_path             attr_variable             attr_charset?         attr_file_read_action
+		/ attr_file_path             attr_charset?             attr_file_read_action attr_variable
+		/ attr_file_path             attr_charset?             attr_variable         attr_file_read_action
+	) ws* wack? gt {
+		return new cftag(t, plib.flatten(attr));
+	}
+
+tag_cffile_read_binary
+	= lt t:str_cffile attr:attr_cffile_read_binary_required+ ws* wack? gt {
+		return new cftag(t, plib.flatten(attr));
+	}
+
+tag_cffile_rename
+	= lt t:str_cffile attr:(
+		  attr_cffile_rename_optional* attr_file_rename_action attr_cffile_rename_optional* attr_file_source        attr_cffile_rename_optional* attr_destination        attr_cffile_rename_optional*
+		/ attr_cffile_rename_optional* attr_file_rename_action attr_cffile_rename_optional* attr_destination        attr_cffile_rename_optional* attr_file_source        attr_cffile_rename_optional*
+		/ attr_cffile_rename_optional* attr_file_source        attr_cffile_rename_optional* attr_file_rename_action attr_cffile_rename_optional* attr_destination        attr_cffile_rename_optional*
+		/ attr_cffile_rename_optional* attr_file_source        attr_cffile_rename_optional* attr_destination        attr_cffile_rename_optional* attr_file_rename_action attr_cffile_rename_optional*
+		/ attr_cffile_rename_optional* attr_destination        attr_cffile_rename_optional* attr_file_rename_action attr_cffile_rename_optional* attr_file_source        attr_cffile_rename_optional*
+		/ attr_cffile_rename_optional* attr_destination        attr_cffile_rename_optional* attr_file_source        attr_cffile_rename_optional* attr_file_rename_action attr_cffile_rename_optional*
+	) ws* wack? gt {
+		return new cftag(t, plib.flatten(attr));
+	}
+
+tag_cffile_upload
+	= lt t:str_cffile attr:(
+		  attr_cffile_upload_optional* attr_file_upload_action attr_cffile_upload_optional* attr_file_field         attr_cffile_upload_optional* attr_destination        attr_cffile_upload_optional*
+		/ attr_cffile_upload_optional* attr_file_upload_action attr_cffile_upload_optional* attr_destination        attr_cffile_upload_optional* attr_file_field         attr_cffile_upload_optional*
+		/ attr_cffile_upload_optional* attr_file_field         attr_cffile_upload_optional* attr_file_upload_action attr_cffile_upload_optional* attr_destination        attr_cffile_upload_optional*
+		/ attr_cffile_upload_optional* attr_file_field         attr_cffile_upload_optional* attr_destination        attr_cffile_upload_optional* attr_file_upload_action attr_cffile_upload_optional*
+		/ attr_cffile_upload_optional* attr_destination        attr_cffile_upload_optional* attr_file_upload_action attr_cffile_upload_optional* attr_file_field         attr_cffile_upload_optional*
+		/ attr_cffile_upload_optional* attr_destination        attr_cffile_upload_optional* attr_file_field         attr_cffile_upload_optional* attr_file_upload_action attr_cffile_upload_optional*
+	) ws* wack? gt {
+		return new cftag(t, plib.flatten(attr));
+	}
+
+tag_cffile_upload_all
+	= lt t:str_cffile attr:(
+		  attr_cffile_upload_all_optional* attr_file_upload_all_action attr_cffile_upload_all_optional* attr_destination            attr_cffile_upload_all_optional*
+		/ attr_cffile_upload_all_optional* attr_destination            attr_cffile_upload_all_optional* attr_file_upload_all_action attr_cffile_upload_all_optional*
+	) ws* wack? gt {
+		return new cftag(t, plib.flatten(attr));
+	}
+
+tag_cffile_write
+	= lt t:str_cffile attr:(
+		  attr_cffile_write_optional* attr_file_write_action attr_cffile_write_optional* attr_file_path         attr_cffile_write_optional* attr_output_file       attr_cffile_write_optional*
+		/ attr_cffile_write_optional* attr_file_write_action attr_cffile_write_optional* attr_output_file       attr_cffile_write_optional* attr_file_path         attr_cffile_write_optional*
+		/ attr_cffile_write_optional* attr_file_path         attr_cffile_write_optional* attr_file_write_action attr_cffile_write_optional* attr_output_file       attr_cffile_write_optional*
+		/ attr_cffile_write_optional* attr_file_path         attr_cffile_write_optional* attr_output_file       attr_cffile_write_optional* attr_file_write_action attr_cffile_write_optional*
+		/ attr_cffile_write_optional* attr_output_file       attr_cffile_write_optional* attr_file_write_action attr_cffile_write_optional* attr_file_path         attr_cffile_write_optional*
+		/ attr_cffile_write_optional* attr_output_file       attr_cffile_write_optional* attr_file_path         attr_cffile_write_optional* attr_file_write_action attr_cffile_write_optional*
+	) ws* wack? gt {
+		return new cftag(t, plib.flatten(attr));
 	}
 
 tag_cffinally
@@ -754,23 +882,36 @@ tag_cfupdate
 
 // Tag Specific Value Defs
 attr_abort                       = ws+ n:str_abort                       eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
+attr_accept                      = ws+ n:str_accept                      eql v:value_mime                                              { return { name: n,                             value: v                            }; }
 attr_access                      = ws+ n:str_access                      eql v:value_cffunction_access                                 { return { name: n,                             value: v                            }; }
 attr_accessors                   = ws+ n:str_accessors                   eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
 attr_objectcache_action          = ws+ n:str_action                      eql quote_char v:str_clear quote_char                         { return { name: n,                             value: v                            }; }
 attr_cache_action                = ws+ n:str_action                      eql v:value_cfcache_action                                    { return { name: n,                             value: v                            }; }
 attr_directory_action            = ws+ n:str_action                      eql v:value_cfdirectory_action                                { return { name: n,                             value: v                            }; }
+attr_file_append_action          = ws+ n:str_action                      eql quote_char v:str_append      quote_char                   { return { name: n,                             value: v                            }; }
+attr_file_copy_action            = ws+ n:str_action                      eql quote_char v:str_copy        quote_char                   { return { name: n,                             value: v                            }; }
+attr_file_delete_action          = ws+ n:str_action                      eql quote_char v:str_delete      quote_char                   { return { name: n,                             value: v                            }; }
+attr_file_move_action            = ws+ n:str_action                      eql quote_char v:str_move        quote_char                   { return { name: n,                             value: v                            }; }
+attr_file_read_action            = ws+ n:str_action                      eql quote_char v:str_read        quote_char                   { return { name: n,                             value: v                            }; }
+attr_file_read_binary_action     = ws+ n:str_action                      eql quote_char v:str_read_binary quote_char                   { return { name: n,                             value: v                            }; }
+attr_file_rename_action          = ws+ n:str_action                      eql quote_char v:str_rename      quote_char                   { return { name: n,                             value: v                            }; }
+attr_file_upload_action          = ws+ n:str_action                      eql quote_char v:str_upload      quote_char                   { return { name: n,                             value: v                            }; }
+attr_file_upload_all_action      = ws+ n:str_action                      eql quote_char v:str_upload_all  quote_char                   { return { name: n,                             value: 'upload_all'                 }; }
+attr_file_write_action           = ws+ n:str_action                      eql quote_char v:str_write       quote_char                   { return { name: n,                             value: v                            }; }
 attr_action                      = ws+ n:str_action                      eql v:value_cftransaction_action                              { return { name: n,                             value: v                            }; }
+attr_add_newline                 = ws+ n:str_add_newline                 eql v:value_boolean                                           { return { name: 'add_newline',                 value: v                            }; }
 attr_add_token                   = ws+ n:str_add_token                   eql v:value_boolean                                           { return { name: 'add_token',                   value: v                            }; }
+attr_alias                       = ws+ n:str_alias                       eql v:value_any_non_whitespace                                { return { name: n,                             value: v                            }; }
 attr_application                 = ws+ n:str_application                 eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
 attr_application_timeout         = ws+ n:str_application_timeout         eql v:value_create_time_span_func                             { return { name: 'timeout',                     value: v                            }; }
 attr_application_token           = ws+ n:str_application_token           eql v:value_any_non_whitespace                                { return { name: 'application_token',           value: v                            }; }
 attr_arguments                   = ws+ n:str_arguments                   eql v:value_any_non_whitespace                                { return { name: plib.stringify(n, 'lower'),    value: v                            }; }
-attr_alias                       = ws+ n:str_alias                       eql v:value_any_non_whitespace                                { return { name: n,                             value: v                            }; }
 attr_array                       = ws+ n:str_array                       eql v:value_cfval                                             { return { name: n,                             value: v                            }; }
+attr_attributes                  = ws+ n:str_attributes                  eql v:(value_cffile_attributes / value_any)                   { return { name: n,                             value: v                            }; }
 attr_base_tag                    = ws+ n:str_base_tag                    eql v:value_any_non_whitespace                                { return { name: 'base_tag',                    value: v                            }; }
 //attr_batch_size                  = ws+ n:str_batch_size                  eql v:value_                                                  { return { name: n,                             value: v                            }; }
-attr_block_factor                = ws+ n:str_block_factor                eql v:value_integer                                           { return { name: 'block_factor',                value: v                            }; }
 attr_binding_name                = ws+ n:str_binding_name                eql v:value_any_non_whitespace                                { return { name: 'binding_name',                value: v                            }; }
+attr_block_factor                = ws+ n:str_block_factor                eql v:value_integer                                           { return { name: 'block_factor',                value: v                            }; }
 attr_cached_after_date           = ws+ n:str_cached_after                eql quote_char v:date quote_char                              { return { name: 'cached_after',                value: v                            }; }
 attr_cached_after                = ws+ n:str_cached_after                eql v:value_create_time_span_func                             { return { name: 'cached_after',                value: v                            }; }
 attr_cached_within               = ws+ n:str_cached_within               eql v:value_create_time_span_func                             { return { name: 'cached_within',               value: v                            }; }
@@ -801,6 +942,7 @@ attr_delete_file                 = ws+ n:str_delete_file                 eql v:v
 attr_delimiter                   = ws+ n:str_delimiter                   eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_depends_on                  = ws+ n:str_depends_on                  eql v:value_list                                              { return { name: 'depends_on',                  value: v                            }; }
 attr_description                 = ws+ n:str_description                 eql v:value_any                                               { return { name: n,                             value: v                            }; }
+attr_destination                 = ws+ n:str_destination                 eql v:value_file_path                                         { return { name: n,                             value: v                            }; }
 attr_directory                   = ws+ n:str_directory                   eql v:value_file_path                                         { return { name: n,                             value: v                            }; }
 attr_disk_persistent             = ws+ n:str_disk_persistent             eql v:value_boolean                                           { return { name: 'disk_persistent',             value: v                            }; }
 attr_display_name                = ws+ n:str_display_name                eql v:value_any                                               { return { name: 'display_name',                value: v                            }; }
@@ -824,7 +966,9 @@ attr_fetch                       = ws+ n:str_fetch                       eql quo
 //attr_field_type                  = ws+ n:str_field_type                  eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_file                        = ws+ n:str_file                        eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_file_path                   = ws+ n:str_file                        eql v:value_file_path                                         { return { name: n,                             value: v                            }; }
+attr_file_field                  = ws+ n:str_file_field                  eql v:value_any_non_whitespace                                { return { name: 'file_field',                  value: v                            }; }
 attr_filter                      = ws+ n:str_filter                      eql v:value_any                                               { return { name: n,                             value: v                            }; }
+attr_fix_newline                 = ws+ n:str_fix_newline                 eql v:value_boolean                                           { return { name: 'fix_newline',                 value: v                            }; }
 //attr_fkcolumn                    = ws+ n:str_fkcolumn                    eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_form_fields                 = ws+ n:str_form_fields                 eql v:value_list                                              { return { name: 'form_fields',                 value: v                            }; }
 attr_format                      = ws+ n:str_format                      eql v:value_cfdump_format                                     { return { name: n,                             value: v                            }; }
@@ -867,6 +1011,7 @@ attr_list_info                   = ws+ n:str_list_info                   eql quo
 attr_log                         = ws+ n:str_log                         eql v:value_cflog_log                                         { return { name: n,                             value: v                            }; }
 attr_login_storage               = ws+ n:str_login_storage               eql v:value_cfapplication_login_storage                       { return { name: 'login_storage',               value: v                            }; }
 attr_mail_to                     = ws+ n:str_mail_to                     eql v:value_email_address                                     { return { name: n,                             value: v                            }; }
+attr_mapped_super_class          = ws+ n:str_mapped_super_class          eql v:value_boolean                                           { return { name: 'mapped_super_class',          value: v                            }; }
 attr_max                         = ws+ n:str_max                         eql v:value_integer                                           { return { name: n,                             value: v                            }; }
 attr_max_length                  = ws+ n:str_max_length                  eql v:value_integer                                           { return { name: n,                             value: v                            }; }
 attr_max_rows                    = ws+ n:str_max_rows                    eql v:value_integer                                           { return { name: n,                             value: v                            }; }
@@ -875,9 +1020,9 @@ attr_metadata                    = ws+ n:str_metadata                    eql v:v
 attr_method                      = ws+ n:str_method                      eql v:value_exit_method                                       { return { name: n,                             value: v                            }; }
 attr_min                         = ws+ n:str_min                         eql v:value_integer                                           { return { name: n,                             value: v                            }; }
 attr_missing_row_ignored         = ws+ n:str_missing_row_ignored         eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
-attr_mapped_super_class          = ws+ n:str_mapped_super_class          eql v:value_boolean                                           { return { name: 'mapped_super_class',          value: v                            }; }
 attr_mode                        = ws+ n:str_mode                        eql v:value_permission_mode                                   { return { name: n,                             value: v                            }; }
 attr_name                        = ws+ n:str_name                        eql v:value_any_non_whitespace                                { return { name: n,                             value: v                            }; }
+attr_name_conflict               = ws+ n:str_name_conflict               eql v:value_name_conflict                                     { return { name: n,                             value: v                            }; }
 attr_namespace                   = ws+ n:str_namespace                   eql v:value_any_non_whitespace                                { return { name: n,                             value: v                            }; }
 attr_nested                      = ws+ n:str_nested                      eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
 attr_new_directory               = ws+ n:str_new_directory               eql v:value_file_path                                         { return { name: 'new_directory',               value: v                            }; }
@@ -891,10 +1036,11 @@ attr_optimistic_lock             = ws+ n:str_optimistic_lock             eql v:v
 //attr_order_by_read_only          = ws+ n:str_order_by_read_only          eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_orm_options                 = ws+ n:str_orm_options                 eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_orm_type                    = ws+ n:str_orm_type                    eql v:value_orm_type                                          { return { name: 'orm_type',                    value: v                            }; }
+attr_output_file                 = ws+ n:str_output                      eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_boolean_output              = ws+ n:str_output                      eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
-attr_output                      = ws+ n:str_output                      eql v:value_cfdump_output                                     { return { name: n,                             value: v                            }; }
 attr_output_boolean              = ws+ n:str_output                      eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
-attr_output_file                 = ws+ n:str_output_file                 eql v:value_file_path                                         { return { name: 'output_file',                 value: v                            }; }
+attr_output                      = ws+ n:str_output                      eql v:value_cfdump_output                                     { return { name: n,                             value: v                            }; }
+attr_output_file_path            = ws+ n:str_output_file                 eql v:value_file_path                                         { return { name: 'output_file',                 value: v                            }; }
 attr_overflow_to_disk            = ws+ n:str_overflow_to_disk            eql v:value_boolean                                           { return { name: 'overflow_to_disk',            value: v                            }; }
 attr_page_encoding               = ws+ n:str_page_encoding               eql v:value_encoding                                          { return { name: 'page_encoding',               value: v                            }; }
 //attr_params                      = ws+ n:str_params                      eql v:value_any                                               { return { name: n,                             value: v                            }; }
@@ -949,15 +1095,16 @@ attr_show                        = ws+ n:str_show                        eql v:(
 attr_show_debug_output           = ws+ n:str_show_debug_output           eql v:value_boolean                                           { return { name: 'show_debug_output',           value: v                            }; }
 attr_show_error                  = ws+ n:str_show_error                  eql v:value_any                                               { return { name: 'show_error',                  value: v                            }; }
 attr_show_udfs                   = ws+ n:str_show_udfs                   eql v:value_boolean                                           { return { name: 'show_udfs',                   value: v                            }; }
-attr_source                      = ws+ n:str_source                      eql quote_char v:( str_db / str_vm ) quote_char               { return { name: n,                             value: plib.stringify(v, 'lower')   }; }
 attr_sort                        = ws+ n:str_sort                        eql quote_char v:( str_desc / str_asc ) quote_char            { return { name: n,                             value: v                            }; }
+attr_source                      = ws+ n:str_source                      eql quote_char v:( str_db / str_vm ) quote_char               { return { name: n,                             value: plib.stringify(v, 'lower')   }; }
+attr_file_source                 = ws+ n:str_source                      eql v:value_file_path                                         { return { name: n,                             value: v                            }; }
 attr_start_row                   = ws+ n:str_start_row                   eql v:value_integer                                           { return { name: 'start_row',                   value: v                            }; }
-attr_store_acl                   = ws+ n:str_store_acl                   eql v:( value_struct / value_cfval )                          { return { name: 'store_acl',                   value: v                            }; }
-attr_store_location              = ws+ n:str_store_location              eql v:value_amazon_s3_bucket_location                         { return { name: 'store_location',              value: v                            }; }
 attr_status_code                 = ws+ n:str_status_code                 eql quote_char v:("30" [0-7]) quote_char                      { return { name: 'status_code',                 value: plib.stringify(v,  'int')    }; }
 attr_status_text                 = ws+ n:str_status_text                 eql v:value_any                                               { return { name: 'status_text',                 value: plib.stringify(v)            }; }
 attr_step_date_time              = ws+ n:str_step                        eql v:value_create_time_span_func                             { return { name: n,                             value: v                            }; }
 attr_step_integer                = ws+ n:str_step                        eql v:value_integer                                           { return { name: n,                             value: v                            }; }
+attr_store_acl                   = ws+ n:str_store_acl                   eql v:( value_struct / value_cfval )                          { return { name: 'store_acl',                   value: v                            }; }
+attr_store_location              = ws+ n:str_store_location              eql v:value_amazon_s3_bucket_location                         { return { name: 'store_location',              value: v                            }; }
 attr_strip_whitespace            = ws+ n:str_strip_whitespace            eql v:value_boolean                                           { return { name: 'strip_whitespace',            value: v                            }; }
 //attr_struct_key_column           = ws+ n:str_struct_key_column           eql v:value_any                                               { return { name: n,                             value: v                            }; }
 //attr_struct_key_data_type        = ws+ n:str_struct_key_data_type        eql v:value_any                                               { return { name: n,                             value: v                            }; }
@@ -1005,8 +1152,8 @@ attr_non_ws_value                = ws+ n:str_value                       eql v:v
 attr_var                         = ws+ n:str_var                         eql v:value_any                                               { return { name: n,                             value: v                            }; } 
 attr_variable					 = ws+ n:str_variable                    eql v:value_any_non_whitespace                                { return { name: n,                             value: v                            }; }
 attr_verify_client               = ws+ n:str_verify_client               eql v:value_boolean                                           { return { name: 'verify_client',               value: v                            }; } 
-attr_wsdl_file                   = ws+ n:str_wsdl_file                   eql v:( value_url / value_file_path )                         { return { name: 'wsdl_file',                   value: v                            }; }
 //attr_where                       = ws+ n:str_where                       eql v:value_any                                               { return { name: n,                             value: v                            }; }
+attr_wsdl_file                   = ws+ n:str_wsdl_file                   eql v:( value_url / value_file_path )                         { return { name: 'wsdl_file',                   value: v                            }; }
 
 //attr_cfabort_required
 attr_cfabort_optional = attr_show_error
@@ -1269,12 +1416,45 @@ attr_cfloginuser_required = attr_name attr_password attr_roles
 //attr_cfloginuser_optional
 
 attr_cfexecute_required = attr_name
-attr_cfexecute_optional = attr_arguments / attr_output_file / attr_timeout / attr_variable
+attr_cfexecute_optional = attr_arguments / attr_output_file_path / attr_timeout / attr_variable
 
 //attr_cfexit_required
 attr_cfexit_optional = attr_method
-
 value_exit_method = quote_char v:( str_exit_tag / str_exit_template / str_loop ) quote_char { return v; }
+
+//attr_cffile_append_required = attr_output_file / attr_file_path / attr_file_append_action
+attr_cffile_append_optional   = attr_add_newline / attr_attributes / attr_charset / attr_fix_newline / attr_mode
+value_cffile_attributes       = quote_char v:( ( file_attribute_values comma space? )* file_attribute_values ) quote_char { return plib.stringify(v, 'array'); }
+file_attribute_values         = str_read_only / str_hidden / str_normal
+
+//attr_cffile_copy_required
+attr_cffile_copy_optional = attr_attributes / attr_mode
+
+attr_cffile_delete_required = attr_file_path / attr_file_delete_action
+//attr_cffile_delete_optional
+
+//attr_cffile_move_required
+attr_cffile_move_optional = attr_attributes / attr_charset / attr_mode
+
+attr_cffile_read_required = attr_file_read_action / attr_file_path / attr_variable
+//attr_cffile_read_optional = attr_charset
+
+attr_cffile_read_binary_required = attr_file_read_binary_action / attr_file_path / attr_variable
+//attr_cffile_read_binary_optional
+
+//attr_cffile_rename_required
+attr_cffile_rename_optional = attr_attributes / attr_mode
+
+//attr_cffile_upload_required
+attr_cffile_upload_optional = attr_accept / attr_attributes / attr_mode / attr_name_conflict / attr_result
+value_name_conflict         = quote_char v:( str_error / str_make_unique / str_overwrite / str_skip ) quote_char { return v; }
+value_mime                  = quote_char v:( ( 'application' / 'audio' / 'chemical' / 'image' / 'inode' / 'message' / 'model' / 'multipart' / 'text' / 'video' / 'x-conference' / 'x-epoc' / 'x-world' ) wack ( chars / ub / hyphen / '+' / period )+ ) quote_char { return plib.stringify(v); }
+
+//attr_cffile_upload_all_required
+attr_cffile_upload_all_optional = attr_accept / attr_attributes / attr_mode / attr_name_conflict / attr_result
+
+//attr_cffile_write_required
+attr_cffile_write_optional   = attr_add_newline / attr_attributes / attr_charset / attr_fix_newline / attr_mode
 
 //attr_cfflush_required
 attr_cfflush_optional = attr_interval
@@ -1426,20 +1606,24 @@ value_cferr_exception = quote_char n:(
 
 // any case strings
 str_abort                       = v:(a b o r t)                                                    { return plib.stringify(v, 'lower'); }
+str_accept                      = v:(a c c e p t)                                                  { return plib.stringify(v, 'lower'); }
 str_access                      = v:(a c c e s s)                                                  { return plib.stringify(v, 'lower'); }
 str_accessors                   = v:(a c c e s s o r s)                                            { return plib.stringify(v, 'lower'); }
 str_action                      = v:(a c t i o n)                                                  { return plib.stringify(v, 'lower'); }
 str_add_token                   = v:(a d d __ t o k e n)                                           { return plib.stringify(v); }
+str_add_newline                 = v:(a d d __ n e w l i n e)                                       { return plib.stringify(v, 'under', 'lower'); }
 str_all                         = v:(a l l)                                                        { return plib.stringify(v); }
 str_alias                       = v:(a l i a s)                                                    { return plib.stringify(v, 'lower'); }
 str_always                      = v:(a l w a y s)                                                  { return plib.stringify(v, 'lower'); }
 str_any                         = v:(a n y)                                                        { return plib.stringify(v); }
+str_append                      = v:(a p p e n d)                                                  { return plib.stringify(v, 'lower'); }
 str_application                 = v:(a p p l i c a t i o n)                                        { return plib.stringify(v); }
 str_application_timeout         = v:(a p p l i c a t i o n __ t i m e o u t)                       { return plib.stringify(v, 'lower'); }
 str_application_token           = v:(a p p l i c a t i o n __ t o k e n)                           { return plib.stringify(v, 'lower'); }
 str_arguments                   = v:(a r g u m e n t s)                                            { return plib.stringify(v); }
 str_array                       = v:(a r r a y)                                                    { return plib.stringify(v, 'lower'); }
 str_asc                         = v:(a s c)                                                        { return plib.stringify(v, 'upper'); }
+str_attributes                  = v:(a t t r i b u t e s)                                          { return plib.stringify(v, 'lower'); }
 str_base_tag                    = v:(b a s e t a g)                                                { return plib.stringify(v, 'under'); }
 str_batch_size                  = v:(b a t c h __ s i z e)                                         { return plib.stringify(v, 'under'); }
 str_begin                       = v:(b e g i n)                                                    { return plib.stringify(v, 'under'); }
@@ -1480,6 +1664,7 @@ str_cfelseif                    = v:(c f e l s e i f)                           
 str_cferror                     = v:(c f e r r o r)                                                { return plib.stringify(v, 'lower'); }
 str_cfexecute                   = v:(c f e x e c u t e)                                            { return plib.stringify(v, 'lower'); }
 str_cfexit                      = v:(c f e x i t)                                                  { return plib.stringify(v, 'lower'); }
+str_cffile                      = v:(c f f i l e)                                                  { return plib.stringify(v, 'lower'); }
 str_cffinally                   = v:(c f f i n a l l y)                                            { return plib.stringify(v, 'lower'); }
 str_cfflush                     = v:(c f f l u s h)                                                { return plib.stringify(v, 'lower'); }
 str_cffunction                  = v:(c f f u n c t i o n)                                          { return plib.stringify(v, 'lower'); }
@@ -1540,6 +1725,7 @@ str_constrained                 = v:(c o n s t r a i n e d)                     
 str_condition                   = v:(c o n d i t i o n)                                            { return plib.stringify(v, 'lower'); }
 str_cookie                      = v:(c o o k i e)                                                  { return plib.stringify(v); }
 str_cookie_domain               = v:(c o o k i e __ d o m a i n)                                   { return plib.stringify(v); }
+str_copy                        = v:(c o p y)                                                      { return plib.stringify(v, 'lower'); }
 str_country_code                = v:(c o u n t r y __ c o d e)                                     { return plib.stringify(v); }
 str_create                      = v:(c r e a t e)                                                  { return plib.stringify(v, 'lower'); }
 str_credit_card                 = v:(c r e d i t __ c a r d)                                       { return plib.stringify(v); }
@@ -1561,6 +1747,7 @@ str_delete                      = v:(d e l e t e)                               
 str_delimiter                   = v:(d e l i m i t e r)                                            { return plib.stringify(v, 'lower'); }
 str_depends_on                  = v:(d e p e n d s __ o n)                                         { return plib.stringify(v, 'lower'); }
 str_desc                        = v:(d e s c)                                                      { return plib.stringify(v, 'upper'); }
+str_destination                 = v:(d e s t i n a t i o n)                                        { return plib.stringify(v, 'lower'); }
 str_description                 = v:(d e s c r i p t i o n)                                        { return plib.stringify(v, 'lower'); }
 str_directory                   = v:(d i r e c t o r y)                                            { return plib.stringify(v, 'lower'); }
 str_dir                         = v:(d i r)                                                        { return plib.stringify(v, 'lower'); }
@@ -1594,6 +1781,8 @@ str_fetch_batch_size            = v:(f e t c h __ b a t c h __ s i z e)         
 str_field_type                  = v:(f i e l d __ t y p e)                                         { return plib.stringify(v); }
 str_file                        = v:(f i l e)                                                      { return plib.stringify(v, 'lower'); }
 str_filter                      = v:(f i l t e r)                                                  { return plib.stringify(v, 'lower'); }
+str_file_field                  = v:(f i l e __ f i e l d)                                         { return plib.stringify(v, 'under', 'lower'); }
+str_fix_newline                 = v:(f i x __ n e w l i n e)                                       { return plib.stringify(v, 'under', 'lower'); }
 str_fkcolumn                    = v:(f k c o l u m n)                                              { return plib.stringify(v); }
 str_float                       = v:(f l o a t)                                                    { return plib.stringify(v); }
 str_flush                       = v:(f l u s h)                                                    { return plib.stringify(v); }
@@ -1610,6 +1799,7 @@ str_group                       = v:(g r o u p)                                 
 str_group_case_sensitive        = v:(g r o u p __ c a s e __ s e n s i t i v e)                    { return plib.stringify(v, 'lower'); }
 str_guid                        = v:(g u i d)                                                      { return plib.stringify(v); }
 str_hide                        = v:(h i d e)                                                      { return plib.stringify(v, 'lower'); }
+str_hidden                      = v:(h i d d e n)                                                  { return plib.stringify(v, 'lower'); }
 str_hint                        = v:(h i n t)                                                      { return plib.stringify(v, 'lower'); }
 str_html                        = v:(h t m l)                                                      { return plib.stringify(v); }
 str_http                        = v:(h t t p)                                                      { return plib.stringify(v, 'lower'); }
@@ -1654,6 +1844,7 @@ str_login_storage               = v:(l o g i n __ s t o r a g e)                
 str_long                        = v:(l o n g)                                                      { return plib.stringify(v, 'lower'); }
 str_longvarchar                 = v:(l o n g v a r c h a r)                                        { return plib.stringify(v, 'lower'); }
 str_loop                        = v:(l o o p)                                                      { return plib.stringify(v, 'lower'); }
+str_make_unique                 = v:(m a k e __ u n i q u e)                                       { return plib.stringify(v, 'lower'); }
 str_mail_to                     = v:(m a i l __ t o)                                               { return 'mail_to'; }
 str_mapped_by                   = v:(m a p p e d __ b y)                                           { return plib.stringify(v); }
 str_max                         = v:(m a x)                                                        { return plib.stringify(v, 'lower'); }
@@ -1665,16 +1856,19 @@ str_method                      = v:(m e t h o d)                               
 str_mode                        = v:(m o d e)                                                      { return plib.stringify(v, 'lower'); }
 str_money                       = v:(m o n e y)                                                    { return plib.stringify(v, 'lower'); }
 str_money4                      = v:(m o n e y '4')                                                { return plib.stringify(v, 'lower'); }
+str_move                        = v:(m o v e)                                                      { return plib.stringify(v, 'lower'); }
 str_min                         = v:(m i n)                                                        { return plib.stringify(v, 'lower'); }
 str_missing_include             = v:(m i s s i n g __ i n c l u d e)                               { return plib.stringify(v); }
 str_missing_row_ignored         = v:(m i s s i n g __ r o w __ i g n o r e d)                      { return plib.stringify(v, 'under', 'lower'); }
 str_mapped_super_class          = v:(m a p p e d __ s u p e r __ c l a s s)                        { return plib.stringify(v, 'under', 'lower'); }
 str_name                        = v:(n a m e)                                                      { return plib.stringify(v, 'lower'); }
+str_name_conflict               = v:(n a m e __ c o n f l i c t)                                   { return plib.stringify(v, 'under', 'lower'); }
 str_namespace                   = v:(n a m e s p a c e)                                            { return plib.stringify(v, 'lower'); }
 str_nested                      = v:(n e s t e d)                                                  { return plib.stringify(v, 'lower'); }
 str_never                       = v:(n e v e r)                                                    { return plib.stringify(v); }
 str_new_directory               = v:(n e w __ d i r e c t o r y)                                   { return plib.stringify(v, 'under', 'lower'); }
 str_none                        = v:(n o n e)                                                      { return plib.stringify(v); }
+str_normal                      = v:(n o r m a l)                                                  { return plib.stringify(v, 'lower'); }
 str_not_null                    = v:(n o t __ n u l l)                                             { return plib.stringify(v); }
 str_now                         = v:(n o w)                                                        { return plib.stringify(v); }
 str_null                        = v:(n u l l)                                                      { return plib.stringify(v, 'lower'); }
@@ -1694,6 +1888,7 @@ str_outline                     = v:(o u t l i n e)                             
 str_output                      = v:(o u t p u t)                                                  { return plib.stringify(v, 'lower'); }
 str_output_file                 = v:(o u t p u t __ f i l e)                                       { return plib.stringify(v, 'lower'); }
 str_overflow_to_disk            = v:(o v e r f l o w __ t o __ d i s k)                            { return plib.stringify(v, 'lower'); }
+str_overwrite                   = v:(o v e r w r i t e)                                            { return plib.stringify(v, 'lower'); }
 str_package                     = v:(p a c k a g e)                                                { return plib.stringify(v, 'lower'); }
 str_page_encoding               = v:(p a g e __ e n c o d i n g)                                   { return plib.stringify(v, 'lower'); }
 str_params                      = v:(p a r a m s)                                                  { return plib.stringify(v, 'lower'); }
@@ -1715,6 +1910,8 @@ str_put                         = v:(p u t)                                     
 str_query                       = v:(q u e r y)                                                    { return plib.stringify(v); }
 str_range                       = v:(r a n g e s)                                                  { return plib.stringify(v); }
 str_real                        = v:(r e a l)                                                      { return plib.stringify(v, 'lower'); }
+str_read                        = v:(r e a d)                                                      { return plib.stringify(v, 'lower'); }
+str_read_binary                 = v:(r e a d __ b i n a r y)                                       { return plib.stringify(v, 'under', 'lower'); }
 str_read_commited               = v:(r e a d __ c o m m i t e d)                                   { return plib.stringify(v, 'lower'); }
 str_read_only                   = v:(r e a d __ o n l y)                                           { return plib.stringify(v); }
 str_recurse                     = v:(r e c u r s e)                                                { return plib.stringify(v, 'lower'); }
@@ -1773,6 +1970,7 @@ str_show                        = v:(s h o w)                                   
 str_show_debug_output           = v:(s h o w __ d e b u g __ o u t p u t)                          { return plib.stringify(v, 'lower'); }
 str_show_error                  = v:(s h o w __ e r r o r)                                         { return plib.stringify(v, 'lower'); }
 str_show_udfs                   = v:(s h o w __ u d f s)                                           { return plib.stringify(v, 'lower'); }
+str_skip                        = v:(s k i p)                                                      { return plib.stringify(v, 'lower'); }
 str_smallint                    = v:(s m a l l i n t)                                              { return plib.stringify(v); }
 str_social_security_number      = v:(s o c i a l __ s e c u r i t y __ n u m b e r)                { return plib.stringify(v); }
 str_source                      = v:(s o u r c e)                                                  { return plib.stringify(v, 'lower'); }
@@ -1816,6 +2014,8 @@ str_type                        = v:(t y p e)                                   
 str_unique                      = v:(u n i q u e)                                                  { return plib.stringify(v, 'lower'); }
 str_unique_key                  = v:(u n i q u e __ k e y)                                         { return plib.stringify(v); }
 str_update                      = v:(u p d a t e)                                                  { return plib.stringify(v, 'lower'); }
+str_upload                      = v:(u p l o a d)                                                  { return plib.stringify(v, 'lower'); }
+str_upload_all                  = v:(u p l o a d __ a l l)                                         { return plib.stringify(v, 'under', 'lower'); }
 str_url                         = v:(u r l)                                                        { return plib.stringify(v, 'lower'); }
 str_use_cache                   = v:(u s e __ c a c h e)                                           { return plib.stringify(v, 'lower'); }
 str_use_query_string            = v:(u s e __ q u e r y __ s t r i n g)                            { return plib.stringify(v, 'lower'); }
@@ -1835,6 +2035,7 @@ str_void                        = v:(v o i d)                                   
 str_warning                     = v:(w a r n i n g)                                                { return plib.stringify(v); }
 str_wddx                        = v:(w d d x)                                                      { return plib.stringify(v); }
 str_where                       = v:(w h e r e)                                                    { return plib.stringify(v); }
+str_write                       = v:(w r i t e)                                                    { return plib.stringify(v, 'lower'); }
 str_wsdl_file                   = v:(w s d l __ f i l e)                                           { return plib.stringify(v, 'under', 'lower'); }
 str_xml                         = v:(x m l)                                                        { return plib.stringify(v); }
 str_yes_no                      = v:(y e s n o)                                                    { return plib.stringify(v); }
