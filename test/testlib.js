@@ -42,3 +42,37 @@ function root() {
 } 
 exports.root = root;
 //exports.you = function () { return require(join(root(), 'you')); };
+
+function _equalDateLike(received, expected, comparisons) {
+
+	if ( received instanceof Date && expected instanceof Date ) {
+		comparisons.forEach(function (func) {
+			rec = received[func]();
+			exp = expected[func]();
+			if ( rec != exp ) { return false; }
+		});
+		return true;
+	} else if ( Number.isNaN(received) || Number.isNaN(expected) ) {
+		return false;
+	} else if ( typeof received === 'number' ) {
+		return _equalDateLike( new Date(received), expected, comparisons );
+	} else if ( typeof expected === 'number' ) {
+		return _equalDateLike( received, new Date(expected), comparisons );
+	} else {
+		return false;
+	}
+}
+exports.equalDate = function (received, expected, message) {
+	var comparisons = ['getFullYear', 'getMonth', 'getDate', 'getDay'];
+	if ( !_equalDateLike(received, expected, comparisons) ) {
+		is.fail(received, expected, message, 'equalDate', is.equalDate);
+	}
+}
+
+exports.equalTime = function (received, expected, message) {
+	var comparisons = ['getHours', 'getMinutes', 'getSeconds'];
+	if ( !_equalDateLike(received, expected, comparisons) ) {
+		is.fail(rec, exp, message, func, is.equalDate);
+	}
+}
+
