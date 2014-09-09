@@ -41,6 +41,7 @@ start
 	/ tag_cfinclude
 	/ tag_cfinsert
 	/ tag_cfinterface
+	/ tag_cfinvokeargument
 	/ tag_cflocation
 	/ tag_cflock
 	/ tag_cflog
@@ -71,6 +72,7 @@ start
 	/ tag_cftransaction
 	/ tag_cftry
 	/ tag_cfupdate
+	/ tag_cfxml
 //  / tag_cfchart
 //  / tag_cfchartdata
 //  / tag_cfchartseries
@@ -80,7 +82,6 @@ start
 //  / tag_cfhttpparam
 //  / tag_cfimap
 //  / tag_cfinvoke
-//  / tag_cfinvokeargument
 //  / tag_cfldap
 //  / tag_cfmail
 //  / tag_cfmailparam
@@ -95,7 +96,6 @@ start
 //  / tag_cfsprydataset
 //  / tag_cfthread
 //  / tag_cfwddx
-//  / tag_cfxml
 //  / tag_cfzip
 //  / tag_cfzipparam
 //  / tag_cfapplet             // html        wrapper
@@ -559,6 +559,20 @@ tag_cfinterface
 		return new cftag(t, plib.flatten(attr), plib.stringify(content));
 	}
 
+tag_cfinvokeargument
+	= lt t:str_cfinvokeargument attr:(
+		   attr_name attr_value attr_omit?
+		/ attr_value attr_name  attr_omit?
+
+		/ attr_name  attr_omit? attr_name
+		/ attr_value attr_omit? attr_name
+
+		/ attr_omit? attr_name  attr_value
+		/ attr_omit? attr_value attr_name
+	) ws* wack? gt {
+		return new cftag(t, plib.flatten(attr));
+	}
+
 tag_cflock
 	= lt t:str_cflock attr:(attr_cflock_optional* attr_cflock_required attr_cflock_optional* ) gt
 	content:(!(lt wack str_cflock gt) anychar)*
@@ -878,6 +892,11 @@ tag_cfupdate
 		return new cftag(t, plib.flatten(attr));
 	}
 
+tag_cfxml
+	= lt t:str_cfxml attr:( attr_variable attr_case_sensitive? / attr_case_sensitive? attr_variable ) ws* wack? gt {
+		return new cftag(t, plib.flatten(attr));
+	}
+
 //End Tags
 
 // Tag Specific Value Defs
@@ -885,6 +904,7 @@ attr_abort                       = ws+ n:str_abort                       eql v:v
 attr_accept                      = ws+ n:str_accept                      eql v:value_mime                                              { return { name: n,                             value: v                            }; }
 attr_access                      = ws+ n:str_access                      eql v:value_cffunction_access                                 { return { name: n,                             value: v                            }; }
 attr_accessors                   = ws+ n:str_accessors                   eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
+attr_omit                        = ws+ n:str_omit                        eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
 attr_objectcache_action          = ws+ n:str_action                      eql quote_char v:str_clear quote_char                         { return { name: n,                             value: v                            }; }
 attr_cache_action                = ws+ n:str_action                      eql v:value_cfcache_action                                    { return { name: n,                             value: v                            }; }
 attr_directory_action            = ws+ n:str_action                      eql v:value_cfdirectory_action                                { return { name: n,                             value: v                            }; }
@@ -920,6 +940,7 @@ attr_cached_within               = ws+ n:str_cached_within               eql v:v
 attr_category                    = ws+ n:str_category                    eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_cfc                         = ws+ n:str_cfc                         eql v:value_any_non_whitespace                                { return { name: n,                             value: v                            }; }
 attr_sql_type                    = ws+ n:str_cfsql_type                  eql v:value_sql_type                                          { return { name: 'cf_sql_type',                 value: v                            }; }
+attr_case_sensitive              = ws+ n:str_case_sensitive              eql v:value_boolean                                           { return { name: 'case_sensitive',              value: v                            }; }
 attr_characters                  = ws+ n:str_characters                  eql v:value_integer                                           { return { name: n,                             value: v                            }; }
 attr_charset                     = ws+ n:str_charset                     eql v:value_charset                                           { return { name: n,                             value: v                            }; }
 attr_client_management           = ws+ n:str_client_management           eql v:value_boolean                                           { return { name: 'client_variables',            value: v                            }; }
@@ -1641,6 +1662,7 @@ str_cache                       = v:(c a c h e)                                 
 str_cached_after                = v:(c a c h e d __ a f t e r)                                     { return plib.stringify(v, 'lower'); }
 str_cached_within               = v:(c a c h e d __ w i t h i n)                                   { return plib.stringify(v, 'lower'); }
 str_category                    = v:(c a t e g o r y)                                              { return plib.stringify(v, 'lower'); }
+str_case_sensitive              = v:(c a s e __ s e n s i t i v e)                                 { return plib.stringify(v, 'lower'); }
 str_cfabort                     = v:(c f a b o r t)                                                { return plib.stringify(v, 'lower'); }
 str_cfajaximport                = v:(c f a j a x i m p o r t)                                      { return plib.stringify(v, 'lower'); }
 str_cfajaxproxy                 = v:(c f a j a x p r o x y)                                        { return plib.stringify(v, 'lower'); }
@@ -1675,6 +1697,7 @@ str_cfimport                    = v:(c f i m p o r t)                           
 str_cfinclude                   = v:(c f i n c l u d e)                                            { return plib.stringify(v, 'lower'); }
 str_cfinsert                    = v:(c f i n s e r t)                                              { return plib.stringify(v, 'lower'); }
 str_cfinterface                 = v:(c f i n t e r f a c e)                                        { return plib.stringify(v, 'lower'); }
+str_cfinvokeargument            = v:(c f i n v o k e a r g u m e n t)                              { return plib.stringify(v, 'lower'); }
 str_cflocation                  = v:(c f l o c a t i o n)                                          { return plib.stringify(v, 'lower'); }
 str_cflock                      = v:(c f l o c k)                                                  { return plib.stringify(v, 'lower'); }
 str_cflog                       = v:(c f l o g)                                                    { return plib.stringify(v, 'lower'); }
@@ -1706,6 +1729,7 @@ str_cftrace                     = v:(c f t r a c e)                             
 str_cftransaction               = v:(c f t r a n s a c t i o n)                                    { return plib.stringify(v, 'lower'); }
 str_cftry                       = v:(c f t r y)                                                    { return plib.stringify(v, 'lower'); }
 str_cfupdate                    = v:(c f u p d a t e)                                              { return plib.stringify(v, 'lower'); }
+str_cfxml                       = v:(c f x m l)                                                    { return plib.stringify(v, 'lower'); }
 str_char                        = v:(c h a r)                                                      { return plib.stringify(v, 'lower'); }
 str_character                   = v:(c h a r a c t e r)                                            { return plib.stringify(v, 'lower'); }
 str_characters                  = v:(c h a r a c t e r s)                                          { return plib.stringify(v, 'lower'); }
@@ -1874,6 +1898,7 @@ str_now                         = v:(n o w)                                     
 str_null                        = v:(n u l l)                                                      { return plib.stringify(v, 'lower'); }
 str_numeric                     = v:(n u m e r i c)                                                { return plib.stringify(v); }
 str_object                      = v:(o b j e c t)                                                  { return plib.stringify(v, 'lower'); }
+str_omit                        = v:(o m i t)                                                      { return plib.stringify(v, 'lower'); }
 str_on_error                    = v:(o n __ e r r o r)                                             { return plib.stringify(v, 'lower'); }
 str_on_success                  = v:(o n __ s u c c e s s)                                         { return plib.stringify(v, 'lower'); }
 str_optimal                     = v:(o p t i m a l)                                                { return plib.stringify(v, 'lower'); }
