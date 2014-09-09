@@ -61,6 +61,7 @@ start
 	/ tag_cfrethrow
 	/ tag_cfreturn
 	/ tag_cfsavecontent
+	/ tag_cfschedule
 	/ tag_cfscript
 	/ tag_cfsetting
 	/ tag_cfsilent
@@ -73,6 +74,7 @@ start
 	/ tag_cftry
 	/ tag_cfupdate
 	/ tag_cfxml
+	/ tag_cfzipparam
 //  / tag_cfchart
 //  / tag_cfchartdata
 //  / tag_cfchartseries
@@ -88,57 +90,55 @@ start
 //  / tag_cfmailpart
 //  / tag_cfobject
 //  / tag_cfpop
-//  / tag_cfpresentation
-//  / tag_cfpresentationslide
 //  / tag_cfpresenter
-//  / tag_cfschedule
 //  / tag_cfspreadsheet
 //  / tag_cfsprydataset
 //  / tag_cfthread
 //  / tag_cfwddx
 //  / tag_cfzip
-//  / tag_cfzipparam
-//  / tag_cfapplet             // html        wrapper
-//  / tag_cfcalendar           // html        wrapper
-//  / tag_cfcol                // html        wrapper
-//  / tag_cfdiv                // html        wrapper
-//  / tag_cffileupload         // html        wrapper
-//  / tag_cfform               // html        wrapper
-//  / tag_cfformgroup          // html        wrapper
-//  / tag_cfformitem           // html        wrapper
-//  / tag_cfgrid               // html        wrapper
-//  / tag_cfgridcolumn         // html        wrapper
-//  / tag_cfgridrow            // html        wrapper
-//  / tag_cfgridupdate         // html        wrapper
-//  / tag_cfimage              // html        wrapper
-//  / tag_cfinput              // html        wrapper
-//  / tag_cflayout             // html        wrapper
-//  / tag_cflayoutarea         // html        wrapper
-//  / tag_cfmap                // html        wrapper
-//  / tag_cfmapitem            // html        wrapper
-//  / tag_cfmediaplayer        // html        wrapper
-//  / tag_cfmenu               // html        wrapper
-//  / tag_cfmenuitem           // html        wrapper
-//  / tag_cfmessagebox         // html        wrapper
-//  / tag_cfpod                // html        wrapper
-//  / tag_cfprogressbar        // html        wrapper
-//  / tag_cfselect             // html        wrapper
-//  / tag_cfslider             // html        wrapper
-//  / tag_cftable              // html        wrapper
-//  / tag_cftextarea           // html        wrapper
-//  / tag_cftooltip            // html        wrapper
-//  / tag_cftree               // html        wrapper
-//  / tag_cftreeitem           // html        wrapper
-//  / tag_cfwindow             // html        wrapper
-//  / tag_cfNTauthenticate     // m$          integration
-//  / tag_cfexchangecalendar   // m$          integration
-//  / tag_cfexchangeconnection // m$          integration
-//  / tag_cfexchangecontact    // m$          integration
-//  / tag_cfexchangefilter     // m$          integration
-//  / tag_cfexchangemail       // m$          integration
-//  / tag_cfexchangetask       // m$          integration
-//  / tag_cfregistry           // m$          integration
-//  / tag_cfsharepoint         // m$          integration
+//  / tag_cfapplet             // html wrapper
+//  / tag_cfcalendar           // html wrapper
+//  / tag_cfcol                // html wrapper
+//  / tag_cfdiv                // html wrapper
+//  / tag_cffileupload         // html wrapper
+//  / tag_cfform               // html wrapper
+//  / tag_cfformgroup          // html wrapper
+//  / tag_cfformitem           // html wrapper
+//  / tag_cfpresentation       // html wrapper
+//  / tag_cfpresentationslide  // html wrapper
+//  / tag_cfgrid               // html wrapper
+//  / tag_cfgridcolumn         // html wrapper
+//  / tag_cfgridrow            // html wrapper
+//  / tag_cfgridupdate         // html wrapper
+//  / tag_cfimage              // html wrapper
+//  / tag_cfinput              // html wrapper
+//  / tag_cflayout             // html wrapper
+//  / tag_cflayoutarea         // html wrapper
+//  / tag_cfmap                // html wrapper
+//  / tag_cfmapitem            // html wrapper
+//  / tag_cfmediaplayer        // html wrapper
+//  / tag_cfmenu               // html wrapper
+//  / tag_cfmenuitem           // html wrapper
+//  / tag_cfmessagebox         // html wrapper
+//  / tag_cfpod                // html wrapper
+//  / tag_cfprogressbar        // html wrapper
+//  / tag_cfselect             // html wrapper
+//  / tag_cfslider             // html wrapper
+//  / tag_cftable              // html wrapper
+//  / tag_cftextarea           // html wrapper
+//  / tag_cftooltip            // html wrapper
+//  / tag_cftree               // html wrapper
+//  / tag_cftreeitem           // html wrapper
+//  / tag_cfwindow             // html wrapper
+//  / tag_cfNTauthenticate     // m$ integration
+//  / tag_cfexchangecalendar   // m$ integration
+//  / tag_cfexchangeconnection // m$ integration
+//  / tag_cfexchangecontact    // m$ integration
+//  / tag_cfexchangefilter     // m$ integration
+//  / tag_cfexchangemail       // m$ integration
+//  / tag_cfexchangetask       // m$ integration
+//  / tag_cfregistry           // m$ integration
+//  / tag_cfsharepoint         // m$ integration
 //  / tag_cfdocument           // pdf
 //  / tag_cfdocumentitem       // pdf
 //  / tag_cfdocumentsection    // pdf
@@ -817,6 +817,15 @@ tag_cfsavecontent
 		return new cftag(t, [attr], plib.stringify(content));
 	}
 
+tag_cfschedule
+	= lt t:str_cfschedule attr:( 
+			  attr_cfschedule_optional+ attr_schedule_action      attr_cfschedule_optional+ attr_task            attr_cfschedule_optional*
+			/ attr_cfschedule_optional+ attr_task                 attr_cfschedule_optional+ attr_schedule_action attr_cfschedule_optional*
+			/ attr_cfschedule_optional* attr_cfschedule_required+ attr_cfschedule_optional* 
+	) ws* wack? gt {
+		return new cftag(t, plib.flatten(attr));
+	}
+
 tag_cfscript
 	= lt t:str_cfscript gt
 	content:(!(lt wack str_cfscript gt) anychar)*
@@ -897,6 +906,11 @@ tag_cfxml
 		return new cftag(t, plib.flatten(attr));
 	}
 
+tag_cfzipparam
+	= lt t:str_cfzipparam attr:attr_cfzipparam_optional* ws* wack? gt {
+		return new cftag(t, plib.flatten(attr));
+	}
+
 //End Tags
 
 // Tag Specific Value Defs
@@ -918,7 +932,8 @@ attr_file_rename_action          = ws+ n:str_action                      eql quo
 attr_file_upload_action          = ws+ n:str_action                      eql quote_char v:str_upload      quote_char                   { return { name: n,                             value: v                            }; }
 attr_file_upload_all_action      = ws+ n:str_action                      eql quote_char v:str_upload_all  quote_char                   { return { name: n,                             value: 'upload_all'                 }; }
 attr_file_write_action           = ws+ n:str_action                      eql quote_char v:str_write       quote_char                   { return { name: n,                             value: v                            }; }
-attr_action                      = ws+ n:str_action                      eql v:value_cftransaction_action                              { return { name: n,                             value: v                            }; }
+attr_transaction_action          = ws+ n:str_action                      eql v:value_cftransaction_action                              { return { name: n,                             value: v                            }; }
+attr_schedule_action             = ws+ n:str_action                      eql v:value_cfschedule_action                                 { return { name: n,                             value: v                            }; }
 attr_add_newline                 = ws+ n:str_add_newline                 eql v:value_boolean                                           { return { name: 'add_newline',                 value: v                            }; }
 attr_add_token                   = ws+ n:str_add_token                   eql v:value_boolean                                           { return { name: 'add_token',                   value: v                            }; }
 attr_alias                       = ws+ n:str_alias                       eql v:value_any_non_whitespace                                { return { name: n,                             value: v                            }; }
@@ -950,6 +965,7 @@ attr_collection                  = ws+ n:str_collection                  eql v:v
 //attr_column                      = ws+ n:str_column                      eql v:value_                                                  { return { name: n,                             value: v                            }; }
 attr_condition                   = ws+ n:str_condition                   eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_constrained                 = ws+ n:str_constrained                 eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
+attr_content                     = ws+ n:str_content                     eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_cookie_domain               = ws+ n:str_cookie_domain               eql v:value_domain                                            { return { name: 'cookie_domain',               value: v                            }; }
 attr_css_src                     = ws+ n:str_css_src                     eql v:value_file_path                                         { return { name: 'css_src',                     value: v                            }; }
 attr_data_collection             = ws+ n:str_data_collection             eql v:value_any_non_whitespace                                { return { name: 'data_collection',             value: v == "" ? "AssocAttribs" : v }; }
@@ -974,6 +990,8 @@ attr_dynamic_update              = ws+ n:str_dynamic_update              eql v:v
 //attr_element_type                = ws+ n:str_element_type                eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_enable_cfouput_only         = ws+ n:str_enable_cfouput_only         eql v:value_boolean                                           { return { name: 'enable_cfoutput_only',        value: v                            }; }
 attr_end_row                     = ws+ n:str_end_row                     eql v:value_integer                                           { return { name: 'end_row',                     value: v                            }; }
+attr_end_date                    = ws+ n:str_end_date                    eql v:value_date                                              { return { name: 'end_date',                     value: v                            }; }
+attr_end_time                    = ws+ n:str_end_time                    eql v:(value_integer / value_time )                           { return { name: 'end_time',                     value: v                            }; }
 //attr_entity_name                 = ws+ n:str_entity_name                 eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_exception                   = ws+ n:str_exception                   eql v:value_cferr_exception                                   { return { name: n,                             value: v                            }; }
 attr_expand                      = ws+ n:str_expand                      eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
@@ -982,6 +1000,7 @@ attr_expires                     = ws+ n:str_expires                     eql v:v
 attr_expression                  = ws+ n:str_expression                  eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_extends                     = ws+ n:str_extends                     eql v:( str_component / value_any )                           { return { name: n,                             value: v                            }; }
 attr_extends_list                = ws+ n:str_extends                     eql v:( value_list / value_any )                              { return { name: n,                             value: v                            }; }
+attr_entry_path                  = ws+ n:str_entry_path                  eql v:value_file_path                                         { return { name: 'entry_path',                  value: v                            }; }
 attr_fetch                       = ws+ n:str_fetch                       eql quote_char v:( str_select / str_join ) quote_char         { return { name: n,                             value: v                            }; }
 //attr_fetch_batch_size            = ws+ n:str_fetch_batch_size            eql v:value_any                                               { return { name: n,                             value: v                            }; }
 //attr_field_type                  = ws+ n:str_field_type                  eql v:value_any                                               { return { name: n,                             value: v                            }; }
@@ -1013,6 +1032,7 @@ attr_index                       = ws+ n:str_index                       eql v:v
 attr_inline                      = ws+ n:str_inline                      eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
 attr_insert                      = ws+ n:str_insert                      eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
 attr_interval                    = ws+ n:str_interval                    eql v:value_integer                                           { return { name: n,                             value: v                            }; }
+attr_schedule_interval           = ws+ n:str_interval                    eql v:( value_integer / value_cfschedule_interval )           { return { name: n,                             value: v                            }; }
 attr_inverse                     = ws+ n:str_inverse                     eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
 //attr_inverse_join_column         = ws+ n:str_inverse_join_column         eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_isolation                   = ws+ n:str_isolation                   eql v:value_cftransaction_isolation                           { return { name: n,                             value: v                            }; }
@@ -1052,6 +1072,7 @@ attr_null                        = ws+ n:str_null                        eql v:v
 attr_on_error                    = ws+ n:str_on_error                    eql v:value_any                                               { return { name: 'on_error',                    value: v                            }; }
 attr_on_success                  = ws+ n:str_on_success                  eql v:value_any                                               { return { name: 'on_success',                  value: v                            }; }
 attr_optimistic_lock             = ws+ n:str_optimistic_lock             eql v:value_boolean                                           { return { name: 'optimistic_lock',             value: v                            }; }
+attr_operation                   = ws+ n:str_operation                   eql quote_char v:(h t t p r e q u e s t) quote_char           { return { name: n,                             value: plib.stringify(v)            }; }
 //attr_optimistic_lock_generated   = ws+ n:str_optimistic_lock_generated   eql v:value_any                                               { return { name: n,                             value: v                            }; }
 //attr_order_by                    = ws+ n:str_order_by                    eql v:value_any                                               { return { name: n,                             value: v                            }; }
 //attr_order_by_read_only          = ws+ n:str_order_by_read_only          eql v:value_any                                               { return { name: n,                             value: v                            }; }
@@ -1075,14 +1096,21 @@ attr_port                        = ws+ n:str_port                        eql v:v
 attr_port_type_name              = ws+ n:str_port_type_name              eql v:value_any_non_whitespace                                { return { name: 'port_type_name',              value: v                            }; }
 attr_precision                   = ws+ n:str_precision                   eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
 attr_prefix                      = ws+ n:str_prefix                      eql v:(value_any_non_whitespace / value_empty_quote )         { return { name: n,                             value: v                            }; }
+attr_prefix_path                 = ws+ n:str_prefix                      eql v:value_file_path                                         { return { name: n,                             value: v                            }; }
 attr_procedure                   = ws+ n:str_procedure                   eql v:value_any_non_whitespace                                { return { name: n,                             value: plib.stringify(v)            }; }
 attr_protocol                    = ws+ n:str_protocol                    eql v:value_cfcache_protocol                                  { return { name: n,                             value: v                            }; }
+attr_proxy_password              = ws+ n:str_proxy_password              eql v:value_any_non_whitespace                                { return { name: 'proxy_password',              value: v                            }; }
+attr_proxy_port                  = ws+ n:str_proxy_port                  eql v:value_integer                                           { return { name: 'proxy_port',                  value: v                            }; }
+attr_proxy_server                = ws+ n:str_proxy_server                eql v:value_fqdn_domain                                       { return { name: 'proxy_server',                value: v                            }; }
+attr_proxy_user                  = ws+ n:str_proxy_user                  eql v:value_any_non_whitespace                                { return { name: 'proxy_user',                  value: v                            }; }
+attr_publish                     = ws+ n:str_publish                     eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
 attr_query                       = ws+ n:str_query                       eql v:value_any                                               { return { name: n.toLowerCase(),               value: v                            }; }
 attr_read_only                   = ws+ n:str_read_only                   eql v:value_boolean                                           { return { name: 'read_only',                   value: v                            }; }
 attr_recurse                     = ws+ n:str_recurse                     eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
 attr_request_timeout             = ws+ n:str_request_timeout             eql v:value_integer                                           { return { name: 'request_timeout',             value: v                            }; }
 attr_required                    = ws+ n:str_required                    eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
 attr_reset                       = ws+ n:str_reset                       eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
+attr_resolve_url                 = ws+ n:str_resolve_url                 eql v:value_boolean                                           { return { name: 'resolve_url',                 value: v                            }; }
 attr_result                      = ws+ n:str_result                      eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_result_set                  = ws+ n:str_result_set                  eql v:value_integer                                           { return { name: 'result_set',                  value: v                            }; }
 attr_return_code                 = ws+ n:str_return_code                 eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
@@ -1120,6 +1148,8 @@ attr_sort                        = ws+ n:str_sort                        eql quo
 attr_source                      = ws+ n:str_source                      eql quote_char v:( str_db / str_vm ) quote_char               { return { name: n,                             value: plib.stringify(v, 'lower')   }; }
 attr_file_source                 = ws+ n:str_source                      eql v:value_file_path                                         { return { name: n,                             value: v                            }; }
 attr_start_row                   = ws+ n:str_start_row                   eql v:value_integer                                           { return { name: 'start_row',                   value: v                            }; }
+attr_start_date                  = ws+ n:str_start_date                  eql v:value_date                                              { return { name: 'start_date',                  value: v                            }; }
+attr_start_time                  = ws+ n:str_start_time                  eql v:(value_integer / value_time )                           { return { name: 'start_time',                  value: v                            }; }
 attr_status_code                 = ws+ n:str_status_code                 eql quote_char v:("30" [0-7]) quote_char                      { return { name: 'status_code',                 value: plib.stringify(v,  'int')    }; }
 attr_status_text                 = ws+ n:str_status_text                 eql v:value_any                                               { return { name: 'status_text',                 value: plib.stringify(v)            }; }
 attr_step_date_time              = ws+ n:str_step                        eql v:value_create_time_span_func                             { return { name: n,                             value: v                            }; }
@@ -1138,6 +1168,7 @@ attr_table_owner                 = ws+ n:str_table_owner                 eql v:v
 attr_table_qualifier             = ws+ n:str_table_qualifier             eql v:value_any                                               { return { name: 'table_qualifier',             value: v                            }; }
 attr_tag_lib                     = ws+ n:str_tag_lib                     eql v:value_file_path                                         { return { name: n,                             value: v                            }; }
 attr_tags                        = ws+ n:str_tags                        eql v:value_list                                              { return { name: n,                             value: v                            }; }
+attr_task                        = ws+ n:str_task                        eql v:value_any_non_whitespace                                { return { name: n,                             value: v                            }; }
 attr_template                    = ws+ n:str_template                    eql v:value_file_path                                         { return { name: n,                             value: v                            }; }
 attr_text                        = ws+ n:str_text                        eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_throw_on_error              = ws+ n:str_throw_on_error              eql v:value_boolean                                           { return { name: 'throw_on_error',              value: v                            }; }
@@ -1280,18 +1311,7 @@ value_cfdbinfo_type = quote_char v:( str_dbnames / str_tables / str_columns / st
 attr_cfdbinfo_optional = attr_datasource / attr_dbname / attr_password / attr_pattern / attr_username / attr_table
 
 attr_cfdirectory_required = attr_directory
-attr_cfdirectory_optional
-	= attr_directory_action
-	/ attr_filter
-	/ attr_list_info
-	/ attr_mode
-	/ attr_name
-	/ attr_new_directory
-	/ attr_recurse
-	/ attr_sort
-	/ attr_store_acl
-	/ attr_store_location
-	/ attr_directory_type
+attr_cfdirectory_optional = attr_directory_action / attr_directory_type / attr_filter / attr_list_info / attr_mode / attr_name / attr_new_directory / attr_recurse / attr_sort / attr_store_acl / attr_store_location
 
 value_cfdirectory_action = quote_char v:( str_list / str_create / str_delete / str_rename ) quote_char { return v; }
 value_cfdirectory_type = quote_char v:( str_all / str_file / str_dir ) quote_char { return v; }
@@ -1394,6 +1414,11 @@ attr_cfprocessingdirective_optional = attr_page_encoding / attr_suppress_whitesp
 
 attr_cfsavecontent_required = attr_variable
 //attr_cfsavecontent_optional
+
+attr_cfschedule_required  = attr_schedule_action / attr_task
+attr_cfschedule_optional  = attr_end_date / attr_end_time / attr_file_path / attr_operation / attr_path / attr_password / attr_port / attr_proxy_password / attr_proxy_port / attr_proxy_server / attr_proxy_user / attr_publish / attr_request_timeout / attr_resolve_url / attr_schedule_interval / attr_start_date / attr_start_time / attr_url / attr_username
+value_cfschedule_action   = quote_char v:( str_run / str_update / str_pause / str_resume / str_delete ) quote_char { return v; }
+value_cfschedule_interval = quote_char v:( str_once / str_daily / str_weekly / str_monthly ) quote_char { return v; }
 
 //attr_cfsetting_required
 //@todo change to accept "timeout" attribute.
@@ -1542,13 +1567,16 @@ attr_cftrace_optional = attr_abort / attr_category / attr_inline / attr_text / a
 value_cftrace_type = quote_char v:( str_information / str_warning / str_error / str_fatal_information ) quote_char { return v; }
 
 //attr_cftransaction_required
-attr_cftransaction_optional = attr_action / attr_isolation / attr_savepoint / attr_nested
+attr_cftransaction_optional = attr_transaction_action / attr_isolation / attr_savepoint / attr_nested
 value_cftransaction_action = quote_char v:( str_begin / str_commit / str_rollback / str_set_save_point ) quote_char { return v; }
 value_cftransaction_isolation = quote_char v:( str_read_uncommited / str_read_commited / str_repeatable_read / str_serializable ) quote_char { return v; }
 	
 //@todo: change to also allow "table" attribute
 attr_cfupdate_required_table_name = attr_table_name
 attr_cfupdate_optional = attr_form_fields / attr_password / attr_table_owner / attr_table_qualifier / attr_username
+
+//attr_cfzipparam_required
+attr_cfzipparam_optional = attr_charset / attr_content / attr_entry_path / attr_filter / attr_prefix_path / attr_recurse / attr_file_source
 
 attr_cfquery_required = attr_name
 attr_cfquery_optional = attr_block_factor / attr_cached_after / attr_cached_within / attr_datasource / attr_dbtype / attr_debug / attr_max_rows / attr_orm_options / attr_password / attr_result / attr_timeout / attr_username
@@ -1717,6 +1745,7 @@ str_cfqueryparam                = v:(c f q u e r y p a r a m)                   
 str_cfrethrow                   = v:(c f r e t h r o w)                                            { return plib.stringify(v, 'lower'); }
 str_cfreturn                    = v:(c f r e t u r n)                                              { return plib.stringify(v, 'lower'); }
 str_cfsavecontent               = v:(c f s a v e c o n t e n t)                                    { return plib.stringify(v, 'lower'); }
+str_cfschedule                  = v:(c f s c h e d u l e)                                          { return plib.stringify(v, 'lower'); }
 str_cfscript                    = v:(c f s c r i p t)                                              { return plib.stringify(v, 'lower'); }
 str_cfsetting                   = v:(c f s e t t i n g)                                            { return plib.stringify(v, 'lower'); }
 str_cfsilent                    = v:(c f s i l e n t)                                              { return plib.stringify(v, 'lower'); }
@@ -1730,6 +1759,7 @@ str_cftransaction               = v:(c f t r a n s a c t i o n)                 
 str_cftry                       = v:(c f t r y)                                                    { return plib.stringify(v, 'lower'); }
 str_cfupdate                    = v:(c f u p d a t e)                                              { return plib.stringify(v, 'lower'); }
 str_cfxml                       = v:(c f x m l)                                                    { return plib.stringify(v, 'lower'); }
+str_cfzipparam                  = v:(c f z i p p a r a m)                                          { return plib.stringify(v, 'lower'); }
 str_char                        = v:(c h a r)                                                      { return plib.stringify(v, 'lower'); }
 str_character                   = v:(c h a r a c t e r)                                            { return plib.stringify(v, 'lower'); }
 str_characters                  = v:(c h a r a c t e r s)                                          { return plib.stringify(v, 'lower'); }
@@ -1746,6 +1776,7 @@ str_commit                      = v:(c o m m i t)                               
 str_component                   = v:(c o m p o n e n t)                                            { return plib.stringify(v, 'lower'); }
 str_console                     = v:(c o n s o l e)                                                { return plib.stringify(v, 'lower'); }
 str_constrained                 = v:(c o n s t r a i n e d)                                        { return plib.stringify(v, 'lower'); }
+str_content                     = v:(c o n t e n t)                                                { return plib.stringify(v, 'lower'); }
 str_condition                   = v:(c o n d i t i o n)                                            { return plib.stringify(v, 'lower'); }
 str_cookie                      = v:(c o o k i e)                                                  { return plib.stringify(v); }
 str_cookie_domain               = v:(c o o k i e __ d o m a i n)                                   { return plib.stringify(v); }
@@ -1755,6 +1786,7 @@ str_create                      = v:(c r e a t e)                               
 str_credit_card                 = v:(c r e d i t __ c a r d)                                       { return plib.stringify(v); }
 str_css_src                     = v:(c s s __ s r c)                                               { return plib.stringify(v); }
 str_custom_type                 = v:(c u s t o m __ t y p e)                                       { return plib.stringify(v, 'lower'); }
+str_daily                       = v:(d a i l y)                                                    { return plib.stringify(v, 'lower'); }
 str_data_collection             = v:(d a t a __ c o l l e c t i o n)                               { return plib.stringify(v, 'lower'); }
 str_database                    = v:(d a t a b a s e)                                              { return plib.stringify(v, 'lower'); }
 str_datasource                  = v:(d a t a s o u r c e)                                          { return plib.stringify(v, 'lower'); }
@@ -1786,8 +1818,11 @@ str_element_column              = v:(e l e m e n t __ c o l u m n)              
 str_element_type                = v:(e l e m e n t __ t y p e)                                     { return plib.stringify(v); }
 str_email                       = v:(e m a i l)                                                    { return plib.stringify(v); }
 str_enable_cfouput_only         = v:(e n a b l e __ c f o u t p u t __ o n l y)                    { return plib.stringify(v, 'lower'); }
+str_end_date                    = v:(e n d __ d a t e)                                             { return plib.stringify(v, 'under'); }
 str_end_row                     = v:(e n d __ r o w)                                               { return plib.stringify(v, 'under'); }
+str_end_time                    = v:(e n d __ t i m e)                                             { return plib.stringify(v, 'under'); }
 str_entity_name                 = v:(e n t i t y __ n a m e)                                       { return plib.stringify(v, 'lower'); }
+str_entry_path                  = v:(e n t r y __ p a t h)                                         { return plib.stringify(v, 'lower'); }
 str_error                       = v:(e r r o r)                                                    { return plib.stringify(v, 'lower'); }
 str_exception                   = v:(e x c e p t i o n)                                            { return plib.stringify(v, 'lower'); }
 str_exclusive                   = v:(e x c l u s i v e)                                            { return plib.stringify(v, 'lower'); }
@@ -1880,6 +1915,7 @@ str_method                      = v:(m e t h o d)                               
 str_mode                        = v:(m o d e)                                                      { return plib.stringify(v, 'lower'); }
 str_money                       = v:(m o n e y)                                                    { return plib.stringify(v, 'lower'); }
 str_money4                      = v:(m o n e y '4')                                                { return plib.stringify(v, 'lower'); }
+str_monthly                     = v:(m o n t h l y)                                                { return plib.stringify(v, 'lower'); }
 str_move                        = v:(m o v e)                                                      { return plib.stringify(v, 'lower'); }
 str_min                         = v:(m i n)                                                        { return plib.stringify(v, 'lower'); }
 str_missing_include             = v:(m i s s i n g __ i n c l u d e)                               { return plib.stringify(v); }
@@ -1899,9 +1935,11 @@ str_null                        = v:(n u l l)                                   
 str_numeric                     = v:(n u m e r i c)                                                { return plib.stringify(v); }
 str_object                      = v:(o b j e c t)                                                  { return plib.stringify(v, 'lower'); }
 str_omit                        = v:(o m i t)                                                      { return plib.stringify(v, 'lower'); }
+str_once                        = v:(o n c e)                                                      { return plib.stringify(v, 'lower'); }
 str_on_error                    = v:(o n __ e r r o r)                                             { return plib.stringify(v, 'lower'); }
 str_on_success                  = v:(o n __ s u c c e s s)                                         { return plib.stringify(v, 'lower'); }
 str_optimal                     = v:(o p t i m a l)                                                { return plib.stringify(v, 'lower'); }
+str_operation                   = v:(o p e r a t i o n)                                            { return plib.stringify(v, 'lower'); }
 str_optimistic_lock             = v:(o p t i m i s t i c __ l o c k)                               { return plib.stringify(v, 'lower'); }
 str_optimistic_lock_generated   = v:(o p t i m i s t i c __ l o c k __ g e n e r a t e d)          { return plib.stringify(v); }
 str_order_by                    = v:(o r d e r __ b y)                                             { return plib.stringify(v); }
@@ -1920,6 +1958,7 @@ str_params                      = v:(p a r a m s)                               
 str_password                    = v:(p a s s w o r d)                                              { return plib.stringify(v, 'lower'); }
 str_path                        = v:(p a t h)                                                      { return plib.stringify(v, 'lower'); }
 str_pattern                     = v:(p a t t e r n)                                                { return plib.stringify(v, 'lower'); }
+str_pause                       = v:(p a u s e)                                                    { return plib.stringify(v, 'lower'); }
 str_persistent                  = v:(p e r s i s t e n t)                                          { return plib.stringify(v, 'lower'); }
 str_plain                       = v:(p l a i n)                                                    { return plib.stringify(v, 'lower'); }
 str_port                        = v:(p o r t)                                                      { return plib.stringify(v, 'lower'); }
@@ -1930,7 +1969,12 @@ str_private                     = v:(p r i v a t e)                             
 str_procedure                   = v:(p r o c e d u r e)                                            { return plib.stringify(v, 'lower'); }
 str_procedures                  = v:(p r o c e d u r e s)                                          { return plib.stringify(v, 'lower'); }
 str_protocol                    = v:(p r o t o c o l)                                              { return plib.stringify(v, 'lower'); }
+str_proxy_password              = v:(p r o x y __ p a s s w o r d)                                 { return plib.stringify(v, 'under', 'lower'); }
+str_proxy_port                  = v:(p r o x y __ p o r t)                                         { return plib.stringify(v, 'under', 'lower'); }
+str_proxy_server                = v:(p r o x y __ s e r v e r)                                     { return plib.stringify(v, 'under', 'lower'); }
+str_proxy_user                  = v:(p r o x y __ u s e r)                                         { return plib.stringify(v, 'under', 'lower'); }
 str_public                      = v:(p u b l i c)                                                  { return plib.stringify(v, 'lower'); }
+str_publish                     = v:(p u b l i s h)                                                { return plib.stringify(v, 'lower'); }
 str_put                         = v:(p u t)                                                        { return plib.stringify(v, 'lower'); }
 str_query                       = v:(q u e r y)                                                    { return plib.stringify(v); }
 str_range                       = v:(r a n g e s)                                                  { return plib.stringify(v); }
@@ -1953,6 +1997,8 @@ str_request_timeout             = v:(r e q u e s t __ t i m e o u t)            
 str_required                    = v:(r e q u i r e d)                                              { return plib.stringify(v, 'lower'); }
 str_reset                       = v:(r e s e t)                                                    { return plib.stringify(v, 'lower'); }
 str_result                      = v:(r e s u l t)                                                  { return plib.stringify(v, 'lower'); }
+str_resolve_url                 = v:(r e s o l v e __ u r l)                                       { return plib.stringify(v, 'lower'); }
+str_resume                      = v:(r e s u m e)                                                  { return plib.stringify(v, 'lower'); }
 str_result_set                  = v:(r e s u l t __ s e t)                                         { return plib.stringify(v, 'lower'); }
 str_return_code                 = v:(r e t u r n __ c o d e)                                       { return plib.stringify(v, 'lower'); }
 str_return_format               = v:(r e t u r n __ f o r m a t)                                   { return plib.stringify(v, 'lower'); }
@@ -1961,6 +2007,7 @@ str_roles                       = v:(r o l e s)                                 
 str_rollback                    = v:(r o l l __ b a c k)                                           { return plib.stringify(v, 'lower'); }
 str_row_id                      = v:(r o w __ i d)                                                 { return plib.stringify(v); }
 str_rpc                         = v:(r p c)                                                        { return plib.stringify(v, 'lower'); }
+str_run                         = v:(r u n)                                                        { return plib.stringify(v, 'lower'); }
 str_savepoint                   = v:(s a v e p o i n t)                                            { return plib.stringify(v, 'lower'); }
 str_scale                       = v:(s c a l e)                                                    { return plib.stringify(v, 'lower'); }
 str_scheduler                   = v:(s c h e d u l e r)                                            { return plib.stringify(v, 'lower'); }
@@ -2001,7 +2048,9 @@ str_social_security_number      = v:(s o c i a l __ s e c u r i t y __ n u m b e
 str_source                      = v:(s o u r c e)                                                  { return plib.stringify(v, 'lower'); }
 str_sort                        = v:(s o r t)                                                      { return plib.stringify(v, 'lower'); }
 str_ssn                         = v:(s s n)                                                        { return plib.stringify(v); }
+str_start_date                  = v:(s t a r t __ d a t e)                                         { return plib.stringify(v, 'under'); }
 str_start_row                   = v:(s t a r t __ r o w)                                           { return plib.stringify(v, 'under'); }
+str_start_time                  = v:(s t a r t __ t i m e)                                         { return plib.stringify(v, 'under'); }
 str_status_code                 = v:(s t a t u s __ c o d e)                                       { return plib.stringify(v, 'under'); }
 str_status_text                 = v:(s t a t u s __ t e x t)                                       { return plib.stringify(v, 'under'); }
 str_step                        = v:(s t e p)                                                      { return plib.stringify(v, 'lower'); }
@@ -2022,6 +2071,7 @@ str_table_qualifier             = v:(t a b l e __ q u a l i f i e r)            
 str_tables                      = v:(t a b l e s)                                                  { return plib.stringify(v, 'lower'); }
 str_tag_lib                     = v:(t a g __ l i b)                                               { return plib.stringify(v, 'lower'); }
 str_tags                        = v:(t a g s)                                                      { return plib.stringify(v, 'lower'); }
+str_task                        = v:(t a s k)                                                      { return plib.stringify(v, 'lower'); }
 str_telephone                   = v:(t e l e p h o n e)                                            { return plib.stringify(v); }
 str_template                    = v:(t e m p l a t e)                                              { return plib.stringify(v, 'lower'); }
 str_text                        = v:(t e x t)                                                      { return plib.stringify(v, 'lower'); }
@@ -2059,6 +2109,7 @@ str_vm                          = v:(v m)                                       
 str_void                        = v:(v o i d)                                                      { return plib.stringify(v, 'lower'); }
 str_warning                     = v:(w a r n i n g)                                                { return plib.stringify(v); }
 str_wddx                        = v:(w d d x)                                                      { return plib.stringify(v); }
+str_weekly                      = v:(w e e k l y)                                                  { return plib.stringify(v, 'lower'); }
 str_where                       = v:(w h e r e)                                                    { return plib.stringify(v); }
 str_write                       = v:(w r i t e)                                                    { return plib.stringify(v, 'lower'); }
 str_wsdl_file                   = v:(w s d l __ f i l e)                                           { return plib.stringify(v, 'under', 'lower'); }
@@ -2087,8 +2138,8 @@ time
 	sec:( [0-5] integer )
 	mill:( period integer integer integer integer )? { return new Date(hr + min + sec + mill); }
 
-//value_date = quote_char v:date quote_char { return v; }
-//value_time = quote_char v:time quote_char { return v; }
+value_date = quote_char v:( now_func / create_time_span_func / date ) quote_char { return v; }
+value_time = quote_char v:time quote_char { return v; }
 value_date_time = quote_char v:( now_func / create_time_span_func / date_time ) quote_char { return v; }
 
 value_boolean = quote_char v:boolean quote_char { return v; }
@@ -2102,10 +2153,11 @@ boolean
 value_cfval = quote_char v:cfval quote_char { return v; }
 cfval = pound v:(!pound anychar)+ pound { return plib.stringify(v); }
 
-value_list = quote_char v:( ((!(comma / quote_char) anychar)+ comma )+ (!(comma / quote_char) anychar)+ ) quote_char { return plib.stringify(v).split(','); }
-value_domain = quote_char v:( period domain ) quote_char { return plib.stringify(v); }
-domain = v:( ( dom_part+ period )+ dom_part+ ) { return plib.stringify(v); }
-dom_part = ( lcchars / ub lcchars )+ ( '-' lcchars / lcchars )*
+value_list        = quote_char v:( ((!(comma / quote_char) anychar)+ comma )+ (!(comma / quote_char) anychar)+ ) quote_char { return plib.stringify(v).split(','); }
+value_domain      = quote_char v:( period domain ) quote_char { return plib.stringify(v); }
+value_fqdn_domain = quote_char v:domain quote_char { return plib.stringify(v); }
+domain            = v:( ( dom_part+ period )+ dom_part+ ) { return plib.stringify(v); }
+dom_part          = ( lcchars / ub lcchars )+ ( '-' lcchars / lcchars )*
 
 // Generic Generic Value Defs
 value_any_non_whitespace = quote_char v:( chars / [-_] )+ quote_char { return plib.stringify(v); }
