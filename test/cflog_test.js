@@ -11,7 +11,7 @@ var r;
 
 is.throws(function () {
 	r = cf.parse('<cflog>');
-}, Error);
+}, Error, "Missing required attributes");
 
 r = cf.parse('<cflog text="cflog test">');
 is.equal(r instanceof Object, true);
