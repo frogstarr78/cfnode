@@ -52,6 +52,7 @@ start
 	/ tag_cflogout
 	/ tag_cfloop
 	/ tag_cfmailparam
+	/ tag_cfmailpart
 	/ tag_cfobjectcache
 	/ tag_cfoutput
 	/ tag_cfparam
@@ -87,7 +88,6 @@ start
 //  / tag_cfinvoke
 //  / tag_cfldap
 //  / tag_cfmail
-//  / tag_cfmailpart
 //  / tag_cfobject
 //  / tag_cfpop
 //  / tag_cfpresenter
@@ -746,6 +746,13 @@ tag_cfmailparam
 		return new cftag(t, plib.flatten(attr));
 	}
 
+tag_cfmailpart
+	= lt t:str_cfmailpart attr:( attr_cfmailpart_optional* attr_cfmailpart_required attr_cfmailpart_optional* ) ws* gt 
+	content:(!(lt wack str_cfmailpart gt) anychar)*
+	lt wack str_cfmailpart gt {
+		return new cftag(t, plib.flatten(attr), plib.stringify(content));
+	}
+
 tag_cfobjectcache
 	= lt t:str_cfobjectcache attr:attr_cfobjectcache_required ws* wack? gt {
 		return new cftag(t, attr);
@@ -1215,7 +1222,7 @@ attr_type_err                    = ws+ n:str_type                        eql v:v
 attr_type_function               = ws+ n:str_type                        eql v:value_cffunction_return_type                            { return { name: n,                             value: v                            }; }
 attr_type_httpparam              = ws+ n:str_type                        eql v:value_cfhttpparam_type                                  { return { name: n,                             value: v                            }; }
 attr_type_log                    = ws+ n:str_type                        eql v:value_cflog_type                                        { return { name: n,                             value: v                            }; }
-attr_type_mailparam              = ws+ n:str_type                        eql v:value_cfmailparam_type                                  { return { name: n,                             value: v                            }; }
+attr_type_mail                   = ws+ n:str_type                        eql v:value_cfmail_type                                  { return { name: n,                             value: v                            }; }
 attr_type_param                  = ws+ n:str_type                        eql v:value_cfparam_type                                      { return { name: n,                             value: v                            }; } 
 attr_type_procparam              = ws+ n:str_type                        eql v:value_cfprocparam_type                                  { return { name: n,                             value: v                            }; }
 attr_type_timer                  = ws+ n:str_type                        eql v:value_cftimer_type                                      { return { name: n,                             value: v                            }; } 
@@ -1238,6 +1245,7 @@ attr_variable					 = ws+ n:str_variable                    eql v:value_any_non_w
 attr_verify_client               = ws+ n:str_verify_client               eql v:value_boolean                                           { return { name: 'verify_client',               value: v                            }; } 
 //attr_where                       = ws+ n:str_where                       eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_wsdl_file                   = ws+ n:str_wsdl_file                   eql v:( value_url / value_file_path )                         { return { name: 'wsdl_file',                   value: v                            }; }
+attr_wrap_text                   = ws+ n:str_wrap_text                   eql v:value_integer                                           { return { name: 'wrap_text',                   value: v                            }; }
 
 //attr_cfabort_required
 attr_cfabort_optional = attr_show_error
@@ -1589,10 +1597,13 @@ attr_cfmailparam_optional
 	/ attr_content_id
 	/ attr_disposition
 	/ attr_remove
-	/ attr_type_mailparam
+	/ attr_type_mail
 	/ attr_value
 value_disposition = quote_char v:( str_attachment / str_inline ) quote_char { return v; }
-value_cfmailparam_type = quote_char v:( str_text / str_plain / str_html ) quote_char { return v; }
+value_cfmail_type = quote_char v:( str_text / str_plain / str_html ) quote_char { return v; }
+
+attr_cfmailpart_required = attr_type_mail
+attr_cfmailpart_optional = attr_charset / attr_wrap_text
 
 attr_cfobjectcache_required = attr_objectcache_action
 //attr_cfobjectcache_optional
@@ -1790,6 +1801,7 @@ str_cfloginuser                 = v:(c f l o g i n u s e r)                     
 str_cflogout                    = v:(c f l o g o u t)                                              { return plib.stringify(v, 'lower'); }
 str_cfloop                      = v:(c f l o o p)                                                  { return plib.stringify(v, 'lower'); }
 str_cfmailparam                 = v:(c f m a i l p a r a m)                                        { return plib.stringify(v, 'lower'); }
+str_cfmailpart                  = v:(c f m a i l p a r t)                                          { return plib.stringify(v, 'lower'); }
 str_cfobjectcache               = v:(c f o b j e c t c a c h e)                                    { return plib.stringify(v, 'lower'); }
 str_cfoutput                    = v:(c f o u t p u t)                                              { return plib.stringify(v, 'lower'); }
 str_cfparam                     = v:(c f p a r a m)                                                { return plib.stringify(v, 'lower'); }
@@ -2192,6 +2204,7 @@ str_weekly                      = v:(w e e k l y)                               
 str_where                       = v:(w h e r e)                                                    { return plib.stringify(v); }
 str_write                       = v:(w r i t e)                                                    { return plib.stringify(v, 'lower'); }
 str_wsdl_file                   = v:(w s d l __ f i l e)                                           { return plib.stringify(v, 'under', 'lower'); }
+str_wrap_text                   = v:(w r a p __ t e x t)                                           { return plib.stringify(v, 'under', 'lower'); }
 str_xml                         = v:(x m l)                                                        { return plib.stringify(v); }
 str_yes_no                      = v:(y e s n o)                                                    { return plib.stringify(v); }
 str_zip                         = v:(z i p)                                                        { return plib.stringify(v); }
