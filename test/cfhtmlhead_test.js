@@ -28,8 +28,9 @@ is.equal(r instanceof Object, true);
 is.equal(r.tag, 'htmlhead');
 is.equal(r.attributes.text, 'cfhtmlhead test');
 
-//@TODO Fix this test
-test.neut();
-//r = cf.parse('<cfhtmlhead text="<link href='"'/blog/custom/img/favicon.ico\' rel=\'shortcut icon\' type=\'image/x-icon\'>#chr(13)##chr(10)#" />');
+r = cf.parse("<cfhtmlhead text=\"<link href='/blog/custom/img/favicon.ico' rel='shortcut icon' type='image/x-icon'>#chr(13)##chr(10)#\" />");
+is.equal(r instanceof Object, true);
+is.equal(r.tag, 'htmlhead');
+is.equal(r.attributes.text, "<link href='/blog/custom/img/favicon.ico' rel='shortcut icon' type='image/x-icon'>#chr(13)##chr(10)#");
 
-//test.ok();
+test.ok();

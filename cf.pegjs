@@ -2306,7 +2306,9 @@ value_any_non_whitespace = quote_char v:( chars / [-_] )+ quote_char { return pl
 value_encoding = value_any_non_whitespace
 
 // @TODO: allow escaped quotes inside quoted strings
-value_any = quote_char v:(!quote_char anychar)+ quote_char { return plib.stringify(v); }
+value_any 
+	= '"' v:(!'"' ( '\"' / anychar ) )+ '"' { return plib.stringify(v); }
+	/ "'" v:(!"'" anychar)+ "'" { return plib.stringify(v); }
 //value_any 
 //	= quote_char v:( ( '\\' quote_char ) /  anychar )+ quote_char { return plib.stringify(v); }
 str_any_non_quote = v:(!quote_char anychar)+ { return plib.stringify(v); }

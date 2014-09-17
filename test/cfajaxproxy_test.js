@@ -75,7 +75,11 @@ is.equal(r.attributes.bind, 'ajaxproxy_bind2');
 is.equal(r.attributes.on_error, 'showError2');
 is.equal(r.attributes.on_success, 'successFunc2');
 
-test.neut();
-//@TODO Fix this code. It should work.
-//r = cf.parse("<cfajaxproxy bind='ajaxproxy_bind' onError='showError' onSuccess='function (rval) { console.log(rval); }` />");
-//test.ok();
+r = cf.parse("<cfajaxproxy bind='ajaxproxy_bind3' onError='showError3' onSuccess='function (rval) { console.log(rval); }' />");
+is.equal(r instanceof Object, true);
+is.equal(r.tag, 'ajaxproxy');
+is.strictEqual(r.attributes.cfc, undefined);
+is.equal(r.attributes.bind, 'ajaxproxy_bind3');
+is.equal(r.attributes.on_error, 'showError3');
+is.equal(r.attributes.on_success, 'function (rval) { console.log(rval); }');
+test.ok();
