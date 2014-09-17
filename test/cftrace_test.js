@@ -16,6 +16,14 @@ is.equal(r.attributes.abort, false);
 is.equal(r.attributes.inline, false);
 is.equal(r.attributes.type, 'information');
 
+r = cf.parse('<cftrace></cftrace>');
+is.equal(r instanceof Object, true);
+is.equal(r.tag, 'trace');
+is.equal(r.content, '');
+is.equal(r.attributes.abort, false);
+is.equal(r.attributes.inline, false);
+is.equal(r.attributes.type, 'information');
+
 r = cf.parse('<cftrace var="FORM.username">' +
 "\n</cftrace>");
 is.equal(r instanceof Object, true);
