@@ -17,7 +17,7 @@ is.throws(function () {
 }, Error, 'Missing required action attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cffile action="upload" >');
+	r = cf.parse('<cffile action="upload_all" >');
 }, Error, 'Missing required destination attribute.');
 
 r = cf.parse('<cffile action="upload_all" destination="/tmp/dfile" />');
