@@ -51,9 +51,9 @@ start
 	/ tag_cfloginuser
 	/ tag_cflogout
 	/ tag_cfloop
+	/ tag_cfmail
 	/ tag_cfmailparam
 	/ tag_cfmailpart
-	/ tag_cfmail
 	/ tag_cfobjectcache
 	/ tag_cfoutput
 	/ tag_cfparam
@@ -169,20 +169,7 @@ tag_cfajaximport
 
 tag_cfajaxproxy
 	= lt t:str_cfajaxproxy attr:( attr_cfajaxproxy_cfc / attr_cfajaxproxy_bind ) ws* wack? gt {
-		var me = new cftag(t, plib.flatten(attr));
-		if ( me.attributes.has_key('cfc') ) {
-			if ( plib.is_empty(me.attributes.cfc) ) {
-				throw new Error("Empty cfc attribute value.");
-			}
-
-			if ( plib.is_nil(me.attributes.js_class_name) || plib.is_empty(me.attributes.js_class_name) ) {
-				me.attributes.js_class_name = me.attributes.cfc;
-			}
-		}
-		if ( me.attributes.has_key('bind') && plib.is_empty(me.attributes.bind) ) {
-			throw new Error("Empty bind attribute value.");
-		}
-		return me;
+		return new cftag(t, plib.flatten(attr));
 	}
 
 tag_cfapplication
@@ -205,32 +192,7 @@ tag_cfcache
 	= lt t:str_cfcache attr:attr_cfcache_optional* gt
 	content:(!(lt wack str_cfcache gt) anychar)*
 	lt wack str_cfcache gt {
-		var me = new cftag(t, attr, plib.stringify(content));
-		switch(me.attributes.action) {
-			case 'get':
-				if ( plib.is_nil( me.attributes.name ) || plib.is_empty( me.attributes.name ) ) {
-					throw new Error("Missing required name attribute for get action.");		
-				}
-				if ( plib.is_nil( me.attributes.id ) || plib.is_empty( me.attributes.id ) ) {
-					throw new Error("Missing required id attribute for get action.");		
-				}
-				break;
-			case 'put':
-				if ( plib.is_nil( me.attributes.value ) || plib.is_empty( me.attributes.value ) ) {
-					throw new Error("Missing required value attribute for put action.");		
-				}
-				if ( plib.is_nil( me.attributes.id ) || plib.is_empty( me.attributes.id ) ) {
-					throw new Error("Missing required id attribute for put action.");		
-				}
-				break;
-			case 'flush':
-				// @TODO Fix this to detect operations on Objects only and not Pages.
-				if ( plib.is_nil( me.attributes.id ) || plib.is_empty( me.attributes.id ) ) {
-					throw new Error("Missing required id attribute for put action.");		
-				}
-				break;
-		}
-		return me;
+		return new cftag(t, attr, plib.stringify(content));
 	}
 
 tag_cfcase
@@ -266,11 +228,7 @@ tag_cfcookie
 	= lt t:str_cfcookie attr:(
 		attr_cfcookie_optional* attr_cfcookie_required attr_cfcookie_optional*
 	) ws* wack? gt {
-		var me = new cftag(t, plib.flatten(attr));
-		if ( ( me.attributes.path && me.attributes.path !== "" ) && ( ! me.attributes.domain || me.attributes.domain === "" ) ) {
-			throw new Error("Missing domain value, required with path attribute.");		
-		}
-		return me;
+		return new cftag(t, plib.flatten(attr));
 	}
 
 tag_cfdbinfo
@@ -278,12 +236,7 @@ tag_cfdbinfo
 			attr_cfdbinfo_optional* attr_cfdbinfo_required_name attr_cfdbinfo_optional* attr_cfdbinfo_required_type attr_cfdbinfo_optional*
 			/ attr_cfdbinfo_optional* attr_cfdbinfo_required_type attr_cfdbinfo_optional* attr_cfdbinfo_required_name attr_cfdbinfo_optional*
 	) ws* wack? gt {
-		var me = new cftag(t, plib.flatten(attr));
-		types_requiring_table_value = ['columns', 'foreignkeys', 'index'];
-		if ( ( me.attributes.type && types_requiring_table_value.indexOf(me.attributes.type) > -1 ) && ( ! me.attributes.table || me.attributes.table === "" ) ) {
-			throw new Error(util.format("Missing table value, required with type attribute specified as one of %a.", types_requiring_table_value));		
-		}
-		return me;
+		return new cftag(t, plib.flatten(attr));
 	}
 
 tag_cfdefaultcase
@@ -293,11 +246,7 @@ tag_cfdefaultcase
 
 tag_cfdirectory
 	= lt t:str_cfdirectory attr:( attr_cfdirectory_optional* attr_cfdirectory_required attr_cfdirectory_optional* ) ws* wack? gt {
-		var me = new cftag(t, plib.flatten(attr));
-		if ( ! require('fs').statSync(me.attributes.directory).isDirectory() ) {
-			throw new Error('Invalid directory attribute. Value is not a directory.');	
-		}
-		return me;
+		return new cftag(t, plib.flatten(attr));
 	}
 
 tag_cfdump
@@ -506,11 +455,7 @@ tag_cflog
 
 tag_cfheader
 	= lt t:str_cfheader attr:attr_cfheader_optional* ws* wack? gt {
-		var me = new cftag(t, plib.flatten(attr));	
-		if ( ( typeof me.attributes.name === 'undefined' || me.attributes.name == '' ) && ( typeof me.attributes.status_code === 'undefined' || me.attributes.status_code == '' ) ) {
-			throw new Error("Missing required name or statusCode attribute.");
-		}
-		return me;
+		return new cftag(t, plib.flatten(attr));	
 	}
 
 tag_cfhtmlhead
@@ -802,13 +747,7 @@ tag_cfprocessingdirective
 
 tag_cfprocparam
 	= lt t:str_cfprocparam attr:(attr_cfprocparam_optional* attr_cfprocparam_required attr_cfprocparam_optional* ) ws* wack? gt {
-		var me = new cftag(t, plib.flatten(attr));
-		if ( me.attributes.type == "in" && ( typeof me.attributes.value === 'undefined' || me.attributes.value == "" ) ) {
-			throw new Error("Missing required value attribute.");
-		} else if ( ['inout', 'out'].indexOf(me.attributes.type) > -1 && ( typeof me.attributes.variable === 'undefined' || me.attributes.variable == "" ) ) {
-			throw new Error("Missing required variable attribute.");
-		}
-		return me; 
+		return new cftag(t, plib.flatten(attr));
 	}
 
 tag_cfprocresult
