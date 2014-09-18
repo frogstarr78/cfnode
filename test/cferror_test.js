@@ -9,11 +9,11 @@ is.throws(function () {
 }, Error, "Missing required attributes");
 
 is.throws(function () {
-	r = cf.parse('<cferror type="cfnode_test">');
+	r = cf.parse('<cferror type="request">');
 }, Error, "Missing required template attribute");
 
 is.throws(function () {
-	r = cf.parse('<cferror template="cfnode_test">');
+	r = cf.parse('<cferror template="/path/to/error.cfm">');
 }, Error, "Missing required type attribute");
 
 r = cf.parse('<cferror type="request" template="/path/to/error.cfm">');
@@ -23,7 +23,7 @@ is.equal(r.attributes.type, 'request');
 is.equal(r.attributes.template, '/path/to/error.cfm');
 is.equal(r.attributes.exception, 'any');
 
-r = cf.parse('<cferror template="/path/to/error2.cfm" type="request" mailTo="none@example.com" exception="lock">');
+r = cf.parse('<cferror template="/path/to/error2.cfm" type="request" mailTo="none@example.com" exception="lock" />');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'error');
 is.equal(r.attributes.type, 'request');
