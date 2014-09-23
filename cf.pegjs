@@ -281,8 +281,6 @@ tag_cfif
 		return me;
 	}
 
-
-
 tag_cfloop
 	= tag_cfloop_array
 	/ tag_cfloop_conditional
@@ -367,9 +365,9 @@ tag_cfloop_collection = lt t:str_cfloop attr:attr_cfloop_collection+ gt content:
 		return me;
 	}
 
-tag_cfmail = lt t:str_cfmail attr:attr_cfmail+ ws* gt content:(!tag_cfmail_close anychar)* tag_cfmail_close { return new cftag(t, plib.flatten(attr), plib.stringify(content)); }
+tag_cfmail     = lt t:str_cfmail     attr:attr_cfmail+     ws* gt content:(!tag_cfmail_close anychar)* tag_cfmail_close { return new cftag(t, plib.flatten(attr), plib.stringify(content)); }
 tag_cfmailpart = lt t:str_cfmailpart attr:attr_cfmailpart+ ws* gt content:(!tag_cfmailpart_close anychar)* tag_cfmailpart_close { return new cftag(t, plib.flatten(attr), plib.stringify(content)); }
-tag_cfoutput = lt t:str_cfoutput attr:attr_cfoutput* gt content:(!tag_cfoutput_close anychar)* tag_cfoutput_close { return new cftag(t, plib.flatten(attr), plib.stringify(content)); }
+tag_cfoutput   = lt t:str_cfoutput   attr:attr_cfoutput*   ws* gt content:(!tag_cfoutput_close anychar)* tag_cfoutput_close { return new cftag(t, plib.flatten(attr), plib.stringify(content)); }
 
 tag_cfprocessingdirective
 	= lt t:str_cfprocessingdirective attr:attr_cfprocessingdirective* gt content:(!tag_cfprocessingdirective_close anychar)* tag_cfprocessingdirective_close { return new cftag(t, plib.flatten(attr), plib.stringify(content)); }
@@ -385,7 +383,6 @@ tag_cfreturn = lt t:str_cfreturn v:(!gt anychar)+ gt {
 		} else {
 			me.expression = val
 		}
-
 		return me;
 	}
 
@@ -398,7 +395,6 @@ tag_cftimer       = lt t:str_cftimer       attr:attr_cftimer*       gt  content:
 tag_cftrace       = lt t:str_cftrace       attr:attr_cftrace*       gt  content:(!tag_cftrace_close        anychar)*           tag_cftrace_close        {       return  new       cftag(t,  attr,                      plib.stringify(content));  }
 tag_cftransaction = lt t:str_cftransaction attr:attr_cftransaction* gt  content:(!tag_cftransaction_close  anychar)*           tag_cftransaction_close  {       return  new       cftag(t,  attr,                      plib.stringify(content));  }
 tag_cftry         = lt t:str_cftry                                  gt       content:(!tag_cftry_close     anychar)*                          tag_cftry_close     {                        return  new     cftag(t,  [],       plib.stringify(content));  }
-
 //End Tags
 
 // Tag Specific Value Defs
@@ -550,6 +546,7 @@ attr_login_storage               = ws+ n:str_login_storage               eql v:v
 attr_mail_to                     = ws+ n:str_mail_to                     eql v:value_email_address                                     { return { name: n,                             value: v                            }; }
 attr_mailer_id                   = ws+ n:str_mailer_id                   eql v:value_any                                               { return { name: 'mailer_id',                   value: v                            }; }
 attr_mapped_super_class          = ws+ n:str_mapped_super_class          eql v:value_boolean                                           { return { name: 'mapped_super_class',          value: v                            }; }
+//    / ws+ n:str_mapped_by                 eql v:value_any                    { return { name: n,              value: v  }; }
 attr_max                         = ws+ n:str_max                         eql v:value_integer                                           { return { name: n,                             value: v                            }; }
 attr_max_length                  = ws+ n:str_max_length                  eql v:value_integer                                           { return { name: n,                             value: v                            }; }
 attr_max_rows                    = ws+ n:str_max_rows                    eql v:value_integer                                           { return { name: n,                             value: v                            }; }
@@ -753,71 +750,38 @@ attr_cfparam       = attr_default / attr_max / attr_min / attr_name / attr_regex
 attr_cfprocparam   = attr_max_length / attr_null / attr_scale / attr_sql_type / attr_type_procparam / attr_variable / attr_non_ws_value
 
 attr_cfproperty
-//    = ws+ n:str_batch_size                 eql v:value_                       { return { name: n,              value: v  }; }
-//    / ws+ n:str_cascade                   eql v:value_                       { return { name: n,              value: v  }; }
-//    / ws+ n:str_catalog                   eql v:value_                       { return { name: n,              value: v  }; }
     = attr_cfc
-//    / ws+ n:str_collection_type           eql v:value_                       { return { name: n,              value: v  }; }
-//    / ws+ n:str_column                    eql v:value_                       { return { name: n,              value: v  }; }
     / attr_constrained
-//    / ws+ n:str_data_type                 eql v:value_                       { return { name: n,              value: v  }; }
 	/ attr_default
 	/ attr_display_name
     / attr_dynamic_insert
     / attr_dynamic_update
-//    / ws+ n:str_element_column            eql v:value_any                    { return { name: n,              value: v  }; }
-//    / ws+ n:str_element_type              eql v:value_any                    { return { name: n,              value: v  }; }
-//    / ws+ n:str_entity_name               eql v:value_any                    { return { name: n,              value: v  }; }
     / attr_fetch
-//    / ws+ n:str_field_type                eql v:value_any                    { return { name: n,              value: v  }; }
-//    / ws+ n:str_fkcolumn                  eql v:value_any                    { return { name: n,              value: v  }; }
-//    / ws+ n:str_formula                   eql v:value_any                    { return { name: n,              value: v  }; }
     / attr_generated
-//    / ws+ n:str_generator                 eql v:value_any                    { return { name: n,              value: v  }; }
     / attr_getter
 	/ attr_hint
-//    / ws+ n:str_index                     eql v:value_any                    { return { name: n,              value: v  }; }
     / attr_insert
     / attr_inverse
-//    / ws+ n:str_inverse_join_column       eql v:value_any                    { return { name: n,              value: v  }; }
-//    / ws+ n:str_join_column               eql v:value_any                    { return { name: n,              value: v  }; }
     / attr_lazy
     / attr_length
-//    / ws+ n:str_link_catalog              eql v:value_any                    { return { name: n,              value: v  }; }
-//    / ws+ n:str_link_schema               eql v:value_any                    { return { name: n,              value: v  }; }
-//    / ws+ n:str_link_table                eql v:value_any                    { return { name: n,              value: v  }; }
-//    / ws+ n:str_mapped_by                 eql v:value_any                    { return { name: n,              value: v  }; }
     / attr_missing_row_ignored
     / attr_name
     / attr_not_null
     / attr_optimistic_lock
-//    / ws+ n:str_optimistic_lock_generated eql v:value_any                    { return { name: n,              value: v  }; }
-//    / ws+ n:str_order_by                  eql v:value_any                    { return { name: n,              value: v  }; }
-//    / ws+ n:str_order_by_read_only        eql v:value_any                    { return { name: n,              value: v  }; }
     / attr_orm_type
-//    / ws+ n:str_params                    eql v:value_any                    { return { name: n,              value: v  }; }
     / attr_persistent
     / attr_precision
 	/ attr_read_only
 	/ attr_required
-//    / ws+ n:str_row_id                    eql v:value_any                    { return { name: n,              value: v  }; }
     / attr_scale
     / attr_setter
-//    / ws+ n:str_schema                    eql v:value_any                    { return { name: n,              value: v  }; }
     / attr_select_before_update
-//    / ws+ n:str_select_key                eql v:value_any                    { return { name: n,              value: v  }; }
-//    / ws+ n:str_sequence                  eql v:value_any                    { return { name: n,              value: v  }; }
 	/ attr_serializable
     / attr_source
-//    / ws+ n:str_struct_key_column         eql v:value_any                    { return { name: n,              value: v  }; }
-//    / ws+ n:str_struct_key_data_type      eql v:value_any                    { return { name: n,              value: v  }; }
-//    / ws+ n:str_struct_key_type           eql v:value_any                    { return { name: n,              value: v  }; }
     / attr_table
 	/ attr_type_function
     / attr_unique
-//    / ws+ n:str_unique_key                eql v:value_any                    { return { name: n,              value: v  }; }
     / attr_update
-//    / ws+ n:str_where                     eql v:value_any                    { return { name: n,              value: v  }; }
     / attr_validate
     / attr_validate_param
 
