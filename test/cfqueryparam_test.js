@@ -5,7 +5,7 @@ var is = require('assert'),
 
 var r;
 is.throws(function () {
-	r = cf.parse('<cfqueryparam>');
+	r = cf.parse('<cfqueryparam list="yes" >');
 }, Error, "Missing required value attribute");
 
 r = cf.parse('<cfqueryparam value="#cfqueryparam_test#">');

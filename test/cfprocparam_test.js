@@ -5,7 +5,7 @@ var is = require('assert'),
 
 var r;
 is.throws(function () {
-	r = cf.parse('<cfprocparam>');
+	r = cf.parse('<cfprocparam value="1" />');
 }, Error, "Missing required attribute");
 
 is.throws(function () {

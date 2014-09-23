@@ -10,16 +10,16 @@ is.throws(function () {
 }, Error, "Missing required attributes");
 
 is.throws(function () {
-	r = cf.parse('<cfloginuser name="who">');
-}, Error, "Missing required roles and password attributes");
+	r = cf.parse('<cfloginuser name="who" password="pass">');
+}, Error, "Missing required roles attributes");
 
 is.throws(function () {
-	r = cf.parse('<cfloginuser roles="a,b">');
-}, Error, "Missing required name and password attributes");
+	r = cf.parse('<cfloginuser roles="a,b" password="pass" >');
+}, Error, "Missing required name attributes");
 
 is.throws(function () {
-	r = cf.parse('<cfloginuser password="pass">');
-}, Error, "Missing required name and roles attributes");
+	r = cf.parse('<cfloginuser roles="a,b,c" password="pass">');
+}, Error, "Missing required name attributes");
 
 
 is.throws(function () {

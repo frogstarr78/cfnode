@@ -4,7 +4,7 @@ var is = require('assert'),
 	test = require('./testlib');
 
 var r;
-r = cf.parse('<cfcatch></cfcatch>');
+r = cf.parse('<cfcatch ></cfcatch>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'catch');
 is.equal(r.content, '');

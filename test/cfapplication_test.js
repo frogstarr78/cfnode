@@ -6,10 +6,10 @@ var is = require('assert'),
 var r;
 
 is.throws(function () {
-	r = cf.parse('<cfapplication>');
+	r = cf.parse('<cfapplication datasource="something">');
 }, Error, "Missing required name attribute.");
 
-r = cf.parse('<cfapplication name="cfapplication_test1">');
+r = cf.parse('<cfapplication name="cfapplication_test1" />');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'application');
 is.equal(r.attributes.name, 'cfapplication_test1');

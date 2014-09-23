@@ -9,7 +9,7 @@ var is = require('assert'),
 var r;
 
 is.throws(function () {
-	r = cf.parse('<cfcookie>');
+	r = cf.parse('<cfcookie secure="no" />');
 }, Error, 'Missing required name attribute.');
 
 r = cf.parse('<cfcookie name="cfcookietest">');

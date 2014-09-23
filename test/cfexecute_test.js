@@ -10,7 +10,7 @@ is.throws(function () {
 }, Error, "Missing required name attribute and closing tag.");
 
 is.throws(function () {
-	r = cf.parse('<cfexecute ></cfexecute>');
+	r = cf.parse('<cfexecute arguments="-v"></cfexecute>');
 }, Error, "Missing required name attribute.");
 
 is.throws(function () {
@@ -39,7 +39,7 @@ is.equal(r.attributes.output_file, '/tmp/outfile');
 is.equal(r.attributes.timeout, 10);
 is.equal(r.attributes.variable, 'execute_out');
 
-r = cf.parse("<CFEXECUTE NAME='execute3' ARGUMENTS='-v' OUTPUTFILE='/tmp/outfile' TIMEOUT='11' VARIABLE='execute_out'>" +
+r = cf.parse("<CFEXECUTE NAME='execute3' ARGUMENTS='-v' OUTPUTFILE='/tmp/outfile' TIMEOUT='11' VARIABLE='execute_out' >" +
 "\nSomething, althought I don't know why this is not an empty tag." +
 "\nWhat could you possibly add here that would be useful." +
 "</CFEXECUTE>");

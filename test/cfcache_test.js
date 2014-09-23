@@ -52,7 +52,7 @@ is.throws(function () {
 	r = cf.parse('<cfcache action="flush" id=""></cfcache>');
 }, Error, "Invalid id attribute for flush action.");
 
-r = cf.parse('<cfcache>' +
+r = cf.parse('<cfcache >' +
 "Pointless test\n" +
 '</cfcache>');
 is.equal(r instanceof Object, true);

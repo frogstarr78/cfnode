@@ -23,7 +23,7 @@ exports.error = function (m, nl) {
 exports.die = function (content, exitStatus) { 
 	var xs = typeof exitStatus === 'undefined' ? 1 : exitStatus;
 	if( typeof content === 'undefined' ) {
-		console.log('Aborted!'.red)
+		console.log('X'.red)
 	} else if ( typeof content === 'string' && content != 'Success!' ) {
 		console.log(content)
 	} else {

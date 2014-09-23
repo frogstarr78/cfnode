@@ -13,7 +13,7 @@ is.throws(function () {
 	r = cf.parse('<cffunction></cffunction>');
 }, Error, "Missing required name attribute.");
 
-r = cf.parse('<cffunction name="cffunction_test1"></cffunction>');
+r = cf.parse('<cffunction name="cffunction_test1" ></cffunction>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'function');
 is.equal(r.content, '');

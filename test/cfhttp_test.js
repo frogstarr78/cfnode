@@ -10,7 +10,7 @@ var r;
 
 is.equal = is.deepEqual;
 is.throws(function () {
-	r = cf.parse('<cfhttp></cfhttp>');
+	r = cf.parse('<cfhttp charset="us-ascii"></cfhttp>');
 }, Error, 'Missing required attributes');
 
 is.throws(function () {
