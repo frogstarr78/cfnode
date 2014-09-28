@@ -8,44 +8,11 @@ var is = require('assert'),
 
 var r;
 
-function _equalDateLike(received, expected, comparisons) {
-
-	if ( received instanceof Date && expected instanceof Date ) {
-		comparisons.forEach(function (func) {
-			rec = received[func]();
-			exp = expected[func]();
-			if ( rec != exp ) { return false; }
-		});
-		return true;
-	} else if ( Number.isNaN(received) || Number.isNaN(expected) ) {
-		return false;
-	} else if ( typeof received === 'number' ) {
-		return _equalDateLike( new Date(received), expected, comparisons );
-	} else if ( typeof expected === 'number' ) {
-		return _equalDateLike( received, new Date(expected), comparisons );
-	} else {
-		return false;
-	}
-}
-is.equalDate = function (received, expected, message) {
-	var comparisons = ['getFullYear', 'getMonth', 'getDate', 'getDay'];
-	if ( !_equalDateLike(received, expected, comparisons) ) {
-		is.fail(received, expected, message, 'equalDate', is.equalDate);
-	}
-}
-
-is.equalTime = function (received, expected, message) {
-	var comparisons = ['getHours', 'getMinutes', 'getSeconds'];
-	if ( !_equalDateLike(received, expected, comparisons) ) {
-		is.fail(rec, exp, message, func, is.equalDate);
-	}
-}
-
 is.throws(function () {
 	r = cf.parse('<cflogin>');
 }, Error, "Missing closing tag");
 
-r = cf.parse('<cflogin></cflogin>');
+r = cf.parse('<cflogin ></cflogin>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'login');
 is.equal(r.attributes.application_token, 'CFAUTHORIZATION_');

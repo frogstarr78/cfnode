@@ -4,12 +4,12 @@ var is = require('assert'),
 
 var r;
 is.throws(function () {
-	r = cf.parse('<cfassociate>');
+	r = cf.parse('<cfassociate data_collection="this">');
 }, Error);
 
 is.throws(function () {
 	r = cf.parse('<cfassociate baseTag="cfnode test">');
-}, Error);
+}, Error, "Invalid baseTag value.");
 
 r = cf.parse('<cfassociate baseTag="cfnode_test">');
 is.equal(r instanceof Object, true);

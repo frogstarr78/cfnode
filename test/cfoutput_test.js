@@ -8,7 +8,7 @@ var is = require('assert'),
 
 var r;
 
-r = cf.parse('<cfoutput></cfoutput>');
+r = cf.parse('<cfoutput ></cfoutput>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'output');
 is.equal(r.content, '');

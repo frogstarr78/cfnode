@@ -13,7 +13,7 @@ is.throws(function () {
 }, Error, "Missing closing tag");
 
 is.throws(function () {
-	r = cf.parse('<cflock></cflock>');
+	r = cf.parse('<cflock name="something" ></cflock>');
 }, Error, "Missing required timeout attribute");
 
 r = cf.parse('<cflock timeout="1"></cflock>');

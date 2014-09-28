@@ -10,8 +10,8 @@ var r;
 
 
 is.throws(function () {
-	r = cf.parse('<cflog>');
-}, Error, "Missing required attributes");
+	r = cf.parse('<cflog file="/path">');
+}, Error, "Missing required text attributes");
 
 r = cf.parse('<cflog text="cflog test">');
 is.equal(r instanceof Object, true);

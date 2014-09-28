@@ -5,7 +5,7 @@ var is = require('assert'),
 
 var r;
 is.throws(function () {
-	r = cf.parse('<cfdirectory>');
+	r = cf.parse('<cfdirectory filter="*.exe" />');
 }, Error, 'Missing required directory attribute.');
 
 is.throws(function () {

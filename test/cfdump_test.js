@@ -5,10 +5,6 @@ var is = require('assert'),
 
 var r;
 is.throws(function () {
-	r = cf.parse('<cfdump>');
-}, Error, 'Missing required var attribute');
-
-is.throws(function () {
 	r = cf.parse('<cfdump showUDFs="true">');
 }, Error, 'Missing required var attribute');
 

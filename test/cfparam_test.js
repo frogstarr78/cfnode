@@ -9,8 +9,8 @@ var is = require('assert'),
 var r;
 
 is.throws(function () {
-	r = cf.parse('<cfparam>');
-}, Error);
+	r = cf.parse('<cfparam default="abc">');
+}, Error, "Missing required name attribute.");
 
 r = cf.parse('<cfparam name="cfparamtest">');
 is.equal(r instanceof Object, true);

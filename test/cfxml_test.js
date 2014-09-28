@@ -6,12 +6,8 @@ var is = require('assert'),
 var r;
 
 is.throws(function () {
-	r = cf.parse('<cfxml >');
+	r = cf.parse('<cfxml case_sensitive="no">');
 }, Error, "Missing required variable attribute.");
-
-is.throws(function () {
-	r = cf.parse('<cfxml variable="" >');
-}, Error, "Empty variable attribute value.");
 
 r = cf.parse("<cfxml variable='cfxml_test2' />");
 is.equal(r instanceof Object, true);

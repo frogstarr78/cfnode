@@ -9,7 +9,7 @@ is.throws(function () {
 }, Error, 'Missing required value attribute');
 
 is.throws(function () {
-	r = cf.parse('<cfcase delimiters=",">');
+	r = cf.parse('<cfcase delimiter=",">');
 }, Error, 'Missing required value attribute');
 
 r = cf.parse('<cfcase value="#cfcase_test#">');

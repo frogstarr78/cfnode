@@ -10,7 +10,7 @@ var r;
 
 
 is.throws(function () {
-	r = cf.parse('<cflocation>');
+	r = cf.parse('<cflocation add_token="yes" >');
 }, Error, 'Missing required url attribute');
 
 r = cf.parse('<cflocation url="/cflocation" />');

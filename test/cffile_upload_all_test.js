@@ -31,7 +31,8 @@ r = cf.parse('<cffile action="upload_all" ' +
 'destination="/tmp/dfile" ' +
 'name_conflict="make_unique" ' +
 'accept="text/plain" ' +
-'mode="721" attributes="normal,hidden" '+
+'mode="721" ' +
+'attributes="normal,hidden" '+
 'result="upload_res" />');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'file');

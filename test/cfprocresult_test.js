@@ -5,7 +5,7 @@ var is = require('assert'),
 
 var r;
 is.throws(function () {
-	r = cf.parse('<cfprocresult>');
+	r = cf.parse('<cfprocresult max_rows="2">');
 }, Error, "Missing required name attribute");
 
 r = cf.parse('<cfprocresult name="procresult">');

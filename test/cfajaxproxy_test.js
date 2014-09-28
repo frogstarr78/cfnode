@@ -11,11 +11,11 @@ is.throws(function () {
 
 is.throws(function () {
 	r = cf.parse('<cfajaxproxy on_success="ajaxproxy_success" on_error="ajaxProxy_error" />');
-}, Error, "Invalid attributes. Cannot define both bind and cfc attributes simultaneously.");
+}, Error, "Missing required bind or cfc attribute.");
 
 is.throws(function () {
 	r = cf.parse('<cfajaxproxy bind="ajaxproxybind" cfc="ajaxproxycfc">');
-}, Error);
+}, Error, "Invalid attributes. Cannot define both bind and cfc attributes simultaneously.");
 
 is.throws(function () {
 	r = cf.parse('<cfajaxproxy bind="">');

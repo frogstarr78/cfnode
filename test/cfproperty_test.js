@@ -6,11 +6,7 @@ var is = require('assert'),
 var r;
 
 is.throws(function () {
-	r = cf.parse('<cfproperty>');
-}, Error);
-
-is.throws(function () {
-	r = cf.parse('<cfproperty />');
+	r = cf.parse('<cfproperty constrained="yes" />');
 }, Error, "Missing required name attribute.");
 
 r = cf.parse('<cfproperty name="cfproperty_test1" />');
