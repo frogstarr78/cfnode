@@ -79,79 +79,87 @@ start
 	/ tag_cfupdate
 	/ tag_cfxml
 	/ tag_cfzipparam
-//  / tag_cfchart
-//  / tag_cfchartdata
-//  / tag_cfchartseries
-//  / tag_cffeed
-//  / tag_cfftp
-//  / tag_cfimap
-//  / tag_cfinvoke
-//  / tag_cfldap
-//  / tag_cfobject
-//  / tag_cfpop
-//  / tag_cfpresenter
-//  / tag_cfspreadsheet
-//  / tag_cfsprydataset
-//  / tag_cfthread
-//  / tag_cfwddx
-//  / tag_cfzip
-//  / tag_cfapplet             // html wrapper
-//  / tag_cfcalendar           // html wrapper
-//  / tag_cfcol                // html wrapper
-//  / tag_cfdiv                // html wrapper
-//  / tag_cffileupload         // html wrapper
-//  / tag_cfform               // html wrapper
-//  / tag_cfformgroup          // html wrapper
-//  / tag_cfformitem           // html wrapper
-//  / tag_cfpresentation       // html wrapper
-//  / tag_cfpresentationslide  // html wrapper
-//  / tag_cfgrid               // html wrapper
-//  / tag_cfgridcolumn         // html wrapper
-//  / tag_cfgridrow            // html wrapper
-//  / tag_cfgridupdate         // html wrapper
-//  / tag_cfimage              // html wrapper
-//  / tag_cfinput              // html wrapper
-//  / tag_cflayout             // html wrapper
-//  / tag_cflayoutarea         // html wrapper
-//  / tag_cfmap                // html wrapper
-//  / tag_cfmapitem            // html wrapper
-//  / tag_cfmediaplayer        // html wrapper
-//  / tag_cfmenu               // html wrapper
-//  / tag_cfmenuitem           // html wrapper
-//  / tag_cfmessagebox         // html wrapper
-//  / tag_cfpod                // html wrapper
-//  / tag_cfprogressbar        // html wrapper
-//  / tag_cfselect             // html wrapper
-//  / tag_cfslider             // html wrapper
-//  / tag_cftable              // html wrapper
-//  / tag_cftextarea           // html wrapper
-//  / tag_cftooltip            // html wrapper
-//  / tag_cftree               // html wrapper
-//  / tag_cftreeitem           // html wrapper
-//  / tag_cfwindow             // html wrapper
-//  / tag_cfNTauthenticate     // m$ integration
-//  / tag_cfexchangecalendar   // m$ integration
-//  / tag_cfexchangeconnection // m$ integration
-//  / tag_cfexchangecontact    // m$ integration
-//  / tag_cfexchangefilter     // m$ integration
-//  / tag_cfexchangemail       // m$ integration
-//  / tag_cfexchangetask       // m$ integration
-//  / tag_cfregistry           // m$ integration
-//  / tag_cfsharepoint         // m$ integration
-//  / tag_cfdocument           // pdf
-//  / tag_cfdocumentitem       // pdf
-//  / tag_cfdocumentsection    // pdf
-//  / tag_cfpdf                // pdf
-//  / tag_cfpdfform            // pdf
-//  / tag_cfpdfformparam       // pdf
-//  / tag_cfpdfparam           // pdf
-//  / tag_cfpdfsubform         // pdf
-//  / tag_cfprint              // pdf
-//  / tag_cfcollection         // verity/solr integration
-//  / tag_cfindex              // verity/solr integration
-//  / tag_cfreport             // verity/solr integration
-//  / tag_cfreportparam        // verity/solr integration
-//  / tag_cfsearch             // verity/solr integration
+	/ tag_cfzip
+//
+//  These tags are low priority because either: 
+//  1) they require platform specific tie-ins or additional library tie-ins;
+//  2) because they're IMO just CF wrapping HTML which is only marginally useful. I figure dev's will need to be specializing the page layout anyway so they can be handled there.
+//  ... granted I'll be more likely to implement these first, when I get to that stage since they'll be easier than the former cases but for now they can wait.
+//  cfobject is an exception to these. cfscript will be implemented and once that's working, I think cfobject will be silly. It'll be needed for backward compatibility 
+//  but var o = {} is SO MUCH SIMPLER since we're not dependent on Java here.
+//
+//	/ tag_cfchart
+//	/ tag_cfchartdata
+//	/ tag_cfchartseries
+//	/ tag_cffeed
+//	/ tag_cfftp
+//	/ tag_cfimap
+//	/ tag_cfinvoke
+//	/ tag_cfldap
+//	/ tag_cfobject
+//	/ tag_cfpop
+//	/ tag_cfpresenter
+//	/ tag_cfspreadsheet
+//	/ tag_cfsprydataset
+//	/ tag_cfthread
+//	/ tag_cfwddx
+//	/ tag_cfapplet             // html wrapper
+//	/ tag_cfcalendar           // html wrapper
+//	/ tag_cfcol                // html wrapper
+//	/ tag_cfdiv                // html wrapper
+//	/ tag_cffileupload         // html wrapper
+//	/ tag_cfform               // html wrapper
+//	/ tag_cfformgroup          // html wrapper
+//	/ tag_cfformitem           // html wrapper
+//	/ tag_cfpresentation       // html wrapper
+//	/ tag_cfpresentationslide  // html wrapper
+//	/ tag_cfgrid               // html wrapper
+//	/ tag_cfgridcolumn         // html wrapper
+//	/ tag_cfgridrow            // html wrapper
+//	/ tag_cfgridupdate         // html wrapper
+//	/ tag_cfimage              // html wrapper
+//	/ tag_cfinput              // html wrapper
+//	/ tag_cflayout             // html wrapper
+//	/ tag_cflayoutarea         // html wrapper
+//	/ tag_cfmap                // html wrapper
+//	/ tag_cfmapitem            // html wrapper
+//	/ tag_cfmediaplayer        // html wrapper
+//	/ tag_cfmenu               // html wrapper
+//	/ tag_cfmenuitem           // html wrapper
+//	/ tag_cfmessagebox         // html wrapper
+//	/ tag_cfpod                // html wrapper
+//	/ tag_cfprogressbar        // html wrapper
+//	/ tag_cfselect             // html wrapper
+//	/ tag_cfslider             // html wrapper
+//	/ tag_cftable              // html wrapper
+//	/ tag_cftextarea           // html wrapper
+//	/ tag_cftooltip            // html wrapper
+//	/ tag_cftree               // html wrapper
+//	/ tag_cftreeitem           // html wrapper
+//	/ tag_cfwindow             // html wrapper
+//	/ tag_cfNTauthenticate     // m$ integration
+//	/ tag_cfexchangecalendar   // m$ integration
+//	/ tag_cfexchangeconnection // m$ integration
+//	/ tag_cfexchangecontact    // m$ integration
+//	/ tag_cfexchangefilter     // m$ integration
+//	/ tag_cfexchangemail       // m$ integration
+//	/ tag_cfexchangetask       // m$ integration
+//	/ tag_cfregistry           // m$ integration
+//	/ tag_cfsharepoint         // m$ integration
+//	/ tag_cfdocument           // pdf
+//	/ tag_cfdocumentitem       // pdf
+//	/ tag_cfdocumentsection    // pdf
+//	/ tag_cfpdf                // pdf
+//	/ tag_cfpdfform            // pdf
+//	/ tag_cfpdfformparam       // pdf
+//	/ tag_cfpdfparam           // pdf
+//	/ tag_cfpdfsubform         // pdf
+//	/ tag_cfprint              // pdf
+//	/ tag_cfcollection         // verity/solr integration
+//	/ tag_cfindex              // verity/solr integration
+//	/ tag_cfreport             // verity/solr integration
+//	/ tag_cfreportparam        // verity/solr integration
+//	/ tag_cfsearch             // verity/solr integration
 	/ anychar
 
 // Tag Definitions
@@ -248,8 +256,8 @@ tag_cffile
 	/ tag_cffile_copy
 	/ tag_cffile_delete
 	/ tag_cffile_move
-	/ tag_cffile_read
 	/ tag_cffile_read_binary
+	/ tag_cffile_read
 	/ tag_cffile_rename
 	/ tag_cffile_upload
 	/ tag_cffile_upload_all
@@ -257,24 +265,24 @@ tag_cffile
 
 tag_cffile_append
 	= lt t:str_cffile attr:(
-		  attr_cffile_append_optional* attr_action_file attr_cffile_append_optional* attr_file_path          attr_cffile_append_optional* attr_output_file        attr_cffile_append_optional*
-		/ attr_cffile_append_optional* attr_action_file attr_cffile_append_optional* attr_output_file        attr_cffile_append_optional* attr_file_path          attr_cffile_append_optional*
-		/ attr_cffile_append_optional* attr_file_path          attr_cffile_append_optional* attr_action_file attr_cffile_append_optional* attr_output_file        attr_cffile_append_optional*
-		/ attr_cffile_append_optional* attr_file_path          attr_cffile_append_optional* attr_output_file        attr_cffile_append_optional* attr_action_file attr_cffile_append_optional*
-		/ attr_cffile_append_optional* attr_output_file        attr_cffile_append_optional* attr_action_file attr_cffile_append_optional* attr_file_path          attr_cffile_append_optional*
-		/ attr_cffile_append_optional* attr_output_file        attr_cffile_append_optional* attr_file_path          attr_cffile_append_optional* attr_action_file attr_cffile_append_optional*
+		  attr_cffile_append_optional* attr_file_action attr_cffile_append_optional* attr_file_path          attr_cffile_append_optional* attr_output_file        attr_cffile_append_optional*
+		/ attr_cffile_append_optional* attr_file_action attr_cffile_append_optional* attr_output_file        attr_cffile_append_optional* attr_file_path          attr_cffile_append_optional*
+		/ attr_cffile_append_optional* attr_file_path          attr_cffile_append_optional* attr_file_action attr_cffile_append_optional* attr_output_file        attr_cffile_append_optional*
+		/ attr_cffile_append_optional* attr_file_path          attr_cffile_append_optional* attr_output_file        attr_cffile_append_optional* attr_file_action attr_cffile_append_optional*
+		/ attr_cffile_append_optional* attr_output_file        attr_cffile_append_optional* attr_file_action attr_cffile_append_optional* attr_file_path          attr_cffile_append_optional*
+		/ attr_cffile_append_optional* attr_output_file        attr_cffile_append_optional* attr_file_path          attr_cffile_append_optional* attr_file_action attr_cffile_append_optional*
 	) ws* wack? gt {
 		return new cftag(t, plib.flatten(attr));
 	}
 
 tag_cffile_copy
 	= lt t:str_cffile attr:(
-		  attr_cffile_copy_optional* attr_action_file attr_cffile_copy_optional* attr_file_source      attr_cffile_copy_optional* attr_destination      attr_cffile_copy_optional*
-		/ attr_cffile_copy_optional* attr_action_file attr_cffile_copy_optional* attr_destination      attr_cffile_copy_optional* attr_file_source      attr_cffile_copy_optional*
-		/ attr_cffile_copy_optional* attr_file_source      attr_cffile_copy_optional* attr_action_file attr_cffile_copy_optional* attr_destination      attr_cffile_copy_optional*
-		/ attr_cffile_copy_optional* attr_file_source      attr_cffile_copy_optional* attr_destination      attr_cffile_copy_optional* attr_action_file attr_cffile_copy_optional*
-		/ attr_cffile_copy_optional* attr_destination      attr_cffile_copy_optional* attr_action_file attr_cffile_copy_optional* attr_file_source      attr_cffile_copy_optional*
-		/ attr_cffile_copy_optional* attr_destination      attr_cffile_copy_optional* attr_file_source      attr_cffile_copy_optional* attr_action_file attr_cffile_copy_optional*
+		  attr_cffile_copy_optional* attr_file_action attr_cffile_copy_optional* attr_file_source      attr_cffile_copy_optional* attr_destination      attr_cffile_copy_optional*
+		/ attr_cffile_copy_optional* attr_file_action attr_cffile_copy_optional* attr_destination      attr_cffile_copy_optional* attr_file_source      attr_cffile_copy_optional*
+		/ attr_cffile_copy_optional* attr_file_source      attr_cffile_copy_optional* attr_file_action attr_cffile_copy_optional* attr_destination      attr_cffile_copy_optional*
+		/ attr_cffile_copy_optional* attr_file_source      attr_cffile_copy_optional* attr_destination      attr_cffile_copy_optional* attr_file_action attr_cffile_copy_optional*
+		/ attr_cffile_copy_optional* attr_destination      attr_cffile_copy_optional* attr_file_action attr_cffile_copy_optional* attr_file_source      attr_cffile_copy_optional*
+		/ attr_cffile_copy_optional* attr_destination      attr_cffile_copy_optional* attr_file_source      attr_cffile_copy_optional* attr_file_action attr_cffile_copy_optional*
 	) ws* wack? gt {
 		return new cftag(t, plib.flatten(attr));
 	}
@@ -286,38 +294,22 @@ tag_cffile_delete
 
 tag_cffile_move
 	= lt t:str_cffile attr:(
-		  attr_cffile_move_optional* attr_action_file attr_cffile_move_optional* attr_file_source attr_cffile_move_optional* attr_destination attr_cffile_move_optional*
-		/ attr_cffile_move_optional* attr_action_file attr_cffile_move_optional* attr_destination attr_cffile_move_optional* attr_file_source attr_cffile_move_optional*
-		/ attr_cffile_move_optional* attr_file_source attr_cffile_move_optional* attr_action_file attr_cffile_move_optional* attr_destination attr_cffile_move_optional*
-		/ attr_cffile_move_optional* attr_file_source attr_cffile_move_optional* attr_destination attr_cffile_move_optional* attr_action_file attr_cffile_move_optional*
-		/ attr_cffile_move_optional* attr_destination attr_cffile_move_optional* attr_action_file attr_cffile_move_optional* attr_file_source attr_cffile_move_optional*
-		/ attr_cffile_move_optional* attr_destination attr_cffile_move_optional* attr_file_source attr_cffile_move_optional* attr_action_file attr_cffile_move_optional*
+		  attr_cffile_move_optional* attr_file_action attr_cffile_move_optional* attr_file_source attr_cffile_move_optional* attr_destination attr_cffile_move_optional*
+		/ attr_cffile_move_optional* attr_file_action attr_cffile_move_optional* attr_destination attr_cffile_move_optional* attr_file_source attr_cffile_move_optional*
+		/ attr_cffile_move_optional* attr_file_source attr_cffile_move_optional* attr_file_action attr_cffile_move_optional* attr_destination attr_cffile_move_optional*
+		/ attr_cffile_move_optional* attr_file_source attr_cffile_move_optional* attr_destination attr_cffile_move_optional* attr_file_action attr_cffile_move_optional*
+		/ attr_cffile_move_optional* attr_destination attr_cffile_move_optional* attr_file_action attr_cffile_move_optional* attr_file_source attr_cffile_move_optional*
+		/ attr_cffile_move_optional* attr_destination attr_cffile_move_optional* attr_file_source attr_cffile_move_optional* attr_file_action attr_cffile_move_optional*
 	) ws* wack? gt {
 		return new cftag(t, plib.flatten(attr));
 	}
 
 tag_cffile_read
 	= lt t:str_cffile attr:(
-		  attr_action_file      attr_file_path            attr_variable         attr_charset?
-		/ attr_action_file      attr_file_path            attr_charset?         attr_variable
-		/ attr_action_file      attr_variable             attr_file_path        attr_charset?
-		/ attr_action_file      attr_variable             attr_charset?         attr_file_path
-		/ attr_action_file      attr_charset?             attr_file_path        attr_variable
-		/ attr_action_file      attr_charset?             attr_variable         attr_file_path
-
-		/ attr_variable              attr_action_file     attr_charset?         attr_file_path
-		/ attr_variable              attr_action_file     attr_file_path        attr_charset?
-		/ attr_variable              attr_file_path            attr_charset?         attr_action_file
-		/ attr_variable              attr_file_path            attr_action_file attr_charset?
-		/ attr_variable              attr_charset?             attr_action_file attr_file_path
-		/ attr_variable              attr_charset?             attr_file_path        attr_action_file
-
-		/ attr_file_path             attr_action_file     attr_charset?         attr_variable
-		/ attr_file_path             attr_action_file     attr_variable         attr_charset?
-		/ attr_file_path             attr_variable             attr_action_file attr_charset?
-		/ attr_file_path             attr_variable             attr_charset?         attr_action_file
-		/ attr_file_path             attr_charset?             attr_action_file attr_variable
-		/ attr_file_path             attr_charset?             attr_variable         attr_action_file
+		attr_cffile_read_optional+ attr_cffile_read_required+
+		/ attr_cffile_read_required+ attr_cffile_read_optional+ attr_cffile_read_required+
+		/ attr_cffile_read_required+ attr_cffile_read_optional+
+		/ attr_cffile_read_required+
 	) ws* wack? gt {
 		return new cftag(t, plib.flatten(attr));
 	}
@@ -326,44 +318,44 @@ tag_cffile_read_binary = lt t:str_cffile attr:attr_cffile_read_binary_required+ 
 
 tag_cffile_rename
 	= lt t:str_cffile attr:(
-		  attr_cffile_rename_optional* attr_action_file attr_cffile_rename_optional* attr_file_source        attr_cffile_rename_optional* attr_destination        attr_cffile_rename_optional*
-		/ attr_cffile_rename_optional* attr_action_file attr_cffile_rename_optional* attr_destination        attr_cffile_rename_optional* attr_file_source        attr_cffile_rename_optional*
-		/ attr_cffile_rename_optional* attr_file_source        attr_cffile_rename_optional* attr_action_file attr_cffile_rename_optional* attr_destination        attr_cffile_rename_optional*
-		/ attr_cffile_rename_optional* attr_file_source        attr_cffile_rename_optional* attr_destination        attr_cffile_rename_optional* attr_action_file attr_cffile_rename_optional*
-		/ attr_cffile_rename_optional* attr_destination        attr_cffile_rename_optional* attr_action_file attr_cffile_rename_optional* attr_file_source attr_cffile_rename_optional*
-		/ attr_cffile_rename_optional* attr_destination        attr_cffile_rename_optional* attr_file_source        attr_cffile_rename_optional* attr_action_file attr_cffile_rename_optional*
+		  attr_cffile_rename_optional* attr_file_action attr_cffile_rename_optional* attr_file_source attr_cffile_rename_optional* attr_destination attr_cffile_rename_optional*
+		/ attr_cffile_rename_optional* attr_file_action attr_cffile_rename_optional* attr_destination attr_cffile_rename_optional* attr_file_source attr_cffile_rename_optional*
+		/ attr_cffile_rename_optional* attr_file_source attr_cffile_rename_optional* attr_file_action attr_cffile_rename_optional* attr_destination attr_cffile_rename_optional*
+		/ attr_cffile_rename_optional* attr_file_source attr_cffile_rename_optional* attr_destination attr_cffile_rename_optional* attr_file_action attr_cffile_rename_optional*
+		/ attr_cffile_rename_optional* attr_destination attr_cffile_rename_optional* attr_file_action attr_cffile_rename_optional* attr_file_source attr_cffile_rename_optional*
+		/ attr_cffile_rename_optional* attr_destination attr_cffile_rename_optional* attr_file_source attr_cffile_rename_optional* attr_file_action attr_cffile_rename_optional*
 	) ws* wack? gt {
 		return new cftag(t, plib.flatten(attr));
 	}
 
 tag_cffile_upload
 	= lt t:str_cffile attr:(
-		  attr_cffile_upload_optional* attr_action_file attr_cffile_upload_optional* attr_file_field  attr_cffile_upload_optional* attr_destination attr_cffile_upload_optional*
-		/ attr_cffile_upload_optional* attr_action_file attr_cffile_upload_optional* attr_destination attr_cffile_upload_optional* attr_file_field  attr_cffile_upload_optional*
-		/ attr_cffile_upload_optional* attr_file_field  attr_cffile_upload_optional* attr_action_file attr_cffile_upload_optional* attr_destination attr_cffile_upload_optional*
-		/ attr_cffile_upload_optional* attr_file_field  attr_cffile_upload_optional* attr_destination attr_cffile_upload_optional* attr_action_file attr_cffile_upload_optional*
-		/ attr_cffile_upload_optional* attr_destination attr_cffile_upload_optional* attr_action_file attr_cffile_upload_optional* attr_file_field  attr_cffile_upload_optional*
-		/ attr_cffile_upload_optional* attr_destination attr_cffile_upload_optional* attr_file_field  attr_cffile_upload_optional* attr_action_file attr_cffile_upload_optional*
+		  attr_cffile_upload_optional* attr_file_action attr_cffile_upload_optional* attr_file_field  attr_cffile_upload_optional* attr_destination attr_cffile_upload_optional*
+		/ attr_cffile_upload_optional* attr_file_action attr_cffile_upload_optional* attr_destination attr_cffile_upload_optional* attr_file_field  attr_cffile_upload_optional*
+		/ attr_cffile_upload_optional* attr_file_field  attr_cffile_upload_optional* attr_file_action attr_cffile_upload_optional* attr_destination attr_cffile_upload_optional*
+		/ attr_cffile_upload_optional* attr_file_field  attr_cffile_upload_optional* attr_destination attr_cffile_upload_optional* attr_file_action attr_cffile_upload_optional*
+		/ attr_cffile_upload_optional* attr_destination attr_cffile_upload_optional* attr_file_action attr_cffile_upload_optional* attr_file_field  attr_cffile_upload_optional*
+		/ attr_cffile_upload_optional* attr_destination attr_cffile_upload_optional* attr_file_field  attr_cffile_upload_optional* attr_file_action attr_cffile_upload_optional*
 	) ws* wack? gt {
 		return new cftag(t, plib.flatten(attr));
 	}
 
 tag_cffile_upload_all
 	= lt t:str_cffile attr:(
-		  attr_cffile_upload_all_optional* attr_action_file attr_cffile_upload_all_optional* attr_destination attr_cffile_upload_all_optional*
-		/ attr_cffile_upload_all_optional* attr_destination attr_cffile_upload_all_optional* attr_action_file attr_cffile_upload_all_optional*
+		  attr_cffile_upload_all_optional* attr_file_action attr_cffile_upload_all_optional* attr_destination attr_cffile_upload_all_optional*
+		/ attr_cffile_upload_all_optional* attr_destination attr_cffile_upload_all_optional* attr_file_action attr_cffile_upload_all_optional*
 	) ws* wack? gt {
 		return new cftag(t, plib.flatten(attr));
 	}
 
 tag_cffile_write
 	= lt t:str_cffile attr:(
-		  attr_cffile_write_optional* attr_action_file attr_cffile_write_optional* attr_file_path         attr_cffile_write_optional* attr_output_file       attr_cffile_write_optional*
-		/ attr_cffile_write_optional* attr_action_file attr_cffile_write_optional* attr_output_file       attr_cffile_write_optional* attr_file_path         attr_cffile_write_optional*
-		/ attr_cffile_write_optional* attr_file_path         attr_cffile_write_optional* attr_action_file attr_cffile_write_optional* attr_output_file       attr_cffile_write_optional*
-		/ attr_cffile_write_optional* attr_file_path         attr_cffile_write_optional* attr_output_file       attr_cffile_write_optional* attr_action_file attr_cffile_write_optional*
-		/ attr_cffile_write_optional* attr_output_file       attr_cffile_write_optional* attr_action_file attr_cffile_write_optional* attr_file_path  attr_cffile_write_optional*
-		/ attr_cffile_write_optional* attr_output_file       attr_cffile_write_optional* attr_file_path         attr_cffile_write_optional* attr_action_file attr_cffile_write_optional*
+		  attr_cffile_write_optional* attr_file_action attr_cffile_write_optional* attr_file_path         attr_cffile_write_optional* attr_output_file       attr_cffile_write_optional*
+		/ attr_cffile_write_optional* attr_file_action attr_cffile_write_optional* attr_output_file       attr_cffile_write_optional* attr_file_path         attr_cffile_write_optional*
+		/ attr_cffile_write_optional* attr_file_path         attr_cffile_write_optional* attr_file_action attr_cffile_write_optional* attr_output_file       attr_cffile_write_optional*
+		/ attr_cffile_write_optional* attr_file_path         attr_cffile_write_optional* attr_output_file       attr_cffile_write_optional* attr_file_action attr_cffile_write_optional*
+		/ attr_cffile_write_optional* attr_output_file       attr_cffile_write_optional* attr_file_action attr_cffile_write_optional* attr_file_path  attr_cffile_write_optional*
+		/ attr_cffile_write_optional* attr_output_file       attr_cffile_write_optional* attr_file_path         attr_cffile_write_optional* attr_file_action attr_cffile_write_optional*
 	) ws* wack? gt {
 		return new cftag(t, plib.flatten(attr));
 	}
@@ -739,6 +731,34 @@ tag_cfupdate
 	}
 
 tag_cfxml      = lt t:str_cfxml      attr:( attr_variable attr_case_sensitive? / attr_case_sensitive? attr_variable ) ws* wack? gt { return new cftag(t, plib.flatten(attr)); }
+
+tag_cfzip
+	= tag_cfzip_delete
+//	/ tag_cfzip_list
+	/ tag_cfzip_read
+	/ tag_cfzip_read_binary
+//	/ tag_cfzip_unzip
+//	/ tag_cfzip_zip
+
+tag_cfzip_delete
+	= lt t:str_cfzip attr:(
+		attr_cfzip_delete_optional*   attr_file_path  attr_cfzip_delete_optional* attr_zip_action attr_cfzip_delete_optional*
+		/ attr_cfzip_delete_optional* attr_zip_action attr_cfzip_delete_optional* attr_file_path  attr_cfzip_delete_optional*
+	) ws* wack? gt {
+		return new cftag(t, plib.flatten(attr));
+	}
+
+tag_cfzip_read
+	= lt t:str_cfzip attr:(
+		attr_cfzip_read_optional* attr_cfzip_read_required+ attr_cfzip_read_optional* attr_cfzip_read_required+ attr_cfzip_read_optional*
+		/ attr_cfzip_read_required+ attr_cfzip_read_optional+ attr_cfzip_read_required+
+		/ attr_cfzip_read_required+ attr_cfzip_read_optional+
+		/ attr_cfzip_read_required+
+	) ws* wack? gt {
+		return new cftag(t, plib.flatten(attr));
+	}
+tag_cfzip_read_binary = lt t:str_cfzip attr:attr_cfzip_read_binary_required+ ws* wack? gt { return new cftag(t, plib.flatten(attr)); }
+
 tag_cfzipparam = lt t:str_cfzipparam attr:attr_cfzipparam_optional*                                                   ws* wack? gt { return new cftag(t, plib.flatten(attr)); }
 
 //End Tags
@@ -763,7 +783,10 @@ attr_action_directory            = ws+ n:str_action                      eql v:v
 //attr_action_file_upload          = ws+ n:str_action                      eql quote_char v:str_upload      quote_char                   { return { name: n,                             value: v                            }; }
 //attr_action_file_upload_all      = ws+ n:str_action                      eql quote_char v:str_upload_all  quote_char                   { return { name: n,                             value: 'upload_all'                 }; }
 //attr_action_file_write           = ws+ n:str_action                      eql quote_char v:str_write       quote_char                   { return { name: n,                             value: v                            }; }
-attr_action_file                 = ws+ n:str_action                      eql v:value_action_file                                       { return { name: n,                             value: v                            }; }
+attr_zip_action                  = ws+ n:str_action                      eql v:value_zip_action                                        { return { name: n,                             value: v                            }; }
+//attr_zip_action_delete           = ws+ n:str_action                      eql v:value_zip_action_delete                                 { return { name: n,                             value: v                            }; }
+//attr_zip_action_read             = ws+ n:str_action                      eql v:value_zip_action_read                                   { return { name: n,                             value: v                            }; }
+//attr_zip_action_read_binary      = ws+ n:str_action                      eql v:value_zip_action_read_binary                            { return { name: n,                             value: v                            }; }
 attr_action_transaction          = ws+ n:str_action                      eql v:value_cftransaction_action                              { return { name: n,                             value: v                            }; }
 attr_action_schedule             = ws+ n:str_action                      eql v:value_cfschedule_action                                 { return { name: n,                             value: v                            }; }
 attr_add_newline                 = ws+ n:str_add_newline                 eql v:value_boolean                                           { return { name: 'add_newline',                 value: v                            }; }
@@ -845,6 +868,7 @@ attr_fetch                       = ws+ n:str_fetch                       eql quo
 //attr_fetch_batch_size            = ws+ n:str_fetch_batch_size            eql v:value_any                                               { return { name: n,                             value: v                            }; }
 //attr_field_type                  = ws+ n:str_field_type                  eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_file                        = ws+ n:str_file                        eql v:value_any                                               { return { name: n,                             value: v                            }; }
+attr_file_action                 = ws+ n:str_action                      eql v:value_cffile_action                                     { return { name: n,                             value: v                            }; }
 attr_file_path                   = ws+ n:str_file                        eql v:value_file_path                                         { return { name: n,                             value: v                            }; }
 attr_file_field                  = ws+ n:str_file_field                  eql v:value_any_non_whitespace                                { return { name: 'file_field',                  value: v                            }; }
 attr_filter                      = ws+ n:str_filter                      eql v:value_any                                               { return { name: n,                             value: v                            }; }
@@ -1300,16 +1324,16 @@ attr_cffile_append_optional   = attr_add_newline / attr_attributes / attr_charse
 //attr_cffile_copy_required
 attr_cffile_copy_optional = attr_attributes / attr_mode
 
-attr_cffile_delete_required = attr_file_path / attr_action_file
+attr_cffile_delete_required = attr_file_path / attr_file_action
 //attr_cffile_delete_optional
 
 //attr_cffile_move_required
 attr_cffile_move_optional = attr_attributes / attr_charset / attr_mode
 
-attr_cffile_read_required = attr_action_file / attr_file_path / attr_variable
-//attr_cffile_read_optional = attr_charset
+attr_cffile_read_required = attr_file_action / attr_file_path / attr_variable
+attr_cffile_read_optional = attr_charset
 
-attr_cffile_read_binary_required = attr_action_file / attr_file_path / attr_variable
+attr_cffile_read_binary_required = attr_file_action / attr_file_path / attr_variable
 //attr_cffile_read_binary_optional
 
 //attr_cffile_rename_required
@@ -1439,6 +1463,10 @@ attr_cfquery_optional = attr_block_factor / attr_cached_after / attr_cached_with
 attr_cfqueryparam_required = attr_value
 attr_cfqueryparam_optional = attr_sql_type / attr_list / attr_max_length / attr_null / attr_scale / attr_separator
 
+attr_cfzip_delete_optional = attr_entry_path / attr_filter / attr_recurse
+attr_cfzip_read_optional = attr_charset
+attr_cfzip_read_required = attr_zip_action / attr_file_path / attr_variable / attr_entry_path
+attr_cfzip_read_binary_required = attr_zip_action / attr_file_path / attr_variable / attr_entry_path
 // value definitions
 
 value_cfajaximport_params_googlemapkey = quote_char v:(pound '{googlemapkey="' (!quote_char anychar)+ '"}' pound) quote_char { return plib.stringify(v); }
@@ -1472,7 +1500,12 @@ value_struct = quote_char lcurl v:(!rcurl anychar)+ rcurl quote_char { return pl
 value_amazon_s3_bucket_location = quote_char v:( u s hyphen w e s t / u s / e u ) quote_char { return plib.stringify(v); }
 value_cfprocparam_type = quote_char v:( str_inout / str_out / str_in ) quote_char { return plib.stringify(v, 'lower'); }
 value_cfproperty_generated = quote_char v:( str_always / str_never ) quote_char { return plib.stringify(v, 'lower'); }
-value_action_file = quote_char v:( str_append / str_copy / str_delete / str_move / str_read / str_read_binary / str_rename / str_upload_all / str_upload / str_write ) quote_char                   { return v; }
+value_cffile_action = quote_char v:( str_append / str_copy / str_delete / str_move / str_read_binary / str_read / str_rename / str_upload_all / str_upload / str_write ) quote_char                   { return v; }
+
+value_zip_action = quote_char v:( str_delete / str_list / str_read_binary / str_read / str_unzip / str_zip ) quote_char                   { return v; }
+value_zip_action_delete = quote_char v:str_delete quote_char                   { return v; }
+value_zip_action_read = quote_char v:str_read quote_char                   { return v; }
+value_zip_action_read_binary = quote_char v:str_read_binary quote_char                   { return v; }
 
 value_sql_type = quote_char v:(
 	c f __ s q l __ (
@@ -1658,6 +1691,7 @@ str_cftry                       = v:(c f t r y)                                 
 str_cfupdate                    = v:(c f u p d a t e)                                              { return plib.stringify(v, 'lower'); }
 str_cfxml                       = v:(c f x m l)                                                    { return plib.stringify(v, 'lower'); }
 str_cfzipparam                  = v:(c f z i p p a r a m)                                          { return plib.stringify(v, 'lower'); }
+str_cfzip                       = v:(c f z i p)                                                    { return plib.stringify(v, 'lower'); }
 str_cgi                         = v:(c g i)                                                        { return plib.stringify(v, 'lower'); }
 str_char                        = v:(c h a r)                                                      { return plib.stringify(v, 'lower'); }
 str_character                   = v:(c h a r a c t e r)                                            { return plib.stringify(v, 'lower'); }
@@ -2024,6 +2058,7 @@ str_true_false                  = v:(t r u e __ f a l s e)                      
 str_type                        = v:(t y p e)                                                      { return plib.stringify(v, 'lower'); }
 str_unique                      = v:(u n i q u e)                                                  { return plib.stringify(v, 'lower'); }
 str_unique_key                  = v:(u n i q u e __ k e y)                                         { return plib.stringify(v); }
+str_unzip                       = v:(u n z i p)                                                    { return plib.stringify(v); }
 str_update                      = v:(u p d a t e)                                                  { return plib.stringify(v, 'lower'); }
 str_upload                      = v:(u p l o a d)                                                  { return plib.stringify(v, 'lower'); }
 str_upload_all                  = v:(u p l o a d __ a l l)                                         { return plib.stringify(v, 'under', 'lower'); }
