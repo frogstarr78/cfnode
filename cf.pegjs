@@ -218,7 +218,7 @@ tag_cfelseif
 		var me = new cftag(t, [], plib.stringify(content)),
 		    val = plib.stringify(v, 'trim');
 		if ( val === '' ) {
-			throw new Error("Missing required expression.");		
+			throw new Error("Missing required expression.");
 		} else {
 			me.expression = val
 		}
@@ -228,9 +228,9 @@ tag_cfelseif
 
 tag_cferror
 	= lt t:str_cferror attr:(
-			attr_cferr_optional* attr_cferr_required_template attr_cferr_optional* attr_cferr_required_type attr_cferr_optional*
-			/ attr_cferr_optional* attr_cferr_required_type attr_cferr_optional* attr_cferr_required_template attr_cferr_optional*
-		) gt {
+			attr_cferror_optional* attr_cferror_required_template attr_cferror_optional* attr_cferror_required_type attr_cferror_optional*
+			/ attr_cferror_optional* attr_cferror_required_type attr_cferror_optional* attr_cferror_required_template attr_cferror_optional*
+		) ws* wack? gt {
 		return new cftag(t, plib.flatten(attr));
 	}
 
@@ -833,7 +833,7 @@ attr_end_row                     = ws+ n:str_end_row                     eql v:v
 attr_end_date                    = ws+ n:str_end_date                    eql v:value_date                                              { return { name: 'end_date',                     value: v                            }; }
 attr_end_time                    = ws+ n:str_end_time                    eql v:(value_integer / value_time )                           { return { name: 'end_time',                     value: v                            }; }
 //attr_entity_name                 = ws+ n:str_entity_name                 eql v:value_any                                               { return { name: n,                             value: v                            }; }
-attr_exception                   = ws+ n:str_exception                   eql v:value_cferr_exception                                   { return { name: n,                             value: v                            }; }
+attr_exception                   = ws+ n:str_exception                   eql v:value_cferror_exception                                 { return { name: n,                             value: v                            }; }
 attr_expand                      = ws+ n:str_expand                      eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
 attr_expire_url                  = ws+ n:str_expire_url                  eql v:value_url                                               { return { name: 'expire_url',                  value: v                            }; }
 attr_expires                     = ws+ n:str_expires                     eql v:value_cfcookie_expires                                  { return { name: n,                             value: v                            }; }
@@ -1042,7 +1042,7 @@ attr_top                         = ws+ n:str_top                         eql v:v
 attr_type_lock                   = ws+ n:str_type                        eql quote_char v:( str_read_only / str_exclusive ) quote_char { return { name: n,                             value: v                            }; }
 attr_type_dbinfo                 = ws+ n:str_type                        eql v:value_cfdbinfo_type                                     { return { name: n,                             value: v                            }; }
 attr_type_directory              = ws+ n:str_type                        eql v:value_cfdirectory_type                                  { return { name: n,                             value: v                            }; }
-attr_type_catch                  = ws+ n:str_type                        eql v:value_cferr_exception                                   { return { name: n,                             value: v                            }; }
+attr_type_catch                  = ws+ n:str_type                        eql v:value_cferror_exception                                 { return { name: n,                             value: v                            }; }
 attr_type_err                    = ws+ n:str_type                        eql v:value_cferr_type                                        { return { name: n,                             value: v                            }; }
 attr_type_function               = ws+ n:str_type                        eql v:value_cffunction_return_type                            { return { name: n,                             value: v                            }; }
 attr_type_httpparam              = ws+ n:str_type                        eql v:value_cfhttpparam_type                                  { return { name: n,                             value: v                            }; }
@@ -1097,9 +1097,9 @@ attr_cfapplication_optional = attr_datasource / attr_application_timeout / attr_
 attr_cfassoc_required = attr_base_tag
 attr_cfassoc_optional = attr_data_collection
 
-attr_cferr_required_type     = attr_type_err
-attr_cferr_required_template = attr_template
-attr_cferr_optional = attr_mail_to / attr_exception
+attr_cferror_required_type     = attr_type_err
+attr_cferror_required_template = attr_template
+attr_cferror_optional = attr_mail_to / attr_exception
 
 attr_cfimport_required = attr_cfimport_required_taglib attr_cfimport_required_prefix / attr_cfimport_required_prefix attr_cfimport_required_taglib
 
@@ -1535,7 +1535,7 @@ value_cfdump_output = quote_char v:( str_browser / str_console / str_file ) quot
 value_cfdump_format = quote_char v:( str_text / str_html ) quote_char { return v; }
 
 value_cferr_type = quote_char v:( str_exception / str_validation / str_request ) quote_char { return v.toLowerCase(); }
-value_cferr_exception = quote_char n:(
+value_cferror_exception = quote_char n:(
 		str_application / str_database / str_template /
 		str_security / str_object / str_missing_include /
 		str_expression / str_lock / str_custom_type / str_any
