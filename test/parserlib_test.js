@@ -19,6 +19,7 @@ is.equal(plib.to_underbar('aBc'), 'a_bc');
 is.equal(plib.to_underbar('abC'), 'ab_c');
 is.equal(plib.to_underbar('abCdeFgh'), 'ab_cde_fgh');
 is.equal(plib.to_underbar('abCdeFghIjklM'), 'ab_cde_fgh_ijkl_m');
+is.equal(plib.to_underbar('ABCDEFGHIJKLM'), '_a_b_c_d_e_f_g_h_i_j_k_l_m');
 
 is.equal(plib.to_capitalize('abc'), 'Abc');
 is.equal(plib.to_capitalize('ABC'), 'ABC');
