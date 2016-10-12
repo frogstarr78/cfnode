@@ -24,32 +24,32 @@ is.equal(r.attributes.destination, '/tmp/files');
 is.equal(r.attributes.file, '/tmp/file.zip');
 
 r = cf.parse('<cfzip ' +
-'entrypath="/tmp/files" ' +
+'destination="/tmp/dst" ' +
 'filter="*.txt" ' +
 'recurse="true" ' +
-'show_directory="true" ' +
-'variable="cfzip_unzip_test2" ' +
+'overwrite="true" ' +
+'entry_path="/files" ' +
 'action="unzip" ' +
-'file="/tmp/file.zip"' +
+'store_path="/tmp/files"' +
 '>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'zip');
 is.equal(r.attributes.action, 'unzip');
-is.equal(r.attributes.entry_path, '/tmp/files');
+is.equal(r.attributes.store_path, '/tmp/files');
+is.equal(r.attributes.destination, '/tmp/dst');
 is.equal(r.attributes.file, '/tmp/file.zip');
 is.equal(r.attributes.filter, '*.txt');
 is.equal(r.attributes.recurse, true);
 is.equal(r.attributes.show_directory, true);
-is.equal(r.attributes.variable, 'cfzip_unzip_test2');
 
-r = cf.parse('<cfzip ' +
-'ACTION="unzip" ' +
-'SHOW_DIRECTORY="true" ' +
-'FILTER="*.txt" ' +
-'ENTRY_PATH="/tmp/files" ' +
+r = cf.parse('<CFZIP ' +
 'RECURSE="true" ' +
-'VARIABLE="cfzip_unzip_test3" ' +
-'FILE="/tmp/file.zip"' +
+'OVERWRITE="true" ' +
+'FILTER="*.txt" ' +
+'ENTRYPATH="/files" ' +
+'DESTINATION="/tmp/files" ' +
+'STORE_PATH="/tmp/dst" ' +
+'ACTION="unzip"' +
 '>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'zip');
@@ -61,10 +61,9 @@ is.equal(r.attributes.recurse, true);
 is.equal(r.attributes.show_directory, true);
 is.equal(r.attributes.variable, 'cfzip_unzip_test3');
 
-r = cf.parse('<CFZIP ' +
+r = cf.parse('<cfzip ' +
 'entrypath="/tmp/files" ' +
 'filter="*.txt" ' +
-'variable="cfzip_unzip_test4" ' +
 'action="unzip" ' +
 'file="/tmp/file.zip"' +
 '>');
@@ -74,9 +73,8 @@ is.equal(r.attributes.action, 'unzip');
 is.equal(r.attributes.entry_path, '/tmp/files');
 is.equal(r.attributes.file, '/tmp/file.zip');
 is.equal(r.attributes.filter, '*.txt');
-is.equal(r.attributes.recurse, false);
-is.equal(r.attributes.show_directory, false);
-is.equal(r.attributes.variable, 'cfzip_unzip_test4');
+is.equal(r.attributes.recurse, true);
+is.equal(r.attributes.show_directory, true);
 
 r = cf.parse('<CFZIP ' +
 'entrypath="/tmp/files" ' +
