@@ -768,14 +768,14 @@ tag_cfzip_read
 	}
 tag_cfzip_read_binary = lt t:str_cfzip attr:attr_cfzip_read_binary_required+ ws* wack? gt { return new cftag(t, plib.flatten(attr)); }
 
-//tag_cfzip_unzip
-//	= lt t:str_cfzip attr:(
-//		( attr_cfzip_unzip_optional* attr_cfzip_unzip_required+ attr_cfzip_unzip_optional* )*
-//		/ attr_cfzip_unzip_optional* attr_cfzip_unzip_required+
-//		/ attr_cfzip_unzip_required+
-//	) ws* wack? gt {
-//		return new cftag(t, plib.flatten(attr));
-//	}
+tag_cfzip_unzip
+	= lt t:str_cfzip attr:(
+		( attr_cfzip_unzip_optional* attr_cfzip_unzip_required+ attr_cfzip_unzip_optional* )*
+		/ attr_cfzip_unzip_optional* attr_cfzip_unzip_required+
+		/ attr_cfzip_unzip_required+
+	) ws* wack? gt {
+		return new cftag(t, plib.flatten(attr));
+	}
 
 //tag_cfzip_zip
 //	= lt t:str_cfzip attr:(
@@ -1057,6 +1057,7 @@ attr_sign                        = ws+ n:str_sign                        eql v:v
 attr_sort                        = ws+ n:str_sort                        eql quote_char v:( str_desc / str_asc ) quote_char            { return { name: n,                             value: v                            }; }
 attr_source                      = ws+ n:str_source                      eql quote_char v:( str_db / str_vm ) quote_char               { return { name: n,                             value: plib.stringify(v, 'lower')   }; }
 attr_spool_enable                = ws+ n:str_spool_enable                eql v:value_boolean                                           { return { name: 'spool_enable',                value: v                            }; }
+attr_store_path                  = ws+ n:str_store_path                  eql v:value_file_path                                         { return { name: 'store_path',                  value: v                            }; }
 attr_file_source                 = ws+ n:str_source                      eql v:value_file_path                                         { return { name: n,                             value: v                            }; }
 attr_start_row                   = ws+ n:str_start_row                   eql v:value_integer                                           { return { name: 'start_row',                   value: v                            }; }
 attr_start_date                  = ws+ n:str_start_date                  eql v:value_date                                              { return { name: 'start_date',                  value: v                            }; }
@@ -1500,8 +1501,8 @@ attr_cfzip_read_optional = attr_charset
 attr_cfzip_read_required = attr_zip_action / attr_file_path / attr_variable / attr_entry_path
 attr_cfzip_read_binary_required = attr_zip_action / attr_file_path / attr_variable / attr_entry_path
 
-//attr_cfzip_unzip_optional = attr_charset
-//attr_cfzip_unzip_required = attr_zip_action / attr_file_path / attr_variable / attr_entry_path
+attr_cfzip_unzip_optional = attr_entry_path / attr_filter / attr_overwrite / attr_recurse / attr_store_path
+attr_cfzip_unzip_required = attr_zip_action / attr_description / attr_file_path
 
 //attr_cfzip_zip_optional = attr_charset
 //attr_cfzip_zip_required = attr_zip_action / attr_file_path / attr_variable / attr_entry_path
