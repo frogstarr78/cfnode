@@ -734,7 +734,7 @@ tag_cfxml      = lt t:str_cfxml      attr:( attr_variable attr_case_sensitive? /
 
 tag_cfzip
 	= tag_cfzip_delete
-//	/ tag_cfzip_list
+	/ tag_cfzip_list
 	/ tag_cfzip_read
 	/ tag_cfzip_read_binary
 //	/ tag_cfzip_unzip
@@ -744,6 +744,15 @@ tag_cfzip_delete
 	= lt t:str_cfzip attr:(
 		attr_cfzip_delete_optional*   attr_file_path  attr_cfzip_delete_optional* attr_zip_action attr_cfzip_delete_optional*
 		/ attr_cfzip_delete_optional* attr_zip_action attr_cfzip_delete_optional* attr_file_path  attr_cfzip_delete_optional*
+	) ws* wack? gt {
+		return new cftag(t, plib.flatten(attr));
+	}
+
+tag_cfzip_list
+	= lt t:str_cfzip attr:(
+		( attr_cfzip_list_optional* attr_cfzip_list_required+ attr_cfzip_list_optional* )*
+		/ attr_cfzip_list_optional* attr_cfzip_list_required+
+		/ attr_cfzip_list_required+
 	) ws* wack? gt {
 		return new cftag(t, plib.flatten(attr));
 	}
@@ -758,6 +767,24 @@ tag_cfzip_read
 		return new cftag(t, plib.flatten(attr));
 	}
 tag_cfzip_read_binary = lt t:str_cfzip attr:attr_cfzip_read_binary_required+ ws* wack? gt { return new cftag(t, plib.flatten(attr)); }
+
+//tag_cfzip_unzip
+//	= lt t:str_cfzip attr:(
+//		( attr_cfzip_unzip_optional* attr_cfzip_unzip_required+ attr_cfzip_unzip_optional* )*
+//		/ attr_cfzip_unzip_optional* attr_cfzip_unzip_required+
+//		/ attr_cfzip_unzip_required+
+//	) ws* wack? gt {
+//		return new cftag(t, plib.flatten(attr));
+//	}
+
+//tag_cfzip_zip
+//	= lt t:str_cfzip attr:(
+//		( attr_cfzip_zip_optional* attr_cfzip_zip_required+ attr_cfzip_zip_optional* )*
+//		/ attr_cfzip_zip_optional* attr_cfzip_zip_required+
+//		/ attr_cfzip_zip_required+
+//	) ws* wack? gt {
+//		return new cftag(t, plib.flatten(attr));
+//	}
 
 tag_cfzipparam = lt t:str_cfzipparam attr:attr_cfzipparam_optional*                                                   ws* wack? gt { return new cftag(t, plib.flatten(attr)); }
 
@@ -1023,6 +1050,7 @@ attr_set_domain_cookies          = ws+ n:str_set_domain_cookies          eql v:v
 attr_setter                      = ws+ n:str_setter                      eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
 attr_show                        = ws+ n:str_show                        eql v:( value_list / value_any_non_whitespace )               { return { name: n,                             value: v                            }; }
 attr_show_debug_output           = ws+ n:str_show_debug_output           eql v:value_boolean                                           { return { name: 'show_debug_output',           value: v                            }; }
+attr_show_directory              = ws+ n:str_show_directory              eql v:value_boolean                                           { return { name: 'show_directory',              value: v                            }; }
 attr_show_error                  = ws+ n:str_show_error                  eql v:value_any                                               { return { name: 'show_error',                  value: v                            }; }
 attr_show_udfs                   = ws+ n:str_show_udfs                   eql v:value_boolean                                           { return { name: 'show_udfs',                   value: v                            }; }
 attr_sign                        = ws+ n:str_sign                        eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
@@ -1464,9 +1492,19 @@ attr_cfqueryparam_required = attr_value
 attr_cfqueryparam_optional = attr_sql_type / attr_list / attr_max_length / attr_null / attr_scale / attr_separator
 
 attr_cfzip_delete_optional = attr_entry_path / attr_filter / attr_recurse
+
+attr_cfzip_list_optional = attr_filter / attr_recurse / attr_show_directory
+attr_cfzip_list_required = attr_zip_action / attr_file_path / attr_variable / attr_entry_path
+
 attr_cfzip_read_optional = attr_charset
 attr_cfzip_read_required = attr_zip_action / attr_file_path / attr_variable / attr_entry_path
 attr_cfzip_read_binary_required = attr_zip_action / attr_file_path / attr_variable / attr_entry_path
+
+//attr_cfzip_unzip_optional = attr_charset
+//attr_cfzip_unzip_required = attr_zip_action / attr_file_path / attr_variable / attr_entry_path
+
+//attr_cfzip_zip_optional = attr_charset
+//attr_cfzip_zip_required = attr_zip_action / attr_file_path / attr_variable / attr_entry_path
 // value definitions
 
 value_cfajaximport_params_googlemapkey = quote_char v:(pound '{googlemapkey="' (!quote_char anychar)+ '"}' pound) quote_char { return plib.stringify(v); }
@@ -2006,6 +2044,7 @@ str_setter                      = v:(s e t t e r)                               
 str_short                       = v:(s h o r t)                                                    { return plib.stringify(v, 'lower'); }
 str_show                        = v:(s h o w)                                                      { return plib.stringify(v, 'lower'); }
 str_show_debug_output           = v:(s h o w __ d e b u g __ o u t p u t)                          { return plib.stringify(v, 'lower'); }
+str_show_directory              = v:(s h o w __ d i r e c t o r y)                                 { return plib.stringify(v, 'under', 'lower'); }
 str_show_error                  = v:(s h o w __ e r r o r)                                         { return plib.stringify(v, 'lower'); }
 str_show_udfs                   = v:(s h o w __ u d f s)                                           { return plib.stringify(v, 'lower'); }
 str_sign                        = v:(s i g n)                                                      { return plib.stringify(v, 'lower'); }

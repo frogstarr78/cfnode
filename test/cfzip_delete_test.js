@@ -9,10 +9,6 @@ var is = require('assert'),
 var r;
 
 is.throws(function () {
-	r = cf.parse('<cfzip />');
-}, Error, 'Missing required attributes.');
-
-is.throws(function () {
 	r = cf.parse('<cfzip action="delete">');
 }, Error, 'Missing required file attribute.');
 

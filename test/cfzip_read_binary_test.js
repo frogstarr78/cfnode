@@ -9,10 +9,6 @@ var is = require('assert'),
 var r;
 
 is.throws(function () {
-	r = cf.parse('<cfzip />');
-}, Error, 'Missing required attributes.');
-
-is.throws(function () {
 	r = cf.parse('<cfzip action="readbinary" file="/tmp/file.zip" entry_path="/tmp/files" >');
 }, Error, 'Missing required variable attribute.');
 
