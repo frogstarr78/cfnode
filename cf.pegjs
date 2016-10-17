@@ -29,6 +29,7 @@ start
 	/ tag_cferror
 	/ tag_cfexecute
 	/ tag_cfexit
+	/ tag_cffeed
 	/ tag_cffile
 	/ tag_cffinally
 	/ tag_cfflush
@@ -78,26 +79,23 @@ start
 	/ tag_cftry
 	/ tag_cfupdate
 	/ tag_cfxml
-	/ tag_cfzipparam
 	/ tag_cfzip
+	/ tag_cfzipparam
+//	/ tag_cfftp
+//	/ tag_cfimap
+//	/ tag_cfinvoke
+//	/ tag_cfldap
+//	/ tag_cfpop
 //
 //  These tags are low priority because either: 
 //  1) they require platform specific tie-ins or additional library tie-ins;
 //  2) because they're IMO just CF wrapping HTML which is only marginally useful. I figure dev's will need to be specializing the page layout anyway so they can be handled there.
 //  ... granted I'll be more likely to implement these first, when I get to that stage since they'll be easier than the former cases but for now they can wait.
-//  cfobject is an exception to these. cfscript will be implemented and once that's working, I think cfobject will be silly. It'll be needed for backward compatibility 
-//  but var o = {} is SO MUCH SIMPLER since we're not dependent on Java here.
 //
-//	/ tag_cfchart
-//	/ tag_cfchartdata
-//	/ tag_cfchartseries
-//	/ tag_cffeed
-//	/ tag_cfftp
-//	/ tag_cfimap
-//	/ tag_cfinvoke
-//	/ tag_cfldap
+//	/ tag_cfchart              // data output tags
+//	/ tag_cfchartdata          // data output tags
+//	/ tag_cfchartseries        // data output tags
 //	/ tag_cfobject
-//	/ tag_cfpop
 //	/ tag_cfpresenter
 //	/ tag_cfspreadsheet
 //	/ tag_cfsprydataset
@@ -250,6 +248,36 @@ tag_cfexecute
 	}
 
 tag_cfexit = lt t:str_cfexit attr:attr_cfexit_optional* ws* wack? gt { return new cftag(t, attr); }
+
+tag_cffeed
+	= tag_cffeed_create_basic
+	/ tag_cffeed_create_query
+	/ tag_cffeed_read
+
+tag_cffeed_create_basic
+	= lt t:str_cffeed attr:(
+		( attr_cffeed_create_basic_optional* attr_cffeed_create_basic_required+ attr_cffeed_create_basic_optional* )*
+		/ attr_cffeed_create_basic_optional* attr_cffeed_create_basic_required+
+		/ attr_cffeed_create_basic_required+
+	) ws* wack? gt {
+		return new cftag(t, plib.flatten(attr));
+	}
+tag_cffeed_create_query
+	= lt t:str_cffeed attr:(
+		( attr_cffeed_create_query_optional* attr_cffeed_create_query_required+ attr_cffeed_create_query_optional* )*
+		/ attr_cffeed_create_query_optional* attr_cffeed_create_query_required+
+		/ attr_cffeed_create_query_required+
+	) ws* wack? gt {
+		return new cftag(t, plib.flatten(attr));
+	}
+tag_cffeed_read
+	= lt t:str_cffeed attr:(
+		( attr_cffeed_read_optional* attr_cffeed_read_required+ attr_cffeed_read_optional* )*
+		/ attr_cffeed_read_optional* attr_cffeed_read_required+
+		/ attr_cffeed_read_required+
+	) ws* wack? gt {
+		return new cftag(t, plib.flatten(attr));
+	}
 
 tag_cffile
 	= tag_cffile_append
@@ -737,8 +765,8 @@ tag_cfzip
 	/ tag_cfzip_list
 	/ tag_cfzip_read
 	/ tag_cfzip_read_binary
-//	/ tag_cfzip_unzip
-//	/ tag_cfzip_zip
+	/ tag_cfzip_unzip
+	/ tag_cfzip_zip
 
 tag_cfzip_delete
 	= lt t:str_cfzip attr:(
@@ -777,14 +805,14 @@ tag_cfzip_unzip
 		return new cftag(t, plib.flatten(attr));
 	}
 
-//tag_cfzip_zip
-//	= lt t:str_cfzip attr:(
-//		( attr_cfzip_zip_optional* attr_cfzip_zip_required+ attr_cfzip_zip_optional* )*
-//		/ attr_cfzip_zip_optional* attr_cfzip_zip_required+
-//		/ attr_cfzip_zip_required+
-//	) ws* wack? gt {
-//		return new cftag(t, plib.flatten(attr));
-//	}
+tag_cfzip_zip
+	= lt t:str_cfzip attr:(
+		( attr_cfzip_zip_optional* attr_cfzip_zip_required+ attr_cfzip_zip_optional* )*
+		/ attr_cfzip_zip_optional* attr_cfzip_zip_required+
+		/ attr_cfzip_zip_required+
+	) ws* wack? gt {
+		return new cftag(t, plib.flatten(attr));
+	}
 
 tag_cfzipparam = lt t:str_cfzipparam attr:attr_cfzipparam_optional*                                                   ws* wack? gt { return new cftag(t, plib.flatten(attr)); }
 
@@ -849,6 +877,7 @@ attr_client_storage              = ws+ n:str_client_storage              eql v:v
 attr_collection                  = ws+ n:str_collection                  eql v:value_cfval                                             { return { name: n,                             value: v                            }; }
 //attr_collection_type             = ws+ n:str_collection_type             eql v:value_                                                  { return { name: n,                             value: v                            }; }
 //attr_column                      = ws+ n:str_column                      eql v:value_                                                  { return { name: n,                             value: v                            }; }
+attr_column_map                  = ws+ n:str_column_map                  eql v:value_any                                               { return { name: 'column_map',                  value: v                            }; }
 attr_compression                 = ws+ n:str_compression                 eql quote_char v:str_none quote_char                          { return { name: n,                             value: v                            }; }
 attr_condition                   = ws+ n:str_condition                   eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_constrained                 = ws+ n:str_constrained                 eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
@@ -878,10 +907,12 @@ attr_dynamic_update              = ws+ n:str_dynamic_update              eql v:v
 //attr_element_column              = ws+ n:str_element_column              eql v:value_any                                               { return { name: n,                             value: v                            }; }
 //attr_element_type                = ws+ n:str_element_type                eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_enable_cfouput_only         = ws+ n:str_enable_cfouput_only         eql v:value_boolean                                           { return { name: 'enable_cfoutput_only',        value: v                            }; }
+attr_enclosure_dir               = ws+ n:str_enclosure_dir               eql v:value_file_path                                         { return { name: 'enclosure_dir',               value: v                            }; }
 attr_encoded                     = ws+ n:str_encoded                     eql v:value_boolean                                           { return { name: 'encoded',                     value: v                            }; }
 attr_end_row                     = ws+ n:str_end_row                     eql v:value_integer                                           { return { name: 'end_row',                     value: v                            }; }
-attr_end_date                    = ws+ n:str_end_date                    eql v:value_date                                              { return { name: 'end_date',                     value: v                            }; }
-attr_end_time                    = ws+ n:str_end_time                    eql v:(value_integer / value_time )                           { return { name: 'end_time',                     value: v                            }; }
+attr_end_date                    = ws+ n:str_end_date                    eql v:value_date                                              { return { name: 'end_date',                    value: v                            }; }
+attr_end_time                    = ws+ n:str_end_time                    eql v:(value_integer / value_time )                           { return { name: 'end_time',                    value: v                            }; }
+attr_escape_chars                = ws+ n:str_escape_chars                eql v:value_boolean                                           { return { name: 'escape_chars',                value: v                            }; }
 //attr_entity_name                 = ws+ n:str_entity_name                 eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_exception                   = ws+ n:str_exception                   eql v:value_cferror_exception                                 { return { name: n,                             value: v                            }; }
 attr_expand                      = ws+ n:str_expand                      eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
@@ -891,6 +922,8 @@ attr_expression                  = ws+ n:str_expression                  eql v:v
 attr_extends                     = ws+ n:str_extends                     eql v:( str_component / value_any )                           { return { name: n,                             value: v                            }; }
 attr_extends_list                = ws+ n:str_extends                     eql v:( value_list / value_any )                              { return { name: n,                             value: v                            }; }
 attr_entry_path                  = ws+ n:str_entry_path                  eql v:value_file_path                                         { return { name: 'entry_path',                  value: v                            }; }
+attr_feed_action                 = ws+ n:str_action                      eql v:value_cffeed_action                                     { return { name: n,                             value: v                            }; }
+attr_feed_name                   = ws+ n:str_name                        eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_fetch                       = ws+ n:str_fetch                       eql quote_char v:( str_select / str_join ) quote_char         { return { name: n,                             value: v                            }; }
 //attr_fetch_batch_size            = ws+ n:str_fetch_batch_size            eql v:value_any                                               { return { name: n,                             value: v                            }; }
 //attr_field_type                  = ws+ n:str_field_type                  eql v:value_any                                               { return { name: n,                             value: v                            }; }
@@ -920,6 +953,7 @@ attr_http_only                   = ws+ n:str_http_only                   eql v:v
 attr_id                          = ws+ n:str_id                          eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_idle_time                   = ws+ n:str_idle_time                   eql v:value_float                                             { return { name: 'idle_time',                   value: v                            }; }
 attr_idle_timeout                = ws+ n:str_idle_timeout                eql v:value_integer                                           { return { name: 'idle_timeout',                value: v                            }; }
+attr_ignore_enclosure_error      = ws+ n:str_ignore_enclosure_error      eql v:value_boolean                                           { return { name: 'ignore_enclosure_error',      value: v                            }; }
 attr_implements                  = ws+ n:str_implements                  eql v:value_any_non_whitespace                                { return { name: n,                             value: v                            }; }
 attr_index                       = ws+ n:str_index                       eql v:value_any_non_whitespace                                { return { name: n,                             value: v                            }; }
 attr_inline                      = ws+ n:str_inline                      eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
@@ -987,6 +1021,8 @@ attr_output_boolean              = ws+ n:str_output                      eql v:v
 attr_output                      = ws+ n:str_output                      eql v:value_cfdump_output                                     { return { name: n,                             value: v                            }; }
 attr_output_file_path            = ws+ n:str_output_file                 eql v:value_file_path                                         { return { name: 'output_file',                 value: v                            }; }
 attr_overflow_to_disk            = ws+ n:str_overflow_to_disk            eql v:value_boolean                                           { return { name: 'overflow_to_disk',            value: v                            }; }
+attr_overwrite                   = ws+ n:str_overwrite                   eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
+attr_overwrite_enclosure         = ws+ n:str_overwrite_enclosure         eql v:value_boolean                                           { return { name: 'overwrite_enclosure',         value: v                            }; }
 attr_page_encoding               = ws+ n:str_page_encoding               eql v:value_encoding                                          { return { name: 'page_encoding',               value: v                            }; }
 //attr_params                      = ws+ n:str_params                      eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_ajax_params                 = ws+ n:str_params                      eql v:value_cfajaximport_params_googlemapkey                  { return { name: n,                             value: plib.stringify(v)            }; }
@@ -1002,6 +1038,7 @@ attr_prefix                      = ws+ n:str_prefix                      eql v:(
 attr_prefix_path                 = ws+ n:str_prefix                      eql v:value_file_path                                         { return { name: n,                             value: v                            }; }
 attr_priority                    = ws+ n:str_priority                    eql v:value_priority                                          { return { name: n,                             value: v                            }; }
 attr_procedure                   = ws+ n:str_procedure                   eql v:value_any_non_whitespace                                { return { name: n,                             value: plib.stringify(v)            }; }
+attr_properties                  = ws+ n:str_properties                  eql v:value_any                                               { return { name: n,                             value: plib.stringify(v)            }; }
 attr_protocol                    = ws+ n:str_protocol                    eql v:value_cfcache_protocol                                  { return { name: n,                             value: v                            }; }
 attr_proxy_password              = ws+ n:str_proxy_password              eql v:value_any_non_whitespace                                { return { name: 'proxy_password',              value: v                            }; }
 attr_proxy_port                  = ws+ n:str_proxy_port                  eql v:value_integer                                           { return { name: 'proxy_port',                  value: v                            }; }
@@ -1057,7 +1094,7 @@ attr_sign                        = ws+ n:str_sign                        eql v:v
 attr_sort                        = ws+ n:str_sort                        eql quote_char v:( str_desc / str_asc ) quote_char            { return { name: n,                             value: v                            }; }
 attr_source                      = ws+ n:str_source                      eql quote_char v:( str_db / str_vm ) quote_char               { return { name: n,                             value: plib.stringify(v, 'lower')   }; }
 attr_spool_enable                = ws+ n:str_spool_enable                eql v:value_boolean                                           { return { name: 'spool_enable',                value: v                            }; }
-attr_store_path                  = ws+ n:str_store_path                  eql v:value_file_path                                         { return { name: 'store_path',                  value: v                            }; }
+attr_store_path                  = ws+ n:str_store_path                  eql v:value_boolean                                           { return { name: 'store_path',                  value: v                            }; }
 attr_file_source                 = ws+ n:str_source                      eql v:value_file_path                                         { return { name: n,                             value: v                            }; }
 attr_start_row                   = ws+ n:str_start_row                   eql v:value_integer                                           { return { name: 'start_row',                   value: v                            }; }
 attr_start_date                  = ws+ n:str_start_date                  eql v:value_date                                              { return { name: 'start_date',                  value: v                            }; }
@@ -1128,6 +1165,8 @@ attr_verify_client               = ws+ n:str_verify_client               eql v:v
 //attr_where                       = ws+ n:str_where                       eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_wsdl_file                   = ws+ n:str_wsdl_file                   eql v:( value_url / value_file_path )                         { return { name: 'wsdl_file',                   value: v                            }; }
 attr_wrap_text                   = ws+ n:str_wrap_text                   eql v:value_integer                                           { return { name: 'wrap_text',                   value: v                            }; }
+attr_xml_var                     = ws+ n:str_xml_var                     eql v:value_any_non_whitespace                                { return { name: 'xml_var',                     value: v                            }; }
+attr_zip_source                  = ws+ n:str_source                      eql v:value_file_path                                         { return { name: n,                             value: v                            }; }
 
 //attr_cfabort_required
 attr_cfabort_optional = attr_show_error
@@ -1347,6 +1386,15 @@ attr_cfexecute_optional = attr_arguments / attr_output_file_path / attr_timeout 
 //attr_cfexit_required
 attr_cfexit_optional = attr_method_exit
 
+attr_cffeed_create_basic_optional = attr_overwrite / attr_escape_chars
+attr_cffeed_create_basic_required = attr_feed_action / attr_feed_name / attr_output_file_path / attr_xml_var
+
+attr_cffeed_create_query_optional = attr_overwrite / attr_column_map
+attr_cffeed_create_query_required = attr_feed_action / attr_properties / attr_query / attr_output_file_path / attr_xml_var
+
+attr_cffeed_read_optional = attr_feed_action / attr_enclosure_dir / attr_ignore_enclosure_error / attr_overwrite / attr_overwrite_enclosure / attr_proxy_server / attr_proxy_password / attr_proxy_port / attr_proxy_user / attr_timeout / attr_user_agent
+attr_cffeed_read_required = attr_feed_name / attr_properties / attr_query / attr_source / attr_output_file_path / attr_xml_var
+
 //attr_cffile_append_required = attr_output_file / attr_file_path / attr_action_file_append
 attr_cffile_append_optional   = attr_add_newline / attr_attributes / attr_charset / attr_fix_newline / attr_mode
 
@@ -1502,10 +1550,10 @@ attr_cfzip_read_required = attr_zip_action / attr_file_path / attr_variable / at
 attr_cfzip_read_binary_required = attr_zip_action / attr_file_path / attr_variable / attr_entry_path
 
 attr_cfzip_unzip_optional = attr_entry_path / attr_filter / attr_overwrite / attr_recurse / attr_store_path
-attr_cfzip_unzip_required = attr_zip_action / attr_description / attr_file_path
+attr_cfzip_unzip_required = attr_zip_action / attr_destination / attr_file_path
 
-//attr_cfzip_zip_optional = attr_charset
-//attr_cfzip_zip_required = attr_zip_action / attr_file_path / attr_variable / attr_entry_path
+attr_cfzip_zip_optional = attr_zip_action / attr_filter / attr_overwrite / attr_prefix_path / attr_recurse / attr_store_path
+attr_cfzip_zip_required = attr_file_path / attr_zip_source
 // value definitions
 
 value_cfajaximport_params_googlemapkey = quote_char v:(pound '{googlemapkey="' (!quote_char anychar)+ '"}' pound) quote_char { return plib.stringify(v); }
@@ -1540,6 +1588,7 @@ value_amazon_s3_bucket_location = quote_char v:( u s hyphen w e s t / u s / e u 
 value_cfprocparam_type = quote_char v:( str_inout / str_out / str_in ) quote_char { return plib.stringify(v, 'lower'); }
 value_cfproperty_generated = quote_char v:( str_always / str_never ) quote_char { return plib.stringify(v, 'lower'); }
 value_cffile_action = quote_char v:( str_append / str_copy / str_delete / str_move / str_read_binary / str_read / str_rename / str_upload_all / str_upload / str_write ) quote_char                   { return v; }
+value_cffeed_action = quote_char v:( str_create / str_read ) quote_char                   { return v; }
 
 value_zip_action = quote_char v:( str_delete / str_list / str_read_binary / str_read / str_unzip / str_zip ) quote_char                   { return v; }
 value_zip_action_delete = quote_char v:str_delete quote_char                   { return v; }
@@ -1678,6 +1727,7 @@ str_cfelseif                    = v:(c f e l s e i f)                           
 str_cferror                     = v:(c f e r r o r)                                                { return plib.stringify(v, 'lower'); }
 str_cfexecute                   = v:(c f e x e c u t e)                                            { return plib.stringify(v, 'lower'); }
 str_cfexit                      = v:(c f e x i t)                                                  { return plib.stringify(v, 'lower'); }
+str_cffeed                      = v:(c f f e e d)                                                  { return plib.stringify(v, 'lower'); }
 str_cffile                      = v:(c f f i l e)                                                  { return plib.stringify(v, 'lower'); }
 str_cffinally                   = v:(c f f i n a l l y)                                            { return plib.stringify(v, 'lower'); }
 str_cfflush                     = v:(c f f l u s h)                                                { return plib.stringify(v, 'lower'); }
@@ -1744,6 +1794,7 @@ str_client_management           = v:(c l i e n t __ m a n a g e m e n t)        
 str_client_storage              = v:(c l i e n t __ s t o r a g e)                                 { return plib.stringify(v, 'lower'); }
 str_clob                        = v:(c l o b)                                                      { return plib.stringify(v); }
 str_columns                     = v:(c o l u m n s)                                                { return plib.stringify(v, 'lower'); }
+str_column_map                  = v:(c o l u m n __ m a p)                                         { return plib.stringify(v, 'under', 'lower'); }
 str_collection                  = v:(c o l l e c t i o n)                                          { return plib.stringify(v, 'lower'); }
 str_comment                     = v:(c o m m e n t)                                                { return plib.stringify(v, 'lower'); }
 str_commit                      = v:(c o m m i t)                                                  { return plib.stringify(v, 'lower'); }
@@ -1796,12 +1847,14 @@ str_element_type                = v:(e l e m e n t __ t y p e)                  
 str_email                       = v:(e m a i l)                                                    { return plib.stringify(v); }
 str_enable_cfouput_only         = v:(e n a b l e __ c f o u t p u t __ o n l y)                    { return plib.stringify(v, 'lower'); }
 str_end_date                    = v:(e n d __ d a t e)                                             { return plib.stringify(v, 'under', 'lower'); }
+str_enclosure_dir               = v:(e n c l o s u r e __ d i r)                                   { return plib.stringify(v, 'under', 'lower'); }
 str_encoded                     = v:(e n c o d e d)                                                { return plib.stringify(v, 'lower'); }
 str_end_row                     = v:(e n d __ r o w)                                               { return plib.stringify(v, 'under', 'lower'); }
 str_end_time                    = v:(e n d __ t i m e)                                             { return plib.stringify(v, 'under', 'lower'); }
 str_entity_name                 = v:(e n t i t y __ n a m e)                                       { return plib.stringify(v, 'lower'); }
 str_entry_path                  = v:(e n t r y __ p a t h)                                         { return plib.stringify(v, 'lower'); }
 str_error                       = v:(e r r o r)                                                    { return plib.stringify(v, 'lower'); }
+str_escape_chars                = v:(e s c a p e __ c h a r s)                                     { return plib.stringify(v, 'under', 'lower'); }
 str_exception                   = v:(e x c e p t i o n)                                            { return plib.stringify(v, 'lower'); }
 str_exclusive                   = v:(e x c l u s i v e)                                            { return plib.stringify(v, 'lower'); }
 str_exit_tag                    = v:(e x i t __ t a g)                                             { return plib.stringify(v); }
@@ -1855,6 +1908,7 @@ str_id                          = v:(i d)                                       
 str_idstamp                     = v:(i d s t a m p)                                                { return plib.stringify(v, 'lower'); }
 str_idle_time                   = v:(i d l e __ t i m e)                                           { return plib.stringify(v, 'lower'); }
 str_idle_timeout                = v:(i d l e __ t i m e o u t)                                     { return plib.stringify(v, 'lower'); }
+str_ignore_enclosure_error      = v:(i g n o r e __ e n c l o s u r e __ e r r o r)                { return plib.stringify(v, 'under', 'lower'); }
 str_implements                  = v:(i m p l e m e n t s)                                          { return plib.stringify(v, 'lower'); }
 str_in                          = v:(i n)                                                          { return plib.stringify(v); }
 str_index                       = v:(i n d e x)                                                    { return plib.stringify(v, 'lower'); }
@@ -1951,6 +2005,7 @@ str_output                      = v:(o u t p u t)                               
 str_output_file                 = v:(o u t p u t __ f i l e)                                       { return plib.stringify(v, 'lower'); }
 str_overflow_to_disk            = v:(o v e r f l o w __ t o __ d i s k)                            { return plib.stringify(v, 'lower'); }
 str_overwrite                   = v:(o v e r w r i t e)                                            { return plib.stringify(v, 'lower'); }
+str_overwrite_enclosure         = v:(o v e r w r i t e __ e n c l o s u r e)                       { return plib.stringify(v, 'under', 'lower'); }
 str_package                     = v:(p a c k a g e)                                                { return plib.stringify(v, 'lower'); }
 str_page_encoding               = v:(p a g e __ e n c o d i n g)                                   { return plib.stringify(v, 'lower'); }
 str_params                      = v:(p a r a m s)                                                  { return plib.stringify(v, 'lower'); }
@@ -1967,6 +2022,7 @@ str_precision                   = v:(p r e c i s i o n)                         
 str_prefix                      = v:(p r e f i x)                                                  { return plib.stringify(v, 'lower'); }
 str_private                     = v:(p r i v a t e)                                                { return plib.stringify(v, 'lower'); }
 str_priority                    = v:(p r i o r i t y)                                              { return plib.stringify(v, 'lower'); }
+str_properties                  = v:(p r o p e r t i e s)                                          { return plib.stringify(v, 'lower'); }
 str_procedure                   = v:(p r o c e d u r e)                                            { return plib.stringify(v, 'lower'); }
 str_procedures                  = v:(p r o c e d u r e s)                                          { return plib.stringify(v, 'lower'); }
 str_protocol                    = v:(p r o t o c o l)                                              { return plib.stringify(v, 'lower'); }
@@ -2064,6 +2120,7 @@ str_status_text                 = v:(s t a t u s __ t e x t)                    
 str_step                        = v:(s t e p)                                                      { return plib.stringify(v, 'lower'); }
 str_store_acl                   = v:(s t o r e __ a c l)                                           { return plib.stringify(v, 'under', 'lower'); }
 str_store_location              = v:(s t o r e __ l o c a t i o n)                                 { return plib.stringify(v, 'under', 'lower'); }
+str_store_path                  = v:(s t o r e __ p a t h)                                         { return plib.stringify(v, 'under', 'lower'); }
 str_string                      = v:(s t r i n g)                                                  { return plib.stringify(v); }
 str_strip_whitespace            = v:(s t r i p __ w h i t e s p a c e)                             { return plib.stringify(v); }
 str_struct                      = v:(s t r u c t)                                                  { return plib.stringify(v); }
@@ -2130,6 +2187,7 @@ str_write                       = v:(w r i t e)                                 
 str_wsdl_file                   = v:(w s d l __ f i l e)                                           { return plib.stringify(v, 'under', 'lower'); }
 str_wrap_text                   = v:(w r a p __ t e x t)                                           { return plib.stringify(v, 'under', 'lower'); }
 str_xml                         = v:(x m l)                                                        { return plib.stringify(v); }
+str_xml_var                     = v:(x m l __ v a r)                                               { return plib.stringify(v, 'under', 'lower'); }
 str_yes_no                      = v:(y e s n o)                                                    { return plib.stringify(v); }
 str_zip                         = v:(z i p)                                                        { return plib.stringify(v); }
 str_zipcode                     = v:(z i p __ c o d e)                                             { return plib.stringify(v); }
