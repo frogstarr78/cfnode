@@ -9,16 +9,28 @@ var is = require('assert'),
 var r;
 
 is.throws(function () {
-	r = cf.parse('<cffeed action="create" name="#astruct#" outputFile="/tmp/cffile.out" >');
-}, Error, 'Missing required xml_var attribute.');
+	r = cf.parse('<cffeed action="create" name="#astruct#" >');
+}, Error, 'Missing required output_file or xml_var attribute.');
 
 is.throws(function () {
 	r = cf.parse('<cffeed action="create" output_file="/tmp/cffile.out" xmlVar="feed" />');
 }, Error, 'Missing required name attribute.');
 
-is.throws(function () {
-	r = cf.parse('<cffeed action="create" name="#astruct#" xmlVar="feed" />');
-}, Error, 'Missing required output_file attribute.');
+r = cf.parse('<cffeed action="create" name="#astruct#" xmlVar="feed" />');
+is.equal(r instanceof Object, true);
+is.equal(r.tag, 'feed');
+is.equal(r.attributes.action, 'create');
+is.equal(r.attributes.output_file, null);
+is.equal(r.attributes.name, '#astruct#');
+is.equal(r.attributes.xml_var, 'feed');
+
+r = cf.parse('<cffeed action="create" name="#astruct#" output_file="/tmp/cffile.out" />');
+is.equal(r instanceof Object, true);
+is.equal(r.tag, 'feed');
+is.equal(r.attributes.action, 'create');
+is.equal(r.attributes.output_file, '/tmp/cffile.out');
+is.equal(r.attributes.name, '#astruct#');
+is.equal(r.attributes.xml_var, null);
 
 r = cf.parse('<cffeed action="create" name="#astruct#" xmlVar="feed" output_file="/tmp/cffile.out" />');
 is.equal(r instanceof Object, true);
@@ -32,7 +44,7 @@ is.equal(r.attributes.overwrite, false);
 is.equal(r.attributes.overwrite_enclosure, false);
 is.equal(r.attributes.proxy_port, 80);
 is.equal(r.attributes.timeout, 60);
-is.equal(r.attributes.user_agent, 'cfNode ColdFusion');
+is.equal(r.attributes.user_agent, 'ColdFusion (cfNode)');
 is.equal(r.attributes.xml_var, 'feed');
 
 r = cf.parse('<cffeed ' +

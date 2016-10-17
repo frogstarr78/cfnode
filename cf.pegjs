@@ -924,6 +924,7 @@ attr_extends_list                = ws+ n:str_extends                     eql v:(
 attr_entry_path                  = ws+ n:str_entry_path                  eql v:value_file_path                                         { return { name: 'entry_path',                  value: v                            }; }
 attr_feed_action                 = ws+ n:str_action                      eql v:value_cffeed_action                                     { return { name: n,                             value: v                            }; }
 attr_feed_name                   = ws+ n:str_name                        eql v:value_any                                               { return { name: n,                             value: v                            }; }
+attr_feed_source                 = ws+ n:str_source                      eql v:( value_file_path / value_url )                         { return { name: n,                             value: v                            }; }
 attr_fetch                       = ws+ n:str_fetch                       eql quote_char v:( str_select / str_join ) quote_char         { return { name: n,                             value: v                            }; }
 //attr_fetch_batch_size            = ws+ n:str_fetch_batch_size            eql v:value_any                                               { return { name: n,                             value: v                            }; }
 //attr_field_type                  = ws+ n:str_field_type                  eql v:value_any                                               { return { name: n,                             value: v                            }; }
@@ -1393,7 +1394,7 @@ attr_cffeed_create_query_optional = attr_overwrite / attr_column_map
 attr_cffeed_create_query_required = attr_feed_action / attr_properties / attr_query / attr_output_file_path / attr_xml_var
 
 attr_cffeed_read_optional = attr_feed_action / attr_enclosure_dir / attr_ignore_enclosure_error / attr_overwrite / attr_overwrite_enclosure / attr_proxy_server / attr_proxy_password / attr_proxy_port / attr_proxy_user / attr_timeout / attr_user_agent
-attr_cffeed_read_required = attr_feed_name / attr_properties / attr_query / attr_source / attr_output_file_path / attr_xml_var
+attr_cffeed_read_required = attr_feed_name / attr_properties / attr_query / attr_feed_source / attr_output_file_path / attr_xml_var
 
 //attr_cffile_append_required = attr_output_file / attr_file_path / attr_action_file_append
 attr_cffile_append_optional   = attr_add_newline / attr_attributes / attr_charset / attr_fix_newline / attr_mode

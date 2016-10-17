@@ -9,101 +9,123 @@ var is = require('assert'),
 var r;
 
 is.throws(function () {
-	r = cf.parse('<cffeed action="read" properties="#astruct#" query="#query#" name="#struct#" source="/path/to/feed.xml" outputFile="/tmp/cffile.out" >');
-}, Error, 'Missing required xml_var attribute.');
+	r = cf.parse('<cffeed action="read" name="#struct#" properties="#astruct#" query="#query#" outputFile="/tmp/cffile.out" xmlVar="feed" >');
+}, Error, 'Missing required source attributes.');
 
 is.throws(function () {
-	r = cf.parse('<cffeed action="read" properties="#astruct#" query="#query#" name="#struct#" outputFile="/tmp/cffile.out" xmlVar="feed" >');
+	r = cf.parse('<cffeed name="#struct#" >');
 }, Error, 'Missing required source attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cffeed action="read" properties="#astruct#" query="#query#" source="/path/to/feed.xml" outputFile="/tmp/cffile.out" xmlVar="feed" >');
-}, Error, 'Missing required name attribute.');
+	r = cf.parse('<cffeed action="read" source="/path/to/feed/source.xml" >');
+}, Error, 'Missing required supplimental attribute.');
 
-is.throws(function () {
-	r = cf.parse('<cffeed action="read" properties="#astruct#" query="#query#" name="#struct#" source="/path/to/feed.xml" xmlVar="feed" >');
-}, Error, 'Missing required output_file attribute.');
-
-is.throws(function () {
-	r = cf.parse('<cffeed action="read" properties="#astruct#" name="#struct#" source="/path/to/feed.xml" outputFile="/tmp/cffile.out" xmlVar="feed" >');
-}, Error, 'Missing required query attribute.');
-
-is.throws(function () {
-	r = cf.parse('<cffeed action="read" query="#query#" name="#struct#" source="/path/to/feed.xml" outputFile="/tmp/cffile.out" xmlVar="feed" >');
-}, Error, 'Missing required properties attribute.');
-
-r = cf.parse('<cffeed action="read" properties="#astruct#" query="#query#" name="#struct#" source="/path/to/feed.xml" outputFile="/tmp/cffile.out" xmlVar="feed" >');
+r = cf.parse('<cffeed source="/path/to/feed.xml" name="#astructure#" >');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'feed');
 is.equal(r.attributes.action, 'read');
 is.equal(r.attributes.escape_chars, false);
 is.equal(r.attributes.ignore_enclosure_error, false);
-is.equal(r.attributes.output_file, '/tmp/cffile.out');
 is.equal(r.attributes.overwrite, false);
 is.equal(r.attributes.overwrite_enclosure, false);
-is.equal(r.attributes.properties, '#astruct#');
 is.equal(r.attributes.proxy_port, 80);
-is.equal(r.attributes.query, '#aquery#');
+is.equal(r.attributes.source, '/path/to/feed.xml');
 is.equal(r.attributes.timeout, 60);
-is.equal(r.attributes.user_agent, 'cfNode ColdFusion');
+is.equal(r.attributes.user_agent, 'ColdFusion (cfNode)');
+
+r = cf.parse('<cffeed source="http://localhost/path/to/feed.xml" name="#astructure#" >');
+is.equal(r instanceof Object, true);
+is.equal(r.tag, 'feed');
+is.equal(r.attributes.action, 'read');
+is.equal(r.attributes.escape_chars, false);
+is.equal(r.attributes.ignore_enclosure_error, false);
+is.equal(r.attributes.overwrite, false);
+is.equal(r.attributes.overwrite_enclosure, false);
+is.equal(r.attributes.proxy_port, 80);
+is.equal(r.attributes.timeout, 60);
+is.equal(r.attributes.source, 'http://localhost/path/to/feed.xml');
+is.equal(r.attributes.user_agent, 'ColdFusion (cfNode)');
+
+r = cf.parse('<cffeed action="read" properties="#astruct#" query="#query#" name="#struct#" source="/path/to/feed2.xml" outputFile="/tmp/cffile.out" xmlVar="feed" >');
+is.equal(r instanceof Object, true);
+is.equal(r.tag, 'feed');
+is.equal(r.attributes.action, 'read');
+is.equal(r.attributes.output_file, '/tmp/cffile.out');
+is.equal(r.attributes.properties, '#astruct#');
+is.equal(r.attributes.query, '#query#');
+is.equal(r.attributes.source, '/path/to/feed2.xml');
 is.equal(r.attributes.xml_var, 'feed');
 
 r = cf.parse('<cffeed ' +
 'output_file="/tmp/cffile2.out" ' +
 'properties="#astruct2#" ' +
+'ignoreEnclosureError="yes" ' +
 'xmlVar="feed2" ' +
-'column_map="#columns#" ' +
+'enclosureDir="/tmp" ' +
+'source="http://localhost/path/to/feed.xml" ' +
+'overwrite_enclosure="true" ' +
+'proxyServer="example.com" ' +
+'proxy_port="88" ' +
+'timeout="90" ' +
 'query="#aquery2#" ' +
-'overwrite="true" ' +
+'proxy_user="user" ' +
+'userAgent="cfNode" ' +
+'proxy_password="pass" ' +
+'overwrite="yes" ' +
 '>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'feed');
 is.equal(r.attributes.action, 'read');
-is.equal(r.attributes.column_map, '#columns#');
+is.equal(r.attributes.escape_chars, false);
+is.equal(r.attributes.ignore_enclosure_error, true);
 is.equal(r.attributes.output_file, '/tmp/cffile2.out');
 is.equal(r.attributes.overwrite, true);
+is.equal(r.attributes.overwrite_enclosure, true);
 is.equal(r.attributes.properties, '#astruct2#');
+is.equal(r.attributes.proxy_password, 'pass');
+is.equal(r.attributes.proxy_port, 88);
+is.equal(r.attributes.proxy_server, 'example.com');
+is.equal(r.attributes.proxy_user, 'user');
 is.equal(r.attributes.query, '#aquery2#');
+is.equal(r.attributes.source, 'http://localhost/path/to/feed.xml');
+is.equal(r.attributes.timeout, 90);
+is.equal(r.attributes.user_agent, 'cfNode');
 is.equal(r.attributes.xml_var, 'feed2');
 
-r = cf.parse('<CFFEED ' +
+r = cf.parse('<cffeed ' +
 'OUTPUTFILE="/tmp/cffile3.out" ' +
-'PROPERTIES="#astruct3#" ' +
+'OVERWRITE_ENCLOSURE="true" ' +
+'IGNOREENCLOSUREERROR="yes" ' +
 'XMLVAR="feed3" ' +
-'COLUMNMAP="#columns2#" ' +
+'ENCLOSUREDIR="/tmp" ' +
+'PROXY_USER="user" ' +
 'QUERY="#aquery3#" ' +
-'OVERWRITE="1" ' +
-'ACTION="read" ' +
+'PROXY_PASSWORD="pass" ' +
+'TIMEOUT="91" ' +
+'PROXYSERVER="example.com" ' +
+'SOURCE="http://localhost/path/to/feed3.xml" ' +
+'USERAGENT="cfNode" ' +
+'PROXY_PORT="89" ' +
+'PROPERTIES="#astruct3#" ' +
+'OVERWRITE="yes" ' +
 '>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'feed');
 is.equal(r.attributes.action, 'read');
-is.equal(r.attributes.column_map, '#columns2#');
+is.equal(r.attributes.escape_chars, false);
+is.equal(r.attributes.ignore_enclosure_error, true);
 is.equal(r.attributes.output_file, '/tmp/cffile3.out');
 is.equal(r.attributes.overwrite, true);
+is.equal(r.attributes.overwrite_enclosure, true);
 is.equal(r.attributes.properties, '#astruct3#');
+is.equal(r.attributes.proxy_password, 'pass');
+is.equal(r.attributes.proxy_port, 89);
+is.equal(r.attributes.proxy_server, 'example.com');
+is.equal(r.attributes.proxy_user, 'user');
 is.equal(r.attributes.query, '#aquery3#');
+is.equal(r.attributes.source, 'http://localhost/path/to/feed3.xml');
+is.equal(r.attributes.timeout, 91);
+is.equal(r.attributes.user_agent, 'cfNode');
 is.equal(r.attributes.xml_var, 'feed3');
-
-r = cf.parse('<cffeed ' +
-'output_file="/tmp/cffile2.out" ' +
-'properties="astruct2" ' +
-'xmlVar="feed2" ' +
-'xmlVar="feed4" ' +
-'query="#aquery2#" ' +
-'action="read" ' +
-'output_file="/tmp/cffile4.out" ' +
-'query="#aquery4#" ' +
-'properties="#astruct4#" ' +
-'overwrite="true" ' +
-'action="read" ' +
-'>');
-is.equal(r.tag, 'feed');
-is.equal(r.attributes.action, 'read');
-is.equal(r.attributes.output_file, '/tmp/cffile4.out');
-is.equal(r.attributes.overwrite, true);
-is.equal(r.attributes.properties, '#astruct4#');
-is.equal(r.attributes.query, '#aquery4#');
-is.equal(r.attributes.xml_var, 'feed4');
 
 test.ok();
