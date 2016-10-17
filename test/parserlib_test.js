@@ -85,9 +85,9 @@ is.equal(plib.is_nil(undefined), true);
 is.equal(plib.is_nil(''), false);
 
 //String/Array helper
-is(plib.is_empty(''));
-is(plib.is_empty([]));
-is(plib.is_empty(undefined));
+is.equal(plib.is_empty(''), true);
+is.equal(plib.is_empty([]), true);
+is.equal(plib.is_empty(undefined), true);
 is.equal(plib.is_empty("\b"), false);
 is.equal(plib.is_empty(' '), false);
 is.equal(plib.is_empty(['a']), false);
