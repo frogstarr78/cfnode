@@ -12,7 +12,7 @@ clean: cf.js
 	rm cf.js
 
 cf.js: cf.pegjs
-	./node_modules/pegjs/bin/pegjs --track-line-and-column $? $@
+	./node_modules/pegjs/bin/pegjs $?
 
 sync:
 	rsync -vr --delete . eclipta:git/cfnode
