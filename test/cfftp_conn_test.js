@@ -13,6 +13,10 @@ is.throws(function () {
 }, Error, 'Missing required action attribute.');
 
 is.throws(function () {
+	r = cf.parse('<cfftp action="open" server="localhost" username="user" password="pass" />');
+}, Error, 'Missing required connection attribute.');
+
+is.throws(function () {
 	r = cf.parse('<cfftp action="open" server="localhost" username="user" connection="conn" />');
 }, Error, 'Missing required password attribute.');
 
@@ -25,26 +29,37 @@ is.throws(function () {
 }, Error, 'Missing required username attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="open" server="localhost" username="user" password="pass" />');
-}, Error, 'Missing required connection attribute.');
+	r = cf.parse('<cfftp action="open" secure="yes" server="localhost" username="user" connection="conn"/>');
+}, Error, 'Missing required key or password attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="open" secure="yes" server="localhost" username="user"/>');
-}, Error, 'Missing required key or password attribute.');
+	r = cf.parse('<cfftp action="open" secure="yes" server="localhost" username="user" password="pass" passphrase="passph" connection="conn"/>');
+}, Error, 'Unexpected passphrase used with no key attribute specified.');
 
 is.throws(function () {
 	r = cf.parse('<cfftp action="close" />');
 }, Error, 'Missing required connection attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="close" action_param="user" />');
+	r = cf.parse('<cfftp action="close" buffer_size="8" connection="conn"/>');
+}, Error, 'Unexpected buffer_size used with action == "close" attribute.');
+
+is.throws(function () {
+	r = cf.parse('<cfftp action="close" action_param="user" connection="conn"/>');
 }, Error, 'Unexpected action_param used with action == "close" attribute.');
 
 is.throws(function () {
 	r = cf.parse('<cfftp action="quote" action_param="user" secure="true" />');
 }, Error, 'Unexpected secure connection used with action == "quote" attribute.');
 
-r = cf.parse('<cfftp action="open" secure="yes" server="localhost" username="user" password="pass" connection="myconn" />');
+r = cf.parse('<cfftp ' +
+'action="open" ' +
+'secure="yes" ' +
+'server="localhost" ' +
+'username="user" ' +
+'password="pass" ' +
+'connection="myconn" ' +
+'/>');
 is.equal(r.attributes.action, 'open');
 is.equal(r.attributes.connection, 'myconn');
 is.equal(r.attributes.passive, false);
@@ -53,7 +68,15 @@ is.equal(r.attributes.server, 'localhost');
 is.equal(r.attributes.secure, true);
 is.equal(r.attributes.username, 'user');
 
-r = cf.parse('<cfftp action="open" secure="yes" server="localhost" username="user" key="ssh-rsa" passphrase="stuff" connection="myconn" />');
+r = cf.parse('<cfftp ' +
+'action="open" ' +
+'secure="yes" ' +
+'server="localhost" ' +
+'username="user" ' +
+'key="ssh-rsa" ' +
+'passphrase="stuff" ' +
+'connection="myconn" ' +
+'/>');
 is.equal(r.attributes.action, 'open');
 is.equal(r.attributes.connection, 'myconn');
 is.equal(r.attributes.key, 'ssh-rsa');
@@ -63,7 +86,13 @@ is.equal(r.attributes.server, 'localhost');
 is.equal(r.attributes.secure, true);
 is.equal(r.attributes.username, 'user');
 
-r = cf.parse('<cfftp action="open" server="localhost" username="user" password="pass" connection="myconn" />');
+r = cf.parse('<cfftp ' +
+'action="open" ' +
+'server="localhost" ' +
+'username="user" ' +
+'password="pass" ' +
+'connection="myconn" ' +
+'/>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'ftp');
 is.equal(r.attributes.action, 'open');
@@ -77,7 +106,10 @@ is.equal(r.attributes.stop_on_error, true);
 is.equal(r.attributes.timeout, 30);
 is.equal(r.attributes.username, 'user');
 
-r = cf.parse('<cfftp action="close" connection="myconn2" />');
+r = cf.parse('<cfftp ' +
+'action="close" ' +
+'connection="myconn2" ' +
+'/>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'ftp');
 is.equal(r.attributes.action, 'close');
@@ -108,85 +140,77 @@ is.equal(r.attributes.stop_on_error, false);
 is.equal(r.attributes.timeout, 90);
 is.equal(r.attributes.username, 'user');
 
-r = cf.parse('<cfftp action="acct" action_param="user" />');
+r = cf.parse('<cfftp ' +
+'action="acct" ' +
+'action_param="user" ' +
+'buffer_size="12" ' +
+'connection="conn4" ' +
+'port="990" ' +
+'proxy_server="localhost" ' +
+'proxy_port="90" ' +
+'proxy_user="puser" ' +
+'proxy_password="ppass" ' +
+'retry_count="10" ' +
+'server="localhost" ' +
+'stop_on_error="false" ' +
+'timeout="31" ' +
+'/>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'ftp');
-is.equal(r.attributes.action, 'acct');
+is.equal(r.attributes.action, "acct");
 is.equal(r.attributes.action_param, 'user');
+is.equal(r.attributes.buffer_size, 12);
+is.equal(r.attributes.connection, 'conn4');
+is.equal(r.attributes.port, "990");
+is.equal(r.attributes.proxy_server, "localhost");
+is.equal(r.attributes.proxy_port, "90");
+is.equal(r.attributes.proxy_user, "puser");
+is.equal(r.attributes.proxy_password, "ppass");
+is.equal(r.attributes.retry_count, "10");
+is.equal(r.attributes.stop_on_error, false);
+is.equal(r.attributes.timeout, 31);
 
-//r = cf.parse('<cfftp action="create" properties="#astruct#" query="#aquery#" xmlVar="ftp" output_file="/tmp/cffile.out" />');
-//is.equal(r instanceof Object, true);
-//is.equal(r.tag, 'ftp');
-//is.equal(r.attributes.action, 'create');
-//is.equal(r.attributes.escape_chars, false);
-//is.equal(r.attributes.ignore_enclosure_error, false);
-//is.equal(r.attributes.output_file, '/tmp/cffile.out');
-//is.equal(r.attributes.overwrite, false);
-//is.equal(r.attributes.overwrite_enclosure, false);
-//is.equal(r.attributes.properties, '#astruct#');
-//is.equal(r.attributes.proxy_port, 80);
-//is.equal(r.attributes.query, '#aquery#');
-//is.equal(r.attributes.timeout, 60);
-//is.equal(r.attributes.user_agent, 'ColdFusion (cfNode)');
-//is.equal(r.attributes.xml_var, 'ftp');
-//
-//r = cf.parse('<cfftp ' +
-//'output_file="/tmp/cffile2.out" ' +
-//'properties="#astruct2#" ' +
-//'xmlVar="ftp2" ' +
-//'column_map="#columns#" ' +
-//'query="#aquery2#" ' +
-//'overwrite="true" ' +
-//'action="create" ' +
-//'>');
-//is.equal(r instanceof Object, true);
-//is.equal(r.tag, 'ftp');
-//is.equal(r.attributes.action, 'create');
-//is.equal(r.attributes.column_map, '#columns#');
-//is.equal(r.attributes.output_file, '/tmp/cffile2.out');
-//is.equal(r.attributes.overwrite, true);
-//is.equal(r.attributes.properties, '#astruct2#');
-//is.equal(r.attributes.query, '#aquery2#');
-//is.equal(r.attributes.xml_var, 'ftp2');
-//
-//r = cf.parse('<CFFTP ' +
-//'OUTPUTFILE="/tmp/cffile3.out" ' +
-//'PROPERTIES="#astruct3#" ' +
-//'XMLVAR="ftp3" ' +
-//'COLUMNMAP="#columns2#" ' +
-//'QUERY="#aquery3#" ' +
-//'OVERWRITE="1" ' +
-//'ACTION="create" ' +
-//'>');
-//is.equal(r instanceof Object, true);
-//is.equal(r.tag, 'ftp');
-//is.equal(r.attributes.action, 'create');
-//is.equal(r.attributes.column_map, '#columns2#');
-//is.equal(r.attributes.output_file, '/tmp/cffile3.out');
-//is.equal(r.attributes.overwrite, true);
-//is.equal(r.attributes.properties, '#astruct3#');
-//is.equal(r.attributes.query, '#aquery3#');
-//is.equal(r.attributes.xml_var, 'ftp3');
-//
-//r = cf.parse('<cfftp ' +
-//'output_file="/tmp/cffile2.out" ' +
-//'properties="astruct2" ' +
-//'xmlVar="ftp2" ' +
-//'xmlVar="ftp4" ' +
-//'query="#aquery2#" ' +
-//'action="read" ' +
-//'output_file="/tmp/cffile4.out" ' +
-//'query="#aquery4#" ' +
-//'properties="#astruct4#" ' +
-//'overwrite="true" ' +
-//'action="create" ' +
-//'>');
-//is.equal(r.tag, 'ftp');
-//is.equal(r.attributes.action, 'create');
-//is.equal(r.attributes.output_file, '/tmp/cffile4.out');
-//is.equal(r.attributes.overwrite, true);
-//is.equal(r.attributes.properties, '#astruct4#');
-//is.equal(r.attributes.query, '#aquery4#');
-//is.equal(r.attributes.xml_var, 'ftp4');
+r = cf.parse('<cfftp ' +
+'action="open" ' +
+'buffer_size="11" ' +
+'connection="conn5" ' +
+'fingerprint="01:23:45:57::89:ab:cd:ef" ' +
+'key="/path/to/private.key" ' +
+'passive="true" ' +
+'password="pass" ' +
+'passphrase="key_pass" ' +
+'port="990" ' +
+'proxy_server="example.com" ' +
+'proxy_port="991" ' +
+'proxy_user="puser" ' +
+'proxy_password="ppass" ' +
+'retry_count="13" ' +
+'secure="true" ' +
+'server="localhost" ' +
+'stop_on_error="true" ' +
+'timeout="67" ' +
+'username="user3" ' +
+'/>');
+is.equal(r instanceof Object, true);
+is.equal(r.tag, 'ftp');
+is.equal(r.attributes.action, "open");
+is.equal(r.attributes.buffer_size, "11");
+is.equal(r.attributes.connection, "conn5");
+is.equal(r.attributes.fingerprint, "01:23:45:57::89:ab:cd:ef");
+is.equal(r.attributes.key, "/path/to/private.key");
+is.equal(r.attributes.passive, true);
+is.equal(r.attributes.passphrase, "key_pass");
+is.equal(r.attributes.password, "pass");
+is.equal(r.attributes.port, 990);
+is.equal(r.attributes.proxy_password, "ppass");
+is.equal(r.attributes.proxy_port, 991);
+is.equal(r.attributes.proxy_server, "example.com");
+is.equal(r.attributes.proxy_user, "puser");
+is.equal(r.attributes.retry_count, "13");
+is.equal(r.attributes.secure, true);
+is.equal(r.attributes.server, "localhost");
+is.equal(r.attributes.stop_on_error, true);
+is.equal(r.attributes.timeout, 67);
+is.equal(r.attributes.username, "user3");
 
 test.ok();

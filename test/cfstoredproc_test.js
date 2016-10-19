@@ -46,7 +46,18 @@ is.equal(r.attributes.debug, true);
 is.equal(r.attributes.procedure, 'tbl3');
 is.equal(r.attributes.return_code, false);
 
-r = cf.parse('<cfstoredproc blockFactor="5" debug="yes" procedure="tbl4" datasource="dsn4" result="this" password="mypass3" username="noone_else" cachedAfter="2014-08-09" cachedWithin="#CreateTimeSpan(1, 2, 3, 4)#"  returnCode="no" />');
+r = cf.parse('<cfstoredproc ' +
+'blockFactor="5" ' +
+'debug="yes" ' +
+'procedure="tbl4" ' +
+'datasource="dsn4" ' +
+'result="this" ' +
+'password="mypass3" ' +
+'username="noone_else" ' +
+'cachedAfter="2014-08-09" ' +
+'cachedWithin="#CreateTimeSpan(1, 2, 3, 4)#" ' +
+'returnCode="no" ' +
+'/>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'storedproc');
 is.equal(r.attributes.block_factor, 5);

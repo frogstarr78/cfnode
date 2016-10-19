@@ -69,6 +69,10 @@ is.deepEqual(plib.flatten([['abc', ['def'], 'ghi']]), ['abc', 'def', 'ghi']);
 is.deepEqual(plib.flatten([['abc', ['def'], 'ghi', ['jkl']]]), ['abc', 'def', 'ghi', 'jkl']);
 is.deepEqual(plib.flatten([['abc', [['d'], ['e'], ['f']], 'ghi']]), ['abc', 'd', 'e', 'f', 'ghi']);
 is.deepEqual(plib.flatten([['abc', ['def'], 'ghi', ['jkl'], ['abc', [['d'], ['e'], ['f']], 'ghi']]]), ['abc', 'def', 'ghi', 'jkl', 'abc', 'd', 'e', 'f', 'ghi']);
+is.deepEqual(plib.flatten([['abc', ['def'], 'ghi', ['jkl'], ['abc', [['d'], ['e'], ['f']], 'ghi']]]), ['abc', 'def', 'ghi', 'jkl', 'abc', 'd', 'e', 'f', 'ghi']);
+
+is.deepEqual(plib.flatten([ null, { name: 'value', value: '#cfcase_test#' }, null ], true), [{ name: 'value', value: '#cfcase_test#' }]);
+is.deepEqual(plib.denullify([ null, { name: 'value', value: '#cfcase_test#' }, null ]), [{ name: 'value', value: '#cfcase_test#' }]);
 
 is.deepEqual(plib.objectify('a="b", c="d"'), {a: 'b', c: 'd'});
 

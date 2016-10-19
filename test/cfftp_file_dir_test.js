@@ -8,188 +8,152 @@ var is = require('assert'),
 
 var r;
 
-test.fail();
-process.exit();
-
 is.throws(function () {
 	r = cf.parse('<cfftp />');
 }, Error, 'Missing required action attribute.');
 
+// directory actions
 is.throws(function () {
-	r = cf.parse('<cfftp action="open" server="localhost" username="user" connection="conn" />');
-}, Error, 'Missing required password attribute.');
-
-is.throws(function () {
-	r = cf.parse('<cfftp action="open" password="pass" username="user" connection="conn" />');
-}, Error, 'Missing required server attribute.');
+	r = cf.parse('<cfftp action="changedir" />');
+}, Error, 'Missing required directory attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="open" server="localhost" password="pass" connection="conn" />');
-}, Error, 'Missing required username attribute.');
+	r = cf.parse('<cfftp action="createdir" />');
+}, Error, 'Missing required directory attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="open" server="localhost" username="user" password="pass" />');
-}, Error, 'Missing required connection attribute.');
+	r = cf.parse('<cfftp action="listDir" name="dirname" />');
+}, Error, 'Missing required directory attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="open" secure="yes" server="localhost" username="user"/>');
-}, Error, 'Missing required key or password attribute.');
+	r = cf.parse('<cfftp action="listDir" directory="dirname" />');
+}, Error, 'Missing required name attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="close" />');
-}, Error, 'Missing required connection attribute.');
+	r = cf.parse('<cfftp action="exists_dir" />');
+}, Error, 'Missing required directory attribute.');
+// directory actions
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="close" action_param="user" />');
-}, Error, 'Unexpected action_param used with action == "close" attribute.');
+	r = cf.parse('<cfftp action="rename" new="newname" />');
+}, Error, 'Missing required existing attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="quote" action_param="user" secure="true" />');
-}, Error, 'Unexpected secure connection used with action == "quote" attribute.');
+	r = cf.parse('<cfftp action="rename" existing="oldname" />');
+}, Error, 'Missing required new attribute.');
 
-r = cf.parse('<cfftp action="open" secure="yes" server="localhost" username="user" password="pass" connection="myconn" />');
-is.equal(r.attributes.action, 'open');
-is.equal(r.attributes.connection, 'myconn');
-is.equal(r.attributes.passive, false);
-is.equal(r.attributes.password, 'pass');
-is.equal(r.attributes.server, 'localhost');
-is.equal(r.attributes.secure, true);
-is.equal(r.attributes.username, 'user');
+// item actions
+is.throws(function () {
+	r = cf.parse('<cfftp action="exists" />');
+}, Error, 'Missing required item attribute.');
 
-r = cf.parse('<cfftp action="open" secure="yes" server="localhost" username="user" key="ssh-rsa" passphrase="stuff" connection="myconn" />');
-is.equal(r.attributes.action, 'open');
-is.equal(r.attributes.connection, 'myconn');
-is.equal(r.attributes.key, 'ssh-rsa');
-is.equal(r.attributes.passive, false);
-is.equal(r.attributes.passphrase, 'stuff');
-is.equal(r.attributes.server, 'localhost');
-is.equal(r.attributes.secure, true);
-is.equal(r.attributes.username, 'user');
+is.throws(function () {
+	r = cf.parse('<cfftp action="remove"/>');
+}, Error, 'Missing required item attribute.');
+// item actions
 
-r = cf.parse('<cfftp action="open" server="localhost" username="user" password="pass" connection="myconn" />');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'ftp');
-is.equal(r.attributes.action, 'open');
-is.equal(r.attributes.connection, 'myconn');
-is.equal(r.attributes.passive, false);
-is.equal(r.attributes.password, 'pass');
-is.equal(r.attributes.port, 21);
-is.equal(r.attributes.retry_count, 1);
-is.equal(r.attributes.server, 'localhost');
-is.equal(r.attributes.stop_on_error, true);
-is.equal(r.attributes.timeout, 30);
-is.equal(r.attributes.username, 'user');
+is.throws(function () {
+	r = cf.parse('<cfftp action="getFile" remote_file="remfile" />');
+}, Error, 'Missing required local_file attribute.');
 
-r = cf.parse('<cfftp action="close" connection="myconn2" />');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'ftp');
-is.equal(r.attributes.action, 'close');
-is.equal(r.attributes.connection, 'myconn2');
+is.throws(function () {
+	r = cf.parse('<cfftp action="getFile" local_file="remfile" />');
+}, Error, 'Missing required remote_file attribute.');
 
-r = cf.parse('<cfftp ' + 
-'stop_on_error="no" ' + 
-'action="open" ' + 
-'server="localhost" ' + 
-'retryCount="5" ' + 
-'username="user" ' + 
-'port="990" ' + 
-'timeout="90" ' + 
-'password="pass" ' + 
-'passive="yes" ' + 
-'connection="myconn3" ' + 
+is.throws(function () {
+	r = cf.parse('<cfftp action="put_file">');
+}, Error, 'Missing required local_file attribute.');
+
+is.throws(function () {
+	r = cf.parse('<cfftp action="get_file" local_file="remfile" />');
+}, Error, 'Missing required remote_file attribute.');
+
+is.throws(function () {
+	r = cf.parse('<cfftp action="existsFile" />');
+}, Error, 'Missing required remote_file attribute.');
+
+r = cf.parse('<cfftp ' +
+'action="changeDir" ' +
+'directory="newrmdir" ' +
 '/>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'ftp');
-is.equal(r.attributes.action, 'open');
-is.equal(r.attributes.connection, 'myconn3');
+is.equal(r.attributes.action, 'change_dir');
+is.equal(r.attributes.directory, 'newrmdir');
+is.deepEqual(r.attributes.ascii_extension_list, 'txt;htm;html;cfm;cfml;shtm;shtml;css;asp;asa'.split(';'));
+is.equal(r.attributes.fail_if_exists, true);
+is.equal(r.attributes.passive, false);
+is.equal(r.attributes.timeout, 30);
+is.equal(r.attributes.transfer_mode, 'auto');
+
+r = cf.parse('<cfftp ' +
+'action="list_dir" ' +
+'directory="newrmdir2" ' +
+'name="qname" ' +
+'/>');
+is.equal(r.attributes.action, 'list_dir');
+is.deepEqual(r.attributes.ascii_extension_list, 'txt;htm;html;cfm;cfml;shtm;shtml;css;asp;asa'.split(';'));
+is.equal(r.attributes.directory, 'newrmdir2');
+is.equal(r.attributes.fail_if_exists, true);
+is.equal(r.attributes.name, 'qname');
+is.equal(r.attributes.passive, false);
+is.equal(r.attributes.timeout, 30);
+is.equal(r.attributes.transfer_mode, 'auto');
+
+r = cf.parse('<cfftp ' +
+'new="newdirname" ' +
+'proxyPassword="ppass" ' +
+'proxyUser="puser" ' +
+'connection="conn" ' +
+'passive="true" ' +
+'timeout="60" ' +
+'proxyPort="91" ' +
+'fail_if_exists="false" ' +
+'proxyServer="localhost" ' + 
+'action="rename" ' +
+'password="pass" ' +
+'existing="oldrmdir" ' +
+'/>');
+is.equal(r.attributes.action, 'rename');
+is.equal(r.attributes.connection, 'conn');
+is.equal(r.attributes.existing, 'oldrmdir');
+is.equal(r.attributes.fail_if_exists, false);
+is.equal(r.attributes.new, 'newdirname');
 is.equal(r.attributes.passive, true);
-is.equal(r.attributes.password, 'pass');
-is.equal(r.attributes.port, 990);
-is.equal(r.attributes.retry_count, 5);
-is.equal(r.attributes.server, 'localhost');
-is.equal(r.attributes.stop_on_error, false);
-is.equal(r.attributes.timeout, 90);
-is.equal(r.attributes.username, 'user');
+is.equal(r.attributes.proxy_password, 'ppass');
+is.equal(r.attributes.proxy_port, 91);
+is.equal(r.attributes.proxy_server, 'localhost');
+is.equal(r.attributes.proxy_user, 'puser');
+is.equal(r.attributes.timeout, 60);
 
-r = cf.parse('<cfftp action="acct" action_param="user" />');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'ftp');
-is.equal(r.attributes.action, 'acct');
-is.equal(r.attributes.action_param, 'user');
-
-//r = cf.parse('<cfftp action="create" properties="#astruct#" query="#aquery#" xmlVar="ftp" output_file="/tmp/cffile.out" />');
-//is.equal(r instanceof Object, true);
-//is.equal(r.tag, 'ftp');
-//is.equal(r.attributes.action, 'create');
-//is.equal(r.attributes.escape_chars, false);
-//is.equal(r.attributes.ignore_enclosure_error, false);
-//is.equal(r.attributes.output_file, '/tmp/cffile.out');
-//is.equal(r.attributes.overwrite, false);
-//is.equal(r.attributes.overwrite_enclosure, false);
-//is.equal(r.attributes.properties, '#astruct#');
-//is.equal(r.attributes.proxy_port, 80);
-//is.equal(r.attributes.query, '#aquery#');
-//is.equal(r.attributes.timeout, 60);
-//is.equal(r.attributes.user_agent, 'ColdFusion (cfNode)');
-//is.equal(r.attributes.xml_var, 'ftp');
-//
-//r = cf.parse('<cfftp ' +
-//'output_file="/tmp/cffile2.out" ' +
-//'properties="#astruct2#" ' +
-//'xmlVar="ftp2" ' +
-//'column_map="#columns#" ' +
-//'query="#aquery2#" ' +
-//'overwrite="true" ' +
-//'action="create" ' +
-//'>');
-//is.equal(r instanceof Object, true);
-//is.equal(r.tag, 'ftp');
-//is.equal(r.attributes.action, 'create');
-//is.equal(r.attributes.column_map, '#columns#');
-//is.equal(r.attributes.output_file, '/tmp/cffile2.out');
-//is.equal(r.attributes.overwrite, true);
-//is.equal(r.attributes.properties, '#astruct2#');
-//is.equal(r.attributes.query, '#aquery2#');
-//is.equal(r.attributes.xml_var, 'ftp2');
-//
-//r = cf.parse('<CFFTP ' +
-//'OUTPUTFILE="/tmp/cffile3.out" ' +
-//'PROPERTIES="#astruct3#" ' +
-//'XMLVAR="ftp3" ' +
-//'COLUMNMAP="#columns2#" ' +
-//'QUERY="#aquery3#" ' +
-//'OVERWRITE="1" ' +
-//'ACTION="create" ' +
-//'>');
-//is.equal(r instanceof Object, true);
-//is.equal(r.tag, 'ftp');
-//is.equal(r.attributes.action, 'create');
-//is.equal(r.attributes.column_map, '#columns2#');
-//is.equal(r.attributes.output_file, '/tmp/cffile3.out');
-//is.equal(r.attributes.overwrite, true);
-//is.equal(r.attributes.properties, '#astruct3#');
-//is.equal(r.attributes.query, '#aquery3#');
-//is.equal(r.attributes.xml_var, 'ftp3');
-//
-//r = cf.parse('<cfftp ' +
-//'output_file="/tmp/cffile2.out" ' +
-//'properties="astruct2" ' +
-//'xmlVar="ftp2" ' +
-//'xmlVar="ftp4" ' +
-//'query="#aquery2#" ' +
-//'action="read" ' +
-//'output_file="/tmp/cffile4.out" ' +
-//'query="#aquery4#" ' +
-//'properties="#astruct4#" ' +
-//'overwrite="true" ' +
-//'action="create" ' +
-//'>');
-//is.equal(r.tag, 'ftp');
-//is.equal(r.attributes.action, 'create');
-//is.equal(r.attributes.output_file, '/tmp/cffile4.out');
-//is.equal(r.attributes.overwrite, true);
-//is.equal(r.attributes.properties, '#astruct4#');
-//is.equal(r.attributes.query, '#aquery4#');
-//is.equal(r.attributes.xml_var, 'ftp4');
+r = cf.parse('<cfftp ' +
+'new="newdirname" ' +
+'proxyPassword="ppass" ' +
+'transfer_mode="ascii" ' +
+'proxyUser="puser" ' +
+'connection="conn" ' +
+'ascii_extension_list="txt;htm;html;php" ' +
+'local_file="localfile" ' +
+'remote_file="remotefile" ' +
+'passive="true" ' +
+'timeout="60" ' +
+'proxyPort="91" ' +
+'fail_if_exists="false" ' +
+'proxyServer="localhost" ' + 
+'action="put_file" ' +
+'password="pass" ' +
+'existing="oldrmdir" ' +
+'/>');
+is.equal(r.attributes.action, 'put_file');
+is.deepEqual(r.attributes.ascii_extension_list, 'txt;htm;html;php'.split(';'));
+is.equal(r.attributes.connection, 'conn');
+is.equal(r.attributes.existing, 'oldrmdir');
+is.equal(r.attributes.fail_if_exists, false);
+is.equal(r.attributes.new, 'newdirname');
+is.equal(r.attributes.passive, true);
+is.equal(r.attributes.proxy_password, 'ppass');
+is.equal(r.attributes.proxy_port, 91);
+is.equal(r.attributes.proxy_server, 'localhost');
+is.equal(r.attributes.proxy_user, 'puser');
+is.equal(r.attributes.timeout, 60);
+is.equal(r.attributes.transfer_mode, 'ascii');
 
 test.ok();
