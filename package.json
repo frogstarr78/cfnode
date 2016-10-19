@@ -38,6 +38,6 @@
   "devDependencies": {
     "check-dependencies": "^1.0.1",
     "colors": "0.6.2",
-    "pegjs": "0.7.0"
+    "pegjs": "*"
   }
 }
