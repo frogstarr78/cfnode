@@ -80,13 +80,10 @@ is.deepEqual(plib.objectify('a="b", c="d"'), {a: 'b', c: 'd'});
 is(plib.mkDate('NOW') instanceof Date);
 is(plib.mkDate(new Date()) instanceof Date);
 is(plib.mkDate('') instanceof Date);
+is(plib.mkDate([]) instanceof Date);
+is(plib.mkDate({}) instanceof Date);
 date = '2014-08-12 00:12:34 PST'
 is.deepEqual(plib.mkDate(date), new Date(Date.parse(date)));
-
-//Null/nil helper
-is.equal(plib.is_nil(null), true);
-is.equal(plib.is_nil(undefined), true);
-is.equal(plib.is_nil(''), false);
 
 //String/Array helper
 is.equal(plib.is_empty(''), true);
