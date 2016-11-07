@@ -40,7 +40,7 @@ start
 	/ tag_cfhttp
 	/ tag_cfhttpparam
 	/ tag_cfif
-//	/ tag_cfimap
+	/ tag_cfimap
 	/ tag_cfimport
 	/ tag_cfinclude
 	/ tag_cfinsert
@@ -454,7 +454,7 @@ tag_cfif
 		return me;
 	}
 
-//tag_cfimap
+tag_cfimap    = lt t:str_cfimap attr:attr_cfimap+ ws* wack? gt { return new cftag(t, attr); }
 tag_cfimport  = lt t:str_cfimport attr:attr_cfimport_required ws* wack? gt { return new cftag(t, attr); }
 tag_cfinclude = lt t:str_cfinclude attr:attr_cfinclude_required ws* wack? gt { return new cftag(t, [attr]); }
 
@@ -854,6 +854,7 @@ attr_omit                        = ws+ n:str_omit                        eql v:v
 attr_fail_to                     = ws+ n:str_fail_to                     eql v:value_email_address                                     { return { name: 'fail_to',                     value: v                            }; }
 attr_action_ftp                  = ws+ n:str_action                      eql v:value_cfftp_action                                      { return { name: n,                             value: v                            }; }
 attr_action_ftp_file_dir         = ws+ n:str_action                      eql v:value_cfftp_file_dir_action                             { return { name: n,                             value: v                            }; }
+attr_action_imap                 = ws+ n:str_action                      eql v:value_cfimap_action                                     { return { name: n,                             value: v                            }; }
 attr_action_objectcache          = ws+ n:str_action                      eql quote_char v:str_clear quote_char                         { return { name: n,                             value: v                            }; }
 attr_action_pop                  = ws+ n:str_action                      eql v:value_cfpop_action                                      { return { name: n,                             value: v                            }; }
 attr_action_cache                = ws+ n:str_action                      eql v:value_cfcache_action                                    { return { name: n,                             value: v                            }; }
@@ -972,6 +973,7 @@ attr_filter                      = ws+ n:str_filter                      eql v:v
 attr_fingerprint                 = ws+ n:str_fingerprint                 eql v:value_fingerprint                                       { return { name: n,                             value: v                            }; }
 attr_fix_newline                 = ws+ n:str_fix_newline                 eql v:value_boolean                                           { return { name: 'fix_newline',                 value: v                            }; }
 //attr_fkcolumn                    = ws+ n:str_fkcolumn                    eql v:value_any                                               { return { name: n,                             value: v                            }; }
+attr_folder                      = ws+ n:str_folder                      eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_form_fields                 = ws+ n:str_form_fields                 eql v:value_comma_sep_list                                    { return { name: 'form_fields',                 value: v                            }; }
 attr_format                      = ws+ n:str_format                      eql v:value_cfdump_format                                     { return { name: n,                             value: v                            }; }
 //attr_formula                     = ws+ n:str_formula                     eql v:value_any                                               { return { name: n,                             value: v                            }; }
@@ -1047,6 +1049,7 @@ attr_name_conflict               = ws+ n:str_name_conflict               eql v:v
 attr_namespace                   = ws+ n:str_namespace                   eql v:value_any_non_whitespace                                { return { name: n,                             value: v                            }; }
 attr_nested                      = ws+ n:str_nested                      eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
 attr_new_directory               = ws+ n:str_new_directory               eql v:value_file_path                                         { return { name: 'new_directory',               value: v                            }; }
+attr_new_folder                  = ws+ n:str_new_folder                  eql v:value_any                                               { return { name: n,                             value: v                            }; }
 attr_new                         = ws+ n:str_new                         eql v:( value_file_path / value_any_non_whitespace )          { return { name: 'new',                         value: v                            }; }
 attr_not_null                    = ws+ n:str_not_null                    eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
 attr_null                        = ws+ n:str_null                        eql v:value_boolean                                           { return { name: n,                             value: v                            }; }
@@ -1252,6 +1255,7 @@ attr_cferror_required_type     = attr_type_err
 attr_cferror_required_template = attr_template
 attr_cferror_optional = attr_mail_to / attr_exception
 
+attr_cfimap            = attr_action_imap / attr_attachment_path / attr_connection / attr_folder / attr_generate_unique_filenames / attr_max_rows / attr_message_number / attr_name / attr_new_folder / attr_password / attr_port / attr_recurse / attr_secure / attr_server / attr_start_row / attr_stop_on_error / attr_timeout / attr_uid / attr_username
 attr_cfimport_required = attr_cfimport_required_taglib attr_cfimport_required_prefix / attr_cfimport_required_prefix attr_cfimport_required_taglib
 
 attr_cfimport_required_taglib = attr_tag_lib
@@ -1665,6 +1669,7 @@ value_cffeed_action = quote_char v:( str_create / str_read ) quote_char         
 // @TODO Make the arguments more standard. In the CF9 documentation, at least, they list specific actions as allowed, but in their examples, include the commands that you would send to the ftp server as values to the action attribute including attributes to these actions that aren't documented at all
 value_cfftp_action = quote_char v:( str_open / str_close / str_quote / str_site / str_allo / str_acct ) quote_char                   { return v; }
 value_cfftp_file_dir_action = quote_char v:( str_change_dir / str_create_dir / str_list_dir / str_remove_dir / str_get_file / str_put_file / str_rename / str_remove / str_get_current_dir / str_get_current_url / str_exists_dir / str_exists_file / str_exists ) quote_char                   { return v; }
+value_cfimap_action = quote_char v:( str_delete / str_delete_folder / str_create_folder / str_open / str_close / str_rename_folder / str_list_all_folders / str_mark_read / str_move_mail / str_get_all / str_get_header_only ) quote_char                   { return v; }
 
 value_zip_action = quote_char v:( str_delete / str_list / str_read_binary / str_read / str_unzip / str_zip ) quote_char                   { return v; }
 value_zip_action_delete = quote_char v:str_delete quote_char                   { return v; }
@@ -1825,6 +1830,7 @@ str_cfhtmlhead                  = v:(c f h t m l h e a d)                       
 str_cfhttp                      = v:(c f h t t p)                                                  { return plib.stringify(v, 'lower'); }
 str_cfhttpparam                 = v:(c f h t t p p a r a m)                                        { return plib.stringify(v, 'lower'); }
 str_cfif                        = v:(c f i f)                                                      { return plib.stringify(v, 'lower'); }
+str_cfimap                      = v:(c f i m a p)                                                  { return plib.stringify(v, 'lower'); }
 str_cfimport                    = v:(c f i m p o r t)                                              { return plib.stringify(v, 'lower'); }
 str_cfinclude                   = v:(c f i n c l u d e)                                            { return plib.stringify(v, 'lower'); }
 str_cfinsert                    = v:(c f i n s e r t)                                              { return plib.stringify(v, 'lower'); }
@@ -1903,6 +1909,7 @@ str_copy                        = v:(c o p y)                                   
 str_country_code                = v:(c o u n t r y __ c o d e)                                     { return plib.stringify(v); }
 str_create                      = v:(c r e a t e)                                                  { return plib.stringify(v, 'lower'); }
 str_create_dir                  = v:(c r e a t e __ d i r)                                         { return plib.stringify(v, 'under', 'lower'); }
+str_create_folder               = v:(c r e a t e __ f o l d e r)                                   { return plib.stringify(v, 'under', 'lower'); }
 str_credit_card                 = v:(c r e d i t __ c a r d)                                       { return plib.stringify(v); }
 str_css_src                     = v:(c s s __ s r c)                                               { return plib.stringify(v); }
 str_custom_type                 = v:(c u s t o m __ t y p e)                                       { return plib.stringify(v, 'lower'); }
@@ -1918,8 +1925,9 @@ str_dbtype                      = v:(d b t y p e)                               
 str_debug                       = v:(d e b u g)                                                    { return plib.stringify(v, 'lower'); }
 str_decimal                     = v:(d e c i m a l)                                                { return plib.stringify(v, 'lower'); }
 str_default                     = v:(d e f a u l t)                                                { return plib.stringify(v, 'lower'); }
-str_delete_file                 = v:(d e l e t e __ f i l e)                                       { return plib.stringify(v, 'lower'); }
 str_delete                      = v:(d e l e t e)                                                  { return plib.stringify(v, 'lower'); }
+str_delete_file                 = v:(d e l e t e __ f i l e)                                       { return plib.stringify(v, 'lower'); }
+str_delete_folder               = v:(d e l e t e __ f o l d e r)                                   { return plib.stringify(v, 'under', 'lower'); }
 str_delimiter                   = v:(d e l i m i t e r)                                            { return plib.stringify(v, 'lower'); }
 str_depends_on                  = v:(d e p e n d s __ o n)                                         { return plib.stringify(v, 'lower'); }
 str_desc                        = v:(d e s c)                                                      { return plib.stringify(v, 'upper'); }
@@ -1977,6 +1985,7 @@ str_fix_newline                 = v:(f i x __ n e w l i n e)                    
 str_fkcolumn                    = v:(f k c o l u m n)                                              { return plib.stringify(v); }
 str_float                       = v:(f l o a t)                                                    { return plib.stringify(v); }
 str_flush                       = v:(f l u s h)                                                    { return plib.stringify(v); }
+str_folder                      = v:(f o l d e r)                                                  { return plib.stringify(v, 'lower'); }
 str_foreign_keys                = v:(f o r e i g n __ k e y s)                                     { return plib.stringify(v); }
 str_form_data                   = v:(f o r m __ d a t a)                                           { return plib.stringify(v, 'under', 'lower'); }
 str_form_field                  = v:(f o r m __ f i e l d)                                         { return plib.stringify(v, 'under', 'lower'); }
@@ -2049,6 +2058,7 @@ str_link_table                  = v:(l i n k __ t a b l e)                      
 str_list                        = v:(l i s t)                                                      { return plib.stringify(v, 'lower'); }
 str_list_dir                    = v:(l i s t __ d i r)                                             { return plib.stringify(v, 'under', 'lower'); }
 str_list_info                   = v:(l i s t __ i n f o)                                           { return plib.stringify(v, 'under', 'lower'); }
+str_list_all_folders            = v:(l i s t __ a l l __ f o l d e r s)                            { return plib.stringify(v, 'under', 'lower'); }
 str_local_file                  = v:(l o c a l __ f i l e)                                         { return plib.stringify(v, 'under', 'lower'); }
 str_lock                        = v:(l o c k)                                                      { return plib.stringify(v, 'lower'); }
 str_log                         = v:(l o g)                                                        { return plib.stringify(v, 'lower'); }
@@ -2063,6 +2073,7 @@ str_mailer_id                   = v:(m a i l e r __ i d)                        
 str_make_unique                 = v:(m a k e __ u n i q u e)                                       { return plib.stringify(v, 'lower'); }
 str_mapped_by                   = v:(m a p p e d __ b y)                                           { return plib.stringify(v); }
 str_mapped_super_class          = v:(m a p p e d __ s u p e r __ c l a s s)                        { return plib.stringify(v, 'under', 'lower'); }
+str_mark_read                   = v:(m a r k __ r e a d)                                           { return plib.stringify(v, 'under', 'lower'); }
 str_max                         = v:(m a x)                                                        { return plib.stringify(v, 'lower'); }
 str_max_length                  = v:(m a x __ l e n g t h)                                         { return 'max_length'; }
 str_max_rows                    = v:(m a x __ r o w s)                                             { return 'max_rows'; }
@@ -2083,6 +2094,7 @@ str_money                       = v:(m o n e y)                                 
 str_money4                      = v:(m o n e y '4')                                                { return plib.stringify(v, 'lower'); }
 str_monthly                     = v:(m o n t h l y)                                                { return plib.stringify(v, 'lower'); }
 str_move                        = v:(m o v e)                                                      { return plib.stringify(v, 'lower'); }
+str_move_mail                   = v:(m o v e __ m a i l)                                           { return plib.stringify(v, 'under', 'lower'); }
 str_multipart                   = v:(m u l t i p a r t)                                            { return plib.stringify(v, 'lower'); }
 str_multipart_type              = v:(m u l t i p a r t __ t y p e)                                 { return plib.stringify(v, 'lower'); }
 str_name                        = v:(n a m e)                                                      { return plib.stringify(v, 'lower'); }
@@ -2091,6 +2103,7 @@ str_namespace                   = v:(n a m e s p a c e)                         
 str_nested                      = v:(n e s t e d)                                                  { return plib.stringify(v, 'lower'); }
 str_never                       = v:(n e v e r)                                                    { return plib.stringify(v); }
 str_new_directory               = v:(n e w __ d i r e c t o r y)                                   { return plib.stringify(v, 'under', 'lower'); }
+str_new_folder                  = v:(n e w __ f o l d e r)                                         { return plib.stringify(v, 'under', 'lower'); }
 str_new                         = v:(n e w)                                                        { return plib.stringify(v, 'lower'); }
 str_nocase                      = v:(n o c a s e)                                                  { return plib.stringify(v); }
 str_none                        = v:(n o n e)                                                      { return plib.stringify(v); }
@@ -2176,6 +2189,7 @@ str_remote                      = v:(r e m o t e)                               
 str_remove                      = v:(r e m o v e)                                                  { return plib.stringify(v, 'lower'); }
 str_remove_dir                  = v:(r e m o v e __ d i r)                                         { return plib.stringify(v, 'under', 'lower'); }
 str_rename                      = v:(r e n a m e)                                                  { return plib.stringify(v, 'lower'); }
+str_rename_folder               = v:(r e n a m e __ f o l d e r)                                   { return plib.stringify(v, 'under', 'lower'); }
 str_repeatable_read             = v:(r e p e a t a b l e __ r e a d)                               { return plib.stringify(v, 'lower'); }
 str_reply_to                    = v:(r e p l y __ t o)                                             { return plib.stringify(v, 'under', 'lower'); }
 str_replace                     = v:(r e p l a c e)                                                { return plib.stringify(v); }
