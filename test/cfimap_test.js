@@ -104,6 +104,25 @@ is.equal(r.attributes.server, 'localhost');
 is.equal(r.attributes.username, 'user');
 is.equal(r.attributes.password, 'pass');
 
+r = cf.parse('<cfimap action="create_folder" folder="old_folder" />');
+is.equal(r.attributes.action, 'create_folder');
+is.equal(r.attributes.folder, 'old_folder');
 
-test.fail();
-//test.ok();
+r = cf.parse('<cfimap action="delete_folder" folder="old_folder" />');
+is.equal(r.attributes.action, 'delete_folder');
+is.equal(r.attributes.folder, 'old_folder');
+
+r = cf.parse('<cfimap action="get_all" name="cfimap_test4" />');
+is.equal(r.attributes.action, 'get_all');
+is.equal(r.attributes.name, 'cfimap_test4');
+
+r = cf.parse('<cfimap action="move_mail" newFolder="/tmp/flder" />');
+is.equal(r.attributes.action, 'move_mail');
+is.equal(r.attributes.new_folder, '/tmp/flder');
+
+r = cf.parse('<cfimap action="rename_folder" folder="old_folder" new_folder="new_folder" />');
+is.equal(r.attributes.action, 'rename_folder');
+is.equal(r.attributes.new_folder, 'new_folder');
+is.equal(r.attributes.folder, 'old_folder');
+
+test.ok();

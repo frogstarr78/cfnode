@@ -1669,7 +1669,7 @@ value_cffeed_action = quote_char v:( str_create / str_read ) quote_char         
 // @TODO Make the arguments more standard. In the CF9 documentation, at least, they list specific actions as allowed, but in their examples, include the commands that you would send to the ftp server as values to the action attribute including attributes to these actions that aren't documented at all
 value_cfftp_action = quote_char v:( str_open / str_close / str_quote / str_site / str_allo / str_acct ) quote_char                   { return v; }
 value_cfftp_file_dir_action = quote_char v:( str_change_dir / str_create_dir / str_list_dir / str_remove_dir / str_get_file / str_put_file / str_rename / str_remove / str_get_current_dir / str_get_current_url / str_exists_dir / str_exists_file / str_exists ) quote_char                   { return v; }
-value_cfimap_action = quote_char v:( str_delete / str_delete_folder / str_create_folder / str_open / str_close / str_rename_folder / str_list_all_folders / str_mark_read / str_move_mail / str_get_all / str_get_header_only ) quote_char                   { return v; }
+value_cfimap_action = quote_char v:( str_create_folder / str_delete_folder / str_rename_folder / str_delete / str_open / str_close / str_list_all_folders / str_mark_read / str_move_mail / str_get_all / str_get_header_only ) quote_char                   { return v; }
 
 value_zip_action = quote_char v:( str_delete / str_list / str_read_binary / str_read / str_unzip / str_zip ) quote_char                   { return v; }
 value_zip_action_delete = quote_char v:str_delete quote_char                   { return v; }
