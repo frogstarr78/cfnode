@@ -24,3 +24,7 @@ mount:
 	git pull flash master:master
 	git push flash master:master
 	umount /mnt/flash
+
+doc: doc/cf9/coldfusion_9_cfmlref.pdf
+	mupdf $^ &
+
