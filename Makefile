@@ -1,6 +1,10 @@
 .PHONY: test
 test: cf.js test/*_test.js
+ifdef file
+	./bin/ntest $(file)
+else
 	./bin/ntest test/*_test.js
+endif
 
 t: test
 
@@ -8,7 +12,7 @@ clean: cf.js
 	rm cf.js
 
 cf.js: cf.pegjs
-	pegjs --track-line-and-column $? $@
+	./node_modules/pegjs/bin/pegjs $?
 
 sync:
 	rsync -vr --delete . eclipta:git/cfnode
@@ -20,3 +24,7 @@ mount:
 	git pull flash master:master
 	git push flash master:master
 	umount /mnt/flash
+
+doc: doc/cf9/coldfusion_9_cfmlref.pdf
+	mupdf $^ &
+
