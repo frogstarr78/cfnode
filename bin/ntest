@@ -11,9 +11,9 @@ make cf.js
 #		$0 $t5 &
 #	done
 #else
-	ls "$@" | while read t1; do
-		r=$(node $t1 | tr "\n" ' ')
-		n=$(basename $t1)
-		echo "$r $n"
-	done
+for t1 in "$@"; do
+  r=$(node $t1 | tr "\n" ' ')
+  n=$(basename $t1)
+  echo "$r $n"
+done
 #fi
