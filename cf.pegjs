@@ -444,12 +444,6 @@ tag_cffile_write
 		return new cftag(t, plib.flatten(attr));
 	}
 
-tag_cffinally
-	= lt t:str_cffinally gt 
-	content:(!(lt wack str_cffinally gt) anychar)*
-	lt wack str_cffinally gt {
-		return new cftag(t, [], plib.stringify(content));
-	}
 
 tag_cfflush = lt t:str_cfflush attr:attr_cfflush* ws* wack? gt { return new cftag(t,  plib.flatten(attr)); }
 
