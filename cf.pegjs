@@ -302,7 +302,6 @@ tag_cfelseif
 	}
 
 tag_cferror = lt t:str_cferror attr:( attr_cferror_optional* attr_cferror_required_template attr_cferror_optional* attr_cferror_required_type attr_cferror_optional* / attr_cferror_optional* attr_cferror_required_type attr_cferror_optional* attr_cferror_required_template attr_cferror_optional*) ws* wack? gt { return new cftag(t, plib.flatten(attr)); }
-tag_cfexecute = lt t:str_cfexecute attr:(attr_cfexecute_optional* attr_cfexecute_required attr_cfexecute_optional*) gt content:(!(lt wack str_cfexecute gt) anychar)* lt wack str_cfexecute gt { return new cftag(t, plib.flatten(attr), plib.stringify(content)); }
 tag_cfexit = lt t:str_cfexit attr:attr_cfexit_optional* ws* wack? gt { return new cftag(t, attr); }
 
 tag_cffeed
