@@ -5,7 +5,7 @@ var path = require('path'),
 	colors = require('colors');
 
 exports.exit = process.exit;
-exports.fail = function () { console.log('X'.red); };
+exports.fail = function () { console.log('X'.red); process.exit(1); };
 exports.neut = function () { console.log('-'.yellow); };
 exports.ok = function () { console.log('√'.green); };
 exports.inspect = function (s) {
