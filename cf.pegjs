@@ -774,62 +774,6 @@ tag_cfupdate
 
 tag_cfxml      = lt t:str_cfxml      attr:( attr_variable attr_case_sensitive? / attr_case_sensitive? attr_variable ) ws* wack? gt { return new cftag(t, plib.flatten(attr)); }
 
-tag_cfzip
-	= tag_cfzip_delete
-	/ tag_cfzip_list
-	/ tag_cfzip_read
-	/ tag_cfzip_read_binary
-	/ tag_cfzip_unzip
-	/ tag_cfzip_zip
-
-tag_cfzip_delete
-	= lt t:str_cfzip attr:(
-		attr_cfzip_delete_optional*   attr_file_path  attr_cfzip_delete_optional* attr_zip_action attr_cfzip_delete_optional*
-		/ attr_cfzip_delete_optional* attr_zip_action attr_cfzip_delete_optional* attr_file_path  attr_cfzip_delete_optional*
-	) ws* wack? gt {
-		return new cftag(t, plib.flatten(attr));
-	}
-
-tag_cfzip_list
-	= lt t:str_cfzip attr:(
-		( attr_cfzip_list_optional* attr_cfzip_list_required+ attr_cfzip_list_optional* )*
-		/ attr_cfzip_list_optional* attr_cfzip_list_required+
-		/ attr_cfzip_list_required+
-	) ws* wack? gt {
-		return new cftag(t, plib.flatten(attr));
-	}
-
-tag_cfzip_read
-	= lt t:str_cfzip attr:(
-		attr_cfzip_read_optional* attr_cfzip_read_required+ attr_cfzip_read_optional* attr_cfzip_read_required+ attr_cfzip_read_optional*
-		/ attr_cfzip_read_required+ attr_cfzip_read_optional+ attr_cfzip_read_required+
-		/ attr_cfzip_read_required+ attr_cfzip_read_optional+
-		/ attr_cfzip_read_required+
-	) ws* wack? gt {
-		return new cftag(t, plib.flatten(attr));
-	}
-tag_cfzip_read_binary = lt t:str_cfzip attr:attr_cfzip_read_binary_required+ ws* wack? gt { return new cftag(t, plib.flatten(attr)); }
-
-tag_cfzip_unzip
-	= lt t:str_cfzip attr:(
-		( attr_cfzip_unzip_optional* attr_cfzip_unzip_required+ attr_cfzip_unzip_optional* )*
-		/ attr_cfzip_unzip_optional* attr_cfzip_unzip_required+
-		/ attr_cfzip_unzip_required+
-	) ws* wack? gt {
-		return new cftag(t, plib.flatten(attr));
-	}
-
-tag_cfzip_zip
-	= lt t:str_cfzip attr:(
-		( attr_cfzip_zip_optional* attr_cfzip_zip_required+ attr_cfzip_zip_optional* )*
-		/ attr_cfzip_zip_optional* attr_cfzip_zip_required+
-		/ attr_cfzip_zip_required+
-	) ws* wack? gt {
-		return new cftag(t, plib.flatten(attr));
-	}
-
-tag_cfzipparam = lt t:str_cfzipparam attr:attr_cfzipparam_optional*                                                   ws* wack? gt { return new cftag(t, plib.flatten(attr)); }
-
 //End Tags
 
 // Tag Specific Value Defs
@@ -1482,7 +1426,7 @@ attr_cftransaction         = attr_action_transaction / attr_isolation / attr_sav
 //@TODO: change to also allow "table" attribute
 attr_cfupdate              = attr_datasource / attr_form_fields / attr_password / attr_table_name / attr_table_owner / attr_table_qualifier / attr_username
 attr_cfxml                 = attr_variable / attr_case_sensitive
-attr_cfzip                 = attr_action_zip / attr_charset / attr_destination / attr_entry_path / attr_file_path / attr_filter / attr_name_zip / attr_overwrite / attr_prefix / attr_recurse / attr_show_directory / attr_source_path / attr_store_path / attr_variable
+attr_cfzip                 = attr_action_zip / attr_charset / attr_destination / attr_entry_path / attr_file_path / attr_filter / attr_name_zip / attr_overwrite / attr_prefix / attr_recurse / attr_show_directory / attr_source_path / attr_store_path / attr_variable       
 attr_cfzipparam            = attr_charset / attr_content / attr_entry_path / attr_filter / attr_prefix_path / attr_recurse / attr_file_source
 attr_cfquery               = attr_block_factor / attr_cached_after / attr_cached_within / attr_datasource / attr_dbtype / attr_debug / attr_name / attr_max_rows / attr_orm_options / attr_password / attr_result / attr_timeout / attr_username
 attr_cfqueryparam          = attr_list / attr_max_length / attr_null / attr_scale / attr_separator / attr_sql_type / attr_value
@@ -2429,7 +2373,7 @@ value_transfer_mode = quote_char v:( str_ascii / str_binary / str_auto ) quote_c
 value_dir           = v:(!(wack / ws / quote_char) .)*                           { return plib.stringify(v); }
 value_domain        = quote_char v:( period domain ) quote_char { return plib.stringify(v); }
 value_email_address = quote_char e:email quote_char                              { return e; }
-value_unix_path     = ( wack (value_dir wack)* value_dir )
+value_unix_path     = ( ( wack (value_dir wack)* )* value_dir )
 value_windows_path  = ( ucchars colon backwack (value_dir backwack)* value_dir )
 value_file_path     = quote_char v:( value_unix_path / value_windows_path ) quote_char { return plib.stringify(v); }
 value_fingerprint   = quote_char v:(hexadecimal hexadecimal colon hexadecimal hexadecimal colon hexadecimal hexadecimal colon hexadecimal hexadecimal colon colon hexadecimal hexadecimal colon hexadecimal hexadecimal colon hexadecimal hexadecimal colon hexadecimal hexadecimal) quote_char { return plib.stringify(v); }

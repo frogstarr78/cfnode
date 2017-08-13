@@ -8,16 +8,15 @@ var is = require('assert'),
 
 var r;
 
-is.throws(function () {
-	r = cf.parse('<cfzip action="delete" >');
-}, Error, "Missing required file attribute.");
+r = cf.parse('<cfzip file="/path/to/destination.file" source="/path/to/source" >');
+is.equal(r instanceof Object, true);
+is.equal(r.tag, 'zip');
+is.equal(r.attributes.action, 'zip');
+is.equal(r.attributes.file, '/path/to/destination.file');
+is.equal(r.attributes.source, '/path/to/source');
 
 is.throws(function () {
-	r = cf.parse('<cfzip action="unzip" file="/path/to/file.zip" >');
-}, Error, "Missing required destination attribute.");
-
-is.throws(function () {
-	r = cf.parse('<cfzip action="unzip" destination="/path/to/unzip/to" >');
+  r = cf.parse('<cfzip action="delete" >');
 }, Error, "Missing required file attribute.");
 
 is.throws(function () {
@@ -53,11 +52,15 @@ is.throws(function () {
 }, Error, "Missing required file attribute.");
 
 is.throws(function () {
-	r = cf.parse('<cfzip action="read_binary" >');
+	r = cf.parse('<cfzip action="unzip" file="/path/to/file.zip" >');
+}, Error, "Missing required destination attribute.");
+
+is.throws(function () {
+  r = cf.parse('<cfzip action="unzip" destination="/path/to/unzip/to" >');
 }, Error, "Missing required file attribute.");
 
 is.throws(function () {
-	r = cf.parse('<cfzip action="zip" destination="/path/to/unzip/to" >');
+	r = cf.parse('<cfzip action="zip" source="/path/to/unzip/to" >');
 }, Error, "Missing required file attribute.");
 
 is.throws(function () {
@@ -105,22 +108,22 @@ r = cf.parse('<cfzip ' +
 'filter="*.txt" ' +
 'store_path="no" ' +
 'destination="/tmp/dpath" ' +
-'entry_path="file.zip" ' +
+'prefix="prefix_path" ' +
 'overwrite="no" ' +
 'store_path="no" ' +
 '/>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'zip');
 is.equal(r.attributes.charset, 'us-ascii');
-is.equal(r.attributes.action, 'zip');
+is.equal(r.attributes.action, 'unzip');
+is.equal(r.attributes.filter, '*.txt');
 is.equal(r.attributes.store_path, false);
 is.equal(r.attributes.show_directory, false);
 is.equal(r.attributes.recurse, true);
 is.equal(r.attributes.prefix, "prefix_path");
 is.equal(r.attributes.file, "/path/to/file.zip");
-is.equal(r.attributes.source, "/tmp/spath");
+is.equal(r.attributes.destination, "/tmp/dpath");
 
-test.die();
 r = cf.parse('<CFZIPPARAM '+
 'CHARSET="us-ascii" ' +
 'CONTENT="content written" ' +
