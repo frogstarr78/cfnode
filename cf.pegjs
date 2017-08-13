@@ -199,7 +199,11 @@ tag_cfinsert         = lt t:str_cfinsert         attr:attr_cfinsert+           w
 tag_cfinvokeargument = lt t:str_cfinvokeargument attr:attr_cfinvokeargument+   ws* wack? gt { return new cftag(t, plib.flatten(attr)); }
 tag_cflocation       = lt t:str_cflocation       attr:attr_cflocation+         ws* wack? gt { return new cftag(t, plib.flatten(attr)); }
 tag_cflog            = lt t:str_cflog            attr:attr_cflog+              ws* wack? gt { return new cftag(t, plib.flatten(attr)); }
+//tag_cflog            = lt t:str_cflog      attr:( attr_cflog_optional* attr_cflog_required attr_cflog_optional* ) ws* wack? gt { return new cftag(t, plib.flatten(attr)); }
 tag_cfloginuser      = lt t:str_cfloginuser      attr:attr_cfloginuser+        ws* wack? gt { return new cftag(t, plib.flatten(attr)); }
+//tag_cfloginuser      = lt t:str_cfloginuser attr:attr_cfloginuser_required+ ws* wack? gt { return new cftag(t, plib.flatten(attr)); }
+tag_cflogout         = lt t:str_cflogout                                    ws* wack? gt { return new cftag(t, []); }
+
 tag_cflogout         = lt t:str_cflogout                                       ws* wack? gt { return new cftag(t, []); }
 tag_cfmailparam      = lt t:str_cfmailparam      attr:attr_cfmailparam+        ws* wack? gt { return new cftag(t, plib.flatten(attr)); }
 tag_cfobjectcache    = lt t:str_cfobjectcache    attr:attr_action_objectcache  ws* wack? gt { return new cftag(t, attr); }
@@ -563,17 +567,6 @@ tag_cflock
 	lt wack str_cflock gt {
 		return new cftag(t, plib.flatten(attr), plib.stringify(content));
 	}
-
-tag_cflog      = lt t:str_cflog      attr:( attr_cflog_optional* attr_cflog_required attr_cflog_optional* ) ws* wack? gt { return new cftag(t, plib.flatten(attr)); }
-tag_cflogin
-	= lt t:str_cflogin attr:attr_cflogin_optional* gt
-	content:(!(lt wack str_cflogin gt) anychar)*
-	lt wack str_cflogin gt {
-		return new cftag(t, attr, plib.stringify(content));
-	}
-
-tag_cfloginuser = lt t:str_cfloginuser attr:attr_cfloginuser_required+ ws* wack? gt { return new cftag(t, plib.flatten(attr)); }
-tag_cflogout    = lt t:str_cflogout                                    ws* wack? gt { return new cftag(t, []); }
 
 tag_cfloop_close = lt wack str_cfloop gt
 tag_cfloop
