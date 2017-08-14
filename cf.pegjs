@@ -1,7 +1,7 @@
 {
 	var util = require('util'),
 		plib = require('./lib/parselib'),
-		cftag = require('./lib/cftag'),
+		cf = require('./lib/cftag'),
 		human_date = require('date.js'),
 		inspect = console.dir;
 }
@@ -166,74 +166,106 @@ start
 // Tag Definitions
 
 //@TODO: Allow tag_cfcache to work without a closing tag. When operating on an object, we don't need a body
-tag_cfabort           =  lt  t:str_cfabort           attr:attr_cfabort*            ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfajaximport      =  lt  t:str_cfajaximport      attr:attr_cfajaximport*       ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfajaxproxy       =  lt  t:str_cfajaxproxy       attr:attr_cfajaxproxy+        ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfapplication     =  lt  t:str_cfapplication     attr:attr_cfapplication+      ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfassociate       =  lt  t:str_cfassociate       attr:attr_cfassociate+        ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfcase            =  lt  t:str_cfcase            attr:attr_cfcase+             ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfcontent         =  lt  t:str_cfcontent         attr:attr_cfcontent*          ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfcookie          =  lt  t:str_cfcookie          attr:attr_cfcookie+           ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfdbinfo          =  lt  t:str_cfdbinfo          attr:attr_cfdbinfo+           ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfdirectory       =  lt  t:str_cfdirectory       attr:attr_cfdirectory+        ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfdump            =  lt  t:str_cfdump            attr:attr_cfdump+             ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cferror           =  lt  t:str_cferror           attr:attr_cferror+            ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfexit            =  lt  t:str_cfexit            attr:attr_cfexit*             ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cffile            =  lt  t:str_cffile            attr:attr_cffile_append+      ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfflush           =  lt  t:str_cfflush           attr:attr_cfflush*            ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-                      /  lt  t:str_cffile            attr:attr_cffile_copy+        ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-                      /  lt  t:str_cffile            attr:attr_cffile_delete+      ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-                      /  lt  t:str_cffile            attr:attr_cffile_move+        ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-                      /  lt  t:str_cffile            attr:attr_cffile_read+        ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-                      /  lt  t:str_cffile            attr:attr_cffile_read_binary+ ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-                      /  lt  t:str_cffile            attr:attr_cffile_rename+      ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-                      /  lt  t:str_cffile            attr:attr_cffile_upload_all+  ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-                      /  lt  t:str_cffile            attr:attr_cffile_upload+      ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-                      /  lt  t:str_cffile            attr:attr_cffile_write+       ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfheader          =  lt  t:str_cfheader          attr:attr_cfheader*           ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfhtmlhead        =  lt  t:str_cfhtmlhead        attr:attr_cfhtmlhead          ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfhttpparam       =  lt  t:str_cfhttpparam       attr:attr_cfhttpparam+        ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfimport          =  lt  t:str_cfimport          attr:attr_cfimport+           ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfinclude         =  lt  t:str_cfinclude         attr:attr_cfinclude           ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfinsert          =  lt  t:str_cfinsert          attr:attr_cfinsert+           ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfinvokeargument  =  lt  t:str_cfinvokeargument  attr:attr_cfinvokeargument+   ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cflocation        =  lt  t:str_cflocation        attr:attr_cflocation+         ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cflog             =  lt  t:str_cflog             attr:attr_cflog+              ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfloginuser       =  lt  t:str_cfloginuser       attr:attr_cfloginuser+        ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfmailparam       =  lt  t:str_cfmailparam       attr:attr_cfmailparam+        ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfobjectcache     =  lt  t:str_cfobjectcache     attr:attr_objectcache         ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfparam           =  lt  t:str_cfparam           attr:attr_cfparam+            ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfprocparam       =  lt  t:str_cfprocparam       attr:attr_cfprocparam+        ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfprocresult      =  lt  t:str_cfprocresult      attr:attr_cfprocresult+       ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfproperty        =  lt  t:str_cfproperty        attr:attr_cfproperty+         ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfqueryparam      =  lt  t:str_cfqueryparam      attr:attr_cfqueryparam+       ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfschedule        =  lt  t:str_cfschedule        attr:attr_cfschedule+         ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfsetting         =  lt  t:str_cfsetting         attr:attr_cfsetting*          ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfstoredproc      =  lt  t:str_cfstoredproc      attr:attr_cfstoredproc+       ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfupdate          =  lt  t:str_cfupdate          attr:attr_cfupdate+           ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfxml             =  lt  t:str_cfxml             attr:attr_cfxml+              ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfzip             =  lt  t:str_cfzip             attr:attr_cfzip+              ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
-tag_cfzipparam        =  lt  t:str_cfzipparam        attr:attr_cfzipparam*         ws*  wack?  gt  {  return  new  cftag(t,  attr);  }
+tag_cfabort                =  lt  t:str_cfabort                  attr:attr_cfabort*             ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfajaximport           =  lt  t:str_cfajaximport             attr:attr_cfajaximport*        ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfajaxproxy            =  lt  t:str_cfajaxproxy              attr:attr_cfajaxproxy+         ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfapplication          =  lt  t:str_cfapplication            attr:attr_cfapplication+       ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfassociate            =  lt  t:str_cfassociate              attr:attr_cfassociate+         ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfcase                 =  lt  t:str_cfcase                   attr:attr_cfcase+              ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfcontent              =  lt  t:str_cfcontent                attr:attr_cfcontent*           ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfcookie               =  lt  t:str_cfcookie                 attr:attr_cfcookie+            ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfdbinfo               =  lt  t:str_cfdbinfo                 attr:attr_cfdbinfo+            ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfdirectory            =  lt  t:str_cfdirectory              attr:attr_cfdirectory+         ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfdump                 =  lt  t:str_cfdump                   attr:attr_cfdump+              ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cferror                =  lt  t:str_cferror                  attr:attr_cferror+             ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfexit                 =  lt  t:str_cfexit                   attr:attr_cfexit*              ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cffeed                 =  lt  t:str_cffeed                   attr:attr_cffeed+              ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cffile                 =  lt  t:str_cffile                   attr:attr_cffile_append+       ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfflush                =  lt  t:str_cfflush                  attr:attr_cfflush*             ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+                           /  lt  t:str_cffile                   attr:attr_cffile_copy+         ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+                           /  lt  t:str_cffile                   attr:attr_cffile_delete+       ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+                           /  lt  t:str_cffile                   attr:attr_cffile_move+         ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+                           /  lt  t:str_cffile                   attr:attr_cffile_read+         ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+                           /  lt  t:str_cffile                   attr:attr_cffile_read_binary+  ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+                           /  lt  t:str_cffile                   attr:attr_cffile_rename+       ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+                           /  lt  t:str_cffile                   attr:attr_cffile_upload_all+   ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+                           /  lt  t:str_cffile                   attr:attr_cffile_upload+       ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+                           /  lt  t:str_cffile                   attr:attr_cffile_write+        ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfftp                  =  lt  t:str_cfftp                    attr:attr_cfftp_conn+          ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+                           /  lt  t:str_cfftp                    attr:attr_cfftp_file_dir+      ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfheader               =  lt  t:str_cfheader                 attr:attr_cfheader*            ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfhtmlhead             =  lt  t:str_cfhtmlhead               attr:attr_cfhtmlhead           ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfhttpparam            =  lt  t:str_cfhttpparam              attr:attr_cfhttpparam+         ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfimap                 =  lt  t:str_cfimap                   attr:attr_cfimap+              ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfimport               =  lt  t:str_cfimport                 attr:attr_cfimport+            ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfinclude              =  lt  t:str_cfinclude                attr:attr_cfinclude            ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfinsert               =  lt  t:str_cfinsert                 attr:attr_cfinsert+            ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfinvoke_syntax1       =  lt  t:str_cfinvoke                 attr:attr_cfinvoke             ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfinvokeargument       =  lt  t:str_cfinvokeargument         attr:attr_cfinvokeargument+    ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfldap                 =  lt  t:str_cfldap                   attr:attr_cfldap+              ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cflocation             =  lt  t:str_cflocation               attr:attr_cflocation+          ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cflog                  =  lt  t:str_cflog                    attr:attr_cflog+               ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfloginuser            =  lt  t:str_cfloginuser              attr:attr_cfloginuser+         ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfmailparam            =  lt  t:str_cfmailparam              attr:attr_cfmailparam+         ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfobjectcache          =  lt  t:str_cfobjectcache            attr:attr_objectcache          ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfparam                =  lt  t:str_cfparam                  attr:attr_cfparam+             ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfpop                  =  lt  t:str_cfpop                    attr:attr_cfpop+               ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfprocparam            =  lt  t:str_cfprocparam              attr:attr_cfprocparam+         ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfprocresult           =  lt  t:str_cfprocresult             attr:attr_cfprocresult+        ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfproperty             =  lt  t:str_cfproperty               attr:attr_cfproperty+          ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfqueryparam           =  lt  t:str_cfqueryparam             attr:attr_cfqueryparam+        ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfschedule             =  lt  t:str_cfschedule               attr:attr_cfschedule+          ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfsetting              =  lt  t:str_cfsetting                attr:attr_cfsetting*           ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfstoredproc           =  lt  t:str_cfstoredproc             attr:attr_cfstoredproc+        ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfupdate               =  lt  t:str_cfupdate                 attr:attr_cfupdate+            ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfxml                  =  lt  t:str_cfxml                    attr:attr_cfxml+               ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfzip                  =  lt  t:str_cfzip                    attr:attr_cfzip+               ws*    wack?  gt     { return new cf.tag(t,  attr);  }
+tag_cfzipparam             =  lt  t:str_cfzipparam               attr:attr_cfzipparam*          ws*    wack?  gt     { return new cf.tag(t,  attr);  }
 
-tag_cfcache           =  lt  t:str_cfcache      attr:attr_cfcache*      ws*         gt  content:(!tag_cfcache_close      anychar)*  tag_cfcache_close      {  return  new  cftag(t,  attr,  content);  }
-tag_cfcatch           =  lt  t:str_cfcatch      attr:attr_cfcatch*      ws*         gt  content:(!tag_cfcatch_close      anychar)*  tag_cfcatch_close      {  return  new  cftag(t,  attr,  content);  }
-tag_cfcomponent       =  lt  t:str_cfcomponent  attr:attr_cfcomponent*  ws*         gt  content:(!tag_cfcomponent_close  anychar)*  tag_cfcomponent_close  {  return  new  cftag(t,  attr,  content);  }
-tag_cfelse            =  lt  t:str_cfelse                               ws*  wack?  gt  content:(!tag_cfif_close         anychar)*  tag_cfif_close         {  return  new  cftag(t,  [],    content);  }
-tag_cfexecute         =  lt  t:str_cfexecute    attr:attr_cfexecute+    ws*         gt  content:(!tag_cfexecute_close    anychar)*  tag_cfexecute_close    {  return  new  cftag(t,  attr,  content);  }
-tag_cffinally         =  lt  t:str_cffinally                            ws*         gt  content:(!tag_cffinally_close    anychar)*  tag_cffinally_close    {  return  new  cftag(t,  [],    content);  }
-tag_cffunction        =  lt  t:str_cffunction   attr:attr_cffunction+   ws*         gt  content:(!tag_cffunction_close   anychar)*  tag_cffunction_close   {  return  new  cftag(t,  attr,  content);  }
-tag_cfhttp            =  lt  t:str_cfhttp       attr:attr_cfhttp+       ws*         gt  content:(!tag_cfhttp_close       anychar)*  tag_cfhttp_close       {  return  new  cftag(t,  attr,  content);  }
-tag_cfinterface       =  lt  t:str_cfinterface  attr:attr_cfinterface*  ws*         gt  content:(!tag_cfinterface_close  anychar)*  tag_cfinterface_close  {  return  new  cftag(t,  attr,  content);  }
-tag_cflock            =  lt  t:str_cflock       attr:attr_cflock+       ws*         gt  content:(!tag_cflock_close       anychar)*  tag_cflock_close       {  return  new  cftag(t,  attr,  content);  }
-tag_cflogin           =  lt  t:str_cflogin      attr:attr_cflogin*      ws*         gt  content:(!tag_cflogin_close      anychar)*  tag_cflogin_close      {  return  new  cftag(t,  attr,  content);  }
+tag_cfcache                =  lt  t:str_cfcache                  attr:attr_cfcache*               ws*        gt content:(!tag_cfcache_close               anychar)* tag_cfcache_close               { return new cf.tag(t, attr, content);  }
+tag_cfcatch                =  lt  t:str_cfcatch                  attr:attr_cfcatch*               ws*        gt content:(!tag_cfcatch_close               anychar)* tag_cfcatch_close               { return new cf.tag(t, attr, content);  }
+tag_cfcomponent            =  lt  t:str_cfcomponent              attr:attr_cfcomponent*           ws*        gt content:(!tag_cfcomponent_close           anychar)* tag_cfcomponent_close           { return new cf.tag(t, attr, content);  }
+tag_cfelse                 =  lt  t:str_cfelse                                                    ws* wack?  gt content:(!tag_cfif_close                  anychar)* tag_cfif_close                  { return new cf.tag(t, [],   content);  }
+tag_cfexecute              =  lt  t:str_cfexecute                attr:attr_cfexecute+             ws*        gt content:(!tag_cfexecute_close             anychar)* tag_cfexecute_close             { return new cf.tag(t, attr, content);  }
+tag_cffinally              =  lt  t:str_cffinally                                                 ws*        gt content:(!tag_cffinally_close             anychar)* tag_cffinally_close             { return new cf.tag(t, [],   content);  }
+tag_cffunction             =  lt  t:str_cffunction               attr:attr_cffunction+            ws*        gt content:(!tag_cffunction_close            anychar)* tag_cffunction_close            { return new cf.tag(t, attr, content);  }
+tag_cfhttp                 =  lt  t:str_cfhttp                   attr:attr_cfhttp+                ws*        gt content:(!tag_cfhttp_close                anychar)* tag_cfhttp_close                { return new cf.tag(t, attr, content);  }
+tag_cfinterface            =  lt  t:str_cfinterface              attr:attr_cfinterface*           ws*        gt content:(!tag_cfinterface_close           anychar)* tag_cfinterface_close           { return new cf.tag(t, attr, content);  }
+tag_cflock                 =  lt  t:str_cflock                   attr:attr_cflock+                ws*        gt content:(!tag_cflock_close                anychar)* tag_cflock_close                { return new cf.tag(t, attr, content);  }
+tag_cflogin                =  lt  t:str_cflogin                  attr:attr_cflogin*               ws*        gt content:(!tag_cflogin_close               anychar)* tag_cflogin_close               { return new cf.tag(t, attr, content);  }
+tag_cfloop                 =  lt  t:str_cfloop                   attr:attr_cfloop_array+          ws*        gt content:(!tag_cfloop_close                anychar)* tag_cfloop_close                { return new cf.tag(t, attr, content,  'array');       }
+                           /  lt  t:str_cfloop                   attr:attr_cfloop_conditional     ws*        gt content:(!tag_cfloop_close                anychar)* tag_cfloop_close                { return new cf.tag(t, attr, content,  'conditional'); }
+                           /  lt  t:str_cfloop                   attr:attr_cfloop_date_range+     ws*        gt content:(!tag_cfloop_close                anychar)* tag_cfloop_close                { return new cf.tag(t, attr, content,  'date_range');  }
+                           /  lt  t:str_cfloop                   attr:attr_cfloop_file+           ws*        gt content:(!tag_cfloop_close                anychar)* tag_cfloop_close                { return new cf.tag(t, attr, content,  'file');        }
+                           /  lt  t:str_cfloop                   attr:attr_cfloop_index+          ws*        gt content:(!tag_cfloop_close                anychar)* tag_cfloop_close                { return new cf.tag(t, attr, content,  'index');       }
+                           /  lt  t:str_cfloop                   attr:attr_cfloop_list+           ws*        gt content:(!tag_cfloop_close                anychar)* tag_cfloop_close                { return new cf.tag(t, attr, content,  'list');        }
+                           /  lt  t:str_cfloop                   attr:attr_cfloop_query+          ws*        gt content:(!tag_cfloop_close                anychar)* tag_cfloop_close                { return new cf.tag(t, attr, content,  'query');       }
+                           /  lt  t:str_cfloop                   attr:attr_cfloop_collection+     ws*        gt content:(!tag_cfloop_close                anychar)* tag_cfloop_close                { return new cf.tag(t, attr, content,  'collection');  }
+tag_cfquery                =  lt  t:str_cfquery                  attr:attr_cfquery+               ws*        gt content:(!tag_cfquery_close               anychar)* tag_cfquery_close               { return new cf.tag(t, attr, content); }
+tag_cfprocessingdirective  =  lt  t:str_cfprocessingdirective    attr:attr_cfprocessingdirective* ws*        gt content:(!tag_cfprocessingdirective_close anychar)* tag_cfprocessingdirective_close { return new cf.tag(t, attr, content); }
+	                         /  lt  t:str_cfprocessingdirective    attr:attr_cfprocessingdirective* ws* wack?  gt                                                                                     { return new cf.tag(t, attr); }
+tag_cfmail                 =  lt  t:str_cfmail                   attr:attr_cfmail+                ws*        gt content:(!tag_cfmail_close                anychar)* tag_cfmail_close                { return new cf.tag(t, attr, content);  }
+tag_cfmailpart             =  lt  t:str_cfmailpart               attr:attr_cfmailpart+            ws*        gt content:(!tag_cfmailpart_close            anychar)* tag_cfmailpart_close            { return new cf.tag(t, attr, content);  }
+tag_cfoutput               =  lt  t:str_cfoutput                 attr:attr_cfoutput*              ws*        gt content:(!tag_cfoutput_close              anychar)* tag_cfoutput_close              { return new cf.tag(t, attr, content);  }
+tag_cfsavecontent          =  lt  t:str_cfsavecontent            attr:attr_cfsavecontent          ws*        gt content:(!tag_cfsavecontent_close         anychar)* tag_cfsavecontent_close         { return new cf.tag(t, attr, content);  }
+tag_cfscript               =  lt  t:str_cfscript                                                  ws*        gt content:(!tag_cfscript_close              anychar)* tag_cfscript_close              { return new cf.tag(t, [],   content);  }
+tag_cfsilent               =  lt  t:str_cfsilent                                                  ws*        gt content:(!tag_cfsilent_close              anychar)* tag_cfsilent_close              { return new cf.tag(t, [],   content);  }
+tag_cfswitch               =  lt  t:str_cfswitch                 attr:attr_expression             ws*        gt content:(!tag_cfswitch_close              anychar)* tag_cfswitch_close              { return new cf.tag(t, attr, content);  }
+tag_cftimer                =  lt  t:str_cftimer                  attr:attr_cftimer*               ws*        gt content:(!tag_cftimer_close               anychar)* tag_cftimer_close               { return new cf.tag(t, attr, content);  }
+tag_cftrace                =  lt  t:str_cftrace                  attr:attr_cftrace*               ws*        gt content:(!tag_cftrace_close               anychar)* tag_cftrace_close               { return new cf.tag(t, attr, content);  }
+tag_cftransaction          =  lt  t:str_cftransaction            attr:attr_cftransaction*         ws*        gt content:(!tag_cftransaction_close         anychar)* tag_cftransaction_close         { return new cf.tag(t, attr, content);  }
+tag_cftry                  =  lt  t:str_cftry                                                     ws*        gt content:(!tag_cftry_close                 anychar)* tag_cftry_close                 { return new cf.tag(t, [],   content);  }
 
-tag_cfbreak           =  lt  t:str_cfbreak        ws*  wack?  gt  {  return  new  cftag(t);  }
-tag_cfcontinue        =  lt  t:str_cfcontinue     ws*  wack?  gt  {  return  new  cftag(t);  }
-tag_cfdefaultcase     =  lt  t:str_cfdefaultcase  ws*  wack?  gt  {  return  new  cftag(t);  }
-tag_cflogout          =  lt  t:str_cflogout       ws*  wack?  gt  {  return  new  cftag(t);  }
-tag_cfloop            =  lt  t:str_cflogout       ws*  wack?  gt  {  return  new  cftag(t);  }
-tag_cfrethrow         =  lt  t:str_cfrethrow      ws*  wack?  gt  {  return  new  cftag(t);  }
-tag_cfthrow           =  lt  t:str_cfthrow        ws*  wack?  gt  {  return  new  cftag(t);  }
+tag_cfbreak           =  lt  t:str_cfbreak        ws*  wack?  gt  {  return  new  cf.tag(t);  }
+tag_cfcontinue        =  lt  t:str_cfcontinue     ws*  wack?  gt  {  return  new  cf.tag(t);  }
+tag_cfdefaultcase     =  lt  t:str_cfdefaultcase  ws*  wack?  gt  {  return  new  cf.tag(t);  }
+tag_cflogout          =  lt  t:str_cflogout       ws*  wack?  gt  {  return  new  cf.tag(t);  }
+tag_cfrethrow         =  lt  t:str_cfrethrow      ws*  wack?  gt  {  return  new  cf.tag(t);  }
+tag_cfthrow           =  lt  t:str_cfthrow        ws*  wack?  gt  {  return  new  cf.tag(t);  }
+
+tag_cfelseif = lt t:str_cfelseif v:(!gt anychar)+ gt content:(!( tag_cfelseif / tag_cfelse / tag_cfif_close ) anychar)* ( tag_cfelseif / tag_cfelse / tag_cfif_close ) { return new cf.dynamic_attribute_tag(t, v, content); }
+tag_cfif     = lt t:str_cfif     v:(!gt anychar)+ gt content:(!( tag_cfif_close / tag_cfelseif / tag_cfelse ) anychar)* ( tag_cfif_close / tag_cfelseif / tag_cfelse ) { return new cf.dynamic_attribute_tag(t, v, content); }
+tag_cfreturn = lt t:str_cfreturn v:(!( wack / gt) anychar)+ ws* wack? gt                                                                                               { return new cf.dynamic_attribute_tag(t, v); }
 
 tag_cfcache_close                =  lt  wack  str_cfcache                gt
 tag_cfcatch_close                =  lt  wack  str_cfcatch                gt
@@ -261,42 +293,6 @@ tag_cftrace_close                =  lt  wack  str_cftrace                gt
 tag_cftransaction_close          =  lt  wack  str_cftransaction          gt
 tag_cftry_close                  =  lt  wack  str_cftry                  gt
 
-tag_cfelseif
-	= lt t:str_cfelseif v:(!gt anychar)+ gt
-	content:(!( tag_cfelseif / tag_cfelse / tag_cfif_close ) anychar)*
-	(tag_cfelseif / tag_cfelse / tag_cfif_close ) {
-		var me = new cftag(t, [], content),
-		    val = plib.stringify(v, 'trim');
-		if ( val === '' ) {
-			throw new Error("Missing required expression.");
-		} else {
-			me.expression = val
-		}
-
-		return me;
-	}
-
-tag_cffeed        = lt t:str_cffeed attr:attr_cffeed+         ws* wack? gt { return new cftag(t, attr); }
-
-tag_cfftp         = lt t:str_cfftp           attr:attr_cfftp_conn+          ws* wack? gt { return new cftag(t, attr); }
-                  / lt t:str_cfftp           attr:attr_cfftp_file_dir+      ws* wack? gt { return new cftag(t, attr); }
-
-tag_cfif
-	= lt t:str_cfif v:(!gt anychar)+ gt 
-	content:(!( tag_cfif_close / tag_cfelseif / tag_cfelse ) anychar)*
-	( tag_cfif_close / tag_cfelseif / tag_cfelse ) {
-		var me = new cftag(t, [], content),
-		    val = plib.stringify(v, 'trim');
-		if ( val === '' ) {
-			throw new Error("Missing required expression.");		
-		} else {
-			me.expression = val
-		}
-
-		return me;
-	}
-
-tag_cfimap    = lt t:str_cfimap attr:attr_cfimap+ ws* wack? gt { return new cftag(t, attr); }
 tag_cfinvoke
 	= tag_cfinvoke_syntax1
 //	/ tag_cfinvoke_syntax2
@@ -322,66 +318,6 @@ tag_cfinvoke
 //username                         Ignored   Ignored   Optional  Ignored   Optional
 //webservice                       Invalid   Invalid   Required  Invalid   Required
 //wsdl2javaArgs                    Invalid   Invalid   Optional  Invalid   Optional
-
-tag_cfinvoke_syntax1 = lt t:str_cfinvoke attr:( 
-		attr_cfinvoke_syntax1_optional* attr_cfinvoke_syntax1_required+ attr_cfinvoke_syntax1_optional* attr_cfinvoke_syntax1_required+ attr_cfinvoke_syntax1_optional*
-		/ attr_cfinvoke_syntax1_required+ attr_cfinvoke_syntax1_optional+ attr_cfinvoke_syntax1_required+
-		/ attr_cfinvoke_syntax1_required+ attr_cfinvoke_syntax1_optional+
-		/ attr_cfinvoke_syntax1_required+
-  ) ws* wack? gt {
-		return new cftag(t, attr);
-  }
-
-tag_cfldap = lt t:str_cfldap attr:attr_cfldap+ ws* wack? gt { return new cftag(t, attr); }
-
-tag_cfloop        = lt t:str_cfloop           attr:attr_cfloop_array+      gt content:(!tag_cfloop_close anychar)* tag_cfloop_close { return new cftag(t, attr, content, 'array'); }
-	                / lt t:str_cfloop           attr:attr_cfloop_conditional gt content:(!tag_cfloop_close anychar)* tag_cfloop_close { return new cftag(t, attr, content, 'conditional'); }
-	                / lt t:str_cfloop           attr:attr_cfloop_date_range+ gt content:(!tag_cfloop_close anychar)* tag_cfloop_close { return new cftag(t, attr, content, 'date_range'); }
-	                / lt t:str_cfloop           attr:attr_cfloop_file+       gt content:(!tag_cfloop_close anychar)* tag_cfloop_close { return new cftag(t, attr, content, 'file'); }
-	                / lt t:str_cfloop           attr:attr_cfloop_index+      gt content:(!tag_cfloop_close anychar)* tag_cfloop_close { return new cftag(t, attr, content, 'index'); }
-	                / lt t:str_cfloop           attr:attr_cfloop_list+       gt content:(!tag_cfloop_close anychar)* tag_cfloop_close { return new cftag(t, attr, content, 'list'); }
-	                / lt t:str_cfloop           attr:attr_cfloop_query+      gt content:(!tag_cfloop_close anychar)* tag_cfloop_close { return new cftag(t, attr, content, 'query'); }
-	                / lt t:str_cfloop           attr:attr_cfloop_collection+ gt content:(!tag_cfloop_close anychar)* tag_cfloop_close { return new cftag(t, attr, content, 'collection'); }
-
-tag_cfmail        = lt t:str_cfmail     attr:attr_cfmail+     ws* gt content:(!tag_cfmail_close anychar)*     tag_cfmail_close     { return new cftag(t, attr, content); }
-tag_cfmailpart    = lt t:str_cfmailpart attr:attr_cfmailpart+ ws* gt content:(!tag_cfmailpart_close anychar)* tag_cfmailpart_close { return new cftag(t, attr, content); }
-tag_cfoutput      = lt t:str_cfoutput   attr:attr_cfoutput*   ws* gt content:(!tag_cfoutput_close anychar)*   tag_cfoutput_close   { return new cftag(t, attr, content); }
-tag_cfpop         = lt t:str_cfpop attr:attr_cfpop+ ws* wack? gt { return new cftag(t, attr); }
-
-tag_cfprocessingdirective
-	= lt t:str_cfprocessingdirective attr:attr_cfprocessingdirective* gt content:(!tag_cfprocessingdirective_close anychar)* tag_cfprocessingdirective_close { return new cftag(t, attr, content); }
-	/ lt t:str_cfprocessingdirective attr:attr_cfprocessingdirective*                                                        ws* wack? gt                    { return new cftag(t, attr); }
-
-tag_cfquery = lt t:str_cfquery attr:attr_cfquery+ gt content:(!tag_cfquery_close anychar)* tag_cfquery_close { return new cftag(t, attr, content); }
-tag_cfreturn = lt t:str_cfreturn v:(!gt anychar)+ gt {
-		var me = new cftag(t),
-		    val = plib.stringify(v, 'trim');
-		if ( val === '' ) {
-			throw new Error("Missing required expression.");		
-		} else {
-			me.expression = val
-		}
-
-		return me;
-	}
-
-tag_cfsavecontent = lt t:str_cfsavecontent attr:attr_cfsavecontent  gt  content:(!tag_cfsavecontent_close  anychar)*           tag_cfsavecontent_close  { return new cftag(t,  attr, content);  }
-tag_cfscript      = lt t:str_cfscript                               gt  content:(!tag_cfscript_close       anychar)*           tag_cfscript_close       { return new cftag(t,  [], content);  }
-tag_cfsilent      = lt t:str_cfsilent                               gt  content:(!tag_cfsilent_close       anychar)*           tag_cfsilent_close       { return new cftag(t,  [], content);  }
-tag_cfswitch      = lt t:str_cfswitch      attr:attr_expression     gt  content:(!tag_cfswitch_close       anychar)*           tag_cfswitch_close       { return new cftag(t,  attr);                   }
-tag_cftimer       = lt t:str_cftimer       attr:attr_cftimer*       gt  content:(!tag_cftimer_close        anychar)*           tag_cftimer_close        { return new cftag(t,  attr, content);  }
-tag_cftrace       = lt t:str_cftrace       attr:attr_cftrace*       gt  content:(!tag_cftrace_close        anychar)*           tag_cftrace_close        { return new cftag(t,  attr, content);  }
-tag_cftransaction = lt t:str_cftransaction attr:attr_cftransaction* gt  content:(!tag_cftransaction_close  anychar)*           tag_cftransaction_close  { return new cftag(t,  attr, content);  }
-tag_cftry         = lt t:str_cftry                                  gt  content:(!tag_cftry_close          anychar)*           tag_cftry_close          { return new cftag(t,  [], content);  }
-
-tag_cftry
-	= lt t:str_cftry gt
-	content:(!(lt wack str_cftry gt) anychar)*
-	lt wack str_cftry gt {
-		return new cftag(t, [], content);
-	}
-
-tag_cfxml      = lt t:str_cfxml      attr:( attr_variable attr_case_sensitive? / attr_case_sensitive? attr_variable ) ws* wack? gt { return new cftag(t, attr); }
 
 //End Tags
 
@@ -809,12 +745,11 @@ attr_xml_var                      =  ws+  n:str_xml_var                      eql
 attr_zip_action                   =  ws+  n:str_action                       eql  v:value_zip_action                        {                     return             {                          name:          n,                              value:      v                         };              }
 attr_zip_source                   =  ws+  n:str_source                       eql  v:value_file_path                         {                     return             {                          name:          n,                              value:      v                         };              }
 
-//@TODO:  change  attr_cfapplication  to    allow   usage      of       plain     timeout  attribute
-//@TODO:  change  attr_cfinsert       to    allow   "table"    attribute
-//@TODO:  change  attr_cfsetting      to    accept  "timeout"  attribute.
-//@TODO:  change  attr_cfupdate       to    also    allow      "table"  attribute
-//@todo:  change  to                  also  allow   "table"    attribute
-//@TODO:  enable  attr_cfheader       to    allow   for        plain    "status"  attribute
+//@TODO:  change attr_cfapplication to allow usage of plain timeout attribute
+//@TODO:  change attr_cfsetting to accept "timeout" attribute.
+//@TODO:  change attr_cfinsert to allow "table" attribute
+//@TODO:  change attr_cfupdate to also allow "table" attribute
+//@TODO:  change attr_cfheader to allow for plain "status" attribute
 attr_cfabort                    =  attr_show_error
 attr_cfajaximport               =  attr_css_src               /  attr_ajax_params           /  attr_script_src            /  attr_tags
 attr_cfajaxproxy                =  attr_bind                  /  attr_cfc                   /  attr_js_class_name         /  attr_on_error         /  attr_on_success
@@ -860,6 +795,7 @@ attr_cfimport_required_taglib   =  attr_tag_lib
 attr_cfinclude                  =  attr_template
 attr_cfinsert                   =  attr_datasource            /  attr_table_name            /  attr_form_fields           /  attr_password         /  attr_table_owner                /  attr_table_qualifier  /  attr_username
 attr_cfinterface                =  attr_display_name          /  attr_extends_list          /  attr_hint
+attr_cfinvoke  =  attr_argument_collection   /  attr_component             /  attr_method_invoke /  attr_return_variable
 attr_cfinvoke_syntax1_optional  =  attr_argument_collection   /  attr_return_variable
 attr_cfinvoke_syntax1_required  =  attr_component             /  attr_method_invoke
 attr_cfinvokeargument           =  attr_name                  /  attr_value                 /  attr_omit
