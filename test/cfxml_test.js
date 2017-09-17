@@ -1,27 +1,24 @@
-var is = require('assert'),
-	PEG= require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	test = require('./testlib');
+const is = require('assert'), test = require('./testlib');
 
 var r;
 
 is.throws(function () {
-	r = cf.parse('<cfxml case_sensitive="no">');
+	r = test.cfparser.parse('<cfxml case_sensitive="no">');
 }, Error, "Missing required variable attribute.");
 
-r = cf.parse("<cfxml variable='cfxml_test2' />");
+r = test.cfparser.parse("<cfxml variable='cfxml_test2' />");
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'xml');
 is.equal(r.attributes.variable, 'cfxml_test2');
 is.equal(r.attributes.case_sensitive, false);
 
-r = cf.parse("<cfxml variable='cfxml_test3' case_sensitive='yes'>");
+r = test.cfparser.parse("<cfxml variable='cfxml_test3' case_sensitive='yes'>");
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'xml');
 is.equal(r.attributes.variable, 'cfxml_test3');
 is.equal(r.attributes.case_sensitive, true);
 
-r = cf.parse("<CFXML VARIABLE='cfxml_test4' CASESENSITIVE='yes' />");
+r = test.cfparser.parse("<CFXML VARIABLE='cfxml_test4' CASESENSITIVE='yes' />");
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'xml');
 is.equal(r.attributes.variable, 'cfxml_test4');

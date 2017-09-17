@@ -1,15 +1,12 @@
-var is = require('assert'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	test = require('./testlib');
+const is = require('assert'), test = require('./testlib');
 
 var r;
 
 is.throws(function () {
-	r = cf.parse('<cfproperty constrained="yes" />');
+	r = test.cfparser.parse('<cfproperty constrained="yes" />');
 }, Error, "Missing required name attribute.");
 
-r = cf.parse('<cfproperty name="cfproperty_test1" />');
+r = test.cfparser.parse('<cfproperty name="cfproperty_test1" />');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'property');
 is.equal(r.attributes.constrained, false);
@@ -33,7 +30,7 @@ is.equal(r.attributes.source, 'vm');
 is.equal(r.attributes.unique, false);
 is.equal(r.attributes.update, true);
 
-r = cf.parse('<cfproperty ' +
+r = test.cfparser.parse('<cfproperty ' +
 'name="cfproperty-test2" ' + 
 'displayname="property_test2" ' +
 'update="no" ' + 
@@ -83,7 +80,7 @@ is.equal(r.attributes.unique, true);
 is.equal(r.attributes.update, false);
 
 //"\nsecure_json='true' " +
-r = cf.parse('<CFPROPERTY ' +
+r = test.cfparser.parse('<CFPROPERTY ' +
 "\nNAME='cfproperty-test4' " +
 "\nUPDATE='no' " + 
 "\nDISPLAYNAME='property_test4' " +

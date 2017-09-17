@@ -1,22 +1,16 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-//	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	test = require('./testlib');
+const is = require('assert'), test = require('./testlib');
 
 var r;
 
 is.throws(function () {
-  r = cf.parse('<cffeed action="read" name="cffeed_read">');
+  r = test.cfparser.parse('<cffeed action="read" name="cffeed_read">');
 }, Error, 'Missing required source attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cffeed action="read" source="cffeed_read_source">');
+	r = test.cfparser.parse('<cffeed action="read" source="cffeed_read_source">');
 }, Error, 'Missing required one of name, properties, query, output_file, or xml_var attribute.');
 
-r = cf.parse('<cffeed source="http://localhost" action="read" query="#query1#" properties="#meta1#" output_file="/path/to/output1" xml_var="feed_xml_var" name="cffeed1">');
+r = test.cfparser.parse('<cffeed source="http://localhost" action="read" query="#query1#" properties="#meta1#" output_file="/path/to/output1" xml_var="feed_xml_var" name="cffeed1">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'feed');
 is.equal(r.attributes.action, 'read');
@@ -32,7 +26,7 @@ is.equal(r.attributes.query, '#query1#');
 is.equal(r.attributes.source, 'http://localhost/');
 is.equal(r.attributes.xml_var, 'feed_xml_var');
 
-r = cf.parse('<cffeed ' +
+r = test.cfparser.parse('<cffeed ' +
 'action="read" ' +
 'columnMap="#map1#" ' +
 'enclosureDir="." ' +
@@ -75,7 +69,7 @@ is.equal(r.attributes.timeout,"10");
 is.equal(r.attributes.user_agent,"CFNode");
 is.equal(r.attributes.xml_var,"feed_xml");
 
-r = cf.parse('<CFFEED ' +
+r = test.cfparser.parse('<CFFEED ' +
 'IGNOREENCLOSUREERROR="yes" ' +
 'OVERWRITEENCLOSURE="yes" ' +
 'ESCAPECHARS="yes" ' +

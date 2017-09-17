@@ -1,30 +1,24 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-//	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	test = require('./testlib');
+const is = require('assert'), test = require('./testlib');
 
 var r;
 
 is.throws(function () {
-	r = cf.parse('<cffile />');
+	r = test.cfparser.parse('<cffile />');
 }, Error, 'Missing required attributes.');
 
 is.throws(function () {
-	r = cf.parse('<cffile file="/tmp/file" output="something" >');
+	r = test.cfparser.parse('<cffile file="/tmp/file" output="something" >');
 }, Error, 'Missing required action attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cffile action="write" file="/tmp/file" >');
+	r = test.cfparser.parse('<cffile action="write" file="/tmp/file" >');
 }, Error, 'Missing required output attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cffile action="write" output="something" />');
+	r = test.cfparser.parse('<cffile action="write" output="something" />');
 }, Error, 'Missing required file attribute.');
 
-r = cf.parse('<cffile action="write" output="cffile_test" file="/tmp/file">');
+r = test.cfparser.parse('<cffile action="write" output="cffile_test" file="/tmp/file">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'file');
 is.equal(r.attributes.action, 'write');
@@ -34,7 +28,7 @@ is.equal(r.attributes.add_newline, true);
 is.equal(r.attributes.charset, 'utf-8');
 is.equal(r.attributes.fix_newline, false);
 
-r = cf.parse('<cffile action="write" output="cffile_test2" file="/tmp/file" ' +
+r = test.cfparser.parse('<cffile action="write" output="cffile_test2" file="/tmp/file" ' +
 'add_newline="no" charset="us-ascii" fix_newline="yes" mode="721" attributes="normal">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'file');
@@ -47,7 +41,7 @@ is.equal(r.attributes.fix_newline, true);
 is.deepEqual(r.attributes.attributes, ['normal']);
 is.equal(r.attributes.mode, 721);
 
-r = cf.parse('<CFFILE ' +
+r = test.cfparser.parse('<CFFILE ' +
 'ADDNEWLINE="no" ' +
 'ACTION="write" ' +
 'OUTPUT="cffile_test2" ' +

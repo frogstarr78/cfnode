@@ -1,18 +1,15 @@
-var is = require('assert'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	test = require('./testlib');
+const is = require('assert'), test = require('./testlib');
 
 var r;
 is.throws(function () {
-	r = cf.parse('<cfdirectory filter="*.exe" />');
+	r = test.cfparser.parse('<cfdirectory filter="*.exe" />');
 }, Error, 'Missing required directory attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfdirectory directory="' + __filename + '" >');
+	r = test.cfparser.parse('<cfdirectory directory="' + __filename + '" >');
 }, Error, 'Invalid directory attribute. Value is not a directory.');
 
-r = cf.parse('<cfdirectory directory="' + __dirname + '">');
+r = test.cfparser.parse('<cfdirectory directory="' + __dirname + '">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'directory');
 is.equal(r.attributes.action, 'list');
@@ -23,7 +20,7 @@ is.equal(r.attributes.sort, 'ASC');
 is.equal(r.attributes.store_location, 'US');
 is.equal(r.attributes.type, 'all');
 
-r = cf.parse('<cfdirectory ' + 
+r = test.cfparser.parse('<cfdirectory ' + 
 'action="rename" ' + 
 'directory="' + __dirname + '" '+
 'filter="*.js" ' + 
@@ -52,7 +49,7 @@ is.deepEqual(r.attributes.store_acl, { "group":"all", "permission":"read" });
 is.equal(r.attributes.store_location, 'EU');
 is.equal(r.attributes.type, 'file');
 
-r = cf.parse('<CFDIRECTORY ' + 
+r = test.cfparser.parse('<CFDIRECTORY ' + 
 "\nACTION='delete' " + 
 "\nDIRECTORY='" + __dirname + "' "+
 "\nFILTER='*.js' " + 

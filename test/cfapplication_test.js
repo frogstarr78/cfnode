@@ -1,36 +1,33 @@
-var is = require('assert'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	test = require('./testlib');
+const is = require('assert'), test = require('./testlib');
 
 var r;
 
 is.throws(function () {
-	r = cf.parse('<cfapplication datasource="something">');
+	r = test.cfparser.parse('<cfapplication datasource="something">');
 }, Error, "Missing required name attribute.");
 
-r = cf.parse('<cfapplication name="cfapplication_test1" />');
+r = test.cfparser.parse('<cfapplication name="cfapplication_test1" />');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'application');
 is.equal(r.attributes.name, 'cfapplication_test1');
 is.equal(r.attributes.datasource, undefined);
 is.equal(r.attributes.timeout, undefined);
 
-r = cf.parse('<cfapplication name="cfapplication-test2" datasource="abc">');
+r = test.cfparser.parse('<cfapplication name="cfapplication-test2" datasource="abc">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'application');
 is.equal(r.attributes.name, 'cfapplication-test2');
 is.equal(r.attributes.datasource, 'abc');
 is.equal(r.attributes.timeout, undefined);
 
-r = cf.parse('<cfapplication name="cfapplicationtest" datasource="abc" applicationTimeout="">');
+r = test.cfparser.parse('<cfapplication name="cfapplicationtest" datasource="abc" applicationTimeout="">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'application');
 is.equal(r.attributes.name, 'cfapplicationtest');
 is.equal(r.attributes.datasource, 'abc');
 is(r.attributes.timeout instanceof Date);
 
-r = cf.parse('<cfapplication name="cfapplication_test" setclientcookies="no">');
+r = test.cfparser.parse('<cfapplication name="cfapplication_test" setclientcookies="no">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'application');
 is.equal(r.attributes.name, 'cfapplication_test');
@@ -42,14 +39,14 @@ is.equal(r.attributes.session_management, false);
 is.equal(r.attributes.client_cookies, false);
 is.equal(r.attributes.domain_cookies, false);
 
-r = cf.parse('<cfapplication name="cfapplication_test" applicationTimeout="" datasource="abc">');
+r = test.cfparser.parse('<cfapplication name="cfapplication_test" applicationTimeout="" datasource="abc">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'application');
 is.equal(r.attributes.name, 'cfapplication_test');
 is.equal(r.attributes.datasource, 'abc');
 is(r.attributes.timeout instanceof Date);
 
-r = cf.parse("<cfapplication\n" +
+r = test.cfparser.parse("<cfapplication\n" +
 "name=\"cfapplication_test\"\n" +
 "applicationTimeout=\"\"\n" + 
 "datasource=\"abc\"\n" + 
@@ -60,7 +57,7 @@ is.equal(r.attributes.name, 'cfapplication_test');
 is.equal(r.attributes.datasource, 'abc');
 is(r.attributes.timeout instanceof Date);
 
-r = cf.parse("<cfapplication\n" +
+r = test.cfparser.parse("<cfapplication\n" +
 "name=\"cfapplication_test\"\n" +
 "applicationTimeout=\"\"\n" + 
 "datasource=\"abc\"\n" + 
@@ -94,7 +91,7 @@ is.equal(r.attributes.domain_cookies, true);
 is.equal(r.attributes.secure_json, true);
 is.equal(r.attributes.secure_json_prefix, "//");
 
-r = cf.parse("<cfapplication\n" +
+r = test.cfparser.parse("<cfapplication\n" +
 "applicationTimeout=\"\"\n" + 
 "datasource=\"abc\"\n" + 
 "clientManagement=\"yes\"\n" +
@@ -127,7 +124,7 @@ is(r.attributes.session_timeout instanceof Date);
 is.equal(r.attributes.client_cookies, false);
 is.equal(r.attributes.domain_cookies, false);
 
-r = cf.parse("<CFAPPLICATION\n" +
+r = test.cfparser.parse("<CFAPPLICATION\n" +
 "APPLICATIONTIMEOUT=\"\"\n" + 
 "DATASOURCE=\"abc\"\n" + 
 "CLIENTMANAGEMENT=\"yes\"\n" +

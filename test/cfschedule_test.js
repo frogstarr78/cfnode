@@ -1,54 +1,48 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	test = require('./testlib');
+const is = require('assert'), test = require('./testlib');
 
 var r;
 
 is.throws(function () {
-	r = cf.parse('<cfschedule>');
+	r = test.cfparser.parse('<cfschedule>');
 }, Error, 'Missing required attributes');
 
 is.throws(function () {
-	r = cf.parse('<cfschedule action="run">');
+	r = test.cfparser.parse('<cfschedule action="run">');
 }, Error, 'Missing required task attribute');
 
 is.throws(function () {
-	r = cf.parse('<cfschedule task="cfschedule_test">');
+	r = test.cfparser.parse('<cfschedule task="cfschedule_test">');
 }, Error, 'Missing required action attribute');
 
 is.throws(function () {
-	r = cf.parse('<cfschedule action="update" task="cfschedule_test" operation="HTTPRequest" start_date="2014-09-09" start_time="1" url="http://example.com" />');
+	r = test.cfparser.parse('<cfschedule action="update" task="cfschedule_test" operation="HTTPRequest" start_date="2014-09-09" start_time="1" url="http://example.com" />');
 }, Error, 'Missing required interval attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfschedule action="update" task="cfschedule_test" interval="daily" start_date="2014-09-09" start_time="2" url="http://example.com" />');
+	r = test.cfparser.parse('<cfschedule action="update" task="cfschedule_test" interval="daily" start_date="2014-09-09" start_time="2" url="http://example.com" />');
 }, Error, 'Missing required operation attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfschedule action="update" task="cfschedule_test" interval="monthly" operation="HTTPRequest" start_time="3" url="http://example.com" />');
+	r = test.cfparser.parse('<cfschedule action="update" task="cfschedule_test" interval="monthly" operation="HTTPRequest" start_time="3" url="http://example.com" />');
 }, Error, 'Missing required start_date attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfschedule action="update" task="cfschedule_test" interval="monthly" operation="HTTPRequest" start_date="2014-09-09" url="http://example.com" />');
+	r = test.cfparser.parse('<cfschedule action="update" task="cfschedule_test" interval="monthly" operation="HTTPRequest" start_date="2014-09-09" url="http://example.com" />');
 }, Error, 'Missing required start_time attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfschedule action="update" task="cfschedule_test" interval="monthly" operation="HTTPRequest" start_date="2014-09-09" start_time="4" />');
+	r = test.cfparser.parse('<cfschedule action="update" task="cfschedule_test" interval="monthly" operation="HTTPRequest" start_date="2014-09-09" start_time="4" />');
 }, Error, 'Missing required url attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfschedule action="run" task="cfschedule_test2" publish="yes" path="/var/www/html/example.com/" >');
+	r = test.cfparser.parse('<cfschedule action="run" task="cfschedule_test2" publish="yes" path="/var/www/html/example.com/" >');
 }, Error, 'Missing required file attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfschedule action="run" task="cfschedule_test2" publish="yes" file="/tmp/path/to/content">');
+	r = test.cfparser.parse('<cfschedule action="run" task="cfschedule_test2" publish="yes" file="/tmp/path/to/content">');
 }, Error, 'Missing required path attribute.');
 
-r = cf.parse('<cfschedule action="run" task="cfschedule_test2">');
+r = test.cfparser.parse('<cfschedule action="run" task="cfschedule_test2">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'schedule');
 is.equal(r.attributes.action, 'run');
@@ -58,7 +52,7 @@ is.equal(r.attributes.proxy_port, 80);
 is.equal(r.attributes.publish, false);
 is.equal(r.attributes.resolve_url, false);
 
-r = cf.parse('<cfschedule action="delete" task="cfschedule_test3">');
+r = test.cfparser.parse('<cfschedule action="delete" task="cfschedule_test3">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'schedule');
 is.equal(r.attributes.action, 'delete');
@@ -68,7 +62,7 @@ is.equal(r.attributes.proxy_port, 80);
 is.equal(r.attributes.publish, false);
 is.equal(r.attributes.resolve_url, false);
 
-r = cf.parse('<cfschedule action="pause" task="cfschedule_test4">');
+r = test.cfparser.parse('<cfschedule action="pause" task="cfschedule_test4">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'schedule');
 is.equal(r.attributes.action, 'pause');
@@ -78,7 +72,7 @@ is.equal(r.attributes.proxy_port, 80);
 is.equal(r.attributes.publish, false);
 is.equal(r.attributes.resolve_url, false);
 
-r = cf.parse('<cfschedule action="resume" task="cfschedule_test5">');
+r = test.cfparser.parse('<cfschedule action="resume" task="cfschedule_test5">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'schedule');
 is.equal(r.attributes.action, 'resume');
@@ -88,7 +82,7 @@ is.equal(r.attributes.proxy_port, 80);
 is.equal(r.attributes.publish, false);
 is.equal(r.attributes.resolve_url, false);
 
-r = cf.parse('<cfschedule ' +
+r = test.cfparser.parse('<cfschedule ' +
 'action="update" ' +
 'task="cfschedule_test6" ' +
 'interval="once" ' +
@@ -111,7 +105,7 @@ is.deepEqual(r.attributes.start_date, new Date('2014-09-09 00:00:00'));
 is.equal(r.attributes.start_time, '5');
 is.equal(r.attributes.url, 'http://example.com/');
 
-r = cf.parse('<cfschedule action="run" task="cfschedule_test2" publish="yes" file="/tmp/path/to/content" path="/var/www/html/example.com/" >');
+r = test.cfparser.parse('<cfschedule action="run" task="cfschedule_test2" publish="yes" file="/tmp/path/to/content" path="/var/www/html/example.com/" >');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'schedule');
 is.equal(r.attributes.action, 'run');
@@ -123,7 +117,7 @@ is.equal(r.attributes.resolve_url, false);
 is.equal(r.attributes.file, "/tmp/path/to/content");
 is.equal(r.attributes.path, "/var/www/html/example.com/");
 
-r = cf.parse('<cfschedule ' +
+r = test.cfparser.parse('<cfschedule ' +
 'file="/tmp/path/" ' +
 'action="update" ' +
 'request_timeout="1" ' +
@@ -170,7 +164,7 @@ is.equal(r.attributes.task, 'cfschedule_test7');
 is.equal(r.attributes.url, 'http://example.com/');
 is.equal(r.attributes.username, 'usr');
 
-r = cf.parse('<CFSCHEDULE ' +
+r = test.cfparser.parse('<CFSCHEDULE ' +
 'REQUESTTIMEOUT="1" ' +
 'ENDTIME="6" ' +
 'PROXYPORT="8082" ' +

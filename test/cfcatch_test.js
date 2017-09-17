@@ -1,27 +1,24 @@
-var is = require('assert'),
-	PEG= require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	test = require('./testlib');
+const is = require('assert'), test = require('./testlib');
 
 var r;
-r = cf.parse('<cfcatch ></cfcatch>');
+r = test.cfparser.parse('<cfcatch ></cfcatch>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'catch');
 is.equal(r.content, '');
 
-r = cf.parse('<CFCATCH></CFCATCH>');
+r = test.cfparser.parse('<CFCATCH></CFCATCH>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'catch');
 is.equal(r.content, '');
 
-r = cf.parse('<cfcatch type="database">something done</cfcatch>');
+r = test.cfparser.parse('<cfcatch type="database">something done</cfcatch>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'catch');
 is.equal(r.attributes.type, 'database');
 is.equal(r.content, 'something done');
 
 
-r = cf.parse('<CFCATCH TYPE="database">' +
+r = test.cfparser.parse('<CFCATCH TYPE="database">' +
 "\nsomething more done" +
 "\n</cfcatch>");
 is.equal(r instanceof Object, true);

@@ -1,31 +1,25 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-//	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	test = require('./testlib');
+const is = require('assert'), test = require('./testlib');
 
 var r;
 
 is.equal = is.deepEqual;
 is.throws(function () {
-	r = cf.parse('<cfmail></cfmail>');
+	r = test.cfparser.parse('<cfmail></cfmail>');
 }, Error, "Missing required attributes.");
 
 is.throws(function () {
-	r = cf.parse('<cfmail to="me@example.com" from="me@example.com"></cfmail>');
+	r = test.cfparser.parse('<cfmail to="me@example.com" from="me@example.com"></cfmail>');
 }, Error, "Missing required subject attribute.");
 
 is.throws(function () {
-	r = cf.parse('<cfmail to="me@example.com" subject="cfmail test"></cfmail>');
+	r = test.cfparser.parse('<cfmail to="me@example.com" subject="cfmail test"></cfmail>');
 }, Error, "Missing required from attribute.");
 
 is.throws(function () {
-	r = cf.parse('<cfmail from="me@example.com" subject="cfmail test"></cfmail>');
+	r = test.cfparser.parse('<cfmail from="me@example.com" subject="cfmail test"></cfmail>');
 }, Error, "Missing required to attribute.");
 
-r = cf.parse('<cfmail ' +
+r = test.cfparser.parse('<cfmail ' +
 'to="me@example.com" ' +
 'from="you@example.com" ' +
 'subject="cfmail test"' +
@@ -48,7 +42,7 @@ is.equal(r.attributes.to, 'me@example.com');
 is.equal(r.attributes.type, 'text/plain');
 is.equal(r.attributes.wrap_text, 80);
 
-r = cf.parse('<cfmail ' +
+r = test.cfparser.parse('<cfmail ' +
 'debug="yes" ' +
 'group="date" ' +
 'to="me@example.com" ' +
@@ -81,7 +75,7 @@ is.equal(r.attributes.to, 'me@example.com');
 is.equal(r.attributes.type, 'text/html');
 is.equal(r.attributes.wrap_text, 30);
 
-r = cf.parse('<CFMAIL ' +
+r = test.cfparser.parse('<CFMAIL ' +
 'DEBUG="yes" ' +
 'GROUP="date" ' +
 'CC="other@example.com" ' +

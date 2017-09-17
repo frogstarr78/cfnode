@@ -1,19 +1,13 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-//	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	test = require('./testlib');
+const is = require('assert'), test = require('./testlib');
 
 var r;
 
-r = cf.parse('<cfthrow>');
+r = test.cfparser.parse('<cfthrow>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'throw');
 is.equal(r.content, '');
 
-r = cf.parse('<CFTHROW>');
+r = test.cfparser.parse('<CFTHROW>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'throw');
 is.equal(r.content, '');

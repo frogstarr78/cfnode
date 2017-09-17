@@ -1,18 +1,12 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-//	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	test = require('./testlib');
+const is = require('assert'), test = require('./testlib');
 
 var r;
 
 is.throws(function () {
-	r = cf.parse('<cfquery></cfquery>');
+	r = test.cfparser.parse('<cfquery></cfquery>');
 }, Error, "Missing required attributes");
 
-r = cf.parse('<cfquery name="cfquery_test"></cfquery>');
+r = test.cfparser.parse('<cfquery name="cfquery_test"></cfquery>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'query');
 is.equal(r.content, '');
@@ -20,7 +14,7 @@ is.equal(r.attributes.name, 'cfquery_test');
 is.equal(r.attributes.block_factor, 1);
 is.equal(r.attributes.max_rows, Infinity);
 
-r = cf.parse('<cfquery name="cfquery_test" blockFactor="10" maxRows="2">' +
+r = test.cfparser.parse('<cfquery name="cfquery_test" blockFactor="10" maxRows="2">' +
 "\n</cfquery>");
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'query');
@@ -29,7 +23,7 @@ is.equal(r.attributes.name, 'cfquery_test');
 is.equal(r.attributes.block_factor, 10);
 is.equal(r.attributes.max_rows, 2);
 
-r = cf.parse('<cfquery name="cfquery_test" blockFactor="5" cachedAfter="#CreateTimeSpan(5, 4, 3, 2)#" cachedWithin="#CreateTimeSpan(9, 8, 7, 6)#" dataSource="dsn" dbtype="hql" debug="yes" maxRows="10" ormoptions="#{cachename=something}#" password="pass" result="reslt" timeout="5" username="usr">' +
+r = test.cfparser.parse('<cfquery name="cfquery_test" blockFactor="5" cachedAfter="#CreateTimeSpan(5, 4, 3, 2)#" cachedWithin="#CreateTimeSpan(9, 8, 7, 6)#" dataSource="dsn" dbtype="hql" debug="yes" maxRows="10" ormoptions="#{cachename=something}#" password="pass" result="reslt" timeout="5" username="usr">' +
 "\n</cfquery>");
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'query');
@@ -48,7 +42,7 @@ is.equal(r.attributes.result, "reslt")
 is.equal(r.attributes.timeout, 5)
 is.equal(r.attributes.username, "usr")
 
-r = cf.parse('<CFQUERY' +
+r = test.cfparser.parse('<CFQUERY' +
 		' NAME="cfquery_test"' +
         ' BLOCKfACTOR="5"' +
 		' CACHEDAFTER="#CreateTimeSpan(1,2,3,4)#"' + 

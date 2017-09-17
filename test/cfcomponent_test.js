@@ -1,14 +1,8 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-//	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	test = require('./testlib');
+const is = require('assert'), test = require('./testlib');
 
 var r;
 
-r = cf.parse('<cfcomponent></cfcomponent>');
+r = test.cfparser.parse('<cfcomponent></cfcomponent>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'component');
 is.equal(r.content, '');
@@ -19,13 +13,13 @@ is.equal(r.attributes.output, false);
 is.equal(r.attributes.serializable, true);
 is.equal(r.attributes.style, 'rpc');
 
-r = cf.parse('<cfcomponent accessors="yes">Here</cfcomponent>');
+r = test.cfparser.parse('<cfcomponent accessors="yes">Here</cfcomponent>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'component');
 is.equal(r.content, 'Here');
 is.equal(r.attributes.accessors, true);
 
-r = cf.parse('<cfcomponent ' +
+r = test.cfparser.parse('<cfcomponent ' +
 'accessors="yes" ' +
 'alias="integer" ' +
 'binding_name="bound" ' +
@@ -63,7 +57,7 @@ is.equal(r.attributes.service_port_name, "spn");
 is.equal(r.attributes.style, 'document');
 is.equal(r.attributes.wsdl_file, '/tmp/file');
 
-r = cf.parse('<CFCOMPONENT ' +
+r = test.cfparser.parse('<CFCOMPONENT ' +
 'ACCESSORS="yes" ' +
 'ALIAS="integer" ' +
 'BINDINGNAME="bound" ' +

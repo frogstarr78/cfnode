@@ -1,9 +1,10 @@
-var path = require('path'),
+const path = require('path'),
 	fs   = require('fs'),
 	join = path.join,
 	util = require('util'),
 	colors = require('colors');
 
+exports.cfparser = require(path.join(__dirname, '..', 'lib', 'cf.js'))
 exports.exit = process.exit;
 exports.fail = function () { console.log('X'.red); process.exit(1); };
 exports.neut = function () { console.log('-'.yellow); };

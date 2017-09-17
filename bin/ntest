@@ -1,7 +1,5 @@
 #!/bin/bash
 
-make cf.js
-
 #if [[ $# > 5 ]]; then
 #	ls "$@" | while read t1; read t2; read t3; read t4; read t5; do
 #		$0 $t1 &
