@@ -1,9 +1,16 @@
 {
-	var util = require('util'),
+	const util = require('util'),
 		plib = require('./lib/parselib'),
 		cf = require('./lib/cftag'),
 		human_date = require('date.js'),
 		inspect = console.dir;
+
+  module.exports.express = function (options) {
+    return function( req, res, next  ) {
+      const coldfusion = this;
+      next();
+    }
+  }
 }
 
 start 
@@ -973,7 +980,6 @@ str_cfupdate                    = v:(c f u p d a t e)                           
 str_cfxml                       = v:(c f x m l)                                                    { return plib.stringify(v, 'lower'); }
 str_cfzip                       = v:(c f z i p)                                                    { return plib.stringify(v, 'lower'); }
 str_cfzipparam                  = v:(c f z i p p a r a m)                                          { return plib.stringify(v, 'lower'); }
-str_cfzipparam                  = v:(c f z i p p a r a m)                                          { return plib.stringify(v, 'lower'); }
 str_cgi                         = v:(c g i)                                                        { return plib.stringify(v, 'lower'); }
 str_change_dir                  = v:(c h a n g e __ d i r)                                         { return plib.stringify(v, 'under', 'lower'); }
 str_char                        = v:(c h a r)                                                      { return plib.stringify(v, 'lower'); }
@@ -1027,7 +1033,6 @@ str_debug                       = v:(d e b u g)                                 
 str_decimal                     = v:(d e c i m a l)                                                { return plib.stringify(v, 'lower'); }
 str_default                     = v:(d e f a u l t)                                                { return plib.stringify(v, 'lower'); }
 str_delete                      = v:(d e l e t e)                                                  { return plib.stringify(v, 'lower'); }
-str_delete_file                 = v:(d e l e t e __ f i l e)                                       { return plib.stringify(v, 'lower'); }
 str_delete_file                 = v:(d e l e t e __ f i l e)                                       { return plib.stringify(v, 'lower'); }
 str_delete_folder               = v:(d e l e t e __ f o l d e r)                                   { return plib.stringify(v, 'under', 'lower'); }
 str_delimiter                   = v:(d e l i m i t e r)                                            { return plib.stringify(v, 'lower'); }
@@ -1451,8 +1456,7 @@ str_zipcode                     = v:(z i p __ c o d e)                          
 //@TODO Make the arguments more standard. In the CF9 documentation, at least, they list specific actions as allowed, but in their examples, include the commands that you would send to the ftp server as values to the action attribute including attributes to these actions that aren't documented at all
 //@TODO: get str_never to use human_date('30 years');
 value_action_file                       =                quote_char                      v:(                str_append           /                str_copy           /                str_delete         /             str_move                    /                  str_read            /                    str_read_binary  /           str_rename            /             str_upload_all  /             str_upload           /                   str_write            )                  quote_char           {       return            v;  }
-value_amazon_s3_bucket_location         =                quote_char                      v:(                u                    s                hyphen             w                e                  s             t                           /                  u                   s                    /                e           u                     )             quote_char      {             return               plib.stringify(v);  }
-value_amazon_s3_bucket_location         =                quote_char                      v:(                u                    s                hyphen             w                e                  s             t                           /                  u                   s                    /                e           u                     )             quote_char      {             return               plib.stringify(v);  }
+value_amazon_s3_bucket_location         =                quote_char                      v:( u s hyphen w e s t / u s / e u ) quote_char { return plib.stringify(v); }
 value_asterisk                          =                quote_char                      v:str_asterisk     quote_char           {                return             v;               }
 value_cfajaximport_params_googlemapkey  =                quote_char                      v:(pound           '{googlemapkey="'    (!quote_char     anychar)+          '"}'             pound)             quote_char    {                           return             plib.stringify(v);  }
 value_cfapplication_client_storage      =                value_any                       /                  quote_char           v:(              str_registry       /                str_cookie         )             quote_char                  {                  return              v.toLowerCase();     }
@@ -1485,7 +1489,6 @@ value_cfproperty_generated              =                quote_char             
 value_charset                           =                value_any_non_whitespace
 value_http_method                       =                quote_char                      v:(                str_get              /                str_post           /                str_put            /             str_delete                  /                  str_head            /                    str_trace        /           str_options           )             quote_char      {             return               v;                  }
 value_modify_type                       =                quote_char                      v:(                str_replace          /                str_add            /                str_delete         )             quote_char                  {                  return              v;                   }
-value_multipart_type                    =                quote_char                      v:(                str_related          /                str_form_data      )                quote_char         {             return                      v;                 }
 value_multipart_type                    =                quote_char                      v:(                str_related          /                str_form_data      )                quote_char         {             return                      v;                 }
 value_permission_mode                   =                quote_char                      v:(                [0-7]                [0-7]            [0-7])             quote_char       {                  return        plib.stringify(v);          }
 value_regex                             =                quote_char                      v:(                !quote_char          anychar)+        quote_char         {                return             new           RegExp(plib.stringify(v));  }
@@ -1524,10 +1527,6 @@ value_boolean
 	/ quote_char f a l s e quote_char { return false; }
 	/ quote_char "0"       quote_char { return false; }
 value_cfldap_action = quote_char v:( str_add / str_delete / str_modify_dn / str_modify / str_query ) quote_char { return v; }
-value_cftimer_type = quote_char v:( str_inline / str_outline / str_comment / str_debug ) quote_char { return v; }
-value_cftrace_type = quote_char v:( str_information / str_warning / str_error / str_fatal_information ) quote_char { return v; }
-value_cftransaction_action = quote_char v:( str_begin / str_commit / str_rollback / str_set_save_point ) quote_char { return v; }
-value_cftransaction_isolation = quote_char v:( str_read_uncommited / str_read_commited / str_repeatable_read / str_serializable ) quote_char { return v; }
 value_cfval         = quote_char pound v:(!pound anychar)+ pound quote_char { return plib.stringify(v); }
 value_time_span_func
 	                = value_empty_quote { return new Date(); }
@@ -1602,7 +1601,6 @@ value_empty_quote = quote_char quote_char { return ""; }
 value_encoding    = value_any_non_whitespace
 value_float       = quote_char v:( integer+ period integer+ ) quote_char { return plib.stringify(v, 'float'); }
 value_integer     = quote_char v:integer+ quote_char { return plib.stringify(v, 'int'); }
-value_zip_action  = quote_char v:( str_delete / str_list / str_read / str_read_binary / str_unzip / str_zip ) quote_char { return v; }
 
 // Functions
 create_time_span_func
