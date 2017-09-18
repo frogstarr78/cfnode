@@ -33,7 +33,7 @@ describe("Parser should parse cfloginuser tag", function () {
       r.attributes.password.should.equal('pass4');
       r.attributes.roles.should.deepEqual(['n', 'p', 'r']);
     });
-  ]);
+  });
 
   describe("just fine with appropriate tags in a different order", function () {
     it("should do what we'd expect", function () {
@@ -44,7 +44,7 @@ describe("Parser should parse cfloginuser tag", function () {
       r.attributes.password.should.equal('pass5');
       r.attributes.roles.should.deepEqual(['n', 'r', 'p']);
     });
-  ]);
+  });
 
   describe("just fine with appropriate tags in a different order", function () {
     it("should do what we'd expect", function () {
@@ -55,7 +55,7 @@ describe("Parser should parse cfloginuser tag", function () {
       r.attributes.password.should.equal('pass6');
       r.attributes.roles.should.deepEqual(['p', 'r', 'n']);
     });
-  ]);
+  });
 
   describe("just fine with appropriate tags in a different order and all caps tag and attributes", function () {
     it("should do what we'd expect", function () {
@@ -66,5 +66,5 @@ describe("Parser should parse cfloginuser tag", function () {
       r.attributes.password.should.equal('pass10');
       r.attributes.roles.should.deepEqual(['a3', 'b3']);
     });
-  ]);
+  });
 });
