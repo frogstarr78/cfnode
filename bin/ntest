@@ -1,19 +1,11 @@
 #!/bin/bash
 
-make cf.js
-
-#if [[ $# > 5 ]]; then
-#	ls "$@" | while read t1; read t2; read t3; read t4; read t5; do
-#		$0 $t1 &
-#		$0 $t2 &
-#		$0 $t3 &
-#		$0 $t4 &
-#		$0 $t5 &
-#	done
-#else
+xit=0
 for t1 in "$@"; do
   r=$(node $t1 | tr "\n" ' ')
+  [[ $? -ne 0 ]] && xit=1
   n=$(basename $t1)
   echo "$r $n"
 done
 #fi
+exit $xit

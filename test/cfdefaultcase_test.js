@@ -1,18 +1,12 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-//	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	test = require('./testlib');
+const is = require('assert'), test = require('./testlib');
 
 var r;
 
-r = cf.parse('<cfdefaultcase>');
+r = test.cfparser.parse('<cfdefaultcase>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'defaultcase');
 
-r = cf.parse('<CFDEFAULTCASE>');
+r = test.cfparser.parse('<CFDEFAULTCASE>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'defaultcase');
 

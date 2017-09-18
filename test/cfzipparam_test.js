@@ -1,20 +1,14 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-//	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	test = require('./testlib');
+const is = require('assert'), test = require('./testlib');
 
 var r;
 
-r = cf.parse('<cfzipparam />');
+r = test.cfparser.parse('<cfzipparam />');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'zipparam');
 is.equal(r.attributes.charset, 'utf-8');
 is.equal(r.attributes.recurse, false);
 
-r = cf.parse('<cfzipparam ' +
+r = test.cfparser.parse('<cfzipparam ' +
 'charset="us-ascii" ' +
 'content="content written" ' +
 'recurse="yes" ' +
@@ -33,7 +27,7 @@ is.equal(r.attributes.filter, '*.txt');
 is.equal(r.attributes.prefix, '/tmp/prefix_path');
 is.equal(r.attributes.source, '/tmp/spath');
 
-r = cf.parse('<CFZIPPARAM '+
+r = test.cfparser.parse('<CFZIPPARAM '+
 'CHARSET="us-ascii" ' +
 'CONTENT="content written" ' +
 'RECURSE="yes" ' +

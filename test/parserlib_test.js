@@ -1,11 +1,6 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-//	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	plib = require(__dirname + '/../lib/parselib'),
-	test = require('./testlib');
+const is = require('assert'),
+  plib = require(__dirname + '/../lib/parselib'),
+  test = require('./testlib');
 
 // Default object prototype additions
 is({key: 'value'}.has_key('key'));

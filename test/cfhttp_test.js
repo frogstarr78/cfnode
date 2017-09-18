@@ -1,23 +1,17 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	test = require('./testlib');
+const is = require('assert'), test = require('./testlib');
 
 var r;
 
 is.equal = is.deepEqual;
 is.throws(function () {
-	r = cf.parse('<cfhttp></cfhttp>');
+	r = test.cfparser.parse('<cfhttp charset="us-ascii"></cfhttp>');
 }, Error, 'Missing required attributes');
 
 is.throws(function () {
-	r = cf.parse('<cfhttp url="nfs://example.com"></cfhttp>');
+	r = test.cfparser.parse('<cfhttp url="nfs://example.com"></cfhttp>');
 }, Error, 'Unknown port');
 
-r = cf.parse('<cfhttp url="http://example.com"></cfhttp>');
+r = test.cfparser.parse('<cfhttp url="http://example.com"></cfhttp>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'http');
 is.equal(r.content, '');
@@ -34,7 +28,7 @@ is.equal(r.attributes.user_agent, 'ColdFusion');
 is.equal(r.attributes.multipart, false);
 is.equal(r.attributes.multipart_type, 'form-data');
 
-r = cf.parse('<cfhttp url="https://example.com"></cfhttp>');
+r = test.cfparser.parse('<cfhttp url="https://example.com"></cfhttp>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'http');
 is.equal(r.content, '');
@@ -51,7 +45,7 @@ is.equal(r.attributes.user_agent, 'ColdFusion');
 is.equal(r.attributes.multipart, false);
 is.equal(r.attributes.multipart_type, 'form-data');
 
-r = cf.parse('<cfhttp ' +
+r = test.cfparser.parse('<cfhttp ' +
 'client_cert="/path/to/cert.crt" ' +
 'charset="us-ascii" ' +
 'get_as_binary="yes" ' +
@@ -84,7 +78,7 @@ is.equal(r.attributes.user_agent, 'ColdFusion;CFNode');
 is.equal(r.attributes.multipart, true);
 is.equal(r.attributes.multipart_type, 'related');
 
-r = cf.parse('<CFHTTP ' +
+r = test.cfparser.parse('<CFHTTP ' +
 'CHARSET="iso-8859-1" ' +
 'CLIENTCERT="/path/to/cert.crt" ' +
 'CLIENTCERTPASSWORD="pass" ' +

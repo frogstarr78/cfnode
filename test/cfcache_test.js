@@ -1,58 +1,52 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	test = require('./testlib');
+const is = require('assert'), test = require('./testlib');
 
 var r;
 
 is.throws(function () {
-	r = cf.parse('<cfcache>');
+	r = test.cfparser.parse('<cfcache>');
 }, Error);
 
 is.throws(function () {
-	r = cf.parse('<cfcache action="get" id="get1"></cfcache>');
+	r = test.cfparser.parse('<cfcache action="get" id="get1"></cfcache>');
 }, Error, "Missing required name attribute for get action.");
 
 is.throws(function () {
-	r = cf.parse('<cfcache action="get" id="get2" name=""></cfcache>');
+	r = test.cfparser.parse('<cfcache action="get" id="get2" name=""></cfcache>');
 }, Error, "Invalid name attribute for get action.");
 
 is.throws(function () {
-	r = cf.parse('<cfcache action="get" name="get3"></cfcache>');
+	r = test.cfparser.parse('<cfcache action="get" name="get3"></cfcache>');
 }, Error, "Missing required id attribute for get action.");
 
 is.throws(function () {
-	r = cf.parse('<cfcache action="get" name="get4" id=""></cfcache>');
+	r = test.cfparser.parse('<cfcache action="get" name="get4" id=""></cfcache>');
 }, Error, "Invalide id attribute for get action.");
 
 is.throws(function () {
-	r = cf.parse('<cfcache action="put" id="put1"></cfcache>');
+	r = test.cfparser.parse('<cfcache action="put" id="put1"></cfcache>');
 }, Error, "Missing required value attribute for put action.");
 
 is.throws(function () {
-	r = cf.parse('<cfcache action="put" id="put2" value=""></cfcache>');
+	r = test.cfparser.parse('<cfcache action="put" id="put2" value=""></cfcache>');
 }, Error, "Invalide value attribute for put action.");
 
 is.throws(function () {
-	r = cf.parse('<cfcache action="put" value="#put3#"></cfcache>');
+	r = test.cfparser.parse('<cfcache action="put" value="#put3#"></cfcache>');
 }, Error, "Missing required id attribute for put action.");
 
 is.throws(function () {
-	r = cf.parse('<cfcache action="put" id="" value="put4"></cfcache>');
+	r = test.cfparser.parse('<cfcache action="put" id="" value="put4"></cfcache>');
 }, Error, "Invalid id attribute for put action.");
 
 is.throws(function () {
-	r = cf.parse('<cfcache action="flush"></cfcache>');
+	r = test.cfparser.parse('<cfcache action="flush"></cfcache>');
 }, Error, "Missing required id attribute for flush action.");
 
 is.throws(function () {
-	r = cf.parse('<cfcache action="flush" id=""></cfcache>');
+	r = test.cfparser.parse('<cfcache action="flush" id=""></cfcache>');
 }, Error, "Invalid id attribute for flush action.");
 
-r = cf.parse('<cfcache>' +
+r = test.cfparser.parse('<cfcache >' +
 "Pointless test\n" +
 '</cfcache>');
 is.equal(r instanceof Object, true);
@@ -66,7 +60,7 @@ is.equal(r.attributes.use_cache, true);
 is.equal(r.attributes.use_query_string, false);
 is.equal(r.attributes.overflow_to_disk, false);
 
-r = cf.parse('<cfcache ' +
+r = test.cfparser.parse('<cfcache ' +
 'action="cache" ' +
 'dependsOn="variables.abc,variables.xyz,url.params" ' +
 'directory="/tmp/" ' +
@@ -105,7 +99,7 @@ is.equal(r.attributes.use_cache, false);
 is.equal(r.attributes.use_query_string, true);
 is.equal(r.attributes.username, 'username');
 
-r = cf.parse('<CFCACHE ' +
+r = test.cfparser.parse('<CFCACHE ' +
 'ACTION="optimal" ' +
 'DEPENDSON="variables.abc,url.params" ' +
 'DIRECTORY="/home/tmp/" ' +

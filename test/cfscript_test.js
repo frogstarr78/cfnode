@@ -1,26 +1,23 @@
-var is = require('assert'),
-	PEG= require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	test = require('./testlib');
+const is = require('assert'), test = require('./testlib');
 
 var r;
-r = cf.parse('<cfscript></cfscript>');
+r = test.cfparser.parse('<cfscript></cfscript>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'script');
 is.equal(r.content, '');
 
-r = cf.parse('<CFSCRIPT></CFSCRIPT>');
+r = test.cfparser.parse('<CFSCRIPT></CFSCRIPT>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'script');
 is.equal(r.content, '');
 
-r = cf.parse('<cfscript>something done</cfscript>');
+r = test.cfparser.parse('<cfscript>something done</cfscript>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'script');
 is.equal(r.content, 'something done');
 
 
-r = cf.parse('<CFSCRIPT>' +
+r = test.cfparser.parse('<CFSCRIPT>' +
 "\nsomething more done" +
 "\n</CFSCRIPT>");
 is.equal(r instanceof Object, true);

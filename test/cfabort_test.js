@@ -1,26 +1,23 @@
-var is = require('assert'),
-	PEG= require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	test = require('./testlib');
+const is = require('assert'), test = require('./testlib');
 
 var r;
-r = cf.parse('<cfabort />');
+r = test.cfparser.parse('<cfabort />');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'abort');
 is.equal(r.attributes.show_error, undefined);
 
-r = cf.parse('<CFABORT>');
+r = test.cfparser.parse('<CFABORT>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'abort');
 is.equal(r.attributes.show_error, undefined);
 
-r = cf.parse('<cfabort showError="say something man">');
+r = test.cfparser.parse('<cfabort showError="say something man">');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'abort');
 is.equal(r.attributes.show_error, 'say something man');
 
 
-r = cf.parse('<CFABORT SHOWERROR="nothing to see here. move along." />');
+r = test.cfparser.parse('<CFABORT SHOWERROR="nothing to see here. move along." />');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'abort');
 is.equal(r.attributes.show_error, 'nothing to see here. move along.');

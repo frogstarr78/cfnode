@@ -1,11 +1,12 @@
-var path = require('path'),
+const path = require('path'),
 	fs   = require('fs'),
 	join = path.join,
 	util = require('util'),
 	colors = require('colors');
 
+exports.cfparser = require(path.join(__dirname, '..', 'lib', 'cf.js'))
 exports.exit = process.exit;
-exports.fail = function () { console.log('X'.red); };
+exports.fail = function () { console.log('X'.red); process.exit(1); };
 exports.neut = function () { console.log('-'.yellow); };
 exports.ok = function () { console.log('√'.green); };
 exports.inspect = function (s) {
@@ -23,7 +24,7 @@ exports.error = function (m, nl) {
 exports.die = function (content, exitStatus) { 
 	var xs = typeof exitStatus === 'undefined' ? 1 : exitStatus;
 	if( typeof content === 'undefined' ) {
-		console.log('Aborted!'.red)
+		console.log('X'.red)
 	} else if ( typeof content === 'string' && content != 'Success!' ) {
 		console.log(content)
 	} else {

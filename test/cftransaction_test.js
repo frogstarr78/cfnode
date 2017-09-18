@@ -1,21 +1,15 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-//	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	test = require('./testlib');
+const is = require('assert'), test = require('./testlib');
 
 var r;
 
-r = cf.parse('<cftransaction></cftransaction>');
+r = test.cfparser.parse('<cftransaction></cftransaction>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'transaction');
 is.equal(r.content, '');
 is.equal(r.attributes.action, 'begin');
 is.equal(r.attributes.nested, true);
 
-r = cf.parse('<cftransaction action="commit" savepoint="transaction_savepoint" isolation="serializable" nested="no">' +
+r = test.cfparser.parse('<cftransaction action="commit" savepoint="transaction_savepoint" isolation="serializable" nested="no">' +
 "\n</cftransaction>");
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'transaction');
@@ -25,13 +19,13 @@ is.equal(r.attributes.nested, false);
 is.equal(r.attributes.savepoint, 'transaction_savepoint');
 is.equal(r.attributes.isolation, 'serializable');
 
-r = cf.parse('<cftransaction action="commit" savepoint="transaction_savepoint" isolation="serializable" nested="no">' +
+r = test.cfparser.parse('<cftransaction action="commit" savepoint="transaction_savepoint" isolation="serializable" nested="no">' +
 "\n</cftransaction>");
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'transaction');
 is.equal(r.content, "\n");
 
-r = cf.parse('<CFTRANSACTION' +
+r = test.cfparser.parse('<CFTRANSACTION' +
 		' ACTION="commit"' +
 		' SAVEPOINT="transaction_savepoint"' + 
 		' NESTED="no"' + 

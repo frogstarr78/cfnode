@@ -1,5 +1,5 @@
 .PHONY: test
-test: cf.js test/*_test.js
+test: lib/cf.js test/*_test.js
 ifdef file
 	./bin/ntest $(file)
 else
@@ -8,10 +8,10 @@ endif
 
 t: test
 
-clean: cf.js
-	rm cf.js
+clean: lib/cf.js
+	rm lib/cf.js
 
-cf.js: cf.pegjs
+lib/cf.js: lib/cf.pegjs
 	./node_modules/pegjs/bin/pegjs $?
 
 sync:

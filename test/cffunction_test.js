@@ -1,19 +1,16 @@
-var is = require('assert'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	test = require('./testlib');
+const is = require('assert'), test = require('./testlib');
 
 var r;
 
 is.throws(function () {
-	r = cf.parse('<cffunction>');
+	r = test.cfparser.parse('<cffunction>');
 }, Error);
 
 is.throws(function () {
-	r = cf.parse('<cffunction></cffunction>');
+	r = test.cfparser.parse('<cffunction></cffunction>');
 }, Error, "Missing required name attribute.");
 
-r = cf.parse('<cffunction name="cffunction_test1"></cffunction>');
+r = test.cfparser.parse('<cffunction name="cffunction_test1" ></cffunction>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'function');
 is.equal(r.content, '');
@@ -26,7 +23,7 @@ is.equal(r.attributes.roles, '');
 is.equal(r.attributes.secure_json, false);
 is.equal(r.attributes.verify_client, false);
 
-r = cf.parse('<cffunction ' +
+r = test.cfparser.parse('<cffunction ' +
 'return_type="string" name="cffunction-test2" access="private" ' +
 'output="no" returnFormat="json" ' +
 'roles="admin,user" secure_json="true" verify_client="yes" ' +
@@ -49,7 +46,7 @@ is.equal(r.attributes.description, 'Simple Test Function');
 is.equal(r.attributes.display_name, 'function_test2');
 is.equal(r.attributes.hint, 'Test function2');
 
-r = cf.parse('<CFFUNCTION ' +
+r = test.cfparser.parse('<CFFUNCTION ' +
 "\nreturnType='numeric' " +
 "\nname='cffunction-test3' " +
 "\naccess='package' " +

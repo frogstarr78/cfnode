@@ -1,5 +1,5 @@
 {
-  "name": "coldfusion",
+  "name": "cfnode",
   "version": "0.0.0",
   "description": "ColdFusion Environment implemented in NodeJS",
   "main": "cf.js",
@@ -23,7 +23,7 @@
     "url": "https://github.com/frogstarr78/cfnode/issues"
   },
   "scripts": {
-    "prepublish": "make cf.js",
+    "prepublish": "make lib/cf.js",
     "test": "make test",
     "start": "node server.js"
   },
@@ -36,8 +36,7 @@
     "date.js": "0.2.0"
   },
   "devDependencies": {
-    "check-dependencies": "^1.0.1",
     "colors": "0.6.2",
-    "pegjs": "*"
+    "pegjs": "^0.10.0"
   }
 }
