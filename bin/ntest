@@ -9,9 +9,12 @@
 #		$0 $t5 &
 #	done
 #else
+xit=0
 for t1 in "$@"; do
   r=$(node $t1 | tr "\n" ' ')
+  [[ $? -ne 0 ]] && xit=1
   n=$(basename $t1)
   echo "$r $n"
 done
 #fi
+exit $xit
