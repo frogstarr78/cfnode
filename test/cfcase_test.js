@@ -27,4 +27,3 @@ is.equal(r.tag, 'case');
 is.equal(r.attributes.value, 'a.b,c.d');
 is.equal(r.attributes.delimiter, ',.');
 
-test.ok();

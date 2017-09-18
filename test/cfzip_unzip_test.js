@@ -1,22 +1,16 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-//	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	test = require('./testlib');
+const is = require('assert'), test = require('./testlib');
 
 var r;
 
 is.throws(function () {
-	r = cf.parse('<cfzip action="unzip" file="/tmp/file.zip" >');
+	r = test.cfparser.parse('<cfzip action="unzip" file="/tmp/file.zip" >');
 }, Error, 'Missing required destination attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfzip action="unzip" destination="/tmp/files" />');
+	r = test.cfparser.parse('<cfzip action="unzip" destination="/tmp/files" />');
 }, Error, 'Missing file file attribute.');
 
-r = cf.parse('<cfzip action="unzip" file="/tmp/file.zip" destination="/tmp/files" >');
+r = test.cfparser.parse('<cfzip action="unzip" file="/tmp/file.zip" destination="/tmp/files" >');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'zip');
 is.equal(r.attributes.action, 'unzip');
@@ -26,7 +20,7 @@ is.equal(r.attributes.overwrite, false);
 is.equal(r.attributes.recurse, false);
 is.equal(r.attributes.store_path, true);
 
-r = cf.parse('<cfzip ' +
+r = test.cfparser.parse('<cfzip ' +
 'destination="/tmp/dst" ' +
 'filter="*.txt" ' +
 'recurse="true" ' +
@@ -47,7 +41,7 @@ is.equal(r.attributes.overwrite, true);
 is.equal(r.attributes.recurse, true);
 is.equal(r.attributes.store_path, false);
 
-r = cf.parse('<CFZIP ' +
+r = test.cfparser.parse('<CFZIP ' +
 'RECURSE="yes" ' +
 'FILE="/tmp/file3.zip" ' +
 'OVERWRITE="true" ' +
@@ -67,7 +61,7 @@ is.equal(r.attributes.filter, '*.txt');
 is.equal(r.attributes.recurse, true);
 is.equal(r.attributes.store_path, true);
 
-r = cf.parse('<cfzip ' +
+r = test.cfparser.parse('<cfzip ' +
 'entrypath="/tmp/files" ' +
 'filter="*.txt" ' +
 'destination="/tmp/dst3" ' +
@@ -84,7 +78,7 @@ is.equal(r.attributes.filter, '*.txt');
 is.equal(r.attributes.recurse, false);
 is.equal(r.attributes.store_path, true);
 
-r = cf.parse('<CFZIP ' +
+r = test.cfparser.parse('<CFZIP ' +
 'entrypath="/tmp/files" ' +
 'filter="*.jpg" ' +
 'destination="/tmp/dst4" ' +
@@ -103,5 +97,3 @@ is.equal(r.attributes.file, '/tmp/file2.zip');
 is.equal(r.attributes.filter, '*.png');
 is.equal(r.attributes.recurse, false);
 is.equal(r.attributes.store_path, true);
-
-test.ok();

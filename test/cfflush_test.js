@@ -16,4 +16,3 @@ is.equal(r instanceof Object, true);
 is.equal(r.tag, 'flush');
 is.equal(r.attributes.interval, 10);
 
-test.ok();

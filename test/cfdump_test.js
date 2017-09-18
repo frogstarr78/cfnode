@@ -87,4 +87,3 @@ is.equal(r.attributes.show_udfs, true);
 is.equal(r.attributes.top, 10);
 is.equal(r.attributes.var, "var");
 
-test.ok();

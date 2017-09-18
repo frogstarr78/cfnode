@@ -46,5 +46,3 @@ is.equal(r.attributes.scale, 3);
 is.equal(r.attributes.separator, "\t");
 is.equal(r.attributes.cf_sql_type, 'CF_SQL_MONEY');
 is.equal(r.attributes.max_length, 4);
-
-test.ok();

@@ -57,5 +57,3 @@ is.equal(r.attributes.content, "hello world");
 is.equal(r.attributes.remove, true);
 is.equal(r.attributes.type, "html");
 is.equal(r.attributes.value, "val");
-
-test.ok();

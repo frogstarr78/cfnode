@@ -36,5 +36,3 @@ is.equal(r.content, "We'll only ever get here #count#\n");
 is.equal(r.attributes.query, 'cfloop_query3');
 is.equal(r.attributes.start_row, 3);
 is.equal(r.attributes.end_row, 4);
-
-test.ok();

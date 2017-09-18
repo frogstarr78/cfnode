@@ -19,5 +19,3 @@ r = test.cfparser.parse('<CFTRY>' +
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'try');
 is.equal(r.content, ' ');
-
-test.ok();

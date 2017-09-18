@@ -1,25 +1,36 @@
-const is = require('assert'), test = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
-var r;
-r = test.cfparser.parse('<cfabort />');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'abort');
-is.equal(r.attributes.show_error, undefined);
+describe("Parser should parse cfabort tag", function () {
+  it("should create a cftag object (when the text is lowercase) with no attributes", function () {
+    r = test.cfparser.parse('<cfabort />');
+    r.should.be.instanceof(Object);
+    r.tag.should.equal('abort');
+    should(r.attributes.show_error).be.undefined;
+  });
 
-r = test.cfparser.parse('<CFABORT>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'abort');
-is.equal(r.attributes.show_error, undefined);
+  it("should create a cftag object (when the text is uppercase) with no attributes", function () {
+    r = test.cfparser.parse('<CFABORT>');
+    r.should.be.instanceof(Object);
+    r.tag.should.equal('abort');
+    should(r.attributes.show_error).be.undefined;
+  });
 
-r = test.cfparser.parse('<cfabort showError="say something man">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'abort');
-is.equal(r.attributes.show_error, 'say something man');
+  it("should create a cftag object (when the text is lowercase) with attributes", function () {
+    r = test.cfparser.parse('<cfabort showError="say something man">');
+    r.should.be.instanceof(Object);
+    r.tag.should.equal('abort');
+    r.attributes.show_error.should.equal('say something man');
+  });
+
+  it("should create a cftag object (when the text is uppercase) with attributes", function () {
+    r = test.cfparser.parse('<CFABORT SHOWERROR="nothing to see here. move along." />');
+    r.should.be.instanceof(Object);
+    r.tag.should.equal('abort');
+    r.attributes.show_error.should.equal('nothing to see here. move along.');
+  });
+});
 
 
-r = test.cfparser.parse('<CFABORT SHOWERROR="nothing to see here. move along." />');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'abort');
-is.equal(r.attributes.show_error, 'nothing to see here. move along.');
 
-test.ok();
+

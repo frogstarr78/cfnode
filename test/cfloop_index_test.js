@@ -54,5 +54,3 @@ is.equal(r.attributes.from, 1);
 is.equal(r.attributes.to, 4);
 is.equal(r.attributes.step, 3);
 is.equal(r.attributes.charset, 'utf8');
-
-test.ok();

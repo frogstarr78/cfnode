@@ -32,4 +32,3 @@ is.equal(r.attributes.charset, 'us-ascii');
 is.equal(r.attributes.status_code, '303');
 is.equal(r.attributes.status_text, 'A redirect');
 
-test.ok();

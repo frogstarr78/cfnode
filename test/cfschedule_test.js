@@ -210,5 +210,3 @@ is.equal(r.attributes.start_time, 5);
 is.equal(r.attributes.task, 'cfschedule_test8');
 is.equal(r.attributes.url, 'http://example.com/');
 is.equal(r.attributes.username, 'usr');
-
-test.ok();

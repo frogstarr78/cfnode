@@ -23,5 +23,3 @@ r = test.cfparser.parse('<CFSCRIPT>' +
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'script');
 is.equal(r.content, "\nsomething more done\n");
-
-test.ok();

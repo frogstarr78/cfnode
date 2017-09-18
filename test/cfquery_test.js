@@ -75,5 +75,3 @@ is.equal(r.attributes.password, "pass")
 is.equal(r.attributes.result, "reslt")
 is.equal(r.attributes.timeout, 5)
 is.equal(r.attributes.username, "usr")
-
-test.ok();

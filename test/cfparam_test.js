@@ -44,5 +44,3 @@ is.deepEqual(r.attributes.pattern, new RegExp("[^@]+@([^\.]+.)+.+"));
 is.equal(r.attributes.type, 'regex');
 is.equal(r.attributes.min, 1);
 is.equal(r.attributes.max, 4);
-
-test.ok();

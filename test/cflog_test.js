@@ -58,4 +58,3 @@ is.equal(r.attributes.file, undefined);
 is.equal(r.attributes.log,  'scheduler');
 is.equal(r.attributes.type, 'fatal');
 
-test.ok();

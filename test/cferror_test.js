@@ -36,4 +36,3 @@ is.equal(r.attributes.template, '/path/to/error2.cfm');
 is.equal(r.attributes.mail_to, 'none@example.com');
 is.equal(r.attributes.exception, 'lock');
 
-test.ok();

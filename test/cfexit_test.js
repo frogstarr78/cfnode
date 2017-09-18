@@ -27,4 +27,3 @@ is.equal(r instanceof Object, true);
 is.equal(r.tag, 'exit');
 is.equal(r.attributes.method, 'exitTemplate');
 
-test.ok();

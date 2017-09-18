@@ -35,4 +35,3 @@ is.equal(r.attributes.name, 'cfinvokeargument_test4');
 is.equal(r.attributes.value, 'cfinvarg4');
 is.equal(r.attributes.omit, true);
 
-test.ok();

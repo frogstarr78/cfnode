@@ -41,5 +41,3 @@ is.equal(r.content, "");
 is.equal(r.attributes.index, 'item');
 is.deepEqual(r.attributes.list, ['a', 'b', 'c']);
 is.equal(r.attributes.delimiter, ';');
-
-test.ok();

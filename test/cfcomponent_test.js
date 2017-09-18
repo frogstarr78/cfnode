@@ -95,4 +95,3 @@ is.equal(r.attributes.service_port_name, "spn");
 is.equal(r.attributes.style, 'document');
 is.equal(r.attributes.wsdl_file, 'https://example.com/there');
 
-test.ok();

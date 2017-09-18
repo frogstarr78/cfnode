@@ -1,58 +1,52 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-//	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	test = require('./testlib');
+const is = require('assert'), test = require('./testlib');
 
 var r;
 
 is.throws(function () {
-	r = cf.parse('<cfftp />');
+	r = test.cfparser.parse('<cfftp />');
 }, Error, 'Missing required action attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="open" server="localhost" username="user" password="pass" />');
+	r = test.cfparser.parse('<cfftp action="open" server="localhost" username="user" password="pass" />');
 }, Error, 'Missing required connection attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="open" server="localhost" username="user" connection="conn" />');
+	r = test.cfparser.parse('<cfftp action="open" server="localhost" username="user" connection="conn" />');
 }, Error, 'Missing required password attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="open" password="pass" username="user" connection="conn" />');
+	r = test.cfparser.parse('<cfftp action="open" password="pass" username="user" connection="conn" />');
 }, Error, 'Missing required server attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="open" server="localhost" password="pass" connection="conn" />');
+	r = test.cfparser.parse('<cfftp action="open" server="localhost" password="pass" connection="conn" />');
 }, Error, 'Missing required username attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="open" secure="yes" server="localhost" username="user" connection="conn"/>');
+	r = test.cfparser.parse('<cfftp action="open" secure="yes" server="localhost" username="user" connection="conn"/>');
 }, Error, 'Missing required key or password attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="open" secure="yes" server="localhost" username="user" password="pass" passphrase="passph" connection="conn"/>');
+	r = test.cfparser.parse('<cfftp action="open" secure="yes" server="localhost" username="user" password="pass" passphrase="passph" connection="conn"/>');
 }, Error, 'Unexpected passphrase used with no key attribute specified.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="close" />');
+	r = test.cfparser.parse('<cfftp action="close" />');
 }, Error, 'Missing required connection attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="close" buffer_size="8" connection="conn"/>');
+	r = test.cfparser.parse('<cfftp action="close" buffer_size="8" connection="conn"/>');
 }, Error, 'Unexpected buffer_size used with action == "close" attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="close" action_param="user" connection="conn"/>');
+	r = test.cfparser.parse('<cfftp action="close" action_param="user" connection="conn"/>');
 }, Error, 'Unexpected action_param used with action == "close" attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="quote" action_param="user" secure="true" />');
+	r = test.cfparser.parse('<cfftp action="quote" action_param="user" secure="true" />');
 }, Error, 'Unexpected secure connection used with action == "quote" attribute.');
 
-r = cf.parse('<cfftp ' +
+r = test.cfparser.parse('<cfftp ' +
 'action="open" ' +
 'secure="yes" ' +
 'server="localhost" ' +
@@ -68,7 +62,7 @@ is.equal(r.attributes.server, 'localhost');
 is.equal(r.attributes.secure, true);
 is.equal(r.attributes.username, 'user');
 
-r = cf.parse('<cfftp ' +
+r = test.cfparser.parse('<cfftp ' +
 'action="open" ' +
 'secure="yes" ' +
 'server="localhost" ' +
@@ -86,7 +80,7 @@ is.equal(r.attributes.server, 'localhost');
 is.equal(r.attributes.secure, true);
 is.equal(r.attributes.username, 'user');
 
-r = cf.parse('<cfftp ' +
+r = test.cfparser.parse('<cfftp ' +
 'action="open" ' +
 'server="localhost" ' +
 'username="user" ' +
@@ -106,7 +100,7 @@ is.equal(r.attributes.stop_on_error, true);
 is.equal(r.attributes.timeout, 30);
 is.equal(r.attributes.username, 'user');
 
-r = cf.parse('<cfftp ' +
+r = test.cfparser.parse('<cfftp ' +
 'action="close" ' +
 'connection="myconn2" ' +
 '/>');
@@ -115,7 +109,7 @@ is.equal(r.tag, 'ftp');
 is.equal(r.attributes.action, 'close');
 is.equal(r.attributes.connection, 'myconn2');
 
-r = cf.parse('<cfftp ' + 
+r = test.cfparser.parse('<cfftp ' + 
 'stop_on_error="no" ' + 
 'action="open" ' + 
 'server="localhost" ' + 
@@ -140,7 +134,7 @@ is.equal(r.attributes.stop_on_error, false);
 is.equal(r.attributes.timeout, 90);
 is.equal(r.attributes.username, 'user');
 
-r = cf.parse('<cfftp ' +
+r = test.cfparser.parse('<cfftp ' +
 'action="acct" ' +
 'action_param="user" ' +
 'buffer_size="12" ' +
@@ -170,7 +164,7 @@ is.equal(r.attributes.retry_count, "10");
 is.equal(r.attributes.stop_on_error, false);
 is.equal(r.attributes.timeout, 31);
 
-r = cf.parse('<cfftp ' +
+r = test.cfparser.parse('<cfftp ' +
 'action="open" ' +
 'buffer_size="11" ' +
 'connection="conn5" ' +
@@ -213,4 +207,3 @@ is.equal(r.attributes.stop_on_error, true);
 is.equal(r.attributes.timeout, 67);
 is.equal(r.attributes.username, "user3");
 
-test.ok();

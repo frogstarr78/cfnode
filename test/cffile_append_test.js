@@ -61,4 +61,3 @@ is.equal(r.attributes.fix_newline, true);
 is.deepEqual(r.attributes.attributes, ['normal']);
 is.equal(r.attributes.mode, 721);
 
-test.ok();

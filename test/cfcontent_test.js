@@ -33,4 +33,3 @@ is.equal(r.attributes.reset, false);
 is.equal(r.attributes.type, 'utf-8');
 is.equal(r.attributes.variable, 'cfcontent_var2');
 
-test.ok();

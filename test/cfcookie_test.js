@@ -89,4 +89,3 @@ is.equal(r.attributes.path, '/');
 is.equal(r.attributes.secure, false);
 is.equal(r.attributes.value, 'abc');
 
-test.ok();

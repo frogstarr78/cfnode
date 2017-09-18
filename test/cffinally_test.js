@@ -24,4 +24,3 @@ is.equal(r instanceof Object, true);
 is.equal(r.tag, 'finally');
 is.equal(r.content, "\nBetter stuff here\n");
 
-test.ok();

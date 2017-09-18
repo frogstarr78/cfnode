@@ -1,83 +1,70 @@
-const is = require('assert'), test = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
 var r;
-is.throws(function () {
-	r = test.cfparser.parse('<cfloginuser>');
-}, Error, "Missing required attributes");
 
-is.throws(function () {
-	r = test.cfparser.parse('<cfloginuser name="who" password="pass">');
-}, Error, "Missing required roles attributes");
+describe("Parser should parse cfloginuser tag", function () {
+  describe("should error without...", function () {
+    it("...any required attributes", function () {
+      test.cfparser.parse('<cfloginuser>').should.throw("Missing required attributes");
+    });
 
-is.throws(function () {
-	r = test.cfparser.parse('<cfloginuser roles="a,b" password="pass" >');
-}, Error, "Missing required name attributes");
+    it("...a required roles attribute", function () {
+      test.cfparser.parse('<cfloginuser name="who" password="pass">').throw("Missing required roles attributes");
+    });
 
-is.throws(function () {
-	r = test.cfparser.parse('<cfloginuser roles="a,b,c" password="pass">');
-}, Error, "Missing required name attributes");
+    it("...a required name attribute", function () {
+      test.cfparser.parse('<cfloginuser roles="a,b" password="pass3">').throw("Missing required name attribute");
+    });
 
-
-is.throws(function () {
-	r = test.cfparser.parse('<cfloginuser name="who2" password="pass2">');
-}, Error, "Missing required roles attribute");
-
-is.throws(function () {
-	r = test.cfparser.parse('<cfloginuser roles="a,b" password="pass3">');
-}, Error, "Missing required name attribute");
-
-is.throws(function () {
-	r = test.cfparser.parse('<cfloginuser name="who3" roles="a2,b2">');
-}, Error, "Missing required password attributes");
+    it("...a required password attribute", function () {
+      test.cfparser.parse('<cfloginuser name="who3" roles="a2,b2">').throw("Missing required password attributes");
+    });
+  });
 
 
-r = test.cfparser.parse('<cfloginuser name="who4" password="pass4" roles="n,p,r">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'loginuser');
-is.equal(r.attributes.name, 'who4');
-is.equal(r.attributes.password, 'pass4');
-is.deepEqual(r.attributes.roles, ['n', 'p', 'r']);
 
-r = test.cfparser.parse('<cfloginuser name="who5" roles="n,r,p" password="pass5" />');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'loginuser');
-is.equal(r.attributes.name, 'who5');
-is.equal(r.attributes.password, 'pass5');
-is.deepEqual(r.attributes.roles, ['n', 'r', 'p']);
+  describe("just fine with appropriate tags", function () {
+    it("should do what we'd expect", function () {
+      r = test.cfparser.parse('<cfloginuser name="who4" password="pass4" roles="n,p,r">');
+      r.should.be.instanceof(Object);
+      r.tag.should.equal('loginuser');
+      r.attributes.name.should.equal('who4');
+      r.attributes.password.should.equal('pass4');
+      r.attributes.roles.should.deepEqual(['n', 'p', 'r']);
+    });
+  ]);
 
-r = test.cfparser.parse('<cfloginuser password="pass6" roles="p,r,n" name="who6"/>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'loginuser');
-is.equal(r.attributes.name, 'who6');
-is.equal(r.attributes.password, 'pass6');
-is.deepEqual(r.attributes.roles, ['p', 'r', 'n']);
+  describe("just fine with appropriate tags in a different order", function () {
+    it("should do what we'd expect", function () {
+      r = test.cfparser.parse('<cfloginuser name="who5" roles="n,r,p" password="pass5" />');
+      r.should.be.instanceof(Object);
+      r.tag.should.equal('loginuser');
+      r.attributes.name.should.equal('who5');
+      r.attributes.password.should.equal('pass5');
+      r.attributes.roles.should.deepEqual(['n', 'r', 'p']);
+    });
+  ]);
 
-r = test.cfparser.parse('<cfloginuser password="pass7" name="who7" roles="p,n,r">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'loginuser');
-is.equal(r.attributes.name, 'who7');
-is.equal(r.attributes.password, 'pass7');
-is.deepEqual(r.attributes.roles, ['p', 'n', 'r']);
+  describe("just fine with appropriate tags in a different order", function () {
+    it("should do what we'd expect", function () {
+      r = test.cfparser.parse('<cfloginuser password="pass6" roles="p,r,n" name="who6"/>');
+      r.should.be.instanceof(Object);
+      r.tag.should.equal('loginuser');
+      r.attributes.name.should.equal('who6');
+      r.attributes.password.should.equal('pass6');
+      r.attributes.roles.should.deepEqual(['p', 'r', 'n']);
+    });
+  ]);
 
-r = test.cfparser.parse('<cfloginuser roles="r,n,p" name="who8" password="pass8">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'loginuser');
-is.equal(r.attributes.name, 'who8');
-is.equal(r.attributes.password, 'pass8');
-is.deepEqual(r.attributes.roles, ['r', 'n', 'p']);
-
-r = test.cfparser.parse('<cfloginuser roles="r,p,n" password="pass9" name="who9">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'loginuser');
-is.equal(r.attributes.name, 'who9');
-is.equal(r.attributes.password, 'pass9');
-is.deepEqual(r.attributes.roles, ['r', 'p', 'n']);
-
-r = test.cfparser.parse('<CFLOGINUSER ROLES="a3,b3" PASSWORD="pass10" NAME="who10">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'loginuser');
-is.equal(r.attributes.name, 'who10');
-is.equal(r.attributes.password, 'pass10');
-is.deepEqual(r.attributes.roles, ['a3', 'b3']);
-
-test.ok();
+  describe("just fine with appropriate tags in a different order and all caps tag and attributes", function () {
+    it("should do what we'd expect", function () {
+      r = test.cfparser.parse('<CFLOGINUSER ROLES="a3,b3" PASSWORD="pass10" NAME="who10">');
+      r.should.be.instanceof(Object);
+      r.tag.should.equal('loginuser');
+      r.attributes.name.should.equal('who10');
+      r.attributes.password.should.equal('pass10');
+      r.attributes.roles.should.deepEqual(['a3', 'b3']);
+    });
+  ]);
+});

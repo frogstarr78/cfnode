@@ -78,4 +78,3 @@ is.deepEqual(r.attributes.store_acl, 'strct');
 is.equal(r.attributes.store_location, 'EU');
 is.equal(r.attributes.type, 'file');
 
-test.ok();

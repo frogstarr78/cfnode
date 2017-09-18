@@ -1,10 +1,6 @@
 .PHONY: test
 test: lib/cf.js test/*_test.js
-ifdef file
-	./bin/ntest $(file)
-else
-	./bin/ntest test/*_test.js
-endif
+	npm test
 
 t: test
 

@@ -10,4 +10,3 @@ r = test.cfparser.parse('<CFDEFAULTCASE>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'defaultcase');
 
-test.ok();

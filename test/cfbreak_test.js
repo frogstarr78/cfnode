@@ -12,4 +12,3 @@ is.equal(r instanceof Object, true);
 is.equal(r.tag, 'break');
 is.equal(r.content, '');
 
-test.ok();

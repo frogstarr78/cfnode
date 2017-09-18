@@ -31,5 +31,3 @@ is.equal(r.tag, 'loop');
 is.equal(r.content, "");
 is.equal(r.attributes.index, 'item');
 is.equal(r.attributes.collection, 'struct2');
-
-test.ok();

@@ -60,4 +60,3 @@ is.equal(r.expression, '1 NE 0');
 is.equal(r.content, "\nThen do something");
 is.deepEqual(r.attributes, {});
 
-test.ok();

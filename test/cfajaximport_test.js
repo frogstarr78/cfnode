@@ -1,6 +1,5 @@
 const is = require('assert'), test = require('./testlib');
 
-var r;
 r = test.cfparser.parse('<cfajaximport />');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'ajaximport');
@@ -29,4 +28,3 @@ is.equal(r.attributes.script_src, '/javascript/');
 is.deepEqual(r.attributes.tags, ['CFFORM', 'CFDIV']);
 is.equal(r.attributes.params, '#{googlemapkey="thekey"}#');
 
-test.ok();

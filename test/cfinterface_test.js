@@ -38,4 +38,3 @@ is.equal(r.attributes.display_name, 'cfinterface_test3');
 is.deepEqual(r.attributes.extends, ['other_interface', 'another_interface']);
 is.equal(r.attributes.hint, 'Just a hint');
 
-test.ok();

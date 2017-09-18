@@ -75,4 +75,3 @@ is.equal(r.attributes.description, 'Simple Test Function');
 is.equal(r.attributes.display_name, 'function_test3');
 is.equal(r.attributes.hint, 'Test function3');
 
-test.ok();

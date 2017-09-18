@@ -53,4 +53,3 @@ is.equal(r.attributes.table_owner, "noone_else");
 is.equal(r.attributes.table_qualifier, "pg_catalog3");
 is.equal(r.attributes.username, 'me3');
 
-test.ok();

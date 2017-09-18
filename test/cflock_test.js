@@ -39,4 +39,3 @@ is.equal(r.attributes.name, 'cflock2');
 is.equal(r.attributes.throw_on_timeout, false);
 is.equal(r.attributes.type, 'readOnly');
 
-test.ok();

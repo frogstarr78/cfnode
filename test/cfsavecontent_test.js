@@ -35,5 +35,3 @@ is.equal(r instanceof Object, true);
 is.equal(r.tag, 'savecontent');
 is.equal(r.attributes.variable, 'savecontent');
 is.equal(r.content, "\nThis is the content that is saved #NOW()#\n");
-
-test.ok();

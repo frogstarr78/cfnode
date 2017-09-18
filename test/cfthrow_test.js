@@ -11,5 +11,3 @@ r = test.cfparser.parse('<CFTHROW>');
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'throw');
 is.equal(r.content, '');
-
-test.ok();

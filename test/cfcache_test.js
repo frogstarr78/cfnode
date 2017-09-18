@@ -134,4 +134,3 @@ is.equal(r.attributes.use_cache, false);
 is.equal(r.attributes.use_query_string, true);
 is.equal(r.attributes.username, 'username2');
 
-test.ok();

@@ -157,4 +157,3 @@ is(r.attributes.session_timeout instanceof Date);
 is.equal(r.attributes.client_cookies, false);
 is.equal(r.attributes.domain_cookies, false);
 
-test.ok();

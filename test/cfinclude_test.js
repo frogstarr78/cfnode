@@ -15,4 +15,3 @@ is.equal(r instanceof Object, true);
 is.equal(r.tag, 'include');
 is.equal(r.attributes.template, '/path/to/taglib.cfc');
 
-test.ok();

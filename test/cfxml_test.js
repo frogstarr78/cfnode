@@ -23,5 +23,3 @@ is.equal(r instanceof Object, true);
 is.equal(r.tag, 'xml');
 is.equal(r.attributes.variable, 'cfxml_test4');
 is.equal(r.attributes.case_sensitive, true);
-
-test.ok();

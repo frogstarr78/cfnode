@@ -127,5 +127,3 @@ is.equal(r.attributes.read_only, true);
 is.equal(r.attributes.source, 'db');
 is.equal(r.attributes.unique, true);
 is.equal(r.attributes.update, false);
-
-test.ok();

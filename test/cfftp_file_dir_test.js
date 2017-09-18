@@ -1,78 +1,72 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-//	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	test = require('./testlib');
+const is = require('assert'), test = require('./testlib');
 
 var r;
 
 is.throws(function () {
-	r = cf.parse('<cfftp />');
+	r = test.cfparser.parse('<cfftp />');
 }, Error, 'Missing required action attribute.');
 
 // directory actions
 is.throws(function () {
-	r = cf.parse('<cfftp action="changedir" />');
+	r = test.cfparser.parse('<cfftp action="changedir" />');
 }, Error, 'Missing required directory attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="createdir" />');
+	r = test.cfparser.parse('<cfftp action="createdir" />');
 }, Error, 'Missing required directory attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="listDir" name="dirname" />');
+	r = test.cfparser.parse('<cfftp action="listDir" name="dirname" />');
 }, Error, 'Missing required directory attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="listDir" directory="dirname" />');
+	r = test.cfparser.parse('<cfftp action="listDir" directory="dirname" />');
 }, Error, 'Missing required name attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="exists_dir" />');
+	r = test.cfparser.parse('<cfftp action="exists_dir" />');
 }, Error, 'Missing required directory attribute.');
 // directory actions
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="rename" new="newname" />');
+	r = test.cfparser.parse('<cfftp action="rename" new="newname" />');
 }, Error, 'Missing required existing attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="rename" existing="oldname" />');
+	r = test.cfparser.parse('<cfftp action="rename" existing="oldname" />');
 }, Error, 'Missing required new attribute.');
 
 // item actions
 is.throws(function () {
-	r = cf.parse('<cfftp action="exists" />');
+	r = test.cfparser.parse('<cfftp action="exists" />');
 }, Error, 'Missing required item attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="remove"/>');
+	r = test.cfparser.parse('<cfftp action="remove"/>');
 }, Error, 'Missing required item attribute.');
 // item actions
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="getFile" remote_file="remfile" />');
+	r = test.cfparser.parse('<cfftp action="getFile" remote_file="remfile" />');
 }, Error, 'Missing required local_file attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="getFile" local_file="remfile" />');
+	r = test.cfparser.parse('<cfftp action="getFile" local_file="remfile" />');
 }, Error, 'Missing required remote_file attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="put_file">');
+	r = test.cfparser.parse('<cfftp action="put_file">');
 }, Error, 'Missing required local_file attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="get_file" local_file="remfile" />');
+	r = test.cfparser.parse('<cfftp action="get_file" local_file="remfile" />');
 }, Error, 'Missing required remote_file attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfftp action="existsFile" />');
+	r = test.cfparser.parse('<cfftp action="existsFile" />');
 }, Error, 'Missing required remote_file attribute.');
 
-r = cf.parse('<cfftp ' +
+r = test.cfparser.parse('<cfftp ' +
 'action="changeDir" ' +
 'directory="newrmdir" ' +
 '/>');
@@ -84,7 +78,7 @@ is.equal(r.attributes.passive, false);
 is.equal(r.attributes.timeout, 30);
 is.equal(r.attributes.transfer_mode, 'auto');
 
-r = cf.parse('<cfftp ' +
+r = test.cfparser.parse('<cfftp ' +
 'action="list_dir" ' +
 'directory="newrmdir2" ' +
 'name="qname" ' +
@@ -98,7 +92,7 @@ is.equal(r.attributes.passive, false);
 is.equal(r.attributes.timeout, 30);
 is.equal(r.attributes.transfer_mode, 'auto');
 
-r = cf.parse('<cfftp ' +
+r = test.cfparser.parse('<cfftp ' +
 'new="newdirname" ' +
 'proxyPassword="ppass" ' +
 'proxyUser="puser" ' +
@@ -124,7 +118,7 @@ is.equal(r.attributes.proxy_server, 'localhost');
 is.equal(r.attributes.proxy_user, 'puser');
 is.equal(r.attributes.timeout, 60);
 
-r = cf.parse('<cfftp ' +
+r = test.cfparser.parse('<cfftp ' +
 'new="newdirname" ' +
 'proxyPassword="ppass" ' +
 'transfer_mode="ascii" ' +
@@ -156,4 +150,3 @@ is.equal(r.attributes.proxy_user, 'puser');
 is.equal(r.attributes.timeout, 60);
 is.equal(r.attributes.transfer_mode, 'ascii');
 
-test.ok();

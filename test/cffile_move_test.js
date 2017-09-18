@@ -53,4 +53,3 @@ is.equal(r.attributes.charset, 'us-ascii');
 is.deepEqual(r.attributes.attributes, ['normal']);
 is.equal(r.attributes.mode, 721);
 
-test.ok();

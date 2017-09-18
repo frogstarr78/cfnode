@@ -12,4 +12,3 @@ is.equal(r instanceof Object, true);
 is.equal(r.tag, 'continue');
 is.equal(r.content, '');
 
-test.ok();

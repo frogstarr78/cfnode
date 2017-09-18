@@ -34,5 +34,3 @@ is.equal(r.tag, 'timer');
 is.equal(r.attributes.label, 'timer');
 is.equal(r.attributes.type, 'inline');
 is.equal(r.content, "\nThis is the content that is saved #NOW()#\n");
-
-test.ok();

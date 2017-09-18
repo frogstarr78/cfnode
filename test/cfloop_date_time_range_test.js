@@ -53,5 +53,3 @@ is.equal(r.attributes.index, 'count');
 is(r.attributes.from instanceof Date);
 is(r.attributes.to instanceof Date);
 is(r.attributes.step instanceof Date);
-
-test.ok();

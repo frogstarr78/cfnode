@@ -1,4 +1,6 @@
-const is = require('assert'), test = require('./testlib');
+const is = require('assert'),
+  should = require('should'),
+    test = require('./testlib');
 
 var r;
 
@@ -45,5 +47,3 @@ is.equal(r.attributes.entry_path, '/tmp/dpath');
 is.equal(r.attributes.filter, '*.txt');
 is.equal(r.attributes.prefix, '/tmp/prefix_path');
 is.equal(r.attributes.source, '/tmp/spath');
-
-test.ok();

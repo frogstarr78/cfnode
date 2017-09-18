@@ -50,4 +50,3 @@ is.equal(r.expression, 'TRIM(username) EQ ""');
 is.equal(r.content, "username is an empty string");
 is.deepEqual(r.attributes, {});
 
-test.ok();

@@ -129,4 +129,3 @@ is.equal(r.attributes.timeout, 10);
 is.equal(r.attributes.user_agent, 'CFNode');
 is.equal(r.attributes.username, 'usr');
 
-test.ok();

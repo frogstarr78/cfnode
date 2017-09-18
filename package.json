@@ -24,8 +24,9 @@
   },
   "scripts": {
     "prepublish": "make lib/cf.js",
-    "test": "make test",
-    "start": "node server.js"
+    "test": "nyc mocha",
+    "start": "node server.js",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "config": {
     "host": "localhost",
@@ -37,6 +38,11 @@
   },
   "devDependencies": {
     "colors": "0.6.2",
-    "pegjs": "^0.10.0"
+    "coveralls": "^2.13.1",
+    "expect.js": "^0.3.1",
+    "mocha": "^3.5.3",
+    "nyc": "^11.2.1",
+    "pegjs": "^0.10.0",
+    "should": "^13.0.1"
   }
 }

@@ -49,4 +49,3 @@ is.equal(r.attributes.source, '/tmp/sfile');
 is.deepEqual(r.attributes.attributes, ['normal']);
 is.equal(r.attributes.mode, 721);
 
-test.ok();

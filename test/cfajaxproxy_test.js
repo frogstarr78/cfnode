@@ -79,4 +79,3 @@ is.strictEqual(r.attributes.cfc, undefined);
 is.equal(r.attributes.bind, 'ajaxproxy_bind3');
 is.equal(r.attributes.on_error, 'showError3');
 is.equal(r.attributes.on_success, 'function (rval) { console.log(rval); }');
-test.ok();

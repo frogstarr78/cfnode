@@ -30,4 +30,3 @@ is.equal(r instanceof Object, true);
 is.equal(r.tag, 'else');
 is.equal(r.content, "\nOtherwise we do this.\nStrang looking test.");
 
-test.ok();

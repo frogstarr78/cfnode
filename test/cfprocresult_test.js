@@ -25,5 +25,3 @@ is.equal(r.tag, 'procresult');
 is.equal(r.attributes.name, 'procresult3');
 is.equal(r.attributes.max_rows, 10);
 is.equal(r.attributes.result_set, 11);
-
-test.ok();

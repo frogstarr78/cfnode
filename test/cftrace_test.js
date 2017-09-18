@@ -60,5 +60,3 @@ is.equal(r.attributes.type, 'warning');
 is.equal(r.attributes.var, 'FORM.username');
 is.equal(r.attributes.category, 'trace category');
 is.equal(r.attributes.text, 'trace text');
-
-test.ok();

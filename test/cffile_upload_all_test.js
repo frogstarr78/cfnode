@@ -57,4 +57,3 @@ is.deepEqual(r.attributes.attributes, ['normal', 'hidden', 'readOnly']);
 is.equal(r.attributes.mode, 721);
 is.equal(r.attributes.result, 'upload_res');
 
-test.ok();

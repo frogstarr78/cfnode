@@ -28,5 +28,3 @@ r = test.cfparser.parse('<CFOBJECTCACHE' +
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'objectcache');
 is.equal(r.attributes.action, 'clear');
-
-test.ok();

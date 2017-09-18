@@ -147,5 +147,3 @@ is.equal(r.attributes.username, 'mail_user');
 is.equal(r.attributes.use_ssl, true);
 is.equal(r.attributes.use_tsl, true);
 is.equal(r.attributes.wrap_text, 31);
-
-test.ok();

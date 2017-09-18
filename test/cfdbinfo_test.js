@@ -52,4 +52,3 @@ is.equal(r.attributes.dbname, 'thedb');
 is.equal(r.attributes.username, 'user');
 is.equal(r.attributes.password, 'thepassword');
 
-test.ok();

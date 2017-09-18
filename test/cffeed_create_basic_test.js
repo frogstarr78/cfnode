@@ -73,4 +73,3 @@ is.equal(r.attributes.output_file, '/path/to/output5');
 is.equal(r.attributes.overwrite, true);
 is.equal(r.attributes.xml_var, 'feed_xml_var4');
 
-test.ok();

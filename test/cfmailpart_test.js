@@ -38,5 +38,3 @@ is.equal(r.content, "\nStuff");
 is.equal(r.attributes.type, 'text');
 is.equal(r.attributes.charset, 'us-ascii');
 is.equal(r.attributes.wrap_text, 30);
-
-test.ok();

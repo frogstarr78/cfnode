@@ -49,5 +49,3 @@ is.equal(r.tag, 'processingdirective');
 is.equal(r.attributes.page_encoding, "us-ascii");
 is.equal(r.attributes.suppress_whitespace, false);
 is.equal(r.content, "");
-
-test.ok();

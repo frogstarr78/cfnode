@@ -42,5 +42,3 @@ is.equal(r.attributes.index, 'item');
 is.equal(r.attributes.file, '/a/b/c');
 is.equal(r.attributes.delimiter, ':/');
 is.equal(r.attributes.characters, 11);
-
-test.ok();

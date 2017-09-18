@@ -31,4 +31,3 @@ is.equal(r.attributes.application_token, 'CFAUTHORIZATION_cflogin');
 is.equal(r.attributes.idle_timeout, 180);
 is.equal(r.attributes.cookie_domain, '.example.com');
 
-test.ok();

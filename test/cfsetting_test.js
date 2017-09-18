@@ -37,5 +37,3 @@ is.equal(r.tag, 'setting');
 is.equal(r.attributes.request_timeout, 1);
 is(r.attributes.show_debug_output);
 is(!r.attributes.enable_cfoutput_only);
-
-test.ok();

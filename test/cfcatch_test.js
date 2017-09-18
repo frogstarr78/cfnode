@@ -26,4 +26,3 @@ is.equal(r.tag, 'catch');
 is.equal(r.attributes.type, 'database');
 is.equal(r.content, "\nsomething more done\n");
 
-test.ok();

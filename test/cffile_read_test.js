@@ -46,4 +46,3 @@ is.equal(r.attributes.variable, 'cffile_test3');
 is.equal(r.attributes.file, '/tmp/file');
 is.equal(r.attributes.charset, 'us-ascii');
 
-test.ok();

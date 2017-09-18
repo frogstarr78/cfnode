@@ -1,91 +1,144 @@
 const is = require('assert'),
-  plib = require(__dirname + '/../lib/parselib'),
-  test = require('./testlib');
+  should = require('should'),
+    plib = require(__dirname + '/../lib/parselib');
 
-// Default object prototype additions
-is({key: 'value'}.has_key('key'));
-is.equal('abc'.reduce(), 'abc');
-is.equal('xyz'.join(), 'xyz');
+describe("ParseLib adds functionality", function () {
+  describe("Hash'es have has_key method", function () {
+    it("{key: 'value'}.has_key('key') is true", function () {
+      is({key: 'value'}.has_key('key'));
+    });
+  });
 
-//String helper functions
-is.equal(plib.to_underbar('abc'), 'abc');
-is.equal(plib.to_underbar('Abc'), '_abc');
-is.equal(plib.to_underbar('aBc'), 'a_bc');
-is.equal(plib.to_underbar('abC'), 'ab_c');
-is.equal(plib.to_underbar('abCdeFgh'), 'ab_cde_fgh');
-is.equal(plib.to_underbar('abCdeFghIjklM'), 'ab_cde_fgh_ijkl_m');
-is.equal(plib.to_underbar('ABCDEFGHIJKLM'), '_a_b_c_d_e_f_g_h_i_j_k_l_m');
+  describe("Strings have a reduce method", function () {
+    it("'value'.reduce() is 'value'", function () {
+      is.equal('value'.reduce(), 'value');
+    });
+  });
 
-is.equal(plib.to_capitalize('abc'), 'Abc');
-is.equal(plib.to_capitalize('ABC'), 'ABC');
-is.equal(plib.to_capitalize(' abc'), ' abc');
-is.equal(plib.to_capitalize('abCdeFghIjklM'), 'AbCdeFghIjklM');
+  describe("Strings have a join method", function () {
+    it("'value'.join() is 'value'", function () {
+      is.equal('value'.join(), 'value');
+    });
+  });
+});
 
-is.equal(plib.to_camelcase('a_b_c'), 'ABC');
-is.equal(plib.to_camelcase('A_B_C'), 'ABC');
-is.equal(plib.to_camelcase(' a_bc'), ' aBc');
-is.equal(plib.to_camelcase('a_bC_de'), 'ABCDe');
-is.equal(plib.to_camelcase('a_BC_de'), 'ABCDe');
+describe("String helper functions", function () {
+  describe("to_underbar", function () {
+    it("does what we'd expect", function () {
+      plib.to_underbar('abc').should.equal('abc');
+      plib.to_underbar('Abc').should.equal('_abc');
+      plib.to_underbar('aBc').should.equal('a_bc');
+      plib.to_underbar('abC').should.equal('ab_c');
+      plib.to_underbar('abCdeFgh').should.equal('ab_cde_fgh');
+      plib.to_underbar('abCdeFghIjklM').should.equal('ab_cde_fgh_ijkl_m');
+      plib.to_underbar('ABCDEFGHIJKLM').should.equal('_a_b_c_d_e_f_g_h_i_j_k_l_m');
+    });
+  });
 
-is.equal(plib.stringify(['a', '1', '2']), 'a12');
-//is.strictEqual(plib.stringify(['a', '1', '2'], 'int'), Number.NaN);
-is.equal(plib.stringify(['1', '2']), '12');
-is.equal(plib.stringify(['1', '2'], 'int'), 12);
-is.equal(plib.stringify(['a', 'b', 'c']), 'abc');
-is.equal(plib.stringify(['A', 'B', 'C']), 'ABC');
-is.equal(plib.stringify('abc'), 'abc');
-is.equal(plib.stringify('ABC'), 'ABC');
-is.equal(plib.stringify(['A', 'B', 'C'], 'lower'), 'abc');
-is.equal(plib.stringify(['a', 'B', 'C'], 'under'), 'a_b_c');
-is.equal(plib.stringify('ABC', 'lower'), 'abc');
-is.equal(plib.stringify('aBC', 'under'), 'a_b_c');
-is.equal(plib.stringify([' a', ['B'], 'C ', ' ', ' '], 'trim'), 'aBC');
-is.equal(plib.stringify([' a', ['B'], ' ', 'C ', ' ', ' '], 'trim'), 'aB C');
-is.equal(plib.stringify(['a', ['B'], 'C', ' ', ' '], 'trim'), 'aBC');
-is.equal(plib.stringify(['a', ['B'], 'C', ' ', ' '], 'trim', 'lower'), 'abc');
-is.equal(plib.stringify(['a', ['B'], 'C', ' ', ' '], 'trim', 'under'), 'a_b_c');
-is.equal(plib.stringify(['a_', ['B'], 'C_', 'd', 'e'], 'camel'), 'ABCDe');
-is.equal(plib.stringify(['a_', ['B'], 'C_', ' ', 'e'], 'trim', 'camel'), 'ABC e');
-is.equal(plib.stringify(['a', '_', ['b'], 'C_', 'd', 'e'], 'trim', 'camel'), 'ABCDe');
-is.equal(plib.stringify(['a', '_', ['b'], 'c', '_', 'd', 'e', [['_', 'ghi'], '_' ], 'j'], 'trim', 'camel'), 'ABcDeGhiJ');
-is.equal(plib.stringify(['a', ['', ' '], ['b'], 'c', '_', 'd', 'e', [['_', 'ghi'], ' ' ]], 'camel'), 'A bcDeGhi ');
-is.equal(plib.stringify(['_', ['b'], 'c', '_', 'd', 'e', [['_', 'ghi'], '_' ], 'j'], 'trim', 'camel'), 'BcDeGhiJ');
-is.equal(plib.stringify(['a', '_', ['b'], 'c', '_', 'd', 'e', [['_', 'ghi'], '_' ]], 'trim', 'camel'), 'ABcDeGhi');
-is.equal(plib.stringify(['a', '', ['b'], 'c', '_', 'd', 'e', [['_', 'ghi'], '_' ]], 'trim', 'camel'), 'AbcDeGhi');
-is.equal(plib.stringify(['a', ['', ' '], ['b'], 'c', '_', 'd', 'e', [['_', 'ghi'], ' ' ]], 'trim', 'camel'), 'A bcDeGhi');
-is.equal(plib.stringify(['h', ['t', 't'], ['p'], ':', '/', '/', 'a', [['.', 'com'], '/', '?' ], 'q=y'], 'uri'), 'http://a.com/?q=y');
-is.deepEqual(plib.stringify(['a="b",', 'c="d"'], 'object'), {a: 'b', c: 'd'});
-is.deepEqual(plib.stringify(['a="b"', 'c="d"'], 'object'), {a: 'bc'});
+  describe("to_capitalize", function () {
+    it("does what we'd expect", function () {
+      plib.to_capitalize('abc').should.equal('Abc');
+      plib.to_capitalize('ABC').should.equal('ABC');
+      plib.to_capitalize(' abc').should.equal(' abc');
+      plib.to_capitalize('abCdeFghIjklM').should.equal('AbCdeFghIjklM');
+    });
+  });
 
-//Array helper function
-is.deepEqual(plib.flatten(['abc']), ['abc']);
-is.deepEqual(plib.flatten([['abc', 'def', 'ghi']]), ['abc', 'def', 'ghi']);
-is.deepEqual(plib.flatten([['abc', ['def'], 'ghi']]), ['abc', 'def', 'ghi']);
-is.deepEqual(plib.flatten([['abc', ['def'], 'ghi', ['jkl']]]), ['abc', 'def', 'ghi', 'jkl']);
-is.deepEqual(plib.flatten([['abc', [['d'], ['e'], ['f']], 'ghi']]), ['abc', 'd', 'e', 'f', 'ghi']);
-is.deepEqual(plib.flatten([['abc', ['def'], 'ghi', ['jkl'], ['abc', [['d'], ['e'], ['f']], 'ghi']]]), ['abc', 'def', 'ghi', 'jkl', 'abc', 'd', 'e', 'f', 'ghi']);
-is.deepEqual(plib.flatten([['abc', ['def'], 'ghi', ['jkl'], ['abc', [['d'], ['e'], ['f']], 'ghi']]]), ['abc', 'def', 'ghi', 'jkl', 'abc', 'd', 'e', 'f', 'ghi']);
+  describe("to_camelcase", function () {
+    it("does what we'd expect", function () {
+      plib.to_camelcase('a_b_c').should.equal('ABC');
+      plib.to_camelcase('A_B_C').should.equal('ABC');
+      plib.to_camelcase(' a_bc').should.equal(' aBc');
+      plib.to_camelcase('a_bC_de').should.equal('ABCDe');
+      plib.to_camelcase('a_BC_de').should.equal('ABCDe');
+    });
+  });
 
-is.deepEqual(plib.flatten([ null, { name: 'value', value: '#cfcase_test#' }, null ], true), [{ name: 'value', value: '#cfcase_test#' }]);
-is.deepEqual(plib.denullify([ null, { name: 'value', value: '#cfcase_test#' }, null ]), [{ name: 'value', value: '#cfcase_test#' }]);
+  describe("stringify", function () {
+    it("creates a string from an array", function () {
+      plib.stringify(['a', '1', '2']).should.equal('a12');
+      //is.strictEqual(plib.stringify(['a', '1', '2'], 'int'), Number.NaN);
+      plib.stringify(['1', '2']).should.equal('12');
+      plib.stringify(['1', '2'], 'int').should.equal(12);
+      plib.stringify(['a', 'b', 'c']).should.equal('abc');
+      plib.stringify(['A', 'B', 'C']).should.equal('ABC');
+      plib.stringify('abc').should.equal('abc');
+      plib.stringify('ABC').should.equal('ABC');
+      plib.stringify(['A', 'B', 'C'], 'lower').should.equal('abc');
+      plib.stringify(['a', 'B', 'C'], 'under').should.equal('a_b_c');
+      plib.stringify('ABC', 'lower').should.equal('abc');
+      plib.stringify('aBC', 'under').should.equal('a_b_c');
+      plib.stringify([' a', ['B'], 'C ', ' ', ' '], 'trim').should.equal('aBC');
+      plib.stringify([' a', ['B'], ' ', 'C ', ' ', ' '], 'trim').should.equal('aB C');
+      plib.stringify(['a', ['B'], 'C', ' ', ' '], 'trim').should.equal('aBC');
+      plib.stringify(['a', ['B'], 'C', ' ', ' '], 'trim', 'lower').should.equal('abc');
+      plib.stringify(['a', ['B'], 'C', ' ', ' '], 'trim', 'under').should.equal('a_b_c');
+      plib.stringify(['a_', ['B'], 'C_', 'd', 'e'], 'camel').should.equal('ABCDe');
+      plib.stringify(['a_', ['B'], 'C_', ' ', 'e'], 'trim', 'camel').should.equal('ABC e');
+      plib.stringify(['a', '_', ['b'], 'C_', 'd', 'e'], 'trim', 'camel').should.equal('ABCDe');
+      plib.stringify(['a', '_', ['b'], 'c', '_', 'd', 'e', [['_', 'ghi'], '_' ], 'j'], 'trim', 'camel').should.equal('ABcDeGhiJ');
+      plib.stringify(['a', ['', ' '], ['b'], 'c', '_', 'd', 'e', [['_', 'ghi'], ' ' ]], 'camel').should.equal('A bcDeGhi ');
+      plib.stringify(['_', ['b'], 'c', '_', 'd', 'e', [['_', 'ghi'], '_' ], 'j'], 'trim', 'camel').should.equal('BcDeGhiJ');
+      plib.stringify(['a', '_', ['b'], 'c', '_', 'd', 'e', [['_', 'ghi'], '_' ]], 'trim', 'camel').should.equal('ABcDeGhi');
+      plib.stringify(['a', '', ['b'], 'c', '_', 'd', 'e', [['_', 'ghi'], '_' ]], 'trim', 'camel').should.equal('AbcDeGhi');
+      plib.stringify(['a', ['', ' '], ['b'], 'c', '_', 'd', 'e', [['_', 'ghi'], ' ' ]], 'trim', 'camel').should.equal('A bcDeGhi');
+      plib.stringify(['h', ['t', 't'], ['p'], ':', '/', '/', 'a', [['.', 'com'], '/', '?' ], 'q=y'], 'uri').should.equal('http://a.com/?q=y');
+      plib.stringify(['a="b",', 'c="d"'], 'object').should.deepEqual({a: 'b', c: 'd'});
+      plib.stringify(['a="b"', 'c="d"'], 'object').should.deepEqual({a: 'bc'});
+    });
+  });
 
-is.deepEqual(plib.objectify('a="b", c="d"'), {a: 'b', c: 'd'});
+  describe("objectify", function () {
+    it("does what you'd expect", function () {
+      is.deepEqual(plib.objectify('a="b", c="d"'), {a: 'b', c: 'd'});
+    });
+  });
+});
 
-//Date helper function 
-is(plib.mkDate('NOW') instanceof Date);
-is(plib.mkDate(new Date()) instanceof Date);
-is(plib.mkDate('') instanceof Date);
-is(plib.mkDate([]) instanceof Date);
-is(plib.mkDate({}) instanceof Date);
-date = '2014-08-12 00:12:34 PST'
-is.deepEqual(plib.mkDate(date), new Date(Date.parse(date)));
+describe("Array helper function", function () {
+  describe("flatten", function () {
+    it("flattens a nested array", function () {
+      plib.flatten(['abc']).should.deepEqual(['abc']);
+      plib.flatten([['abc', 'def', 'ghi']]).should.deepEqual(['abc', 'def', 'ghi']);
+      plib.flatten([['abc', ['def'], 'ghi']]).should.deepEqual(['abc', 'def', 'ghi']);
+      plib.flatten([['abc', ['def'], 'ghi', ['jkl']]]).should.deepEqual(['abc', 'def', 'ghi', 'jkl']);
+      plib.flatten([['abc', [['d'], ['e'], ['f']], 'ghi']]).should.deepEqual(['abc', 'd', 'e', 'f', 'ghi']);
+      plib.flatten([['abc', ['def'], 'ghi', ['jkl'], ['abc', [['d'], ['e'], ['f']], 'ghi']]]).should.deepEqual(['abc', 'def', 'ghi', 'jkl', 'abc', 'd', 'e', 'f', 'ghi']);
+      plib.flatten([['abc', ['def'], 'ghi', ['jkl'], ['abc', [['d'], ['e'], ['f']], 'ghi']]]).should.deepEqual(['abc', 'def', 'ghi', 'jkl', 'abc', 'd', 'e', 'f', 'ghi']);
+    });
+  });
 
-//String/Array helper
-is.equal(plib.is_empty(''), true);
-is.equal(plib.is_empty([]), true);
-is.equal(plib.is_empty(undefined), true);
-is.equal(plib.is_empty("\b"), false);
-is.equal(plib.is_empty(' '), false);
-is.equal(plib.is_empty(['a']), false);
+  describe("denullify", function () {
+    it("removes empty values", function () {
+      plib.flatten([ null, { name: 'value', value: '#cfcase_test#' }, null ], true).should.deepEqual([{ name: 'value', value: '#cfcase_test#' }]);
+      plib.denullify([ null, { name: 'value', value: '#cfcase_test#' }, null ]).should.deepEqual([{ name: 'value', value: '#cfcase_test#' }]);
+    });
+  });
+});
 
-test.ok();
+describe("Date helper function", function () {
+  describe("mkDate", function() {
+    it("creates a date", function () {
+      plib.mkDate('NOW').should.be.instanceof(Date);
+      plib.mkDate(new Date()).should.be.instanceof(Date);
+      plib.mkDate('').should.be.instanceof(Date);
+      plib.mkDate([]).should.be.instanceof(Date);
+      plib.mkDate({}).should.be.instanceof(Date);
+      date = '2014-08-12 00:12:34 PST'
+      plib.mkDate(date).should.deepEqual(new Date(Date.parse(date)));
+    });
+  });
+});
+
+describe("String/Array helper", function () {
+  describe("mkDate", function() {
+    it("creates a date", function () {
+      plib.is_empty('').should.be.true();
+      plib.is_empty([]).should.be.true();
+      plib.is_empty(undefined).should.be.true();
+      plib.is_empty("\b").should.be.false();
+      plib.is_empty(' ').should.be.false();
+      plib.is_empty(['a']).should.be.false();
+    });
+  });
+});

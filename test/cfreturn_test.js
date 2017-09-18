@@ -21,5 +21,3 @@ is.equal(r instanceof Object, true);
 is.equal(r.tag, 'return');
 is.equal(r.expression, '1 NE 0');
 is.deepEqual(r.attributes, {});
-
-test.ok();

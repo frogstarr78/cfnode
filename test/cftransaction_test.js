@@ -40,5 +40,3 @@ is.equal(r.attributes.action, 'commit');
 is.equal(r.attributes.nested, false);
 is.equal(r.attributes.savepoint, 'transaction_savepoint');
 is.equal(r.attributes.isolation, 'serializable');
-
-test.ok();

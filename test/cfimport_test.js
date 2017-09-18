@@ -37,4 +37,3 @@ is.equal(r.tag, 'import');
 is.equal(r.attributes.prefix, '');
 is.equal(r.attributes.taglib, '/path/to/taglib.cfc');
 
-test.ok();

@@ -35,4 +35,3 @@ is.equal(r.attributes.url, '/cflocation_test?q=a');
 is.equal(r.attributes.add_token, true);
 is.equal(r.attributes.status_code, 303);
 
-test.ok();

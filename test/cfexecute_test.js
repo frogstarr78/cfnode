@@ -50,4 +50,3 @@ is.equal(r.attributes.output_file, '/tmp/outfile');
 is.equal(r.attributes.timeout, 11);
 is.equal(r.attributes.variable, 'execute_out');
 
-test.ok();

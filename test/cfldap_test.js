@@ -1,74 +1,68 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-//	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	test = require('./testlib');
+const is = require('assert'), test = require('./testlib');
 
 var r;
 
 is.throws(function () {
-	r = cf.parse('<cfldap />');
+	r = test.cfparser.parse('<cfldap />');
 }, Error, 'Missing required server attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfldap server="localhost" />');
+	r = test.cfparser.parse('<cfldap server="localhost" />');
 }, Error, 'Missing required name attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfldap server="localhost" action="query" attributes="*" />');
+	r = test.cfparser.parse('<cfldap server="localhost" action="query" attributes="*" />');
 }, Error, 'Missing required name attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfldap server="localhost" name="cfldap_test" username="user" password="pass" attributes="*" />');
+	r = test.cfparser.parse('<cfldap server="localhost" name="cfldap_test" username="user" password="pass" attributes="*" />');
 }, Error, 'Missing required start attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfldap server="localhost" name="cfldap_test" password="pass" start="dc=example,dc=org" secure="CFSSL_BASIC" attributes="*" />');
+	r = test.cfparser.parse('<cfldap server="localhost" name="cfldap_test" password="pass" start="dc=example,dc=org" secure="CFSSL_BASIC" attributes="*" />');
 }, Error, 'Missing required username attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfldap server="localhost" name="cfldap_test" username="user" start="dc=example,dc=org" secure="CFSSL_BASIC" attributes="*" />');
+	r = test.cfparser.parse('<cfldap server="localhost" name="cfldap_test" username="user" start="dc=example,dc=org" secure="CFSSL_BASIC" attributes="*" />');
 }, Error, 'Missing required password attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfldap server="localhost" name="cfldap_test" username="user" password="pass" start="dc=example,dc=org" secure="CFSSL_BASIC" />');
+	r = test.cfparser.parse('<cfldap server="localhost" name="cfldap_test" username="user" password="pass" start="dc=example,dc=org" secure="CFSSL_BASIC" />');
 }, Error, 'Missing required attributes attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfldap action="add" attributes="name" />');
+	r = test.cfparser.parse('<cfldap action="add" attributes="name" />');
 }, Error, 'Missing required dn attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfldap action="add" dn="dc=example,dc=org" />');
+	r = test.cfparser.parse('<cfldap action="add" dn="dc=example,dc=org" />');
 }, Error, 'Missing required attributes attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfldap action="modify" attributes="name" />');
+	r = test.cfparser.parse('<cfldap action="modify" attributes="name" />');
 }, Error, 'Missing required dn attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfldap action="modify" dn="dc=example,dc=org" />');
+	r = test.cfparser.parse('<cfldap action="modify" dn="dc=example,dc=org" />');
 }, Error, 'Missing required attributes attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfldap action="modify_dn" attributes="name" />');
+	r = test.cfparser.parse('<cfldap action="modify_dn" attributes="name" />');
 }, Error, 'Missing required dn attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfldap action="modify_dn" dn="dc=example,dc=org" />');
+	r = test.cfparser.parse('<cfldap action="modify_dn" dn="dc=example,dc=org" />');
 }, Error, 'Missing required attributes attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfldap action="delete" />');
+	r = test.cfparser.parse('<cfldap action="delete" />');
 }, Error, 'Missing required dn attribute.');
 
 is.throws(function () {
-	r = cf.parse('<cfldap server="localhost" name="cfldap_test" username="user" password="pass" attributes="*" start="dc=example,dc=org" secure="CFSSL_RSA" />');
+	r = test.cfparser.parse('<cfldap server="localhost" name="cfldap_test" username="user" password="pass" attributes="*" start="dc=example,dc=org" secure="CFSSL_RSA" />');
 }, Error, 'Unexpected secure attribute value.');
 
-r = cf.parse('<cfldap ' +
+r = test.cfparser.parse('<cfldap ' +
 'server="localhost" ' +
 'action="add" ' +
 'dn="dc=example,dc=org" ' +
@@ -87,7 +81,7 @@ is.equal(r.attributes.start_row, 1);
 is.equal(r.attributes.timeout, 60000);
 is.equal(r.attributes.username, 'anonymous');
 
-r = cf.parse('<cfldap ' +
+r = test.cfparser.parse('<cfldap ' +
 'username="user" ' +
 'secure="CFSSL_BASIC" ' +
 'filter="objectclass = posixAccount" ' +
@@ -127,7 +121,7 @@ is.equal(r.attributes.start_row, 3);
 is.equal(r.attributes.timeout, 30);
 is.equal(r.attributes.username, 'user');
 
-r = cf.parse('<cfldap ' +
+r = test.cfparser.parse('<cfldap ' +
 'server="localhost" ' +
 'action="add" ' +
 'sort_control="desc" ' +
@@ -142,7 +136,7 @@ is.equal(r.attributes.modify_type, 'add');
 is.equal(r.attributes.server, "localhost");
 is.equal(r.attributes.sort_control, "desc");
 
-r = cf.parse('<cfldap ' +
+r = test.cfparser.parse('<cfldap ' +
 'server="localhost" ' +
 'action="add" ' +
 'sort_control="nocase , asc" ' +
@@ -157,4 +151,3 @@ is.equal(r.attributes.modify_type, 'add');
 is.equal(r.attributes.server, "localhost");
 is.equal(r.attributes.sort_control, "nocase , asc");
 
-test.ok();

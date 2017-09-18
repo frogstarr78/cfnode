@@ -19,5 +19,3 @@ r = test.cfparser.parse('<CFSILENT>' +
 is.equal(r instanceof Object, true);
 is.equal(r.tag, 'silent');
 is.equal(r.content, ' ');
-
-test.ok();

@@ -31,5 +31,3 @@ is.equal(r instanceof Object, true);
 is.equal(r.tag, 'loop');
 is.equal(r.content, "We'll only ever get here #count#\n");
 is.equal(r.attributes.condition, 'count gte 1');
-
-test.ok();

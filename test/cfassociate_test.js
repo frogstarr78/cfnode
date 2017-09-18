@@ -33,4 +33,3 @@ is.equal(r.tag, 'associate');
 is.equal(r.attributes.base_tag, 'cfnode_test');
 is.equal(r.attributes.data_collection, 'somethingelse');
 
-test.ok();

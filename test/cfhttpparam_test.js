@@ -69,4 +69,3 @@ is.equal(r.attributes.value, 'val');
 is.equal(r.attributes.type, 'header');
 is.equal(r.attributes.encoded, false);
 
-test.ok();

@@ -28,4 +28,3 @@ is.equal(r.tag, 'file');
 is.equal(r.attributes.action, 'delete');
 is.equal(r.attributes.file, '/tmp/file');
 
-test.ok();

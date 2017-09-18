@@ -51,5 +51,3 @@ is.equal(r.attributes.max_rows, 10);
 is.equal(r.attributes.group, 'id');
 is.equal(r.attributes.group_case_sensitive, false);
 is.equal(r.content, "\nThis is the content that is saved #NOW()#\n");
-
-test.ok();

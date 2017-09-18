@@ -1,6 +1,4 @@
-const is = require('assert'), test = require('./testlib');
-
-var r;
+const should = require('assert'), test = require('./testlib');
 
 is.throws(function () {
 	r = test.cfparser.parse('<cfloop>');
@@ -31,5 +29,3 @@ is.equal(r.tag, 'loop');
 is.equal(r.content, "");
 is.equal(r.attributes.index, 'item');
 is.equal(r.attributes.array, 'arry2');
-
-test.ok();
