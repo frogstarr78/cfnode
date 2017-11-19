@@ -38,11 +38,11 @@
   },
   "devDependencies": {
     "colors": "0.6.2",
-    "coveralls": "^2.13.1",
+    "coveralls": "^2.13.3",
     "expect.js": "^0.3.1",
     "mocha": "^3.5.3",
-    "nyc": "^11.2.1",
+    "nyc": "^11.3.0",
     "pegjs": "^0.10.0",
-    "should": "^13.0.1"
+    "should": "^13.1.3"
   }
 }
