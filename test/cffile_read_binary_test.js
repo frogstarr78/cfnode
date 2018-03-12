@@ -1,48 +1,54 @@
-const is = require('assert'), test = require('./testlib');
+const should = require('should'), test = require('./testlib');
 
-var r;
+describe("Parser should parse cffile tag", function () {
+    it('throws an error when missing required attributes', function () {
+        (function () { test.cfparser.parse('<cffile />') }).should.throw(/Expected " ", "\\n", "\\t", \[aA\], \[cC\], \[dD\], \[fF\], \[mM\], \[nN\], \[oO\], \[rR\], \[sS\], or \[vV\] but "\/" found./);
+    })
 
-is.throws(function () {
-	r = test.cfparser.parse('<cffile />');
-}, Error, 'Missing required attributes.');
+    it('throw an error when missing the action attribute', function () {
+        (function () { test.cfparser.parse('<cffile file="/tmp/file" variable="something" >') }).should.throw('Missing required action attribute.');
+    });
 
-is.throws(function () {
-	r = test.cfparser.parse('<cffile file="/tmp/file" variable="something" >');
-}, Error, 'Missing required action attribute.');
+    it('throw an error when missing the variable attribute', function () {
+        (function () { test.cfparser.parse('<cffile action="read_binary" file="/tmp/file" >') }).should.throw('Missing required variable attribute.');
+    });
 
-is.throws(function () {
-	r = test.cfparser.parse('<cffile action="read_binary" file="/tmp/file" >');
-}, Error, 'Missing required variable attribute.');
-
-is.throws(function () {
-	r = test.cfparser.parse('<cffile action="read_binary" variable="something" />');
-}, Error, 'Missing required file attribute.');
-
-r = test.cfparser.parse('<cffile action="readbinary" variable="cffile_test" file="/tmp/file" >');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'file');
-is.equal(r.attributes.action, 'readbinary');
-is.equal(r.attributes.variable, 'cffile_test');
-is.equal(r.attributes.file, '/tmp/file');
-
-r = test.cfparser.parse('<CFFILE ' +
-'ACTION="read" ' +
-'VARIABLE="cffile_test3" ' +
-'FILE="/tmp/file" />');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'file');
-is.equal(r.attributes.action, 'read_binary');
-is.equal(r.attributes.variable, 'cffile_test3');
-is.equal(r.attributes.file, '/tmp/file');
+    it('throws an error when missing the required file attribute', function () {
+        (function () { test.cfparser.parse('<cffile action="read_binary" variable="something" />') }).should.throw('Missing required file attribute.');
+    });
 
 
-r = test.cfparser.parse('<CFFILE ' +
-'ACTION="readBinary" ' +
-'VARIABLE="cffile_test3" ' +
-'FILE="/tmp/file" />');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'file');
-is.equal(r.attributes.action, 'read_binary');
-is.equal(r.attributes.variable, 'cffile_test3');
-is.equal(r.attributes.file, '/tmp/file');
+    it("works as exected with standard attributes", function () {
+        r = test.cfparser.parse('<cffile action="readbinary" variable="cffile_test" file="/tmp/file" >');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('file');
+        r.attributes.action.should.eql('readbinary');
+        r.attributes.variable.should.eql('cffile_test');
+        r.attributes.file.should.eql('/tmp/file');
+    });
 
+    it("works as exected with various attributes", function () {
+        r = test.cfparser.parse('<CFFILE ' +
+        'VARIABLE="cffile_test3" ' +
+        'ACTION="read_binary" ' +
+        'FILE="/tmp/file" />');
+        r instanceof(Object);
+        r.tag.should.eql('file');
+        r.attributes.action.should.eql('read_binary');
+        r.attributes.variable.should.eql('cffile_test3');
+        r.attributes.file.should.eql('/tmp/file');
+    });
+
+
+    it("works as expected with all caps attributes", function () {
+        r = test.cfparser.parse('<CFFILE ' +
+        'ACTION="readBinary" ' +
+        'VARIABLE="cffile_test3" ' +
+        'FILE="/tmp/file" />');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('file');
+        r.attributes.action.should.eql('read_binary');
+        r.attributes.variable.should.eql('cffile_test3');
+        r.attributes.file.should.eql('/tmp/file');
+    });
+});
