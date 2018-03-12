@@ -1,21 +1,21 @@
-const should = require('assert'), test = require('./testlib');
+const should = require('should'), test = require('./testlib');
 
 describe("Parser parsing a cfloop (using an array) tag", function () {
-  describe("should error without...", function () {
-    it("...any required attributes", function () {
-    	test.cfparser.parse('<cfloop>').throws('Missing required closing tag');
+  describe("should error without", function () {
+    it("any required attributes", function () {
+    	(function () { test.cfparser.parse('<cfloop>') }).should.throw(/Expected " ", "\\n", or "\\t" but ">" found./);
     });
     
-    it("...any required attributes (even with a closing tag)", function () {
-    	test.cfparser.parse('<cfloop></cfloop>').throws('Missing required attributes.');
+    it("any required attributes (even with a closing tag)", function () {
+    	(function () { test.cfparser.parse('<cfloop></cfloop>') }).should.throw(/Expected " ", "\\n", or "\\t" but ">" found./);
     });
     
-    it("...an index required attribute", function () {
-    	test.cfparser.parse('<cfloop array="#arry#"></cfloop>').throws('Missing required index attribute.');
+    it("an index required attribute", function () {
+    	(function () { test.cfparser.parse('<cfloop array="#arry#"></cfloop>') }).should.throw('Missing required index attribute.');
     });
     
-    it("...an array required attribute", function () {
-    	test.cfparser.parse('<cfloop index="count"></cfloop>').throws('Missing required array attribute.');
+    it("an array required attribute", function () {
+    	(function () { test.cfparser.parse('<cfloop index="count"></cfloop>') }).should.throw('Missing required array attribute.');
     });
   });
     
