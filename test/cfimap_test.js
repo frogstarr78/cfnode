@@ -1,6 +1,4 @@
-const is = require('assert'),
-      test = require('./testlib'),
-      should = require('should');
+const test = require('./testlib'), should = require('should');
 
 var r;
 
