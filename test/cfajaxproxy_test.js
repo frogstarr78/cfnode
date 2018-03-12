@@ -1,25 +1,25 @@
-const should = require('assert'), test = require('./testlib');
+const should = require('should'), test = require('./testlib');
 
 describe("Parser parsing a cfajaxproxy tag", function () {
   describe("should error without...", function () {
     it("...any required attributes", function () {
-    	test.cfparser.parse('<cfajaxproxy >').throws("Missing required bind or cfc attribute");
+    	(function () { test.cfparser.parse('<cfajaxproxy >') }).should.throw(/Expected " ", "\\n", "\\t", \[bB\], \[cC\], \[jJ\], or \[oO\] but ">" found./);
     });
     
     it("...a bind or cfc required attributes", function () {
-    	test.cfparser.parse('<cfajaxproxy on_success="ajaxproxy_success" on_error="ajaxProxy_error" />').throws("Missing required bind or cfc attribute.");
+    	(function () { test.cfparser.parse('<cfajaxproxy on_success="ajaxproxy_success" on_error="ajaxProxy_error" />') }).should.throw("Missing required bind or cfc attribute.");
     });
     
     it("...conflicting attributes", function () {
-    	test.cfparser.parse('<cfajaxproxy bind="ajaxproxybind" cfc="ajaxproxycfc">').throws("Invalid attributes. Cannot define both bind and cfc attributes simultaneously.");
+    	(function () { test.cfparser.parse('<cfajaxproxy bind="ajaxproxybind" cfc="ajaxproxycfc">') }).should.throw("Invalid attributes. Cannot define both bind and cfc attributes simultaneously.");
     });
     
     it("...an empty bind required attributes", function () {
-    	test.cfparser.parse('<cfajaxproxy bind="">').throws("Empty bind attribute value.");
+    	(function () { test.cfparser.parse('<cfajaxproxy bind="">') }).should.throw("Missing required bind or cfc attribute.");
     });
     
     it("...an empty cfc required attributes", function () {
-    	test.cfparser.parse('<cfajaxproxy cfc="">').throws("Empty cfc attribute value");
+    	(function() { test.cfparser.parse('<cfajaxproxy cfc="">') }).should.throw("Missing required bind or cfc attribute.");
     });
   });
     
