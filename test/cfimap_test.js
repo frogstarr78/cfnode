@@ -1,121 +1,125 @@
-const is = require('assert'), test = require('./testlib');
+const is = require('assert'),
+      test = require('./testlib'),
+      should = require('should');
 
 var r;
 
-is.throws(function () {
-	r = test.cfparser.parse('<cfimap action="close" />');
-}, Error, 'Missing required connection attribute.');
+describe('parsing the cfimap tag', function () {
+  it('throws an error when missing the required "connection" attribute', function () {
+    (function () { test.cfparser.parse('<cfimap action="close" />') }).should.throw('Missing required "connection" attribute.');
+  });
 
-is.throws(function () {
-	r = test.cfparser.parse('<cfimap action="open" username="user" password="pass" server="localhost" />');
-}, Error, 'Missing required connection attribute.');
+  it('throws an error when missing the required "connection" attribute', function () {
+    (function () { test.cfparser.parse('<cfimap action="open" username="user" password="pass" server="localhost" />') }).should.throw('Missing required "connection" attribute.');
+  });
 
-is.throws(function () {
-	r = test.cfparser.parse('<cfimap action="open" connection="cfimap_conn" password="pass" server="localhost" />');
-}, Error, 'Missing required username attribute.');
+  it('throws an error when missing the required "username" attribute', function () {
+    (function () { test.cfparser.parse('<cfimap action="open" connection="cfimap_conn" password="pass" server="localhost" />') }).should.throw('Missing required "username" attribute.');
+  });
 
-is.throws(function () {
-	r = test.cfparser.parse('<cfimap action="open" connection="cfimap_conn" username="user" server="localhost" />');
-}, Error, 'Missing required password attribute.');
+  it('throws an error when missing the required "password" attribute', function () {
+    (function () { test.cfparser.parse('<cfimap action="open" connection="cfimap_conn" username="user" server="localhost" />') }).should.throw('Missing required "password" attribute.');
+  });
 
-is.throws(function () {
-	r = test.cfparser.parse('<cfimap action="open" connection="cfimap_conn" username="user" password="pass" />');
-}, Error, 'Missing required server attribute.');
+  it('throws an error when missing the required "server" attribute', function () {
+    (function () { test.cfparser.parse('<cfimap action="open" connection="cfimap_conn" username="user" password="pass" />') }).should.throw('Missing required "server" attribute.');
+  });
 
-['delete_folder', 'create_folder'].forEach(function(action, i, arry) {
-	is.throws(function () {
-		r = test.cfparser.parse('<cfimap action="' + action + '" />');
-	}, Error, 'Missing required folder attribute.');
+  ['delete_folder', 'create_folder'].forEach(function(action, i, arry) {
+      it('throws an error when missing the required "' + action + '" attribute', function () {
+        (function () { test.cfparser.parse('<cfimap action="' + action + '" />') }).should.throw('Missing required "folder" attribute.');
+      });
+  });
+
+  ['get_all', 'get_header_only', 'list_all_folders'].forEach(function(action, i, arry) {
+      it('throws an error when missing the required "' + action + '" attribute', function () {
+        (function () { test.cfparser.parse('<cfimap action="' + action + '" />'); }).should.throw('Missing required "name" attribute.');
+      });
+  });
+
+  it('errors when missing the required "folder" attribute.', function () {
+    (function () { test.cfparser.parse('<cfimap action="rename_folder" new_folder="nu_folder" />') }).should.throw('Missing required "folder" attribute.');
+  });
+
+  it('errors when missing the required "folder" attribute.', function () {
+      (function () { test.cfparser.parse('<cfimap action="rename_folder" folder="old_folder" />') }).should.throw('Missing required "new_folder" attribute.');
+  });
+
+  it('errors when missing the required "folder" attribute.', function () {
+      (function () { test.cfparser.parse('<cfimap action="move_mail" />') }).should.throw('Missing required "new_folder" attribute.');
+  });
+
+  r = test.cfparser.parse('<cfimap ' +
+  'name="cfimap_test" ' +
+  '/>');
+  r.attributes.action.should.eql('get_header_only');
+  r.attributes.folder.should.eql('INBOX');
+  r.attributes.name.should.eql('cfimap_test');
+  r.attributes.port.should.eql(143);
+  r.attributes.recurse.should.eql(false);
+  r.attributes.secure.should.eql(false);
+  r.attributes.stop_on_error.should.eql(true);
+  r.attributes.timeout.should.eql(60);
+
+  r = test.cfparser.parse('<cfimap ' +
+  'action="list_all_folders" ' +
+  'name="cfimap_test2" ' +
+  '/>');
+  r.attributes.action.should.eql('list_all_folders');
+  r.attributes.folder.should.eql('mailbox');
+  r.attributes.name.should.eql('cfimap_test2');
+  r.attributes.port.should.eql(143);
+  r.attributes.recurse.should.eql(false);
+  r.attributes.secure.should.eql(false);
+  r.attributes.stop_on_error.should.eql(true);
+  r.attributes.timeout.should.eql(60);
+
+  r = test.cfparser.parse('<cfimap ' +
+  'name="cfimap_test3" ' +
+  'secure="yes" ' +
+  '/>');
+  r.attributes.action.should.eql('get_header_only');
+  r.attributes.folder.should.eql('INBOX');
+  r.attributes.name.should.eql('cfimap_test3');
+  r.attributes.port.should.eql(993);
+  r.attributes.recurse.should.eql(false);
+  r.attributes.secure.should.eql(true);
+  r.attributes.stop_on_error.should.eql(true);
+  r.attributes.timeout.should.eql(60);
+
+  it('can parse a cfimap tag opening a connection', function (){
+    r = test.cfparser.parse('<cfimap ' +
+    'server="localhost" ' +
+    'connection="cfimap_conn" ' +
+    'action="open" ' +
+    'password="pass" ' +
+    'username="user" ' +
+    '/>');
+    r.attributes.action.should.equal('open');
+    r.attributes.connection.should.equal('cfimap_conn');
+    r.attributes.server.should.equal('localhost');
+    r.attributes.username.should.equal('user');
+    r.attributes.password.should.equal('pass');
+  });
+
+  r = test.cfparser.parse('<cfimap action="create_folder" folder="old_folder" />');
+  r.attributes.action.should.eql('create_folder');
+  r.attributes.folder.should.eql('old_folder');
+
+  r = test.cfparser.parse('<cfimap action="delete_folder" folder="old_folder" />');
+  r.attributes.action.should.eql('delete_folder');
+  r.attributes.folder.should.eql('old_folder');
+
+  r = test.cfparser.parse('<cfimap action="get_all" name="cfimap_test4" />');
+  r.attributes.action.should.eql('get_all');
+  r.attributes.name.should.eql('cfimap_test4');
+
+  r = test.cfparser.parse('<cfimap action="move_mail" newFolder="/tmp/flder" />');
+  r.attributes.action.should.eql('move_mail');
+  r.attributes.new_folder.should.eql('/tmp/flder');
+
+  r = test.cfparser.parse('<cfimap action="rename_folder" folder="old_folder" new_folder="new_folder" />');
+  r.attributes.action.should.eql('rename_folder');
+  r.attributes.new_folder.should.eql('new_folder');
+  r.attributes.folder.should.eql('old_folder');
 });
-
-['get_all', 'get_header_only', 'list_all_folders'].forEach(function(action, i, arry) {
-	is.throws(function () {
-		r = test.cfparser.parse('<cfimap action="' + action + '" />');
-	}, Error, 'Missing required name attribute.');
-});
-
-is.throws(function () {
-	r = test.cfparser.parse('<cfimap action="rename_folder" new_folder="nu_folder" />');
-}, Error, 'Missing required folder attribute.');
-
-is.throws(function () {
-	r = test.cfparser.parse('<cfimap action="rename_folder" folder="old_folder" />');
-}, Error, 'Missing required new_folder attribute.');
-
-is.throws(function () {
-	r = test.cfparser.parse('<cfimap action="move_mail" />');
-}, Error, 'Missing required new_folder attribute.');
-
-
-r = test.cfparser.parse('<cfimap ' +
-'name="cfimap_test" ' +
-'/>');
-is.equal(r.attributes.action, 'get_header_only');
-is.equal(r.attributes.folder, 'INBOX');
-is.equal(r.attributes.name, 'cfimap_test');
-is.equal(r.attributes.port, 143);
-is.equal(r.attributes.recurse, false);
-is.equal(r.attributes.secure, false);
-is.equal(r.attributes.stop_on_error, true);
-is.equal(r.attributes.timeout, 60);
-
-r = test.cfparser.parse('<cfimap ' +
-'action="list_all_folders" ' +
-'name="cfimap_test2" ' +
-'/>');
-is.equal(r.attributes.action, 'list_all_folders');
-is.equal(r.attributes.folder, 'mailbox');
-is.equal(r.attributes.name, 'cfimap_test2');
-is.equal(r.attributes.port, 143);
-is.equal(r.attributes.recurse, false);
-is.equal(r.attributes.secure, false);
-is.equal(r.attributes.stop_on_error, true);
-is.equal(r.attributes.timeout, 60);
-
-r = test.cfparser.parse('<cfimap ' +
-'name="cfimap_test3" ' +
-'secure="yes" ' +
-'/>');
-is.equal(r.attributes.action, 'get_header_only');
-is.equal(r.attributes.folder, 'INBOX');
-is.equal(r.attributes.name, 'cfimap_test3');
-is.equal(r.attributes.port, 993);
-is.equal(r.attributes.recurse, false);
-is.equal(r.attributes.secure, true);
-is.equal(r.attributes.stop_on_error, true);
-is.equal(r.attributes.timeout, 60);
-
-r = test.cfparser.parse('<cfimap ' +
-'server="localhost" ' +
-'connection="cfimap_conn" ' +
-'action="open" ' +
-'password="pass" ' +
-'username="user" ' +
-'/>');
-is.equal(r.attributes.action, 'open');
-is.equal(r.attributes.connection, 'cfimap_conn');
-is.equal(r.attributes.server, 'localhost');
-is.equal(r.attributes.username, 'user');
-is.equal(r.attributes.password, 'pass');
-
-r = test.cfparser.parse('<cfimap action="create_folder" folder="old_folder" />');
-is.equal(r.attributes.action, 'create_folder');
-is.equal(r.attributes.folder, 'old_folder');
-
-r = test.cfparser.parse('<cfimap action="delete_folder" folder="old_folder" />');
-is.equal(r.attributes.action, 'delete_folder');
-is.equal(r.attributes.folder, 'old_folder');
-
-r = test.cfparser.parse('<cfimap action="get_all" name="cfimap_test4" />');
-is.equal(r.attributes.action, 'get_all');
-is.equal(r.attributes.name, 'cfimap_test4');
-
-r = test.cfparser.parse('<cfimap action="move_mail" newFolder="/tmp/flder" />');
-is.equal(r.attributes.action, 'move_mail');
-is.equal(r.attributes.new_folder, '/tmp/flder');
-
-r = test.cfparser.parse('<cfimap action="rename_folder" folder="old_folder" new_folder="new_folder" />');
-is.equal(r.attributes.action, 'rename_folder');
-is.equal(r.attributes.new_folder, 'new_folder');
-is.equal(r.attributes.folder, 'old_folder');
-
