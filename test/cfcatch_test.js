@@ -1,28 +1,36 @@
-const is = require('assert'), test = require('./testlib');
+const should = require('should'), test = require('./testlib');
 
-var r;
-r = test.cfparser.parse('<cfcatch ></cfcatch>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'catch');
-is.equal(r.content, '');
+describe('Parsing the cfcatch tag', function () {
 
-r = test.cfparser.parse('<CFCATCH></CFCATCH>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'catch');
-is.equal(r.content, '');
+    it('behaves as expected w/out any attributes', function () {
+        r = test.cfparser.parse('<cfcatch ></cfcatch>');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('catch');
+        r.content.should.eql('');
+    });
 
-r = test.cfparser.parse('<cfcatch type="database">something done</cfcatch>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'catch');
-is.equal(r.attributes.type, 'database');
-is.equal(r.content, 'something done');
+    it('behaves as expected w/out any attributes but all in caps', function () {
+        r = test.cfparser.parse('<CFCATCH></CFCATCH>');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('catch');
+        r.content.should.eql('');
+    });
 
+    it('behaves as expected w/ some attributes', function () {
+        r = test.cfparser.parse('<cfcatch type="database">something done</cfcatch>');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('catch');
+        r.attributes.type.should.eql('database');
+        r.content.should.eql('something done');
+    });
 
-r = test.cfparser.parse('<CFCATCH TYPE="database">' +
-"\nsomething more done" +
-"\n</cfcatch>");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'catch');
-is.equal(r.attributes.type, 'database');
-is.equal(r.content, "\nsomething more done\n");
-
+    it('behaves as expected w/ some attributes and all in caps', function () {
+        r = test.cfparser.parse('<CFCATCH TYPE="database">' +
+        "\nsomething more done" +
+        "\n</CFCATCH>");
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('catch');
+        r.attributes.type.should.eql('database');
+        r.content.should.eql("\nsomething more done\n");
+    });
+});
