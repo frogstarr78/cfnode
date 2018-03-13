@@ -1,14 +1,17 @@
-const is = require('assert'), test = require('./testlib');
+const should = require('should'), test = require('./testlib');
 
-var r;
+describe('Parsing the cfcontinue tag', function () {
+    it('should work as expected', function () {
+        r = test.cfparser.parse('<cfcontinue>');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('continue');
+        r.content.should.eql('');
+    });
 
-r = test.cfparser.parse('<cfcontinue>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'continue');
-is.equal(r.content, '');
-
-r = test.cfparser.parse('<CFCONTINUE>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'continue');
-is.equal(r.content, '');
-
+    it('should work as expected when all in caps', function () {
+        r = test.cfparser.parse('<CFCONTINUE>');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('continue');
+        r.content.should.eql('');
+    });
+});
