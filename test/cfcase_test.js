@@ -1,29 +1,39 @@
-const is = require('assert'), test = require('./testlib');
+const should = require('should'), test = require('./testlib');
 
-var r;
-is.throws(function () {
-	r = test.cfparser.parse('<cfcase>');
-}, Error, 'Missing required value attribute');
+describe('Parsing the cfcase tag', function () {
+    it('should error without any defined attributes', function () {
+        (function () { test.cfparser.parse('<cfcase>'); }).should.throw(/Expected " ", "\\n", or "\\t" but ">" found./);
+    });
 
-is.throws(function () {
-	r = test.cfparser.parse('<cfcase delimiter=",">');
-}, Error, 'Missing required value attribute');
+    it('should error without required value attribute but with other attributes', function () {
+        (function () { test.cfparser.parse('<cfcase delimiter=",">'); }).should.throw('Missing required "value" attribute.');
+    });
 
-r = test.cfparser.parse('<cfcase value="#cfcase_test#">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'case');
-is.equal(r.attributes.value, '#cfcase_test#');
-is.equal(r.attributes.delimiter, ',');
+    it('should error without valid value attribute', function () {
+        (function () { test.cfparser.parse('<cfcase value="">'); }).should.throw('Missing required "value" attribute.');
+    });
 
-r = test.cfparser.parse('<cfcase value="a,b,c" delimiter=";">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'case');
-is.equal(r.attributes.value, 'a,b,c');
-is.equal(r.attributes.delimiter, ';');
+    it('should work as expected, defining default values', function () {
+        r = test.cfparser.parse('<cfcase value="#cfcase_test#">');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('case');
+        r.attributes.value.should.eql('#cfcase_test#');
+        r.attributes.delimiter.should.eql(',');
+    });
 
-r = test.cfparser.parse('<CFCASE VALUE="a.b,c.d" DELIMITER=",.">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'case');
-is.equal(r.attributes.value, 'a.b,c.d');
-is.equal(r.attributes.delimiter, ',.');
+    it('should work as expected, overwriting default values', function () {
+        r = test.cfparser.parse('<cfcase value="a,b,c" delimiter=";">');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('case');
+        r.attributes.value.should.eql('a,b,c');
+        r.attributes.delimiter.should.eql(';');
+    });
 
+    it('should work as expected with all-caps attributes', function () {
+        r = test.cfparser.parse('<CFCASE VALUE="a.b,c.d" DELIMITER=",.">');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('case');
+        r.attributes.value.should.eql('a.b,c.d');
+        r.attributes.delimiter.should.eql(',.');
+    });
+});
