@@ -1,30 +1,39 @@
-const is = require('assert'), test = require('./testlib');
+const should = require('should'), test = require('./testlib');
 
-r = test.cfparser.parse('<cfajaximport />');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'ajaximport');
-is.equal(r.attributes.css_src, '/css/');
-is.equal(r.attributes.script_src, '/scripts/');
+describe("Parser parsing a cfajaximport tag", function () {
+    it('works as expected', function () {
+        r = test.cfparser.parse('<cfajaximport />');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('ajaximport');
+        r.attributes.css_src.should.eql('/css/');
+        r.attributes.script_src.should.eql('/scripts/');
+    });
 
-r = test.cfparser.parse('<CFAJAXIMPORT>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'ajaximport');
-is.equal(r.attributes.css_src, '/css/');
-is.equal(r.attributes.script_src, '/scripts/');
+    it('works as expected with all-caps tag', function () {
+        r = test.cfparser.parse('<CFAJAXIMPORT>');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('ajaximport');
+        r.attributes.css_src.should.eql('/css/');
+        r.attributes.script_src.should.eql('/scripts/');
+    });
 
-r = test.cfparser.parse("<cfajaximport cssSrc='/scripts/' scriptSrc='/javascript/' tags='CFFORM,CFDIV' params='#{googlemapkey=\"thekey\"}#'>");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'ajaximport');
-is.equal(r.attributes.css_src, '/scripts/');
-is.equal(r.attributes.script_src, '/javascript/');
-is.deepEqual(r.attributes.tags, ['CFFORM', 'CFDIV']);
-is.equal(r.attributes.params, '#{googlemapkey="thekey"}#');
+    it('works as expected with attributes defined', function () {
+        r = test.cfparser.parse("<cfajaximport cssSrc='/scripts/' scriptSrc='/javascript/' tags='CFFORM,CFDIV' params='#{googlemapkey=\"thekey\"}#'>");
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('ajaximport');
+        r.attributes.css_src.should.eql('/scripts/');
+        r.attributes.script_src.should.eql('/javascript/');
+        r.attributes.tags.should.eql(['CFFORM', 'CFDIV']);
+        r.attributes.params.should.eql('#{googlemapkey="thekey"}#');
+    });
 
-r = test.cfparser.parse("<CFAJAXIMPORT CSSSRC='/scripts/' SCRIPTSRC='/javascript/' TAGS='CFFORM,CFDIV' PARAMS='#{googlemapkey=\"thekey\"}#' />");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'ajaximport');
-is.equal(r.attributes.css_src, '/scripts/');
-is.equal(r.attributes.script_src, '/javascript/');
-is.deepEqual(r.attributes.tags, ['CFFORM', 'CFDIV']);
-is.equal(r.attributes.params, '#{googlemapkey="thekey"}#');
-
+    it('works as expected with attributes defined (all in caps)', function () {
+        r = test.cfparser.parse("<CFAJAXIMPORT CSSSRC='/scripts/' SCRIPTSRC='/javascript/' TAGS='CFFORM,CFDIV' PARAMS='#{googlemapkey=\"thekey\"}#' />");
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('ajaximport');
+        r.attributes.css_src.should.eql('/scripts/');
+        r.attributes.script_src.should.eql('/javascript/');
+        r.attributes.tags.should.eql(['CFFORM', 'CFDIV']);
+        r.attributes.params.should.eql('#{googlemapkey="thekey"}#');
+    });
+});
