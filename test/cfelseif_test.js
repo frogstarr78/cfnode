@@ -1,52 +1,59 @@
-const is = require('assert'), test = require('./testlib');
+const should = require('should'), test = require('./testlib');
 
-var r;
+describe('Parsing the cfelseif tag', function () {
+  it("should throw an error without closing tag", function () {
+    (function () { test.cfparser.parse('<cfelseif>'); }).should.throw('Expected " ", "/", ">", "\\n", or "\\t" but "i" found.');
+  });
 
-is.throws(function () {
-	r = test.cfparser.parse('<cfelseif>');
-}, Error, 'Missing required closing tag');
+  it("should throw an error without an expression", function () {
+    (function () { test.cfparser.parse('<cfelseif></cfelseif>'); }).should.throw('Expected " ", "/", ">", "\\n", or "\\t" but "i" found.');
+  });
 
-is.throws(function () {
-	r = test.cfparser.parse('<cfelseif></cfelseif>');
-}, Error, 'Missing required expression.');
+  it("should throw an error without an expression", function () {
+    (function () { test.cfparser.parse('<CFELSEIF ></CFELSEIF>'); }).should.throw('Expected "<" or any character but end of input found.');
+  });
 
-is.throws(function () {
-	r = test.cfparser.parse('<cfelseif ></cfelseif>');
-}, Error, 'Missing required expression.');
+  it("should work as expected with a minimal as possible detail with a closing if", function () {
+    r = test.cfparser.parse('<cfelseif TRIM(username) EQ "">' +
+    "username is an empty string" +
+    '</cfif>');
+    r.should.be.instanceof(Object);
+    r.tag.should.eql('elseif');
+    r.expression.should.eql('TRIM(username) EQ ""');
+    r.content.should.eql("username is an empty string");
+    r.attributes.should.eql({});
+  });
 
-r = test.cfparser.parse('<cfelseif TRIM(username) EQ "">' +
-"username is an empty string" +
-'</cfif>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'elseif');
-is.equal(r.expression, 'TRIM(username) EQ ""');
-is.equal(r.content, "username is an empty string");
-is.deepEqual(r.attributes, {});
+  it("should work as expected with a minimal as possible detail all in caps and with a closing if", function () {
+    r = test.cfparser.parse('<CFELSEIF 1 NE 0>' +
+    "\nThen do something" +
+    '</CFIF>');
+    r.should.be.instanceof(Object);
+    r.tag.should.eql('elseif');
+    r.expression.should.eql('1 NE 0');
+    r.content.should.eql("\nThen do something");
+    r.attributes.should.eql({});
+  });
 
-r = test.cfparser.parse('<CFELSEIF 1 NE 0>' +
-"\nThen do something" +
-'</CFIF>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'elseif');
-is.equal(r.expression, '1 NE 0');
-is.equal(r.content, "\nThen do something");
-is.deepEqual(r.attributes, {});
+  it("should work as expected with a minimal as possible detail with an else & closing if", function () {
+    r = test.cfparser.parse('<cfelseif TRIM(username) EQ "">' +
+    "username is an empty string" +
+    '<cfelse>nothing</cfif>');
+    r.should.be.instanceof(Object);
+    r.tag.should.eql('elseif');
+    r.expression.should.eql('TRIM(username) EQ ""');
+    r.content.should.eql("username is an empty string");
+    r.attributes.should.eql({});
+  });
 
-r = test.cfparser.parse('<cfelseif TRIM(username) EQ "">' +
-"username is an empty string" +
-'<cfelse>nothing</cfif>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'elseif');
-is.equal(r.expression, 'TRIM(username) EQ ""');
-is.equal(r.content, "username is an empty string");
-is.deepEqual(r.attributes, {});
-
-r = test.cfparser.parse('<cfelseif TRIM(username) EQ "">' +
-"username is an empty string" +
-'<cfelseif TRIM(username) EQ "me">empty</cfif>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'elseif');
-is.equal(r.expression, 'TRIM(username) EQ ""');
-is.equal(r.content, "username is an empty string");
-is.deepEqual(r.attributes, {});
-
+  it("should work as expected with a minimal as possible detail with an elseif & closing if", function () {
+    r = test.cfparser.parse('<cfelseif TRIM(username) EQ "">' +
+    "username is an empty string" +
+    '<cfelseif TRIM(username) EQ "me">empty</cfif>');
+    r.should.be.instanceof(Object);
+    r.tag.should.eql('elseif');
+    r.expression.should.eql('TRIM(username) EQ ""');
+    r.content.should.eql("username is an empty string");
+    r.attributes.should.eql({});
+  });
+});

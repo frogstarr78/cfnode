@@ -1,89 +1,99 @@
-const is = require('assert'), test = require('./testlib');
+const should = require('should'), test = require('./testlib');
 
-var r;
-is.throws(function () {
-	r = test.cfparser.parse('<cfdump showUDFs="true">');
-}, Error, 'Missing required var attribute');
+describe('Parsing the cfdump tag', function () {
+  it('should throw an error when missing a required var attribute', function () {
+    (function () { r = test.cfparser.parse('<cfdump showUDFs="true">'); }).should.throw('Missing required var attribute.');
+  });
 
-is.throws(function () {
-	r = test.cfparser.parse('<cfdump var="cfnode_test">');
-}, Error, 'Incorrectly defined var attribute');
+  it('should throw an error when the var attribute is invalid', function () {
+    (function () { r = test.cfparser.parse('<cfdump var="cfnode_test">'); }).should.throw('Expected "#" but "c" found.');
+  });
 
-r = test.cfparser.parse('<cfdump var="#cfnode_test#">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'dump');
-is.equal(r.attributes.var, 'cfnode_test');
+  it('should work as expected with minimal attributes specified', function () {
+    r = test.cfparser.parse('<cfdump var="#cfnode_test#">');
+    r.should.be.instanceof(Object);
+    r.tag.should.eql('dump');
+    r.attributes.var.should.eql('cfnode_test');
+  });
 
-r = test.cfparser.parse('<cfdump output="console" var="#something#">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'dump');
-is.equal(r.attributes.var, 'something');
-is.equal(r.attributes.output, 'console');
+  it('should work as expected with some additional attributes specified', function () {
+    r = test.cfparser.parse('<cfdump output="console" var="#something#">');
+    r.should.be.instanceof(Object);
+    r.tag.should.eql('dump');
+    r.attributes.var.should.eql('something');
+    r.attributes.output.should.eql('console');
+  });
 
-r = test.cfparser.parse('<cfdump label="somethingelse" hide="password" show="username,email" var="#query#" expand="true">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'dump');
-is.equal(r.attributes.label, 'somethingelse');
-is.equal(r.attributes.hide, 'password');
-is.deepEqual(r.attributes.show, ['username', 'email']);
-is.equal(r.attributes.var, 'query');
-is.equal(r.attributes.expand, true);
+  it('should work as expected with still more attributes specified', function () {
+    r = test.cfparser.parse('<cfdump label="somethingelse" hide="password" show="username,email" var="#query#" expand="true">');
+    r.should.be.instanceof(Object);
+    r.tag.should.eql('dump');
+    r.attributes.label.should.eql('somethingelse');
+    r.attributes.hide.should.eql('password');
+    r.attributes.show.should.eql(['username', 'email']);
+    r.attributes.var.should.eql('query');
+    r.attributes.expand.should.be.true;
+  });
 
-r = test.cfparser.parse('<cfdump' +
-		' abort="true"' +
-		' keys="4"' +
-		' metainfo="no"' +
-		' top="10"' +
-		' var="#var#"' +
-	    ' expand="1"' +
-	    ' format="text"' +
-	    ' hide="password"' +
-	    ' label="lbl"' +
-	    ' output="browser"' +
-	    ' show="name,address,email,username"' +
-	    ' showUDFs="yes"' +
-'>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'dump');
-is.equal(r.attributes.abort, true);
-is.equal(r.attributes.expand, true);
-is.equal(r.attributes.format, "text");
-is.equal(r.attributes.hide, "password");
-is.equal(r.attributes.keys, 4);
-is.equal(r.attributes.label, "lbl");
-is.equal(r.attributes.metainfo, false);
-is.equal(r.attributes.output, "browser");
-is.deepEqual(r.attributes.show, ['name', 'address', 'email', 'username']);
-is.equal(r.attributes.show_udfs, true);
-is.equal(r.attributes.top, 10);
-is.equal(r.attributes.var, "var");
+  it('should work as expected with many attributes specified all in', function () {
+    r = test.cfparser.parse('<cfdump' +
+        ' abort="true"' +
+        ' keys="4"' +
+        ' metainfo="no"' +
+        ' top="10"' +
+        ' var="#var#"' +
+          ' expand="1"' +
+          ' format="text"' +
+          ' hide="password"' +
+          ' label="lbl"' +
+          ' output="browser"' +
+          ' show="name,address,email,username"' +
+          ' showUDFs="yes"' +
+    '>');
+    r.should.be.instanceof(Object);
+    r.tag.should.eql('dump');
+    r.attributes.abort.should.be.true;
+    r.attributes.expand.should.be.true;
+    r.attributes.format.should.eql("text");
+    r.attributes.hide.should.eql("password");
+    r.attributes.keys.should.eql(4);
+    r.attributes.label.should.eql("lbl");
+    r.attributes.metainfo.should.be.false;
+    r.attributes.output.should.eql("browser");
+    r.attributes.show.should.eql(['name', 'address', 'email', 'username']);
+    r.attributes.show_udfs.should.be.true;
+    r.attributes.top.should.eql(10);
+    r.attributes.var.should.eql("var");
+  });
 
-r = test.cfparser.parse('<cfdump' +
-		' ABORT="true"' +
-		' KEYS="4"' +
-		' METAINFO="no"' +
-		' TOP="10"' +
-		' VAR="#var#"' +
-	    ' EXPAND="1"' +
-	    ' FORMAT="text"' +
-	    ' HIDE="password"' +
-	    ' LABEL="lbl"' +
-	    ' OUTPUT="browser"' +
-	    ' SHOW="name,address,email,username"' +
-	    ' SHOWUDFS="yes"' +
-'>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'dump');
-is.equal(r.attributes.abort, true);
-is.equal(r.attributes.expand, true);
-is.equal(r.attributes.format, "text");
-is.equal(r.attributes.hide, "password");
-is.equal(r.attributes.keys, 4);
-is.equal(r.attributes.label, "lbl");
-is.equal(r.attributes.metainfo, false);
-is.equal(r.attributes.output, "browser");
-is.deepEqual(r.attributes.show, ['name', 'address', 'email', 'username']);
-is.equal(r.attributes.show_udfs, true);
-is.equal(r.attributes.top, 10);
-is.equal(r.attributes.var, "var");
-
+  it('should work as expected with many attributes specified all in caps', function () {
+    r = test.cfparser.parse('<cfdump' +
+        ' ABORT="true"' +
+        ' KEYS="4"' +
+        ' METAINFO="no"' +
+        ' TOP="10"' +
+        ' VAR="#var#"' +
+          ' EXPAND="1"' +
+          ' FORMAT="text"' +
+          ' HIDE="password"' +
+          ' LABEL="lbl"' +
+          ' OUTPUT="browser"' +
+          ' SHOW="name,address,email,username"' +
+          ' SHOWUDFS="yes"' +
+    '>');
+    r.should.be.instanceof(Object);
+    r.tag.should.eql('dump');
+    r.attributes.abort.should.be.true;
+    r.attributes.expand.should.be.true;
+    r.attributes.format.should.eql("text");
+    r.attributes.hide.should.eql("password");
+    r.attributes.keys.should.eql(4);
+    r.attributes.label.should.eql("lbl");
+    r.attributes.metainfo.should.be.false;
+    r.attributes.output.should.eql("browser");
+    r.attributes.show.should.eql(['name', 'address', 'email', 'username']);
+    r.attributes.show_udfs.should.be.true;
+    r.attributes.top.should.eql(10);
+    r.attributes.var.should.eql("var");
+  });
+});
