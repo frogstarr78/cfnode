@@ -1,129 +1,136 @@
-const is = require('assert'), test = require('./testlib');
+const should = require('should'),
+	  test = require('./testlib');
 
-var r;
+describe("Parser should parse cfproperty tag", function () {
+  it("should error without a required name attribute", function () {
+	(function () { test.cfparser.parse('<cfproperty constrained="yes" />'); }).should.throw('Missing required name attribute.');
+  });
 
-is.throws(function () {
-	r = test.cfparser.parse('<cfproperty constrained="yes" />');
-}, Error, "Missing required name attribute.");
+  it("should work as expected with required name attribute", function () {
+	r = test.cfparser.parse('<cfproperty name="cfproperty_test1" />');
+	r.should.be.instanceof(Object);
+	r.tag.should.eql('property');
+	r.attributes.constrained.should.be.false;
+	r.attributes.name.should.eql('cfproperty_test1');
+	r.attributes.required.should.be.false;
+	r.attributes.type.should.eql('any');
+	r.attributes.lazy.should.be.true;
+	r.attributes.fetch.should.eql('select');
+	r.attributes.generated.should.eql('never');
+	r.attributes.index.should.be.false;
+	r.attributes.insert.should.be.true;
+	r.attributes.inverse.should.be.false;
+	r.attributes.missing_row_ignored.should.be.false;
+	r.attributes.not_null.should.be.false;
+	r.attributes.optimistic_lock.should.be.true;
+	r.attributes.serializable.should.be.true;
+	r.attributes.orm_type.should.eql('string');
+	r.attributes.persistent.should.be.false;
+	r.attributes.read_only.should.be.false;
+	r.attributes.source.should.eql('vm');
+	r.attributes.unique.should.be.false;
+	r.attributes.update.should.be.true;
+  });
 
-r = test.cfparser.parse('<cfproperty name="cfproperty_test1" />');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'property');
-is.equal(r.attributes.constrained, false);
-is.equal(r.attributes.name, 'cfproperty_test1');
-is.equal(r.attributes.required, false);
-is.equal(r.attributes.type, 'any');
-is.equal(r.attributes.lazy, true);
-is.equal(r.attributes.fetch, 'select');
-is.equal(r.attributes.generated, 'never');
-is.equal(r.attributes.index, false);
-is.equal(r.attributes.insert, true);
-is.equal(r.attributes.inverse, false);
-is.equal(r.attributes.missing_row_ignored, false);
-is.equal(r.attributes.not_null, false);
-is.equal(r.attributes.optimistic_lock, true);
-is.equal(r.attributes.serializable, true);
-is.equal(r.attributes.orm_type, 'string');
-is.equal(r.attributes.persistent, false);
-is.equal(r.attributes.read_only, false);
-is.equal(r.attributes.source, 'vm');
-is.equal(r.attributes.unique, false);
-is.equal(r.attributes.update, true);
+  it("should work as expected many defined attributes", function () {
+	r = test.cfparser.parse('<cfproperty ' +
+	'name="cfproperty-test2" ' + 
+	'displayname="property_test2" ' +
+	'update="no" ' + 
+	'hint="Test property2" ' + 
+	'missing_row_ignored="yes" ' +
+	'required="true" ' +
+	'ormType="integer" ' +
+	'type="boolean" ' +
+	'lazy="yes" ' +
+	'fetch="join" ' +
+	'generated="always" ' +
+	'optimisticLock="no" ' +
+	'insert="false" ' +
+	'inverse="yes" ' +
+	'persistent="yes" ' +
+	'unique="yes" ' +
+	'not_null="yes" ' +
+	'source="db" ' +
+	'serializable="no" ' +
+	'readOnly="yes" ' +
+	'constrained="yes" ' +
+	'/>');
+	r.should.be.instanceof(Object);
+	r.tag.should.eql('property');
+	//r.attributes.secure_json.should.be.true;
+	r.attributes.constrained.should.be.true;
+	r.attributes.display_name.should.eql('property_test2');
+	r.attributes.fetch.should.eql('join');
+	r.attributes.generated.should.eql('always');
+	r.attributes.hint.should.eql('Test property2');
+	r.attributes.index.should.be.false;
+	r.attributes.insert.should.be.false;
+	r.attributes.inverse.should.be.true;
+	r.attributes.lazy.should.be.true;
+	r.attributes.name.should.eql('cfproperty-test2');
+	r.attributes.missing_row_ignored.should.be.true;
+	r.attributes.not_null.should.be.true;
+	r.attributes.optimistic_lock.should.be.false;
+	r.attributes.orm_type.should.eql('integer');
+	r.attributes.required.should.be.true;
+	r.attributes.serializable.should.be.false;
+	r.attributes.type.should.eql('boolean');
+	r.attributes.persistent.should.be.true;
+	r.attributes.read_only.should.be.true;
+	r.attributes.source.should.eql('db');
+	r.attributes.unique.should.be.true;
+	r.attributes.update.should.be.false;
+  });
 
-r = test.cfparser.parse('<cfproperty ' +
-'name="cfproperty-test2" ' + 
-'displayname="property_test2" ' +
-'update="no" ' + 
-'hint="Test property2" ' + 
-'missing_row_ignored="yes" ' +
-'required="true" ' +
-'ormType="integer" ' +
-'type="boolean" ' +
-'lazy="yes" ' +
-'fetch="join" ' +
-'generated="always" ' +
-'optimisticLock="no" ' +
-'insert="false" ' +
-'inverse="yes" ' +
-'persistent="yes" ' +
-'unique="yes" ' +
-'not_null="yes" ' +
-'source="db" ' +
-'serializable="no" ' +
-'readOnly="yes" ' +
-'constrained="yes" ' +
-'/>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'property');
-//is.equal(r.attributes.secure_json, true);
-is.equal(r.attributes.constrained, true);
-is.equal(r.attributes.display_name, 'property_test2');
-is.equal(r.attributes.fetch, 'join');
-is.equal(r.attributes.generated, 'always');
-is.equal(r.attributes.hint, 'Test property2');
-is.equal(r.attributes.index, false);
-is.equal(r.attributes.insert, false);
-is.equal(r.attributes.inverse, true);
-is.equal(r.attributes.lazy, true);
-is.equal(r.attributes.name, 'cfproperty-test2');
-is.equal(r.attributes.missing_row_ignored, true);
-is.equal(r.attributes.not_null, true);
-is.equal(r.attributes.optimistic_lock, false);
-is.equal(r.attributes.orm_type, 'integer');
-is.equal(r.attributes.required, true);
-is.equal(r.attributes.serializable, false);
-is.equal(r.attributes.type, 'boolean');
-is.equal(r.attributes.persistent, true);
-is.equal(r.attributes.read_only, true);
-is.equal(r.attributes.source, 'db');
-is.equal(r.attributes.unique, true);
-is.equal(r.attributes.update, false);
-
-//"\nsecure_json='true' " +
-r = test.cfparser.parse('<CFPROPERTY ' +
-"\nNAME='cfproperty-test4' " +
-"\nUPDATE='no' " + 
-"\nDISPLAYNAME='property_test4' " +
-"\nREQUIRED='true' " +
-"\nORMTYPE='integer' " +
-"\nTYPE='boolean' " +
-"\nLAZY='yes' " +
-"\nMISSING_ROW_IGNORED='yes' " +
-"\nFETCH='join' " +
-"\nGENERATED='always' " +
-"\nINSERT='false' " +
-"\nINVERSE='yes' " +
-"\nOPTIMISTICLOCK='no' " +
-"\nNOT_NULL='yes' " +
-"\nREADONLY='yes' " +
-"\nPERSISTENT='yes' " +
-"\nSERIALIZABLE='no' " +
-"\nUNIQUE='yes' " +
-"\nCONSTRAINED='yes' " +
-"\nORMTYPE='char' " +
-"\nSOURCE='db' " +
-"\nHINT='Test property4'>");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'property');
-//is.equal(r.attributes.secure_json, true);
-is.equal(r.attributes.constrained, true);
-is.equal(r.attributes.display_name, 'property_test4');
-is.equal(r.attributes.fetch, 'join');
-is.equal(r.attributes.generated, 'always');
-is.equal(r.attributes.hint, 'Test property4');
-is.equal(r.attributes.index, false);
-is.equal(r.attributes.insert, true);
-is.equal(r.attributes.inverse, false);
-is.equal(r.attributes.lazy, true);
-is.equal(r.attributes.name, 'cfproperty-test4');
-is.equal(r.attributes.not_null, false);
-is.equal(r.attributes.required, true);
-is.equal(r.attributes.serializable, false);
-is.equal(r.attributes.optimistic_lock, false);
-is.equal(r.attributes.type, 'boolean');
-is.equal(r.attributes.orm_type, 'char');
-is.equal(r.attributes.persistent, true);
-is.equal(r.attributes.read_only, true);
-is.equal(r.attributes.source, 'db');
-is.equal(r.attributes.unique, true);
-is.equal(r.attributes.update, false);
+  it("should work as expected many defined attributes (all in caps)", function () {
+	//"\nsecure_json='true' " +
+	r = test.cfparser.parse('<CFPROPERTY ' +
+	"\nNAME='cfproperty-test4' " +
+	"\nUPDATE='no' " + 
+	"\nDISPLAYNAME='property_test4' " +
+	"\nREQUIRED='true' " +
+	"\nORMTYPE='integer' " +
+	"\nTYPE='boolean' " +
+	"\nLAZY='yes' " +
+	"\nMISSING_ROW_IGNORED='yes' " +
+	"\nFETCH='join' " +
+	"\nGENERATED='always' " +
+	"\nINSERT='false' " +
+	"\nINVERSE='yes' " +
+	"\nOPTIMISTICLOCK='no' " +
+	"\nNOT_NULL='yes' " +
+	"\nREADONLY='yes' " +
+	"\nPERSISTENT='yes' " +
+	"\nSERIALIZABLE='no' " +
+	"\nUNIQUE='yes' " +
+	"\nCONSTRAINED='yes' " +
+	"\nORMTYPE='char' " +
+	"\nSOURCE='db' " +
+	"\nHINT='Test property4'>");
+	r.should.be.instanceof(Object);
+	r.tag.should.eql('property');
+	//r.attributes.secure_json.should.be.true;
+	r.attributes.constrained.should.be.true;
+	r.attributes.display_name.should.eql('property_test4');
+	r.attributes.fetch.should.eql('join');
+	r.attributes.generated.should.eql('always');
+	r.attributes.hint.should.eql('Test property4');
+	r.attributes.index.should.be.false;
+	r.attributes.insert.should.be.true;
+	r.attributes.inverse.should.be.false;
+	r.attributes.lazy.should.be.true;
+	r.attributes.name.should.eql('cfproperty-test4');
+	r.attributes.not_null.should.be.false;
+	r.attributes.required.should.be.true;
+	r.attributes.serializable.should.be.false;
+	r.attributes.optimistic_lock.should.be.false;
+	r.attributes.type.should.eql('boolean');
+	r.attributes.orm_type.should.eql('char');
+	r.attributes.persistent.should.be.true;
+	r.attributes.read_only.should.be.true;
+	r.attributes.source.should.eql('db');
+	r.attributes.unique.should.be.true;
+	r.attributes.update.should.be.false;
+  });
+});
