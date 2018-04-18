@@ -1,4 +1,5 @@
-const should = require('should'), test = require('./testlib');
+const should = require('should'),
+	  test = require('./testlib');
 
 describe('Parsing the cfbreak tag', function() {
     it('should work as expected', function () {

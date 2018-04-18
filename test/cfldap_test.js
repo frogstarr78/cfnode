@@ -9,59 +9,59 @@ describe("Parser should parse cfldap tags", function () {
       });
 
       it('a required name attribute', function () {
-        (function () { test.cfparser.parse('<cfldap server="localhost" />') }).should.throw('Missing required name attribute.');
+        (function () { test.cfparser.parse('<cfldap server="localhost" />') }).should.throw('Missing required "name" attribute.');
       });
 
       it('a required name attribute', function () {
-        (function () { test.cfparser.parse('<cfldap server="localhost" action="query" attributes="*" />') }).should.throw('Missing required name attribute.');
+        (function () { test.cfparser.parse('<cfldap server="localhost" action="query" attributes="*" />') }).should.throw('Missing required "name" attribute.');
       });
 
       it('a required start attribute', function () {
-        (function () { test.cfparser.parse('<cfldap server="localhost" name="cfldap_test" username="user" password="pass" attributes="*" />') }).should.throw('Missing required start attribute.');
+        (function () { test.cfparser.parse('<cfldap server="localhost" name="cfldap_test" username="user" password="pass" attributes="*" />') }).should.throw('Missing required "start" attribute.');
       });
 
       it('a required password attribute', function () {
-        (function () { test.cfparser.parse('<cfldap server="localhost" name="cfldap_test" username="user" start="dc=example,dc=org" secure="CFSSL_BASIC" attributes="*" />') }).should.throw('Missing required password attribute.');
+        (function () { test.cfparser.parse('<cfldap server="localhost" name="cfldap_test" username="user" start="dc=example,dc=org" secure="CFSSL_BASIC" attributes="*" />') }).should.throw('Missing required "password" attribute.');
       });
 
       it('a required attributes attribute', function () {
-        (function () { test.cfparser.parse('<cfldap server="localhost" name="cfldap_test" username="user" password="pass" start="dc=example,dc=org" secure="CFSSL_BASIC" />') }).should.throw('Missing required attributes attribute.');
+        (function () { test.cfparser.parse('<cfldap server="localhost" name="cfldap_test" username="user" password="pass" start="dc=example,dc=org" secure="CFSSL_BASIC" />') }).should.throw('Missing required "attributes" attribute.');
       });
   });
 
   describe('using "add" action should error without', function () {
     it('a required dn attribute', function () {
-      (function () { test.cfparser.parse('<cfldap action="add" attributes="name" />') }).should.throw('Missing required dn attribute.');
+      (function () { test.cfparser.parse('<cfldap action="add" attributes="name" />') }).should.throw('Missing required "dn" attribute.');
     });
 
     it('a missing required attributes attribute without', function () {
-      (function () { test.cfparser.parse('<cfldap action="add" dn="dc=example,dc=org" />') }).should.throw('Missing required attributes attribute.');
+      (function () { test.cfparser.parse('<cfldap action="add" dn="dc=example,dc=org" />') }).should.throw('Missing required "attributes" attribute.');
     });
   });
 
   describe('using "modify" action should error without', function () {
     it('a missing required dn attribute', function () {
-      (function () { test.cfparser.parse('<cfldap action="modify" attributes="name" />') }).should.throw('Missing required dn attribute.');
+      (function () { test.cfparser.parse('<cfldap action="modify" attributes="name" />') }).should.throw('Missing required "dn" attribute.');
     });
 
     it('a missing required attributes attribute', function () {
-      (function () { test.cfparser.parse('<cfldap action="modify" dn="dc=example,dc=org" />') }).should.throw('Missing required attributes attribute.');
+      (function () { test.cfparser.parse('<cfldap action="modify" dn="dc=example,dc=org" />') }).should.throw('Missing required "attributes" attribute.');
     });
   });
 
   describe('using "modify_dn" action should error without', function () {
     it('a required dn attribute', function () {
-      (function () { test.cfparser.parse('<cfldap action="modify_dn" attributes="name" />') }).should.throw('Missing required dn attribute.');
+      (function () { test.cfparser.parse('<cfldap action="modify_dn" attributes="name" />') }).should.throw('Missing required "dn" attribute.');
     });
 
     it('a missing required attributes attribute', function () {
-      (function () { test.cfparser.parse('<cfldap action="modify_dn" dn="dc=example,dc=org" />') }).should.throw('Missing required attributes attribute.');
+      (function () { test.cfparser.parse('<cfldap action="modify_dn" dn="dc=example,dc=org" />') }).should.throw('Missing required "attributes" attribute.');
     });
   });
 
   describe('using "delete" action should error without', function () {
     it('a missing required dn attribute', function () {
-      (function () { test.cfparser.parse('<cfldap action="delete" />') }).should.throw('Missing required dn attribute.');
+      (function () { test.cfparser.parse('<cfldap action="delete" />') }).should.throw('Missing required "dn" attribute.');
     });
 
     it("an unexpected secure attribute value", function () {

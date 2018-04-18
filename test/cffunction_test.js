@@ -1,77 +1,77 @@
-const is = require('assert'), test = require('./testlib');
+const should = require('should'),
+	    test = require('./testlib');
 
 var r;
 
-is.throws(function () {
-	r = test.cfparser.parse('<cffunction>');
-}, Error);
+describe('Parsing the cffunction tag', function() {
+    it('should throw an exception when missing a required name attribute.', function () {
+		(function () { r = test.cfparser.parse('<cffunction access="package"></cffunction>'); }).should.throw('Missing required "name" attribute.');
+	});
 
-is.throws(function () {
-	r = test.cfparser.parse('<cffunction></cffunction>');
-}, Error, "Missing required name attribute.");
+    it('should work as expected', function () {
+		r = test.cfparser.parse('<cffunction name="cffunction_test1" ></cffunction>');
+		r.should.be.instanceof(Object);
+		r.tag.should.eql('function');
+		r.content.should.eql('');
+		r.attributes.name.should.eql('cffunction_test1');
+		r.attributes.access.should.eql('public');
+		r.attributes.output.should.be.true;
+		r.attributes.return_format.should.eql('xml');
+		r.attributes.return_type.should.eql('any');
+		r.attributes.roles.should.eql([]);
+		r.attributes.secure_json.should.be.false;
+		r.attributes.verify_client.should.be.false;
 
-r = test.cfparser.parse('<cffunction name="cffunction_test1" ></cffunction>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'function');
-is.equal(r.content, '');
-is.equal(r.attributes.name, 'cffunction_test1');
-is.equal(r.attributes.access, 'public');
-is.equal(r.attributes.output, true);
-is.equal(r.attributes.return_format, 'xml');
-is.equal(r.attributes.return_type, 'any');
-is.equal(r.attributes.roles, '');
-is.equal(r.attributes.secure_json, false);
-is.equal(r.attributes.verify_client, false);
+		r = test.cfparser.parse('<cffunction ' +
+		'return_type="string" name="cffunction-test2" access="private" ' +
+		'output="no" returnFormat="json" ' +
+		'roles="admin,user" secure_json="true" verify_client="yes" ' +
+		'description="Simple Test Function" displayname="function_test2" ' +
+		'hint="Test function2">' +
+		"\nHello World!" +
+		'</cffunction>');
+		r.should.be.instanceof(Object);
+		r.tag.should.eql('function');
+		r.content.should.eql("\nHello World!");
+		r.attributes.name.should.eql('cffunction-test2');
+		r.attributes.access.should.eql('private');
+		r.attributes.output.should.be.false;
+		r.attributes.return_format.should.eql('json');
+		r.attributes.return_type.should.eql('string');
+		r.attributes.roles.should.eql(['admin', 'user']);
+		r.attributes.secure_json.should.be.true;
+		r.attributes.verify_client.should.be.true;
+		r.attributes.description.should.eql('Simple Test Function');
+		r.attributes.display_name.should.eql('function_test2');
+		r.attributes.hint.should.eql('Test function2');
 
-r = test.cfparser.parse('<cffunction ' +
-'return_type="string" name="cffunction-test2" access="private" ' +
-'output="no" returnFormat="json" ' +
-'roles="admin,user" secure_json="true" verify_client="yes" ' +
-'description="Simple Test Function" displayname="function_test2" ' +
-'hint="Test function2">' +
-"\nHello World!" +
-'</cffunction>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'function');
-is.equal(r.content, "\nHello World!");
-is.equal(r.attributes.name, 'cffunction-test2');
-is.equal(r.attributes.access, 'private');
-is.equal(r.attributes.output, false);
-is.equal(r.attributes.return_format, 'json');
-is.equal(r.attributes.return_type, 'string');
-is.deepEqual(r.attributes.roles, ['admin', 'user']);
-is.equal(r.attributes.secure_json, true);
-is.equal(r.attributes.verify_client, true);
-is.equal(r.attributes.description, 'Simple Test Function');
-is.equal(r.attributes.display_name, 'function_test2');
-is.equal(r.attributes.hint, 'Test function2');
-
-r = test.cfparser.parse('<CFFUNCTION ' +
-"\nreturnType='numeric' " +
-"\nname='cffunction-test3' " +
-"\naccess='package' " +
-"\noutput='no' " +
-"\nreturnFormat='plain' " +
-"\nroles='admin,user,web' " +
-"\nsecure_json='true' " +
-"\nverify_client='yes' " +
-"\ndescription='Simple Test Function' " +
-"\ndisplayname='function_test3' " +
-"\nhint='Test function3'>" +
-"\n<cfreturn 1 />" +
-'</CFFUNCTION>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'function');
-is.equal(r.content, "\n<cfreturn 1 />");
-is.equal(r.attributes.name, 'cffunction-test3');
-is.equal(r.attributes.access, 'package');
-is.equal(r.attributes.output, false);
-is.equal(r.attributes.return_format, 'plain');
-is.equal(r.attributes.return_type, 'numeric');
-is.deepEqual(r.attributes.roles, ['admin', 'user', 'web']);
-is.equal(r.attributes.secure_json, true);
-is.equal(r.attributes.verify_client, true);
-is.equal(r.attributes.description, 'Simple Test Function');
-is.equal(r.attributes.display_name, 'function_test3');
-is.equal(r.attributes.hint, 'Test function3');
-
+		r = test.cfparser.parse('<CFFUNCTION ' +
+		"\nreturnType='numeric' " +
+		"\nname='cffunction-test3' " +
+		"\naccess='package' " +
+		"\noutput='no' " +
+		"\nreturnFormat='plain' " +
+		"\nroles='admin,user,web' " +
+		"\nsecure_json='true' " +
+		"\nverify_client='yes' " +
+		"\ndescription='Simple Test Function' " +
+		"\ndisplayname='function_test3' " +
+		"\nhint='Test function3'>" +
+		"\n<cfreturn 1 />" +
+		'</CFFUNCTION>');
+		r.should.be.instanceof(Object);
+		r.tag.should.eql('function');
+		r.content.should.eql("\n<cfreturn 1 />");
+		r.attributes.name.should.eql('cffunction-test3');
+		r.attributes.access.should.eql('package');
+		r.attributes.output.should.be.false;
+		r.attributes.return_format.should.eql('plain');
+		r.attributes.return_type.should.eql('numeric');
+		r.attributes.roles.should.eql(['admin', 'user', 'web']);
+		r.attributes.secure_json.should.be.true;
+		r.attributes.verify_client.should.be.true;
+		r.attributes.description.should.eql('Simple Test Function');
+		r.attributes.display_name.should.eql('function_test3');
+		r.attributes.hint.should.eql('Test function3');
+	});
+});

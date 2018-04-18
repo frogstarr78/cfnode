@@ -12,12 +12,12 @@ describe("ParseLib adds functionality", function () {
     describe('Strings', function() {
         describe('have a reduce method', function () {
             it("'value'.reduce() is 'value'", function () {
-                is.equal('value'.reduce(), 'value');
+                'value'.reduce().should.eql('value');
             });
 
         describe("have a join method", function () {
             it("'value'.join() is 'value'", function () {
-                is.equal('value'.join(), 'value');
+                'value'.join().should.eql('value');
             });
         });
 

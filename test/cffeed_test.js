@@ -4,12 +4,12 @@ describe('Parser parsing the cffeed tag', function () {
     describe('with the create action', function () {
         it('should throw an error when missing a required name attribute', function () {
             (function () { r = test.cfparser.parse('<cffeed output_file="/path/to/output" xml_var="feed_xml_var">'); })
-                .should.throw('Missing required "name" attribute.');
+                .should.throw('Missing one of required "name" or "query" attributes.');
         });
 
         it('should throw an error when missing a required name attribute regardless the order of other attributes', function () {
             (function () { r = test.cfparser.parse('<cffeed action="create" output_file="/path/to/output" xml_var="feed_xml_var">'); })
-                .should.throw('Missing required "name" attribute.');
+                .should.throw('Missing one of required "name" or "query" attributes.');
         });
 
         it('should throw an error when missing a output_file attribute regardless the order of other attributes', function () {
@@ -87,23 +87,23 @@ describe('Parser parsing the cffeed tag', function () {
 
     describe('with the query action', function () {
         it('should throw an error when the required query attribute is missing', function () {
-            (function () { r = test.cfparser.parse('<cffeed properties="#meta#" output_file="/path/to/output" xml_var="feed_xml_var">'); })
-                .should.throw('Missing required "query" attribute.');
+            (function () { test.cfparser.parse('<cffeed properties="#meta#" output_file="/path/to/output" xml_var="feed_xml_var">'); })
+                .should.throw('Missing one of required "name" or "query" attributes.');
         });
 
         it('should throw an error when the required properties attribute is missing', function () {
-            (function () { r = test.cfparser.parse('<cffeed action="create" query="#get_data#" output_file="/path/to/output" xml_var="feed_xml_var">'); })
+            (function () { test.cfparser.parse('<cffeed action="create" query="#get_data#" output_file="/path/to/output" xml_var="feed_xml_var">'); })
                 .should.throw('Missing required "properties" attribute.');
         });
 
         it('should throw an error when the required output_file attribute is missing', function () {
-            (function () { r = test.cfparser.parse('<cffeed action="create" query="#get_data#" properties="#meta#" xml_var="feed_val" >'); })
-                .should.throw('Missing required "output_file" attribute.');
+            (function () { test.cfparser.parse('<cffeed action="create" query="#get_data#" properties="#meta#" >'); })
+                .should.throw('Missing one of required "output_file" or "xml_var" attributes.');
         });
 
         it('should throw an error when the required xml_var attribute is missing', function () {
-            (function () { r = test.cfparser.parse('<cffeed action="create" query="#get_data#" properties="#meta#" output_file="/path/to/output_file/" >'); })
-                .should.throw('Missing required "xml_var" attribute.');
+            (function () { test.cfparser.parse('<cffeed action="create" query="#get_data#" properties="#meta#" >'); })
+                .should.throw('Missing one of required "output_file" or "xml_var" attributes.');
         });
 
         it('should work as exected with minimal attributes defined', function () {

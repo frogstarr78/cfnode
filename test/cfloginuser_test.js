@@ -4,21 +4,17 @@ const should = require('should'),
 var r;
 
 describe("Parser should parse cfloginuser tag", function () {
-  describe("should error without...", function () {
-    it("...any required attributes", function () {
-      test.cfparser.parse('<cfloginuser>').should.throw("Missing required attributes");
+  describe("should error without", function () {
+    it("a required roles attribute", function () {
+      (function () { test.cfparser.parse('<cfloginuser name="who" password="pass">') }).should.throw('Missing required "roles" attribute.');
     });
 
-    it("...a required roles attribute", function () {
-      test.cfparser.parse('<cfloginuser name="who" password="pass">').throw("Missing required roles attributes");
+    it("a required name attribute", function () {
+      (function () { test.cfparser.parse('<cfloginuser roles="a,b" password="pass3">') }).should.throw('Missing required "name" attribute.');
     });
 
-    it("...a required name attribute", function () {
-      test.cfparser.parse('<cfloginuser roles="a,b" password="pass3">').throw("Missing required name attribute");
-    });
-
-    it("...a required password attribute", function () {
-      test.cfparser.parse('<cfloginuser name="who3" roles="a2,b2">').throw("Missing required password attributes");
+    it("a required password attribute", function () {
+      (function () { test.cfparser.parse('<cfloginuser name="who3" roles="a2,b2">') }).should.throw('Missing required "password" attribute.');
     });
   });
 

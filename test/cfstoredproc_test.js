@@ -1,72 +1,74 @@
-const is = require('assert'), test = require('./testlib');
+const should = require('should'),
+	  test = require('./testlib');
 
-var r;
-is.throws(function () {
-	r = test.cfparser.parse('<cfstoredproc>');
-}, Error, "Missing required attributes");
+describe("Parser should parse cfstoredproc tag", function () {
+	it('should error without required "procedure" attribute value', function () {
+		(function () { r = test.cfparser.parse('<cfstoredproc datasource="cfstoredproc_dsn">'); }).should.throw('Missing required "procedure" attribute.');
+	});
 
-is.throws(function () {
-	r = test.cfparser.parse('<cfstoredproc />');
-}, Error, "Missing required attributes");
+	it('should error with an empty "procedure" attribute value', function () {
+		(function () { r = test.cfparser.parse('<cfstoredproc procedure="" datasource="cfspdsn" >'); }).should.throw('Empty "procedure" attribute.');
+	});
 
-is.throws(function () {
-	r = test.cfparser.parse('<cfstoredproc datasource="cfstoredproc_dsn">');
-}, Error, "Missing required procedure attribute");
+	it('should error without required "datasource" attribute value', function () {
+		(function () { r = test.cfparser.parse('<cfstoredproc procedure="cfstoredproc_proc">'); }).should.throw('Missing required "datasource" attribute.');
+	});
 
-is.throws(function () {
-	r = test.cfparser.parse('<cfstoredproc datasource="">');
-}, Error, "Empty datasource attribute");
+	it('should error with empty "datasource" attribute value', function () {
+		(function () { r = test.cfparser.parse('<cfstoredproc datasource="" procedure="cfstoredproc_proc">'); }).should.throw('Empty "datasource" attribute.');
+	});
 
-is.throws(function () {
-	r = test.cfparser.parse('<cfstoredproc procedure="cfstoredproc_proc">');
-}, Error, "Missing required datasource attribute");
+	it('should work as expected with minimal attributes defined', function () {
+		r = test.cfparser.parse('<cfstoredproc dataSource="cfstoredproc_dsn2" procedure="cfstoredproc_proc2">');
+		r.should.be.instanceof(Object);
+		r.tag.should.eql('storedproc');
+		r.attributes.datasource.should.eql('cfstoredproc_dsn2');
+		r.attributes.procedure.should.eql('cfstoredproc_proc2');
+		r.attributes.block_factor.should.eql(1);
+		r.attributes.debug.should.be.false;
+		r.attributes.return_code.should.be.false;
+	});
 
-is.throws(function () {
-	r = test.cfparser.parse('<cfstoredproc procedure="">');
-}, Error, "Empty procedure attribute");
+	it('should work as expected with multiple attributes defined', function () {
+		r = test.cfparser.parse('<cfstoredproc blockFactor="3" datasource="dsn3" debug="1" procedure="tbl3" returnCode="no" />');
+		r.should.be.instanceof(Object);
+		r.tag.should.eql('storedproc');
+		r.attributes.block_factor.should.eql(3);
+		r.attributes.datasource.should.eql('dsn3');
+		r.attributes.debug.should.be.true;
+		r.attributes.procedure.should.eql('tbl3');
+		r.attributes.return_code.should.be.false;
+	});
 
-r = test.cfparser.parse('<cfstoredproc dataSource="cfstoredproc_dsn2" procedure="cfstoredproc_proc2">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'storedproc');
-is.equal(r.attributes.datasource, 'cfstoredproc_dsn2');
-is.equal(r.attributes.procedure, 'cfstoredproc_proc2');
-is.equal(r.attributes.block_factor, 1);
-is.equal(r.attributes.debug, false);
-is.equal(r.attributes.return_code, false);
+	it('should work as expected with many more attributes defined', function () {
+		r = test.cfparser.parse('<cfstoredproc blockFactor="5" debug="yes" procedure="tbl4" datasource="dsn4" result="this" password="mypass3" username="noone_else" cachedAfter="2014-08-09" cachedWithin="#CreateTimeSpan(1, 2, 3, 4)#"  returnCode="no" />');
+		r.should.be.instanceof(Object);
+		r.tag.should.eql('storedproc');
+		r.attributes.block_factor.should.eql(5);
+		r.attributes.debug.should.be.true;
+		r.attributes.datasource.should.eql('dsn4');
+		r.attributes.procedure.should.eql('tbl4');
+		r.attributes.result.should.eql('this');
+		r.attributes.password.should.eql("mypass3");
+		r.attributes.username.should.eql("noone_else");
+		r.attributes.cached_after.should.be.instanceof(Date);
+		r.attributes.cached_within.should.be.instanceof(Date);
+		r.attributes.return_code.should.be.false;
+	});
 
-r = test.cfparser.parse('<cfstoredproc blockFactor="3" datasource="dsn3" debug="1" procedure="tbl3" returnCode="no" />');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'storedproc');
-is.equal(r.attributes.block_factor, 3);
-is.equal(r.attributes.datasource, 'dsn3');
-is.equal(r.attributes.debug, true);
-is.equal(r.attributes.procedure, 'tbl3');
-is.equal(r.attributes.return_code, false);
-
-r = test.cfparser.parse('<cfstoredproc blockFactor="5" debug="yes" procedure="tbl4" datasource="dsn4" result="this" password="mypass3" username="noone_else" cachedAfter="2014-08-09" cachedWithin="#CreateTimeSpan(1, 2, 3, 4)#"  returnCode="no" />');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'storedproc');
-is.equal(r.attributes.block_factor, 5);
-is.equal(r.attributes.debug, true);
-is.equal(r.attributes.datasource, 'dsn4');
-is.equal(r.attributes.procedure, 'tbl4');
-is.equal(r.attributes.result, 'this');
-is.equal(r.attributes.password, "mypass3");
-is.equal(r.attributes.username, "noone_else");
-is(r.attributes.cached_after instanceof Date )
-is(r.attributes.cached_within instanceof Date )
-is.equal(r.attributes.return_code, false);
-
-r = test.cfparser.parse('<CFSTOREDPROC BLOCKFACTOR="5" DEBUG="yes" PROCEDURE="tbl4" DATASOURCE="dsn4" RESULT="this" PASSWORD="mypass3" USERNAME="noone_else" CACHEDAFTER="2014-08-09" CACHEDWITHIN="#CreateTimeSpan(5, 6, 7, 8)#" RETURNCODE="no" />');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'storedproc');
-is.equal(r.attributes.block_factor, 5);
-is.equal(r.attributes.debug, true);
-is.equal(r.attributes.datasource, 'dsn4');
-is.equal(r.attributes.procedure, 'tbl4');
-is.equal(r.attributes.result, 'this');
-is.equal(r.attributes.password, "mypass3");
-is.equal(r.attributes.username, "noone_else");
-is(r.attributes.cached_after instanceof Date )
-is(r.attributes.cached_within instanceof Date )
-is.equal(r.attributes.return_code, false);
+	it('should work as expected with many more attributes defined (all in caps)', function () {
+		r = test.cfparser.parse('<CFSTOREDPROC BLOCKFACTOR="5" DEBUG="yes" PROCEDURE="tbl4" DATASOURCE="dsn4" RESULT="this" PASSWORD="mypass3" USERNAME="noone_else" CACHEDAFTER="2014-08-09" CACHEDWITHIN="#CreateTimeSpan(5, 6, 7, 8)#" RETURNCODE="no" />');
+		r.should.be.instanceof(Object);
+		r.tag.should.eql('storedproc');
+		r.attributes.block_factor.should.eql(5);
+		r.attributes.debug.should.be.true;
+		r.attributes.datasource.should.eql('dsn4');
+		r.attributes.procedure.should.eql('tbl4');
+		r.attributes.result.should.eql('this');
+		r.attributes.password.should.eql("mypass3");
+		r.attributes.username.should.eql("noone_else");
+		r.attributes.cached_after.should.be.instanceof(Date);
+		r.attributes.cached_within.should.be.instanceof(Date);
+		r.attributes.return_code.should.be.false;
+	});
+});
