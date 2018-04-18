@@ -87,30 +87,30 @@ describe('Parser parsing the cffeed tag', function () {
 
     describe('with the query action', function () {
         it('should throw an error when the required query attribute is missing', function () {
-            (function () { test.cfparser.parse('<cffeed properties="#meta#" output_file="/path/to/output" xml_var="feed_xml_var">'); })
+            (function () { test.cfparser.parse('<cffeed action="query" properties="#meta#" output_file="/path/to/output" xml_var="feed_xml_var">'); })
                 .should.throw('Missing one of required "name" or "query" attributes.');
         });
 
         it('should throw an error when the required properties attribute is missing', function () {
-            (function () { test.cfparser.parse('<cffeed action="create" query="#get_data#" output_file="/path/to/output" xml_var="feed_xml_var">'); })
+            (function () { test.cfparser.parse('<cffeed action="query" action="create" query="#get_data#" output_file="/path/to/output" xml_var="feed_xml_var">'); })
                 .should.throw('Missing required "properties" attribute.');
         });
 
         it('should throw an error when the required output_file attribute is missing', function () {
-            (function () { test.cfparser.parse('<cffeed action="create" query="#get_data#" properties="#meta#" >'); })
+            (function () { test.cfparser.parse('<cffeed action="query" query="#get_data#" properties="#meta#" >'); })
                 .should.throw('Missing one of required "output_file" or "xml_var" attributes.');
         });
 
         it('should throw an error when the required xml_var attribute is missing', function () {
-            (function () { test.cfparser.parse('<cffeed action="create" query="#get_data#" properties="#meta#" >'); })
+            (function () { test.cfparser.parse('<cffeed action="query" query="#get_data#" properties="#meta#" >'); })
                 .should.throw('Missing one of required "output_file" or "xml_var" attributes.');
         });
 
         it('should work as exected with minimal attributes defined', function () {
-            r = test.cfparser.parse('<cffeed query="#query1#" properties="#meta1#" output_file="/path/to/output1">');
+            r = test.cfparser.parse('<cffeed action="query" query="#query1#" properties="#meta1#" output_file="/path/to/output1">');
             r.should.be.instanceof(Object);
             r.tag.should.eql('feed');
-            r.attributes.action.should.eql('create');
+            r.attributes.action.should.eql('query');
             r.attributes.escape_chars.should.be.false;
             r.attributes.output_file.should.eql('/path/to/output1');
             r.attributes.ignore_enclosure_error.should.be.false;
@@ -120,10 +120,10 @@ describe('Parser parsing the cffeed tag', function () {
         });
 
         it('should work as exected with minimal attributes defined', function () {
-            r = test.cfparser.parse('<cffeed query="#query2#" properties="#meta2#" xml_var="var1">');
+            r = test.cfparser.parse('<cffeed action="query" query="#query2#" properties="#meta2#" xml_var="var1">');
             r.should.be.instanceof(Object);
             r.tag.should.eql('feed');
-            r.attributes.action.should.eql('create');
+            r.attributes.action.should.eql('query');
             r.attributes.properties.should.eql('#meta2#');
             r.attributes.query.should.eql('#query2#');
             r.attributes.overwrite.should.be.false;
@@ -131,10 +131,10 @@ describe('Parser parsing the cffeed tag', function () {
         });
 
         it('should work as exected with some other attributes defined', function () {
-            r = test.cfparser.parse('<cffeed query="#query3#" properties="#meta3#" output_file="/path/to/output2" xml_var="var2">');
+            r = test.cfparser.parse('<cffeed query="#query3#" action="query" properties="#meta3#" output_file="/path/to/output2" xml_var="var2">');
             r.should.be.instanceof(Object);
             r.tag.should.eql('feed');
-            r.attributes.action.should.eql('create');
+            r.attributes.action.should.eql('query');
             r.attributes.properties.should.eql('#meta3#');
             r.attributes.query.should.eql('#query3#');
             r.attributes.output_file.should.eql('/path/to/output2');
@@ -143,10 +143,10 @@ describe('Parser parsing the cffeed tag', function () {
         });
 
         it('should work as exected with many attributes defined', function () {
-            r = test.cfparser.parse('<cffeed action="create" query="#query4#" properties="#meta4#" column_map="#map1#" output_file="/path/to/output3" overwrite="true">');
+            r = test.cfparser.parse('<cffeed query="#query4#" properties="#meta4#" action="query" column_map="#map1#" output_file="/path/to/output3" overwrite="true">');
             r.should.be.instanceof(Object);
             r.tag.should.eql('feed');
-            r.attributes.action.should.eql('create');
+            r.attributes.action.should.eql('query');
             r.attributes.column_map.should.eql('#map1#');
             r.attributes.properties.should.eql('#meta4#');
             r.attributes.query.should.eql('#query4#');
@@ -160,12 +160,13 @@ describe('Parser parsing the cffeed tag', function () {
             'OVERWRITE="1" ' +
             'QUERY="#query5#" ' +
             'COLUMNMAP="#map2#" ' +
+			'ACTION="query" ' +
             'OUTPUTFILE="/path/to/output4" ' +
             'PROPERTIES="#meta5#" '+
             '>');
             r.should.be.instanceof(Object);
             r.tag.should.eql('feed');
-            r.attributes.action.should.eql('create');
+            r.attributes.action.should.eql('query');
             r.attributes.column_map.should.eql('#map2#');
             r.attributes.properties.should.eql('#meta5#');
             r.attributes.query.should.eql('#query5#');
@@ -174,7 +175,7 @@ describe('Parser parsing the cffeed tag', function () {
             r.attributes.xml_var.should.eql('feed_xml_var3');
         });
     });
-    describe('with the query action', function () {
+    describe('with the read action', function () {
         it('should throw an error when missing the required source attribute', function () {
             (function () { r = test.cfparser.parse('<cffeed action="read" name="cffeed_read">'); })
                 .should.throw('Missing required "source" attribute.');

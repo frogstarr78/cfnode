@@ -1,62 +1,62 @@
-const is = require('assert'), test = require('./testlib');
+const should = require('should'),
+	    test = require('./testlib');
 
-var r;
+describe('Parser parsing the cfif tag', function () {
+	it('should throw an error when missing a closing tag', function () {
+		(function () { test.cfparser.parse('<cfif>'); }).should.throw('Expected [mM] or [nN] but "f" found.');
+		(function () { test.cfparser.parse('<cfif></cfif>'); }).should.throw('Expected [mM] or [nN] but "f" found.');
+	});
 
-is.throws(function () {
-	r = test.cfparser.parse('<cfif>');
-}, Error, 'Missing required closing tag');
+	it('should throw an error when missing an expression', function () {
+		(function () { test.cfparser.parse('<cfif ></cfif>'); }).should.throw('Missing required expression.');
+	});
 
-is.throws(function () {
-	r = test.cfparser.parse('<cfif></cfif>');
-}, Error, 'Missing required expression.');
+	it('should work as expected', function () {
+		r = test.cfparser.parse('<cfif TRIM(username) EQ "The most pointless code ever"></cfif>');
+		r.should.be.instanceof(Object);
+		r.tag.should.eql('if');
+		r.expression.should.eql('TRIM(username) EQ "The most pointless code ever"');
+		r.content.should.eql("");
+		r.attributes.should.eql({});
 
-is.throws(function () {
-	r = test.cfparser.parse('<cfif ></cfif>');
-}, Error, 'Missing required expression.');
+		r = test.cfparser.parse('<cfif 0 EQ 0>' +
+		"We'll only ever get here" +
+		'<cfelseif 1>' + 
+		"\n</cfif>");
+		r.should.be.instanceof(Object);
+		r.tag.should.eql('if');
+		r.expression.should.eql('0 EQ 0');
+		r.content.should.eql("We'll only ever get here");
+		r.attributes.should.eql({});
 
-r = test.cfparser.parse('<cfif TRIM(username) EQ "The most pointless code ever"></cfif>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'if');
-is.equal(r.expression, 'TRIM(username) EQ "The most pointless code ever"');
-is.equal(r.content, "");
-is.deepEqual(r.attributes, {});
+		r = test.cfparser.parse('<cfif 0 EQ 0>' +
+		"We'll only ever get here" +
+		'<cfelseif 1>' + 
+		'<cfelse>' + 
+		"\n</cfif>");
+		r.should.be.instanceof(Object);
+		r.tag.should.eql('if');
+		r.expression.should.eql('0 EQ 0');
+		r.content.should.eql("We'll only ever get here");
+		r.attributes.should.eql({});
 
-r = test.cfparser.parse('<cfif 0 EQ 0>' +
-"We'll only ever get here" +
-'<cfelseif 1>' + 
-"\n</cfif>");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'if');
-is.equal(r.expression, '0 EQ 0');
-is.equal(r.content, "We'll only ever get here");
-is.deepEqual(r.attributes, {});
+		r = test.cfparser.parse('<cfif 1 EQ 0>' +
+		"We'll never get here" +
+		'<cfelse></cfif>');
+		r.should.be.instanceof(Object);
+		r.tag.should.eql('if');
+		r.expression.should.eql('1 EQ 0');
+		r.content.should.eql("We'll never get here");
+		r.attributes.should.eql({});
 
-r = test.cfparser.parse('<cfif 0 EQ 0>' +
-"We'll only ever get here" +
-'<cfelseif 1>' + 
-'<cfelse>' + 
-"\n</cfif>");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'if');
-is.equal(r.expression, '0 EQ 0');
-is.equal(r.content, "We'll only ever get here");
-is.deepEqual(r.attributes, {});
-
-r = test.cfparser.parse('<cfif 1 EQ 0>' +
-"We'll never get here" +
-'<cfelse></cfif>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'if');
-is.equal(r.expression, '1 EQ 0');
-is.equal(r.content, "We'll never get here");
-is.deepEqual(r.attributes, {});
-
-r = test.cfparser.parse('<CFIF 1 NE 0>' +
-"\nThen do something" +
-'</CFIF>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'if');
-is.equal(r.expression, '1 NE 0');
-is.equal(r.content, "\nThen do something");
-is.deepEqual(r.attributes, {});
+		r = test.cfparser.parse('<CFIF 1 NE 0>' +
+		"\nThen do something" +
+		'</CFIF>');
+		r.should.be.instanceof(Object);
+		r.tag.should.eql('if');
+		r.expression.should.eql('1 NE 0');
+		r.content.should.eql("\nThen do something");
+		r.attributes.should.eql({});
+	});
+});
 
