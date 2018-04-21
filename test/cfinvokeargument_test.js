@@ -1,37 +1,35 @@
-const is = require('assert'), test = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
-var r;
+describe('Parsing the cfivokeargument tag', function () {
+    it('should throw an error when missing a required data_source attribute', function () {
+        (function () { test.cfparser.parse('<cfinvokeargument name="cfinvarg">'); }).should.throw('Missing required "value" attribute.');
+    });
 
-is.throws(function () {
-	r = test.cfparser.parse('<cfinvokeargument >');
-}, Error, 'Missing required attributes.');
+    it('should throw an error when missing a required data_source attribute', function () {
+        (function () { test.cfparser.parse('<cfinvokeargument value="cfinvarg">'); }).should.throw('Missing required "name" attribute.');
+    });
 
-is.throws(function () {
-	r = test.cfparser.parse('<cfinvokeargument name="cfinvarg">');
-}, Error, 'Missing required value attributes.');
+    it('should work as expected', function () {
+        r = test.cfparser.parse('<cfinvokeargument name="cfinvokeargument_test2" value="cfinvarg2" />');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('invokeargument');
+        r.attributes.name.should.eql('cfinvokeargument_test2');
+        r.attributes.value.should.eql('cfinvarg2');
+        r.attributes.omit.should.eql(false);
 
-is.throws(function () {
-	r = test.cfparser.parse('<cfinvokeargument value="cfinvarg">');
-}, Error, 'Missing required name attributes.');
+        r = test.cfparser.parse('<cfinvokeargument name="cfinvokeargument_test3" value="cfinvarg3" omit="yes" />');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('invokeargument');
+        r.attributes.name.should.eql('cfinvokeargument_test3');
+        r.attributes.value.should.eql('cfinvarg3');
+        r.attributes.omit.should.eql(true);
 
-r = test.cfparser.parse('<cfinvokeargument name="cfinvokeargument_test2" value="cfinvarg2" />');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'invokeargument');
-is.equal(r.attributes.name, 'cfinvokeargument_test2');
-is.equal(r.attributes.value, 'cfinvarg2');
-is.equal(r.attributes.omit, false);
-
-r = test.cfparser.parse('<cfinvokeargument name="cfinvokeargument_test3" value="cfinvarg3" omit="yes" />');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'invokeargument');
-is.equal(r.attributes.name, 'cfinvokeargument_test3');
-is.equal(r.attributes.value, 'cfinvarg3');
-is.equal(r.attributes.omit, true);
-
-r = test.cfparser.parse('<CFINVOKEARGUMENT OMIT="yes" NAME="cfinvokeargument_test4" VALUE="cfinvarg4" />');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'invokeargument');
-is.equal(r.attributes.name, 'cfinvokeargument_test4');
-is.equal(r.attributes.value, 'cfinvarg4');
-is.equal(r.attributes.omit, true);
-
+        r = test.cfparser.parse('<CFINVOKEARGUMENT OMIT="yes" NAME="cfinvokeargument_test4" VALUE="cfinvarg4" />');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('invokeargument');
+        r.attributes.name.should.eql('cfinvokeargument_test4');
+        r.attributes.value.should.eql('cfinvarg4');
+        r.attributes.omit.should.eql(true);
+    });
+});
