@@ -1,7 +1,7 @@
 const test = require('./testlib'),
     should = require('should');
 
-describe("Parsing a cftrace tag", function() {
+describe("Parsing a cftimer tag", function() {
     it('woks as expected', function () {
         r = test.cfparser.parse('<cftimer></cftimer>');
         r.should.be.instanceof(Object);
