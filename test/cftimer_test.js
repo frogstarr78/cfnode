@@ -1,36 +1,39 @@
-const is = require('assert'), test = require('./testlib');
+const test = require('./testlib'),
+    should = require('should');
 
-var r;
+describe("Parsing a cftrace tag", function() {
+    it('woks as expected', function () {
+        r = test.cfparser.parse('<cftimer></cftimer>');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('timer');
+        r.content.should.eql('');
+        r.attributes.label.should.eql(' ');
+        r.attributes.type.should.eql('debug');
 
-r = test.cfparser.parse('<cftimer></cftimer>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'timer');
-is.equal(r.content, '');
-is.equal(r.attributes.label, ' ');
-is.equal(r.attributes.type, 'debug');
+        r = test.cfparser.parse('<cftimer label="timer">' +
+        "\n</cftimer>");
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('timer');
+        r.attributes.label.should.eql("timer");
+        r.attributes.type.should.eql('debug');
+        r.content.should.eql("\n");
 
-r = test.cfparser.parse('<cftimer label="timer">' +
-"\n</cftimer>");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'timer');
-is.equal(r.attributes.label, "timer");
-is.equal(r.attributes.type, 'debug');
-is.equal(r.content, "\n");
+        r = test.cfparser.parse('<cftimer label="timer" type="inline">' +
+        "\nThis is the content that is saved #NOW()#" +
+        "\n</cftimer>");
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('timer');
+        r.attributes.label.should.eql('timer');
+        r.attributes.type.should.eql('inline');
+        r.content.should.eql("\nThis is the content that is saved #NOW()#\n");
 
-r = test.cfparser.parse('<cftimer label="timer" type="inline">' +
-"\nThis is the content that is saved #NOW()#" +
-"\n</cftimer>");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'timer');
-is.equal(r.attributes.label, 'timer');
-is.equal(r.attributes.type, 'inline');
-is.equal(r.content, "\nThis is the content that is saved #NOW()#\n");
-
-r = test.cfparser.parse('<CFTIMER LABEL="timer" TYPE="inline">' +
-"\nThis is the content that is saved #NOW()#" +
-"\n</CFTIMER>");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'timer');
-is.equal(r.attributes.label, 'timer');
-is.equal(r.attributes.type, 'inline');
-is.equal(r.content, "\nThis is the content that is saved #NOW()#\n");
+        r = test.cfparser.parse('<CFTIMER LABEL="timer" TYPE="inline">' +
+        "\nThis is the content that is saved #NOW()#" +
+        "\n</CFTIMER>");
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('timer');
+        r.attributes.label.should.eql('timer');
+        r.attributes.type.should.eql('inline');
+        r.content.should.eql("\nThis is the content that is saved #NOW()#\n");
+    })
+})
