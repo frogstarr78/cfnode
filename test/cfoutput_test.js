@@ -1,7 +1,7 @@
 const test = require('./testlib'),
     should = require('should');
 
-describe("Parsing a cfprocparam tag", function() {
+describe("Parsing a cfoutput tag", function() {
     it('works as expected', function () {
         r = test.cfparser.parse('<cfoutput ></cfoutput>');
         r.should.be.instanceof(Object);
