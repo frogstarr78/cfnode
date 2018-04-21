@@ -1,17 +1,23 @@
-const is = require('assert'), test = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
-var r;
-is.throws(function () {
-	r = test.cfparser.parse('<cfinclude>');
-}, Error, "Missing required template attribute");
+describe('Parsing the cfinclude tag', function () {
+    it('should throw an error when missing the required template attribute', function () {
+        (function () { test.cfparser.parse('<cfinclude >'); }).should.throw('Expected " ", "\\n", "\\t", or [tT] but ">" found.');
+        (function () { test.cfparser.parse('<cfinclude>'); }).should.throw('Expected " ", "\\n", or "\\t" but ">" found.');
+        (function () { test.cfparser.parse('<CFINCLUDE >'); }).should.throw('Expected " ", "\\n", "\\t", or [tT] but ">" found.');
+        (function () { test.cfparser.parse('<CFINCLUDE>'); }).should.throw('Expected " ", "\\n", or "\\t" but ">" found.');
+    });
 
-r = test.cfparser.parse('<cfinclude template="/path/to/taglib.jsp">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'include');
-is.equal(r.attributes.template, '/path/to/taglib.jsp');
+    it('should work as expected', function () {
+        r = test.cfparser.parse('<cfinclude template="/path/to/taglib.jsp">');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('include');
+        r.attributes.template.should.eql('/path/to/taglib.jsp');
 
-r = test.cfparser.parse('<CFINCLUDE TEMPLATE="/path/to/taglib.cfc">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'include');
-is.equal(r.attributes.template, '/path/to/taglib.cfc');
-
+        r = test.cfparser.parse('<CFINCLUDE TEMPLATE="/path/to/taglib.cfc">');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('include');
+        r.attributes.template.should.eql('/path/to/taglib.cfc');
+    });
+});
