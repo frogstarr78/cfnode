@@ -4,7 +4,7 @@ const test = require('./testlib'),
 describe("Parsing a cfxml tag", function() {
     it('works as expected', function () {
         r = test.cfparser.parse('<cftry></cftry>');
-        r.should.be.instanceof(Objecttrue);
+        r.should.be.instanceof(Object);
         r.tag.should.eql('try');
         r.content.should.eql('');
 
