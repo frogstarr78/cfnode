@@ -1,30 +1,34 @@
-const is = require('assert'), test = require('./testlib');
+const test = require('./testlib'),
+    should = require('should');
 
-var r;
-is.throws(function () {
-	r = test.cfparser.parse('<cfobjectcache>');
-}, Error, "Missing required action attribute");
+describe("Parsing a cfobjectcache tag", function() {
+    it('throws an error when missing a required action attribute', function () {
+        (function () { test.cfparser.parse('<cfobjectcache >'); }).should.throw('Expected " ", "\\n", "\\t", or [aA] but ">" found.');
+    });
 
-r = test.cfparser.parse('<cfobjectcache action="clear">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'objectcache');
-is.equal(r.attributes.action, 'clear');
+    it('works as expected', function () {
+        r = test.cfparser.parse('<cfobjectcache action="clear">');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('objectcache');
+        r.attributes.action.should.eql('clear');
 
-r = test.cfparser.parse('<cfobjectcache action="clear">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'objectcache');
-is.equal(r.attributes.action, 'clear');
+        r = test.cfparser.parse('<cfobjectcache action="clear">');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('objectcache');
+        r.attributes.action.should.eql('clear');
 
-r = test.cfparser.parse('<cfobjectcache' +
-		' action="clear"' +
-'>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'objectcache');
-is.equal(r.attributes.action, 'clear');
+        r = test.cfparser.parse('<cfobjectcache' +
+                ' action="clear"' +
+        '>');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('objectcache');
+        r.attributes.action.should.eql('clear');
 
-r = test.cfparser.parse('<CFOBJECTCACHE' +
-		' ACTION="clear"' +
-'>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'objectcache');
-is.equal(r.attributes.action, 'clear');
+        r = test.cfparser.parse('<CFOBJECTCACHE' +
+                ' ACTION="clear"' +
+        '>');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('objectcache');
+        r.attributes.action.should.eql('clear');
+    });
+});
