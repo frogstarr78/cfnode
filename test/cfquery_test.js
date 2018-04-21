@@ -3,7 +3,7 @@ const test = require('./testlib'),
 
 describe("Parsing a cfqueryparam tag ", function() {
     it('should throw an error when missing required name attribute', function () {
-        (function () { test.cfparser.parse('<cfquery></cfquery>'); }).should.throw('');
+        (function () { test.cfparser.parse('<cfquery></cfquery>'); }).should.throw('Expected " ", "\\n", "\\t", or [pP] but ">" found.');
     });
 
     it('should work as expected', function () {
