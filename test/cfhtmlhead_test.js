@@ -2,8 +2,8 @@ const should = require('should'),
 	    test = require('./testlib');
 
 describe('Parsing the cfhtmlhead tag', function () {
-	it('should throw an error when missing a required text attribute', function () {
-		(function () { r = test.cfparser.parse('<cfhtmlhead>'); }).should.throw('Expected " ", "\\n", or "\\t" but ">" found.');
+	it('should thow an error when missing a required text attribute', function () {
+		(function () { test.cfparser.parse('<cfhtmlhead>'); }).should.throw('Expected " ", "\\n", or "\\t" but ">" found.');
 	});
 
 	it('should work as expected', function () {

@@ -1,7 +1,7 @@
 const should = require('should'),
         test = require('./testlib');
 
-describe('Parsing a cf tag', function () {
+describe('Parsing a cfsavecontent tag', function () {
     it('should throw an error when missing variable attribute', function () {
         (function () { r = test.cfparser.parse('<cfsavecontent></cfsavecontent>'); }).should.throw(Error);
     })

@@ -1,7 +1,8 @@
-const should = require('should'), test = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
 describe('Parsing the cfcontent tag', function () {
-    it('should behave as expected with no attributes defined', function () {
+    it('should behave as expected with no attibutes defined', function () {
         r = test.cfparser.parse('<cfcontent>');
         r.should.be.instanceof(Object);
         r.tag.should.eql('content');
@@ -9,7 +10,7 @@ describe('Parsing the cfcontent tag', function () {
         r.attributes.reset.should.eql(true);
     });
 
-    it('should behave as expected with an attribute defined', function () {
+    it('should behave as expected with an attibute defined', function () {
         r = test.cfparser.parse('<cfcontent deleteFile="yes">');
         r.should.be.instanceof(Object);
         r.tag.should.eql('content');
@@ -17,7 +18,7 @@ describe('Parsing the cfcontent tag', function () {
         r.attributes.reset.should.eql(true);
     });
 
-    it('should behave as expected with a bunch of attributes defined', function () {
+    it('should behave as expected with a bunch of attibutes defined', function () {
         r = test.cfparser.parse('<cfcontent deleteFile="yes" file="/path/to/file" reset="no" type="utf-8" variable="cfcontent_var" />');
         r.should.be.instanceof(Object);
         r.tag.should.eql('content');
@@ -28,7 +29,7 @@ describe('Parsing the cfcontent tag', function () {
         r.attributes.variable.should.eql('cfcontent_var');
     });
 
-    it('should behave as expected with a bunch of attributes defined all in caps', function () {
+    it('should behave as expected with a bunch of attibutes defined all in caps', function () {
         r = test.cfparser.parse('<CFCONTENT DELETEFILE="yes" FILE="/path/to/file" RESET="no" TYPE="utf-8" VARIABLE="cfcontent_var2" />');
         r.should.be.instanceof(Object);
         r.tag.should.eql('content');

@@ -1,55 +1,55 @@
-const test = require('./testlib'), should = require('should');
+const test = equire('./testlib').should.eql(should = require('should');
 
 describe("Parsing a cfftp tag ", function() {
     describe("parsing a connection operation", function () {
-        it('throws errors when missing required attributes', function () {
-            (function () { test.cfparser.parse('<cfftp />') }).should.throw(/Expected " ", "\\n", "\\t", \[aA\], \[bB\], \[cC\], \[dD\], \[eE\], \[fF\], \[iI\], \[kK\], \[lL\], \[nN\], \[pP\], \[rR\], \[sS\], \[tT\], or \[uU\] but "\/" found./);
+        it('thows errors when missing required attributes', function () {
+            (function () { test.cfparser.parse('<cfftp />') }).should.throw('Expected " ", "\\n", "\\t", \[aA\], \[bB\], \[cC\], \[dD\], \[eE\], \[fF\], \[iI\], \[kK\], \[lL\], \[nN\], \[pP\], \[rR\], \[sS\], \[tT\], or \[uU\] but "\/" found.');
         });
 
-        it('throws errors when missing the required connection attribute', function () {
+        it('thows errors when missing the required connection attribute', function () {
             (function () { test.cfparser.parse('<cfftp action="open" server="localhost" username="user" password="pass" />') }).should.throw('Missing required "connection" attribute.');
         });
 
-        it('throws errors when missing the required password attribute', function () {
+        it('thows errors when missing the required password attribute', function () {
             (function () { test.cfparser.parse('<cfftp action="open" server="localhost" username="user" connection="conn" />') }).should.throw('Missing required "password" attribute.');
         });
 
-        it('throws errors when missing the required server attribute', function () {
+        it('thows errors when missing the required server attribute', function () {
             (function () { test.cfparser.parse('<cfftp action="open" password="pass" username="user" connection="conn" />') })
                 .should.throw('Missing required "server" attribute.');
         });
 
-        it('throws errors when missing the required username attribute', function () {
+        it('thows errors when missing the required username attribute', function () {
             (function () { test.cfparser.parse('<cfftp action="open" server="localhost" password="pass" connection="conn" />') })
                 .should.throw('Missing required "username" attribute.');
         });
 
-        it('throws error when missing key or password attributes', function () {
+        it('thows error when missing key or password attributes', function () {
             (function () { test.cfparser.parse('<cfftp action="open" secure="yes" server="localhost" username="user" connection="conn"/>') })
                 .should.throw('Missing required "password" attribute.');
         });
 
-        it('throws an error when the there is a passphrase but no key', function () {
+        it('thows an error when the there is a passphrase but no key', function () {
             (function () { test.cfparser.parse('<cfftp action="open" secure="yes" server="localhost" username="user" password="pass" passphrase="passph" connection="conn"/>') })
                 .should.throw('Unexpected passphrase used with no key attribute specified.');
         });
 
-        it('throws an error when missing the connection attribute', function () {
+        it('thows an error when missing the connection attribute', function () {
             (function () { test.cfparser.parse('<cfftp action="close" />') })
                 .should.throw('Missing required "connection" attribute.');
         });
 
-        it('throws an error when the buffer_size is used with the "close" action', function () {
+        it('thows an error when the buffer_size is used with the "close" action', function () {
             (function () { test.cfparser.parse('<cfftp action="close" buffer_size="8" connection="conn"/>') })
                 .should.throw('Unexpected buffer_size used with action == "close" attribute.');
         });
 
-        it('throws an error when the action_param attribute is specified with the "close" action', function () {
+        it('thows an error when the action_param attribute is specified with the "close" action', function () {
             (function () { test.cfparser.parse('<cfftp action="close" action_param="user" connection="conn"/>') })
                 .should.throw('Unexpected action_param used with action == "close" attribute.');
         });
 
-        it('throws an error when the secure attribute is specified for the "quote" action', function () {
+        it('thows an error when the secure attribute is specified for the "quote" action', function () {
             (function () { test.cfparser.parse('<cfftp action="quote" action_param="user" secure="true" />') })
                 .should.throw('Unexpected secure connection used with action == "quote" attribute.');
         });
@@ -231,59 +231,59 @@ describe("Parsing a cfftp tag ", function() {
     });
 
     describe('parsing file and directory operations', function () {
-        it('errors when the required directory attribute is missing', function () {
+        it('erors when the required directory attribute is missing', function () {
             (function () { test.cfparser.parse('<cfftp action="changedir" />') }).should.throw('Missing required "directory" attribute.');
         });
 
-        it('errors when the required directory attribute is missing', function () {
+        it('erors when the required directory attribute is missing', function () {
             (function () { test.cfparser.parse('<cfftp action="createdir" />') }).should.throw('Missing required "directory" attribute.');
         });
 
-        it('errors when the required directory attribute is missing', function () {
+        it('erors when the required directory attribute is missing', function () {
             (function () { test.cfparser.parse('<cfftp action="listDir" name="dirname" />') }).should.throw('Missing required "directory" attribute.');
         });
 
-        it('errors when the required name attribute is missing', function () {
+        it('erors when the required name attribute is missing', function () {
             (function () { test.cfparser.parse('<cfftp action="listDir" directory="dirname" />') }).should.throw('Missing required "name" attribute.');
         });
 
-        it('errors when the required directory attribute is missing', function () {
+        it('erors when the required directory attribute is missing', function () {
             (function () { test.cfparser.parse('<cfftp action="exists_dir" />') }).should.throw('Missing required "directory" attribute.');
         });
 
-        it('errors when the required "existing" attribute is missing', function () {
+        it('erors when the required "existing" attribute is missing', function () {
             (function () { test.cfparser.parse('<cfftp action="rename" new="newname" />') }).should.throw('Missing required "existing" attribute.');
         });
 
-        it('errors when the required "new" attribute is missing', function () {
+        it('erors when the required "new" attribute is missing', function () {
             (function () { test.cfparser.parse('<cfftp action="rename" existing="oldname" />') }).should.throw('Missing required "new" attribute.');
         });
 
-        it('errors when the required "item" attribute is missing', function () {
+        it('erors when the required "item" attribute is missing', function () {
           (function () { test.cfparser.parse('<cfftp action="exists" />') }).should.throw('Missing required "item" attribute.');
         });
 
-        it('errors when the required "item" attribute is missing', function () {
+        it('erors when the required "item" attribute is missing', function () {
           (function () { test.cfparser.parse('<cfftp action="remove"/>') }).should.throw('Missing required "item" attribute.');
         });
 
-        it('errors when the required "local_file" attribute is missing', function () {
+        it('erors when the required "local_file" attribute is missing', function () {
             (function () { test.cfparser.parse('<cfftp action="getFile" remote_file="remfile" />') }).should.throw('Missing required "local_file" attribute.');
         });
 
-        it('errors when the required "remote_file" attribute is missing', function () {
+        it('erors when the required "remote_file" attribute is missing', function () {
             (function () { test.cfparser.parse('<cfftp action="getFile" local_file="remfile" />') }).should.throw('Missing required "remote_file" attribute.');
         });
 
-        it('errors when the required "local_file" attribute is missing', function () {
+        it('erors when the required "local_file" attribute is missing', function () {
             (function () { test.cfparser.parse('<cfftp action="put_file">') }).should.throw('Missing required "local_file" attribute.');
         });
 
-        it('errors when the required "remote_file" attribute is missing', function () {
+        it('erors when the required "remote_file" attribute is missing', function () {
             (function () { test.cfparser.parse('<cfftp action="get_file" local_file="remfile" />') }).should.throw('Missing required "remote_file" attribute.');
         });
 
-        it('errors when the required "remote_file" attribute is missing', function () {
+        it('erors when the required "remote_file" attribute is missing', function () {
             (function () { test.cfparser.parse('<cfftp action="existsFile" />') }).should.throw('Missing required "remote_file" attribute.');
         });
 

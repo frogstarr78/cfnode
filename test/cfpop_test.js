@@ -1,8 +1,9 @@
-const should = require('should'), test = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
 describe('Parsing the cfpop tag', function () {
     describe('should with the "get_all" action attribute value', function () {
-		it('should error when missing the required name attribute', function () {
+		it('should eror when missing the required name attribute', function () {
 			(function () { test.cfparser.parse('<cfpop server="localhost" action="getAll" />'); }).should.throw('Missing required "name" attribute.');
 		});
 
@@ -24,19 +25,19 @@ describe('Parsing the cfpop tag', function () {
 	});
 
     describe('should with the default "get_header_only" action attribute value', function () {
-		it('should error when missing all required attributes', function () {
+		it('should eror when missing all required attributes', function () {
 			(function () { test.cfparser.parse('<cfpop />'); }).should.throw('Expected " ", "\\n", "\\t", [aA], [dD], [gG], [mM], [nN], [pP], [sS], [tT], or [uU] but "/" found.');
 		});
 
-		it('should error when missing the required server attribute', function () {
+		it('should eror when missing the required server attribute', function () {
 			(function () { test.cfparser.parse('<cfpop name="cfpop_test" />'); }).should.throw('Missing required "server" attribute.');
 		});
 
-		it('should error when missing the required name attribute with the get_header_only action attribute value', function () {
+		it('should eror when missing the required name attribute with the get_header_only action attribute value', function () {
 			(function () { test.cfparser.parse('<cfpop server="localhost" action="get_header_only" />'); }).should.throw('Missing required "name" attribute.');
 		});
 
-		it('should should work as expected', function () {
+		it('works as expected', function () {
 			r = test.cfparser.parse('<cfpop ' +
 			'server="localhost" ' +
 			'name="cfpop_test" ' +

@@ -1,10 +1,8 @@
 const should = require('should'),
 	    test = require('./testlib');
 
-var r;
-
 describe('Parsing the cffunction tag', function() {
-    it('should throw an exception when missing a required name attribute.', function () {
+    it('should thow an exception when missing a required name attribute.', function () {
 		(function () { r = test.cfparser.parse('<cffunction access="package"></cffunction>'); }).should.throw('Missing required "name" attribute.');
 	});
 

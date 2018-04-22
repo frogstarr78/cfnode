@@ -2,7 +2,7 @@ const should = require('should'),
 	    test = require('./testlib');
 
 describe('Parsing the cfheader tag', function () {
-	it('should throw an error when missing required attributes', function () {
+	it('should thow an error when missing required attributes', function () {
 		(function () { r = test.cfparser.parse('<cfheader charset="UTF-8" value="#value#" >'); }).should.throw('Missing one of required "name" or "status_code" attributes.');
 	});
 

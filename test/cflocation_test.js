@@ -2,7 +2,7 @@ const test = require('./testlib'),
     should = require('should');
 
 describe("Parsing a cflocation tag", function() {
-    it('throws an error when missing a required url attribute', function () {
+    it('thows an error when missing a required url attribute', function () {
         (function () { test.cfparser.parse('<cflocation add_token="yes" >'); }).should.throw('Missing required "url" attribute.');
     });
 

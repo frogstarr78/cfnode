@@ -2,7 +2,7 @@ const test = require('./testlib'),
     should = require('should');
 
 describe("Parsing a cfprocresult tag ", function() {
-    it('throws an error when missing required name attribute', function () {
+    it('thows an error when missing required name attribute', function () {
         (function () { test.cfparser.parse('<cfprocresult max_rows="2">'); }).should.throw('Missing required "name" attribute.');
     });
 

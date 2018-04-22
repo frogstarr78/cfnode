@@ -2,7 +2,7 @@ const test = require('./testlib'),
     should = require('should');
 
 describe("Parsing a cfqueryparam tag ", function() {
-    it('should throw an error when missing required name attribute', function () {
+    it('should thow an error when missing required name attribute', function () {
         (function () { test.cfparser.parse('<cfquery></cfquery>'); }).should.throw('Expected " ", "\\n", "\\t", or [pP] but ">" found.');
     });
 

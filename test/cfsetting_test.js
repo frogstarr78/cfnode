@@ -2,7 +2,7 @@ const test = require('./testlib'),
     should = require('should');
 
 describe("Parsing a cfsetting tag", function() {
-    it('woks as expected', function () {
+    it('works as expected', function () {
         r = test.cfparser.parse('<cfsetting>');
         r.should.be.instanceof(Object);
         r.tag.should.eql('setting');

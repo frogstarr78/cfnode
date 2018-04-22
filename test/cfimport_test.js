@@ -1,17 +1,16 @@
-const test = require('./testlib'), should = require('should');
-
-var r;
+const test = require('./testlib'),
+	should = require('should');
 
 describe('parsing a cfimport tag', function () {
-    it('throws an error when missing required attributes', function () {
+    it('thows an error when missing required attributes', function () {
         (function () { test.cfparser.parse('<cfimport>') }).should.throw('Missing required "taglib" attribute.');
     });
 
-    it('throws an error when missing the required "prefix" attribute', function () {
+    it('thows an error when missing the required "prefix" attribute', function () {
         (function () { test.cfparser.parse('<cfimport taglib="/path/to/taglib.cfc">') }).should.throw('Missing required "prefix" attribute.');
     });
 
-    it('throws an error when missing the required "taglib" attribute', function () {
+    it('thows an error when missing the required "taglib" attribute', function () {
         (function () { test.cfparser.parse('<cfimport prefix="cfnode_test">') }).should.throw('Missing required "taglib" attribute.');
     });
 

@@ -1,30 +1,31 @@
-const is = require('assert'), test = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
-var r;
+describe('Parsing a cffile delete tag', function () {
 
-is.throws(function () {
+(function () {
 	r = test.cfparser.parse('<cffile />');
-}, Error, 'Missing required attributes.');
+}).should.throw('Missing required attributes.');
 
-is.throws(function () {
+(function () {
 	r = test.cfparser.parse('<cffile file="/tmp/sfile">');
-}, Error, 'Missing required action attribute.');
+}).should.throw('Missing required action attribute.');
 
-is.throws(function () {
+(function () {
 	r = test.cfparser.parse('<cffile action="delete">');
-}, Error, 'Missing required file attribute.');
+}).should.throw('Missing required file attribute.');
 
 r = test.cfparser.parse('<cffile action="delete" file="/tmp/file">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'file');
-is.equal(r.attributes.action, 'delete');
-is.equal(r.attributes.file, '/tmp/file');
+r.should.be.instanceof(Object);
+.tag.should.eql('file');
+.attributes.action.should.eql('delete');
+.attributes.file.should.eql('/tmp/file');
 
 r = test.cfparser.parse('<CFFILE ' +
 'FILE="/tmp/file" ' +
 'ACTION="delete">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'file');
-is.equal(r.attributes.action, 'delete');
-is.equal(r.attributes.file, '/tmp/file');
+r.should.be.instanceof(Object);
+.tag.should.eql('file');
+.attributes.action.should.eql('delete');
+.attributes.file.should.eql('/tmp/file');
 

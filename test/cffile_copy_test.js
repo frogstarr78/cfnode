@@ -1,38 +1,39 @@
-const is = require('assert'), test = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
-var r;
+describe('Parsing a cffile copy tag', function () {
 
-is.throws(function () {
+(function () {
 	r = test.cfparser.parse('<cffile />');
-}, Error, 'Missing required attributes.');
+}).should.throw('Missing required attributes.');
 
-is.throws(function () {
+(function () {
 	r = test.cfparser.parse('<cffile source="/tmp/sfile" destination="/tmp/dfile" >');
-}, Error, 'Missing required action attribute.');
+}).should.throw('Missing required action attribute.');
 
-is.throws(function () {
+(function () {
 	r = test.cfparser.parse('<cffile action="copy" source="/tmp/sfile" >');
-}, Error, 'Missing required destination attribute.');
+}).should.throw('Missing required destination attribute.');
 
-is.throws(function () {
+(function () {
 	r = test.cfparser.parse('<cffile action="copy" destination="/tmp/dfile" />');
-}, Error, 'Missing required source attribute.');
+}).should.throw('Missing required source attribute.');
 
 r = test.cfparser.parse('<cffile action="copy" source="/tmp/sfile" destination="/tmp/dfile">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'file');
-is.equal(r.attributes.action, 'copy');
-is.equal(r.attributes.destination, '/tmp/dfile');
-is.equal(r.attributes.source, '/tmp/sfile');
+r.should.be.instanceof(Object);
+.tag.should.eql('file');
+.attributes.action.should.eql('copy');
+.attributes.destination.should.eql('/tmp/dfile');
+.attributes.source.should.eql('/tmp/sfile');
 
 r = test.cfparser.parse('<cffile action="copy" mode="721" attributes="normal" destination="/tmp/dfile" source="/tmp/sfile">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'file');
-is.equal(r.attributes.action, 'copy');
-is.equal(r.attributes.destination, '/tmp/dfile');
-is.equal(r.attributes.source, '/tmp/sfile');
-is.deepEqual(r.attributes.attributes, ['normal']);
-is.equal(r.attributes.mode, 721);
+r.should.be.instanceof(Object);
+.tag.should.eql('file');
+.attributes.action.should.eql('copy');
+.attributes.destination.should.eql('/tmp/dfile');
+.attributes.source.should.eql('/tmp/sfile');
+is.deepEqual(.attributesr.attributes.should.eql(['normal']);
+.attributes.mode.should.eql(721);
 
 r = test.cfparser.parse('<CFFILE ' +
 'ACTION="copy" ' +
@@ -40,11 +41,11 @@ r = test.cfparser.parse('<CFFILE ' +
 'SOURCE="/tmp/sfile" ' +
 'ATTRIBUTES="normal,readOnly" ' +
 'DESTINATION="/tmp/dfile">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'file');
-is.equal(r.attributes.action, 'copy');
-is.equal(r.attributes.destination, '/tmp/dfile');
-is.equal(r.attributes.source, '/tmp/sfile');
-is.deepEqual(r.attributes.attributes, ['normal', 'readOnly']);
-is.equal(r.attributes.mode, 721);
+r.should.be.instanceof(Object);
+.tag.should.eql('file');
+.attributes.action.should.eql('copy');
+.attributes.destination.should.eql('/tmp/dfile');
+.attributes.source.should.eql('/tmp/sfile');
+is.deepEqual(.attributesr.attributes.should.eql(['nomal'.should.eql('readOnly']);
+.attributes.mode.should.eql(721);
 

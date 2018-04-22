@@ -2,7 +2,7 @@ const test = require('./testlib'),
     should = require('should');
 
 describe("Parsing a cfscript tag", function() {
-    it('woks as expected', function () {
+    it('works as expected', function () {
         r = test.cfparser.parse('<cfscript></cfscript>');
         r.should.be.instanceof(Object);
         r.tag.should.eql('script');

@@ -1,39 +1,40 @@
-const should = require('should'), test = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
 describe('Parsing the cfdump tag', function () {
-  it('should throw an error when missing a required var attribute', function () {
-    (function () { r = test.cfparser.parse('<cfdump showUDFs="true">'); }).should.throw('Missing required var attribute.');
-  });
+	it('should thow an error when missing a required var attribute', function () {
+		(function () { test.cfparser.parse('<cfdump showUDFs="true">'); }).should.throw('Missing required var attribute.');
+	});
 
-  it('should throw an error when the var attribute is invalid', function () {
-    (function () { r = test.cfparser.parse('<cfdump var="cfnode_test">'); }).should.throw('Expected "#" but "c" found.');
-  });
+	it('should thow an error when the var attribute is invalid', function () {
+		(function () { test.cfparser.parse('<cfdump var="cfnode_test">'); }).should.throw('Expected "#" but "c" found.');
+	});
 
-  it('should work as expected with minimal attributes specified', function () {
-    r = test.cfparser.parse('<cfdump var="#cfnode_test#">');
-    r.should.be.instanceof(Object);
-    r.tag.should.eql('dump');
-    r.attributes.var.should.eql('cfnode_test');
-  });
+	it('should work as expected with minimal attributes specified', function () {
+		r = test.cfparser.parse('<cfdump var="#cfnode_test#">');
+		r.should.be.instanceof(Object);
+		r.tag.should.eql('dump');
+		r.attributes.var.should.eql('cfnode_test');
+	});
 
-  it('should work as expected with some additional attributes specified', function () {
-    r = test.cfparser.parse('<cfdump output="console" var="#something#">');
-    r.should.be.instanceof(Object);
-    r.tag.should.eql('dump');
-    r.attributes.var.should.eql('something');
-    r.attributes.output.should.eql('console');
-  });
+	it('should work as expected with some additional attributes specified', function () {
+		r = test.cfparser.parse('<cfdump output="console" var="#something#">');
+		r.should.be.instanceof(Object);
+		r.tag.should.eql('dump');
+		r.attributes.var.should.eql('something');
+		r.attributes.output.should.eql('console');
+	});
 
-  it('should work as expected with still more attributes specified', function () {
-    r = test.cfparser.parse('<cfdump label="somethingelse" hide="password" show="username,email" var="#query#" expand="true">');
-    r.should.be.instanceof(Object);
-    r.tag.should.eql('dump');
-    r.attributes.label.should.eql('somethingelse');
-    r.attributes.hide.should.eql('password');
-    r.attributes.show.should.eql(['username', 'email']);
-    r.attributes.var.should.eql('query');
-    r.attributes.expand.should.be.true;
-  });
+	it('should work as expected with still more attributes specified', function () {
+		r = test.cfparser.parse('<cfdump label="somethingelse" hide="password" show="username,email" var="#query#" expand="true">');
+		r.should.be.instanceof(Object);
+		r.tag.should.eql('dump');
+		r.attributes.label.should.eql('somethingelse');
+		r.attributes.hide.should.eql('password');
+		r.attributes.show.should.eql(['username', 'email']);
+		r.attributes.var.should.eql('query');
+		r.attributes.expand.should.be.true;
+	});
 
   it('should work as expected with many attributes specified all in', function () {
     r = test.cfparser.parse('<cfdump' +
@@ -60,7 +61,7 @@ describe('Parsing the cfdump tag', function () {
     r.attributes.label.should.eql("lbl");
     r.attributes.metainfo.should.be.false;
     r.attributes.output.should.eql("browser");
-    r.attributes.show.should.eql(['name', 'address', 'email', 'username']);
+	r.attributes.show.should.eql(['name', 'address', 'email', 'username']);
     r.attributes.show_udfs.should.be.true;
     r.attributes.top.should.eql(10);
     r.attributes.var.should.eql("var");
@@ -91,7 +92,7 @@ describe('Parsing the cfdump tag', function () {
     r.attributes.label.should.eql("lbl");
     r.attributes.metainfo.should.be.false;
     r.attributes.output.should.eql("browser");
-    r.attributes.show.should.eql(['name', 'address', 'email', 'username']);
+	r.attributes.show.should.eql(['name', 'address', 'email', 'username']);
     r.attributes.show_udfs.should.be.true;
     r.attributes.top.should.eql(10);
     r.attributes.var.should.eql("var");

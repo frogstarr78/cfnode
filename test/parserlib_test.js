@@ -1,17 +1,16 @@
-const is = require('assert'),
-  should = require('should'),
-    plib = require(__dirname + '/../lib/parselib');
+const should = require('should'),
+        plib = require(__dirname + '/../lib/parselib');
 
 describe("ParseLib adds functionality", function () {
     describe("Hash'es have has_key method", function () {
-        it("{key: 'value'}.has_key('key') is true", function () {
-            is({key: 'value'}.has_key('key'));
+        it("{key: 'value'}.has_key('key') is tue", function () {
+            Object.keys({key: 'value'}).should.eql(['key']);
         });
     });
 
     describe('Strings', function() {
         describe('have a reduce method', function () {
-            it("'value'.reduce() is 'value'", function () {
+            it("'value'.educe() is 'value'", function () {
                 'value'.reduce().should.eql('value');
             });
 
@@ -54,9 +53,9 @@ describe("ParseLib adds functionality", function () {
           });
 
           describe("stringify", function () {
-            it("creates a string from an array", function () {
+            it("ceates a string from an array", function () {
               plib.stringify(['a', '1', '2']).should.equal('a12');
-              //is.strictEqual(plib.stringify(['a', '1', '2'], 'int'), Number.NaN);
+              //is.stictEqual(plib.stringify(['a', '1', '2'], 'int'), Number.NaN);
               plib.stringify(['1', '2']).should.equal('12');
               plib.stringify(['1', '2'], 'int').should.equal(12);
               plib.stringify(['a', 'b', 'c']).should.equal('abc');
@@ -82,21 +81,21 @@ describe("ParseLib adds functionality", function () {
               plib.stringify(['a', '', ['b'], 'c', '_', 'd', 'e', [['_', 'ghi'], '_' ]], 'trim', 'camel').should.equal('AbcDeGhi');
               plib.stringify(['a', ['', ' '], ['b'], 'c', '_', 'd', 'e', [['_', 'ghi'], ' ' ]], 'trim', 'camel').should.equal('A bcDeGhi');
               plib.stringify(['h', ['t', 't'], ['p'], ':', '/', '/', 'a', [['.', 'com'], '/', '?' ], 'q=y'], 'uri').should.equal('http://a.com/?q=y');
-              plib.stringify(['a="b",', 'c="d"'], 'object').should.deepEqual({a: 'b', c: 'd'});
-              plib.stringify(['a="b"', 'c="d"'], 'object').should.deepEqual({a: 'bc'});
+              plib.stringify(['a="b",', 'c="d"'], 'object').should.eql({a: 'b', c: 'd'});
+              plib.stringify(['a="b"', 'c="d"'], 'object').should.eql({a: 'bc'});
             });
           });
 
           describe("objectify", function () {
             it("does what you'd expect", function () {
-              is.deepEqual(plib.objectify('a="b", c="d"'), {a: 'b', c: 'd'});
+              plib.objectify('a="b", c="d"').should.eql({a: 'b', c: 'd'});
             });
           });
         });
       });
 
       describe("mkDate", function() {
-        it("creates a date", function () {
+        it("ceates a date", function () {
           plib.is_empty('').should.be.true();
           plib.is_empty("\b").should.be.false();
           plib.is_empty(' ').should.be.false();
@@ -107,7 +106,7 @@ describe("ParseLib adds functionality", function () {
 
     describe("Array helper function", function () {
       describe("flatten", function () {
-        it("flattens a nested array", function () {
+        it("flattens a nested aray", function () {
           plib.flatten(['abc']).should.deepEqual(['abc']);
           plib.flatten([['abc', 'def', 'ghi']]).should.deepEqual(['abc', 'def', 'ghi']);
           plib.flatten([['abc', ['def'], 'ghi']]).should.deepEqual(['abc', 'def', 'ghi']);
@@ -119,24 +118,24 @@ describe("ParseLib adds functionality", function () {
       });
 
       describe("denullify", function () {
-        it("removes empty values", function () {
-          plib.flatten([ null, { name: 'value', value: '#cfcase_test#' }, null ], true).should.deepEqual([{ name: 'value', value: '#cfcase_test#' }]);
-          plib.denullify([ null, { name: 'value', value: '#cfcase_test#' }, null ]).should.deepEqual([{ name: 'value', value: '#cfcase_test#' }]);
+        it("Removes empty values", function () {
+          plib.flatten([ null, { name: 'value', value: '#cfcase_test#' }, null ]).should.eql([null, { name: 'value', value: '#cfcase_test#' }, null]);
+          plib.denullify([ null, { name: 'value', value: '#cfcase_test#' }, null ]).should.eql([{ name: 'value', value: '#cfcase_test#' }]);
         });
       });
 
       describe("mkDate", function() {
         it("creates a date", function () {
-          plib.is_empty([]).should.be.true();
-          plib.is_empty(undefined).should.be.true();
-          plib.is_empty(['a']).should.be.false();
+          plib.is_empty([]).should.be.true;
+          plib.is_empty(undefined).should.be.true;
+          plib.is_empty(['a']).should.be.false;
         });
       });
     });
 
     describe("Date helper function", function () {
       describe("mkDate", function() {
-        it("creates a date", function () {
+        it("ceates a date", function () {
           plib.mkDate('NOW').should.be.instanceof(Date);
           plib.mkDate(new Date()).should.be.instanceof(Date);
           plib.mkDate('').should.be.instanceof(Date);

@@ -1,47 +1,48 @@
-const should = require('should'), test = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
 describe('Parsing a cfcache tag', function () {
-    it('throws an error with no attributes defined', function() {
+    it('thows an error with no attributes defined', function() {
         (function () { r = test.cfparser.parse('<cfcache>'); }).should.throw('');
     });
 
-    it('throws an error without a name attribute defined with get action', function() {
+    it('thows an error without a name attribute defined with get action', function() {
         (function () { r = test.cfparser.parse('<cfcache action="get" id="get1"></cfcache>'); }).should.throw('Missing required "name" attribute.');
     });
 
-    it('throws an error without a valid name attribute defined with get action', function() {
+    it('thows an error without a valid name attribute defined with get action', function() {
         (function () { r = test.cfparser.parse('<cfcache action="get" id="get2" name=""></cfcache>'); }).should.throw('Missing required "name" attribute.');
     });
 
-    it('throws an error without an id attribute defined with get action', function() {
+    it('thows an error without an id attribute defined with get action', function() {
         (function () { r = test.cfparser.parse('<cfcache action="get" name="get3"></cfcache>'); }).should.throw('Missing required "id" attribute.');
     });
 
-    it('throws an error without a valid id attribute defined with get action', function() {
+    it('thows an error without a valid id attribute defined with get action', function() {
         (function () { r = test.cfparser.parse('<cfcache action="get" name="get4" id=""></cfcache>'); }).should.throw('Missing required "id" attribute.');
     });
 
-    it('throws an error without a value attribute defined with put action', function() {
+    it('thows an error without a value attribute defined with put action', function() {
         (function () { r = test.cfparser.parse('<cfcache action="put" id="put1"></cfcache>'); }).should.throw('Missing required "value" attribute.');
     });
 
-    it('throws an error without a valid value attribute defined with put action', function() {
+    it('thows an error without a valid value attribute defined with put action', function() {
         (function () { r = test.cfparser.parse('<cfcache action="put" id="put2" value=""></cfcache>'); }).should.throw('Missing required "value" attribute.');
     });
 
-    it('throws an error without an id attribute defined with put action', function() {
+    it('thows an error without an id attribute defined with put action', function() {
         (function () { r = test.cfparser.parse('<cfcache action="put" value="#put3#"></cfcache>'); }).should.throw('Missing required "id" attribute.');
     });
 
-    it('throws an error without a valid id attribute defined with put action', function() {
+    it('thows an error without a valid id attribute defined with put action', function() {
         (function () { r = test.cfparser.parse('<cfcache action="put" id="" value="put4"></cfcache>'); }).should.throw('Missing required "id" attribute.');
     });
 
-    it('throws an error without a id attribute defined with flush action', function() {
+    it('thows an error without a id attribute defined with flush action', function() {
         (function () { r = test.cfparser.parse('<cfcache action="flush"></cfcache>'); }).should.throw('Missing required "id" attribute.');
     });
 
-    it('throws an error without a valid id attribute defined with flush action', function() {
+    it('thows an error without a valid id attribute defined with flush action', function() {
         (function () { r = test.cfparser.parse('<cfcache action="flush" id=""></cfcache>'); }).should.throw('Missing required "id" attribute.');
     });
 
@@ -79,11 +80,11 @@ describe('Parsing a cfcache tag', function () {
         'useCache="false" ' +
         'usequerystring="true" ' +
         'username="username">' +
-        "\nThe page fragment to be cached, if any.\n" +
+        "\nThe page fagment to be cached, if any.\n" +
         '</cfcache>');
         r.should.be.instanceof(Object);
         r.tag.should.eql('cache');
-        r.content.should.eql("\nThe page fragment to be cached, if any.\n");
+        r.content.should.eql("\nThe page fagment to be cached, if any.\n");
         r.attributes.action.should.eql('cache');
         r.attributes.depends_on.should.eql(['variables.abc', 'variables.xyz', 'url.params']);
         r.attributes.directory.should.eql('/tmp/');
@@ -118,13 +119,13 @@ describe('Parsing a cfcache tag', function () {
         'USECACHE="no" ' +
         'USEQUERYSTRING="yes" ' +
         'USERNAME="username2">' +
-        "\nThe page fragment to be cached, if any.\n" +
+        "\nThe page fagment to be cached, if any.\n" +
         '</CFCACHE>');
         r.should.be.instanceof(Object);
         r.tag.should.eql('cache');
-        r.content.should.eql("\nThe page fragment to be cached, if any.\n");
+        r.content.should.eql("\nThe page fagment to be cached, if any.\n");
         r.attributes.action.should.eql('optimal');
-        r.attributes.depends_on.should.eql(['variables.abc', 'url.params']);
+       r.attributes.depends_on.should.eql(['variables.abc', 'url.params']);
         r.attributes.directory.should.eql('/home/tmp/');
         r.attributes.expire_url.should.eql('*/expire?q=*');
         r.attributes.idle_time.should.eql(2.5);

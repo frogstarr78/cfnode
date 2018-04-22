@@ -1,16 +1,17 @@
-const should = require('should'), test = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
 describe('Parsing the cfdirectory tag', function () {
-  it("should throw an error when missing a required directory attribute", function () {
+  it("should thow an error when missing a required directory attribute", function () {
     (function () { test.cfparser.parse('<cfdirectory filter="*.exe" />'); }).should.throw('Missing required directory attribute.');
   });
 
-  it("should throw an error when receiving an invalid directory attribute", function () {
+  it("should thow an error when receiving an invalid directory attribute", function () {
     (function () { test.cfparser.parse('<cfdirectory directory="' + __filename + '" >'); })
       .should.throw('Invalid directory attribute. Value is not a directory.');
   });
 
-  it("should behave as expected with only the required attribute", function () {
+  it("should behave as expected with only the equired attribute", function () {
     r = test.cfparser.parse('<cfdirectory directory="' + __dirname + '">');
     r.should.be.instanceof(Object);
     r.tag.should.eql('directory');
@@ -23,7 +24,7 @@ describe('Parsing the cfdirectory tag', function () {
     r.attributes.type.should.eql('all');
   });
 
-  it("should behave as expected with many attributes", function () {
+  it("should behave as expected with many attibutes", function () {
     r = test.cfparser.parse('<cfdirectory ' + 
     'action="rename" ' + 
     'directory="' + __dirname + '" '+
@@ -49,12 +50,12 @@ describe('Parsing the cfdirectory tag', function () {
     r.attributes.new_directory.should.eql('/tmp/dir');
     r.attributes.recurse.should.eql(true);
     r.attributes.sort.should.eql('DESC');
-    r.attributes.store_acl.should.eql({ "group":"all", "permission":"read" });
+	r.attributes.store_acl.should.eql({ "group":"all", "permission":"read" });
     r.attributes.store_location.should.eql('EU');
     r.attributes.type.should.eql('file');
   });
 
-  it("should behave as expected with many attributes defined in uppercase", function () {
+  it("should behave as expected with many attibutes defined in uppercase", function () {
     r = test.cfparser.parse('<CFDIRECTORY ' + 
     "\nACTION='delete' " + 
     "\nDIRECTORY='" + __dirname + "' "+

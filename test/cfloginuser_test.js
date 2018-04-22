@@ -1,8 +1,6 @@
 const should = require('should'),
         test = require('./testlib');
 
-var r;
-
 describe("Parser should parse cfloginuser tag", function () {
   describe("should error without", function () {
     it("a required roles attribute", function () {
@@ -38,7 +36,7 @@ describe("Parser should parse cfloginuser tag", function () {
       r.tag.should.equal('loginuser');
       r.attributes.name.should.equal('who5');
       r.attributes.password.should.equal('pass5');
-      r.attributes.roles.should.deepEqual(['n', 'r', 'p']);
+      r.attributes.roles.should.deepEqual(['n', '', 'p']);
     });
   });
 
@@ -49,7 +47,7 @@ describe("Parser should parse cfloginuser tag", function () {
       r.tag.should.equal('loginuser');
       r.attributes.name.should.equal('who6');
       r.attributes.password.should.equal('pass6');
-      r.attributes.roles.should.deepEqual(['p', 'r', 'n']);
+      r.attributes.roles.should.deepEqual(['p', '', 'n']);
     });
   });
 
@@ -60,7 +58,7 @@ describe("Parser should parse cfloginuser tag", function () {
       r.tag.should.equal('loginuser');
       r.attributes.name.should.equal('who10');
       r.attributes.password.should.equal('pass10');
-      r.attributes.roles.should.deepEqual(['a3', 'b3']);
+	  r.attributes.roles.should.deepEqual(['a3', 'b3']);
     });
   });
 });

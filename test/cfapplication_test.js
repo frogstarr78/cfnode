@@ -1,9 +1,8 @@
-const should = require('should'), test = require('./testlib');
-
-var r;
+const should = require('should'),
+        test = require('./testlib');
 
 describe("Parser parsing a cfapplication tag", function () {
-    it("throws an error without a defined name attribute", function () {
+    it("thows an error without a defined name attribute", function () {
         (function () { test.cfparser.parse('<cfapplication datasource="something">') }).should.throw('Missing required "name" attribute.');
     });
 

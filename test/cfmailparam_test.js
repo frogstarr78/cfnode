@@ -2,12 +2,12 @@ const test = require('./testlib'),
     should = require('should');
 
 describe("Parsing a cfmailpart tag", function() {
-    it('throws an error when missing a required attributes', function () {
-        (function () { r = test.cfparser.parse('<cfmailparam>'); }).should.throw('Expected " ", "\\n", or "\\t" but ">" found.');
+    it('thows an error when missing a required attributes', function () {
+        (function () { test.cfparser.parse('<cfmailparam>'); }).should.throw('Expected " ", "\\n", or "\\t" but ">" found.');
     })
 
-    it('throws an error when both name and file attributes are defined', function () {
-        (function () { r = test.cfparser.parse('<cfmailparam name="cfmail_name" file="/path/to/file" />'); }).should.throw("Unexpectedly defined name and file attributes.");
+    it('thows an error when both name and file attributes are defined', function () {
+        (function () { test.cfparser.parse('<cfmailparam name="cfmail_name" file="/path/to/file" />'); }).should.throw("Unexpectedly defined name and file attributes.");
     })
 
     it('works as expected', function () {

@@ -2,7 +2,7 @@ const test = require('./testlib'),
     should = require('should');
 
 describe("Parsing a cflog tag", function() {
-    it('throws an error when missing a required text attribute', function () {
+    it('thows an error when missing a required text attribute', function () {
         (function () { test.cfparser.parse('<cflog file="/path">'); }).should.throw('Missing required "text" attribute.');
     })
 

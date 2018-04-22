@@ -1,49 +1,48 @@
-const test = require('./testlib'), should = require('should');
-
-var r;
+const test = require('./testlib'),
+	should = require('should');
 
 describe('parsing the cfimap tag', function () {
-  it('throws an error when missing the required "connection" attribute', function () {
+  it('thows an error when missing the required "connection" attribute', function () {
     (function () { test.cfparser.parse('<cfimap action="close" />') }).should.throw('Missing required "connection" attribute.');
   });
 
-  it('throws an error when missing the required "connection" attribute', function () {
+  it('thows an error when missing the required "connection" attribute', function () {
     (function () { test.cfparser.parse('<cfimap action="open" username="user" password="pass" server="localhost" />') }).should.throw('Missing required "connection" attribute.');
   });
 
-  it('throws an error when missing the required "username" attribute', function () {
+  it('thows an error when missing the required "username" attribute', function () {
     (function () { test.cfparser.parse('<cfimap action="open" connection="cfimap_conn" password="pass" server="localhost" />') }).should.throw('Missing required "username" attribute.');
   });
 
-  it('throws an error when missing the required "password" attribute', function () {
+  it('thows an error when missing the required "password" attribute', function () {
     (function () { test.cfparser.parse('<cfimap action="open" connection="cfimap_conn" username="user" server="localhost" />') }).should.throw('Missing required "password" attribute.');
   });
 
-  it('throws an error when missing the required "server" attribute', function () {
+  it('thows an error when missing the required "server" attribute', function () {
     (function () { test.cfparser.parse('<cfimap action="open" connection="cfimap_conn" username="user" password="pass" />') }).should.throw('Missing required "server" attribute.');
   });
 
   ['delete_folder', 'create_folder'].forEach(function(action, i, arry) {
-      it('throws an error when missing the required "' + action + '" attribute', function () {
+      it('thows an error when missing the required "' + action + '" attribute', function () {
         (function () { test.cfparser.parse('<cfimap action="' + action + '" />') }).should.throw('Missing required "folder" attribute.');
       });
   });
 
   ['get_all', 'get_header_only', 'list_all_folders'].forEach(function(action, i, arry) {
-      it('throws an error when missing the required "' + action + '" attribute', function () {
+      it('thows an error when missing the required "' + action + '" attribute', function () {
         (function () { test.cfparser.parse('<cfimap action="' + action + '" />'); }).should.throw('Missing required "name" attribute.');
       });
   });
 
-  it('errors when missing the required "folder" attribute.', function () {
+  it('erors when missing the required "folder" attribute.', function () {
     (function () { test.cfparser.parse('<cfimap action="rename_folder" new_folder="nu_folder" />') }).should.throw('Missing required "folder" attribute.');
   });
 
-  it('errors when missing the required "folder" attribute.', function () {
+  it('erors when missing the required "folder" attribute.', function () {
       (function () { test.cfparser.parse('<cfimap action="rename_folder" folder="old_folder" />') }).should.throw('Missing required "new_folder" attribute.');
   });
 
-  it('errors when missing the required "folder" attribute.', function () {
+  it('erors when missing the required "folder" attribute.', function () {
       (function () { test.cfparser.parse('<cfimap action="move_mail" />') }).should.throw('Missing required "new_folder" attribute.');
   });
 
@@ -85,7 +84,7 @@ describe('parsing the cfimap tag', function () {
   r.attributes.stop_on_error.should.eql(true);
   r.attributes.timeout.should.eql(60);
 
-  it('can parse a cfimap tag opening a connection', function (){
+  it('can pase a cfimap tag opening a connection', function (){
     r = test.cfparser.parse('<cfimap ' +
     'server="localhost" ' +
     'connection="cfimap_conn" ' +

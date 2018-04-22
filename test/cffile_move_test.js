@@ -1,41 +1,42 @@
-const is = require('assert'), test = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
-var r;
+describe('Parsing a cffile move tag', function () {
 
-is.throws(function () {
+(function () {
 	r = test.cfparser.parse('<cffile />');
-}, Error, 'Missing required attributes.');
+}).should.throw('Missing required attributes.');
 
-is.throws(function () {
+(function () {
 	r = test.cfparser.parse('<cffile source="/tmp/sfile" destination="/tmp/dfile" />');
-}, Error, 'Missing required action attribute.');
+}).should.throw('Missing required action attribute.');
 
-is.throws(function () {
+(function () {
 	r = test.cfparser.parse('<cffile source="/tmp/sfile" action="move" >');
-}, Error, 'Missing required destination attribute.');
+}).should.throw('Missing required destination attribute.');
 
-is.throws(function () {
+(function () {
 	r = test.cfparser.parse('<cffile action="move" destination="/tmp/file" >');
-}, Error, 'Missing required source attribute.');
+}).should.throw('Missing required source attribute.');
 
 r = test.cfparser.parse('<cffile action="move" destination="/tmp/dfile" source="/tmp/sfile">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'file');
-is.equal(r.attributes.action, 'move');
-is.equal(r.attributes.destination, '/tmp/dfile');
-is.equal(r.attributes.source, '/tmp/sfile');
-is.equal(r.attributes.charset, 'utf-8');
+r.should.be.instanceof(Object);
+.tag.should.eql('file');
+.attributes.action.should.eql('move');
+.attributes.destination.should.eql('/tmp/dfile');
+.attributes.source.should.eql('/tmp/sfile');
+.attributes.charset.should.eql('utf-8');
 
 r = test.cfparser.parse('<cffile action="move" destination="/tmp/dfile" source="/tmp/sfile" ' +
 'charset="us-ascii" mode="721" attributes="normal">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'file');
-is.equal(r.attributes.action, 'move');
-is.equal(r.attributes.destination, '/tmp/dfile');
-is.equal(r.attributes.source, '/tmp/sfile');
-is.equal(r.attributes.charset, 'us-ascii');
-is.deepEqual(r.attributes.attributes, ['normal']);
-is.equal(r.attributes.mode, 721);
+r.should.be.instanceof(Object);
+.tag.should.eql('file');
+.attributes.action.should.eql('move');
+.attributes.destination.should.eql('/tmp/dfile');
+.attributes.source.should.eql('/tmp/sfile');
+.attributes.charset.should.eql('us-ascii');
+is.deepEqual(.attributesr.attributes.should.eql(['normal']);
+.attributes.mode.should.eql(721);
 
 r = test.cfparser.parse('<CFFILE ' +
 'ACTION="move" ' +
@@ -44,12 +45,12 @@ r = test.cfparser.parse('<CFFILE ' +
 'CHARSET="us-ascii" ' +
 'MODE="721" ' +
 'ATTRIBUTES="normal">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'file');
-is.equal(r.attributes.action, 'move');
-is.equal(r.attributes.destination, '/tmp/dfile');
-is.equal(r.attributes.source, '/tmp/sfile');
-is.equal(r.attributes.charset, 'us-ascii');
-is.deepEqual(r.attributes.attributes, ['normal']);
-is.equal(r.attributes.mode, 721);
+r.should.be.instanceof(Object);
+.tag.should.eql('file');
+.attributes.action.should.eql('move');
+.attributes.destination.should.eql('/tmp/dfile');
+.attributes.source.should.eql('/tmp/sfile');
+.attributes.charset.should.eql('us-ascii');
+is.deepEqual(.attributesr.attributes.should.eql(['normal']);
+.attributes.mode.should.eql(721);
 

@@ -2,19 +2,19 @@ const should = require('should'),
         test = require('./testlib');
 
 describe('Parsing the cfinsert tag', function () {
-    it('should throw an error when missing a required data_source attribute', function () {
+    it('should thow an error when missing a required data_source attribute', function () {
         (function () { test.cfparser.parse('<cfinsert tableName="cfinsert_table">'); }).should.throw('Missing required "data_source" attribute.');
     });
 
-    it('should throw an error when missing a required table_name attribute', function () {
+    it('should thow an error when missing a required table_name attribute', function () {
         (function () { test.cfparser.parse('<cfinsert datasource="cfinsert_dsn">'); }).should.throw('Missing required "table_name" attribute.');
     });
 
-    it('should throw an error when the data_source attribute is empty', function () {
+    it('should thow an error when the data_source attribute is empty', function () {
         (function () { test.cfparser.parse('<cfinsert table_name="the_table" datasource="">'); }).should.throw('Empty "data_source" attribute.');
     });
 
-    it('should throw an error when the table_name attribute is empty', function () {
+    it('should thow an error when the table_name attribute is empty', function () {
         (function () { test.cfparser.parse('<cfinsert tableName="" datasource="dsn" >'); }).should.throw('Empty "table_name" attribute.');
     });
 

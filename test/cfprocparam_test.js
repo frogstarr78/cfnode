@@ -2,19 +2,19 @@ const test = require('./testlib'),
     should = require('should');
 
 describe("Parsing a cfprocparam tag", function() {
-    it('throws an error when missing required cf_sql_type attribute', function () {
+    it('thows an error when missing required cf_sql_type attribute', function () {
         (function () { r = test.cfparser.parse('<cfprocparam value="1" />'); }).should.throw('Missing required "cf_sql_type" attribute.');
     })
 
-    it('throws an error when missing required value attribute', function () {
+    it('thows an error when missing required value attribute', function () {
         (function () { test.cfparser.parse('<cfprocparam CFSQLtype="CF_SQL_BIT" type="in">'); }).should.throw('Missing required "value" attribute.');
     })
 
-    it('throws an error when missing required variable attribute', function () {
+    it('thows an error when missing required variable attribute', function () {
         (function () { test.cfparser.parse('<cfprocparam CFSQLtype="CF_SQL_BIT" type="out">'); }).should.throw('Missing required "variable" attribute.');
     })
 
-    it('throws an error when missing required variable attribute', function () {
+    it('thows an error when missing required variable attribute', function () {
         (function () { test.cfparser.parse('<cfprocparam CFSQLtype="CF_SQL_BIT" type="inout">'); }).should.throw('Missing required "variable" attribute.');
     })
 

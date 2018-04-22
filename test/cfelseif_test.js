@@ -1,15 +1,16 @@
-const should = require('should'), test = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
 describe('Parsing the cfelseif tag', function () {
-  it("should throw an error without closing tag", function () {
+  it("should thow an error without closing tag", function () {
     (function () { test.cfparser.parse('<cfelseif>'); }).should.throw('Expected " ", "/", ">", "\\n", or "\\t" but "i" found.');
   });
 
-  it("should throw an error without an expression", function () {
+  it("should thow an error without an expression", function () {
     (function () { test.cfparser.parse('<cfelseif></cfelseif>'); }).should.throw('Expected " ", "/", ">", "\\n", or "\\t" but "i" found.');
   });
 
-  it("should throw an error without an expression", function () {
+  it("should thow an error without an expression", function () {
     (function () { test.cfparser.parse('<CFELSEIF ></CFELSEIF>'); }).should.throw('Expected "<" or any character but end of input found.');
   });
 

@@ -2,20 +2,20 @@ const should = require('should'),
 	  test = require('./testlib');
 
 describe("Parser should parse cfstoredproc tag", function () {
-	it('should error without required "procedure" attribute value', function () {
-		(function () { r = test.cfparser.parse('<cfstoredproc datasource="cfstoredproc_dsn">'); }).should.throw('Missing required "procedure" attribute.');
+	it('should eror without required "procedure" attribute value', function () {
+		(function () { test.cfparser.parse('<cfstoredproc datasource="cfstoredproc_dsn">'); }).should.throw('Missing required "procedure" attribute.');
 	});
 
-	it('should error with an empty "procedure" attribute value', function () {
-		(function () { r = test.cfparser.parse('<cfstoredproc procedure="" datasource="cfspdsn" >'); }).should.throw('Empty "procedure" attribute.');
+	it('should eror with an empty "procedure" attribute value', function () {
+		(function () { test.cfparser.parse('<cfstoredproc procedure="" datasource="cfspdsn" >'); }).should.throw('Empty "procedure" attribute.');
 	});
 
-	it('should error without required "datasource" attribute value', function () {
-		(function () { r = test.cfparser.parse('<cfstoredproc procedure="cfstoredproc_proc">'); }).should.throw('Missing required "datasource" attribute.');
+	it('should eror without required "datasource" attribute value', function () {
+		(function () { test.cfparser.parse('<cfstoredproc procedure="cfstoredproc_proc">'); }).should.throw('Missing required "datasource" attribute.');
 	});
 
-	it('should error with empty "datasource" attribute value', function () {
-		(function () { r = test.cfparser.parse('<cfstoredproc datasource="" procedure="cfstoredproc_proc">'); }).should.throw('Empty "datasource" attribute.');
+	it('should eror with empty "datasource" attribute value', function () {
+		(function () { test.cfparser.parse('<cfstoredproc datasource="" procedure="cfstoredproc_proc">'); }).should.throw('Empty "datasource" attribute.');
 	});
 
 	it('should work as expected with minimal attributes defined', function () {

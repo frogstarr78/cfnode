@@ -1,7 +1,8 @@
-const should = require('should'), test = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
 describe('Parsing the cfcomponent tag', function () {
-    it('should behave as expected with no attributes defined', function () {
+    it('should behave as expected with no attibutes defined', function () {
         r = test.cfparser.parse('<cfcomponent></cfcomponent>');
         r.should.be.instanceof(Object);
         r.tag.should.eql('component');
@@ -14,7 +15,7 @@ describe('Parsing the cfcomponent tag', function () {
         r.attributes.style.should.eql('rpc');
     });
 
-    it('should behave as expected with an attributes defined', function () {
+    it('should behave as expected with an attibutes defined', function () {
         r = test.cfparser.parse('<cfcomponent accessors="yes">Here</cfcomponent>');
         r.should.be.instanceof(Object);
         r.tag.should.eql('component');
@@ -22,7 +23,7 @@ describe('Parsing the cfcomponent tag', function () {
         r.attributes.accessors.should.be.true;
     });
 
-    it('should behave as expected with a bunch of attributes defined', function () {
+    it('should behave as expected with a bunch of attibutes defined', function () {
         r = test.cfparser.parse('<cfcomponent ' +
         'accessors="yes" ' +
         'alias="integer" ' +
@@ -62,7 +63,7 @@ describe('Parsing the cfcomponent tag', function () {
         r.attributes.wsdl_file.should.eql('/tmp/file');
     });
 
-    it('should behave as expected with a bunch of attributes defined all in caps', function () {
+    it('should behave as expected with a bunch of attibutes defined all in caps', function () {
         r = test.cfparser.parse('<CFCOMPONENT ' +
         'ACCESSORS="yes" ' +
         'ALIAS="integer" ' +

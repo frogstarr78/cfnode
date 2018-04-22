@@ -2,8 +2,8 @@ const test = require('./testlib'),
     should = require('should');
 
 describe("Parsing a cfmailpart tag", function() {
-    it('throws an error when missing a required action attribute', function () {
-        (function () { r = test.cfparser.parse('<cfmailpart></cfmailpart>'); }).should.throw('Expected " ", "\\n", or "\\t" but ">" found.');
+    it('thows an error when missing a required action attribute', function () {
+        (function () { test.cfparser.parse('<cfmailpart></cfmailpart>'); }).should.throw('Expected " ", "\\n", or "\\t" but ">" found.');
     })
 
     it('works as expected', function () {

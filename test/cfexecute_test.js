@@ -1,20 +1,21 @@
-const should = require('should'), test = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
 describe('Parsing the cfdefaultcase tag', function () {
-  it('should error without a closing tag and name attribute', function () {
-    (function () { r = test.cfparser.parse('<cfexecute >'); }).should.throw('Expected " ", "\\n", "\\t", [aA], [nN], [oO], [tT], or [vV] but ">" found.');
+  it('should eror without a closing tag and name attribute', function () {
+    (function () { test.cfparser.parse('<cfexecute >'); }).should.throw('Expected " ", "\\n", "\\t", [aA], [nN], [oO], [tT], or [vV] but ">" found.');
   });
 
-  it('should error with a closing tag but missing a required name attribute', function () {
-    (function () { r = test.cfparser.parse('<cfexecute arguments="-v"></cfexecute>'); }).should.throw('Missing required "name" attribute.');
+  it('should eror with a closing tag but missing a required name attribute', function () {
+    (function () { test.cfparser.parse('<cfexecute arguments="-v"></cfexecute>'); }).should.throw('Missing required "name" attribute.');
   });
 
-  it('should error without a closing tag and an empty name attribute', function () {
-    (function () { r = test.cfparser.parse('<cfexecute name="" >'); }).should.throw('Expected "<" or any character but end of input found.');
+  it('should eror without a closing tag and an empty name attribute', function () {
+    (function () { test.cfparser.parse('<cfexecute name="" >'); }).should.throw('Expected "<" or any character but end of input found.');
   });
 
-  it('should error with a closing tag but an empty name attribute', function () {
-    (function () { r = test.cfparser.parse('<cfexecute name="" ></cfexecute>'); }).should.throw('Invalid value "" specified for "name" attribute.');
+  it('should eror with a closing tag but an empty name attribute', function () {
+    (function () { test.cfparser.parse('<cfexecute name="" ></cfexecute>'); }).should.throw('Invalid value "" specified for "name" attribute.');
   });
 
   it('should work as expected with minimal attributes', function () {

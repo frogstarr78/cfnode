@@ -1,9 +1,8 @@
-const should = require('should'), test = require('./testlib');
-
-var r;
+const should = require('should'),
+        test = require('./testlib');
 
 describe("Parser should parse cfldap tags", function () {
-  describe('using the default action "query", should error without', function () {
+  describe('using the default action "query".should.eql(should eror without', function () {
       it('a required server attribute', function () {
         (function () { test.cfparser.parse('<cfldap />') }).should.throw(/Expected " ", "\\n", "\\t", \[aA\], \[dD\], \[fF\], \[mM\], \[nN\], \[pP\], \[rR\], \[sS\], \[tT\], or \[uU\] but "\/" found./);
       });
@@ -64,13 +63,13 @@ describe("Parser should parse cfldap tags", function () {
       (function () { test.cfparser.parse('<cfldap action="delete" />') }).should.throw('Missing required "dn" attribute.');
     });
 
-    it("an unexpected secure attribute value", function () {
+    it("an unexpected secue attribute value", function () {
       (function () { test.cfparser.parse('<cfldap server="localhost" name="cfldap_test" username="user" password="pass" attributes="*" start="dc=example,dc=org" secure="CFSSL_RSA" />') }).should.throw(/Expected "CFSSL_BASIC" but "C" found./);
     });
   });
 
   describe('creating expected structures when everything is as it should be', function () {
-    it("setting default attributes when they aren't defined in the call", function () {
+    it("setting default attibutes when they aren't defined in the call", function () {
       r = test.cfparser.parse('<cfldap ' +
       'server="localhost" ' +
       'action="add" ' +
@@ -91,7 +90,7 @@ describe("Parser should parse cfldap tags", function () {
       r.attributes.username.should.eql('anonymous');
     });
 
-    it("overwriting default attributes when they are defined in the call", function () {
+    it("ovewriting default attributes when they are defined in the call", function () {
       r = test.cfparser.parse('<cfldap ' +
       'username="user" ' +
       'secure="CFSSL_BASIC" ' +
@@ -154,7 +153,7 @@ describe("Parser should parse cfldap tags", function () {
       r = test.cfparser.parse('<cfldap ' +
       'server="localhost" ' +
       'action="add" ' +
-      'sort_control="nocase , asc" ' +
+      'sort_control="nocase,asc" ' +
       'dn="dc=example,dc=net" ' +
       'modify_type="add" ' +
       'attributes="name,org" ' +
@@ -164,8 +163,7 @@ describe("Parser should parse cfldap tags", function () {
       r.attributes.dn.should.eql("dc=example,dc=net");
       r.attributes.modify_type.should.eql('add');
       r.attributes.server.should.eql("localhost");
-      r.attributes.sort_control.should.eql("nocase , asc");
+	  r.attributes.sort_control.should.eql("nocase,asc");
     });
   });
-
 });

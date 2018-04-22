@@ -2,7 +2,7 @@ const test = require('./testlib'),
     should = require('should');
 
 describe("Parsing a cfqueryparam tag ", function() {
-    it('throws errors when missing required attributes', function () {
+    it('thows errors when missing required attributes', function () {
         (function () { test.cfparser.parse('<cfqueryparam list="yes" >'); }).should.throw('Missing required "value" attribute.');
     });
 

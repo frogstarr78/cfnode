@@ -2,12 +2,12 @@ const should = require('should'),
 	    test = require('./testlib');
 
 describe('Parser parsing the cfif tag', function () {
-	it('should throw an error when missing a closing tag', function () {
+	it('should thow an error when missing a closing tag', function () {
 		(function () { test.cfparser.parse('<cfif>'); }).should.throw('Expected [mM] or [nN] but "f" found.');
 		(function () { test.cfparser.parse('<cfif></cfif>'); }).should.throw('Expected [mM] or [nN] but "f" found.');
 	});
 
-	it('should throw an error when missing an expression', function () {
+	it('should thow an error when missing an expression', function () {
 		(function () { test.cfparser.parse('<cfif ></cfif>'); }).should.throw('Missing required expression.');
 	});
 

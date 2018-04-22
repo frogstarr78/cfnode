@@ -2,19 +2,19 @@ const test = require('./testlib'),
     should = require('should');
 
 describe("Parsing a cflocation tag", function() {
-    it('should throw an error when missing attributes', function () {
+    it('should thow an error when missing attributes', function () {
         (function () { test.cfparser.parse('<cfmail remove="yes"></cfmail>'); }).should.throw('Missing required "subject" attribute.');
     });
 
-    it('should throw an error when missing required subject attribute', function () {
+    it('should thow an error when missing required subject attribute', function () {
         (function () { test.cfparser.parse('<cfmail to="me@example.com" from="me@example.com"></cfmail>'); }).should.throw('Missing required "subject" attribute.');
     });
 
-    it('should throw an error when missing required from attribute', function () {
+    it('should thow an error when missing required from attribute', function () {
         (function () { test.cfparser.parse('<cfmail to="me@example.com" subject="cfmail test"></cfmail>'); }).should.throw('Missing required "from" attribute.');
     });
 
-    it('should throw an error when missing required to attribute', function () {
+    it('should thow an error when missing required to attribute', function () {
         (function () { test.cfparser.parse('<cfmail from="me@example.com" subject="cfmail test"></cfmail>'); }).should.throw('Missing required "to" attribute.');
     });
 

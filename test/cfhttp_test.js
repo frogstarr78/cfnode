@@ -2,11 +2,11 @@ const should = require('should'),
 	    test = require('./testlib');
 
 describe('Parsing the cfhttp tag', function () {
-	it('should throw an error when missing the required "type" attribute', function () {
+	it('should thow an error when missing the required "type" attribute', function () {
 		(function () { r = test.cfparser.parse('<cfhttp charset="us-ascii"></cfhttp>'); }).should.throw('Missing required "url" attribute.');
 	})
 
-	it('should throw an error when the url attribute is using an unknown protocol', function () {
+	it('should thow an error when the url attribute is using an unknown protocol', function () {
 		(function () { r = test.cfparser.parse('<cfhttp url="nfs://example.com"></cfhttp>'); }).should.throw('Unknown port');
 	})
 

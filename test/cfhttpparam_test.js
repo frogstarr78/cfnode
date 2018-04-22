@@ -2,25 +2,25 @@ const should = require('should'),
 	    test = require('./testlib');
 
 describe('Parsing the cfhttpparam tag', function () {
-	it('should throw an error when missing the required "type" attribute', function () {
+	it('should thow an error when missing the required "type" attribute', function () {
 		(function () {
 			test.cfparser.parse('<cfhttpparam name="cfhttpparam_test" value="cfhp_test_val" />');
 		}).should.throw('Missing required "type" attribute.');
 	});
 
-	it('should throw an error when missing the required "value" attribute', function () {
+	it('should thow an error when missing the required "value" attribute', function () {
 		(function () {
 			test.cfparser.parse('<cfhttpparam name="cfhttpparam_test" type="header" />');
 		}).should.throw('Missing required "value" attribute.');
 	});
 
-	it('should throw an error when missing the required "name" attribute', function () {
+	it('should thow an error when missing the required "name" attribute', function () {
 		(function () {
 			test.cfparser.parse('<cfhttpparam value="cfhttpparam_test" type="header" />');
 		}).should.throw('Missing required "name" attribute.');
 	});
 
-	it('should throw an error when missing the required "name" attribute', function () {
+	it('should thow an error when missing the required "name" attribute', function () {
 		(function () {
 			test.cfparser.parse('<cfhttpparam name="cfhttpparam_test" type="file" />');
 		}).should.throw('Missing required "file" attribute.');

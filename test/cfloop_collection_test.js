@@ -1,33 +1,34 @@
-const is = require('assert'), test = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
-var r;
+describe('Parsing a cfloop collection tag', function () {
 
-is.throws(function () {
+(function () {
 	r = test.cfparser.parse('<cfloop>');
-}, Error, 'Missing required closing tag');
+}).should.throw('Missing required closing tag');
 
-is.throws(function () {
+(function () {
 	r = test.cfparser.parse('<cfloop></cfloop>');
-}, Error, 'Missing required attributes.');
+}).should.throw('Missing required attributes.');
 
-is.throws(function () {
+(function () {
 	r = test.cfparser.parse('<cfloop collection="#struct#"></cfloop>');
-}, Error, 'Missing required index attribute.');
+}).should.throw('Missing required index attribute.');
 
-is.throws(function () {
+(function () {
 	r = test.cfparser.parse('<cfloop index="count"></cfloop>');
-}, Error, 'Missing required collection attribute.');
+}).should.throw('Missing required collection attribute.');
 
 r = test.cfparser.parse('<cfloop index="item" collection="#struct#"></cfloop>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'loop');
-is.equal(r.content, "");
-is.equal(r.attributes.index, 'item');
-is.equal(r.attributes.collection, 'struct');
+r.should.be.instanceof(Object);
+.tag.should.eql('loop');
+.content.should.eql("");
+.attributes.index.should.eql('item');
+.attributes.collection.should.eql('struct');
 
 r = test.cfparser.parse('<CFLOOP COLLECTION="#struct2#" INDEX="item"></CFLOOP>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'loop');
-is.equal(r.content, "");
-is.equal(r.attributes.index, 'item');
-is.equal(r.attributes.collection, 'struct2');
+r.should.be.instanceof(Object);
+.tag.should.eql('loop');
+.content.should.eql("");
+.attributes.index.should.eql('item');
+.attributes.collection.should.eql('struct2');

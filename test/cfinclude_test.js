@@ -2,7 +2,7 @@ const should = require('should'),
         test = require('./testlib');
 
 describe('Parsing the cfinclude tag', function () {
-    it('should throw an error when missing the required template attribute', function () {
+    it('should thow an error when missing the required template attribute', function () {
         (function () { test.cfparser.parse('<cfinclude >'); }).should.throw('Expected " ", "\\n", "\\t", or [tT] but ">" found.');
         (function () { test.cfparser.parse('<cfinclude>'); }).should.throw('Expected " ", "\\n", or "\\t" but ">" found.');
         (function () { test.cfparser.parse('<CFINCLUDE >'); }).should.throw('Expected " ", "\\n", "\\t", or [tT] but ">" found.');

@@ -1,8 +1,9 @@
-const should = require('should'), test = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
 describe('Parsing the cfelse tag', function () {
-  it("should throw an error without a closing tag", function () {
-    (function () { r = test.cfparser.parse('<cfelse>'); }).should.throw('Expected "<" or any character but end of input found.');
+  it("should thow an error without a closing tag", function () {
+    (function () { test.cfparser.parse('<cfelse>'); }).should.throw('Expected "<" or any character but end of input found.');
   });
 
   it("should work as expected with a closing if tag but nothing in the else clause", function () {

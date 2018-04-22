@@ -1,11 +1,12 @@
-const should = require('should'), test = require('./testlib');
+const should = require('should'),
+	    test = require('./testlib');
 
 describe('Parsing the cfassociate tag', function () {
-    it('should throw an error without a required base_tag', function () {
+    it('should thow an error without a required base_tag', function () {
         (function () { test.cfparser.parse('<cfassociate data_collection="this">') }).should.throw('Missing required "base_tag" attribute.');
     });
 
-//    it('should throw an error without a required base_tag', function () {
+//    it('should thow an error without a required base_tag', function () {
 //        (function () { test.cfparser.parse('<cfassociate baseTag="cfnode test">'); }).should.throw('Invalid "base_tag" value.');
 //    });
 

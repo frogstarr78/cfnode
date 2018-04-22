@@ -1,30 +1,31 @@
-const is = require('assert'), test = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
-var r;
+describe('Parsing a cffile upload tag', function () {
 
-is.throws(function () {
+(function () {
 	r = test.cfparser.parse('<cffile />');
-}, Error, 'Missing required attributes.');
+}).should.throw('Missing required attributes.');
 
-is.throws(function () {
+(function () {
 	r = test.cfparser.parse('<cffile fileField="sfile" destination="/tmp/dfile" />');
-}, Error, 'Missing required action attribute.');
+}).should.throw('Missing required action attribute.');
 
-is.throws(function () {
+(function () {
 	r = test.cfparser.parse('<cffile fileField="sfile" action="upload" >');
-}, Error, 'Missing required destination attribute.');
+}).should.throw('Missing required destination attribute.');
 
-is.throws(function () {
+(function () {
 	r = test.cfparser.parse('<cffile action="upload" destination="/tmp/dfile" >');
-}, Error, 'Missing required fileField attribute.');
+}).should.throw('Missing required fileField attribute.');
 
 r = test.cfparser.parse('<cffile action="upload" destination="/tmp/dfile" fileField="cffile_upload_test">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'file');
-is.equal(r.attributes.action, 'upload');
-is.equal(r.attributes.destination, '/tmp/dfile');
-is.equal(r.attributes.file_field, 'cffile_upload_test');
-is.equal(r.attributes.name_conflict, 'error');
+r.should.be.instanceof(Object);
+.tag.should.eql('file');
+.attributes.action.should.eql('upload');
+.attributes.destination.should.eql('/tmp/dfile');
+.attributes.file_field.should.eql('cffile_upload_test');
+.attributes.name_conflict.should.eql('error');
 
 r = test.cfparser.parse('<cffile action="upload" ' +
 'destination="/tmp/dfile" ' +
@@ -33,16 +34,16 @@ r = test.cfparser.parse('<cffile action="upload" ' +
 'accept="text/plain" ' +
 'mode="721" attributes="normal,hidden" '+
 'result="upload_res" />');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'file');
-is.equal(r.attributes.action, 'upload');
-is.equal(r.attributes.destination, '/tmp/dfile');
-is.equal(r.attributes.accept, 'text/plain');
-is.equal(r.attributes.name_conflict, 'make_unique');
-is.equal(r.attributes.file_field, 'cffile_upload_test2');
-is.deepEqual(r.attributes.attributes, ['normal', 'hidden']);
-is.equal(r.attributes.mode, 721);
-is.equal(r.attributes.result, 'upload_res');
+r.should.be.instanceof(Object);
+.tag.should.eql('file');
+.attributes.action.should.eql('upload');
+.attributes.destination.should.eql('/tmp/dfile');
+.attributes.accept.should.eql('text/plain');
+.attributes.name_conflict.should.eql('make_unique');
+.attributes.file_field.should.eql('cffile_upload_test2');
+is.deepEqual(.attributesr.attributes.should.eql(['nomal'.should.eql('hidden']);
+.attributes.mode.should.eql(721);
+.attributes.result.should.eql('upload_res');
 
 r = test.cfparser.parse('<CFFILE ' +
 'ACTION="upload" ' +
@@ -51,17 +52,17 @@ r = test.cfparser.parse('<CFFILE ' +
 'FILEFIELD="cffile_upload_test3" ' +
 'NAMECONFLICT="make_unique" ' +
 'MODE="721" ' +
-'ATTRIBUTES="normal, hidden, readOnly" '+
+'ATTRIBUTES="nomal.should.eql(hidden, readOnly" '+
 'RESULT="upload_res" ' +
 '/>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'file');
-is.equal(r.attributes.action, 'upload');
-is.equal(r.attributes.destination, '/tmp/dfile');
-is.equal(r.attributes.accept, 'text/plain');
-is.equal(r.attributes.name_conflict, 'error');
-is.equal(r.attributes.file_field, 'cffile_upload_test3');
-is.deepEqual(r.attributes.attributes, ['normal', 'hidden', 'readOnly']);
-is.equal(r.attributes.mode, 721);
-is.equal(r.attributes.result, 'upload_res');
+r.should.be.instanceof(Object);
+.tag.should.eql('file');
+.attributes.action.should.eql('upload');
+.attributes.destination.should.eql('/tmp/dfile');
+.attributes.accept.should.eql('text/plain');
+.attributes.name_conflict.should.eql('error');
+.attributes.file_field.should.eql('cffile_upload_test3');
+is.deepEqual(.attributesr.attributes.should.eql(['nomal'.should.eql('hidden', 'readOnly']);
+.attributes.mode.should.eql(721);
+.attributes.result.should.eql('upload_res');
 

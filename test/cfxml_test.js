@@ -1,8 +1,8 @@
-const test = require('./testlib'),
-    should = require('should');
+const should = require('should'),
+        test = require('./testlib');
 
 describe("Parsing a cfxml tag", function() {
-    it('should throw an error when missing a required variable attribute', function () {
+    it('should thow an error when missing a required variable attribute', function () {
         (function () { r = test.cfparser.parse('<cfxml case_sensitive="no">'); }).should.throw('Missing required "variable" attribute.');
     })
 

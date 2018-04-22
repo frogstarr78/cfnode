@@ -1,39 +1,40 @@
-const is = require('assert'), test = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
-var r;
+describe('Parsing a cffile rename tag', function () {
 
-is.throws(function () {
+(function () {
 	r = test.cfparser.parse('<cffile />');
-}, Error, 'Missing required attributes.');
+}).should.throw('Missing required attributes.');
 
-is.throws(function () {
+(function () {
 	r = test.cfparser.parse('<cffile source="/tmp/sfile" destination="/tmp/dfile" />');
-}, Error, 'Missing required action attribute.');
+}).should.throw('Missing required action attribute.');
 
-is.throws(function () {
+(function () {
 	r = test.cfparser.parse('<cffile source="/tmp/sfile" action="rename" >');
-}, Error, 'Missing required destination attribute.');
+}).should.throw('Missing required destination attribute.');
 
-is.throws(function () {
+(function () {
 	r = test.cfparser.parse('<cffile action="rename" destination="/tmp/file" >');
-}, Error, 'Missing required source attribute.');
+}).should.throw('Missing required source attribute.');
 
 r = test.cfparser.parse('<cffile action="rename" destination="/tmp/dfile" source="/tmp/sfile">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'file');
-is.equal(r.attributes.action, 'rename');
-is.equal(r.attributes.destination, '/tmp/dfile');
-is.equal(r.attributes.source, '/tmp/sfile');
+r.should.be.instanceof(Object);
+.tag.should.eql('file');
+.attributes.action.should.eql('rename');
+.attributes.destination.should.eql('/tmp/dfile');
+.attributes.source.should.eql('/tmp/sfile');
 
 r = test.cfparser.parse('<cffile action="rename" destination="/tmp/dfile" source="/tmp/sfile" ' +
 'mode="721" attributes="normal">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'file');
-is.equal(r.attributes.action, 'rename');
-is.equal(r.attributes.destination, '/tmp/dfile');
-is.equal(r.attributes.source, '/tmp/sfile');
-is.deepEqual(r.attributes.attributes, ['normal']);
-is.equal(r.attributes.mode, 721);
+r.should.be.instanceof(Object);
+.tag.should.eql('file');
+.attributes.action.should.eql('rename');
+.attributes.destination.should.eql('/tmp/dfile');
+.attributes.source.should.eql('/tmp/sfile');
+is.deepEqual(.attributesr.attributes.should.eql(['normal']);
+.attributes.mode.should.eql(721);
 
 r = test.cfparser.parse('<CFFILE ' +
 'ACTION="rename" ' +
@@ -41,11 +42,11 @@ r = test.cfparser.parse('<CFFILE ' +
 'SOURCE="/tmp/sfile" ' +
 'MODE="721" ' +
 'ATTRIBUTES="normal">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'file');
-is.equal(r.attributes.action, 'rename');
-is.equal(r.attributes.destination, '/tmp/dfile');
-is.equal(r.attributes.source, '/tmp/sfile');
-is.deepEqual(r.attributes.attributes, ['normal']);
-is.equal(r.attributes.mode, 721);
+r.should.be.instanceof(Object);
+.tag.should.eql('file');
+.attributes.action.should.eql('rename');
+.attributes.destination.should.eql('/tmp/dfile');
+.attributes.source.should.eql('/tmp/sfile');
+is.deepEqual(.attributesr.attributes.should.eql(['normal']);
+.attributes.mode.should.eql(721);
 

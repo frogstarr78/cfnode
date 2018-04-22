@@ -1,25 +1,26 @@
-const is = require('assert'), test = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
-var r;
+describe('Parsing a cffile upload_all tag', function () {
 
-is.throws(function () {
+(function () {
 	r = test.cfparser.parse('<cffile />');
-}, Error, 'Missing required attributes.');
+}).should.throw('Missing required attributes.');
 
-is.throws(function () {
+(function () {
 	r = test.cfparser.parse('<cffile destination="/tmp/dfile" />');
-}, Error, 'Missing required action attribute.');
+}).should.throw('Missing required action attribute.');
 
-is.throws(function () {
+(function () {
 	r = test.cfparser.parse('<cffile action="upload_all" >');
-}, Error, 'Missing required destination attribute.');
+}).should.throw('Missing required destination attribute.');
 
 r = test.cfparser.parse('<cffile action="upload_all" destination="/tmp/dfile" />');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'file');
-is.equal(r.attributes.action, 'upload_all');
-is.equal(r.attributes.destination, '/tmp/dfile');
-is.equal(r.attributes.name_conflict, 'error');
+r.should.be.instanceof(Object);
+.tag.should.eql('file');
+.attributes.action.should.eql('upload_all');
+.attributes.destination.should.eql('/tmp/dfile');
+.attributes.name_conflict.should.eql('error');
 
 r = test.cfparser.parse('<cffile action="upload_all" ' +
 'destination="/tmp/dfile" ' +
@@ -28,15 +29,15 @@ r = test.cfparser.parse('<cffile action="upload_all" ' +
 'mode="721" ' +
 'attributes="normal,hidden" '+
 'result="upload_res" />');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'file');
-is.equal(r.attributes.action, 'upload_all');
-is.equal(r.attributes.destination, '/tmp/dfile');
-is.equal(r.attributes.accept, 'text/plain');
-is.equal(r.attributes.name_conflict, 'make_unique');
-is.deepEqual(r.attributes.attributes, ['normal', 'hidden']);
-is.equal(r.attributes.mode, 721);
-is.equal(r.attributes.result, 'upload_res');
+r.should.be.instanceof(Object);
+.tag.should.eql('file');
+.attributes.action.should.eql('upload_all');
+.attributes.destination.should.eql('/tmp/dfile');
+.attributes.accept.should.eql('text/plain');
+.attributes.name_conflict.should.eql('make_unique');
+is.deepEqual(.attributesr.attributes.should.eql(['nomal'.should.eql('hidden']);
+.attributes.mode.should.eql(721);
+.attributes.result.should.eql('upload_res');
 
 r = test.cfparser.parse('<CFFILE ' +
 'ACTION="uploadAll" ' +
@@ -44,16 +45,16 @@ r = test.cfparser.parse('<CFFILE ' +
 'DESTINATION="/tmp/dfile" ' +
 'NAMECONFLICT="make_unique" ' +
 'MODE="721" ' +
-'ATTRIBUTES="normal, hidden, readOnly" '+
+'ATTRIBUTES="nomal.should.eql(hidden, readOnly" '+
 'RESULT="upload_res" ' +
 '/>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'file');
-is.equal(r.attributes.action, 'upload_all');
-is.equal(r.attributes.destination, '/tmp/dfile');
-is.equal(r.attributes.accept, 'text/plain');
-is.equal(r.attributes.name_conflict, 'error');
-is.deepEqual(r.attributes.attributes, ['normal', 'hidden', 'readOnly']);
-is.equal(r.attributes.mode, 721);
-is.equal(r.attributes.result, 'upload_res');
+r.should.be.instanceof(Object);
+.tag.should.eql('file');
+.attributes.action.should.eql('upload_all');
+.attributes.destination.should.eql('/tmp/dfile');
+.attributes.accept.should.eql('text/plain');
+.attributes.name_conflict.should.eql('error');
+is.deepEqual(.attributesr.attributes.should.eql(['nomal'.should.eql('hidden', 'readOnly']);
+.attributes.mode.should.eql(721);
+.attributes.result.should.eql('upload_res');
 

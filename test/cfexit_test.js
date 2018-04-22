@@ -1,4 +1,5 @@
-const should = require('should'), test = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
 describe('Parsing the cfdefaultcase tag', function () {
   it("should work as expected with an all lowercase definition", function () {

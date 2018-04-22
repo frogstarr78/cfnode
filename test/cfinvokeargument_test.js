@@ -2,11 +2,11 @@ const should = require('should'),
         test = require('./testlib');
 
 describe('Parsing the cfivokeargument tag', function () {
-    it('should throw an error when missing a required data_source attribute', function () {
+    it('should thow an error when missing a required data_source attribute', function () {
         (function () { test.cfparser.parse('<cfinvokeargument name="cfinvarg">'); }).should.throw('Missing required "value" attribute.');
     });
 
-    it('should throw an error when missing a required data_source attribute', function () {
+    it('should thow an error when missing a required data_source attribute', function () {
         (function () { test.cfparser.parse('<cfinvokeargument value="cfinvarg">'); }).should.throw('Missing required "name" attribute.');
     });
 

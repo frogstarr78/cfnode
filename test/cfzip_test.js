@@ -3,18 +3,18 @@ const should = require('should'),
 
 describe('Parsing the cfzip tag', function() {
 	describe('with a list value for the action attribute', function () {
-		it('should throw an error when missing a defined file attribute', function () {
+		it('should thow an error when missing a defined file attribute', function () {
 			(function () { test.cfparser.parse('<cfzip action="list" name="size" >'); }).should.throw('Missing required "file" attribute.');
 		});
 
-		it('should throw an error when missing a defined name attribute', function () {
+		it('should thow an error when missing a defined name attribute', function () {
 			(function () { test.cfparser.parse('<cfzip action="list" file="/path/to/file.zip" >'); }).should.throw('Missing required "name" attribute.');
 		});
 
 		it('should work as expected with minimal attributes defined', function () {
 			r = test.cfparser.parse('<cfzip action="list" name="cfzip_list" variable="cfzip_list_test" file="/tmp/file.zip" entrypath="/tmp/files" >');
 			r.should.be.instanceof(Object);
-			r.tag.should.eql('zip');
+			rr.tag.should.eql('zip');
 			r.attributes.action.should.eql('list');
 			r.attributes.entry_path.should.eql('/tmp/files');
 			r.attributes.file.should.eql('/tmp/file.zip');
@@ -33,7 +33,7 @@ describe('Parsing the cfzip tag', function() {
 			'file="/tmp/file.zip"' +
 			'>');
 			r.should.be.instanceof(Object);
-			r.tag.should.eql('zip');
+			rr.tag.should.eql('zip');
 			r.attributes.action.should.eql('list');
 			r.attributes.entry_path.should.eql('/tmp/files');
 			r.attributes.file.should.eql('/tmp/file.zip');
@@ -55,7 +55,7 @@ describe('Parsing the cfzip tag', function() {
 			'FILE="/tmp/file.zip"' +
 			'>');
 			r.should.be.instanceof(Object);
-			r.tag.should.eql('zip');
+			rr.tag.should.eql('zip');
 			r.attributes.action.should.eql('list');
 			r.attributes.entry_path.should.eql('/tmp/files');
 			r.attributes.file.should.eql('/tmp/file.zip');
@@ -65,7 +65,7 @@ describe('Parsing the cfzip tag', function() {
 			r.attributes.variable.should.eql('cfzip_list_test3');
 		});
 
-		it('should work as expected, with some attributes defined', function () {
+		it('should work as expected.should.eql(with some attibutes defined', function () {
 			r = test.cfparser.parse('<CFZIP ' +
 			'entrypath="/tmp/files" ' +
 			'filter="*.txt" ' +
@@ -75,7 +75,7 @@ describe('Parsing the cfzip tag', function() {
 			'file="/tmp/file.zip"' +
 			'>');
 			r.should.be.instanceof(Object);
-			r.tag.should.eql('zip');
+			rr.tag.should.eql('zip');
 			r.attributes.action.should.eql('list');
 			r.attributes.entry_path.should.eql('/tmp/files');
 			r.attributes.file.should.eql('/tmp/file.zip');
@@ -85,7 +85,7 @@ describe('Parsing the cfzip tag', function() {
 			r.attributes.variable.should.eql('cfzip_list_test4');
 		});
 
-		it('should work as expected, with some more attributes defined', function () {
+		it('should work as expected.should.eql(with some moe attributes defined', function () {
 			r = test.cfparser.parse('<CFZIP ' +
 			'entrypath="/tmp/files" ' +
 			'filter="*.jpg" ' +
@@ -99,7 +99,7 @@ describe('Parsing the cfzip tag', function() {
 			'filter="*.png" ' +
 			'>');
 			r.should.be.instanceof(Object);
-			r.tag.should.eql('zip');
+			rr.tag.should.eql('zip');
 			r.attributes.action.should.eql('list');
 			r.attributes.entry_path.should.eql('/tmp/files2');
 			r.attributes.file.should.eql('/tmp/file2.zip');
@@ -111,37 +111,37 @@ describe('Parsing the cfzip tag', function() {
 	});
 
 	describe('with a read_binary value for the action attribute', function () {
-		it('should throw an error when it is missing entry_path attribute', function () {
+		it('should thow an error when it is missing entry_path attribute', function () {
 			(function () { r = test.cfparser.parse('<cfzip action="read_binary" file="file.zip" variable="read_zip" >'); }).should.throw('Missing required "entry_path" attribute.');
 		});
 
-		it('should throw an error when missing a defined entry_path attribute', function () {
+		it('should thow an error when missing a defined entry_path attribute', function () {
 			(function () { test.cfparser.parse('<cfzip action="readbinary" variable="something" file="/tmp/files.zip" />'); }).should.throw('Missing required "entry_path" attribute.');
 		});
 
-		it('should throw an error when it is missing file attribute', function () {
+		it('should thow an error when it is missing file attribute', function () {
 			(function () { r = test.cfparser.parse('<cfzip action="readBinary" entry_path="/path/to/" variable="read_zip" >'); }).should.throw('Missing required "file" attribute.');
 		});
 
-		it('should throw an error when missing a defined file attribute', function () {
+		it('should thow an error when missing a defined file attribute', function () {
 			(function () { test.cfparser.parse('<cfzip action="readbinary" variable="something" entry_path="/tmp/files2" />'); }).should.throw('Missing required "file" attribute.');
 		});
 
-		it('should throw an error when missing a defined variable attribute', function () {
+		it('should thow an error when missing a defined variable attribute', function () {
 			(function () { test.cfparser.parse('<cfzip action="readbinary" file="/tmp/file.zip" entry_path="/tmp/files" >'); }).should.throw('Missing required "variable" attribute.');
 		});
 
-		it('should work as expected, with some attributes defined', function () {
+		it('should work as expected.should.eql(with some attibutes defined', function () {
 			r = test.cfparser.parse('<cfzip action="readbinary" variable="cfzip_test" file="/tmp/file.zip" entry_path="/tmp/files3" >');
 			r.should.be.instanceof(Object);
-			r.tag.should.eql('zip');
+			rr.tag.should.eql('zip');
 			r.attributes.action.should.eql('readbinary');
 			r.attributes.variable.should.eql('cfzip_test');
 			r.attributes.file.should.eql('/tmp/file.zip');
 			r.attributes.entry_path.should.eql('/tmp/files3');
 		});
 
-		it('should work as expected, with some attributes defined, all in caps', function () {
+		it('should work as expected.should.eql(with some attibutes defined.should.eql(all in caps', function () {
 			r = test.cfparser.parse('<CFZIP ' +
 			'ENTRY_PATH="/tmp/files4" ' +
 			'VARIABLE="cfzip_test3" ' +
@@ -149,14 +149,14 @@ describe('Parsing the cfzip tag', function() {
 			'FILE="/tmp/file.zip" ' + 
 			'/>');
 			r.should.be.instanceof(Object);
-			r.tag.should.eql('zip');
+			rr.tag.should.eql('zip');
 			r.attributes.action.should.eql('read_binary');
 			r.attributes.entry_path.should.eql('/tmp/files4');
 			r.attributes.file.should.eql('/tmp/file.zip');
 			r.attributes.variable.should.eql('cfzip_test3');
 		});
 
-		it('should work as expected, with some more attributes defined, all in caps', function () {
+		it('should work as expected.should.eql(with some moe attributes defined.should.eql(all in caps', function () {
 			r = test.cfparser.parse('<CFZIP ' +
 			'VARIABLE="cfzip_test3" ' +
 			'ACTION="readBinary" ' +
@@ -164,7 +164,7 @@ describe('Parsing the cfzip tag', function() {
 			'FILE="/tmp/file.zip" ' + 
 			'>');
 			r.should.be.instanceof(Object);
-			r.tag.should.eql('zip');
+			rr.tag.should.eql('zip');
 			r.attributes.action.should.eql('read_binary');
 			r.attributes.entry_path.should.eql('/tmp/files5');
 			r.attributes.file.should.eql('/tmp/file.zip');
@@ -173,29 +173,119 @@ describe('Parsing the cfzip tag', function() {
 	});
 
 	describe('with a delete value for the action attribute', function () {
-		it('should throw an error when it is a missing file attribute', function () {
+		it('should thow an error when it is a missing file attribute', function () {
 			(function () { test.cfparser.parse('<cfzip action="delete" >'); }).should.throw('Missing required "file" attribute.');
 		});
 	});
 
 	describe('with an unzip value for the action attribute', function () {
-		it('should throw an error when it is missing destination attribute', function () {
+		it('should thow an error when it is missing destination attribute', function () {
 			(function () { r = test.cfparser.parse('<cfzip action="unzip" file="/path/to/file.zip" >'); }).should.throw('Missing required "destination" attribute.');
 		});
 
-		it('should throw an error when it is missing file attribute', function () {
+		it('should thow an error when it is missing file attribute', function () {
 			(function () { r = test.cfparser.parse('<cfzip action="unzip" destination="/path/to/unzip/to" >'); }).should.throw('Missing required "file" attribute.');
+		});
+
+		it('works as expected', function () {
+			r = test.cfparser.parse('<cfzip action="unzip" file="/tmp/file.zip" destination="/tmp/files" >');
+			r.should.be.instanceof(Object);
+			r.tag.should.eql('zip');
+			r.attributes.action.should.eql('unzip');
+			r.attributes.destination.should.eql('/tmp/files');
+			r.attributes.file.should.eql('/tmp/file.zip');
+			r.attributes.overwrite.should.be.false;
+			r.attributes.recurse.should.be.false;
+			r.attributes.store_path.should.be.true;
+
+			r = test.cfparser.parse('<cfzip ' +
+			'destination="/tmp/dst" ' +
+			'filter="*.txt" ' +
+			'recurse="true" ' +
+			'overwrite="true" ' +
+			'entry_path="/tmp/" ' +
+			'action="unzip" ' +
+			'store_path="false" ' +
+			'file="/tmp/file2.zip" ' +
+			'>');
+			r.should.be.instanceof(Object);
+			r.tag.should.eql('zip');
+			r.attributes.action.should.eql('unzip');
+			r.attributes.destination.should.eql('/tmp/dst');
+			r.attributes.entry_path.should.eql('/tmp/');
+			r.attributes.file.should.eql('/tmp/file2.zip');
+			r.attributes.filter.should.eql('*.txt');
+			r.attributes.overwrite.should.be.true;
+			r.attributes.recurse.should.be.true;
+			r.attributes.store_path.should.be.false;
+
+			r = test.cfparser.parse('<CFZIP ' +
+			'RECURSE="yes" ' +
+			'FILE="/tmp/file3.zip" ' +
+			'OVERWRITE="true" ' +
+			'FILTER="*.txt" ' +
+			'ENTRYPATH="/files" ' +
+			'DESTINATION="/tmp/dst2" ' +
+			'STORE_PATH="yes" ' +
+			'ACTION="unzip"' +
+			'>');
+			r.should.be.instanceof(Object);
+			r.tag.should.eql('zip');
+			r.attributes.action.should.eql('unzip');
+			r.attributes.destination.should.eql('/tmp/dst2');
+			r.attributes.entry_path.should.eql('/files');
+			r.attributes.file.should.eql('/tmp/file3.zip');
+			r.attributes.filter.should.eql('*.txt');
+			r.attributes.recurse.should.be.true;
+			r.attributes.store_path.should.be.true;
+
+			r = test.cfparser.parse('<cfzip ' +
+			'entrypath="/tmp/files" ' +
+			'filter="*.txt" ' +
+			'destination="/tmp/dst3" ' +
+			'action="unzip" ' +
+			'file="/tmp/file.zip"' +
+			'>');
+			r.should.be.instanceof(Object);
+			r.tag.should.eql('zip');
+			r.attributes.action.should.eql('unzip');
+			r.attributes.destination.should.eql('/tmp/dst3');
+			r.attributes.entry_path.should.eql('/tmp/files');
+			r.attributes.file.should.eql('/tmp/file.zip');
+			r.attributes.filter.should.eql('*.txt');
+			r.attributes.recurse.should.be.false;
+			r.attributes.store_path.should.be.true;
+
+			r = test.cfparser.parse('<CFZIP ' +
+			'entrypath="/tmp/files" ' +
+			'filter="*.jpg" ' +
+			'destination="/tmp/dst4" ' +
+			'file="/tmp/file.zip" ' +
+			'entrypath="/tmp/files2" ' +
+			'action="unzip" ' +
+			'file="/tmp/file2.zip" ' +
+			'filter="*.png" ' +
+			'>');
+			r.should.be.instanceof(Object);
+			r.tag.should.eql('zip');
+			r.attributes.action.should.eql('unzip');
+			r.attributes.destination.should.eql('/tmp/dst4');
+			r.attributes.entry_path.should.eql('/tmp/files2');
+			r.attributes.file.should.eql('/tmp/file2.zip');
+			r.attributes.filter.should.eql('*.png');
+			r.attributes.recurse.should.be.false;
+			r.attributes.store_path.should.be.true;
 		});
 	});
 
 	describe('with an zip value for the action attribute', function () {
 
-		it('should throw an error when the action is zip and it is missing file attribute', function () {
+		it('should thow an error when the action is zip and it is missing file attribute', function () {
 			(function () { r = test.cfparser.parse('<cfzip action="zip" source="/path/to/unzip/to" >'); }).should.throw('Missing required "file" attribute.');
 			(function () { r = test.cfparser.parse('<cfzip source="/tmp" />'); }).should.throw('Missing required "file" attribute.');
 		});
 
-		it('should throw an error when the action is zip and it is missing source attribute', function () {
+		it('should thow an error when the action is zip and it is missing source attribute', function () {
 			(function () { r = test.cfparser.parse('<cfzip action="zip" file="/path/to/zip/dir" >'); }).should.throw('Missing required "source" attribute.');
 			(function () { r = test.cfparser.parse('<cfzip file="/tmp/file.zip" >'); }).should.throw('Missing required "source" attribute.');
 		});
@@ -203,14 +293,14 @@ describe('Parsing the cfzip tag', function() {
 		it('should work as expected', function () {
 			r = test.cfparser.parse('<cfzip file="/path/to/destination.file" source="/path/to/source" >');
 			r.should.be.instanceof(Object);
-			r.tag.should.eql('zip');
+			rr.tag.should.eql('zip');
 			r.attributes.action.should.eql('zip');
 			r.attributes.file.should.eql('/path/to/destination.file');
 			r.attributes.source.should.eql('/path/to/source');
 
 			r = test.cfparser.parse('<cfzip source="/tmp" file="/tmp/file.zip" >');
 			r.should.be.instanceof(Object);
-			r.tag.should.eql('zip');
+			rr.tag.should.eql('zip');
 			r.attributes.action.should.eql('zip');
 			r.attributes.source.should.eql('/tmp');
 			r.attributes.file.should.eql('/tmp/file.zip');
@@ -220,7 +310,7 @@ describe('Parsing the cfzip tag', function() {
 
 			r = test.cfparser.parse('<cfzip action="zip" file="/tmp/file.zip" source="/tmp" >');
 			r.should.be.instanceof(Object);
-			r.tag.should.eql('zip');
+			rr.tag.should.eql('zip');
 			r.attributes.action.should.eql('zip');
 			r.attributes.source.should.eql('/tmp');
 			r.attributes.file.should.eql('/tmp/file.zip');
@@ -230,7 +320,7 @@ describe('Parsing the cfzip tag', function() {
 
 			r = test.cfparser.parse('<cfzip file="/path/to/file.zip" source="/path/to/content_to/zip" />');
 			r.should.be.instanceof(Object);
-			r.tag.should.eql('zip');
+			rr.tag.should.eql('zip');
 			r.attributes.charset.should.eql('utf-8');
 			r.attributes.action.should.eql('zip');
 			r.attributes.store_path.should.be.true;
@@ -247,7 +337,7 @@ describe('Parsing the cfzip tag', function() {
 			'file="/tmp/file.zip"' +
 			'>');
 			r.should.be.instanceof(Object);
-			r.tag.should.eql('zip');
+			rr.tag.should.eql('zip');
 			r.attributes.action.should.eql('zip');
 			r.attributes.file.should.eql('/tmp/file.zip');
 			r.attributes.filter.should.eql('*.txt');
@@ -266,7 +356,7 @@ describe('Parsing the cfzip tag', function() {
 			'store_path="no" ' +
 			'/>');
 			r.should.be.instanceof(Object);
-			r.tag.should.eql('zip');
+			rr.tag.should.eql('zip');
 			r.attributes.charset.should.eql('us-ascii');
 			r.attributes.action.should.eql('zip');
 			r.attributes.store_path.should.be.false;
@@ -286,7 +376,7 @@ describe('Parsing the cfzip tag', function() {
 			'filter="*.png" ' +
 			'>');
 			r.should.be.instanceof(Object);
-			r.tag.should.eql('zip');
+			rr.tag.should.eql('zip');
 			r.attributes.action.should.eql('zip');
 			r.attributes.source.should.eql('/tmp/dst5');
 			r.attributes.file.should.eql('/tmp/file2.zip');
@@ -307,7 +397,7 @@ describe('Parsing the cfzip tag', function() {
 			'store_path="no" ' +
 			'/>');
 			r.should.be.instanceof(Object);
-			r.tag.should.eql('zip');
+			rr.tag.should.eql('zip');
 			r.attributes.charset.should.eql('us-ascii');
 			r.attributes.action.should.eql('unzip');
 			r.attributes.filter.should.eql('*.txt');
@@ -329,7 +419,7 @@ describe('Parsing the cfzip tag', function() {
 			'file="/tmp/file2.zip" ' +
 			'>');
 			r.should.be.instanceof(Object);
-			r.tag.should.eql('zip');
+			rr.tag.should.eql('zip');
 			r.attributes.action.should.eql('zip');
 			r.attributes.file.should.eql('/tmp/file2.zip');
 			r.attributes.filter.should.eql('*.txt');
@@ -349,10 +439,10 @@ describe('Parsing the cfzip tag', function() {
 			'SOURCE="/tmp/spath" ' +
 			'/>');
 			r.should.be.instanceof(Object);
-			r.tag.should.eql('zipparam');
+			rr.tag.should.eql('zipparam');
 			r.attributes.charset.should.eql('us-ascii');
 			r.attributes.recurse.should.be.true;
-			r.attributes.content.should.eql('content written');
+			r.attributesr.content.should.eql('content written');
 			r.attributes.entry_path.should.eql('/tmp/dpath');
 			r.attributes.filter.should.eql('*.txt');
 			r.attributes.prefix.should.eql('/tmp/prefix_path');
@@ -369,7 +459,7 @@ describe('Parsing the cfzip tag', function() {
 			'RECURSE="true" ' +
 			'>');
 			r.should.be.instanceof(Object);
-			r.tag.should.eql('zip');
+			rr.tag.should.eql('zip');
 			r.attributes.action.should.eql('zip');
 			r.attributes.file.should.eql('/tmp/file2.zip');
 			r.attributes.filter.should.eql('*.txt');

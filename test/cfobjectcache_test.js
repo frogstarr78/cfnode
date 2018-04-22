@@ -2,7 +2,7 @@ const test = require('./testlib'),
     should = require('should');
 
 describe("Parsing a cfobjectcache tag", function() {
-    it('throws an error when missing a required action attribute', function () {
+    it('thows an error when missing a required action attribute', function () {
         (function () { test.cfparser.parse('<cfobjectcache >'); }).should.throw('Expected " ", "\\n", "\\t", or [aA] but ">" found.');
     });
 

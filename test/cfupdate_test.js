@@ -1,7 +1,7 @@
 const should = require('should'), 
         test = require('./testlib');
 
-describe('Parsing a cf tag', function () {
+describe('Parsing a cfupdate tag', function () {
     it('throws an error when missing required attributes', function () {
         (function () { test.cfparser.parse('<cfupdate>'); }).should.throw('Expected " ", "\\n", or "\\t" but ">" found.');
         (function () { test.cfparser.parse('<cfupdate />'); }).should.throw('Expected " ", "\\n", "\\t", [dD], [fF], [pP], [tT], or [uU] but "/" found.');

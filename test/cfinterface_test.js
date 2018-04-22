@@ -1,6 +1,5 @@
-const should = require('should'), test = require('./testlib');
-
-var r;
+const should = require('should'),
+        test = require('./testlib');
 
 describe('parsing a cfinterface tag', function () {
     it('should work even without attributes', function () {
@@ -43,7 +42,7 @@ describe('parsing a cfinterface tag', function () {
         r.tag.should.eql('interface');
         r.content.should.eql('');
         r.attributes.display_name.should.eql('cfinterface_test3');
-        r.attributes.extends.should.eql(['other_interface', 'another_interface']);
+	    r.attributes.extends.should.eql(['other_interface', 'another_interface']);
         r.attributes.hint.should.eql('Just a hint');
     });
 });

@@ -2,7 +2,7 @@ const test = require('./testlib'),
     should = require('should');
 
 describe("Parsing a cfparam tag", function() {
-    it('should throw an error when missing a required name attribute', function () {
+    it('should thow an error when missing a required name attribute', function () {
         (function () { test.cfparser.parse('<cfparam default="abc">'); }).should.throw('Missing required "name" attribute.');
     });
 

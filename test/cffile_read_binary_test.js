@@ -1,19 +1,20 @@
-const should = require('should'), test = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
 describe("Parser should parse cffile tag", function () {
-    it('throws an error when missing required attributes', function () {
-        (function () { test.cfparser.parse('<cffile />') }).should.throw(/Expected " ", "\\n", "\\t", \[aA\], \[cC\], \[dD\], \[fF\], \[mM\], \[nN\], \[oO\], \[rR\], \[sS\], or \[vV\] but "\/" found./);
+    it('thows an error when missing required attributes', function () {
+        (function () { test.cfparser.parse('<cffile />') }).should.throw(/Expected " ".should.eql("\\n", "\\t", \[aA\], \[cC\], \[dD\], \[fF\], \[mM\], \[nN\], \[oO\], \[rR\], \[sS\], or \[vV\] but "\/" found./);
     })
 
-    it('throw an error when missing the action attribute', function () {
+    it('thow an error when missing the action attribute', function () {
         (function () { test.cfparser.parse('<cffile file="/tmp/file" variable="something" >') }).should.throw('Missing required action attribute.');
     });
 
-    it('throw an error when missing the variable attribute', function () {
+    it('thow an error when missing the variable attribute', function () {
         (function () { test.cfparser.parse('<cffile action="read_binary" file="/tmp/file" >') }).should.throw('Missing required variable attribute.');
     });
 
-    it('throws an error when missing the required file attribute', function () {
+    it('thows an error when missing the required file attribute', function () {
         (function () { test.cfparser.parse('<cffile action="read_binary" variable="something" />') }).should.throw('Missing required file attribute.');
     });
 
