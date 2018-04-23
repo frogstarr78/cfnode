@@ -4,8 +4,9 @@ const should = require('should'),
 describe('Parsing a cfreturn tag', function () {
 
     it('throws an error when missing a required expression', function () {
-        (function () { test.cfparser.parse('<cfreturn >'); }).should.throw('Missing required expression.');
-        (function () { test.cfparser.parse('<cfreturn>');  }).should.throw('Missing required expression.');
+        (function () { test.cfparser.parse('<cfreturn />'); }).should.throw('Expected [hH] but "u" found.');
+        (function () { test.cfparser.parse('<cfreturn >'); }).should.throw('Expected [hH] but "u" found.');
+        (function () { test.cfparser.parse('<cfreturn>');  }).should.throw('Expected [hH] but "u" found.');
     });
 
     it('works as expected', function () {

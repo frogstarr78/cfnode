@@ -1,8 +1,9 @@
 const path = require('path'),
-	fs   = require('fs'),
-	join = path.join,
-	util = require('util'),
-	colors = require('colors');
+	  fs   = require('fs'),
+	  join = path.join,
+	  util = require('util'),
+	  colors = require('colors'),
+      is = require('assert');
 
 exports.cfparser = require(path.join(__dirname, '..', 'lib', 'cf.js'))
 exports.exit = process.exit;
@@ -73,7 +74,7 @@ exports.equalDate = function (received, expected, message) {
 exports.equalTime = function (received, expected, message) {
 	var comparisons = ['getHours', 'getMinutes', 'getSeconds'];
 	if ( !_equalDateLike(received, expected, comparisons) ) {
-		is.fail(rec, exp, message, func, is.equalDate);
+		is.fail(rec, exp, message, 'equalTime', is.equalDate);
 	}
 }
 

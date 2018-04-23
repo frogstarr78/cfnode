@@ -228,7 +228,7 @@ describe('Parsing the cfzip tag', function() {
 			r.attributes.entry_path.should.eql('/tmp/files3');
 		});
 
-		it('should work as expected.should.eql(with some attibutes defined.should.eql(all in caps', function () {
+		it('should work as expected, with some attibutes defined, all in caps', function () {
 			r = test.cfparser.parse('<CFZIP ' +
 			'ENTRY_PATH="/tmp/files4" ' +
 			'VARIABLE="cfzip_test3" ' +
@@ -243,7 +243,7 @@ describe('Parsing the cfzip tag', function() {
 			r.attributes.variable.should.eql('cfzip_test3');
 		});
 
-		it('should work as expected.should.eql(with some moe attributes defined.should.eql(all in caps', function () {
+		it('should work as expected, with some moe attributes defined, all in caps', function () {
 			r = test.cfparser.parse('<CFZIP ' +
 			'VARIABLE="cfzip_test3" ' +
 			'ACTION="readBinary" ' +

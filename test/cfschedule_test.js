@@ -50,6 +50,17 @@ describe('Parsing a cfschedule tag', function () {
     });
 
     it('works as expected', function () {
+        r = test.cfparser.parse('<cfschedule action="run" task="cfschedule_test2" startDate="now()">');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('schedule');
+        r.attributes.action.should.eql('run');
+        r.attributes.task.should.eql('cfschedule_test2');
+        r.attributes.port.should.eql(80);
+        r.attributes.proxy_port.should.eql(80);
+        r.attributes.publish.should.be.false;
+        r.attributes.resolve_url.should.be.false;
+        r.attributes.start_date.should.be.instanceof(Date);
+
         r = test.cfparser.parse('<cfschedule action="run" task="cfschedule_test2">');
         r.should.be.instanceof(Object);
         r.tag.should.eql('schedule');
