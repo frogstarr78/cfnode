@@ -17,7 +17,7 @@ describe("Parsing a cflogin tag ", function() {
         "\n</cflogin>");
         r.should.be.instanceof(Object);
         r.tag.should.eql('login');
-        rr.content.should.eql("\n");
+        r.content.should.eql("\n");
         r.attributes.application_token.should.eql('CFAUTHORIZATION_cflogin');
         r.attributes.idle_timeout.should.eql(180);
         r.attributes.cookie_domain.should.eql('.example.com');
@@ -27,7 +27,7 @@ describe("Parsing a cflogin tag ", function() {
         "\n</CFLOGIN>");
         r.should.be.instanceof(Object);
         r.tag.should.eql('login');
-        rr.content.should.eql("\nSome stuff here\n");
+        r.content.should.eql("\nSome stuff here\n");
         r.attributes.application_token.should.eql('CFAUTHORIZATION_cflogin');
         r.attributes.idle_timeout.should.eql(180);
         r.attributes.cookie_domain.should.eql('.example.com');

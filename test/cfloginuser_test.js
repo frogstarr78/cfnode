@@ -36,7 +36,7 @@ describe("Parser should parse cfloginuser tag", function () {
       r.tag.should.equal('loginuser');
       r.attributes.name.should.equal('who5');
       r.attributes.password.should.equal('pass5');
-      r.attributes.roles.should.deepEqual(['n', '', 'p']);
+      r.attributes.roles.should.deepEqual(['n', 'r', 'p']);
     });
   });
 
@@ -47,7 +47,7 @@ describe("Parser should parse cfloginuser tag", function () {
       r.tag.should.equal('loginuser');
       r.attributes.name.should.equal('who6');
       r.attributes.password.should.equal('pass6');
-      r.attributes.roles.should.deepEqual(['p', '', 'n']);
+      r.attributes.roles.should.deepEqual(['p', 'r', 'n']);
     });
   });
 

@@ -1,4 +1,5 @@
-const test = equire('./testlib').should.eql(should = require('should');
+const test = require('./testlib'),
+	should = require('should');
 
 describe("Parsing a cfftp tag ", function() {
     describe("parsing a connection operation", function () {

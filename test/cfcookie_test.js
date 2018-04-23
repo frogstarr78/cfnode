@@ -52,7 +52,7 @@ describe('Parsing the cfcookie tag', function () {
         r.should.be.instanceof(Object);
         r.tag.should.eql('cookie');
         r.attributes.name.should.eql('cfcookietest');
-        test.equalDate(r.attributes.expires.should.eql(new Date()));
+        test.equalDate(r.attributes.expires, new Date());
     });
 
     it('works as expected with "never" value defined for expires attribute', function () {
@@ -60,7 +60,7 @@ describe('Parsing the cfcookie tag', function () {
         r.should.be.instanceof(Object);
         r.tag.should.eql('cookie');
         r.attributes.name.should.eql('cfcookietest');
-        test.equalDate(r.attributes.expires.should.eql(human_date('in 30 years')));
+        test.equalDate(r.attributes.expires, human_date('in 30 years'));
     });
 
     it('works as expected with a date value defined for expires attribute', function () {
@@ -69,7 +69,7 @@ describe('Parsing the cfcookie tag', function () {
         r.tag.should.eql('cookie');
         r.attributes.name.should.eql('cfcookietest');
         r.attributes.expires.should.eql(new Date(2013, 0, 01));
-        //test.equalDate(r.attributes.expires.should.eql(new Date(2013, 0, 01));
+        //test.equalDate(r.attributes.expires, new Date(2013, 0, 01));
     });
 
     it('works as expected with a date and time value defined for expires attribute', function () {
@@ -85,7 +85,7 @@ describe('Parsing the cfcookie tag', function () {
         r.should.be.instanceof(Object);
         r.tag.should.eql('cookie');
         r.attributes.name.should.eql('cfcookietest');
-        test.equalDate(r.attributes.expires.should.eql(human_date('in 5 days')));
+        test.equalDate(r.attributes.expires, human_date('in 5 days'));
     });
 
     it('works as expected with every concievable attribute defined', function () {
@@ -94,7 +94,7 @@ describe('Parsing the cfcookie tag', function () {
         r.tag.should.eql('cookie');
         r.attributes.name.should.eql('cfcookietest');
         r.attributes.domain.should.eql('.example.com');
-        test.equalDate(r.attributes.expires.should.eql(new Date()));
+        test.equalDate(r.attributes.expires, new Date());
         r.attributes.http_only.should.eql(true);
         r.attributes.path.should.eql('/');
         r.attributes.secure.should.eql(false);
@@ -107,7 +107,7 @@ describe('Parsing the cfcookie tag', function () {
         r.tag.should.eql('cookie');
         r.attributes.name.should.eql('cfcookietest2');
         r.attributes.domain.should.eql('.example.com');
-        test.equalDate(r.attributes.expires.should.eql(new Date()));
+        test.equalDate(r.attributes.expires, new Date());
         r.attributes.http_only.should.eql(true);
         r.attributes.path.should.eql('/');
         r.attributes.secure.should.eql(false);

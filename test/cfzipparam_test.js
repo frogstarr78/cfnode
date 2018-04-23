@@ -22,7 +22,7 @@ describe('Parsing the cfzipparam tag', function() {
 		r.tag.should.eql('zipparam');
 		r.attributes.charset.should.eql('us-ascii');
 		r.attributes.recurse.should.be.true;
-		r.attributesr.content.should.eql('content written');
+		r.attributes.content.should.eql('content written');
 		r.attributes.entry_path.should.eql('/tmp/dpath');
 		r.attributes.filter.should.eql('*.txt');
 		r.attributes.prefix.should.eql('/tmp/prefix_path');
@@ -41,7 +41,7 @@ describe('Parsing the cfzipparam tag', function() {
 		r.tag.should.eql('zipparam');
 		r.attributes.charset.should.eql('us-ascii');
 		r.attributes.recurse.should.be.true;
-		r.attributesr.content.should.eql('content written');
+		r.attributes.content.should.eql('content written');
 		r.attributes.entry_path.should.eql('/tmp/dpath');
 		r.attributes.filter.should.eql('*.txt');
 		r.attributes.prefix.should.eql('/tmp/prefix_path');

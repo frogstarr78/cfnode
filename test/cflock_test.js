@@ -3,7 +3,7 @@ const should = require('should'),
 
 describe("Parsing a cflock tag", function() {
     it('thows an error when missing a required attributes', function () {
-        (function () { test.cfparser.parse('<cflock>'); }).should.throw('Expected " ".should.eql("\\n", or "\\t" but ">" found.');
+        (function () { test.cfparser.parse('<cflock>'); }).should.throw('Expected " ", "\\n", or "\\t" but ">" found.');
     })
 
     it('thows an error when missing a required timeout attribute', function () {
@@ -23,7 +23,7 @@ describe("Parsing a cflock tag", function() {
         "\n</cflock>");
         r.should.be.instanceof(Object);
         r.tag.should.eql('lock');
-        rr.content.should.eql("\n");
+        r.content.should.eql("\n");
         r.attributes.timeout.should.eql(5);
         r.attributes.name.should.eql('cflock');
         r.attributes.throw_on_timeout.should.be.false;
@@ -34,7 +34,7 @@ describe("Parsing a cflock tag", function() {
         "\n</CFLOCK>");
         r.should.be.instanceof(Object);
         r.tag.should.eql('lock');
-        rr.content.should.eql("\nSome stuff here\n");
+        r.content.should.eql("\nSome stuff here\n");
         r.attributes.timeout.should.eql(6);
         r.attributes.name.should.eql('cflock2');
         r.attributes.throw_on_timeout.should.be.false;
