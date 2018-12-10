@@ -33,7 +33,8 @@
   },
   "private": true,
   "dependencies": {
-    "date.js": "0.2.0"
+    "date.js": "^0.3.3",
+    "mocha": "^5.2.0"
   },
   "devDependencies": {
     "colors": "0.6.2",
