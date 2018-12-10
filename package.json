@@ -32,7 +32,7 @@
   },
   "private": true,
   "dependencies": {
-    "date.js": "0.2.0"
+    "date.js": "^0.3.3"
   },
   "devDependencies": {
     "pegjs": "0.7.0",
