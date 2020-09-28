@@ -1,33 +1,28 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-//	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+const should = require('should'),
+	    test = require('./testlib');
 
-var r;
+describe('Parsing the cfflush tag', function () {
+	it('should work as expected', function () {
+		r = test.cfparser.parse('<cffinally ></cffinally>');
+		r.should.be.instanceof(Object);
+		r.tag.should.eql('finally');
+		r.content.should.eql('');
 
-r = cf.parse('<cffinally></cffinally>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'finally');
-is.equal(r.content, '');
+		r = test.cfparser.parse('<CFFINALLY></CFFINALLY>');
+		r.should.be.instanceof(Object);
+		r.tag.should.eql('finally');
+		r.content.should.eql('');
 
-r = cf.parse('<CFFINALLY></CFFINALLY>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'finally');
-is.equal(r.content, '');
+		r = test.cfparser.parse('<CFFINALLY>' +
+		"\n</CFFINALLY>");
+		r.should.be.instanceof(Object);
+		r.tag.should.eql('finally');
+		r.content.should.eql("\n");
 
-r = cf.parse('<CFFINALLY>' +
-"\n</CFFINALLY>");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'finally');
-is.equal(r.content, "\n");
-
-r = cf.parse('<CFFINALLY>' +
-"\nBetter stuff here\n</CFFINALLY>");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'finally');
-is.equal(r.content, "\nBetter stuff here\n");
-
-testlib.die("Success!", 0);
+		r = test.cfparser.parse('<CFFINALLY>' +
+		"\nBetter stuff here\n</CFFINALLY>");
+		r.should.be.instanceof(Object);
+		r.tag.should.eql('finally');
+		r.content.should.eql("\nBetter stuff here\n");
+	});
+});

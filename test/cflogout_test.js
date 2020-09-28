@@ -1,21 +1,25 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-//	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
-var r;
+describe("Parser should parse cflogout tag", function () {
+  it("should do what we expect with a tag that is all lowecase", function (){
+    r = test.cfparser.parse('<cflogout>');
+    r.should.be.instanceof(Object);
+    r.tag.should.equal('logout');
+    r.content.should.equal('');
+  });
 
-r = cf.parse('<cflogout>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'logout');
-is.equal(r.content, '');
+  it("should do what we expect with a tag that is all uppecase", function (){
+    r = test.cfparser.parse('<CFLOGOUT>');
+    r.should.be.instanceof(Object);
+    r.tag.should.equal('logout');
+    r.content.should.equal('');
+  });
 
-r = cf.parse('<CFLOGOUT>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'logout');
-is.equal(r.content, '');
-
-testlib.die("Success!", 0);
+  it("should do what we expect with a tag that is mixed case", function (){
+    r = test.cfparser.parse('<CFLogout>');
+    r.should.be.instanceof(Object);
+    r.tag.should.equal('logout');
+    r.content.should.equal('');
+  });
+});

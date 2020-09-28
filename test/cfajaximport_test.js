@@ -1,35 +1,34 @@
-var is = require('assert'),
-	PEG= require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
-var r;
-r = cf.parse('<cfajaximport />');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'ajaximport');
-is.equal(r.attributes.css_src, '/css/');
-is.equal(r.attributes.script_src, '/scripts/');
+describe("Parser parsing a cfajaximport tag", function () {
+    it('works as expected', function () {
+        r = test.cfparser.parse('<cfajaximport />');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('ajaximport');
+        r.attributes.css_src.should.eql('/css/');
+        r.attributes.script_src.should.eql('/scripts/');
 
-r = cf.parse('<CFAJAXIMPORT>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'ajaximport');
-is.equal(r.attributes.css_src, '/css/');
-is.equal(r.attributes.script_src, '/scripts/');
+        r = test.cfparser.parse('<CFAJAXIMPORT>');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('ajaximport');
+        r.attributes.css_src.should.eql('/css/');
+        r.attributes.script_src.should.eql('/scripts/');
 
-r = cf.parse("<cfajaximport cssSrc='/scripts/' scriptSrc='/javascript/' tags='CFFORM,CFDIV' params='#{googlemapkey=\"thekey\"}#'>");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'ajaximport');
-is.equal(r.attributes.css_src, '/scripts/');
-is.equal(r.attributes.script_src, '/javascript/');
-is.deepEqual(r.attributes.tags, ['CFFORM', 'CFDIV']);
-is.equal(r.attributes.params, '#{googlemapkey="thekey"}#');
+        r = test.cfparser.parse("<cfajaximport cssSrc='/scripts/' scriptSrc='/javascript/' tags='CFFORM,CFDIV' params='#{googlemapkey=\"thekey\"}#'>");
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('ajaximport');
+        r.attributes.css_src.should.eql('/scripts/');
+        r.attributes.script_src.should.eql('/javascript/');
+        r.attributes.tags.should.eql(['CFFORM', 'CFDIV']);
+        r.attributes.params.should.eql('#{googlemapkey="thekey"}#');
 
-r = cf.parse("<CFAJAXIMPORT CSSSRC='/scripts/' SCRIPTSRC='/javascript/' TAGS='CFFORM,CFDIV' PARAMS='#{googlemapkey=\"thekey\"}#' />");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'ajaximport');
-is.equal(r.attributes.css_src, '/scripts/');
-is.equal(r.attributes.script_src, '/javascript/');
-is.deepEqual(r.attributes.tags, ['CFFORM', 'CFDIV']);
-is.equal(r.attributes.params, '#{googlemapkey="thekey"}#');
-
-testlib.die("Success!", 0);
+        r = test.cfparser.parse("<CFAJAXIMPORT CSSSRC='/scripts/' SCRIPTSRC='/javascript/' TAGS='CFFORM,CFDIV' PARAMS='#{googlemapkey=\"thekey\"}#' />");
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('ajaximport');
+        r.attributes.css_src.should.eql('/scripts/');
+        r.attributes.script_src.should.eql('/javascript/');
+        r.attributes.tags.should.eql(['CFFORM', 'CFDIV']);
+        r.attributes.params.should.eql('#{googlemapkey="thekey"}#');
+    });
+});

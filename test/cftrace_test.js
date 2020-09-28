@@ -1,62 +1,65 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-//	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+const test = require('./testlib'),
+    should = require('should');
 
-var r;
+describe("Parsing a cftrace tag", function() {
+    it('works as expected', function () {
+        r = test.cfparser.parse('<cftrace></cftrace>');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('trace');
+        r.content.should.eql('');
+        r.attributes.abort.should.be.false;
+        r.attributes.inline.should.be.false;
+        r.attributes.type.should.eql('information');
 
-r = cf.parse('<cftrace></cftrace>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'trace');
-is.equal(r.content, '');
-is.equal(r.attributes.abort, false);
-is.equal(r.attributes.inline, false);
-is.equal(r.attributes.type, 'information');
+        r = test.cfparser.parse('<cftrace></cftrace>');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('trace');
+        r.content.should.eql('');
+        r.attributes.abort.should.be.false;
+        r.attributes.inline.should.be.false;
+        r.attributes.type.should.eql('information');
 
-r = cf.parse('<cftrace var="FORM.username">' +
-"\n</cftrace>");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'trace');
-is.equal(r.content, "\n");
-is.equal(r.attributes.abort, false);
-is.equal(r.attributes.inline, false);
-is.equal(r.attributes.type, 'information');
-is.equal(r.attributes.var, 'FORM.username');
+        r = test.cfparser.parse('<cftrace var="FORM.username">' +
+        "\n</cftrace>");
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('trace');
+        r.content.should.eql("\n");
+        r.attributes.abort.should.be.false;
+        r.attributes.inline.should.be.false;
+        r.attributes.type.should.eql('information');
+        r.attributes.var.should.eql('FORM.username');
 
-r = cf.parse('<cftrace var="FORM.username" inline="1" abort="yes" category="trace category" type="warning" text="trace text">' +
-"\nThis is the content that is saved #NOW()#" +
-"\n</cftrace>");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'trace');
-is.equal(r.content, "\nThis is the content that is saved #NOW()#\n");
-is.equal(r.attributes.abort, true);
-is.equal(r.attributes.inline, true);
-is.equal(r.attributes.type, 'warning');
-is.equal(r.attributes.var, 'FORM.username');
-is.equal(r.attributes.category, 'trace category');
-is.equal(r.attributes.text, 'trace text');
+        r = test.cfparser.parse('<cftrace var="FORM.username" inline="0" abort="yes" category="trace category" type="warning" text="trace text">' +
+        "\nThis is the content that is saved #NOW()#" +
+        "\n</cftrace>");
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('trace');
+        r.content.should.eql("\nThis is the content that is saved #NOW()#\n");
+        r.attributes.abort.should.be.true;
+        r.attributes.inline.should.be.false;
+        r.attributes.type.should.eql('warning');
+        r.attributes.var.should.eql('FORM.username');
+        r.attributes.category.should.eql('trace category');
+        r.attributes.text.should.eql('trace text');
 
-r = cf.parse('<CFTRACE' +
-		' VAR="FORM.username"' +
-		' INLINE="1"' +
-		' ABORT="yes"' + 
-		' CATEGORY="trace category"' + 
-		' TYPE="warning"' + 
-		' TEXT="trace text"' + 
-'>' + 
-"\nThis is the content that is saved #NOW()#" +
-"\n</cftrace>");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'trace');
-is.equal(r.content, "\nThis is the content that is saved #NOW()#\n");
-is.equal(r.attributes.abort, true);
-is.equal(r.attributes.inline, true);
-is.equal(r.attributes.type, 'warning');
-is.equal(r.attributes.var, 'FORM.username');
-is.equal(r.attributes.category, 'trace category');
-is.equal(r.attributes.text, 'trace text');
-
-testlib.die("Success!", 0);
+        r = test.cfparser.parse('<CFTRACE' +
+                ' VAR="FORM.username"' +
+                ' INLINE="1"' +
+                ' ABORT="yes"' + 
+                ' CATEGORY="trace category"' + 
+                ' TYPE="warning"' + 
+                ' TEXT="trace text"' + 
+        '>' + 
+        "\nThis is the content that is saved #NOW()#" +
+        "\n</cftrace>");
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('trace');
+        r.content.should.eql("\nThis is the content that is saved #NOW()#\n");
+        r.attributes.abort.should.be.true;
+        r.attributes.inline.should.be.true;
+        r.attributes.type.should.eql('warning');
+        r.attributes.var.should.eql('FORM.username');
+        r.attributes.category.should.eql('trace category');
+        r.attributes.text.should.eql('trace text');
+    })
+})

@@ -1,59 +1,50 @@
-var is = require('assert'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
-var r;
-is.throws(function () {
-	r = cf.parse('<cfinsert>');
-}, Error, "Missing required attributes");
+describe('Parsing the cfinsert tag', function () {
+    it('should thow an error when missing a required data_source attribute', function () {
+        (function () { test.cfparser.parse('<cfinsert tableName="cfinsert_table">'); }).should.throw('Missing required "data_source" attribute.');
+    });
 
-is.throws(function () {
-	r = cf.parse('<cfinsert />');
-}, Error, "Missing required attributes");
+    it('should thow an error when missing a required table_name attribute', function () {
+        (function () { test.cfparser.parse('<cfinsert datasource="cfinsert_dsn">'); }).should.throw('Missing required "table_name" attribute.');
+    });
 
-is.throws(function () {
-	r = cf.parse('<cfinsert datasource="cfinsert_dsn">');
-}, Error, "Missing required tablename attribute");
+    it('should thow an error when the data_source attribute is empty', function () {
+        (function () { test.cfparser.parse('<cfinsert table_name="the_table" datasource="">'); }).should.throw('Empty "data_source" attribute.');
+    });
 
-is.throws(function () {
-	r = cf.parse('<cfinsert datasource="">');
-}, Error, "Empty datasource attribute");
+    it('should thow an error when the table_name attribute is empty', function () {
+        (function () { test.cfparser.parse('<cfinsert tableName="" datasource="dsn" >'); }).should.throw('Empty "table_name" attribute.');
+    });
 
-is.throws(function () {
-	r = cf.parse('<cfinsert tableName="cfinsert_table">');
-}, Error, "Missing required datasource attribute");
+    it('should work as expected', function () {
+        r = test.cfparser.parse('<cfinsert dataSource="cfinsert_dsn2" tableName="cfinsert_table2">');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('insert');
+        r.attributes.datasource.should.eql('cfinsert_dsn2');
+        r.attributes.table_name.should.eql('cfinsert_table2');
 
-is.throws(function () {
-	r = cf.parse('<cfinsert tableName="cfinsert_table">');
-}, Error, "Empty tablename attribute");
+        r = test.cfparser.parse('<cfinsert datasource="dsn3" tableName="tbl3" formFields="id,name,three" password="mypass2" tableOwner="noone_else" tableQualifier="pg_catalog2" username="me2" />');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('insert');
+        r.attributes.datasource.should.eql('dsn3');
+        r.attributes.table_name.should.eql('tbl3');
+        r.attributes.form_fields.should.eql(['id', 'name', 'three']);
+        r.attributes.password.should.eql("mypass2");
+        r.attributes.table_owner.should.eql("noone_else");
+        r.attributes.table_qualifier.should.eql("pg_catalog2");
+        r.attributes.username.should.eql('me2');
 
-r = cf.parse('<cfinsert dataSource="cfinsert_dsn2" tableName="cfinsert_table2">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'insert');
-is.equal(r.attributes.datasource, 'cfinsert_dsn2');
-is.equal(r.attributes.table_name, 'cfinsert_table2');
-
-r = cf.parse('<cfinsert datasource="dsn3" tableName="tbl3" formFields="id,name,three" password="mypass2" tableOwner="noone_else" tableQualifier="pg_catalog2" username="me2" />');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'insert');
-is.equal(r.attributes.datasource, 'dsn3');
-is.equal(r.attributes.table_name, 'tbl3');
-is.deepEqual(r.attributes.form_fields, ['id', 'name', 'three']);
-is.equal(r.attributes.password, "mypass2");
-is.equal(r.attributes.table_owner, "noone_else");
-is.equal(r.attributes.table_qualifier, "pg_catalog2");
-is.equal(r.attributes.username, 'me2');
-
-r = cf.parse('<CFINSERT DATASOURCE="dsn4" TABLENAME="tbl4" FORMFIELDS="id,name,three,four" PASSWORD="mypass3" TABLEOWNER="noone_else" TABLEQUALIFIER="pg_catalog3" USERNAME="me3">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'insert');
-is.equal(r.attributes.datasource, 'dsn4');
-is.equal(r.attributes.table_name, 'tbl4');
-is.deepEqual(r.attributes.form_fields, ['id', 'name', 'three', 'four']);
-is.equal(r.attributes.password, "mypass3");
-is.equal(r.attributes.table_owner, "noone_else");
-is.equal(r.attributes.table_qualifier, "pg_catalog3");
-is.equal(r.attributes.username, 'me3');
-
-testlib.die("Success!", 0);
+        r = test.cfparser.parse('<CFINSERT DATASOURCE="dsn4" TABLENAME="tbl4" FORMFIELDS="id,name,three,four" PASSWORD="mypass3" TABLEOWNER="noone_else" TABLEQUALIFIER="pg_catalog3" USERNAME="me3">');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('insert');
+        r.attributes.datasource.should.eql('dsn4');
+        r.attributes.table_name.should.eql('tbl4');
+        r.attributes.form_fields.should.eql(['id', 'name', 'three', 'four']);
+        r.attributes.password.should.eql("mypass3");
+        r.attributes.table_owner.should.eql("noone_else");
+        r.attributes.table_qualifier.should.eql("pg_catalog3");
+        r.attributes.username.should.eql('me3');
+    });
+});

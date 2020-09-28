@@ -1,21 +1,18 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-//	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
-var r;
+describe('Parsing the cfcontinue tag', function () {
+    it('should work as expected', function () {
+        r = test.cfparser.parse('<cfcontinue>');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('continue');
+        r.content.should.eql('');
+    });
 
-r = cf.parse('<cfcontinue>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'continue');
-is.equal(r.content, '');
-
-r = cf.parse('<CFCONTINUE>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'continue');
-is.equal(r.content, '');
-
-testlib.die("Success!", 0);
+    it('should work as expected when all in caps', function () {
+        r = test.cfparser.parse('<CFCONTINUE>');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('continue');
+        r.content.should.eql('');
+    });
+});

@@ -1,73 +1,35 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+const test = require('./testlib'),
+    should = require('should');
 
-var r;
+describe("Parsing a cflogin tag ", function() {
+    it('should thow an error when missing required name attribute', function () {
+        (function () { test.cfparser.parse('<cflogin>'); }).should.throw('Expected "<" or any character but end of input found.');
+    });
 
-function _equalDateLike(received, expected, comparisons) {
+    it('should work as expected', function () {
+        r = test.cfparser.parse('<cflogin ></cflogin>');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('login');
+        r.attributes.application_token.should.eql('CFAUTHORIZATION_');
+        r.attributes.idle_timeout.should.eql(1800);
 
-	if ( received instanceof Date && expected instanceof Date ) {
-		comparisons.forEach(function (func) {
-			rec = received[func]();
-			exp = expected[func]();
-			if ( rec != exp ) { return false; }
-		});
-		return true;
-	} else if ( Number.isNaN(received) || Number.isNaN(expected) ) {
-		return false;
-	} else if ( typeof received === 'number' ) {
-		return _equalDateLike( new Date(received), expected, comparisons );
-	} else if ( typeof expected === 'number' ) {
-		return _equalDateLike( received, new Date(expected), comparisons );
-	} else {
-		return false;
-	}
-}
-is.equalDate = function (received, expected, message) {
-	var comparisons = ['getFullYear', 'getMonth', 'getDate', 'getDay'];
-	if ( !_equalDateLike(received, expected, comparisons) ) {
-		is.fail(received, expected, message, 'equalDate', is.equalDate);
-	}
-}
+        r = test.cfparser.parse('<cflogin applicationToken="CFAUTHORIZATION_cflogin" cookie_domain=".example.com" idle_timeout="180">' +
+        "\n</cflogin>");
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('login');
+        r.content.should.eql("\n");
+        r.attributes.application_token.should.eql('CFAUTHORIZATION_cflogin');
+        r.attributes.idle_timeout.should.eql(180);
+        r.attributes.cookie_domain.should.eql('.example.com');
 
-is.equalTime = function (received, expected, message) {
-	var comparisons = ['getHours', 'getMinutes', 'getSeconds'];
-	if ( !_equalDateLike(received, expected, comparisons) ) {
-		is.fail(rec, exp, message, func, is.equalDate);
-	}
-}
-
-is.throws(function () {
-	r = cf.parse('<cflogin>');
-}, Error, "Missing closing tag");
-
-r = cf.parse('<cflogin></cflogin>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'login');
-is.equal(r.attributes.application_token, 'CFAUTHORIZATION_');
-is.equal(r.attributes.idle_timeout, 1800);
-
-r = cf.parse('<cflogin applicationToken="CFAUTHORIZATION_cflogin" cookie_domain=".example.com" idle_timeout="180">' +
-"\n</cflogin>");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'login');
-is.equal(r.content, "\n");
-is.equal(r.attributes.application_token, 'CFAUTHORIZATION_cflogin');
-is.equal(r.attributes.idle_timeout, 180);
-is.equal(r.attributes.cookie_domain, '.example.com');
-
-r = cf.parse('<CFLOGIN APPLICATIONTOKEN="CFAUTHORIZATION_cflogin" cookie_domain=".example.com" idle_timeout="180">' + 
-"\nSome stuff here" + 
-"\n</CFLOGIN>");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'login');
-is.equal(r.content, "\nSome stuff here\n");
-is.equal(r.attributes.application_token, 'CFAUTHORIZATION_cflogin');
-is.equal(r.attributes.idle_timeout, 180);
-is.equal(r.attributes.cookie_domain, '.example.com');
-
-testlib.die("Success!", 0);
+        r = test.cfparser.parse('<CFLOGIN APPLICATIONTOKEN="CFAUTHORIZATION_cflogin" cookie_domain=".example.com" idle_timeout="180">' + 
+        "\nSome stuff here" + 
+        "\n</CFLOGIN>");
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('login');
+        r.content.should.eql("\nSome stuff here\n");
+        r.attributes.application_token.should.eql('CFAUTHORIZATION_cflogin');
+        r.attributes.idle_timeout.should.eql(180);
+        r.attributes.cookie_domain.should.eql('.example.com');
+    });
+});

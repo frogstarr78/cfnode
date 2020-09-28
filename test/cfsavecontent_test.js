@@ -1,45 +1,40 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-//	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
-var r;
+describe('Parsing a cfsavecontent tag', function () {
+    it('should throw an error when missing variable attribute', function () {
+        (function () { r = test.cfparser.parse('<cfsavecontent></cfsavecontent>'); }).should.throw(Error);
+    })
 
-is.throws(function () {
-	r = cf.parse('<cfsavecontent></cfsavecontent>');
-}, Error);
+    it('works as expected', function () {
+        r = test.cfparser.parse('<cfsavecontent variable="savecontent"></cfsavecontent>');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('savecontent');
+        r.attributes.variable.should.eql('savecontent');
+        r.content.should.eql('');
 
-r = cf.parse('<cfsavecontent variable="savecontent"></cfsavecontent>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'savecontent');
-is.equal(r.attributes.variable, 'savecontent');
-is.equal(r.content, '');
+        r = test.cfparser.parse('<cfsavecontent variable="savecontent">' +
+        "\n</cfsavecontent>");
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('savecontent');
+        r.attributes.variable.should.eql("savecontent");
+        r.content.should.eql("\n");
 
-r = cf.parse('<cfsavecontent variable="savecontent">' +
-"\n</cfsavecontent>");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'savecontent');
-is.equal(r.attributes.variable, "savecontent");
-is.equal(r.content, "\n");
+        r = test.cfparser.parse('<CFSAVECONTENT' +
+                ' VARIABLE="savecontent">' +
+        "\nThis is the content that is saved #NOW()#" +
+        "\n</CFSAVECONTENT>");
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('savecontent');
+        r.attributes.variable.should.eql('savecontent');
+        r.content.should.eql("\nThis is the content that is saved #NOW()#\n");
 
-r = cf.parse('<CFSAVECONTENT' +
-		' VARIABLE="savecontent">' +
-"\nThis is the content that is saved #NOW()#" +
-"\n</CFSAVECONTENT>");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'savecontent');
-is.equal(r.attributes.variable, 'savecontent');
-is.equal(r.content, "\nThis is the content that is saved #NOW()#\n");
-
-r = cf.parse('<cfsavecontent variable="savecontent">' +
-"\nThis is the content that is saved #NOW()#" +
-"\n</cfsavecontent>");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'savecontent');
-is.equal(r.attributes.variable, 'savecontent');
-is.equal(r.content, "\nThis is the content that is saved #NOW()#\n");
-
-testlib.die("Success!", 0);
+        r = test.cfparser.parse('<cfsavecontent variable="savecontent">' +
+        "\nThis is the content that is saved #NOW()#" +
+        "\n</cfsavecontent>");
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('savecontent');
+        r.attributes.variable.should.eql('savecontent');
+        r.content.should.eql("\nThis is the content that is saved #NOW()#\n");
+    });
+});

@@ -1,25 +1,20 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-//	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+const should = require('should'),
+	    test = require('./testlib');
 
-var r;
+describe('Parsing the cfflush tag', function () {
+	it('should work as expected', function () {
+		r = test.cfparser.parse('<cfflush>');
+		r.should.be.instanceof(Object);
+		r.tag.should.eql('flush');
 
-r = cf.parse('<cfflush>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'flush');
+		r = test.cfparser.parse('<cfflush interval="10">');
+		r.should.be.instanceof(Object);
+		r.tag.should.eql('flush');
+		r.attributes.interval.should.eql(10);
 
-r = cf.parse('<cfflush interval="10">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'flush');
-is.equal(r.attributes.interval, 10);
-
-r = cf.parse('<CFFLUSH INTERVAL="10">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'flush');
-is.equal(r.attributes.interval, 10);
-
-testlib.die("Success!", 0);
+		r = test.cfparser.parse('<CFFLUSH INTERVAL="10">');
+		r.should.be.instanceof(Object);
+		r.tag.should.eql('flush');
+		r.attributes.interval.should.eql(10);
+	});
+});

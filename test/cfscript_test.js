@@ -1,30 +1,29 @@
-var is = require('assert'),
-	PEG= require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+const test = require('./testlib'),
+    should = require('should');
 
-var r;
-r = cf.parse('<cfscript></cfscript>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'script');
-is.equal(r.content, '');
+describe("Parsing a cfscript tag", function() {
+    it('works as expected', function () {
+        r = test.cfparser.parse('<cfscript></cfscript>');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('script');
+        r.content.should.eql('');
 
-r = cf.parse('<CFSCRIPT></CFSCRIPT>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'script');
-is.equal(r.content, '');
+        r = test.cfparser.parse('<CFSCRIPT></CFSCRIPT>');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('script');
+        r.content.should.eql('');
 
-r = cf.parse('<cfscript>something done</cfscript>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'script');
-is.equal(r.content, 'something done');
+        r = test.cfparser.parse('<cfscript>something done</cfscript>');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('script');
+        r.content.should.eql('something done');
 
 
-r = cf.parse('<CFSCRIPT>' +
-"\nsomething more done" +
-"\n</CFSCRIPT>");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'script');
-is.equal(r.content, "\nsomething more done\n");
-
-testlib.die("Success!", 0);
+        r = test.cfparser.parse('<CFSCRIPT>' +
+        "\nsomething more done" +
+        "\n</CFSCRIPT>");
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('script');
+        r.content.should.eql("\nsomething more done\n");
+    });
+});

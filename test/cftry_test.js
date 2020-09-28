@@ -1,29 +1,24 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-//	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+const test = require('./testlib'),
+    should = require('should');
 
-var r;
+describe("Parsing a cftry tag", function() {
+    it('works as expected', function () {
+        r = test.cfparser.parse('<cftry></cftry>');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('try');
+        r.content.should.eql('');
 
-r = cf.parse('<cftry></cftry>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'try');
-is.equal(r.content, '');
-
-r = cf.parse('<cftry>' +
-"\n</cftry>");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'try');
-is.equal(r.content, "\n");
+        r = test.cfparser.parse('<cftry>' +
+        "\n</cftry>");
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('try');
+        r.content.should.eql("\n");
 
 
-r = cf.parse('<CFTRY>' +
-" </CFTRY>");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'try');
-is.equal(r.content, ' ');
-
-testlib.die("Success!", 0);
+        r = test.cfparser.parse('<CFTRY>' +
+        " </CFTRY>");
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('try');
+        r.content.should.eql(' ');
+    })
+})

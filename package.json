@@ -1,5 +1,5 @@
 {
-  "name": "coldfusion",
+  "name": "cfnode",
   "version": "0.0.0",
   "description": "ColdFusion Environment implemented in NodeJS",
   "main": "cf.js",
@@ -23,8 +23,11 @@
     "url": "https://github.com/frogstarr78/cfnode/issues"
   },
   "scripts": {
-    "test": "make test",
+    //"test": "make test",
+    "test": "nyc mocha",
     "start": "node server.js"
+    "prepublish": "make lib/cf.js",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "config": {
     "host": "localhost",

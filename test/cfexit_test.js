@@ -1,36 +1,39 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-//	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
-var r;
+describe('Parsing the cfdefaultcase tag', function () {
+  it("should work as expected with an all lowercase definition", function () {
+    r = test.cfparser.parse('<cfexit>');
+    r.should.be.instanceof(Object);
+    r.tag.should.eql('exit');
+    r.attributes.method.should.eql('exitTag');
+  });
 
-r = cf.parse('<cfexit>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'exit');
-is.equal(r.attributes.method, 'exitTag');
+  it('should work as expected with an all lowercase definition and trailing "/"', function () {
+    r = test.cfparser.parse('<cfexit/>');
+    r.should.be.instanceof(Object);
+    r.tag.should.eql('exit');
+    r.attributes.method.should.eql('exitTag');
+  });
 
-r = cf.parse('<cfexit/>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'exit');
-is.equal(r.attributes.method, 'exitTag');
+  it("should work as expected with an attribute", function () {
+    r = test.cfparser.parse('<cfexit method="loop" />');
+    r.should.be.instanceof(Object);
+    r.tag.should.eql('exit');
+    r.attributes.method.should.eql('loop');
+  });
 
-r = cf.parse('<cfexit method="loop" />');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'exit');
-is.equal(r.attributes.method, 'loop');
+  it("should work as expected with another attribute", function () {
+    r = test.cfparser.parse('<cfexit method="exitTag">');
+    r.should.be.instanceof(Object);
+    r.tag.should.eql('exit');
+    r.attributes.method.should.eql('exitTag');
+  });
 
-r = cf.parse('<cfexit method="exitTag">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'exit');
-is.equal(r.attributes.method, 'exitTag');
-
-r = cf.parse('<CFEXIT METHOD="exitTemplate">');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'exit');
-is.equal(r.attributes.method, 'exitTemplate');
-
-testlib.die("Success!", 0);
+  it("should work as expected with an attribute all in caps", function () {
+    r = test.cfparser.parse('<CFEXIT METHOD="exitTemplate">');
+    r.should.be.instanceof(Object);
+    r.tag.should.eql('exit');
+    r.attributes.method.should.eql('exitTemplate');
+  });
+});

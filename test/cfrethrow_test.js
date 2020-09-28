@@ -1,21 +1,18 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-//	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+const should = require('should'),
+	  test = require('./testlib');
 
-var r;
+describe("Parser should parse cfrethrow tag", function () {
+	it("should work as expected", function () {
+		r = test.cfparser.parse('<cfrethrow>');
+		r.should.be.instanceof(Object);
+		r.tag.should.be.eql('rethrow');
+		r.content.should.be.eql('');
+	});
 
-r = cf.parse('<cfrethrow>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'rethrow');
-is.equal(r.content, '');
-
-r = cf.parse('<CFRETHROW>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'rethrow');
-is.equal(r.content, '');
-
-testlib.die("Success!", 0);
+	it("should work as expected (all in caps)", function () {
+		r = test.cfparser.parse('<CFRETHROW>');
+		r.should.be.instanceof(Object);
+		r.tag.should.be.eql('rethrow');
+		r.content.should.be.eql('');
+	});
+});

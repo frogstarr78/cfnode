@@ -1,19 +1,16 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-//	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
-var r;
+describe('Parsing the cfdefaultcase tag', function () {
+  it("should work as expected with an all lowercase definition", function () {
+    r = test.cfparser.parse('<cfdefaultcase>');
+    r.should.be.instanceof(Object);
+    r.tag.should.eql('defaultcase');
+  });
 
-r = cf.parse('<cfdefaultcase>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'defaultcase');
-
-r = cf.parse('<CFDEFAULTCASE>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'defaultcase');
-
-testlib.die("Success!", 0);
+  it("should work as expected with an all uppercase definition", function () {
+    r = test.cfparser.parse('<CFDEFAULTCASE>');
+    r.should.be.instanceof(Object);
+    r.tag.should.eql('defaultcase');
+  });
+});

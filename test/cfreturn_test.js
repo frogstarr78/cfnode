@@ -1,31 +1,25 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-//	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+const should = require('should'),
+        test = require('./testlib');
 
-var r;
+describe('Parsing a cfreturn tag', function () {
 
-is.throws(function () {
-	r = cf.parse('<cfreturn>');
-}, Error, 'Missing required expression.');
+    it('throws an error when missing a required expression', function () {
+        (function () { test.cfparser.parse('<cfreturn />'); }).should.throw('Expected [hH] but "u" found.');
+        (function () { test.cfparser.parse('<cfreturn >'); }).should.throw('Expected [hH] but "u" found.');
+        (function () { test.cfparser.parse('<cfreturn>');  }).should.throw('Expected [hH] but "u" found.');
+    });
 
-is.throws(function () {
-	r = cf.parse('<cfreturn >');
-}, Error, 'Missing required expression.');
+    it('works as expected', function () {
+        r = test.cfparser.parse('<cfreturn TRIM(username)>');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('return');
+        r.expression.should.eql('TRIM(username)');
+        r.attributes.should.eql({});
 
-r = cf.parse('<cfreturn TRIM(username)>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'return');
-is.equal(r.expression, 'TRIM(username)');
-is.deepEqual(r.attributes, {});
-
-r = cf.parse('<CFRETURN 1 NE 0>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'return');
-is.equal(r.expression, '1 NE 0');
-is.deepEqual(r.attributes, {});
-
-testlib.die("Success!", 0);
+        r = test.cfparser.parse('<CFRETURN 1 NE 0>');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('return');
+        r.expression.should.eql('1 NE 0');
+        r.attributes.should.eql({});
+    });
+});

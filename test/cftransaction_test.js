@@ -1,50 +1,45 @@
-var is = require('assert'),
-	util = require('util'),
-	path = require('path'),
-//	human_date = require('date.js'),
-	PEG = require('pegjs'),
-	cf = require(__dirname + '/../cf'),
-	testlib = require('./testlib');
+const test = require('./testlib'),
+    should = require('should');
 
-var r;
+describe("Parsing a cftransaction tag", function() {
+    it('works as expected', function () {
+        r = test.cfparser.parse('<cftransaction></cftransaction>');
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('transaction');
+        r.content.should.eql('');
+        r.attributes.action.should.eql('begin');
+        r.attributes.nested.should.be.true;
 
-r = cf.parse('<cftransaction></cftransaction>');
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'transaction');
-is.equal(r.content, '');
-is.equal(r.attributes.action, 'begin');
-is.equal(r.attributes.nested, true);
+        r = test.cfparser.parse('<cftransaction action="commit" savepoint="transaction_savepoint" isolation="serializable" nested="no">' +
+        "\n</cftransaction>");
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('transaction');
+        r.content.should.eql("\n");
+        r.attributes.action.should.eql('commit');
+        r.attributes.nested.should.be.false;
+        r.attributes.savepoint.should.eql('transaction_savepoint');
+        r.attributes.isolation.should.eql('serializable');
 
-r = cf.parse('<cftransaction action="commit" savepoint="transaction_savepoint" isolation="serializable" nested="no">' +
-"\n</cftransaction>");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'transaction');
-is.equal(r.content, "\n");
-is.equal(r.attributes.action, 'commit');
-is.equal(r.attributes.nested, false);
-is.equal(r.attributes.savepoint, 'transaction_savepoint');
-is.equal(r.attributes.isolation, 'serializable');
+        r = test.cfparser.parse('<cftransaction action="commit" savepoint="transaction_savepoint" isolation="serializable" nested="no">' +
+        "\n</cftransaction>");
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('transaction');
+        r.content.should.eql("\n");
 
-r = cf.parse('<cftransaction action="commit" savepoint="transaction_savepoint" isolation="serializable" nested="no">' +
-"\n</cftransaction>");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'transaction');
-is.equal(r.content, "\n");
-
-r = cf.parse('<CFTRANSACTION' +
-		' ACTION="commit"' +
-		' SAVEPOINT="transaction_savepoint"' + 
-		' NESTED="no"' + 
-		' ISOLATION="serializable"' + 
-'>' + 
-"\nThis is the content that is saved #NOW()#" +
-"\n</CFTRANSACTION>");
-is.equal(r instanceof Object, true);
-is.equal(r.tag, 'transaction');
-is.equal(r.content, "\nThis is the content that is saved #NOW()#\n");
-is.equal(r.attributes.action, 'commit');
-is.equal(r.attributes.nested, false);
-is.equal(r.attributes.savepoint, 'transaction_savepoint');
-is.equal(r.attributes.isolation, 'serializable');
-
-testlib.die("Success!", 0);
+        r = test.cfparser.parse('<CFTRANSACTION' +
+                ' ACTION="commit"' +
+                ' SAVEPOINT="transaction_savepoint"' + 
+                ' NESTED="no"' + 
+                ' ISOLATION="serializable"' + 
+        '>' + 
+        "\nThis is the content that is saved #NOW()#" +
+        "\n</CFTRANSACTION>");
+        r.should.be.instanceof(Object);
+        r.tag.should.eql('transaction');
+        r.content.should.eql("\nThis is the content that is saved #NOW()#\n");
+        r.attributes.action.should.eql('commit');
+        r.attributes.nested.should.be.false;
+        r.attributes.savepoint.should.eql('transaction_savepoint');
+        r.attributes.isolation.should.eql('serializable');
+    })
+})
